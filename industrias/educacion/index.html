@@ -465,6 +465,10 @@ a.mega-link:hover{
   display:none;
 }
 
+.mobile-contact{
+  display:none;
+}
+
 
 /* HERO CONTENT */
 
@@ -1442,6 +1446,28 @@ a.mega-link:hover{
     font-size:12px;
   }
 
+  .mobile-contact{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:50px;
+    margin-top:10px;
+    border-radius:10px;
+    background:var(--electric);
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 8px 24px rgba(20,74,224,.28);
+  }
+
+  .mobile-contact:hover{
+    background:#2533F0;
+  }
+
+  body.menu-open{
+    overflow:hidden;
+  }
 
   /* HERO */
 
@@ -2370,6 +2396,8 @@ a.mega-link:hover{
 
           <a class="nav-simple" href="../../nosotros/">Nosotros</a>
 
+          <a class="mobile-contact" href="#contacto">Hablemos</a>
+
         </div>
 
         <a class="nav-cta" href="#contacto">Hablemos</a>
@@ -2842,7 +2870,7 @@ a.mega-link:hover{
           <p class="footer-title">EMPRESA</p>
           <div class="footer-links">
             <a href="../../nosotros/">Nosotros</a>
-            <a href="./">Educación</a>
+            <a href="../../recursos/insights/">Insights</a>
             <a href="../../casos/">Casos</a>
             <a href="#contacto">Contacto</a>
           </div>
@@ -2894,7 +2922,7 @@ a.mega-link:hover{
 
         <a href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl</a>
 
-        <span>INSIGHTS · B2B · MARCAS B2C</span>
+        <span>EDUCACIÓN · B2B · MARCAS B2C</span>
       </div>
 
       <div class="footer-bottom">
@@ -2916,6 +2944,8 @@ a.mega-link:hover{
   const mobileToggle = document.querySelector(".mobile-toggle");
   const mainNav = document.querySelector(".main-nav");
 
+  const isMobile = () => window.matchMedia("(max-width: 920px)").matches;
+
   const closeDropdowns = (except = null) => {
     navItems.forEach((item) => {
       if (item !== except) {
@@ -2926,12 +2956,23 @@ a.mega-link:hover{
     });
   };
 
+  const closeMobileMenu = () => {
+    if (!mainNav || !mobileToggle) return;
+    mainNav.classList.remove("is-open");
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.setAttribute("aria-label", "Abrir menú");
+    document.body.classList.remove("menu-open");
+    closeDropdowns();
+  };
+
   navItems.forEach((item) => {
     const trigger = item.querySelector(".nav-trigger");
     if (!trigger) return;
 
     trigger.addEventListener("click", (event) => {
+      event.preventDefault();
       event.stopPropagation();
+
       const willOpen = !item.classList.contains("is-open");
       closeDropdowns(item);
       item.classList.toggle("is-open", willOpen);
@@ -2939,7 +2980,7 @@ a.mega-link:hover{
     });
 
     item.addEventListener("mouseenter", () => {
-      if (window.matchMedia("(min-width: 921px)").matches) {
+      if (!isMobile()) {
         closeDropdowns(item);
         item.classList.add("is-open");
         trigger.setAttribute("aria-expanded", "true");
@@ -2949,18 +2990,21 @@ a.mega-link:hover{
 
   if (navbar) {
     navbar.addEventListener("mouseleave", () => {
-      if (window.matchMedia("(min-width: 921px)").matches) {
-        closeDropdowns();
-      }
+      if (!isMobile()) closeDropdowns();
     });
   }
 
   if (mobileToggle && mainNav) {
-    mobileToggle.addEventListener("click", () => {
+    mobileToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
       const willOpen = !mainNav.classList.contains("is-open");
       mainNav.classList.toggle("is-open", willOpen);
       mobileToggle.setAttribute("aria-expanded", String(willOpen));
+      mobileToggle.setAttribute("aria-label", willOpen ? "Cerrar menú" : "Abrir menú");
       document.body.classList.toggle("menu-open", willOpen);
+
       if (!willOpen) closeDropdowns();
     });
   }
@@ -2968,21 +3012,34 @@ a.mega-link:hover{
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".navbar")) {
       closeDropdowns();
+      if (isMobile()) closeMobileMenu();
     }
   });
 
-  document.querySelectorAll(".main-nav a, .nav-cta, a[href^="#"]").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (mainNav && mainNav.classList.contains("is-open")) {
-        mainNav.classList.remove("is-open");
-        mobileToggle?.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("menu-open");
-      }
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
       closeDropdowns();
+      closeMobileMenu();
+    }
+  });
+
+  document.querySelectorAll(".main-nav a, .nav-cta, a[href^=\"#\"]").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isMobile()) closeMobileMenu();
+      else closeDropdowns();
     });
   });
-})();
 
+  window.addEventListener("resize", () => {
+    if (!isMobile()) {
+      mainNav?.classList.remove("is-open");
+      mobileToggle?.setAttribute("aria-expanded", "false");
+      mobileToggle?.setAttribute("aria-label", "Abrir menú");
+      document.body.classList.remove("menu-open");
+      closeDropdowns();
+    }
+  });
+})();
   </script>
 
 </body>
