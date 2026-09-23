@@ -5,6 +5,8 @@
 
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -9165,7 +9167,7 @@ body{
   .b2c-cases > div:nth-child(3){margin-top:36px !important;gap:12px !important;}
   .b2c-case-card > div{height:320px !important;border-radius:18px !important;}
   .b2c-case-card > div > div:last-child{left:22px !important;right:22px !important;bottom:22px !important;}
-  .b2c-case-card > div > div:last-child img{max-height:46px !important;max-width:150px !important;}
+  .b2c-case-card > div > div:last-child img{max-height:54px !important;max-width:150px !important;}
   .b2c-case-card > div > div:last-child > div{margin-top:14px !important;font-size:20px !important;}
   .b2c-cases > div:nth-child(4){margin-top:44px !important;padding-top:38px !important;gap:24px !important;}
   .b2c-cases > div:nth-child(4) > div:first-child > div:first-child{font-size:70px !important;}
@@ -9782,7 +9784,7 @@ body{
 
   .b2b-testimonial > div:last-child > div:first-child{
     width:52px !important;
-    height:52px !important;
+    height:56px !important;
   }
 
   .b2b-testimonial > div:last-child > div:last-child > div:first-child{
@@ -10555,6 +10557,10 @@ body{
     font-size:14px !important;
   }
 
+  .home-industry-card[href*="/industrias/b2b"] img{
+    object-position:center 22% !important;
+  }
+
   .home-method-grid{
     grid-template-columns:1fr !important;
     gap:10px !important;
@@ -10759,6 +10765,90 @@ body{
   .home-trusted .home-trusted-dali{
     height:46px !important;
     max-height:none !important;
+  }
+}
+
+
+/* =========================================================
+   HOME — FIX GRID DE SOLUCIONES
+   El <a> es el grid-item real.
+========================================================= */
+.home-solutions-grid > .home-solution-featured{
+  grid-column:1 / -1 !important;
+}
+
+.home-solutions-grid > .home-solution-wide{
+  grid-column:span 2 !important;
+}
+
+.home-solutions-grid > .home-solution-featured > div{
+  display:grid !important;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;
+  gap:56px !important;
+  align-items:end !important;
+  min-height:260px !important;
+  padding:44px 48px !important;
+}
+
+.home-solutions-grid > .home-solution-featured > div > div:first-child > div:last-child{
+  font-size:40px !important;
+  line-height:1.06 !important;
+}
+
+.home-solutions-grid > .home-solution-featured > div > div:last-child{
+  margin-top:0 !important;
+  font-size:19px !important;
+  line-height:1.58 !important;
+  max-width:560px !important;
+}
+
+@media(max-width:920px){
+  .home-solutions-grid > .home-solution-featured,
+  .home-solutions-grid > .home-solution-wide{
+    grid-column:1 / -1 !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div{
+    display:grid !important;
+    grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) !important;
+    gap:32px !important;
+    min-height:220px !important;
+    padding:32px 28px !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div > div:first-child > div:last-child{
+    font-size:34px !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div > div:last-child{
+    margin-top:0 !important;
+    font-size:16px !important;
+  }
+}
+
+@media(max-width:600px){
+  .home-solutions-grid > .home-solution-featured,
+  .home-solutions-grid > .home-solution-wide{
+    grid-column:auto !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div{
+    display:block !important;
+    min-height:auto !important;
+    padding:26px 22px !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div > div:first-child > div:last-child{
+    margin-top:16px !important;
+    font-size:28px !important;
+    line-height:1.08 !important;
+  }
+
+  .home-solutions-grid > .home-solution-featured > div > div:last-child{
+    margin-top:16px !important;
+    font-size:14px !important;
+    line-height:1.55 !important;
+    max-width:none !important;
   }
 }
 </style>
@@ -11087,34 +11177,34 @@ body{
 </div>
 <div class="home-solutions-grid" style="position:relative;margin-top:70px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
 <a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-social" style="display:block;color:inherit;text-decoration:none;"><div style="border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
-<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 01 · POSICIONAMIENTO</div>
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 01 | POSICIONAMIENTO</div>
 <div style="margin-top:18px;font-size:27px;font-weight:700;color:#F8F8F8;">Social Media</div>
 <div style="margin-top:12px;font-size:17px;line-height:1.55;color:#8B92A8;">Contenido con estrategia que construye marca y comunidad.</div>
 </div></a>
 <a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-ads" style="display:block;color:inherit;text-decoration:none;"><div style="border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
-<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 02 · DEMANDA</div>
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 02 | DEMANDA</div>
 <div style="margin-top:18px;font-size:27px;font-weight:700;color:#F8F8F8;">Paid Media</div>
 <div style="margin-top:12px;font-size:17px;line-height:1.55;color:#8B92A8;">Campañas que llegan a quien tiene que llegar.</div>
 </div></a>
 <a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-web" style="display:block;color:inherit;text-decoration:none;"><div style="border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
-<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 03 · CONVERSIÓN</div>
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 03 | CONVERSIÓN</div>
 <div style="margin-top:18px;font-size:27px;font-weight:700;color:#F8F8F8;">Web Development</div>
 <div style="margin-top:12px;font-size:17px;line-height:1.55;color:#8B92A8;">Sitios rápidos y claros que convierten.</div>
 </div></a>
-<a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-scale" style="display:block;color:inherit;text-decoration:none;"><div style="grid-column:span 3;background:linear-gradient(135deg,#1419E0 0%,#144AE0 100%);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
+<a class="home-solution-card home-solution-featured" href="https://lowsignal.cl/soluciones/low-scale" style="display:block;color:inherit;text-decoration:none;"><div style="grid-column:span 3;background:linear-gradient(135deg,#1419E0 0%,#144AE0 100%);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
 <div>
-<div style="font-size:15px;font-weight:600;color:#DDE3FF;">/ 04 · CORE</div>
+<div style="font-size:15px;font-weight:600;color:#DDE3FF;">/ 04 | CORE</div>
 <div style="margin-top:22px;font-size:40px;font-weight:700;color:#FFFFFF;letter-spacing:-.02em;">Growth System</div>
 </div>
 <div style="font-size:19px;line-height:1.6;color:rgba(240,244,255,.88);">Integramos posicionamiento, demanda y conversión en un solo sistema, con optimización continua mes a mes.</div>
 </div></a>
 <a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-apps" style="display:block;color:inherit;text-decoration:none;"><div style="border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
-<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 05 · PRODUCTO</div>
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 05 | PRODUCTO</div>
 <div style="margin-top:18px;font-size:27px;font-weight:700;color:#F8F8F8;">Product &amp; Apps</div>
 <div style="margin-top:12px;font-size:17px;line-height:1.55;color:#8B92A8;">Productos digitales diseñados para escalar.</div>
 </div></a>
-<a class="home-solution-card" href="https://lowsignal.cl/soluciones/low-flow" style="display:block;color:inherit;text-decoration:none;"><div style="grid-column:span 2;border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
-<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 06 · EFICIENCIA</div>
+<a class="home-solution-card home-solution-wide" href="https://lowsignal.cl/soluciones/low-flow" style="display:block;color:inherit;text-decoration:none;"><div style="grid-column:span 2;border:1px solid rgba(91,123,240,.22);border-radius:20px;padding:34px 36px 36px;">
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 06 | EFICIENCIA</div>
 <div style="margin-top:18px;font-size:27px;font-weight:700;color:#F8F8F8;">AI &amp; Automation</div>
 <div style="margin-top:12px;font-size:17px;line-height:1.55;color:#8B92A8;max-width:560px;">CRM, IA y flujos automatizados que liberan tiempo a tu equipo.</div>
 </div></a>
