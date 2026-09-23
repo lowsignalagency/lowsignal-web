@@ -3,6 +3,8 @@
 
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -4207,6 +4209,131 @@ body{
 @media(max-width:700px){
   .nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child{
     padding-top:20px !important;
+  }
+}
+
+
+/* =========================================================
+   TEAM MOBILE — final cleanup
+   Fixes legacy rules from the old large-image card layout.
+========================================================= */
+
+@media(max-width:700px){
+
+  .nos-team-grid{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+    margin-top:36px !important;
+  }
+
+  .nos-team-card.nos-team-card-compact{
+    min-height:0 !important;
+    padding:20px !important;
+    border-radius:18px !important;
+  }
+
+  /* Critical: old layout was forcing the first child to 390px high */
+  .nos-team-card.nos-team-card-compact > div.nos-team-card-head:first-child{
+    height:auto !important;
+    min-height:0 !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:14px !important;
+  }
+
+  .nos-team-avatar{
+    width:72px !important;
+    height:72px !important;
+    flex:0 0 72px !important;
+    border-radius:50% !important;
+  }
+
+  .nos-team-person{
+    padding-top:0 !important;
+  }
+
+  .nos-team-person h3{
+    font-size:18px !important;
+    line-height:1.16 !important;
+  }
+
+  .nos-team-role{
+    margin-top:4px !important;
+    font-size:13px !important;
+    line-height:1.3 !important;
+  }
+
+  .nos-team-location{
+    margin-top:4px !important;
+    font-size:12px !important;
+    line-height:1.35 !important;
+  }
+
+  .nos-team-bio{
+    margin:18px 0 0 !important;
+    font-size:14px !important;
+    line-height:1.55 !important;
+  }
+
+  .nos-team-tags{
+    margin-top:15px !important;
+    gap:7px !important;
+  }
+
+  .nos-team-tag{
+    min-height:30px !important;
+    padding:6px 10px !important;
+    border-radius:8px !important;
+    font-size:11px !important;
+  }
+
+  .nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child{
+    width:100% !important;
+    margin-top:0 !important;
+    padding:18px 0 0 !important;
+    display:flex !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+  }
+
+  .nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child > a.nos-team-action{
+    min-height:38px !important;
+    height:38px !important;
+    padding:0 12px !important;
+    font-size:12px !important;
+    border-radius:9px !important;
+  }
+
+  .nos-team-action .nos-icon-linkedin,
+  .nos-team-action svg{
+    width:14px !important;
+    height:14px !important;
+    flex:0 0 14px !important;
+  }
+}
+
+@media(max-width:420px){
+  .nos-team-card.nos-team-card-compact{
+    padding:18px !important;
+  }
+
+  .nos-team-avatar{
+    width:66px !important;
+    height:66px !important;
+    flex-basis:66px !important;
+  }
+
+  .nos-team-person h3{
+    font-size:17px !important;
+  }
+
+  .nos-team-role{
+    font-size:12.5px !important;
+  }
+
+  .nos-team-bio{
+    font-size:13.5px !important;
   }
 }
 </style>
