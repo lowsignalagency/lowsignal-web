@@ -2713,6 +2713,45 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   MOBILE SUBMENUS FIX
+   The fixed header disables pointer events globally so the
+   transparent header layer does not block the page. Re-enable
+   interaction explicitly for the mobile panel and its contents.
+========================================================= */
+
+.mobile-menu-panel{
+  pointer-events:auto !important;
+}
+
+.mobile-menu-panel *,
+.mobile-accordion,
+.mobile-accordion summary,
+.mobile-submenu,
+.mobile-submenu a,
+.mobile-direct-link,
+.mobile-talk-link{
+  pointer-events:auto !important;
+}
+
+@media (max-width:920px){
+  .mobile-menu-panel{
+    touch-action:auto;
+  }
+
+  .mobile-accordion summary{
+    position:relative;
+    z-index:1;
+    cursor:pointer;
+    touch-action:manipulation;
+  }
+
+  .mobile-accordion[open] .mobile-submenu{
+    display:flex;
+  }
+}
+
 </style>
 </head>
 
