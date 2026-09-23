@@ -3155,6 +3155,32 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   DESKTOP SPACING — final adjustment
+   Keep a comfortable gap below the fixed navbar without
+   pushing the hero too far down.
+========================================================= */
+
+html,
+body{
+  background:#070F22 !important;
+}
+
+@media (min-width:921px){
+  .site-header{
+    top:-1px !important; /* avoids any 1px viewport seam */
+  }
+
+  .hero{
+    padding-top:0 !important;
+  }
+
+  .hero-content{
+    padding-top:145px !important;
+  }
+}
+
 </style>
 </head>
 
