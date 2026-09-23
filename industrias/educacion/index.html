@@ -2632,6 +2632,87 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   PERSISTENT NAVBAR — desktop + mobile
+   The header stays visible for the entire page.
+========================================================= */
+
+.site-header{
+  position:fixed !important;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1200 !important;
+
+  padding:14px var(--page-pad) 12px;
+
+  /* Keeps the floating Tether-style nav readable over light sections */
+  background:linear-gradient(
+    to bottom,
+    rgba(7,15,34,.84) 0%,
+    rgba(7,15,34,.54) 64%,
+    rgba(7,15,34,0) 100%
+  );
+
+  pointer-events:none;
+}
+
+.site-header .navbar{
+  pointer-events:auto;
+
+  background:rgba(31,45,103,.82);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 12px 34px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* The header is fixed, so the hero needs to reserve its original space. */
+.hero{
+  padding-top:114px !important;
+}
+
+/* Anchor links should never land underneath the fixed nav. */
+#soluciones,
+#casos,
+#nosotros,
+#faq,
+#contacto{
+  scroll-margin-top:124px;
+}
+
+@media (max-width:920px){
+
+  .site-header{
+    padding:12px 12px 10px;
+  }
+
+  .site-header .navbar{
+    width:100%;
+  }
+
+  .hero{
+    padding-top:102px !important;
+  }
+
+  .mobile-menu-panel{
+    top:94px !important;
+    z-index:1300 !important;
+    max-height:calc(100dvh - 106px) !important;
+  }
+
+  #soluciones,
+  #casos,
+  #nosotros,
+  #faq,
+  #contacto{
+    scroll-margin-top:108px;
+  }
+}
+
 </style>
 </head>
 
