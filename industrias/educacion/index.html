@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>lowsignal for education | Growth para instituciones educativas</title>
+  <title>lowsignal | Educación</title>
 
   <!-- Favicon / browser tab -->
   <link rel="icon" type="image/png" href="../../assets/profile.png">
   <link rel="shortcut icon" href="../../assets/profile.png">
   <link rel="apple-touch-icon" href="../../assets/profile.png">
   <link rel="canonical" href="https://lowsignal.cl/industrias/educacion/">
+  <meta property="og:title" content="lowsignal | Educación">
+  <meta name="twitter:title" content="lowsignal | Educación">
   <meta
     name="description"
     content="Ayudamos a colegios e instituciones educativas a construir una presencia digital que genera confianza, atrae nuevas familias y fortalece comunidad."
@@ -2132,6 +2134,246 @@ a.mega-link:hover{
   }
 }
 
+
+
+/* ==========================================================
+   MOBILE MENU — FULL SCREEN / CLEAN STACK
+   Replaces the floating mega-menu treatment on phones.
+========================================================== */
+@media (max-width:920px){
+
+  .site-header{
+    position:relative;
+    z-index:200;
+    padding:12px 12px 0;
+  }
+
+  .navbar{
+    position:relative;
+    z-index:202;
+    width:100%;
+    min-height:72px;
+    padding:0 18px;
+    border-radius:16px;
+    background:rgba(31,43,101,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+
+  .brand img{
+    height:25px;
+  }
+
+  .mobile-toggle{
+    position:relative;
+    z-index:204;
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    padding:0;
+  }
+
+  /* Full viewport panel below the navbar */
+  .main-nav{
+    position:fixed;
+    z-index:201;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+
+    width:100%;
+    max-height:none;
+    margin:0;
+    padding:104px 20px 34px;
+
+    overflow-y:auto;
+    overscroll-behavior:contain;
+
+    border:0;
+    border-radius:0;
+    background:#070F22;
+    box-shadow:none;
+  }
+
+  .main-nav.is-open{
+    display:flex;
+  }
+
+  .nav-item{
+    display:block;
+    width:100%;
+    height:auto;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    width:100%;
+    min-height:62px;
+    padding:0 4px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+
+    color:#F8F8F8;
+    font-size:18px;
+    font-weight:500;
+    line-height:1;
+    text-align:left;
+  }
+
+  .nav-trigger:hover,
+  .nav-simple:hover,
+  .nav-item.is-open > .nav-trigger{
+    background:transparent;
+    color:#7690FF;
+  }
+
+  .nav-trigger svg{
+    width:14px;
+    height:9px;
+    margin-right:3px;
+    transition:transform .22s ease, color .22s ease;
+  }
+
+  .nav-item.is-open > .nav-trigger svg{
+    transform:rotate(180deg);
+  }
+
+  .mega-menu{
+    position:static;
+    display:none;
+    visibility:visible;
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+
+    width:100%;
+    padding:0 0 16px;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .nav-item.is-open .mega-menu{
+    display:block;
+  }
+
+  .mega-label,
+  .mega-icon{
+    display:none;
+  }
+
+  .mega-grid,
+  .mega-grid-3,
+  .mega-grid-4{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin:0;
+  }
+
+  .mega-link{
+    width:100%;
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    padding:10px 4px 10px 18px;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+  }
+
+  a.mega-link:hover,
+  a.mega-link:active{
+    background:transparent;
+    transform:none;
+  }
+
+  .mega-link strong{
+    color:#DCE2F2;
+    font-size:15px;
+    font-weight:500;
+  }
+
+  .mega-link small{
+    display:block;
+    margin-top:4px;
+    color:#778198;
+    font-size:11px;
+    line-height:1.35;
+  }
+
+  .mega-link:hover strong,
+  .mega-link:active strong{
+    color:#7690FF;
+  }
+
+  .mobile-contact{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+    min-height:52px;
+    margin-top:26px;
+    padding:0 20px;
+
+    border:0;
+    border-radius:10px;
+    background:#1419E0;
+    color:#fff;
+
+    font-size:15px;
+    font-weight:600;
+
+    box-shadow:0 8px 28px rgba(20,25,224,.28);
+  }
+
+  .mobile-contact:hover,
+  .mobile-contact:active{
+    background:#2930FF;
+  }
+
+  body.menu-open{
+    overflow:hidden;
+    touch-action:none;
+  }
+}
+
+@media (max-width:520px){
+  .main-nav{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    min-height:58px;
+    font-size:17px;
+  }
+
+  .mega-link{
+    min-height:50px;
+    padding-left:14px;
+  }
+}
+
 </style>
 </head>
 
@@ -2396,11 +2638,11 @@ a.mega-link:hover{
 
           <a class="nav-simple" href="../../nosotros/">Nosotros</a>
 
-          <a class="mobile-contact" href="#contacto">Hablemos</a>
+          <a class="mobile-contact" href="#contacto" data-scroll-contact>Hablemos</a>
 
         </div>
 
-        <a class="nav-cta" href="#contacto">Hablemos</a>
+        <a class="nav-cta" href="#contacto" data-scroll-contact>Hablemos</a>
 
       </nav>
     </header>
@@ -2872,7 +3114,7 @@ a.mega-link:hover{
             <a href="../../nosotros/">Nosotros</a>
             <a href="../../recursos/insights/">Insights</a>
             <a href="../../casos/">Casos</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#contacto" data-scroll-contact>Contacto</a>
           </div>
         </div>
 
@@ -2905,7 +3147,7 @@ a.mega-link:hover{
             </a>
           </div>
 
-          <a class="footer-button" href="#contacto">Hablemos</a>
+          <a class="footer-button" href="#contacto" data-scroll-contact>Hablemos</a>
         </div>
 
       </div>
@@ -3027,6 +3269,26 @@ a.mega-link:hover{
     link.addEventListener("click", () => {
       if (isMobile()) closeMobileMenu();
       else closeDropdowns();
+    });
+  });
+
+  document.querySelectorAll("[data-scroll-contact]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.getElementById("contacto");
+      if (!target) return;
+
+      event.preventDefault();
+      closeDropdowns();
+      if (isMobile()) closeMobileMenu();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      if (history.replaceState) {
+        history.replaceState(null, "", "#contacto");
+      }
     });
   });
 
