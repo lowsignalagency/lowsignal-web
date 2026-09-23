@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -4159,6 +4161,54 @@ body{
   }
 }
 
+
+
+/* =========================================================
+   TEAM ACTIONS — real alignment fix
+   Overrides the legacy ".nos-team-card > div:last-child" rule.
+========================================================= */
+
+.nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child{
+  width:100% !important;
+  margin-top:auto !important;
+  padding:24px 0 0 0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+}
+
+.nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child > a.nos-team-action{
+  width:auto !important;
+  min-width:0 !important;
+  height:40px !important;
+  min-height:40px !important;
+  margin:0 !important;
+  padding:0 14px !important;
+}
+
+.nos-team-action .nos-icon-linkedin{
+  width:15px !important;
+  height:15px !important;
+  flex:0 0 15px !important;
+  display:block !important;
+  overflow:visible !important;
+  fill:currentColor !important;
+  stroke:none !important;
+  stroke-width:0 !important;
+}
+
+.nos-team-action .nos-icon-linkedin path{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
+@media(max-width:700px){
+  .nos-team-card.nos-team-card-compact > div.nos-team-actions:last-child{
+    padding-top:20px !important;
+  }
+}
 </style>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="lowsignal" name="author"/><meta content="#070F22" name="theme-color"/><link href="https://lowsignal.cl/nosotros.html" hreflang="es-CL" rel="alternate"/><link href="https://lowsignal.cl/nosotros.html" hreflang="x-default" rel="alternate"/><meta content="website" property="og:type"/><meta content="es_CL" property="og:locale"/><meta content="lowsignal" property="og:site_name"/><meta content="Conoce al equipo detrás de lowsignal y cómo construimos sistemas de crecimiento combinando producto, marketing, tecnología, contenido y desarrollo comercial." property="og:description"/><meta content="https://lowsignal.cl/nosotros.html" property="og:url"/><meta content="https://lowsignal.cl/assets/reunion-oficina.jpg" property="og:image"/><meta content="Equipo de lowsignal" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Conoce al equipo detrás de lowsignal y cómo construimos sistemas de crecimiento combinando producto, marketing, tecnología, contenido y desarrollo comercial." name="twitter:description"/><meta content="https://lowsignal.cl/assets/reunion-oficina.jpg" name="twitter:image"/><meta content="Equipo de lowsignal" name="twitter:image:alt"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lowsignal.cl/#organization","name":"lowsignal","url":"https://lowsignal.cl","logo":{"@type":"ImageObject","url":"https://lowsignal.cl/assets/logo-horizontal-white.png"},"sameAs":["https://cl.linkedin.com/company/lowsignalagency","https://instagram.com/lowsignalagency","https://facebook.com/lowsignalagency"],"member":[{"@type":"Person","name":"Felipe Quiroz","jobTitle":"Co-Founder & COO","sameAs":["https://www.linkedin.com/in/felipequirozp/"]},{"@type":"Person","name":"Damián Aldunate","jobTitle":"Co-Founder & CMO","sameAs":["https://www.linkedin.com/in/damianaldunate/"]},{"@type":"Person","name":"Marco Kroeger","jobTitle":"Business Development Representative","sameAs":["https://www.linkedin.com/in/marcokroeger/"]},{"@type":"Person","name":"Martín Alvarado","jobTitle":"Audiovisual Producer","sameAs":["https://www.linkedin.com/in/martin-alvaradod"]},{"@type":"Person","name":"Jorge Muñoz","jobTitle":"Audiovisual Producer","sameAs":["https://www.linkedin.com/in/jorgemunozve/"]},{"@type":"Person","name":"Lía Morice","jobTitle":"Content Creator","sameAs":["https://www.linkedin.com/in/l%C3%ADa-morice-b31521419/"]}]},{"@type":"AboutPage","@id":"https://lowsignal.cl/nosotros.html#webpage","url":"https://lowsignal.cl/nosotros.html","name":"Nosotros | Growth Company | lowsignal","description":"Conoce al equipo detrás de lowsignal y cómo construimos sistemas de crecimiento combinando producto, marketing, tecnología, contenido y desarrollo comercial.","about":{"@id":"https://lowsignal.cl/#organization"},"inLanguage":"es-CL"}]}</script></head><body><header class="site-header">
 <nav aria-label="Navegación principal" class="navbar">
@@ -4476,9 +4526,8 @@ body{
 <p class="nos-team-bio">Felipe trabaja en la intersección de producto, growth y negocio. Su trayectoria cruza B2B SaaS, AI y GovTech, desde GeoVictoria hasta TetherEd, una startup GovTech de EE.UU. con presencia en Latinoamérica, Estados Unidos y Europa. Ha construido productos, partnerships y sistemas de crecimiento, convirtiendo problemas complejos en soluciones digitales diseñadas para escalar.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Producto</span><span class="nos-team-tag">Growth</span><span class="nos-team-tag">B2B SaaS</span><span class="nos-team-tag">AI</span><span class="nos-team-tag">Partnerships</span><span class="nos-team-tag">Marketing</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/felipequirozp" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a><a class="nos-team-action" href="https://felipequirozp.cl" rel="noopener noreferrer" target="_blank">
 <svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
@@ -4498,9 +4547,8 @@ body{
 <p class="nos-team-bio">Damián lidera la estrategia de marketing, marca y contenido en lowsignal. Como Co-Founder &amp; CMO, trabaja en posicionamiento, creatividad, social media y crecimiento, desarrollando estrategias para startups, marcas e influencers y convirtiendo ideas en audiencias, contenido y nuevas oportunidades de negocio.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Marketing</span><span class="nos-team-tag">Branding</span><span class="nos-team-tag">Social Media</span><span class="nos-team-tag">Creatividad</span><span class="nos-team-tag">Growth</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/damianaldunate" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a></div>
 </article><article class="nos-team-card nos-team-card-compact">
@@ -4515,9 +4563,8 @@ body{
 <p class="nos-team-bio">Marco impulsa nuevas oportunidades comerciales en lowsignal, conectando con empresas, detectando necesidades y acompañando cada oportunidad desde el primer contacto hasta el inicio del proyecto.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Desarrollo comercial</span><span class="nos-team-tag">Prospección</span><span class="nos-team-tag">Relación con clientes</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/marcokroeger" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a></div>
 </article><article class="nos-team-card nos-team-card-compact">
@@ -4532,9 +4579,8 @@ body{
 <p class="nos-team-bio">Martín transforma ideas y conceptos de marca en contenido audiovisual, trabajando fotografía, video y producción para crear piezas con identidad, intención y una mirada visual propia.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Fotografía</span><span class="nos-team-tag">Video</span><span class="nos-team-tag">Producción</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/martin-alvaradod" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a></div>
 </article><article class="nos-team-card nos-team-card-compact">
@@ -4549,9 +4595,8 @@ body{
 <p class="nos-team-bio">Jorge lleva conceptos a contenido audiovisual listo para comunicar, combinando grabación, edición y producción para desarrollar piezas pensadas para marcas, campañas y social media.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Grabación</span><span class="nos-team-tag">Edición</span><span class="nos-team-tag">Producción</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/jorgemunozve" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a></div>
 </article><article class="nos-team-card nos-team-card-compact">
@@ -4566,9 +4611,8 @@ body{
 <p class="nos-team-bio">Lía crea contenido para redes sociales combinando ideas, tendencias y estrategia, transformando conceptos de marca en piezas pensadas para conectar, generar conversación y construir presencia digital.</p>
 <div class="nos-team-tags"><span class="nos-team-tag">Contenido</span><span class="nos-team-tag">Tendencias</span><span class="nos-team-tag">Social Media</span></div>
 <div class="nos-team-actions"><a class="nos-team-action" href="https://www.linkedin.com/in/l%C3%ADa-morice-b31521419" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="18" rx="4" width="18" x="3" y="3"></rect>
-<path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 016 0v4M12 10v7"></path>
+<svg aria-hidden="true" class="nos-icon-linkedin" viewbox="0 0 24 24">
+<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z"></path>
 </svg><span>LinkedIn</span>
 </a></div>
 </article></div>
