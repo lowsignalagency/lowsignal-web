@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
+
+<!DOCTYPE html>
+
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -4005,6 +4008,403 @@ body{
     text-align:center;
   }
 }
+
+
+/* =========================================================
+   LOW ADS — MOBILE FINAL REVIEW
+   Extra cleanup for 320–600px screens.
+========================================================= */
+
+@media(max-width:600px){
+
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  main{
+    overflow:hidden;
+  }
+
+  .lowads-hero,
+  .lowads-problem,
+  .lowads-includes,
+  .lowads-method,
+  .lowads-testimonial,
+  .lowads-system,
+  .lowads-cta{
+    width:100%;
+    max-width:100%;
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+
+  /* HERO */
+  .lowads-hero{
+    padding-top:112px !important;
+    padding-bottom:72px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3){
+    padding-top:42px !important;
+    gap:36px !important;
+  }
+
+  .lowads-hero h1{
+    font-size:40px !important;
+    line-height:1.07 !important;
+    letter-spacing:-.035em !important;
+    overflow-wrap:anywhere;
+  }
+
+  .lowads-hero h1 + p{
+    margin-top:22px !important;
+    max-width:none !important;
+    font-size:15px !important;
+    line-height:1.6 !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:first-child > div:first-child{
+    gap:9px !important;
+    font-size:11px !important;
+    letter-spacing:.15em !important;
+    flex-wrap:wrap !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:first-child > div:last-child{
+    margin-top:30px !important;
+    gap:10px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:first-child > div:last-child a{
+    min-height:48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 18px !important;
+    font-size:14px !important;
+  }
+
+  /* campaign panel */
+  .lowads-hero > div:nth-of-type(3) > div:last-child{
+    min-height:510px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child{
+    max-width:100% !important;
+    padding:24px 18px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:first-child{
+    gap:12px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:first-child > div:first-child{
+    font-size:11px !important;
+    letter-spacing:.14em !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(2) > div{
+    gap:8px !important;
+    padding:15px 0 !important;
+    align-items:flex-start !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(2) > div > div:first-child{
+    min-width:0 !important;
+    gap:9px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(2) > div > div:first-child span:last-child{
+    font-size:15px !important;
+    line-height:1.25 !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(2) > div > span:last-child{
+    max-width:92px !important;
+    text-align:right !important;
+    font-size:10px !important;
+    line-height:1.25 !important;
+    letter-spacing:.10em !important;
+    overflow-wrap:anywhere;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(3){
+    margin-top:22px !important;
+    font-size:11px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(4){
+    margin-top:12px !important;
+    gap:8px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:first-child > div:nth-child(4) > div{
+    height:38px !important;
+    padding:0 13px !important;
+    font-size:13px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:nth-child(2){
+    left:8px !important;
+    bottom:0 !important;
+    padding:16px 18px !important;
+    border-radius:13px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:nth-child(2) > div:first-child{
+    font-size:30px !important;
+  }
+
+  .lowads-hero > div:nth-of-type(3) > div:last-child > div:nth-child(2) > div:last-child{
+    font-size:12px !important;
+  }
+
+  /* SECTION RHYTHM */
+  .lowads-problem,
+  .lowads-includes,
+  .lowads-method,
+  .lowads-testimonial,
+  .lowads-system{
+    padding-top:72px !important;
+    padding-bottom:72px !important;
+  }
+
+  .lowads-problem h2,
+  .lowads-includes h2,
+  .lowads-method h2{
+    font-size:30px !important;
+    line-height:1.16 !important;
+  }
+
+  /* Problem cards */
+  .lowads-problem > div:first-child > p{
+    font-size:15px !important;
+    line-height:1.6 !important;
+  }
+
+  .lowads-problem > div:nth-child(2){
+    margin-top:34px !important;
+  }
+
+  .lowads-problem > div:nth-child(2) > div{
+    padding:28px 22px !important;
+  }
+
+  .lowads-problem > div:nth-child(2) > div > div:first-child{
+    font-size:11px !important;
+  }
+
+  .lowads-problem > div:nth-child(2) > div > div:last-child{
+    margin-top:18px !important;
+    gap:12px !important;
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+
+  /* Includes */
+  .lowads-includes > div:nth-child(2),
+  .lowads-method > div:first-child,
+  .lowads-testimonial > div:nth-child(2),
+  .lowads-system > div:nth-child(2) > div:first-child > div:first-child{
+    font-size:11px !important;
+    letter-spacing:.16em !important;
+  }
+
+  .lowads-includes > div:last-child{
+    margin-top:34px !important;
+    gap:12px !important;
+  }
+
+  .lowads-includes > div:last-child > div{
+    padding:26px 22px !important;
+  }
+
+  .lowads-includes > div:last-child > div > div:first-child{
+    font-size:12px !important;
+  }
+
+  .lowads-includes > div:last-child > div > div:nth-child(2){
+    margin-top:16px !important;
+    font-size:18px !important;
+  }
+
+  .lowads-includes > div:last-child > div > div:nth-child(3){
+    font-size:14px !important;
+  }
+
+  /* Method */
+  .lowads-method > div:nth-child(3){
+    margin-top:34px !important;
+    gap:12px !important;
+  }
+
+  .lowads-method > div:nth-child(3) > div{
+    min-height:200px !important;
+    padding:26px 22px !important;
+  }
+
+  .lowads-method > div:nth-child(3) > div > div:first-child{
+    font-size:34px !important;
+  }
+
+  .lowads-method > div:nth-child(3) > div > div:last-child > div:first-child{
+    font-size:18px !important;
+  }
+
+  .lowads-method > div:nth-child(3) > div > div:last-child > div:last-child{
+    font-size:14px !important;
+  }
+
+  .lowads-method > div:nth-child(4){
+    margin-top:38px !important;
+    padding-top:24px !important;
+    gap:14px !important;
+  }
+
+  .lowads-method > div:nth-child(4) > div:first-child{
+    font-size:11px !important;
+  }
+
+  .lowads-method > div:nth-child(4) > div:last-child{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    width:100% !important;
+    gap:10px 16px !important;
+    font-size:16px !important;
+  }
+
+  /* Testimonial */
+  .lowads-testimonial > div:nth-child(3){
+    margin-top:38px !important;
+    gap:28px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:first-child{
+    font-size:76px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(2){
+    margin-top:16px !important;
+    font-size:23px !important;
+    line-height:1.35 !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(3){
+    margin-top:30px !important;
+    padding-top:20px !important;
+    gap:14px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(3) > div:first-child{
+    width:54px !important;
+    height:54px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(3) > div:last-child > div:first-child{
+    font-size:15px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(3) > div:last-child > div:last-child{
+    font-size:12px !important;
+    line-height:1.4 !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:last-child{
+    padding:24px 20px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:last-child img{
+    max-width:180px !important;
+    height:auto !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:last-child > div:nth-child(2){
+    font-size:11px !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:last-child > div:nth-child(3){
+    font-size:14px !important;
+  }
+
+  /* System */
+  .lowads-system > div:nth-child(2){
+    gap:32px !important;
+  }
+
+  .lowads-system > div:nth-child(2) > div:first-child > div:nth-child(2){
+    margin-top:16px !important;
+    font-size:25px !important;
+    line-height:1.28 !important;
+  }
+
+  .lowads-system > div:nth-child(2) > div:last-child{
+    gap:9px !important;
+  }
+
+  .lowads-system > div:nth-child(2) > div:last-child > div{
+    padding:16px 17px !important;
+    font-size:15px !important;
+    line-height:1.3 !important;
+  }
+
+  .lowads-system > div:nth-child(2) > div:last-child > div span{
+    font-size:10px !important;
+    letter-spacing:.1em !important;
+  }
+
+  /* CTA */
+  .lowads-cta{
+    padding-top:82px !important;
+    padding-bottom:82px !important;
+  }
+
+  .lowads-cta h2{
+    font-size:30px !important;
+    line-height:1.15 !important;
+  }
+
+  .lowads-cta p{
+    margin-top:20px !important;
+    font-size:15px !important;
+  }
+
+  .lowads-cta a{
+    margin-top:30px !important;
+    min-height:48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 18px !important;
+    font-size:14px !important;
+  }
+}
+
+@media(max-width:360px){
+  .lowads-hero,
+  .lowads-problem,
+  .lowads-includes,
+  .lowads-method,
+  .lowads-testimonial,
+  .lowads-system,
+  .lowads-cta{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  .lowads-hero h1{
+    font-size:36px !important;
+  }
+
+  .lowads-method > div:nth-child(4) > div:last-child{
+    grid-template-columns:1fr !important;
+  }
+
+  .lowads-testimonial > div:nth-child(3) > div:first-child > div:nth-child(2){
+    font-size:21px !important;
+  }
+}
 </style>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="lowsignal" name="author"/><meta content="#070F22" name="theme-color"/><meta content="website" property="og:type"/><meta content="es_CL" property="og:locale"/><meta content="lowsignal" property="og:site_name"/><meta content="Campañas de Paid Media con estrategia, tracking y optimización continua para convertir inversión en demanda, leads y crecimiento medible." property="og:description"/><meta content="https://lowsignal.cl/soluciones/low-ads" property="og:url"/><meta content="https://lowsignal.cl/assets/reunion-oficina2.jpg" property="og:image"/><meta content="Low Ads de lowsignal" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Campañas de Paid Media con estrategia, tracking y optimización continua para convertir inversión en demanda, leads y crecimiento medible." name="twitter:description"/><meta content="https://lowsignal.cl/assets/reunion-oficina2.jpg" name="twitter:image"/><meta content="Low Ads de lowsignal" name="twitter:image:alt"/><link href="https://lowsignal.cl/soluciones/low-ads" hreflang="es-CL" rel="alternate"/><link href="https://lowsignal.cl/soluciones/low-ads" hreflang="x-default" rel="alternate"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lowsignal.cl/#organization","name":"lowsignal","url":"https://lowsignal.cl","logo":{"@type":"ImageObject","url":"https://lowsignal.cl/assets/logo-horizontal-white.png"},"sameAs":["https://cl.linkedin.com/company/lowsignalagency","https://instagram.com/lowsignalagency","https://facebook.com/lowsignalagency"]},{"@type":"WebSite","@id":"https://lowsignal.cl/#website","url":"https://lowsignal.cl","name":"lowsignal","publisher":{"@id":"https://lowsignal.cl/#organization"},"inLanguage":"es-CL"},{"@type":"WebPage","@id":"https://lowsignal.cl/soluciones/low-ads#webpage","url":"https://lowsignal.cl/soluciones/low-ads","name":"Low Ads | Paid Media que genera demanda | lowsignal","description":"Campañas de Paid Media con estrategia, tracking y optimización continua para convertir inversión en demanda, leads y crecimiento medible.","isPartOf":{"@id":"https://lowsignal.cl/#website"},"about":{"@id":"https://lowsignal.cl/soluciones/low-ads#service"},"inLanguage":"es-CL"},{"@type":"Service","@id":"https://lowsignal.cl/soluciones/low-ads#service","name":"Low Ads","serviceType":"Paid Media y gestión de campañas digitales","url":"https://lowsignal.cl/soluciones/low-ads","description":"Campañas de Paid Media con estrategia, tracking y optimización continua para convertir inversión en demanda, leads y crecimiento medible.","provider":{"@id":"https://lowsignal.cl/#organization"}}]}</script></head><body><header class="site-header">
 <nav aria-label="Navegación principal" class="navbar">
@@ -4159,7 +4559,7 @@ body{
 <div class="mega-menu">
 <p class="mega-label">RECURSOS</p>
 <div class="mega-grid mega-grid-4">
-<a class="mega-link" href="https://lowsignal.cl/casos">
+<a class="mega-link" href="https://lowsignal.cl/casos/rech">
 <span class="mega-icon">
 <svg aria-hidden="true" viewbox="0 0 24 24">
 <path d="M4 4h16v16H4z"></path>
@@ -4256,7 +4656,7 @@ body{
 </svg>
 </summary>
 <div class="mobile-submenu">
-<a href="https://lowsignal.cl/casos"><strong>Customer stories</strong><small>Casos de clientes</small></a>
+<a href="https://lowsignal.cl/casos/rech"><strong>Customer stories</strong><small>Casos de clientes</small></a>
 <a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y aprendizajes</small></a>
 <a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Trabaja con nosotros</small></a>
 <a href="https://lowsignal.cl/recursos/insiders"><strong>lowsignal Insiders</strong><small>Programa de referidos</small></a>
@@ -4269,7 +4669,6 @@ body{
 </header><main><section class="lowads-hero" style="position:relative;background:#070F22;padding:0 96px 120px;overflow:hidden;">
 <div style="position:absolute;inset:0;background:radial-gradient(55% 65% at 0% 0%,rgba(20,74,224,.38) 0%,rgba(20,74,224,0) 70%);"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(45% 60% at 100% 60%,rgba(20,25,224,.25) 0%,rgba(20,25,224,0) 70%);"></div>
-
 <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-top:100px;">
 <div>
 <div style="display:flex;align-items:center;gap:14px;font-size:15px;font-weight:500;letter-spacing:.22em;color:#5B7BF0;"><span>SOLUCIÓN 02</span><span style="width:32px;height:1px;background:rgba(91,123,240,.6);"></span><span style="color:#8B92A8;">DEMANDA</span></div>
@@ -4418,7 +4817,7 @@ body{
 <img alt="Red Educacional Camilo Henríquez" decoding="async" loading="lazy" src="../../assets/rech-logo-full-white-trim.png" style="height:60px;width:auto;display:block;"/>
 <div style="margin-top:28px;font-size:14px;font-weight:500;letter-spacing:.16em;color:#6B7390;">RED EDUCACIONAL</div>
 <div style="margin-top:10px;font-size:17px;line-height:1.55;color:#C9CFE3;">Contenido, campañas y experiencia web para una red de colegios.</div>
-<a href="https://lowsignal.cl/casos" style="margin-top:28px;display:inline-block;font-size:15px;font-weight:600;color:#5B7BF0;">Ver customer story</a>
+<a href="https://lowsignal.cl/casos/rech" style="margin-top:28px;display:inline-block;font-size:15px;font-weight:600;color:#5B7BF0;">Ver customer story</a>
 </div>
 </div>
 </section><section class="lowads-system" style="position:relative;background:linear-gradient(158deg,#2536DC 0%,#1B2ECB 46%,#122099 100%);padding:110px 96px;overflow:hidden;">
@@ -4469,7 +4868,7 @@ body{
 <div class="footer-links">
 <a href="https://lowsignal.cl/nosotros">Nosotros</a>
 <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-<a href="https://lowsignal.cl/casos">Casos</a>
+<a href="https://lowsignal.cl/casos/rech">Casos</a>
 <a data-scroll-contact="" href="#contacto">Contacto</a>
 </div>
 </div>
