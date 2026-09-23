@@ -1,0 +1,4365 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>lowsignal | Nosotros</title>
+<!-- Favicon / browser tab -->
+<link href="../assets/profile.png" rel="icon" type="image/png"/>
+<link href="../assets/profile.png" rel="shortcut icon"/>
+<link href="../assets/profile.png" rel="apple-touch-icon"/>
+<link href="https://lowsignal.cl/nosotros/" rel="canonical"/>
+<meta content="lowsignal | Nosotros" property="og:title"/>
+<meta content="lowsignal | Nosotros" name="twitter:title"/>
+<meta content="Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ==========================================================
+   lowsignal — shared styles
+   Master visual: Landing Educación / "Editorial oscura"
+   Font: Be Vietnam Pro via Google Fonts.
+========================================================== */
+
+:root{
+  --navy:#070F22;
+  --navy-deep:#050A18;
+  --navy-menu:#0A1128;
+
+  --electric:#1419E0;
+  --blue:#144AE0;
+  --accent:#5B7BF0;
+  --accent-soft:#8AA4FF;
+
+  --ice:#EEF3FF;
+  --white:#F8F8F8;
+  --pure-white:#FFFFFF;
+
+  --ink:#0A0A0A;
+  --ink-blue:#0F1F8C;
+  --copy-blue:#41507F;
+
+  --dark-copy:#8B92A8;
+  --dark-link:#C9D1EA;
+
+  --container:1248px;
+  --page-pad:24px;
+  --section-pad:130px;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--navy);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+  width:min(var(--container), calc(100% - 48px));
+  margin-inline:auto;
+}
+
+
+/* ==========================================================
+   COMMON TYPE
+========================================================== */
+
+.eyebrow{
+  margin:0;
+  color:var(--electric);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.22em;
+}
+
+.eyebrow-dark{
+  color:var(--accent);
+}
+
+.light-section h2,
+.dark-section h2{
+  margin:24px 0 0;
+  font-size:54px;
+  line-height:1.14;
+  letter-spacing:-.03em;
+  font-weight:300;
+}
+
+.light-section h2{
+  color:var(--ink);
+}
+
+.light-section h2 strong{
+  color:var(--electric);
+  font-weight:700;
+}
+
+.dark-section h2{
+  color:var(--white);
+}
+
+.dark-section h2 strong{
+  color:var(--accent);
+  font-weight:700;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:58px;
+  padding:16px 34px;
+  border-radius:10px;
+  font-size:17px;
+  font-weight:600;
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    background-color .22s ease,
+    border-color .22s ease,
+    color .22s ease;
+}
+
+.button:hover{
+  transform:translateY(-3px);
+}
+
+.button-primary{
+  background:var(--electric);
+  color:#fff;
+  box-shadow:0 0 40px rgba(20,74,224,.45);
+}
+
+.button-primary:hover{
+  background:#2533F0;
+  box-shadow:0 12px 38px rgba(20,74,224,.44);
+}
+
+.button-secondary-dark{
+  border:1px solid rgba(91,123,240,.45);
+  color:var(--white);
+  font-weight:500;
+}
+
+.button-secondary-dark:hover{
+  background:rgba(91,123,240,.12);
+  border-color:rgba(138,164,255,.72);
+  box-shadow:0 10px 24px rgba(0,0,0,.14);
+}
+
+.button-large{
+  min-height:64px;
+  padding:18px 40px;
+  font-size:18px;
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:0 0 120px;
+  background:var(--navy);
+}
+
+.hero-glow{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      50% 60% at 0% 0%,
+      rgba(20,74,224,.35) 0%,
+      rgba(20,74,224,0) 70%
+    );
+  pointer-events:none;
+}
+
+
+/* ==========================================================
+   NAVBAR
+========================================================== */
+
+.site-header{
+  position:relative;
+  z-index:50;
+  padding:14px var(--page-pad) 0;
+}
+
+.navbar{
+  position:relative;
+  width:min(1392px, calc(100vw - 48px));
+  height:88px;
+  margin:0 auto;
+  padding:0 44px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  border:1px solid rgba(150,175,255,.16);
+  border-radius:18px;
+
+  background:rgba(40,52,120,.38);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  box-shadow:0 15px 50px rgba(0,0,0,.05);
+}
+
+.brand{
+  flex:none;
+}
+
+.brand img{
+  width:auto;
+  height:28px;
+}
+
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:38px;
+  margin-left:52px;
+  margin-right:auto;
+  height:100%;
+}
+
+.nav-item{
+  position:static;
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+
+.nav-trigger,
+.nav-simple{
+  border:0;
+  background:none;
+  color:#F0F3FF;
+  font-size:17px;
+  font-weight:500;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.nav-trigger{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:100%;
+  padding:0;
+}
+
+.nav-trigger svg{
+  width:12px;
+  height:8px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:transform .2s ease;
+}
+
+.nav-item.is-open .nav-trigger svg{
+  transform:rotate(180deg);
+}
+
+.nav-trigger:hover,
+.nav-simple:hover{
+  color:#fff;
+}
+
+.nav-cta{
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 30px;
+  border-radius:10px;
+  background:var(--electric);
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  box-shadow:0 6px 30px rgba(20,74,224,.55);
+  transition:
+    transform .22s ease,
+    background-color .22s ease,
+    box-shadow .22s ease;
+}
+
+.nav-cta:hover{
+  transform:translateY(-2px);
+  background:#2533F0;
+  box-shadow:0 10px 32px rgba(20,74,224,.5);
+}
+
+
+/* MEGA MENUS */
+
+.mega-menu{
+  position:absolute;
+  left:-1px;
+  right:-1px;
+  top:calc(100% + 8px);
+  z-index:80;
+
+  visibility:hidden;
+  opacity:0;
+  transform:translateY(-6px);
+  pointer-events:none;
+
+  padding:34px 36px 30px;
+
+  border:1px solid rgba(150,175,255,.16);
+  border-radius:18px;
+
+  background:var(--navy-menu);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
+}
+
+.nav-item.is-open .mega-menu{
+  visibility:visible;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.mega-label{
+  margin:0;
+  padding-left:16px;
+  color:#6B7390;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.22em;
+}
+
+.mega-grid{
+  display:grid;
+  gap:6px 20px;
+  margin-top:20px;
+}
+
+.mega-grid-3{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.mega-grid-4{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.mega-link{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  padding:14px 16px;
+  border-radius:12px;
+  transition:
+    background-color .2s ease,
+    transform .2s ease;
+}
+
+a.mega-link:hover{
+  background:rgba(20,74,224,.14);
+  transform:translateY(-1px);
+}
+
+
+.mega-icon{
+  flex:none;
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(150,175,255,.08);
+  border:1px solid rgba(150,175,255,.12);
+}
+
+.mega-icon svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:#C9D1EA;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.mega-link strong{
+  display:block;
+  color:var(--white);
+  font-size:18px;
+  font-weight:600;
+}
+
+.mega-link small{
+  display:block;
+  margin-top:5px;
+  color:var(--dark-copy);
+  font-size:15px;
+  font-weight:400;
+  line-height:1.35;
+}
+
+.mobile-toggle{
+  display:none;
+}
+
+.mobile-contact{
+  display:none;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:72px;
+  align-items:center;
+  padding-top:110px;
+}
+
+.hero-copy h1{
+  margin:28px 0 0;
+  color:var(--white);
+  font-size:78px;
+  line-height:1.06;
+  font-weight:300;
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+
+.hero-copy h1 strong{
+  color:var(--accent);
+  font-weight:700;
+}
+
+.hero-text{
+  max-width:560px;
+  margin:32px 0 0;
+  color:var(--dark-copy);
+  font-size:20px;
+  line-height:1.6;
+  text-wrap:pretty;
+}
+
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:44px;
+}
+
+.hero-media{
+  position:relative;
+  height:600px;
+  margin:0;
+  overflow:hidden;
+  border-radius:24px;
+}
+
+.hero-media > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.media-gradient{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,15,34,0) 55%,
+      rgba(7,15,34,.7) 100%
+    );
+}
+
+.hero-media figcaption{
+  position:absolute;
+  left:32px;
+  right:32px;
+  bottom:30px;
+  color:rgba(230,236,255,.85);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.2em;
+}
+
+
+/* ==========================================================
+   LIGHT SECTIONS
+========================================================== */
+
+.light-section{
+  background:var(--ice);
+}
+
+.context,
+.method,
+.faq{
+  padding:var(--section-pad) 0;
+}
+
+.two-col{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:96px;
+  align-items:start;
+}
+
+.section-copy{
+  max-width:480px;
+  margin:30px 0 0;
+  color:var(--copy-blue);
+  font-size:19px;
+  line-height:1.6;
+}
+
+
+/* CONTEXT */
+
+.journey-list{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.journey-card{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:28px;
+  align-items:center;
+  padding:34px 38px;
+  border-radius:18px;
+  background:#fff;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.journey-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 44px rgba(20,25,224,.08);
+}
+
+.journey-number{
+  color:var(--electric);
+  font-size:44px;
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+
+.journey-card h3{
+  margin:0;
+  color:var(--ink-blue);
+  font-size:26px;
+  font-weight:700;
+}
+
+.journey-card p{
+  margin:6px 0 0;
+  color:var(--copy-blue);
+  font-size:17px;
+  line-height:1.5;
+}
+
+
+/* ==========================================================
+   DARK SECTIONS
+========================================================== */
+
+.dark-section{
+  position:relative;
+  overflow:hidden;
+  background:var(--navy);
+}
+
+.section-glow{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.section-glow-right{
+  background:
+    radial-gradient(
+      40% 50% at 100% 0%,
+      rgba(20,74,224,.28) 0%,
+      rgba(20,74,224,0) 70%
+    );
+}
+
+.section-glow-left{
+  background:
+    radial-gradient(
+      45% 55% at 0% 100%,
+      rgba(20,74,224,.26) 0%,
+      rgba(20,74,224,0) 70%
+    );
+}
+
+
+/* ==========================================================
+   SOLUTIONS
+========================================================== */
+
+.solutions{
+  padding:var(--section-pad) 0;
+}
+
+.solutions > .container{
+  position:relative;
+}
+
+.solutions-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:60px;
+}
+
+.solutions-head h2{
+  max-width:760px;
+}
+
+.dark-copy{
+  max-width:380px;
+  margin:0;
+  color:var(--dark-copy);
+  font-size:18px;
+  line-height:1.6;
+}
+
+.solutions-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  margin-top:70px;
+}
+
+.solution-card{
+  min-height:230px;
+  padding:40px;
+  border:1px solid rgba(91,123,240,.22);
+  border-radius:20px;
+  transition:
+    border-color .22s ease,
+    transform .22s ease,
+    background-color .22s ease;
+}
+
+.solution-card:not(.solution-core):hover{
+  transform:translateY(-5px);
+  border-color:rgba(91,123,240,.55);
+  background:rgba(91,123,240,.05);
+}
+
+.solution-index{
+  color:var(--accent);
+  font-size:15px;
+  font-weight:600;
+}
+
+.solution-card h3{
+  margin:22px 0 0;
+  color:var(--white);
+  font-size:27px;
+  font-weight:700;
+}
+
+.solution-card p{
+  margin:12px 0 0;
+  color:var(--dark-copy);
+  font-size:17px;
+  line-height:1.55;
+}
+
+.solution-core{
+  grid-column:span 2;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:linear-gradient(135deg,var(--electric) 0%,var(--blue) 100%);
+  border:0;
+  box-shadow:0 16px 50px rgba(20,25,224,.16);
+}
+
+.solution-core .solution-index{
+  color:#DDE3FF;
+}
+
+.solution-core h3{
+  margin-top:0;
+  color:#fff;
+  font-size:34px;
+}
+
+.solution-core p{
+  max-width:560px;
+  color:rgba(240,244,255,.85);
+  font-size:18px;
+}
+
+
+/* ==========================================================
+   METHOD
+========================================================== */
+
+.method h2{
+  margin-top:24px;
+}
+
+.method-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:24px;
+  margin-top:70px;
+}
+
+.method-grid::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:27px;
+  height:2px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--electric),
+      rgba(20,25,224,.15)
+    );
+}
+
+.method-step{
+  position:relative;
+}
+
+.method-step > span{
+  position:relative;
+  z-index:2;
+  width:56px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--electric);
+  border-radius:50%;
+  background:#fff;
+  color:var(--electric);
+  font-size:18px;
+  font-weight:700;
+}
+
+.method-step.is-active > span{
+  background:var(--electric);
+  color:#fff;
+}
+
+.method-step h3{
+  margin:28px 0 0;
+  color:var(--ink-blue);
+  font-size:24px;
+  font-weight:700;
+}
+
+.method-step p{
+  margin:8px 0 0;
+  color:var(--copy-blue);
+  font-size:16px;
+  line-height:1.55;
+}
+
+
+/* ==========================================================
+   CASES
+========================================================== */
+
+.cases{
+  padding:var(--section-pad) 0;
+}
+
+.cases > .container{
+  position:relative;
+}
+
+.cases-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:64px;
+}
+
+.case-card{
+  position:relative;
+  height:440px;
+  overflow:hidden;
+  border-radius:22px;
+}
+
+.case-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.case-card:hover .case-photo{
+  transform:scale(1.025);
+}
+
+.case-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,15,34,.1) 30%,
+      rgba(7,15,34,.9) 100%
+    );
+}
+
+.case-content{
+  position:absolute;
+  left:40px;
+  right:40px;
+  bottom:36px;
+}
+
+.case-logo{
+  width:auto;
+  max-width:270px;
+  height:56px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+.case-logo-rech{
+  height:64px;
+}
+
+.case-content p{
+  margin:18px 0 0;
+  color:#fff;
+  font-size:26px;
+  line-height:1.3;
+  font-weight:600;
+}
+
+.logo-strip{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  margin-top:64px;
+  padding-top:44px;
+  border-top:1px solid rgba(150,175,255,.16);
+}
+
+.logo-strip img{
+  width:auto;
+  max-width:185px;
+  max-height:54px;
+  object-fit:contain;
+  opacity:.85;
+}
+
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.stats{
+  position:relative;
+  overflow:hidden;
+  padding:110px 0;
+  background:
+    linear-gradient(
+      158deg,
+      #2536DC 0%,
+      #1B2ECB 46%,
+      #122099 100%
+    );
+}
+
+.stats-glow{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      40% 60% at 95% 0%,
+      rgba(130,165,255,.4) 0%,
+      rgba(130,165,255,0) 65%
+    );
+}
+
+.stats-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px;
+}
+
+.stats article strong{
+  display:block;
+  color:#fff;
+  font-size:88px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.05em;
+}
+
+.stats article p{
+  margin:16px 0 0;
+  color:rgba(230,238,255,.85);
+  font-size:18px;
+  line-height:1.45;
+}
+
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.faq-layout{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:96px;
+}
+
+.faq-list{
+  display:flex;
+  flex-direction:column;
+}
+
+.faq details{
+  padding:30px 0;
+  border-top:1px solid rgba(30,50,140,.18);
+}
+
+.faq details:last-child{
+  border-bottom:1px solid rgba(30,50,140,.18);
+}
+
+.faq summary{
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  color:var(--ink-blue);
+  font-size:22px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.faq summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq summary span{
+  color:var(--electric);
+  transition:transform .2s ease;
+}
+
+.faq details[open] summary span{
+  transform:rotate(45deg);
+}
+
+.faq details p{
+  max-width:720px;
+  margin:16px 0 0;
+  color:var(--copy-blue);
+  font-size:17px;
+  line-height:1.6;
+}
+
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.cta{
+  padding:150px 0 70px;
+  text-align:center;
+}
+
+.cta-glow{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      50% 60% at 50% 0%,
+      rgba(20,74,224,.4) 0%,
+      rgba(20,74,224,0) 70%
+    );
+}
+
+.cta-inner{
+  position:relative;
+}
+
+.cta h2{
+  max-width:900px;
+  margin:0 auto;
+  font-size:66px;
+  line-height:1.1;
+  letter-spacing:-.035em;
+}
+
+.cta p{
+  max-width:560px;
+  margin:28px auto 0;
+  color:var(--dark-copy);
+  font-size:19px;
+  line-height:1.6;
+}
+
+.cta .button{
+  margin-top:44px;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer{
+  padding:96px 0 44px;
+  border-top:1px solid rgba(150,175,255,.12);
+  background:var(--navy-deep);
+  color:#fff;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-logo{
+  width:auto;
+  height:30px;
+}
+
+.footer-about > p{
+  max-width:420px;
+  margin:30px 0 0;
+  color:var(--dark-copy);
+  font-size:17px;
+  line-height:1.65;
+}
+
+.footer-claim{
+  margin-top:30px;
+  color:var(--white);
+  font-size:22px;
+  font-weight:300;
+}
+
+.footer-claim strong{
+  color:var(--accent);
+  font-weight:700;
+}
+
+.footer-title{
+  margin:0;
+  color:var(--accent);
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.22em;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin-top:26px;
+  font-size:17px;
+}
+
+.footer-links a{
+  width:max-content;
+  max-width:100%;
+  color:var(--dark-link);
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.footer-links a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+
+.social-links a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.social-links svg,
+.footer-meta svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:var(--accent);
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.footer-button{
+  display:inline-flex;
+  margin-top:30px;
+  padding:14px 28px;
+  border-radius:10px;
+  background:var(--electric);
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  transition:
+    transform .2s ease,
+    background-color .2s ease;
+}
+
+.footer-button:hover{
+  transform:translateY(-2px);
+  background:#2533F0;
+}
+
+.footer-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  margin-top:72px;
+  padding:36px 0;
+  border-top:1px solid rgba(150,175,255,.12);
+  border-bottom:1px solid rgba(150,175,255,.12);
+  color:var(--dark-copy);
+  font-size:16px;
+}
+
+.footer-meta > div{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footer-meta a{
+  color:var(--dark-link);
+}
+
+.footer-meta > span{
+  color:#6B7390;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.22em;
+}
+
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  margin-top:32px;
+  color:#6B7390;
+  font-size:15px;
+}
+
+.footer-bottom > div{
+  display:flex;
+  gap:36px;
+}
+
+.footer-bottom a{
+  color:#6B7390;
+}
+
+
+/* ==========================================================
+   DESKTOP / TABLET
+========================================================== */
+
+@media (max-width:1180px){
+
+  .hero-copy h1{
+    font-size:68px;
+  }
+
+  .hero-content{
+    gap:48px;
+  }
+
+  .hero-media{
+    height:540px;
+  }
+
+  .navbar{
+    padding-inline:30px;
+  }
+
+  .main-nav{
+    gap:26px;
+    margin-left:36px;
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    font-size:15px;
+  }
+
+  .stats article strong{
+    font-size:72px;
+  }
+
+  .footer-grid{
+    gap:40px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE NAV + RESPONSIVE
+========================================================== */
+
+@media (max-width:920px){
+
+  :root{
+    --section-pad:90px;
+  }
+
+  .container{
+    width:min(100% - 36px, 720px);
+  }
+
+  .site-header{
+    padding:12px 12px 0;
+  }
+
+  .navbar{
+    width:100%;
+    height:auto;
+    min-height:72px;
+    padding:0 18px;
+    border-radius:16px;
+  }
+
+  .brand img{
+    height:25px;
+  }
+
+  .nav-cta{
+    display:none;
+  }
+
+  .mobile-toggle{
+    width:44px;
+    height:44px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+  }
+
+  .mobile-toggle span{
+    width:22px;
+    height:1.5px;
+    background:#fff;
+    transition:
+      transform .2s ease,
+      opacity .2s ease;
+  }
+
+  .mobile-toggle[aria-expanded="true"] span:first-child{
+    transform:translateY(4.25px) rotate(45deg);
+  }
+
+  .mobile-toggle[aria-expanded="true"] span:last-child{
+    transform:translateY(-4.25px) rotate(-45deg);
+  }
+
+  .main-nav{
+    position:fixed;
+    inset:84px 12px auto 12px;
+    z-index:100;
+    max-height:calc(100vh - 96px);
+    overflow:auto;
+
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+
+    margin:0;
+    padding:12px;
+
+    border:1px solid rgba(150,175,255,.16);
+    border-radius:16px;
+    background:#0A1128;
+    box-shadow:0 30px 70px rgba(0,0,0,.55);
+  }
+
+  .main-nav.is-open{
+    display:flex;
+  }
+
+  .nav-item{
+    display:block;
+    height:auto;
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    width:100%;
+    min-height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 12px;
+    font-size:16px;
+    text-align:left;
+  }
+
+  .mega-menu{
+    position:static;
+    display:none;
+    visibility:visible;
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+    padding:0 6px 18px;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .nav-item.is-open .mega-menu{
+    display:block;
+  }
+
+  .mega-label{
+    padding:14px 10px 4px;
+    font-size:11px;
+  }
+
+  .mega-grid,
+  .mega-grid-3,
+  .mega-grid-4{
+    grid-template-columns:1fr;
+    gap:2px;
+    margin-top:8px;
+  }
+
+  .mega-link{
+    gap:14px;
+    padding:12px 10px;
+  }
+
+  .mega-icon{
+    width:40px;
+    height:40px;
+  }
+
+  .mega-icon svg{
+    width:19px;
+    height:19px;
+  }
+
+  .mega-link strong{
+    font-size:15px;
+  }
+
+  .mega-link small{
+    font-size:12px;
+  }
+
+  .mobile-contact{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:50px;
+    margin-top:10px;
+    border-radius:10px;
+    background:var(--electric);
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 8px 24px rgba(20,74,224,.28);
+  }
+
+  .mobile-contact:hover{
+    background:#2533F0;
+  }
+
+  body.menu-open{
+    overflow:hidden;
+  }
+
+  /* HERO */
+
+  .hero{
+    padding-bottom:76px;
+  }
+
+  .hero-content{
+    grid-template-columns:1fr;
+    gap:50px;
+    padding-top:74px;
+  }
+
+  .hero-copy h1{
+    max-width:760px;
+    font-size:clamp(48px,9vw,70px);
+  }
+
+  .hero-text{
+    max-width:640px;
+    font-size:18px;
+  }
+
+  .hero-media{
+    height:500px;
+  }
+
+
+  /* CONTENT */
+
+  .two-col,
+  .solutions-head,
+  .faq-layout{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+
+  .dark-copy{
+    max-width:620px;
+  }
+
+  .solutions-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .solution-core{
+    grid-column:span 2;
+  }
+
+  .method-grid{
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:56px;
+  }
+
+  .method-grid::before{
+    left:27px;
+    right:auto;
+    top:0;
+    bottom:0;
+    width:2px;
+    height:auto;
+    background:
+      linear-gradient(
+        180deg,
+        var(--electric),
+        rgba(20,25,224,.15)
+      );
+  }
+
+  .method-step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    grid-template-rows:auto auto;
+    column-gap:24px;
+    padding-bottom:36px;
+  }
+
+  .method-step > span{
+    grid-column:1;
+    grid-row:1 / span 2;
+  }
+
+  .method-step h3{
+    grid-column:2;
+    grid-row:1;
+    margin:2px 0 0;
+  }
+
+  .method-step p{
+    grid-column:2;
+    grid-row:2;
+    margin:8px 0 0;
+  }
+
+  .cases-grid{
+    grid-template-columns:1fr;
+  }
+
+  .logo-strip{
+    justify-content:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+    gap:50px 32px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1.4fr 1fr 1fr;
+  }
+
+  .footer-about{
+    grid-column:1/-1;
+  }
+
+  .footer-meta{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+  }
+}
+
+
+/* ==========================================================
+   PHONE
+========================================================== */
+
+@media (max-width:640px){
+
+  :root{
+    --section-pad:76px;
+  }
+
+  .container{
+    width:calc(100% - 32px);
+  }
+
+  .eyebrow{
+    font-size:11px;
+  }
+
+  .light-section h2,
+  .dark-section h2{
+    margin-top:18px;
+    font-size:38px;
+    line-height:1.12;
+  }
+
+  .button{
+    width:100%;
+    min-height:54px;
+    padding:14px 20px;
+    font-size:15px;
+  }
+
+
+  /* HERO */
+
+  .hero-content{
+    padding-top:58px;
+  }
+
+  .hero-copy h1{
+    margin-top:20px;
+    font-size:49px;
+    line-height:1.03;
+  }
+
+  .hero-text{
+    margin-top:24px;
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  .hero-actions{
+    align-items:stretch;
+    flex-direction:column;
+    gap:12px;
+    margin-top:32px;
+  }
+
+  .hero-media{
+    height:390px;
+    border-radius:18px;
+  }
+
+  .hero-media figcaption{
+    left:20px;
+    right:20px;
+    bottom:20px;
+    font-size:11px;
+  }
+
+
+  /* CONTEXT */
+
+  .section-copy{
+    margin-top:22px;
+    font-size:16px;
+  }
+
+  .context-layout{
+    gap:42px;
+  }
+
+  .journey-card{
+    grid-template-columns:58px 1fr;
+    gap:18px;
+    padding:26px 22px;
+    border-radius:15px;
+  }
+
+  .journey-number{
+    font-size:34px;
+  }
+
+  .journey-card h3{
+    font-size:21px;
+  }
+
+  .journey-card p{
+    font-size:14px;
+    line-height:1.55;
+  }
+
+
+  /* SOLUTIONS */
+
+  .solutions-head{
+    gap:24px;
+  }
+
+  .dark-copy{
+    font-size:16px;
+  }
+
+  .solutions-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-top:44px;
+  }
+
+  .solution-card,
+  .solution-core{
+    grid-column:auto;
+    min-height:0;
+    padding:28px;
+    border-radius:16px;
+  }
+
+  .solution-card h3,
+  .solution-core h3{
+    margin-top:18px;
+    font-size:24px;
+  }
+
+  .solution-card p,
+  .solution-core p{
+    font-size:15px;
+  }
+
+
+  /* METHOD */
+
+  .method-grid{
+    margin-top:44px;
+  }
+
+  .method-step h3{
+    font-size:21px;
+  }
+
+  .method-step p{
+    font-size:14px;
+  }
+
+
+  /* CASES */
+
+  .cases-grid{
+    margin-top:44px;
+  }
+
+  .case-card{
+    height:390px;
+    border-radius:18px;
+  }
+
+  .case-content{
+    left:24px;
+    right:24px;
+    bottom:24px;
+  }
+
+  .case-logo{
+    height:46px;
+    max-width:220px;
+  }
+
+  .case-logo-rech{
+    height:54px;
+  }
+
+  .case-content p{
+    font-size:21px;
+  }
+
+  .logo-strip{
+    gap:28px 34px;
+    margin-top:46px;
+    padding-top:34px;
+  }
+
+  .logo-strip img{
+    max-width:130px;
+    max-height:42px;
+  }
+
+
+  /* STATS */
+
+  .stats{
+    padding:76px 0;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+    gap:42px 20px;
+  }
+
+  .stats article strong{
+    font-size:54px;
+  }
+
+  .stats article p{
+    margin-top:10px;
+    font-size:14px;
+  }
+
+
+  /* FAQ */
+
+  .faq-layout{
+    gap:36px;
+  }
+
+  .faq details{
+    padding:22px 0;
+  }
+
+  .faq summary{
+    font-size:17px;
+  }
+
+  .faq details p{
+    font-size:14px;
+  }
+
+
+  /* CTA */
+
+  .cta{
+    padding:90px 0 58px;
+  }
+
+  .cta h2{
+    font-size:42px;
+  }
+
+  .cta p{
+    margin-top:22px;
+    font-size:16px;
+  }
+
+  .cta .button{
+    margin-top:32px;
+  }
+
+
+  /* FOOTER */
+
+  .footer{
+    padding:72px 0 32px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:46px 28px;
+  }
+
+  .footer-about{
+    grid-column:1/-1;
+  }
+
+  .footer-about > p{
+    font-size:15px;
+  }
+
+  .footer-links{
+    gap:12px;
+    font-size:14px;
+  }
+
+  .footer-title{
+    font-size:11px;
+  }
+
+  .footer-meta{
+    margin-top:54px;
+    padding:28px 0;
+    font-size:14px;
+  }
+
+  .footer-meta > span{
+    font-size:11px;
+    line-height:1.6;
+  }
+
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+    font-size:12px;
+    line-height:1.6;
+  }
+
+  .footer-bottom > div{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+
+
+/* ==========================================================
+   SMALL PHONE
+========================================================== */
+
+@media (max-width:420px){
+
+  .hero-copy h1{
+    font-size:43px;
+  }
+
+  .hero-media{
+    height:340px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-about{
+    grid-column:auto;
+  }
+}
+
+
+/* ==========================================================
+   MOTION / ACCESSIBILITY
+========================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    transition:none !important;
+    animation:none !important;
+  }
+}
+
+  
+
+/* ==========================================================
+   FINAL UI OVERRIDES — compact footer + clean mobile menu
+========================================================== */
+
+/* Compact footer */
+.footer{
+  padding:56px 0 24px;
+}
+.footer-grid{
+  grid-template-columns:1.45fr .85fr .85fr .85fr;
+  gap:48px;
+}
+.footer-logo{height:27px;}
+.footer-about > p{
+  max-width:360px;
+  margin-top:20px;
+  font-size:13px;
+  line-height:1.7;
+}
+.footer-claim{
+  margin-top:22px;
+  font-size:16px;
+}
+.footer-title{
+  font-size:10px;
+  letter-spacing:.18em;
+}
+.footer-links{
+  gap:9px;
+  margin-top:16px;
+  font-size:13px;
+}
+.social-links svg,
+.footer-meta svg{
+  width:16px;
+  height:16px;
+}
+.footer-button{
+  margin-top:17px;
+  padding:10px 17px;
+  border-radius:9px;
+  font-size:12px;
+}
+.footer-meta{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px;
+  margin-top:38px;
+  padding:20px 0;
+  font-size:11px;
+}
+.footer-meta > div{gap:9px;}
+.footer-meta > span{
+  font-size:9px;
+  letter-spacing:.18em;
+  text-align:right;
+}
+.footer-meta > a{text-align:center;}
+.footer-bottom{
+  margin-top:20px;
+  font-size:10px;
+}
+.footer-bottom > div{gap:24px;}
+
+@media (max-width:920px){
+  /* Mobile nav behaves like a clean vertical button menu */
+  .main-nav{
+    top:84px;
+    bottom:12px;
+    max-height:none;
+    padding:10px;
+    border-radius:18px;
+  }
+  .nav-item{
+    border-bottom:1px solid rgba(150,175,255,.10);
+  }
+  .nav-trigger,
+  .nav-simple{
+    min-height:56px;
+    padding:0 16px;
+    border-radius:10px;
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+  }
+  .nav-trigger:hover,
+  .nav-simple:hover,
+  .nav-item.is-open > .nav-trigger{
+    background:rgba(91,123,240,.11);
+  }
+  .nav-trigger svg{
+    transition:transform .2s ease;
+  }
+  .nav-item.is-open > .nav-trigger svg{
+    transform:rotate(180deg);
+  }
+  .mega-menu{
+    padding:2px 8px 12px;
+  }
+  .mega-label{
+    display:none;
+  }
+  .mega-grid,
+  .mega-grid-3,
+  .mega-grid-4{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    margin-top:0;
+  }
+  .mega-link{
+    width:100%;
+    display:block;
+    padding:13px 15px;
+    border:1px solid rgba(150,175,255,.10);
+    border-radius:10px;
+    background:rgba(255,255,255,.035);
+  }
+  a.mega-link:hover,
+  a.mega-link:active{
+    background:rgba(91,123,240,.14);
+    transform:none;
+  }
+  .mega-icon{
+    display:none;
+  }
+  .mega-link strong{
+    font-size:14px;
+    font-weight:600;
+  }
+  .mega-link small{
+    margin-top:3px;
+    font-size:11px;
+    line-height:1.35;
+  }
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:34px 26px;
+  }
+  .footer-about{
+    grid-column:1 / -1;
+  }
+  .footer-meta{
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-top:32px;
+    padding:18px 0;
+  }
+  .footer-meta > a,
+  .footer-meta > span{
+    text-align:left;
+  }
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+}
+
+@media (max-width:560px){
+  .footer{
+    padding:44px 0 22px;
+  }
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:26px;
+  }
+  .footer-about{
+    grid-column:auto;
+  }
+  .footer-about > p{
+    max-width:100%;
+  }
+  .footer-bottom > div{
+    flex-direction:column;
+    gap:7px;
+  }
+}
+
+
+
+/* ==========================================================
+   MOBILE MENU — FULL SCREEN / CLEAN STACK
+   Replaces the floating mega-menu treatment on phones.
+========================================================== */
+@media (max-width:920px){
+
+  .site-header{
+    position:relative;
+    z-index:200;
+    padding:12px 12px 0;
+  }
+
+  .navbar{
+    position:relative;
+    z-index:202;
+    width:100%;
+    min-height:72px;
+    padding:0 18px;
+    border-radius:16px;
+    background:rgba(31,43,101,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+
+  .brand img{
+    height:25px;
+  }
+
+  .mobile-toggle{
+    position:relative;
+    z-index:204;
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    padding:0;
+  }
+
+  /* Full viewport panel below the navbar */
+  .main-nav{
+    position:fixed;
+    z-index:201;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+
+    width:100%;
+    max-height:none;
+    margin:0;
+    padding:104px 20px 34px;
+
+    overflow-y:auto;
+    overscroll-behavior:contain;
+
+    border:0;
+    border-radius:0;
+    background:#070F22;
+    box-shadow:none;
+  }
+
+  .main-nav.is-open{
+    display:flex;
+  }
+
+  .nav-item{
+    display:block;
+    width:100%;
+    height:auto;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    width:100%;
+    min-height:62px;
+    padding:0 4px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+
+    color:#F8F8F8;
+    font-size:18px;
+    font-weight:500;
+    line-height:1;
+    text-align:left;
+  }
+
+  .nav-trigger:hover,
+  .nav-simple:hover,
+  .nav-item.is-open > .nav-trigger{
+    background:transparent;
+    color:#7690FF;
+  }
+
+  .nav-trigger svg{
+    width:14px;
+    height:9px;
+    margin-right:3px;
+    transition:transform .22s ease, color .22s ease;
+  }
+
+  .nav-item.is-open > .nav-trigger svg{
+    transform:rotate(180deg);
+  }
+
+  .mega-menu{
+    position:static;
+    display:none;
+    visibility:visible;
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+
+    width:100%;
+    padding:0 0 16px;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .nav-item.is-open .mega-menu{
+    display:block;
+  }
+
+  .mega-label,
+  .mega-icon{
+    display:none;
+  }
+
+  .mega-grid,
+  .mega-grid-3,
+  .mega-grid-4{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin:0;
+  }
+
+  .mega-link{
+    width:100%;
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    padding:10px 4px 10px 18px;
+
+    border:0;
+    border-radius:0;
+    background:transparent;
+  }
+
+  a.mega-link:hover,
+  a.mega-link:active{
+    background:transparent;
+    transform:none;
+  }
+
+  .mega-link strong{
+    color:#DCE2F2;
+    font-size:15px;
+    font-weight:500;
+  }
+
+  .mega-link small{
+    display:block;
+    margin-top:4px;
+    color:#778198;
+    font-size:11px;
+    line-height:1.35;
+  }
+
+  .mega-link:hover strong,
+  .mega-link:active strong{
+    color:#7690FF;
+  }
+
+  .mobile-contact{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+    min-height:52px;
+    margin-top:26px;
+    padding:0 20px;
+
+    border:0;
+    border-radius:10px;
+    background:#1419E0;
+    color:#fff;
+
+    font-size:15px;
+    font-weight:600;
+
+    box-shadow:0 8px 28px rgba(20,25,224,.28);
+  }
+
+  .mobile-contact:hover,
+  .mobile-contact:active{
+    background:#2930FF;
+  }
+
+  body.menu-open{
+    overflow:hidden;
+    touch-action:none;
+  }
+}
+
+@media (max-width:520px){
+  .main-nav{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .nav-trigger,
+  .nav-simple{
+    min-height:58px;
+    font-size:17px;
+  }
+
+  .mega-link{
+    min-height:50px;
+    padding-left:14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAV V3 — dedicated native accordions
+   Desktop mega-menu stays untouched.
+========================================================= */
+
+.mobile-menu-panel{
+  display:none;
+}
+
+@media (max-width:920px){
+
+  /* Desktop nav is not reused on mobile */
+  .main-nav{
+    display:none !important;
+  }
+
+  .mobile-menu-panel{
+    position:fixed;
+    top:96px;
+    left:12px;
+    right:12px;
+    z-index:1100;
+
+    display:none;
+    max-height:calc(100dvh - 108px);
+    overflow:auto;
+    overscroll-behavior:contain;
+
+    padding:14px;
+
+    border:1px solid rgba(126,151,255,.18);
+    border-radius:18px;
+
+    background:#081026;
+    box-shadow:0 30px 70px rgba(0,0,0,.48);
+
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .mobile-menu-panel.is-open{
+    display:block;
+  }
+
+  .mobile-menu-inner{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .mobile-accordion{
+    border:1px solid rgba(126,151,255,.13);
+    border-radius:14px;
+    background:#0B1430;
+    overflow:hidden;
+  }
+
+  .mobile-accordion summary{
+    list-style:none;
+    min-height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+
+    padding:0 18px;
+
+    color:#F8F8F8;
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .mobile-accordion summary::-webkit-details-marker{
+    display:none;
+  }
+
+  .mobile-chevron{
+    width:13px;
+    height:9px;
+    flex:none;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    transition:transform .2s ease;
+  }
+
+  .mobile-accordion[open] .mobile-chevron{
+    transform:rotate(180deg);
+  }
+
+  .mobile-submenu{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+
+    padding:0 10px 12px;
+    border-top:1px solid rgba(126,151,255,.10);
+  }
+
+  .mobile-submenu a{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+
+    padding:13px 10px;
+    border-radius:10px;
+
+    color:#F8F8F8;
+    text-decoration:none;
+
+    transition:background .18s ease;
+  }
+
+  .mobile-submenu a:hover,
+  .mobile-submenu a:active{
+    background:rgba(91,123,240,.12);
+  }
+
+  .mobile-submenu strong{
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .mobile-submenu small{
+    color:#8F9AB2;
+    font-size:11px;
+    line-height:1.4;
+  }
+
+  .mobile-direct-link{
+    min-height:58px;
+    display:flex;
+    align-items:center;
+
+    padding:0 18px;
+
+    border:1px solid rgba(126,151,255,.13);
+    border-radius:14px;
+
+    background:#0B1430;
+    color:#F8F8F8;
+
+    font-size:16px;
+    font-weight:600;
+
+    text-decoration:none;
+  }
+
+  .mobile-talk-link{
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:4px;
+    padding:0 18px;
+
+    border-radius:12px;
+
+    background:#1419E0;
+    color:#fff;
+
+    font-size:15px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    box-shadow:0 10px 26px rgba(20,25,224,.24);
+  }
+
+  .mobile-talk-link:active{
+    transform:translateY(1px);
+  }
+
+  body.menu-open{
+    overflow:hidden;
+  }
+}
+
+
+/* =========================================================
+   MOBILE MENU — interaction feedback
+   Touch devices do not have a true hover, so we combine
+   hover + focus-visible + active for a clear tap response.
+========================================================= */
+@media (max-width:920px){
+
+  .mobile-accordion summary,
+  .mobile-submenu a,
+  .mobile-direct-link,
+  .mobile-talk-link{
+    -webkit-tap-highlight-color:transparent;
+    transition:
+      background-color .16s ease,
+      color .16s ease,
+      transform .16s ease,
+      border-color .16s ease;
+  }
+
+  .mobile-accordion summary:hover,
+  .mobile-accordion summary:focus-visible{
+    background:rgba(91,123,240,.10);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-accordion summary:active{
+    background:rgba(91,123,240,.18);
+    transform:scale(.992);
+  }
+
+  .mobile-submenu a:hover,
+  .mobile-submenu a:focus-visible{
+    background:rgba(91,123,240,.11);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-submenu a:active{
+    background:rgba(91,123,240,.20);
+    transform:translateX(3px);
+  }
+
+  .mobile-direct-link:hover,
+  .mobile-direct-link:focus-visible{
+    background:rgba(91,123,240,.12);
+    border-color:rgba(91,123,240,.34);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-direct-link:active{
+    background:rgba(91,123,240,.20);
+    transform:scale(.992);
+  }
+
+  .mobile-talk-link:hover,
+  .mobile-talk-link:focus-visible{
+    background:#2A30FF;
+    box-shadow:0 12px 28px rgba(20,25,224,.32);
+    outline:none;
+  }
+
+  .mobile-talk-link:active{
+    background:#0F14C7;
+    transform:scale(.992);
+    box-shadow:0 6px 18px rgba(20,25,224,.22);
+  }
+}
+
+
+/* =========================================================
+   PERSISTENT NAVBAR — desktop + mobile
+   The header stays visible for the entire page.
+========================================================= */
+
+.site-header{
+  position:fixed !important;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1200 !important;
+
+  padding:14px var(--page-pad) 12px;
+
+  /* Keeps the floating Tether-style nav readable over light sections */
+  background:linear-gradient(
+    to bottom,
+    rgba(7,15,34,.84) 0%,
+    rgba(7,15,34,.54) 64%,
+    rgba(7,15,34,0) 100%
+  );
+
+  pointer-events:none;
+}
+
+.site-header .navbar{
+  pointer-events:auto;
+
+  background:rgba(31,45,103,.82);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 12px 34px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* The header is fixed, so the hero needs to reserve its original space. */
+.hero{
+  padding-top:114px !important;
+}
+
+/* Anchor links should never land underneath the fixed nav. */
+#soluciones,
+#casos,
+#nosotros,
+#faq,
+#contacto{
+  scroll-margin-top:124px;
+}
+
+@media (max-width:920px){
+
+  .site-header{
+    padding:12px 12px 10px;
+  }
+
+  .site-header .navbar{
+    width:100%;
+  }
+
+  .hero{
+    padding-top:102px !important;
+  }
+
+  .mobile-menu-panel{
+    top:94px !important;
+    z-index:1300 !important;
+    max-height:calc(100dvh - 106px) !important;
+  }
+
+  #soluciones,
+  #casos,
+  #nosotros,
+  #faq,
+  #contacto{
+    scroll-margin-top:108px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE SUBMENUS FIX
+   The fixed header disables pointer events globally so the
+   transparent header layer does not block the page. Re-enable
+   interaction explicitly for the mobile panel and its contents.
+========================================================= */
+
+.mobile-menu-panel{
+  pointer-events:auto !important;
+}
+
+.mobile-menu-panel *,
+.mobile-accordion,
+.mobile-accordion summary,
+.mobile-submenu,
+.mobile-submenu a,
+.mobile-direct-link,
+.mobile-talk-link{
+  pointer-events:auto !important;
+}
+
+@media (max-width:920px){
+  .mobile-menu-panel{
+    touch-action:auto;
+  }
+
+  .mobile-accordion summary{
+    position:relative;
+    z-index:1;
+    cursor:pointer;
+    touch-action:manipulation;
+  }
+
+  .mobile-accordion[open] .mobile-submenu{
+    display:flex;
+  }
+}
+
+
+/* =========================================================
+   NAVIGATION FINAL — single source of truth
+   Desktop = .main-nav
+   Mobile  = #mobile-menu-panel
+========================================================= */
+
+/* Header stays visible everywhere */
+.site-header{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:5000 !important;
+  padding:14px var(--page-pad) 10px !important;
+  background:linear-gradient(
+    to bottom,
+    rgba(7,15,34,.92) 0%,
+    rgba(7,15,34,.64) 68%,
+    rgba(7,15,34,0) 100%
+  ) !important;
+  pointer-events:none !important;
+}
+
+.site-header .navbar{
+  position:relative !important;
+  z-index:5001 !important;
+  pointer-events:auto !important;
+
+  background:rgba(31,45,103,.82) !important;
+  -webkit-backdrop-filter:blur(18px) !important;
+  backdrop-filter:blur(18px) !important;
+
+  box-shadow:
+    0 12px 34px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+
+/* Keep content below the fixed navigation */
+.hero-content{
+  padding-top:150px !important;
+}
+
+#soluciones,
+#casos,
+#nosotros,
+#faq,
+#contacto{
+  scroll-margin-top:126px;
+}
+
+
+/* ---------- DESKTOP ---------- */
+@media (min-width:921px){
+
+  .main-nav{
+    display:flex !important;
+  }
+
+  .mobile-toggle,
+  #mobile-menu-panel{
+    display:none !important;
+  }
+
+  .nav-cta{
+    display:inline-flex !important;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width:920px){
+
+  :root{
+    --mobile-nav-top:92px;
+  }
+
+  .site-header{
+    padding:10px 12px 8px !important;
+  }
+
+  .site-header .navbar{
+    width:100% !important;
+    min-height:72px !important;
+    height:72px !important;
+    padding:0 16px !important;
+    border-radius:16px !important;
+  }
+
+  .brand img{
+    height:25px !important;
+  }
+
+  /* Never reuse the desktop menu on mobile */
+  .main-nav,
+  .nav-cta{
+    display:none !important;
+  }
+
+  .mobile-toggle{
+    position:relative !important;
+    z-index:5003 !important;
+
+    display:flex !important;
+    width:44px !important;
+    height:44px !important;
+    flex:0 0 44px !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+    flex-direction:column !important;
+    gap:7px !important;
+
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+
+    cursor:pointer !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+  }
+
+  .mobile-toggle span{
+    width:22px !important;
+    height:1.5px !important;
+    display:block !important;
+    background:#fff !important;
+    transition:transform .2s ease, opacity .2s ease !important;
+  }
+
+  .mobile-toggle[aria-expanded="true"] span:first-child{
+    transform:translateY(4.25px) rotate(45deg) !important;
+  }
+
+  .mobile-toggle[aria-expanded="true"] span:last-child{
+    transform:translateY(-4.25px) rotate(-45deg) !important;
+  }
+
+  /* Dedicated mobile dropdown panel */
+  #mobile-menu-panel{
+    position:fixed !important;
+    top:var(--mobile-nav-top) !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:auto !important;
+
+    z-index:5002 !important;
+
+    display:none !important;
+    width:auto !important;
+    max-height:calc(100dvh - var(--mobile-nav-top) - 12px) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    overscroll-behavior:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+
+    padding:12px !important;
+
+    border:1px solid rgba(126,151,255,.16) !important;
+    border-radius:18px !important;
+
+    background:#081026 !important;
+    box-shadow:0 28px 70px rgba(0,0,0,.52) !important;
+
+    pointer-events:auto !important;
+    touch-action:pan-y !important;
+  }
+
+  #mobile-menu-panel.is-open{
+    display:block !important;
+  }
+
+  #mobile-menu-panel,
+  #mobile-menu-panel *{
+    pointer-events:auto !important;
+  }
+
+  .mobile-menu-inner{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    min-height:max-content !important;
+  }
+
+  details.mobile-accordion{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+
+    overflow:hidden !important;
+
+    border:1px solid rgba(126,151,255,.12) !important;
+    border-radius:14px !important;
+
+    background:#0B1430 !important;
+  }
+
+  details.mobile-accordion > summary{
+    list-style:none !important;
+    min-height:58px !important;
+    width:100% !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:16px !important;
+
+    padding:0 16px !important;
+
+    color:#F8F8F8 !important;
+    background:transparent !important;
+
+    font-size:16px !important;
+    font-weight:600 !important;
+    line-height:1.2 !important;
+
+    cursor:pointer !important;
+    user-select:none !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+  }
+
+  details.mobile-accordion > summary::-webkit-details-marker{
+    display:none !important;
+  }
+
+  details.mobile-accordion > summary::marker{
+    content:"" !important;
+  }
+
+  details.mobile-accordion > summary:hover,
+  details.mobile-accordion > summary:focus-visible{
+    background:rgba(91,123,240,.09) !important;
+    outline:none !important;
+  }
+
+  details.mobile-accordion > summary:active{
+    background:rgba(91,123,240,.17) !important;
+  }
+
+  .mobile-chevron{
+    width:13px !important;
+    height:9px !important;
+    flex:none !important;
+
+    fill:none !important;
+    stroke:currentColor !important;
+    stroke-width:1.8 !important;
+    stroke-linecap:round !important;
+    stroke-linejoin:round !important;
+
+    transition:transform .2s ease !important;
+  }
+
+  details.mobile-accordion[open] .mobile-chevron{
+    transform:rotate(180deg) !important;
+  }
+
+  .mobile-submenu{
+    display:none !important;
+    flex-direction:column !important;
+    gap:2px !important;
+
+    padding:6px 8px 10px !important;
+    border-top:1px solid rgba(126,151,255,.09) !important;
+  }
+
+  details.mobile-accordion[open] > .mobile-submenu{
+    display:flex !important;
+  }
+
+  .mobile-submenu a{
+    width:100% !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    gap:3px !important;
+
+    padding:12px 10px !important;
+    border-radius:10px !important;
+
+    color:#F8F8F8 !important;
+    background:transparent !important;
+    text-decoration:none !important;
+
+    transition:
+      background-color .16s ease,
+      transform .16s ease !important;
+  }
+
+  .mobile-submenu a:hover,
+  .mobile-submenu a:focus-visible{
+    background:rgba(91,123,240,.11) !important;
+    outline:none !important;
+  }
+
+  .mobile-submenu a:active{
+    background:rgba(91,123,240,.19) !important;
+    transform:translateX(3px) !important;
+  }
+
+  .mobile-submenu strong{
+    color:#F8F8F8 !important;
+    font-size:14px !important;
+    font-weight:600 !important;
+  }
+
+  .mobile-submenu small{
+    color:#8F9AB2 !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+  }
+
+  .mobile-direct-link{
+    min-height:56px !important;
+    width:100% !important;
+
+    display:flex !important;
+    align-items:center !important;
+
+    padding:0 16px !important;
+
+    border:1px solid rgba(126,151,255,.12) !important;
+    border-radius:14px !important;
+
+    background:#0B1430 !important;
+    color:#F8F8F8 !important;
+
+    font-size:16px !important;
+    font-weight:600 !important;
+    text-decoration:none !important;
+  }
+
+  .mobile-direct-link:hover,
+  .mobile-direct-link:focus-visible{
+    background:rgba(91,123,240,.12) !important;
+    outline:none !important;
+  }
+
+  .mobile-talk-link{
+    min-height:54px !important;
+    width:100% !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    margin-top:2px !important;
+    padding:0 16px !important;
+
+    border-radius:12px !important;
+
+    background:#1419E0 !important;
+    color:#fff !important;
+
+    font-size:15px !important;
+    font-weight:700 !important;
+    text-decoration:none !important;
+
+    box-shadow:0 10px 26px rgba(20,25,224,.24) !important;
+  }
+
+  .mobile-talk-link:hover,
+  .mobile-talk-link:focus-visible{
+    background:#2A30FF !important;
+    outline:none !important;
+  }
+
+  body.menu-open{
+    overflow:hidden !important;
+  }
+
+  .hero-content{
+    padding-top:116px !important;
+  }
+
+  #soluciones,
+  #casos,
+  #nosotros,
+  #faq,
+  #contacto{
+    scroll-margin-top:106px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP HERO POSITION FIX
+   Restore the original hero height/position while keeping
+   the navbar fixed. Previous sticky-nav patches were adding
+   top spacing twice (on .hero and .hero-content).
+========================================================= */
+@media (min-width:921px){
+  .hero{
+    padding-top:0 !important;
+  }
+
+  .hero-content{
+    padding-top:110px !important;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP SPACING — final adjustment
+   Keep a comfortable gap below the fixed navbar without
+   pushing the hero too far down.
+========================================================= */
+
+html,
+body{
+  background:#070F22 !important;
+}
+
+@media (min-width:921px){
+  .site-header{
+    top:-1px !important; /* avoids any 1px viewport seam */
+  }
+
+  .hero{
+    padding-top:0 !important;
+  }
+
+  .hero-content{
+    padding-top:163px !important;
+  }
+}
+
+
+
+/* =========================================================
+   NOSOTROS
+   Original desktop design preserved.
+   Only responsive behavior + interaction feedback added.
+========================================================= */
+
+@media (min-width:921px){
+  /* Original mockup navbar occupied 102px in normal flow.
+     The shared navbar is fixed, so reserve exactly that space. */
+  .nos-hero{
+    padding-top:102px !important;
+  }
+}
+
+/* Buttons/links: same interaction language as Home/Educación */
+.nos-btn,
+.nos-small-btn{
+  transition:
+    transform .18s ease,
+    background-color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    color .18s ease !important;
+}
+
+.nos-btn:hover{
+  transform:translateY(-2px);
+  background:#252AFF !important;
+  box-shadow:0 10px 34px rgba(20,74,224,.42) !important;
+}
+
+.nos-small-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(20,25,224,.52) !important;
+  background:rgba(20,25,224,.07) !important;
+}
+
+.nos-team-card,
+.nos-value-card{
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+
+.nos-team-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 44px rgba(25,44,110,.09);
+}
+
+.nos-value-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(91,123,240,.42) !important;
+}
+
+@media (max-width:920px){
+
+  .nos-hero{
+    padding:0 20px 80px !important;
+  }
+
+  .nos-hero-intro{
+    padding-top:148px !important;
+    max-width:none !important;
+  }
+
+  .nos-hero-intro h1{
+    font-size:clamp(52px,13vw,68px) !important;
+    line-height:1.05 !important;
+  }
+
+  .nos-hero-row{
+    margin-top:38px !important;
+    display:block !important;
+  }
+
+  .nos-hero-row p{
+    max-width:none !important;
+    font-size:17px !important;
+  }
+
+  .nos-hero-row .nos-btn{
+    display:flex !important;
+    width:100% !important;
+    justify-content:center !important;
+    margin-top:32px !important;
+  }
+
+  .nos-hero-media{
+    margin-top:52px !important;
+    height:460px !important;
+  }
+
+  .nos-identity,
+  .nos-philosophy,
+  .nos-team,
+  .nos-values,
+  .nos-roadmap,
+  .nos-metrics,
+  .nos-contact{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+
+  .nos-identity,
+  .nos-philosophy,
+  .nos-team,
+  .nos-values,
+  .nos-roadmap{
+    padding-top:84px !important;
+    padding-bottom:84px !important;
+  }
+
+  .nos-identity-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .nos-identity-grid > div{
+    padding:34px !important;
+  }
+
+  .nos-identity-grid > div > div:last-child{
+    font-size:34px !important;
+  }
+
+  .nos-identity-copy{
+    margin-top:42px !important;
+    max-width:none !important;
+    font-size:19px !important;
+  }
+
+  .nos-philosophy-grid{
+    grid-template-columns:1fr !important;
+    gap:42px !important;
+  }
+
+  .nos-philosophy h2,
+  .nos-team h2,
+  .nos-values h2,
+  .nos-roadmap h2,
+  .nos-contact h2{
+    font-size:42px !important;
+  }
+
+  .nos-principles > div{
+    font-size:26px !important;
+    padding:24px 0 !important;
+  }
+
+  .nos-team-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:20px !important;
+  }
+
+  .nos-team-card > div:first-child{
+    height:330px !important;
+  }
+
+  .nos-team-card > div:last-child{
+    padding:26px !important;
+  }
+
+  .nos-values-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .nos-roadmap-grid{
+    grid-template-columns:1fr !important;
+    gap:30px !important;
+  }
+
+  .nos-roadmap-grid p{
+    font-size:18px !important;
+  }
+
+  .nos-metrics{
+    padding-top:82px !important;
+    padding-bottom:82px !important;
+  }
+
+  .nos-metrics-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:40px 24px !important;
+  }
+
+  .nos-metrics-grid > div > div:first-child{
+    font-size:58px !important;
+  }
+
+  .nos-contact{
+    padding-top:88px !important;
+    padding-bottom:88px !important;
+  }
+
+  .nos-contact .nos-btn{
+    display:flex !important;
+    width:100% !important;
+    justify-content:center !important;
+  }
+}
+
+@media (max-width:600px){
+
+  .nos-hero-intro h1{
+    font-size:52px !important;
+  }
+
+  .nos-hero-media{
+    height:420px !important;
+  }
+
+  .nos-team-grid,
+  .nos-values-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .nos-team-card > div:first-child{
+    height:390px !important;
+  }
+
+  .nos-principles > div{
+    font-size:23px !important;
+    gap:14px !important;
+  }
+
+  .nos-metrics-grid > div > div:first-child{
+    font-size:50px !important;
+  }
+}
+
+/* =========================================================
+   NOSOTROS — TYPOGRAPHY TUNING
+   Same design, slightly more web-scaled than the 1440px mockup.
+========================================================= */
+
+@media (min-width:921px){
+
+  /* Hero: 88px -> 80px */
+  .nos-hero-intro h1{
+    font-size:80px !important;
+  }
+
+  /* NO SOMOS / SOMOS: 44px -> 40px */
+  .nos-identity-grid > div > div:last-child{
+    font-size:40px !important;
+  }
+
+  /* Main supporting paragraph: 24px -> 20px */
+  .nos-identity-copy{
+    font-size:20px !important;
+    line-height:1.58 !important;
+  }
+
+  /* Section headings: 54px -> 48px */
+  .nos-philosophy h2,
+  .nos-team h2,
+  .nos-values h2,
+  .nos-roadmap h2{
+    font-size:48px !important;
+  }
+
+  /* Philosophy statements: 36px -> 31px */
+  .nos-principles > div{
+    font-size:31px !important;
+  }
+
+  /* Roadmap body: 21px -> 19px */
+  .nos-roadmap-grid > p{
+    font-size:19px !important;
+  }
+
+  /* Metrics: 88px -> 76px */
+  .nos-metrics-grid > div > div:first-child{
+    font-size:76px !important;
+  }
+
+  /* Metrics labels: 18px -> 16px */
+  .nos-metrics-grid > div > div:last-child{
+    font-size:16px !important;
+  }
+
+  /* Final CTA: 66px -> 56px */
+  .nos-contact h2{
+    font-size:56px !important;
+  }
+
+  /* Final CTA body: 19px -> 18px */
+  .nos-contact p{
+    font-size:18px !important;
+  }
+}
+
+/* Mobile remains editorial, but avoids feeling oversized. */
+@media (max-width:920px){
+
+  .nos-hero-intro h1{
+    font-size:50px !important;
+  }
+
+  .nos-identity-grid > div > div:last-child{
+    font-size:32px !important;
+  }
+
+  .nos-identity-copy{
+    font-size:18px !important;
+  }
+
+  .nos-philosophy h2,
+  .nos-team h2,
+  .nos-values h2,
+  .nos-roadmap h2,
+  .nos-contact h2{
+    font-size:40px !important;
+  }
+
+  .nos-principles > div{
+    font-size:24px !important;
+  }
+
+  .nos-roadmap-grid > p{
+    font-size:18px !important;
+  }
+
+  .nos-metrics-grid > div > div:first-child{
+    font-size:50px !important;
+  }
+}
+
+@media (max-width:600px){
+
+  .nos-hero-intro h1{
+    font-size:48px !important;
+  }
+
+  .nos-philosophy h2,
+  .nos-team h2,
+  .nos-values h2,
+  .nos-roadmap h2,
+  .nos-contact h2{
+    font-size:38px !important;
+  }
+
+  .nos-principles > div{
+    font-size:22px !important;
+  }
+
+  .nos-metrics-grid > div > div:first-child{
+    font-size:46px !important;
+  }
+}
+
+
+
+/* =========================================================
+   TEAM ACTIONS — cleaner LinkedIn / Web buttons
+========================================================= */
+.nos-team-actions{
+  margin-top:22px !important;
+  display:flex !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+}
+
+.nos-team-action{
+  min-height:40px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+  padding:0 14px !important;
+  border:1px solid rgba(20,25,224,.22) !important;
+  border-radius:10px !important;
+  background:#FFFFFF !important;
+  color:#1419E0 !important;
+  font-size:13px !important;
+  line-height:1 !important;
+  font-weight:600 !important;
+  box-shadow:none !important;
+  transition:
+    transform .18s ease,
+    background-color .18s ease,
+    border-color .18s ease,
+    color .18s ease,
+    box-shadow .18s ease !important;
+}
+
+.nos-team-action svg{
+  width:15px !important;
+  height:15px !important;
+  flex:0 0 15px !important;
+  stroke:currentColor !important;
+}
+
+.nos-team-action:hover{
+  transform:translateY(-2px) !important;
+  background:#1419E0 !important;
+  border-color:#1419E0 !important;
+  color:#FFFFFF !important;
+  box-shadow:0 8px 22px rgba(20,25,224,.18) !important;
+}
+
+.nos-team-action:focus-visible{
+  outline:3px solid rgba(20,74,224,.18) !important;
+  outline-offset:2px !important;
+}
+
+@media (max-width:600px){
+  .nos-team-actions{
+    width:100% !important;
+  }
+  .nos-team-action{
+    min-width:0 !important;
+  }
+}
+
+
+/* =========================================================
+   TEAM ACTIONS — compact final version
+========================================================= */
+.nos-team-actions{
+  margin-top:18px !important;
+  display:flex !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+}
+
+.nos-team-action{
+  width:auto !important;
+  min-width:0 !important;
+  min-height:34px !important;
+  height:34px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  padding:0 11px !important;
+
+  border:1px solid #DCE2F2 !important;
+  border-radius:8px !important;
+  background:#F8FAFF !important;
+
+  color:#1419E0 !important;
+  font-size:12px !important;
+  line-height:1 !important;
+  font-weight:600 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap !important;
+
+  box-shadow:none !important;
+  text-decoration:none !important;
+
+  transition:
+    transform .16s ease,
+    background-color .16s ease,
+    border-color .16s ease,
+    color .16s ease !important;
+}
+
+.nos-team-action svg{
+  width:13px !important;
+  height:13px !important;
+  flex:0 0 13px !important;
+  stroke:currentColor !important;
+  stroke-width:1.9 !important;
+}
+
+.nos-team-action:hover{
+  transform:translateY(-1px) !important;
+  background:#1419E0 !important;
+  border-color:#1419E0 !important;
+  color:#FFFFFF !important;
+  box-shadow:none !important;
+}
+
+.nos-team-action:active{
+  transform:translateY(0) !important;
+}
+
+@media (max-width:600px){
+  .nos-team-actions{
+    gap:7px !important;
+  }
+
+  .nos-team-action{
+    height:33px !important;
+    min-height:33px !important;
+    padding:0 10px !important;
+    font-size:11.5px !important;
+  }
+}
+
+/* =========================================================
+   TEAM ICONS + FOOTER ALIGNMENT — final polish
+========================================================= */
+
+/* Keep the team icons fully visible inside the compact buttons. */
+.nos-team-action svg{
+  width:14px !important;
+  height:14px !important;
+  flex:0 0 14px !important;
+  display:block !important;
+  overflow:visible !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  fill:none !important;
+}
+
+/* Match the footer's horizontal edge with the original Nosotros sections.
+   Desktop sections use 96px; responsive sections use 20px. */
+@media (min-width:921px){
+  .footer{
+    padding-left:96px !important;
+    padding-right:96px !important;
+  }
+
+  .footer > .container{
+    width:100% !important;
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+}
+
+@media (max-width:920px){
+  .footer{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+
+  .footer > .container{
+    width:100% !important;
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+}
+
+</style>
+</head><body><header class="site-header">
+<nav aria-label="Navegación principal" class="navbar">
+<a aria-label="Ir al inicio de lowsignal" class="brand" href="../">
+<img alt="lowsignal" src="../assets/logo-horizontal-white.png"/>
+</a>
+<button aria-controls="mobile-menu-panel" aria-expanded="false" aria-label="Abrir menú" class="mobile-toggle" type="button">
+<span></span>
+<span></span>
+</button>
+<div class="main-nav" id="main-nav">
+<div class="nav-item">
+<button aria-expanded="false" class="nav-trigger" type="button">
+              Soluciones
+              <svg aria-hidden="true" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</button>
+<div class="mega-menu mega-solutions">
+<p class="mega-label">SOLUCIONES</p>
+<div class="mega-grid mega-grid-3">
+<a class="mega-link" href="../soluciones/low-social/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M4 4h16v12H5.2L4 17.2z"></path>
+<path d="M8 9h8M8 12h5"></path>
+</svg>
+</span>
+<span>
+<strong>Low Social</strong>
+<small>Contenido y comunidad</small>
+</span>
+</a>
+<a class="mega-link" href="../soluciones/low-ads/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M3 11 17 5v14L3 13z"></path>
+<path d="M7 13v5a2 2 0 0 0 4 0v-3.5"></path>
+</svg>
+</span>
+<span>
+<strong>Low Ads</strong>
+<small>Campañas que generan demanda</small>
+</span>
+</a>
+<a class="mega-link" href="../soluciones/low-web/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="14" rx="2" width="18" x="3" y="4"></rect>
+<path d="M3 8h18M8 21h8"></path>
+</svg>
+</span>
+<span>
+<strong>Low Web</strong>
+<small>Sitios que convierten</small>
+</span>
+</a>
+<a class="mega-link" href="../soluciones/low-scale/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="m3 17 6-6 4 4 8-8"></path>
+<path d="M15 7h6v6"></path>
+</svg>
+</span>
+<span>
+<strong>Low Scale</strong>
+<small>Estrategia, datos y crecimiento</small>
+</span>
+</a>
+<a class="mega-link" href="../soluciones/low-flow/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M5 6h14v12H5z"></path>
+<path d="M8 10h8M8 14h5"></path>
+</svg>
+</span>
+<span>
+<strong>Low Flow</strong>
+<small>Automatización y CRM</small>
+</span>
+</a>
+<a class="mega-link" href="../soluciones/low-apps/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="20" rx="2" width="12" x="6" y="2"></rect>
+<path d="M11 18h2"></path>
+</svg>
+</span>
+<span>
+<strong>Low Apps</strong>
+<small>Productos digitales</small>
+</span>
+</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<button aria-expanded="false" class="nav-trigger" type="button">
+              Industrias
+              <svg aria-hidden="true" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</button>
+<div class="mega-menu">
+<p class="mega-label">INDUSTRIAS</p>
+<div class="mega-grid mega-grid-3">
+<a class="mega-link" href="../industrias/educacion/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M4 19V7l8-4 8 4v12"></path>
+<path d="M8 19v-5h8v5M3 19h18"></path>
+</svg>
+</span>
+<span>
+<strong>Educación</strong>
+<small>Colegios, redes y fundaciones</small>
+</span>
+</a>
+<a class="mega-link" href="../industrias/b2b/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="13" rx="2" width="18" x="3" y="7"></rect>
+<path d="M9 7V4h6v3M3 13h18"></path>
+</svg>
+</span>
+<span>
+<strong>Empresas B2B</strong>
+<small>Servicios y ciclos de venta complejos</small>
+</span>
+</a>
+<a class="mega-link" href="../industrias/marcas-b2c/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M4 19h16M6 19V8h12v11M9 8V5h6v3"></path>
+</svg>
+</span>
+<span>
+<strong>Marcas B2C</strong>
+<small>Consumo, retail y experiencias</small>
+</span>
+</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<button aria-expanded="false" class="nav-trigger" type="button">
+              Recursos
+              <svg aria-hidden="true" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</button>
+<div class="mega-menu">
+<p class="mega-label">RECURSOS</p>
+<div class="mega-grid mega-grid-4">
+<a class="mega-link" href="../casos/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M4 4h16v16H4z"></path>
+<path d="M8 9h8M8 13h8M8 17h5"></path>
+</svg>
+</span>
+<span>
+<strong>Customer stories</strong>
+<small>Casos de clientes</small>
+</span>
+</a>
+<a class="mega-link" href="../recursos/insights/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M9 18h6M10 21h4"></path>
+<path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path>
+</svg>
+</span>
+<span>
+<strong>Insights</strong>
+<small>Ideas y aprendizajes</small>
+</span>
+</a>
+<a class="mega-link" href="../recursos/jobs/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="13" rx="2" width="18" x="3" y="7"></rect>
+<path d="M9 7V4h6v3M3 13h18"></path>
+</svg>
+</span>
+<span>
+<strong>Jobs</strong>
+<small>Trabaja con nosotros</small>
+</span>
+</a>
+<a class="mega-link" href="../recursos/insiders/">
+<span class="mega-icon">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<circle cx="9" cy="8" r="3.5"></circle>
+<path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+<path d="m16 11 2 2 4-4"></path>
+</svg>
+</span>
+<span>
+<strong>lowsignal Insiders</strong>
+<small>Programa de referidos</small>
+</span>
+</a>
+</div>
+</div>
+</div>
+<a class="nav-simple" href="./">Nosotros</a>
+<a class="mobile-contact" data-scroll-contact="" href="#contacto">Hablemos</a>
+</div>
+<a class="nav-cta" data-scroll-contact="" href="#contacto">Hablemos</a>
+</nav>
+<!-- Mobile-only navigation. Native details = reliable on iPhone/Safari. -->
+<div aria-hidden="true" class="mobile-menu-panel" id="mobile-menu-panel">
+<div class="mobile-menu-inner">
+<details class="mobile-accordion">
+<summary>
+<span>Soluciones</span>
+<svg aria-hidden="true" class="mobile-chevron" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</summary>
+<div class="mobile-submenu">
+<a href="../soluciones/low-social/"><strong>Low Social</strong><small>Contenido y comunidad</small></a>
+<a href="../soluciones/low-ads/"><strong>Low Ads</strong><small>Campañas que generan demanda</small></a>
+<a href="../soluciones/low-web/"><strong>Low Web</strong><small>Sitios que convierten</small></a>
+<a href="../soluciones/low-scale/"><strong>Low Scale</strong><small>Estrategia, datos y crecimiento</small></a>
+<a href="../soluciones/low-flow/"><strong>Low Flow</strong><small>Automatización y CRM</small></a>
+<a href="../soluciones/low-apps/"><strong>Low Apps</strong><small>Productos digitales</small></a>
+</div>
+</details>
+<details class="mobile-accordion">
+<summary>
+<span>Industrias</span>
+<svg aria-hidden="true" class="mobile-chevron" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</summary>
+<div class="mobile-submenu">
+<a href="../industrias/educacion/"><strong>Educación</strong><small>Colegios, redes y fundaciones</small></a>
+<a href="../industrias/b2b/"><strong>Empresas B2B</strong><small>Servicios y ciclos de venta complejos</small></a>
+<a href="../industrias/marcas-b2c/"><strong>Marcas B2C</strong><small>Consumo, retail y experiencias</small></a>
+</div>
+</details>
+<details class="mobile-accordion">
+<summary>
+<span>Recursos</span>
+<svg aria-hidden="true" class="mobile-chevron" viewBox="0 0 12 8">
+<path d="M1 1.5 6 6.5 11 1.5"></path>
+</svg>
+</summary>
+<div class="mobile-submenu">
+<a href="../casos/"><strong>Customer stories</strong><small>Casos de clientes</small></a>
+<a href="../recursos/insights/"><strong>Insights</strong><small>Ideas y aprendizajes</small></a>
+<a href="../recursos/jobs/"><strong>Jobs</strong><small>Trabaja con nosotros</small></a>
+<a href="../recursos/insiders/"><strong>lowsignal Insiders</strong><small>Programa de referidos</small></a>
+</div>
+</details>
+<a class="mobile-direct-link" href="./">Nosotros</a>
+<a class="mobile-talk-link" data-scroll-contact="" href="#contacto">Hablemos</a>
+</div>
+</div>
+</header><main><section class="nos-hero" style="position:relative;background:#070F22;padding:0 96px 120px;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(50% 60% at 0% 0%,rgba(20,74,224,.35) 0%,rgba(20,74,224,0) 70%);"></div>
+<div class="nos-hero-intro" style="position:relative;padding-top:120px;max-width:1100px;">
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#5B7BF0;">NOSOTROS</div>
+<h1 style="margin:28px 0 0;font-size:88px;line-height:1.04;font-weight:300;letter-spacing:-.04em;color:#F8F8F8;text-wrap:balance;">No construimos campañas. Construimos <span style="font-weight:700;color:#5B7BF0;">crecimiento.</span></h1>
+</div>
+<div class="nos-hero-row" style="position:relative;margin-top:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:60px;">
+<p style="margin:0;max-width:600px;font-size:21px;line-height:1.6;color:#8B92A8;text-wrap:pretty;">Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.</p>
+<a class="nos-btn" href="https://calendly.com/felipe-lowsignal/30min" rel="noopener noreferrer" style="flex:none;background:#1419E0;color:#FFFFFF;font-size:17px;font-weight:600;padding:18px 34px;border-radius:10px;box-shadow:0 0 40px rgba(20,74,224,.45);" target="_blank">Agendar reunión</a>
+</div>
+<div class="nos-hero-media" style="position:relative;margin-top:80px;height:560px;border-radius:24px;overflow:hidden;">
+<img src="../assets/nosotros-hero.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;"/>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,34,0) 55%,rgba(7,15,34,.65) 100%);"></div>
+<div style="position:absolute;left:36px;bottom:30px;font-size:15px;letter-spacing:.2em;font-weight:500;color:rgba(230,236,255,.85);">/ LAS CONDES, SANTIAGO</div>
+</div>
+</section><section class="nos-identity" style="background:#EEF3FF;padding:130px 96px;">
+<div class="nos-identity-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+<div style="background:#FFFFFF;border-radius:20px;padding:56px;">
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#8B92A8;">NO SOMOS</div>
+<div style="margin-top:28px;font-size:44px;line-height:1.2;font-weight:300;letter-spacing:-.03em;color:#6B7390;">Una agencia tradicional ni una software house.</div>
+</div>
+<div style="background:linear-gradient(135deg,#1419E0 0%,#144AE0 100%);border-radius:20px;padding:56px;">
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#DDE3FF;">SOMOS</div>
+<div style="margin-top:28px;font-size:44px;line-height:1.2;font-weight:700;letter-spacing:-.03em;color:#FFFFFF;">Constructores de crecimiento.</div>
+</div>
+</div>
+<p class="nos-identity-copy" style="margin:56px 0 0;max-width:880px;font-size:24px;line-height:1.55;font-weight:400;color:#41507F;">Las empresas no tienen un problema de visibilidad. Tienen un problema de <span style="font-weight:700;color:#1419E0;">sistemas</span>. Por eso fusionamos marketing, diseño y tecnología en una sola infraestructura que conecta estrategia, adquisición, conversión y tecnología.</p>
+</section><section class="nos-philosophy" style="position:relative;background:#070F22;padding:130px 96px;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(40% 50% at 100% 0%,rgba(20,74,224,.28) 0%,rgba(20,74,224,0) 70%);"></div>
+<div class="nos-philosophy-grid" style="position:relative;display:grid;grid-template-columns:.8fr 1.2fr;gap:96px;">
+<div>
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#5B7BF0;">FILOSOFÍA</div>
+<h2 style="margin:24px 0 0;font-size:54px;line-height:1.14;font-weight:300;letter-spacing:-.03em;color:#F8F8F8;">Less noise. <span style="font-weight:700;color:#5B7BF0;">More growth.</span></h2>
+</div>
+<div class="nos-principles" style="display:flex;flex-direction:column;">
+<div style="display:flex;align-items:baseline;gap:22px;padding:30px 0;border-top:1px solid rgba(150,175,255,.16);font-size:36px;font-weight:300;letter-spacing:-.02em;color:#8B92A8;"><span style="color:#5B7BF0;font-weight:700;">/</span><span><span style="font-weight:700;color:#F8F8F8;">Systems</span> over campaigns</span></div>
+<div style="display:flex;align-items:baseline;gap:22px;padding:30px 0;border-top:1px solid rgba(150,175,255,.16);font-size:36px;font-weight:300;letter-spacing:-.02em;color:#8B92A8;"><span style="color:#5B7BF0;font-weight:700;">/</span><span><span style="font-weight:700;color:#F8F8F8;">Performance</span> over vanity metrics</span></div>
+<div style="display:flex;align-items:baseline;gap:22px;padding:30px 0;border-top:1px solid rgba(150,175,255,.16);font-size:36px;font-weight:300;letter-spacing:-.02em;color:#8B92A8;"><span style="color:#5B7BF0;font-weight:700;">/</span><span><span style="font-weight:700;color:#F8F8F8;">Execution</span> over ideas</span></div>
+<div style="display:flex;align-items:baseline;gap:22px;padding:30px 0;border-top:1px solid rgba(150,175,255,.16);border-bottom:1px solid rgba(150,175,255,.16);font-size:36px;font-weight:300;letter-spacing:-.02em;color:#8B92A8;"><span style="color:#5B7BF0;font-weight:700;">/</span><span><span style="font-weight:700;color:#F8F8F8;">Results</span> over activity</span></div>
+</div>
+</div>
+</section><section class="nos-team" style="background:#EEF3FF;padding:130px 96px;">
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#1419E0;">EQUIPO</div>
+<h2 style="margin:24px 0 0;font-size:54px;line-height:1.14;font-weight:300;letter-spacing:-.03em;color:#0A0A0A;">Las personas detrás <span style="font-weight:700;color:#1419E0;">del sistema.</span></h2>
+<div class="nos-team-grid" style="margin-top:64px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-felipe.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Felipe Quiroz</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Co-Founder &amp; COO</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Felipe trabaja en la intersección de producto, growth y negocio. Su trayectoria cruza B2B SaaS, AI y GovTech, desde GeoVictoria hasta TetherEd, una startup GovTech de EE.UU. con presencia en Latinoamérica, Estados Unidos y Europa. Ha construido productos, partnerships y sistemas de crecimiento, convirtiendo problemas complejos en soluciones digitales diseñadas para escalar.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Producto</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Growth</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">B2B SaaS</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">AI</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Partnerships</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/felipequirozp/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a><a class="nos-small-btn nos-team-action" href="https://felipequirozp.cl/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"></path></svg>Sitio web</a></div>
+</div>
+</div>
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-damian.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Damián Aldunate</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Co-Founder &amp; CMO</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Damián lidera la estrategia de marketing, marca y contenido en lowsignal. Como Co-Founder &amp; CMO, trabaja en posicionamiento, creatividad, social media y crecimiento, desarrollando estrategias para startups, marcas e influencers y convirtiendo ideas en audiencias, contenido y nuevas oportunidades de negocio.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Marketing</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Branding</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Social Media</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Creatividad</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Growth</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/damianaldunate/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a></div>
+</div>
+</div>
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-marco.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Marco Kroeger</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Business Development Representative</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Marco impulsa nuevas oportunidades comerciales en lowsignal, conectando con empresas, detectando necesidades y acompañando cada oportunidad desde el primer contacto hasta el inicio del proyecto.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Desarrollo comercial</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Prospección</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Relación con clientes</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/marcokroeger/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a></div>
+</div>
+</div>
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-martin.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Martín Alvarado</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Audiovisual Producer</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Martín transforma ideas y conceptos de marca en contenido audiovisual, trabajando fotografía, video y producción para crear piezas con identidad, intención y una mirada visual propia.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Fotografía</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Video</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Producción</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/martin-alvaradod" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a></div>
+</div>
+</div>
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-jorge.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Jorge Muñoz</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Audiovisual Producer</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Jorge lleva conceptos a contenido audiovisual listo para comunicar, combinando grabación, edición y producción para desarrollar piezas pensadas para marcas, campañas y social media.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Grabación</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Edición</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Producción</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/jorgemunozve/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a></div>
+</div>
+</div>
+<div class="nos-team-card" style="background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+<div style="height:360px;background:#333439;overflow:hidden;"><img src="../assets/team-lia.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+<div style="padding:28px 30px 30px;flex:1;display:flex;flex-direction:column;align-items:flex-start;">
+<div style="font-size:21px;font-weight:700;color:#0F1F8C;">Lía Morice</div>
+<div style="margin-top:5px;font-size:15px;line-height:1.4;color:#1419E0;font-weight:500;">Content Creator</div>
+<div style="margin-top:16px;font-size:15px;line-height:1.6;color:#41507F;text-wrap:pretty;">Lía crea contenido para redes sociales combinando ideas, tendencias y estrategia, transformando conceptos de marca en piezas pensadas para conectar, generar conversación y construir presencia digital.</div>
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;flex:1;align-content:flex-start;"><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Contenido</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Tendencias</span><span style="font-size:13px;font-weight:500;color:#41507F;background:#EEF3FF;border:1px solid #DCE2F2;border-radius:8px;padding:7px 12px;">Social Media</span></div>
+<div class="nos-team-actions"><a class="nos-small-btn nos-team-action" href="https://www.linkedin.com/in/l%C3%ADa-morice-b31521419/" rel="noopener noreferrer" target="_blank"><svg fill="none" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" width="16"><rect height="20" rx="4" width="20" x="2" y="2"></rect><path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 016 0v4M11 10v7"></path></svg>LinkedIn</a></div>
+</div>
+</div>
+</div>
+</section><section class="nos-values" style="position:relative;background:#070F22;padding:130px 96px;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(45% 55% at 0% 100%,rgba(20,74,224,.26) 0%,rgba(20,74,224,0) 70%);"></div>
+<div style="position:relative;font-size:15px;font-weight:500;letter-spacing:.22em;color:#5B7BF0;">VALORES</div>
+<h2 style="position:relative;margin:24px 0 0;font-size:54px;line-height:1.14;font-weight:300;letter-spacing:-.03em;color:#F8F8F8;">Cómo <span style="font-weight:700;color:#5B7BF0;">trabajamos.</span></h2>
+<div class="nos-values-grid" style="position:relative;margin-top:64px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;">
+<div class="nos-value-card" style="border:1px solid rgba(91,123,240,.22);border-radius:18px;padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 01</div>
+<div><div style="font-size:24px;font-weight:700;color:#F8F8F8;">Ambición</div><div style="margin-top:8px;font-size:15px;line-height:1.5;color:#8B92A8;">Apuntamos a resultados que muevan el negocio.</div></div>
+</div>
+<div class="nos-value-card" style="border:1px solid rgba(91,123,240,.22);border-radius:18px;padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 02</div>
+<div><div style="font-size:24px;font-weight:700;color:#F8F8F8;">Simplicidad</div><div style="margin-top:8px;font-size:15px;line-height:1.5;color:#8B92A8;">Menos complejidad, más claridad.</div></div>
+</div>
+<div class="nos-value-card" style="border:1px solid rgba(91,123,240,.22);border-radius:18px;padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 03</div>
+<div><div style="font-size:24px;font-weight:700;color:#F8F8F8;">Curiosidad</div><div style="margin-top:8px;font-size:15px;line-height:1.5;color:#8B92A8;">Probamos, aprendemos y mejoramos.</div></div>
+</div>
+<div class="nos-value-card" style="border:1px solid rgba(91,123,240,.22);border-radius:18px;padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+<div style="font-size:15px;font-weight:600;color:#5B7BF0;">/ 04</div>
+<div><div style="font-size:24px;font-weight:700;color:#F8F8F8;">Excelencia</div><div style="margin-top:8px;font-size:15px;line-height:1.5;color:#8B92A8;">Cada detalle cuenta.</div></div>
+</div>
+<div class="nos-value-card" style="background:#1419E0;border-radius:18px;padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+<div style="font-size:15px;font-weight:600;color:#DDE3FF;">/ 05</div>
+<div><div style="font-size:24px;font-weight:700;color:#FFFFFF;">Ejecución</div><div style="margin-top:8px;font-size:15px;line-height:1.5;color:rgba(235,240,255,.85);">Las ideas valen cuando se implementan.</div></div>
+</div>
+</div>
+</section><section class="nos-roadmap" style="background:#EEF3FF;padding:130px 96px;">
+<div class="nos-roadmap-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:end;">
+<div>
+<div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#1419E0;">HACIA DÓNDE VAMOS</div>
+<h2 style="margin:24px 0 0;font-size:54px;line-height:1.14;font-weight:300;letter-spacing:-.03em;color:#0A0A0A;">Esto <span style="font-weight:700;color:#1419E0;">recién comienza.</span></h2>
+</div>
+<p style="margin:0;font-size:21px;line-height:1.6;color:#41507F;text-wrap:pretty;">Partimos como agencia y hoy somos una <span style="font-weight:700;color:#0F1F8C;">Growth Company</span>. Seguimos evolucionando para construir experiencias y productos digitales que ayuden a las empresas a crecer.</p>
+</div>
+</section><section class="nos-metrics" style="position:relative;background:linear-gradient(158deg,#2536DC 0%,#1B2ECB 46%,#122099 100%);padding:110px 96px;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(40% 60% at 95% 0%,rgba(130,165,255,.4) 0%,rgba(130,165,255,0) 65%);"></div>
+<div class="nos-metrics-grid" style="position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;">
+<div><div style="font-size:88px;font-weight:700;letter-spacing:-.05em;color:#FFFFFF;line-height:1;">+15</div><div style="margin-top:16px;font-size:18px;color:rgba(230,238,255,.85);">Clientes y marcas acompañadas</div></div>
+<div><div style="font-size:88px;font-weight:700;letter-spacing:-.05em;color:#FFFFFF;line-height:1;">+100</div><div style="margin-top:16px;font-size:18px;color:rgba(230,238,255,.85);">Piezas de contenido creadas</div></div>
+<div><div style="font-size:88px;font-weight:700;letter-spacing:-.05em;color:#FFFFFF;line-height:1;">+50</div><div style="margin-top:16px;font-size:18px;color:rgba(230,238,255,.85);">Campañas lanzadas</div></div>
+<div><div style="font-size:88px;font-weight:700;letter-spacing:-.05em;color:#FFFFFF;line-height:1;">+5</div><div style="margin-top:16px;font-size:18px;color:rgba(230,238,255,.85);">Industrias atendidas</div></div>
+</div>
+</section><section class="nos-contact" id="contacto" style="position:relative;background:#070F22;padding:150px 96px;overflow:hidden;text-align:center;">
+<div style="position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 0%,rgba(20,74,224,.4) 0%,rgba(20,74,224,0) 70%);"></div>
+<h2 style="position:relative;margin:0 auto;max-width:900px;font-size:66px;line-height:1.1;font-weight:300;letter-spacing:-.035em;color:#F8F8F8;">Construyamos tu próximo <span style="font-weight:700;color:#5B7BF0;">sistema de crecimiento.</span></h2>
+<p style="position:relative;margin:28px auto 0;max-width:560px;font-size:19px;line-height:1.6;color:#8B92A8;">Agenda una reunión y conversemos sobre cómo construir un sistema de crecimiento para tu empresa.</p>
+<a class="nos-btn" href="https://calendly.com/felipe-lowsignal/30min" rel="noopener noreferrer" style="position:relative;display:inline-block;margin-top:44px;background:#1419E0;color:#FFFFFF;font-size:18px;font-weight:600;padding:20px 40px;border-radius:10px;box-shadow:0 0 50px rgba(20,74,224,.5);" target="_blank">Agendar reunión</a>
+</section></main><footer class="footer" id="nosotros">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<img alt="lowsignal" class="footer-logo" src="../assets/logo-horizontal-white.png"/>
+<p>
+            Somos una Growth Company. Diseñamos sistemas que conectan estrategia,
+            tecnología, contenido e IA para impulsar un crecimiento sostenible.
+          </p>
+<div class="footer-claim">
+            Less noise.
+            <strong>More growth.</strong>
+</div>
+</div>
+<div>
+<p class="footer-title">SOLUCIONES</p>
+<div class="footer-links">
+<a href="../soluciones/low-social/">Low Social</a>
+<a href="../soluciones/low-ads/">Low Ads</a>
+<a href="../soluciones/low-web/">Low Web</a>
+<a href="../soluciones/low-scale/">Low Scale</a>
+<a href="../soluciones/low-flow/">Low Flow</a>
+<a href="../soluciones/low-apps/">Low Apps</a>
+</div>
+</div>
+<div>
+<p class="footer-title">EMPRESA</p>
+<div class="footer-links">
+<a href="./">Nosotros</a>
+<a href="../recursos/insights/">Insights</a>
+<a href="../casos/">Casos</a>
+<a data-scroll-contact="" href="#contacto">Contacto</a>
+</div>
+</div>
+<div>
+<p class="footer-title">SOCIAL</p>
+<div class="footer-links social-links">
+<a href="https://cl.linkedin.com/company/lowsignalagency" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="20" rx="4" width="20" x="2" y="2"></rect>
+<path d="M7 10v7M7 7v.01M11 17v-4a3 3 0 0 1 6 0v4M11 10v7"></path>
+</svg>
+              LinkedIn
+            </a>
+<a href="https://instagram.com/lowsignalagency" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<rect height="20" rx="5" width="20" x="2" y="2"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M17.5 6.5v.01"></path>
+</svg>
+              Instagram
+            </a>
+<a href="https://facebook.com/lowsignalagency" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+              Facebook
+            </a>
+</div>
+<a class="footer-button" data-scroll-contact="" href="#contacto">Hablemos</a>
+</div>
+</div>
+<div class="footer-meta">
+<div>
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"></path>
+<circle cx="12" cy="10" r="2.5"></circle>
+</svg>
+          Las Condes, Santiago · Chile
+        </div>
+<a href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl</a>
+<span>EDUCACIÓN · B2B · MARCAS B2C</span>
+</div>
+<div class="footer-bottom">
+<span>© 2026 lowsignal — Todos los derechos reservados</span>
+<div>
+<a href="../legal/privacidad/">Política de Privacidad</a>
+<a href="../legal/terminos/">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer><script>
+(() => {
+  const desktopItems = [...document.querySelectorAll(".nav-item")];
+  const navbar = document.querySelector(".navbar");
+
+  const mobileToggle = document.querySelector(".mobile-toggle");
+  const mobilePanel = document.getElementById("mobile-menu-panel");
+  const mobileDetails = [...document.querySelectorAll("#mobile-menu-panel details.mobile-accordion")];
+
+  const mq = window.matchMedia("(max-width: 920px)");
+  const isMobile = () => mq.matches;
+
+  /* ---------------- Desktop mega menus ---------------- */
+  function closeDesktopMenus(except = null){
+    desktopItems.forEach((item) => {
+      if (item === except) return;
+      item.classList.remove("is-open");
+      item.querySelector(".nav-trigger")?.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  desktopItems.forEach((item) => {
+    const trigger = item.querySelector(".nav-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", (event) => {
+      if (isMobile()) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const opening = !item.classList.contains("is-open");
+      closeDesktopMenus(item);
+      item.classList.toggle("is-open", opening);
+      trigger.setAttribute("aria-expanded", String(opening));
+    });
+
+    item.addEventListener("mouseenter", () => {
+      if (isMobile()) return;
+
+      closeDesktopMenus(item);
+      item.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+    });
+  });
+
+  navbar?.addEventListener("mouseleave", () => {
+    if (!isMobile()) closeDesktopMenus();
+  });
+
+
+  /* ---------------- Mobile menu ---------------- */
+  function setMobileMenu(open){
+    if (!mobileToggle || !mobilePanel) return;
+
+    mobilePanel.classList.toggle("is-open", open);
+    mobilePanel.setAttribute("aria-hidden", String(!open));
+
+    mobileToggle.setAttribute("aria-expanded", String(open));
+    mobileToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+
+    document.body.classList.toggle("menu-open", open);
+
+    if (!open){
+      mobileDetails.forEach((details) => {
+        details.open = false;
+      });
+    }
+  }
+
+  mobileToggle?.addEventListener("click", (event) => {
+    if (!isMobile()) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    setMobileMenu(!mobilePanel.classList.contains("is-open"));
+  });
+
+  /* Keep only one accordion open */
+  mobileDetails.forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+
+      mobileDetails.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+    });
+  });
+
+  /* Close after following a normal mobile link */
+  mobilePanel?.querySelectorAll("a:not([data-scroll-contact])").forEach((link) => {
+    link.addEventListener("click", () => setMobileMenu(false));
+  });
+
+
+  /* ---------------- Contact / Hablemos ---------------- */
+  document.querySelectorAll("[data-scroll-contact]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.getElementById("contacto");
+      if (!target) return;
+
+      event.preventDefault();
+
+      closeDesktopMenus();
+      setMobileMenu(false);
+
+      target.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+      if (history.replaceState){
+        history.replaceState(null, "", "#contacto");
+      }
+    });
+  });
+
+
+  /* ---------------- Global close ---------------- */
+  document.addEventListener("click", (event) => {
+    if (isMobile()){
+      if (
+        mobilePanel?.classList.contains("is-open") &&
+        !event.target.closest("#mobile-menu-panel") &&
+        !event.target.closest(".mobile-toggle")
+      ){
+        setMobileMenu(false);
+      }
+    } else {
+      if (!event.target.closest(".navbar")){
+        closeDesktopMenus();
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+
+    closeDesktopMenus();
+    setMobileMenu(false);
+  });
+
+  function syncNavigationMode(){
+    if (isMobile()){
+      closeDesktopMenus();
+    } else {
+      setMobileMenu(false);
+    }
+  }
+
+  if (typeof mq.addEventListener === "function"){
+    mq.addEventListener("change", syncNavigationMode);
+  } else if (typeof mq.addListener === "function"){
+    mq.addListener(syncNavigationMode);
+  }
+
+  syncNavigationMode();
+})();
+</script></body></html>
