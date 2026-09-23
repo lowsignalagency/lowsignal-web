@@ -3138,6 +3138,23 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   DESKTOP HERO POSITION FIX
+   Restore the original hero height/position while keeping
+   the navbar fixed. Previous sticky-nav patches were adding
+   top spacing twice (on .hero and .hero-content).
+========================================================= */
+@media (min-width:921px){
+  .hero{
+    padding-top:0 !important;
+  }
+
+  .hero-content{
+    padding-top:110px !important;
+  }
+}
+
 </style>
 </head>
 
