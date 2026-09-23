@@ -2374,6 +2374,193 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   MOBILE NAV V3 — dedicated native accordions
+   Desktop mega-menu stays untouched.
+========================================================= */
+
+.mobile-menu-panel{
+  display:none;
+}
+
+@media (max-width:920px){
+
+  /* Desktop nav is not reused on mobile */
+  .main-nav{
+    display:none !important;
+  }
+
+  .mobile-menu-panel{
+    position:fixed;
+    top:96px;
+    left:12px;
+    right:12px;
+    z-index:1100;
+
+    display:none;
+    max-height:calc(100dvh - 108px);
+    overflow:auto;
+    overscroll-behavior:contain;
+
+    padding:14px;
+
+    border:1px solid rgba(126,151,255,.18);
+    border-radius:18px;
+
+    background:#081026;
+    box-shadow:0 30px 70px rgba(0,0,0,.48);
+
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .mobile-menu-panel.is-open{
+    display:block;
+  }
+
+  .mobile-menu-inner{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .mobile-accordion{
+    border:1px solid rgba(126,151,255,.13);
+    border-radius:14px;
+    background:#0B1430;
+    overflow:hidden;
+  }
+
+  .mobile-accordion summary{
+    list-style:none;
+    min-height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+
+    padding:0 18px;
+
+    color:#F8F8F8;
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .mobile-accordion summary::-webkit-details-marker{
+    display:none;
+  }
+
+  .mobile-chevron{
+    width:13px;
+    height:9px;
+    flex:none;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    transition:transform .2s ease;
+  }
+
+  .mobile-accordion[open] .mobile-chevron{
+    transform:rotate(180deg);
+  }
+
+  .mobile-submenu{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+
+    padding:0 10px 12px;
+    border-top:1px solid rgba(126,151,255,.10);
+  }
+
+  .mobile-submenu a{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+
+    padding:13px 10px;
+    border-radius:10px;
+
+    color:#F8F8F8;
+    text-decoration:none;
+
+    transition:background .18s ease;
+  }
+
+  .mobile-submenu a:hover,
+  .mobile-submenu a:active{
+    background:rgba(91,123,240,.12);
+  }
+
+  .mobile-submenu strong{
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .mobile-submenu small{
+    color:#8F9AB2;
+    font-size:11px;
+    line-height:1.4;
+  }
+
+  .mobile-direct-link{
+    min-height:58px;
+    display:flex;
+    align-items:center;
+
+    padding:0 18px;
+
+    border:1px solid rgba(126,151,255,.13);
+    border-radius:14px;
+
+    background:#0B1430;
+    color:#F8F8F8;
+
+    font-size:16px;
+    font-weight:600;
+
+    text-decoration:none;
+  }
+
+  .mobile-talk-link{
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:4px;
+    padding:0 18px;
+
+    border-radius:12px;
+
+    background:#1419E0;
+    color:#fff;
+
+    font-size:15px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    box-shadow:0 10px 26px rgba(20,25,224,.24);
+  }
+
+  .mobile-talk-link:active{
+    transform:translateY(1px);
+  }
+
+  body.menu-open{
+    overflow:hidden;
+  }
+}
+
 </style>
 </head>
 
@@ -2645,6 +2832,62 @@ a.mega-link:hover{
         <a class="nav-cta" href="#contacto" data-scroll-contact>Hablemos</a>
 
       </nav>
+
+      <!-- Mobile-only navigation. Native details = reliable on iPhone/Safari. -->
+      <div class="mobile-menu-panel" id="mobile-menu-panel" aria-hidden="true">
+        <div class="mobile-menu-inner">
+
+          <details class="mobile-accordion">
+            <summary>
+              <span>Soluciones</span>
+              <svg class="mobile-chevron" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="M1 1.5 6 6.5 11 1.5"></path>
+              </svg>
+            </summary>
+            <div class="mobile-submenu">
+              <a href="../../soluciones/low-social/"><strong>Low Social</strong><small>Contenido y comunidad</small></a>
+              <a href="../../soluciones/low-ads/"><strong>Low Ads</strong><small>Campañas que generan demanda</small></a>
+              <a href="../../soluciones/low-web/"><strong>Low Web</strong><small>Sitios que convierten</small></a>
+              <a href="../../soluciones/low-scale/"><strong>Low Scale</strong><small>Estrategia, datos y crecimiento</small></a>
+              <a href="../../soluciones/low-flow/"><strong>Low Flow</strong><small>Automatización y CRM</small></a>
+              <a href="../../soluciones/low-apps/"><strong>Low Apps</strong><small>Productos digitales</small></a>
+            </div>
+          </details>
+
+          <details class="mobile-accordion">
+            <summary>
+              <span>Industrias</span>
+              <svg class="mobile-chevron" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="M1 1.5 6 6.5 11 1.5"></path>
+              </svg>
+            </summary>
+            <div class="mobile-submenu">
+              <a href="./"><strong>Educación</strong><small>Colegios, redes y fundaciones</small></a>
+              <a href="../b2b/"><strong>Empresas B2B</strong><small>Servicios y ciclos de venta complejos</small></a>
+              <a href="../marcas-b2c/"><strong>Marcas B2C</strong><small>Consumo, retail y experiencias</small></a>
+            </div>
+          </details>
+
+          <details class="mobile-accordion">
+            <summary>
+              <span>Recursos</span>
+              <svg class="mobile-chevron" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="M1 1.5 6 6.5 11 1.5"></path>
+              </svg>
+            </summary>
+            <div class="mobile-submenu">
+              <a href="../../casos/"><strong>Customer stories</strong><small>Casos de clientes</small></a>
+              <a href="../../recursos/insights/"><strong>Insights</strong><small>Ideas y aprendizajes</small></a>
+              <a href="../../recursos/jobs/"><strong>Jobs</strong><small>Trabaja con nosotros</small></a>
+              <a href="../../recursos/insiders/"><strong>lowsignal Insiders</strong><small>Programa de referidos</small></a>
+            </div>
+          </details>
+
+          <a class="mobile-direct-link" href="../../nosotros/">Nosotros</a>
+          <a class="mobile-talk-link" href="#contacto" data-scroll-contact>Hablemos</a>
+
+        </div>
+      </div>
     </header>
 
 
@@ -3183,28 +3426,21 @@ a.mega-link:hover{
 (() => {
   const navbar = document.querySelector(".navbar");
   const navItems = [...document.querySelectorAll(".nav-item")];
+
   const mobileToggle = document.querySelector(".mobile-toggle");
-  const mainNav = document.querySelector(".main-nav");
+  const mobilePanel = document.getElementById("mobile-menu-panel");
+  const mobileAccordions = [...document.querySelectorAll(".mobile-accordion")];
 
   const isMobile = () => window.matchMedia("(max-width: 920px)").matches;
 
+  /* ---------- desktop dropdowns ---------- */
   const closeDropdowns = (except = null) => {
     navItems.forEach((item) => {
       if (item !== except) {
         item.classList.remove("is-open");
-        const trigger = item.querySelector(".nav-trigger");
-        if (trigger) trigger.setAttribute("aria-expanded", "false");
+        item.querySelector(".nav-trigger")?.setAttribute("aria-expanded", "false");
       }
     });
-  };
-
-  const closeMobileMenu = () => {
-    if (!mainNav || !mobileToggle) return;
-    mainNav.classList.remove("is-open");
-    mobileToggle.setAttribute("aria-expanded", "false");
-    mobileToggle.setAttribute("aria-label", "Abrir menú");
-    document.body.classList.remove("menu-open");
-    closeDropdowns();
   };
 
   navItems.forEach((item) => {
@@ -3212,6 +3448,8 @@ a.mega-link:hover{
     if (!trigger) return;
 
     trigger.addEventListener("click", (event) => {
+      if (isMobile()) return;
+
       event.preventDefault();
       event.stopPropagation();
 
@@ -3230,31 +3468,83 @@ a.mega-link:hover{
     });
   });
 
-  if (navbar) {
-    navbar.addEventListener("mouseleave", () => {
-      if (!isMobile()) closeDropdowns();
+  navbar?.addEventListener("mouseleave", () => {
+    if (!isMobile()) closeDropdowns();
+  });
+
+  /* ---------- mobile menu ---------- */
+  const closeMobileMenu = () => {
+    if (!mobileToggle || !mobilePanel) return;
+
+    mobilePanel.classList.remove("is-open");
+    mobilePanel.setAttribute("aria-hidden", "true");
+
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.setAttribute("aria-label", "Abrir menú");
+
+    document.body.classList.remove("menu-open");
+
+    mobileAccordions.forEach((details) => {
+      details.open = false;
     });
-  }
+  };
 
-  if (mobileToggle && mainNav) {
-    mobileToggle.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+  mobileToggle?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-      const willOpen = !mainNav.classList.contains("is-open");
-      mainNav.classList.toggle("is-open", willOpen);
-      mobileToggle.setAttribute("aria-expanded", String(willOpen));
-      mobileToggle.setAttribute("aria-label", willOpen ? "Cerrar menú" : "Abrir menú");
-      document.body.classList.toggle("menu-open", willOpen);
+    if (!isMobile()) return;
 
-      if (!willOpen) closeDropdowns();
+    const willOpen = !mobilePanel.classList.contains("is-open");
+
+    mobilePanel.classList.toggle("is-open", willOpen);
+    mobilePanel.setAttribute("aria-hidden", String(!willOpen));
+
+    mobileToggle.setAttribute("aria-expanded", String(willOpen));
+    mobileToggle.setAttribute("aria-label", willOpen ? "Cerrar menú" : "Abrir menú");
+
+    document.body.classList.toggle("menu-open", willOpen);
+
+    if (!willOpen) {
+      mobileAccordions.forEach((details) => {
+        details.open = false;
+      });
+    }
+  });
+
+  /* Only one mobile accordion open at a time */
+  mobileAccordions.forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+
+      mobileAccordions.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
     });
-  }
+  });
 
+  /* Close menu when user follows a link */
+  mobilePanel?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!link.hasAttribute("data-scroll-contact")) {
+        closeMobileMenu();
+      }
+    });
+  });
+
+  /* ---------- global close ---------- */
   document.addEventListener("click", (event) => {
-    if (!event.target.closest(".navbar")) {
-      closeDropdowns();
-      if (isMobile()) closeMobileMenu();
+    if (!isMobile()) {
+      if (!event.target.closest(".navbar")) closeDropdowns();
+      return;
+    }
+
+    if (
+      mobilePanel?.classList.contains("is-open") &&
+      !event.target.closest(".mobile-menu-panel") &&
+      !event.target.closest(".mobile-toggle")
+    ) {
+      closeMobileMenu();
     }
   });
 
@@ -3265,21 +3555,16 @@ a.mega-link:hover{
     }
   });
 
-  document.querySelectorAll(".main-nav a, .nav-cta, a[href^=\"#\"]").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (isMobile()) closeMobileMenu();
-      else closeDropdowns();
-    });
-  });
-
+  /* ---------- Contact / Hablemos smooth scroll ---------- */
   document.querySelectorAll("[data-scroll-contact]").forEach((link) => {
     link.addEventListener("click", (event) => {
       const target = document.getElementById("contacto");
       if (!target) return;
 
       event.preventDefault();
+
       closeDropdowns();
-      if (isMobile()) closeMobileMenu();
+      closeMobileMenu();
 
       target.scrollIntoView({
         behavior: "smooth",
@@ -3294,15 +3579,13 @@ a.mega-link:hover{
 
   window.addEventListener("resize", () => {
     if (!isMobile()) {
-      mainNav?.classList.remove("is-open");
-      mobileToggle?.setAttribute("aria-expanded", "false");
-      mobileToggle?.setAttribute("aria-label", "Abrir menú");
-      document.body.classList.remove("menu-open");
+      closeMobileMenu();
+    } else {
       closeDropdowns();
     }
   });
 })();
-  </script>
+</script>
 
 </body>
 </html>
