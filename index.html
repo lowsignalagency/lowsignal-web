@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
+
+<!DOCTYPE html>
+
 <html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -10344,6 +10347,23 @@ body{
     grid-column:auto !important;
   }
 
+  .home-solution-card > div[style*="display:grid"]{
+    display:block !important;
+    padding:32px 28px !important;
+  }
+
+  .home-solution-card > div[style*="display:grid"] > div:first-child > div:last-child{
+    font-size:34px !important;
+    line-height:1.06 !important;
+  }
+
+  .home-solution-card > div[style*="display:grid"] > div:last-child{
+    margin-top:16px !important;
+    font-size:17px !important;
+    line-height:1.55 !important;
+    max-width:none !important;
+  }
+
   .home-industries-grid{grid-template-columns:1fr !important;}
   .home-industry-card > div{height:420px !important;}
 
@@ -10678,6 +10698,45 @@ body{
   .home-hero h1{font-size:36px !important;}
   .home-founder-stats{grid-template-columns:1fr !important;}
 }
+
+
+/* Home — trusted logos monochrome + Insights CTA hover */
+.home-trusted img{
+  filter:brightness(0) invert(1) !important;
+}
+
+.home-insights-all{
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease !important;
+}
+
+.home-insights-all:hover{
+  background:#1419E0 !important;
+  border-color:#1419E0 !important;
+  color:#FFFFFF !important;
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(20,25,224,.18);
+}
+
+.home-insights-all:focus-visible{
+  outline:3px solid rgba(20,25,224,.24);
+  outline-offset:3px;
+}
+
+@media(max-width:600px){
+  .home-insights-all{
+    width:100% !important;
+    min-height:48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+}
 </style>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="lowsignal" name="author"/><meta content="#070F22" name="theme-color"/><meta content="website" property="og:type"/><meta content="es_CL" property="og:locale"/><meta content="lowsignal" property="og:site_name"/><meta content="Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible." property="og:description"/><meta content="https://lowsignal.cl/" property="og:url"/><meta content="https://lowsignal.cl/assets/torre-lowsignal.jpg" property="og:image"/><meta content="lowsignal — Growth Systems for Companies" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible." name="twitter:description"/><meta content="https://lowsignal.cl/assets/torre-lowsignal.jpg" name="twitter:image"/><meta content="lowsignal — Growth Systems for Companies" name="twitter:image:alt"/><meta content="2026-06-18" property="article:published_time"/><meta content="Crecimiento" property="article:section"/><link href="https://lowsignal.cl/" hreflang="es-CL" rel="alternate"/><link href="https://lowsignal.cl/" hreflang="x-default" rel="alternate"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lowsignal.cl/#organization","name":"lowsignal","url":"https://lowsignal.cl/","logo":{"@type":"ImageObject","url":"https://lowsignal.cl/assets/logo-horizontal-white.png"},"sameAs":["https://cl.linkedin.com/company/lowsignalagency","https://instagram.com/lowsignalagency","https://facebook.com/lowsignalagency"]},{"@type":"WebSite","@id":"https://lowsignal.cl/#website","url":"https://lowsignal.cl/","name":"lowsignal","publisher":{"@id":"https://lowsignal.cl/#organization"},"inLanguage":"es-CL"},{"@type":"WebPage","@id":"https://lowsignal.cl/#webpage","url":"https://lowsignal.cl/","name":"lowsignal — Growth Systems for Companies","description":"Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.","isPartOf":{"@id":"https://lowsignal.cl/#website"},"about":{"@id":"https://lowsignal.cl/#organization"},"inLanguage":"es-CL"}]}</script></head><body><header class="site-header">
 <nav aria-label="Navegación principal" class="navbar">
@@ -10942,7 +11001,6 @@ body{
 </header><main><section class="home-hero" style="position:relative;background:#070F22;padding:0 96px 110px;overflow:hidden;">
 <div style="position:absolute;inset:0;background:radial-gradient(55% 65% at 0% 0%,rgba(20,74,224,.38) 0%,rgba(20,74,224,0) 70%);"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(40% 50% at 100% 100%,rgba(20,25,224,.22) 0%,rgba(20,25,224,0) 70%);"></div>
-
 <div class="home-hero-main" style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding-top:110px;">
 <div>
 <div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#5B7BF0;">GROWTH SYSTEMS FOR COMPANIES</div>
@@ -10971,16 +11029,16 @@ body{
 <div class="home-trusted" style="position:relative;margin-top:96px;padding-top:40px;border-top:1px solid rgba(150,175,255,.14);">
 <div style="font-size:14px;font-weight:500;letter-spacing:.22em;color:#6B7390;">EMPRESAS QUE CONFÍAN EN NOSOTROS</div>
 <div style="margin-top:30px;display:flex;justify-content:space-between;align-items:center;gap:28px;">
-<img alt="Red Educacional Camilo Henríquez" decoding="async" loading="lazy" src="assets/rech-logo-full-white-trim.png" style="height:42px;width:auto;opacity:.85;"/>
-<img alt="Colegio Salvador Dalí" decoding="async" loading="lazy" src="assets/logo-dali-darkbg.png" style="height:46px;width:auto;"/>
-<img alt="Colegio San Jorge" decoding="async" loading="lazy" src="assets/csjo-white-trim.png" style="height:33px;width:auto;opacity:.85;"/>
-<img alt="Fundación Educacional Crecer con Todos" decoding="async" loading="lazy" src="assets/crecer-primerolee-white.png" style="height:31px;width:auto;opacity:.85;"/>
-<img alt="Brooklyn" decoding="async" loading="lazy" src="assets/brooklyn-white.png" style="height:34px;width:auto;opacity:.85;"/>
-<img alt="Ambitec" decoding="async" loading="lazy" src="assets/ambitec-white.png" style="height:35px;width:auto;opacity:.85;"/>
-<img alt="PreuApp" decoding="async" loading="lazy" src="assets/preuapp-white.png" style="height:32px;width:auto;opacity:.85;"/>
-<img alt="GETS" decoding="async" loading="lazy" src="assets/gets-logo-white.svg" style="height:35px;width:auto;opacity:.85;"/>
-<img alt="hUB" decoding="async" loading="lazy" src="assets/hub-logo-white-new-trim.png" style="height:38px;width:auto;opacity:.85;"/>
-<img alt="DulceReino" decoding="async" loading="lazy" src="assets/dulcereino-logo-trim.png" style="height:50px;width:auto;filter:brightness(0) invert(1);opacity:.85;"/>
+<img alt="Red Educacional Camilo Henríquez" decoding="async" loading="lazy" src="assets/rech-logo-full-white-trim.png" style="height:42px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="Colegio Salvador Dalí" decoding="async" loading="lazy" src="assets/logo-dali-darkbg.png" style="height:46px;width:auto;filter:brightness(0) invert(1);"/>
+<img alt="Colegio San Jorge" decoding="async" loading="lazy" src="assets/csjo-white-trim.png" style="height:33px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="Fundación Educacional Crecer con Todos" decoding="async" loading="lazy" src="assets/crecer-primerolee-white.png" style="height:31px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="Brooklyn" decoding="async" loading="lazy" src="assets/brooklyn-white.png" style="height:34px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="Ambitec" decoding="async" loading="lazy" src="assets/ambitec-white.png" style="height:35px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="PreuApp" decoding="async" loading="lazy" src="assets/preuapp-white.png" style="height:32px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="GETS" decoding="async" loading="lazy" src="assets/gets-logo-white.svg" style="height:35px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="hUB" decoding="async" loading="lazy" src="assets/hub-logo-white-new-trim.png" style="height:38px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
+<img alt="DulceReino" decoding="async" loading="lazy" src="assets/dulcereino-logo-trim.png" style="height:50px;width:auto;opacity:.85;filter:brightness(0) invert(1);"/>
 </div>
 </div>
 </section><section class="home-belief" style="background:#EEF3FF;padding:140px 96px;">
@@ -11127,7 +11185,7 @@ body{
 </div></a>
 <a class="home-story-card" href="https://lowsignal.cl/casos/dulce-reino" style="display:block;color:inherit;text-decoration:none;"><div style="background:#FFFFFF;border:1px solid #DCE2F2;border-radius:22px;overflow:hidden;">
 <div style="padding:34px 34px 32px;display:flex;flex-direction:column;height:100%;box-sizing:border-box;">
-<img alt="DulceReino" decoding="async" loading="lazy" src="assets/dulcereino-logo-trim.png" style="height:52px;width:auto;align-self:flex-start;"/>
+<img alt="DulceReino" decoding="async" loading="lazy" src="assets/dulcereino-logo-trim.png" style="height:52px;width:auto;align-self:flex-start;filter:grayscale(1) brightness(.36) contrast(1.08);opacity:.92;"/>
 <div style="margin-top:22px;font-size:40px;line-height:.6;font-weight:700;color:#1419E0;">“</div>
 <div style="margin-top:6px;flex:1;font-size:19px;line-height:1.5;font-weight:400;color:#0A0A0A;text-wrap:pretty;">En lowsignal encontré versatilidad, compromiso y un equipo que realmente se involucra. No solo ejecutan, entienden el negocio y se involucran de verdad.</div>
 <div style="margin-top:26px;padding-top:22px;border-top:1px solid #E3E8F7;display:flex;align-items:center;gap:16px;">
@@ -11158,7 +11216,7 @@ body{
 <div style="font-size:15px;font-weight:500;letter-spacing:.22em;color:#1419E0;">INSIGHTS</div>
 <h2 style="margin:24px 0 0;font-size:54px;line-height:1.14;font-weight:300;letter-spacing:-.03em;color:#0A0A0A;">Ideas, eventos y aprendizajes <span style="font-weight:700;color:#1419E0;">sin ruido.</span></h2>
 </div>
-<a href="https://lowsignal.cl/recursos/insights" style="flex:none;font-size:16px;font-weight:600;color:#1419E0;border:1px solid rgba(20,25,224,.3);border-radius:10px;padding:14px 22px;">Ver todos los insights</a>
+<a class="home-insights-all" href="https://lowsignal.cl/recursos/insights" style="flex:none;font-size:16px;font-weight:600;color:#1419E0;border:1px solid rgba(20,25,224,.3);border-radius:10px;padding:14px 22px;">Ver todos los insights</a>
 </div>
 <div class="home-insights-grid" style="margin-top:64px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
 <a href="https://lowsignal.cl/recursos/insights/ai-native-startups-platanus" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #DCE2F2;border-radius:22px;overflow:hidden;color:inherit;">
