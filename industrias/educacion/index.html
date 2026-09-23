@@ -2561,6 +2561,77 @@ a.mega-link:hover{
   }
 }
 
+
+/* =========================================================
+   MOBILE MENU — interaction feedback
+   Touch devices do not have a true hover, so we combine
+   hover + focus-visible + active for a clear tap response.
+========================================================= */
+@media (max-width:920px){
+
+  .mobile-accordion summary,
+  .mobile-submenu a,
+  .mobile-direct-link,
+  .mobile-talk-link{
+    -webkit-tap-highlight-color:transparent;
+    transition:
+      background-color .16s ease,
+      color .16s ease,
+      transform .16s ease,
+      border-color .16s ease;
+  }
+
+  .mobile-accordion summary:hover,
+  .mobile-accordion summary:focus-visible{
+    background:rgba(91,123,240,.10);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-accordion summary:active{
+    background:rgba(91,123,240,.18);
+    transform:scale(.992);
+  }
+
+  .mobile-submenu a:hover,
+  .mobile-submenu a:focus-visible{
+    background:rgba(91,123,240,.11);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-submenu a:active{
+    background:rgba(91,123,240,.20);
+    transform:translateX(3px);
+  }
+
+  .mobile-direct-link:hover,
+  .mobile-direct-link:focus-visible{
+    background:rgba(91,123,240,.12);
+    border-color:rgba(91,123,240,.34);
+    color:#FFFFFF;
+    outline:none;
+  }
+
+  .mobile-direct-link:active{
+    background:rgba(91,123,240,.20);
+    transform:scale(.992);
+  }
+
+  .mobile-talk-link:hover,
+  .mobile-talk-link:focus-visible{
+    background:#2A30FF;
+    box-shadow:0 12px 28px rgba(20,25,224,.32);
+    outline:none;
+  }
+
+  .mobile-talk-link:active{
+    background:#0F14C7;
+    transform:scale(.992);
+    box-shadow:0 6px 18px rgba(20,25,224,.22);
+  }
+}
+
 </style>
 </head>
 
