@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>404 | Página no encontrada | lowsignal</title>
+  <meta name="description" content="La página que buscas no existe o cambió de lugar. Vuelve a lowsignal.cl y sigue explorando nuestras soluciones.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#070F22">
+
+  <link rel="icon" href="/assets/profile.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/profile.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#070F22;
+      --navy-deep:#050A18;
+      --electric:#1419E0;
+      --blue:#144AE0;
+      --accent:#5B7BF0;
+      --white:#F8F8F8;
+      --muted:#8B92A8;
+      --link:#C9D1EA;
+      --border:rgba(150,175,255,.16);
+      --max:1392px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--navy);
+      color:var(--white);
+      font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    body.menu-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    /* ---------- Header ---------- */
+    .site-header{
+      position:relative;
+      z-index:50;
+      padding:14px 24px 0;
+      background:var(--navy);
+    }
+
+    .navbar{
+      width:min(var(--max),calc(100vw - 48px));
+      height:88px;
+      margin:0 auto;
+      padding:0 44px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:32px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(31,45,103,.82);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    .brand img{height:28px;width:auto}
+
+    .desktop-nav{
+      margin-left:42px;
+      margin-right:auto;
+      display:flex;
+      align-items:center;
+      gap:34px;
+      font-size:16px;
+      font-weight:500;
+      color:#F0F3FF;
+    }
+
+    .desktop-nav a{
+      transition:color .2s ease;
+    }
+
+    .desktop-nav a:hover{color:#fff}
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 30px;
+      border-radius:10px;
+      background:var(--electric);
+      color:#fff;
+      font-size:16px;
+      font-weight:600;
+      box-shadow:0 6px 30px rgba(20,74,224,.45);
+      transition:transform .2s ease,background .2s ease;
+    }
+
+    .nav-cta:hover{
+      transform:translateY(-2px);
+      background:#2533F0;
+    }
+
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border:0;
+      background:transparent;
+      padding:0;
+      cursor:pointer;
+    }
+
+    .mobile-toggle span{
+      display:block;
+      width:26px;
+      height:2px;
+      margin:7px auto;
+      background:#fff;
+      transition:transform .2s ease,opacity .2s ease;
+    }
+
+    .mobile-panel{
+      display:none;
+    }
+
+    /* ---------- 404 Hero ---------- */
+    .error-section{
+      position:relative;
+      overflow:hidden;
+      padding:64px 24px 110px;
+      background:
+        radial-gradient(55% 65% at 0% 0%,rgba(20,74,224,.30) 0%,rgba(20,74,224,0) 70%),
+        radial-gradient(45% 55% at 100% 100%,rgba(20,25,224,.18) 0%,rgba(20,25,224,0) 70%),
+        var(--navy);
+    }
+
+    .error-card{
+      position:relative;
+      width:min(1248px,100%);
+      height:680px;
+      margin:0 auto;
+      overflow:hidden;
+      border-radius:26px;
+      background:#0B1466;
+    }
+
+    .error-card > img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 40%;
+    }
+
+    .error-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        90deg,
+        #0B1466 0%,
+        rgba(18,32,153,.93) 38%,
+        rgba(27,46,203,.58) 70%,
+        rgba(27,46,203,.16) 100%
+      );
+    }
+
+    .error-copy{
+      position:absolute;
+      z-index:2;
+      left:80px;
+      top:76px;
+      bottom:76px;
+      right:520px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .error-label{
+      font-size:15px;
+      font-weight:500;
+      letter-spacing:.24em;
+      color:#DDE6FF;
+    }
+
+    .error-copy h1{
+      margin:0;
+      font-size:92px;
+      line-height:1.02;
+      font-weight:300;
+      letter-spacing:-.045em;
+      color:#fff;
+    }
+
+    .error-copy h1 strong{
+      font-weight:700;
+    }
+
+    .error-copy p{
+      max-width:520px;
+      margin:28px 0 0;
+      font-size:21px;
+      line-height:1.6;
+      color:rgba(235,241,255,.9);
+    }
+
+    .error-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .error-button{
+      min-height:58px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 30px;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:600;
+      transition:transform .2s ease,background .2s ease,border-color .2s ease;
+    }
+
+    .error-button:hover{transform:translateY(-2px)}
+
+    .error-button-primary{
+      background:#fff;
+      color:#0C1550;
+      font-weight:700;
+    }
+
+    .error-button-primary:hover{background:#EEF3FF}
+
+    .error-button-secondary{
+      border:1px solid rgba(235,241,255,.55);
+      color:#fff;
+    }
+
+    .error-button-secondary:hover{
+      border-color:#fff;
+      background:rgba(255,255,255,.08);
+    }
+
+    .error-number{
+      position:absolute;
+      right:70px;
+      bottom:40px;
+      z-index:2;
+      font-size:300px;
+      line-height:.8;
+      font-weight:700;
+      letter-spacing:-.07em;
+      color:#fff;
+      user-select:none;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer{
+      padding:76px 24px 30px;
+      border-top:1px solid rgba(150,175,255,.12);
+      background:var(--navy-deep);
+    }
+
+    .footer-inner{
+      width:min(1248px,100%);
+      margin:0 auto;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.45fr .85fr .85fr .85fr;
+      gap:48px;
+    }
+
+    .footer-logo{height:27px;width:auto}
+
+    .footer-about p{
+      max-width:380px;
+      margin:22px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .footer-claim{
+      margin-top:22px;
+      font-size:17px;
+      font-weight:300;
+    }
+
+    .footer-claim strong{
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .footer-title{
+      margin:0;
+      color:var(--accent);
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:.19em;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:11px;
+      margin-top:18px;
+      font-size:14px;
+      color:var(--link);
+    }
+
+    .footer-links a:hover{color:#fff}
+
+    .footer-contact{
+      display:inline-flex;
+      margin-top:20px;
+      padding:11px 18px;
+      border-radius:9px;
+      background:var(--electric);
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .footer-bottom{
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid rgba(150,175,255,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+      color:#6B7390;
+      font-size:12px;
+    }
+
+    .footer-bottom-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:24px;
+    }
+
+    .footer-bottom a:hover{color:#C9D1EA}
+
+    /* ---------- Responsive ---------- */
+    @media(max-width:920px){
+      .site-header{padding:12px 12px 0}
+
+      .navbar{
+        width:100%;
+        min-height:72px;
+        height:72px;
+        padding:0 18px;
+        border-radius:16px;
+      }
+
+      .brand img{height:25px}
+      .desktop-nav,.nav-cta{display:none}
+      .mobile-toggle{display:block}
+
+      .mobile-toggle[aria-expanded="true"] span:first-child{
+        transform:translateY(4.5px) rotate(45deg);
+      }
+
+      .mobile-toggle[aria-expanded="true"] span:last-child{
+        transform:translateY(-4.5px) rotate(-45deg);
+      }
+
+      .mobile-panel{
+        position:absolute;
+        top:94px;
+        left:12px;
+        right:12px;
+        padding:12px;
+        border:1px solid var(--border);
+        border-radius:16px;
+        background:#0A1128;
+        box-shadow:0 28px 60px rgba(0,0,0,.45);
+      }
+
+      .mobile-panel.is-open{
+        display:flex;
+        flex-direction:column;
+      }
+
+      .mobile-panel a{
+        min-height:52px;
+        display:flex;
+        align-items:center;
+        padding:0 14px;
+        border-bottom:1px solid rgba(255,255,255,.08);
+        color:#F8F8F8;
+        font-size:15px;
+      }
+
+      .mobile-panel a:last-child{
+        margin-top:10px;
+        justify-content:center;
+        border:0;
+        border-radius:10px;
+        background:var(--electric);
+      }
+
+      .error-section{padding:44px 18px 76px}
+
+      .error-card{
+        height:620px;
+        border-radius:22px;
+      }
+
+      .error-copy{
+        left:44px;
+        top:50px;
+        bottom:48px;
+        right:290px;
+      }
+
+      .error-copy h1{font-size:70px}
+      .error-copy p{font-size:18px}
+
+      .error-number{
+        right:34px;
+        bottom:38px;
+        font-size:190px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+        gap:38px 28px;
+      }
+
+      .footer-about{grid-column:1/-1}
+    }
+
+    @media(max-width:600px){
+      .error-section{padding:30px 16px 64px}
+
+      .error-card{
+        height:600px;
+        border-radius:18px;
+      }
+
+      .error-card > img{
+        object-position:58% center;
+      }
+
+      .error-overlay{
+        background:
+          linear-gradient(
+            180deg,
+            rgba(11,20,102,.97) 0%,
+            rgba(18,32,153,.86) 54%,
+            rgba(7,15,34,.62) 100%
+          );
+      }
+
+      .error-copy{
+        left:26px;
+        right:26px;
+        top:34px;
+        bottom:28px;
+      }
+
+      .error-label{font-size:12px}
+
+      .error-copy h1{
+        font-size:52px;
+        line-height:1.03;
+      }
+
+      .error-copy p{
+        margin-top:18px;
+        max-width:330px;
+        font-size:16px;
+        line-height:1.55;
+      }
+
+      .error-actions{
+        flex-direction:column;
+        gap:9px;
+        width:100%;
+      }
+
+      .error-button{
+        width:100%;
+        min-height:50px;
+        padding:13px 18px;
+        font-size:14px;
+      }
+
+      .error-number{
+        right:22px;
+        bottom:176px;
+        font-size:118px;
+        opacity:.28;
+      }
+
+      .footer{padding:52px 20px 26px}
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      .footer-about{grid-column:auto}
+
+      .footer-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:14px;
+      }
+
+      .footer-bottom-links{
+        flex-direction:column;
+        gap:8px;
+      }
+    }
+
+    @media(max-width:360px){
+      .error-card{height:570px}
+      .error-copy h1{font-size:46px}
+      .error-number{font-size:102px}
+    }
+  
+/* ==========================================================
+   404 — AJUSTE DE ESCALA
+   Reduce el número 404 para que no compita con el mensaje.
+========================================================== */
+.error-number{
+  right:78px !important;
+  bottom:52px !important;
+  font-size:230px !important;
+  line-height:.82 !important;
+}
+
+@media(max-width:920px){
+  .error-number{
+    right:36px !important;
+    bottom:46px !important;
+    font-size:150px !important;
+  }
+}
+
+@media(max-width:600px){
+  .error-number{
+    right:24px !important;
+    bottom:188px !important;
+    font-size:88px !important;
+    opacity:.24 !important;
+  }
+}
+
+@media(max-width:360px){
+  .error-number{
+    font-size:78px !important;
+  }
+}
+
+</style>
+
+<style>
+/* Ajuste fino del número 404 */
+.error-number{
+  font-size:210px !important;
+}
+@media(max-width:920px){
+  .error-number{font-size:138px !important;}
+}
+@media(max-width:600px){
+  .error-number{font-size:82px !important;}
+}
+@media(max-width:360px){
+  .error-number{font-size:72px !important;}
+}
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="/" aria-label="lowsignal — Inicio">
+        <img src="/assets/logo-horizontal-white.png" alt="lowsignal">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="/#soluciones">Soluciones</a>
+        <a href="/#industrias">Industrias</a>
+        <a href="/recursos/insights">Recursos</a>
+        <a href="/nosotros">Nosotros</a>
+      </nav>
+
+      <a class="nav-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
+
+      <button class="mobile-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-panel">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-panel" id="mobile-panel" aria-label="Navegación móvil">
+      <a href="/#soluciones">Soluciones</a>
+      <a href="/#industrias">Industrias</a>
+      <a href="/recursos/insights">Recursos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="error-section">
+      <div class="error-card">
+        <img src="/assets/torre-lowsignal.jpg" alt="" aria-hidden="true">
+
+        <div class="error-overlay"></div>
+
+        <div class="error-copy">
+          <div class="error-label">ERROR 404</div>
+
+          <div>
+            <h1>Perdiste<br><strong>la señal.</strong></h1>
+            <p>La página que buscas no existe o cambió de lugar.</p>
+          </div>
+
+          <div class="error-actions">
+            <a class="error-button error-button-primary" href="/">Volver al inicio</a>
+            <a class="error-button error-button-secondary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
+          </div>
+        </div>
+
+        <div class="error-number" aria-hidden="true">404</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <img class="footer-logo" src="/assets/logo-horizontal-white.png" alt="lowsignal">
+          <p>Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.</p>
+          <div class="footer-claim">Less noise. <strong>More growth.</strong></div>
+        </div>
+
+        <div>
+          <div class="footer-title">SOLUCIONES</div>
+          <div class="footer-links">
+            <a href="/soluciones/low-social">Social Media</a>
+            <a href="/soluciones/low-ads">Paid Media</a>
+            <a href="/soluciones/low-web">Web Development</a>
+            <a href="/soluciones/low-scale">Growth System</a>
+            <a href="/soluciones/low-apps">Product &amp; Apps</a>
+            <a href="/soluciones/low-flow">AI &amp; Automation</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">EMPRESA</div>
+          <div class="footer-links">
+            <a href="/nosotros">Nosotros</a>
+            <a href="/recursos/insights">Insights</a>
+            <a href="/casos">Casos</a>
+            <a href="mailto:contacto@lowsignal.cl">Contacto</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">SOCIAL</div>
+          <div class="footer-links">
+            <a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://facebook.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </div>
+          <a class="footer-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© lowsignal 2026</span>
+        <div class="footer-bottom-links">
+          <a href="/legal/privacidad">Privacidad</a>
+          <a href="/legal/terminos">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const toggle = document.querySelector('.mobile-toggle');
+      const panel = document.getElementById('mobile-panel');
+      if (!toggle || !panel) return;
+
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+        panel.classList.toggle('is-open', !open);
+        document.body.classList.toggle('menu-open', !open);
+      });
+
+      panel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menú');
+          panel.classList.remove('is-open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
