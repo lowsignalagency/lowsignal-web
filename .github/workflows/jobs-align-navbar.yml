@@ -1,4 +1,4 @@
-name: Align Jobs content to navbar
+name: Finalize Jobs navbar and margins
 on:
   push:
     paths:
@@ -6,11 +6,11 @@ on:
 permissions:
   contents: write
 jobs:
-  align:
+  finalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Align page containers with current navbar
+      - name: Apply final Jobs navbar and margin fixes
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -18,8 +18,8 @@ jobs:
 
           files = [Path('recursos/jobs.html'), Path('recursos/jobs/growth-ambassador.html')]
           css = r'''
-<style id="jobs-navbar-margin-lock-v1">
-/* Exact horizontal alignment with the current desktop navbar (.lnav-row). */
+<style id="jobs-final-nav-alignment-v1">
+/* Exact alignment with current Home navbar */
 @media(min-width:1101px){
   main .container{
     width:min(1220px,calc(100% - 128px)) !important;
@@ -29,9 +29,18 @@ jobs:
     padding-left:0 !important;
     padding-right:0 !important;
   }
+  .lnav-row,
+  .lnav-mega-inner{
+    width:min(1220px,calc(100% - 128px)) !important;
+    max-width:1220px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
 }
 @media(max-width:1100px) and (min-width:761px){
-  main .container{
+  main .container,
+  .lnav-row,
+  .lnav-mega-inner{
     width:calc(100% - 48px) !important;
     max-width:none !important;
     margin-left:auto !important;
@@ -50,18 +59,55 @@ jobs:
     padding-right:0 !important;
   }
 }
+
+/* Restore visible dropdown chevrons in the current desktop navbar */
+.lnav-trigger{
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+}
+.lnav-chevron{
+  display:block !important;
+  width:12px !important;
+  height:8px !important;
+  flex:0 0 auto !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.9 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  color:#8D99BA !important;
+  opacity:1 !important;
+  overflow:visible !important;
+  transition:transform .18s ease,color .18s ease !important;
+}
+.lnav-trigger:hover .lnav-chevron,
+.lnav-item:focus-within .lnav-chevron{
+  color:#A8B8FF !important;
+  transform:rotate(180deg) !important;
+}
 </style>
 '''
+
           for p in files:
               s = p.read_text()
+              # Remove older final-lock variants if present.
               s = re.sub(r'\s*<style id="jobs-navbar-margin-lock-v1">.*?</style>\s*', '\n', s, flags=re.S)
+              s = re.sub(r'\s*<style id="jobs-final-nav-alignment-v1">.*?</style>\s*', '\n', s, flags=re.S)
+              # Place this last in body so old page CSS cannot override it.
               s = s.replace('</body>', css + '\n</body>', 1)
               p.write_text(s)
           PY
-      - name: Commit alignment
+      - name: Remove temporary Jobs workflows
+        run: |
+          rm -f .github/workflows/jobs-system-polish-v2.yml
+          rm -f .github/workflows/jobs-polish-run.yml
+          rm -f .github/workflows/sync-jobs-shell.yml
+          rm -f .github/workflows/jobs-align-navbar.yml
+      - name: Commit final Jobs fixes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add recursos/jobs.html recursos/jobs/growth-ambassador.html
-          git commit -m "fix: align Jobs content with navbar margins" || exit 0
+          git add -A
+          git commit -m "fix: finalize Jobs navbar and content alignment" || exit 0
           git push
