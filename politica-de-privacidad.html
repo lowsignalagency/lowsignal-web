@@ -2153,20 +2153,43 @@
 
 </style>
 <link href="https://lowsignal.cl/politica-de-privacidad" rel="canonical"/>
-<style id="global-sticky-navbar-v2">
-/* Keep navigation visible without removing it from document flow. */
+<style id="global-persistent-navbar-v3">
+/* Persistent navbar without changing the page's original vertical rhythm. */
 .nav-wrap{
-  position:sticky !important;
-  top:0 !important;
+  position:relative !important;
+  top:auto !important;
   left:auto !important;
   right:auto !important;
-  width:auto !important;
+  width:100% !important;
+  min-height:94px !important;
   z-index:1000 !important;
+  pointer-events:none !important;
+}
+.nav-wrap > .nav{
+  position:fixed !important;
+  top:18px !important;
+  left:50% !important;
+  right:auto !important;
+  margin:0 !important;
+  transform:translateX(-50%) !important;
+  z-index:1000 !important;
+  pointer-events:auto !important;
+}
+.mobile-nav-panel{
+  z-index:990 !important;
 }
 @media(max-width:760px){
-  .nav-wrap{top:0 !important}
-  .mobile-nav-panel{z-index:990 !important}
-  .mobile-nav-toggle,.brand{position:relative !important;z-index:1010 !important}
+  .nav-wrap{
+    min-height:72px !important;
+  }
+  .nav-wrap > .nav{
+    top:8px !important;
+  }
+  .mobile-nav-toggle,
+  .brand{
+    position:relative !important;
+    z-index:1010 !important;
+  }
 }
 </style>
 </head>
