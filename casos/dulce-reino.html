@@ -1444,23 +1444,18 @@
   }
 }
 </style>
-
-<style id="global-fixed-navbar-v1">
-/* Global navbar: always visible while scrolling, preserving the previous layout footprint. */
-html{scroll-padding-top:118px}
-body{padding-top:94px}
+<style id="global-sticky-navbar-v2">
+/* Keep navigation visible without removing it from document flow. */
 .nav-wrap{
-  position:fixed !important;
-  top:18px !important;
-  left:0 !important;
-  right:0 !important;
-  width:100% !important;
+  position:sticky !important;
+  top:0 !important;
+  left:auto !important;
+  right:auto !important;
+  width:auto !important;
   z-index:1000 !important;
 }
 @media(max-width:760px){
-  html{scroll-padding-top:96px}
-  body{padding-top:76px}
-  .nav-wrap{top:8px !important}
+  .nav-wrap{top:0 !important}
   .mobile-nav-panel{z-index:990 !important}
   .mobile-nav-toggle,.brand{position:relative !important;z-index:1010 !important}
 }
