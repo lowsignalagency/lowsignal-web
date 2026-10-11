@@ -1,0 +1,255 @@
+name: One-time jobs redesign and Growth Ambassador
+
+on:
+  push:
+    paths:
+      - '.github/workflows/redesign-jobs-growth-ambassador.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Redesign Jobs and create Growth Ambassador role
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          jobs_path = Path('recursos/jobs.html')
+          html = jobs_path.read_text(encoding='utf-8')
+
+          new_main = r'''
+          <main id="top">
+            <section class="jobs26-hero">
+              <div class="container jobs26-hero-grid">
+                <div class="jobs26-copy">
+                  <p class="jobs26-kicker">JOBS · BUILD WHAT'S NEXT</p>
+                  <h1>Haz trabajo que<br><strong>mueva cosas.</strong></h1>
+                  <p class="jobs26-lead">Somos una Growth Company construida para convertir estrategia en ejecución. Trabajamos entre negocio, contenido, tecnología e IA con una idea simple: menos ruido, más impacto.</p>
+                  <div class="jobs26-actions">
+                    <a class="jobs26-primary" href="#roles">Ver posiciones abiertas</a>
+                    <a class="jobs26-secondary" href="#culture">Conoce nuestra cultura</a>
+                  </div>
+                </div>
+
+                <aside class="jobs26-manifesto">
+                  <span>THE LOW WAY</span>
+                  <strong>Think clearly.<br>Move fast.<br>Own the outcome.</strong>
+                  <p>Queremos gente que cuestione, construya y se haga cargo.</p>
+                </aside>
+              </div>
+            </section>
+
+            <section class="jobs26-culture" id="culture">
+              <div class="container">
+                <div class="jobs26-head">
+                  <div>
+                    <p class="jobs26-eyebrow">CULTURA LOW</p>
+                    <h2>No buscamos llenar sillas.<br><strong>Buscamos builders.</strong></h2>
+                  </div>
+                  <p>La cultura se nota en cómo pensamos, cómo decidimos y cómo hacemos que las cosas pasen.</p>
+                </div>
+
+                <div class="jobs26-culture-grid">
+                  <article><span>/ 01</span><div><h3>Ownership</h3><p>Te haces cargo del resultado, no solo de la tarea.</p></div></article>
+                  <article><span>/ 02</span><div><h3>Claridad</h3><p>Menos vueltas. Problemas claros, decisiones claras.</p></div></article>
+                  <article><span>/ 03</span><div><h3>Velocidad</h3><p>Preferimos avanzar, aprender y mejorar rápido.</p></div></article>
+                  <article><span>/ 04</span><div><h3>Curiosidad</h3><p>Preguntar mejor es parte del trabajo.</p></div></article>
+                  <article class="is-blue"><span>/ 05</span><div><h3>Build what's next.</h3><p>No esperamos el futuro. Lo construimos.</p></div></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="jobs26-work">
+              <div class="container jobs26-work-grid">
+                <div>
+                  <p class="jobs26-eyebrow">CÓMO TRABAJAMOS</p>
+                  <h2>Equipos chicos.<br><strong>Impacto grande.</strong></h2>
+                </div>
+                <div class="jobs26-work-list">
+                  <article><span>01</span><div><h3>Problemas reales</h3><p>Trabajamos sobre desafíos concretos de crecimiento y negocio.</p></div></article>
+                  <article><span>02</span><div><h3>Cerca del cliente</h3><p>Entender contexto y operación es parte del proceso.</p></div></article>
+                  <article><span>03</span><div><h3>Cross-functional</h3><p>Estrategia, creatividad, tecnología y ejecución conviven en el mismo sistema.</p></div></article>
+                  <article><span>04</span><div><h3>Aprender haciendo</h3><p>La autonomía viene acompañada de exposición a proyectos y decisiones reales.</p></div></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="jobs26-roles" id="roles">
+              <div class="container">
+                <div class="jobs26-head jobs26-head-light">
+                  <div>
+                    <p class="jobs26-eyebrow jobs26-eyebrow-light">POSICIONES ABIERTAS</p>
+                    <h2>Encuentra tu lugar<br><strong>en lo que viene.</strong></h2>
+                  </div>
+                  <p>Hoy tenemos una posición abierta.</p>
+                </div>
+
+                <a class="jobs26-role-card" href="https://lowsignal.cl/recursos/jobs/growth-ambassador">
+                  <div class="jobs26-role-status"><i></i> OPEN ROLE</div>
+                  <div class="jobs26-role-main">
+                    <div>
+                      <span>SALES · BUSINESS DEVELOPMENT</span>
+                      <h3>Growth Ambassador</h3>
+                      <p>Para estudiantes o recién egresados con perfil comercial que quieran generar oportunidades y desarrollar experiencia en ventas B2B reales.</p>
+                    </div>
+                    <div class="jobs26-role-meta">
+                      <span>Remoto</span><span>Flexible</span><span>Variable por resultados</span>
+                    </div>
+                  </div>
+                  <div class="jobs26-role-link">Ver rol <b>↗</b></div>
+                </a>
+
+                <div class="jobs26-open-note">
+                  <p>¿No ves tu rol ideal?</p>
+                  <a href="mailto:contacto@lowsignal.cl?subject=Quiero%20trabajar%20en%20lowsignal">Igual queremos conocerte ↗</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="jobs26-process">
+              <div class="container">
+                <p class="jobs26-eyebrow">EL PROCESO</p>
+                <h2>Simple, directo y<br><strong>sin teatro corporativo.</strong></h2>
+                <div class="jobs26-process-grid">
+                  <article><span>01</span><h3>Postulas</h3><p>Nos cuentas quién eres y por qué te interesa.</p></article>
+                  <article><span>02</span><h3>Conversamos</h3><p>Una conversación para conocernos y entender fit.</p></article>
+                  <article><span>03</span><h3>Evaluamos</h3><p>Dependiendo del rol, podemos revisar un caso o experiencia concreta.</p></article>
+                  <article><span>04</span><h3>Construimos</h3><p>Si hay fit, empezamos a trabajar juntos.</p></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="lsr-band">
+              <div class="lsr-wrap lsr-band-inner">
+                <p class="lsr-reveal">¿Quieres construir lo que viene?</p>
+                <a class="lsr-reveal" href="mailto:contacto@lowsignal.cl?subject=Quiero%20trabajar%20en%20lowsignal">Hablemos</a>
+              </div>
+            </section>
+          </main>
+          '''.strip()
+
+          html = re.sub(r'(?s)<main id="top">.*?</main>', new_main, html, count=1)
+          html = re.sub(r'<title>.*?</title>', '<title>Jobs | Build what’s next | lowsignal</title>', html, count=1)
+
+          jobs_css = r'''
+          <style id="jobs26-redesign-v1">
+          .jobs26-hero{padding:170px 0 108px;background:radial-gradient(55% 85% at 100% 0%,rgba(20,25,224,.26),transparent 65%),#071022;color:#fff}
+          .jobs26-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:82px;align-items:center}
+          .jobs26-kicker,.jobs26-eyebrow{margin:0;color:#536BFF;font-size:10px;font-weight:700;letter-spacing:.2em}
+          .jobs26-hero .jobs26-kicker{color:#8EA3FF}
+          .jobs26-hero h1{margin:24px 0 0;max-width:820px;font-size:clamp(58px,5.3vw,78px);line-height:1.01;letter-spacing:-.055em;font-weight:300}
+          .jobs26-hero h1 strong{color:#A8B8FF;font-weight:300}
+          .jobs26-lead{max-width:720px;margin:30px 0 0;color:#9AA6C4;font-size:17px;line-height:1.7}
+          .jobs26-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+          .jobs26-primary,.jobs26-secondary{min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:650;transition:.2s ease}
+          .jobs26-primary{background:#fff;color:#17235D}.jobs26-secondary{border:1px solid rgba(255,255,255,.18);color:#fff}.jobs26-primary:hover,.jobs26-secondary:hover{transform:translateY(-2px)}
+          .jobs26-manifesto{min-height:440px;padding:32px;border:1px solid rgba(138,164,255,.18);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));display:flex;flex-direction:column;justify-content:space-between}
+          .jobs26-manifesto>span{color:#8EA3FF;font-size:9px;font-weight:700;letter-spacing:.18em}.jobs26-manifesto>strong{color:#fff;font-size:clamp(40px,4vw,58px);line-height:1.04;letter-spacing:-.05em;font-weight:300}.jobs26-manifesto>p{margin:0;color:#8F9BBA;font-size:13px;line-height:1.6;max-width:360px}
+          .jobs26-culture{padding:108px 0 112px;background:#fff}.jobs26-head{display:grid;grid-template-columns:1fr .68fr;gap:72px;align-items:end}.jobs26-head h2,.jobs26-work h2,.jobs26-process h2{margin:18px 0 0;color:#10193C;font-size:clamp(38px,4vw,54px);line-height:1.08;letter-spacing:-.043em;font-weight:300}.jobs26-head h2 strong,.jobs26-work h2 strong,.jobs26-process h2 strong{color:#1419E0;font-weight:300}.jobs26-head>p{margin:0;color:#7A86A7;font-size:14px;line-height:1.7}
+          .jobs26-culture-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:54px}.jobs26-culture-grid article{min-height:220px;padding:24px;border:1px solid #DCE3F2;border-radius:16px;background:#F8FAFF;display:flex;flex-direction:column;justify-content:space-between}.jobs26-culture-grid article>span{color:#1419E0;font-size:10px;font-weight:700}.jobs26-culture-grid h3{margin:0;color:#15204A;font-size:19px}.jobs26-culture-grid p{margin:8px 0 0;color:#7A86A7;font-size:12.5px;line-height:1.55}.jobs26-culture-grid .is-blue{background:linear-gradient(135deg,#1419E0,#2447F5);border-color:transparent}.jobs26-culture-grid .is-blue>span,.jobs26-culture-grid .is-blue h3{color:#fff}.jobs26-culture-grid .is-blue p{color:#D7DFFF}
+          .jobs26-work{padding:106px 0 110px;background:#F4F6FC}.jobs26-work-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.jobs26-work-list{border-top:1px solid #DCE3F2}.jobs26-work-list article{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid #DCE3F2}.jobs26-work-list article>span{color:#1419E0;font-size:18px;font-weight:600}.jobs26-work-list h3{margin:0;color:#16204A;font-size:15px}.jobs26-work-list p{margin:5px 0 0;color:#7A86A7;font-size:12px;line-height:1.55}
+          .jobs26-roles{padding:108px 0 112px;background:#071022;color:#fff}.jobs26-head-light h2{color:#fff}.jobs26-head-light h2 strong{color:#A8B8FF}.jobs26-head-light>p{color:#8F9BBA}.jobs26-eyebrow-light{color:#8EA3FF}
+          .jobs26-role-card{display:grid;grid-template-columns:140px 1fr auto;gap:34px;align-items:center;margin-top:50px;padding:30px;border:1px solid rgba(138,164,255,.18);border-radius:18px;background:rgba(255,255,255,.025);transition:.22s ease}.jobs26-role-card:hover{transform:translateY(-3px);border-color:rgba(138,164,255,.38);background:rgba(255,255,255,.045)}.jobs26-role-status{display:flex;align-items:center;gap:9px;color:#8EA3FF;font-size:9px;font-weight:700;letter-spacing:.14em}.jobs26-role-status i{width:8px;height:8px;border-radius:50%;background:#8EA3FF;box-shadow:0 0 0 5px rgba(138,164,255,.1)}.jobs26-role-main>div:first-child>span{color:#6E7C9F;font-size:9px;font-weight:700;letter-spacing:.15em}.jobs26-role-main h3{margin:10px 0 0;color:#fff;font-size:30px;letter-spacing:-.035em}.jobs26-role-main p{max-width:780px;margin:10px 0 0;color:#9AA6C4;font-size:13px;line-height:1.65}.jobs26-role-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.jobs26-role-meta span{padding:7px 10px;border:1px solid rgba(138,164,255,.16);border-radius:999px;color:#C8D0E7;font-size:9px}.jobs26-role-link{color:#fff;font-size:12px;font-weight:650;white-space:nowrap}.jobs26-role-link b{color:#8EA3FF}.jobs26-open-note{display:flex;justify-content:space-between;gap:24px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(138,164,255,.14)}.jobs26-open-note p{margin:0;color:#7F8CAD;font-size:12px}.jobs26-open-note a{color:#A8B8FF;font-size:12px;font-weight:650}
+          .jobs26-process{padding:108px 0 116px;background:#fff}.jobs26-process-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid #DCE3F2}.jobs26-process-grid article{padding:26px 28px 0;border-right:1px solid #DCE3F2}.jobs26-process-grid article:first-child{padding-left:0}.jobs26-process-grid article:last-child{border-right:0}.jobs26-process-grid span{display:block;color:#1419E0;font-size:34px;font-weight:600;letter-spacing:-.04em}.jobs26-process-grid h3{margin:38px 0 0;color:#16204A;font-size:18px}.jobs26-process-grid p{margin:7px 0 0;color:#7A86A7;font-size:12px;line-height:1.55}
+          @media(max-width:980px){.jobs26-hero-grid,.jobs26-head,.jobs26-work-grid{grid-template-columns:1fr;gap:34px}.jobs26-culture-grid{grid-template-columns:1fr 1fr}.jobs26-role-card{grid-template-columns:1fr}.jobs26-process-grid{grid-template-columns:1fr 1fr}.jobs26-process-grid article{border-right:0;border-bottom:1px solid #DCE3F2;padding:24px 0}}
+          @media(max-width:760px){.jobs26-hero{padding:132px 0 72px}.jobs26-hero h1{font-size:38px;max-width:340px}.jobs26-lead{font-size:15px}.jobs26-actions{flex-direction:column}.jobs26-primary,.jobs26-secondary{width:100%}.jobs26-manifesto{min-height:320px;padding:24px}.jobs26-manifesto>strong{font-size:38px}.jobs26-culture,.jobs26-work,.jobs26-roles,.jobs26-process{padding:72px 0}.jobs26-head h2,.jobs26-work h2,.jobs26-process h2{font-size:30px;max-width:340px}.jobs26-culture-grid{grid-template-columns:1fr;margin-top:36px}.jobs26-culture-grid article{min-height:165px}.jobs26-work-list article{grid-template-columns:42px 1fr;gap:14px}.jobs26-role-card{margin-top:36px;padding:22px}.jobs26-role-main h3{font-size:25px}.jobs26-open-note{flex-direction:column}.jobs26-process-grid{grid-template-columns:1fr;margin-top:38px}.jobs26-process-grid article{padding:22px 0}.jobs26-process-grid h3{margin-top:18px}}
+          </style>
+          <style id="jobs26-scroll-v1">
+          .jobs26-reveal{opacity:0;transform:translateY(22px);transition:opacity .66s ease,transform .72s cubic-bezier(.2,.75,.2,1)}.jobs26-reveal.is-visible{opacity:1;transform:none}.jobs26-stagger>*{opacity:0;transform:translateY(16px);transition:opacity .56s ease,transform .64s cubic-bezier(.2,.75,.2,1)}.jobs26-stagger.is-visible>*{opacity:1;transform:none}.jobs26-stagger.is-visible>*:nth-child(2){transition-delay:.06s}.jobs26-stagger.is-visible>*:nth-child(3){transition-delay:.12s}.jobs26-stagger.is-visible>*:nth-child(4){transition-delay:.18s}.jobs26-stagger.is-visible>*:nth-child(5){transition-delay:.24s}@media(prefers-reduced-motion:reduce){.jobs26-reveal,.jobs26-stagger,.jobs26-stagger>*{opacity:1!important;transform:none!important;transition:none!important}}
+          </style>
+          <script id="jobs26-scroll-controller-v1">
+          (function(){function init(){const simple=['.jobs26-copy','.jobs26-manifesto','.jobs26-head','.jobs26-work-grid','.jobs26-role-card','.jobs26-open-note','.jobs26-process> .container > .jobs26-eyebrow','.jobs26-process> .container > h2'];const stagger=['.jobs26-culture-grid','.jobs26-process-grid'];const els=[];simple.forEach(s=>document.querySelectorAll(s).forEach(el=>{el.classList.add('jobs26-reveal');els.push(el)}));stagger.forEach(s=>document.querySelectorAll(s).forEach(el=>{el.classList.add('jobs26-stagger');els.push(el)}));if(!('IntersectionObserver'in window)){els.forEach(el=>el.classList.add('is-visible'));return}const io=new IntersectionObserver((es,obs)=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('is-visible');obs.unobserve(e.target)}),{threshold:.12,rootMargin:'0px 0px -7% 0px'});els.forEach(el=>io.observe(el))}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init,{once:true}):init()})();
+          </script>
+          '''.strip()
+
+          # Remove prior redesign styles if rerun, then append latest before body end.
+          html = re.sub(r'(?s)<style id="jobs26-redesign-v1">.*?</style>\s*', '', html)
+          html = re.sub(r'(?s)<style id="jobs26-scroll-v1">.*?</style>\s*', '', html)
+          html = re.sub(r'(?s)<script id="jobs26-scroll-controller-v1">.*?</script>\s*', '', html)
+          html = html.replace('</body>', jobs_css + '\n</body>', 1)
+          jobs_path.write_text(html, encoding='utf-8')
+
+          # Build role detail page from current Jobs shell so navbar/footer/mobile behavior stay identical.
+          role = html
+          role = re.sub(r'<title>.*?</title>', '<title>Growth Ambassador | Jobs | lowsignal</title>', role, count=1)
+
+          role_main = r'''
+          <main id="top">
+            <section class="ga26-hero">
+              <div class="container ga26-hero-grid">
+                <div>
+                  <p class="ga26-kicker">JOBS · SALES · BUSINESS DEVELOPMENT</p>
+                  <h1>Growth<br><strong>Ambassador.</strong></h1>
+                  <p class="ga26-lead">Una oportunidad flexible para estudiantes y recién egresados que quieran desarrollar experiencia comercial conectando a lowsignal con empresas reales.</p>
+                  <div class="ga26-pills"><span>Remoto</span><span>Flexible</span><span>Sin experiencia previa</span><span>Variable por resultados</span></div>
+                </div>
+                <aside class="ga26-summary">
+                  <span>EL OBJETIVO</span>
+                  <strong>Abre la conversación.</strong>
+                  <p>Tú generas la oportunidad. Desde la reunión en adelante, el equipo de lowsignal se encarga de propuesta, negociación y cierre.</p>
+                  <a href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular ↗</a>
+                </aside>
+              </div>
+            </section>
+
+            <section class="ga26-content">
+              <div class="container ga26-layout">
+                <aside class="ga26-side">
+                  <span>ROLE 01</span>
+                  <b>Growth Ambassador</b>
+                  <p>Remoto / Flexible</p>
+                </aside>
+                <div class="ga26-body">
+                  <section><p class="ga26-eyebrow">EL ROL</p><h2>Conecta a lowsignal con <strong>nuevas oportunidades.</strong></h2><p>En lowsignal ayudamos a empresas a crecer a través de estrategia, contenido, performance, desarrollo digital y soluciones de growth. Buscamos estudiantes con perfil comercial, buenas habilidades de comunicación y ganas de generar nuevas oportunidades de negocio.</p></section>
+
+                  <section><h3>¿Qué harás?</h3><ul><li>Identificar empresas que puedan necesitar nuestros servicios.</li><li>Contactar potenciales clientes por LinkedIn, Instagram, correo u otros canales.</li><li>Generar conversaciones comerciales.</li><li>Detectar interés y coordinar reuniones con nuestro equipo.</li><li>Hacer introducciones o referidos dentro de tu propia red.</li></ul><p>Desde la reunión en adelante, <strong>el equipo de lowsignal se encarga del proceso comercial, propuesta, negociación y cierre.</strong></p></section>
+
+                  <section><h3>¿Cómo funciona?</h3><p>Es una modalidad <strong>100% flexible y orientada a resultados.</strong> No existen horarios definidos ni una jornada semanal mínima. Tú decides cuándo y cuánto prospectar.</p><p>Por cada oportunidad generada que se convierta efectivamente en un nuevo cliente para lowsignal, recibirás una <strong>comisión asociada al cierre.</strong></p><div class="ga26-callout">Sin sueldo base. Sin metas horarias. Sin obligación de dedicación exclusiva.</div></section>
+
+                  <section><h3>¿A quién buscamos?</h3><ul><li>Estudiantes o recién egresados con interés por ventas, negocios, marketing, startups o growth.</li><li>Personas que se comuniquen bien y disfruten generar relaciones.</li><li>Que se muevan bien en LinkedIn, Instagram y canales digitales.</li><li>Con iniciativa y autonomía.</li><li>Con ganas de desarrollar experiencia comercial trabajando con empresas reales.</li></ul><p><strong>No necesitas experiencia previa en ventas.</strong></p></section>
+
+                  <section><h3>¿Qué puedes ganar?</h3><p>Además de la comisión por nuevos clientes, podrás:</p><ul><li>Aprender cómo funciona un proceso comercial B2B real.</li><li>Trabajar directamente con founders y equipo comercial.</li><li>Conocer empresas de distintas industrias.</li><li>Desarrollar experiencia en prospección, networking y business development.</li><li>Participar opcionalmente en reuniones comerciales para aprender del proceso completo.</li></ul></section>
+
+                  <section><h3>Modalidad</h3><div class="ga26-meta-grid"><article><span>UBICACIÓN</span><b>Remoto</b></article><article><span>HORARIO</span><b>Flexible</b></article><article><span>COMPENSACIÓN</span><b>Variable por resultados</b></article><article><span>IDEAL PARA</span><b>Universidad, práctica o proyectos personales</b></article></div></section>
+
+                  <section><p class="ga26-eyebrow">SOBRE LOWSIGNAL</p><h2>Less noise.<br><strong>More growth.</strong></h2><p>Trabajamos con organizaciones de distintas industrias construyendo sistemas de crecimiento que combinan estrategia, creatividad, tecnología y ejecución.</p></section>
+                </div>
+              </div>
+            </section>
+
+            <section class="lsr-band"><div class="lsr-wrap lsr-band-inner"><p class="lsr-reveal">¿Te interesa el rol?</p><a class="lsr-reveal" href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular</a></div></section>
+          </main>
+          '''.strip()
+          role = re.sub(r'(?s)<main id="top">.*?</main>', role_main, role, count=1)
+
+          role_css = r'''
+          <style id="growth-ambassador-v1">
+          .ga26-hero{padding:170px 0 108px;background:radial-gradient(55% 85% at 100% 0%,rgba(20,25,224,.27),transparent 64%),#071022;color:#fff}.ga26-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:82px;align-items:center}.ga26-kicker,.ga26-eyebrow{margin:0;color:#8EA3FF;font-size:10px;font-weight:700;letter-spacing:.2em}.ga26-hero h1{margin:24px 0 0;font-size:clamp(62px,5.7vw,84px);line-height:.98;letter-spacing:-.058em;font-weight:300}.ga26-hero h1 strong{color:#A8B8FF;font-weight:300}.ga26-lead{max-width:700px;margin:30px 0 0;color:#9AA6C4;font-size:17px;line-height:1.7}.ga26-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}.ga26-pills span{padding:8px 11px;border:1px solid rgba(138,164,255,.18);border-radius:999px;color:#C8D0E7;font-size:9px}.ga26-summary{min-height:410px;padding:30px;border:1px solid rgba(138,164,255,.18);border-radius:20px;background:rgba(255,255,255,.025);display:flex;flex-direction:column}.ga26-summary>span{color:#8EA3FF;font-size:9px;font-weight:700;letter-spacing:.18em}.ga26-summary>strong{margin-top:58px;color:#fff;font-size:44px;line-height:1.02;letter-spacing:-.05em;font-weight:300}.ga26-summary>p{margin:18px 0 0;color:#8F9BBA;font-size:13px;line-height:1.65}.ga26-summary>a{margin-top:auto;color:#A8B8FF;font-size:13px;font-weight:650}
+          .ga26-content{padding:106px 0 112px;background:#fff}.ga26-layout{display:grid;grid-template-columns:230px 1fr;gap:90px;align-items:start}.ga26-side{position:sticky;top:118px;padding-top:6px}.ga26-side span{display:block;color:#1419E0;font-size:9px;font-weight:700;letter-spacing:.16em}.ga26-side b{display:block;margin-top:14px;color:#16204A;font-size:18px}.ga26-side p{margin:6px 0 0;color:#7A86A7;font-size:11px}.ga26-body{max-width:850px}.ga26-body section{padding:0 0 54px;margin-bottom:54px;border-bottom:1px solid #DCE3F2}.ga26-body section:last-child{border-bottom:0;margin-bottom:0}.ga26-body h2{margin:16px 0 0;color:#10193C;font-size:clamp(38px,4vw,54px);line-height:1.08;letter-spacing:-.043em;font-weight:300}.ga26-body h2 strong{color:#1419E0;font-weight:300}.ga26-body h3{margin:0;color:#16204A;font-size:26px;letter-spacing:-.03em}.ga26-body p{margin:18px 0 0;color:#596689;font-size:15px;line-height:1.78}.ga26-body ul{margin:20px 0 0;padding-left:20px;color:#596689}.ga26-body li{margin:10px 0;font-size:14px;line-height:1.65}.ga26-callout{margin-top:24px;padding:18px 20px;border-left:3px solid #1419E0;background:#F4F6FC;color:#16204A;font-size:14px;font-weight:600}.ga26-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.ga26-meta-grid article{padding:20px;border:1px solid #DCE3F2;border-radius:14px;background:#F8FAFF}.ga26-meta-grid span{display:block;color:#7A86A7;font-size:8px;font-weight:700;letter-spacing:.14em}.ga26-meta-grid b{display:block;margin-top:8px;color:#16204A;font-size:13px;line-height:1.45}
+          @media(max-width:900px){.ga26-hero-grid,.ga26-layout{grid-template-columns:1fr;gap:36px}.ga26-side{position:static}.ga26-side{display:none}}@media(max-width:760px){.ga26-hero{padding:132px 0 72px}.ga26-hero h1{font-size:40px}.ga26-lead{font-size:15px}.ga26-summary{min-height:320px;padding:24px}.ga26-summary>strong{font-size:36px}.ga26-content{padding:72px 0}.ga26-body section{padding-bottom:40px;margin-bottom:40px}.ga26-body h2{font-size:30px}.ga26-body h3{font-size:23px}.ga26-body p{font-size:14px}.ga26-meta-grid{grid-template-columns:1fr}}
+          </style>
+          '''.strip()
+          role = role.replace('</body>', role_css + '\n</body>', 1)
+
+          role_path = Path('recursos/jobs/growth-ambassador.html')
+          role_path.parent.mkdir(parents=True, exist_ok=True)
+          role_path.write_text(role, encoding='utf-8')
+
+          wf = Path('.github/workflows/redesign-jobs-growth-ambassador.yml')
+          if wf.exists(): wf.unlink()
+
+      - name: Commit redesign
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: redesign jobs and add Growth Ambassador role"
+          git push origin main
