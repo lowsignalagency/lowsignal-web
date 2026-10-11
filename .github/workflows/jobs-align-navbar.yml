@@ -1,0 +1,67 @@
+name: Align Jobs content to navbar
+on:
+  push:
+    paths:
+      - '.github/workflows/jobs-align-navbar.yml'
+permissions:
+  contents: write
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Align page containers with current navbar
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          files = [Path('recursos/jobs.html'), Path('recursos/jobs/growth-ambassador.html')]
+          css = r'''
+<style id="jobs-navbar-margin-lock-v1">
+/* Exact horizontal alignment with the current desktop navbar (.lnav-row). */
+@media(min-width:1101px){
+  main .container{
+    width:min(1220px,calc(100% - 128px)) !important;
+    max-width:1220px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+}
+@media(max-width:1100px) and (min-width:761px){
+  main .container{
+    width:calc(100% - 48px) !important;
+    max-width:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+}
+@media(max-width:760px){
+  main .container{
+    width:calc(100% - 40px) !important;
+    max-width:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+}
+</style>
+'''
+          for p in files:
+              s = p.read_text()
+              s = re.sub(r'\s*<style id="jobs-navbar-margin-lock-v1">.*?</style>\s*', '\n', s, flags=re.S)
+              s = s.replace('</body>', css + '\n</body>', 1)
+              p.write_text(s)
+          PY
+      - name: Commit alignment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html
+          git commit -m "fix: align Jobs content with navbar margins" || exit 0
+          git push
