@@ -1,8 +1,5 @@
 name: Jobs FAQ Insiders style once
-on:
-  push:
-    paths:
-      - '.github/workflows/jobs-faq-insiders-style-once.yml'
+on: push
 permissions:
   contents: write
 jobs:
@@ -30,23 +27,12 @@ jobs:
 .jobs26-faq-list summary b{width:30px!important;height:30px!important;flex:0 0 30px!important;display:grid!important;place-items:center!important;border:1px solid transparent!important;border-radius:50%!important;color:#7C89A3!important;font-size:21px!important;font-weight:400!important;transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease!important}
 .jobs26-faq-list details>p{max-width:820px!important;margin:0!important;padding:0 56px 28px 0!important;color:#65738F!important;font-size:13px!important;line-height:1.72!important}
 .jobs26-faq-list details>p a{color:#1419E0!important}
-@media(hover:hover){
-.jobs26-faq-list details:hover{background:rgba(20,25,224,.025)!important}
-.jobs26-faq-list details:hover summary{color:#1419E0!important;transform:translateX(4px)!important}
-.jobs26-faq-list details:hover summary b{background:#1419E0!important;border-color:#1419E0!important;color:#fff!important;transform:rotate(90deg)!important}
-}
+@media(hover:hover){.jobs26-faq-list details:hover{background:rgba(20,25,224,.025)!important}.jobs26-faq-list details:hover summary{color:#1419E0!important;transform:translateX(4px)!important}.jobs26-faq-list details:hover summary b{background:#1419E0!important;border-color:#1419E0!important;color:#fff!important;transform:rotate(90deg)!important}}
 .jobs26-faq-list details[open]{background:rgba(20,25,224,.035)!important}
 .jobs26-faq-list details[open] summary{color:#1419E0!important}
 .jobs26-faq-list details[open] summary b{background:#1419E0!important;border-color:#1419E0!important;color:#fff!important;transform:rotate(45deg)!important}
 .jobs26-faq-list summary:focus-visible{outline:2px solid rgba(20,25,224,.55)!important;outline-offset:5px!important}
-@media(max-width:760px){
-.jobs26-faq{padding:72px 0!important}
-.jobs26-faq-head{grid-template-columns:1fr!important;gap:16px!important;margin-bottom:34px!important}
-.jobs26-faq-head h2{font-size:28px!important;max-width:320px!important}
-.jobs26-faq-list summary{min-height:70px!important;padding-right:4px!important;font-size:14px!important;line-height:1.45!important}
-.jobs26-faq-list summary b{width:28px!important;height:28px!important;flex-basis:28px!important;font-size:19px!important}
-.jobs26-faq-list details>p{padding:0 34px 22px 0!important;font-size:12.5px!important}
-}
+@media(max-width:760px){.jobs26-faq{padding:72px 0!important}.jobs26-faq-head{grid-template-columns:1fr!important;gap:16px!important;margin-bottom:34px!important}.jobs26-faq-head h2{font-size:28px!important;max-width:320px!important}.jobs26-faq-list summary{min-height:70px!important;padding-right:4px!important;font-size:14px!important;line-height:1.45!important}.jobs26-faq-list summary b{width:28px!important;height:28px!important;flex-basis:28px!important;font-size:19px!important}.jobs26-faq-list details>p{padding:0 34px 22px 0!important;font-size:12.5px!important}}
 </style>
 '''
           s = re.sub(r'\s*<style id="jobs-faq-insiders-style-v1">.*?</style>\s*', '\n', s, flags=re.S)
