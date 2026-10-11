@@ -1,0 +1,20 @@
+name: Bump Jobs CSS v7 once
+on: [push]
+permissions:
+  contents: write
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sed -i 's/jobs-page-fixes.css?v=4/jobs-page-fixes.css?v=7/g' recursos/jobs.html recursos/jobs/growth-ambassador.html
+          sed -i 's/jobs-page-fixes.css?v=5/jobs-page-fixes.css?v=7/g' recursos/jobs.html recursos/jobs/growth-ambassador.html
+          sed -i 's/jobs-page-fixes.css?v=6/jobs-page-fixes.css?v=7/g' recursos/jobs.html recursos/jobs/growth-ambassador.html
+      - run: |
+          rm -f .github/workflows/bump-jobs-css-v7-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows/bump-jobs-css-v7-once.yml
+          git commit -m 'chore: force Jobs CSS v7'
+          git push
