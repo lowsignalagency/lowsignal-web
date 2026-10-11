@@ -1,0 +1,20 @@
+name: Link Jobs page fixes once
+on: [push]
+permissions:
+  contents: write
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link shared stylesheet
+        run: |
+          python3 -c "from pathlib import Path; files=[Path('recursos/jobs.html'),Path('recursos/jobs/growth-ambassador.html')]; tag='<link rel=\"stylesheet\" href=\"https://lowsignal.cl/assets/jobs-page-fixes.css\">'; [(p.write_text(s.replace('</head>',tag+'\\n</head>',1)) if tag not in (s:=p.read_text()) else None) for p in files]"
+      - name: Commit and remove workflow
+        run: |
+          rm -f .github/workflows/link-jobs-page-fixes-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows/link-jobs-page-fixes-once.yml
+          git commit -m 'fix: load shared Jobs FAQ and footer styles'
+          git push
