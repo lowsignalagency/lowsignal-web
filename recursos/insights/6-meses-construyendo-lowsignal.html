@@ -2845,6 +2845,53 @@
 }
 
 </style>
+
+<style id="insight-article-system-polish-v2">
+/* Final article rhythm — aligned with refreshed lowsignal system */
+.article-new-hero .container,
+.article-new-body .container,
+.article-new-more .container{
+  width:min(1220px,calc(100% - 128px));
+  margin-inline:auto;
+}
+.article-new-hero{padding:136px 0 80px}
+.article-new-hero-grid{grid-template-columns:minmax(0,1fr) minmax(240px,.34fr);gap:56px;margin-top:22px}
+.article-new-hero h1{max-width:820px;font-size:clamp(46px,4.5vw,64px);line-height:1.04;letter-spacing:-.05em}
+.article-new-hero-grid>div>p{max-width:700px;font-size:17px;line-height:1.62;margin-top:24px}
+.article-new-meta{margin-top:24px}
+.article-new-cover{margin-top:42px;border-radius:18px}
+.article-new-body{padding:88px 0}
+.article-new-body-grid{grid-template-columns:190px minmax(0,720px);gap:72px;justify-content:center}
+.article-new-content .article-new-lead{font-size:22px;line-height:1.5;margin-bottom:28px}
+.article-new-content>p{font-size:16px;line-height:1.75;margin-bottom:26px}
+.article-new-content h2{font-size:32px;line-height:1.18;margin:46px 0 18px}
+.article-new-more{padding-top:80px;padding-bottom:80px}
+.article-new-more-grid h3{font-size:20px;line-height:1.25}
+@media(max-width:1100px){
+  .article-new-hero .container,
+  .article-new-body .container,
+  .article-new-more .container{width:calc(100% - 48px)}
+  .article-new-hero-grid{grid-template-columns:1fr;gap:28px}
+  .article-new-body-grid{grid-template-columns:1fr;gap:38px}
+  .article-new-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+}
+@media(max-width:760px){
+  .article-new-hero .container,
+  .article-new-body .container,
+  .article-new-more .container{width:calc(100% - 32px)}
+  .article-new-hero{padding:112px 0 60px}
+  .article-new-hero h1{font-size:38px;line-height:1.05}
+  .article-new-hero-grid>div>p{font-size:15px;line-height:1.65}
+  .article-new-cover{height:auto;aspect-ratio:16/10;margin-top:28px;border-radius:14px}
+  .article-new-body{padding:64px 0}
+  .article-new-sidebar{grid-template-columns:1fr}
+  .article-new-content .article-new-lead{font-size:20px}
+  .article-new-content>p{font-size:15px;line-height:1.72}
+  .article-new-content h2{font-size:28px;margin-top:40px}
+  .article-new-more{padding-top:64px;padding-bottom:64px}
+}
+</style>
+
 </head>
 <body>
 
