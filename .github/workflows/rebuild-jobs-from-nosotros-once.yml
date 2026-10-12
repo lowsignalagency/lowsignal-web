@@ -19,8 +19,7 @@ jobs:
           from pathlib import Path
           import re
 
-          template_path = Path('nosotros.html')
-          template = template_path.read_text(encoding='utf-8')
+          template = Path('nosotros.html').read_text(encoding='utf-8')
 
           def extract_first(pattern, text, label):
               m = re.search(pattern, text, re.S | re.I)
@@ -72,7 +71,6 @@ jobs:
               i = 0
               n = len(css)
               while i < n:
-                  # keep comments/whitespace only as separators
                   if css.startswith('/*', i):
                       j = css.find('*/', i + 2)
                       if j == -1:
@@ -87,7 +85,6 @@ jobs:
                   if brace == -1:
                       break
                   if semi != -1 and semi < brace:
-                      # at-rule without block, e.g. @import
                       i = semi + 1
                       continue
                   prelude = css[i:brace].strip()
@@ -98,19 +95,17 @@ jobs:
                       inner = filter_css(body, needles)
                       if inner.strip():
                           out.append(f'{prelude}{{\n{inner}\n}}')
-                  else:
-                      if any(x in prelude for x in needles):
-                          out.append(f'{prelude}{{{body}}}')
+                  elif any(x in prelude for x in needles):
+                      out.append(f'{prelude}{{{body}}}')
                   i = end + 1
               return '\n'.join(out)
 
-          # exact shell anchors from Nosotros
           tmpl_main = re.search(r'<main\b.*?</main>', template, re.S | re.I)
           if not tmpl_main:
               raise RuntimeError('Nosotros main not found')
 
-          tmpl_header = extract_first(r'<header class="lnav"\b.*?</header>', template, 'Nosotros desktop navbar')
-          tmpl_footer = extract_first(r'<footer\b.*?</footer>', template, 'Nosotros footer')
+          tmpl_header = extract_first(r'<header class="lnav"[^>]*>.*?</header>', template, 'Nosotros desktop navbar')
+          tmpl_footer = extract_first(r'<footer[^>]*>.*?</footer>', template, 'Nosotros footer')
 
           targets = [
               ('recursos/jobs.html', ('jobs26',), 'Jobs | Build what’s next | lowsignal', True),
@@ -122,8 +117,6 @@ jobs:
               old = path.read_text(encoding='utf-8')
               main = extract_first(r'<main\b.*?</main>', old, f'{path_str} main')
 
-              # Keep ONLY CSS rules scoped to the page-specific namespaces.
-              # This prevents Jobs from ever overriding navbar/footer again.
               css_parts = []
               old_head = old.split('</head>', 1)[0]
               for sm in re.finditer(r'<style[^>]*>(.*?)</style>', old_head, re.S | re.I):
@@ -132,8 +125,6 @@ jobs:
                       css_parts.append(filtered)
               page_css = '\n'.join(css_parts)
 
-              # Start from Nosotros byte-for-byte, replace only title + main,
-              # then append namespace-scoped Jobs CSS before </head>.
               rebuilt = template
               rebuilt = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', rebuilt, count=1, flags=re.S | re.I)
               rebuilt = rebuilt[:tmpl_main.start()] + main + rebuilt[tmpl_main.end():]
@@ -143,18 +134,16 @@ jobs:
                   extra += '<link rel="stylesheet" href="https://lowsignal.cl/assets/jobs-page-fixes.css?v=10">\n'
               rebuilt = rebuilt.replace('</head>', extra + '</head>', 1)
 
-              # Hard structural guarantees.
               assert rebuilt.count('<head>') == 1 and rebuilt.count('</head>') == 1
               assert rebuilt.count('<body>') == 1 and rebuilt.count('</body>') == 1
               assert len(re.findall(r'<main\b', rebuilt, re.I)) == 1
               assert len(re.findall(r'<footer\b', rebuilt, re.I)) == 1
 
-              out_header = extract_first(r'<header class="lnav"\b.*?</header>', rebuilt, f'{path_str} desktop navbar')
-              out_footer = extract_first(r'<footer\b.*?</footer>', rebuilt, f'{path_str} footer')
+              out_header = extract_first(r'<header class="lnav"[^>]*>.*?</header>', rebuilt, f'{path_str} desktop navbar')
+              out_footer = extract_first(r'<footer[^>]*>.*?</footer>', rebuilt, f'{path_str} footer')
               assert out_header == tmpl_header, f'{path_str}: navbar differs from Nosotros'
               assert out_footer == tmpl_footer, f'{path_str}: footer differs from Nosotros'
 
-              # Ensure appended page CSS cannot affect shell.
               forbidden = ['.lnav', '.nav-wrap', '.nav-', 'footer', '.footer', '.mobile-nav']
               lowered = page_css.lower()
               for token in forbidden:
