@@ -15,51 +15,10 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
           p = Path('recursos/insights.html')
           s = p.read_text()
-
-          # Remove prior final-arrow block if rerun.
           s = re.sub(r'\n?<style id="insights-arrow-final-v2">.*?</style>\n?', '\n', s, flags=re.S)
-
-          css = '''<style id="insights-arrow-final-v2">
-/* One consistent arrow everywhere — no font glyphs, no duplicate pseudo-elements */
-.insights-new-read > span{
-  display:none !important;
-}
-.insights-new-read::before{
-  content:none !important;
-  display:none !important;
-}
-.insights-new-read::after{
-  content:"" !important;
-  display:block !important;
-  width:15px !important;
-  height:15px !important;
-  flex:0 0 15px !important;
-  background:currentColor !important;
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M17 7H9M17 7v8' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat !important;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M17 7H9M17 7v8' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat !important;
-}
-.insights-new-feature-copy .insights-new-read{
-  color:#1419E0 !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  gap:9px !important;
-}
-.insights-new-card .insights-new-read{
-  color:#1419E0 !important;
-}
-.insights-new-card:hover .insights-new-read{
-  color:#fff !important;
-}
-.insights-new-card .insights-new-read::after{
-  width:17px !important;
-  height:17px !important;
-  flex-basis:17px !important;
-}
-</style>'''
-
+          css = "<style id=\"insights-arrow-final-v2\">\n.insights-new-read > span{display:none!important}\n.insights-new-read::before{content:none!important;display:none!important}\n.insights-new-read::after{content:\"\"!important;display:block!important;width:15px!important;height:15px!important;flex:0 0 15px!important;background:currentColor!important;-webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M17 7H9M17 7v8' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center/contain no-repeat!important;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M17 7H9M17 7v8' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center/contain no-repeat!important}\n.insights-new-feature-copy .insights-new-read{color:#1419E0!important;display:inline-flex!important;align-items:center!important;gap:9px!important}\n.insights-new-card .insights-new-read{color:#1419E0!important}\n.insights-new-card:hover .insights-new-read{color:#fff!important}\n.insights-new-card .insights-new-read::after{width:17px!important;height:17px!important;flex-basis:17px!important}\n</style>"
           s = s.replace('</body>', css + '\n</body>', 1)
           p.write_text(s)
           PY
