@@ -1,0 +1,116 @@
+name: Fix Insights author and arrows
+on:
+  push:
+    paths:
+      - .github/workflows/fix-insights-author-arrows.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Insights index
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('recursos/insights.html')
+          s = p.read_text()
+
+          pattern = re.compile(
+              r'<div class="insights-author">\s*<img[^>]*>\s*<div><strong>Felipe Quiroz</strong><span>.*?</span></div>\s*</div>',
+              re.S,
+          )
+          s, n = pattern.subn('<div class="insights-author-name">Felipe Quiroz</div>', s)
+          if n < 5:
+              raise SystemExit(f'Expected at least 5 author blocks, found {n}')
+
+          css = r'''
+<style id="insights-byline-arrow-fix-v1">
+/* Index byline: editorial and intentionally minimal */
+.insights-author-name{
+  margin-top:14px;
+  color:#65738F;
+  font-size:11px;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.insights-new-feature-copy>.insights-author-name{
+  margin-top:16px;
+  color:#566481;
+  font-size:12px;
+}
+
+/* Draw arrows with CSS instead of relying on a font glyph */
+.insights-new-read>span{
+  position:relative !important;
+  display:inline-block !important;
+  width:14px !important;
+  height:14px !important;
+  font-size:0 !important;
+  line-height:0 !important;
+  color:currentColor !important;
+  flex:0 0 14px !important;
+}
+.insights-new-read>span::before{
+  content:"";
+  position:absolute;
+  left:2px;
+  bottom:3px;
+  width:9px;
+  height:1.6px;
+  border-radius:2px;
+  background:currentColor;
+  transform:rotate(-45deg);
+  transform-origin:center;
+}
+.insights-new-read>span::after{
+  content:"";
+  position:absolute;
+  top:2px;
+  right:2px;
+  width:6px;
+  height:6px;
+  border-top:1.6px solid currentColor;
+  border-right:1.6px solid currentColor;
+}
+
+/* Round CTA on article cards */
+.insights-new-card .insights-new-read{
+  color:#1419E0 !important;
+}
+.insights-new-card .insights-new-read>span{
+  color:#1419E0 !important;
+}
+.insights-new-card:hover .insights-new-read>span{
+  color:#fff !important;
+}
+
+@media(max-width:620px){
+  .insights-author-name{margin-top:12px;font-size:10px}
+  .insights-new-feature-copy>.insights-author-name{font-size:11px}
+}
+</style>
+'''
+          if 'insights-byline-arrow-fix-v1' not in s:
+              s = s.replace('</body>', css + '\n</body>', 1)
+
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          grep -q 'insights-author-name">Felipe Quiroz' recursos/insights.html
+          grep -q 'insights-byline-arrow-fix-v1' recursos/insights.html
+          test "$(grep -o 'insights-author-name">Felipe Quiroz' recursos/insights.html | wc -l)" -ge 5
+      - name: Remove workflow
+        run: rm .github/workflows/fix-insights-author-arrows.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/fix-insights-author-arrows.yml
+          git commit -m 'fix: simplify Insights bylines and redraw card arrows'
+          git push
