@@ -1,0 +1,30 @@
+name: Bump legal 404 CSS v2
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump CSS version
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ['404.html','politica-de-privacidad.html','terminos-de-servicio.html']:
+              p=Path(name)
+              t=p.read_text(encoding='utf-8')
+              t=t.replace('legal-404-2026-fix.css?v=1','legal-404-2026-fix.css?v=2')
+              p.write_text(t,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          rm .github/workflows/bump-legal-404-css-v2-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 404.html politica-de-privacidad.html terminos-de-servicio.html .github/workflows/bump-legal-404-css-v2-once.yml
+          git commit -m "fix: load legal 404 CSS v2"
+          git push
