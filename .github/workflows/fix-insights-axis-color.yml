@@ -1,0 +1,96 @@
+name: Fix Insights visual axis and hero color
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-insights-axis-color.yml'
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply final visual axis
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('recursos/insights.html')
+          s = p.read_text()
+          block = r'''
+<style id="insights-axis-color-v5">
+/* Final visual axis: align content with the navbar logo, not the outer nav shell */
+.insights-new-hero .container,
+.insights-new-featured .container,
+.insights-new-grid-section .container,
+.insights-new-themes .container,
+.insights-new-final .container{
+  width:min(1480px,calc(100% - 160px)) !important;
+  max-width:1480px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:48px !important;
+  padding-right:48px !important;
+  box-sizing:border-box !important;
+}
+
+/* Cleaner refreshed palette */
+.insights-new-hero{
+  background:#F8FAFD !important;
+}
+
+@media(max-width:1440px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{
+    width:calc(100% - 96px) !important;
+    max-width:none !important;
+    padding-left:32px !important;
+    padding-right:32px !important;
+  }
+}
+@media(max-width:1100px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{
+    width:calc(100% - 48px) !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+}
+@media(max-width:760px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{
+    width:calc(100% - 32px) !important;
+  }
+}
+</style>
+'''
+          s = re.sub(r'\n?<style id="insights-axis-color-v5">.*?</style>\n?', '\n', s, flags=re.S)
+          if '</body>' not in s:
+              raise SystemExit('No </body> in recursos/insights.html')
+          s = s.replace('</body>', block + '\n</body>', 1)
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          tail -n 160 recursos/insights.html | grep -q 'insights-axis-color-v5'
+          tail -n 160 recursos/insights.html | grep -q 'padding-left:48px'
+          tail -n 160 recursos/insights.html | grep -q 'background:#F8FAFD'
+      - name: Remove workflow
+        run: rm .github/workflows/fix-insights-axis-color.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/fix-insights-axis-color.yml
+          git commit -m 'fix: align Insights to navbar axis and clean hero color'
+          git push
