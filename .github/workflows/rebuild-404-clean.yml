@@ -1,0 +1,135 @@
+name: Rebuild 404 cleanly
+on: push
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild 404 from Nosotros shell
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          src = Path('nosotros.html').read_text(encoding='utf-8')
+
+          css = r'''
+          <style id="error404-clean-v1">
+          .error404{
+            min-height:calc(100vh - 88px);
+            padding:150px 0 110px;
+            background:#071022;
+            color:#fff;
+          }
+          .error404-inner{
+            width:min(1220px,calc(100% - 128px));
+            margin:0 auto;
+          }
+          .error404-kicker{
+            margin:0;
+            color:#8AA4FF;
+            font-size:10px;
+            font-weight:700;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+          }
+          .error404 h1{
+            max-width:900px;
+            margin:22px 0 0;
+            font-size:clamp(72px,8vw,124px);
+            line-height:.92;
+            letter-spacing:-.06em;
+            font-weight:300;
+          }
+          .error404 h1 strong{
+            display:block;
+            color:#8AA4FF;
+            font-weight:300;
+          }
+          .error404 p{
+            max-width:580px;
+            margin:28px 0 0;
+            color:#A7B2CA;
+            font-size:16px;
+            line-height:1.7;
+          }
+          .error404-actions{
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            margin-top:34px;
+          }
+          .error404-actions a{
+            min-height:50px;
+            padding:0 22px;
+            border-radius:14px;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-size:13px;
+            font-weight:650;
+            transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease;
+          }
+          .error404-primary{
+            background:#fff;
+            color:#1419E0;
+            border:1px solid #fff;
+          }
+          .error404-secondary{
+            background:transparent;
+            color:#fff;
+            border:1px solid rgba(255,255,255,.24);
+          }
+          @media(hover:hover){
+            .error404-actions a:hover{transform:translateY(-2px)}
+            .error404-primary:hover{background:#F1F3FF;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+            .error404-secondary:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.45)}
+          }
+          @media(max-width:1100px){
+            .error404-inner{width:calc(100% - 48px)}
+          }
+          @media(max-width:760px){
+            .error404{min-height:auto;padding:120px 0 72px}
+            .error404-inner{width:calc(100% - 40px)}
+            .error404 h1{font-size:64px}
+            .error404 p{font-size:15px}
+            .error404-actions{flex-direction:column}
+            .error404-actions a{width:100%}
+          }
+          </style>
+          '''
+
+          main = '''
+          <main id="top">
+            <section class="error404">
+              <div class="error404-inner">
+                <p class="error404-kicker">404 · Página no encontrada</p>
+                <h1>Te perdiste.<strong>Volvamos a la señal.</strong></h1>
+                <p>La página que buscas no existe, cambió de dirección o ya no está disponible.</p>
+                <div class="error404-actions">
+                  <a class="error404-primary" href="https://lowsignal.cl/">Volver al inicio</a>
+                  <a class="error404-secondary" href="https://lowsignal.cl/contacto">Hablemos</a>
+                </div>
+              </div>
+            </section>
+          </main>
+          '''
+
+          out = re.sub(r'<title>.*?</title>', '<title>404 | Página no encontrada | lowsignal</title>', src, count=1, flags=re.S)
+          out = out.replace('</head>', css + '\n</head>', 1)
+          out, n = re.subn(r'<main\b[^>]*>.*?</main>', main, out, count=1, flags=re.S|re.I)
+          if n != 1:
+            raise SystemExit('Could not replace main in nosotros shell')
+          Path('404.html').write_text(out, encoding='utf-8')
+      - name: Remove one-shot workflow
+        run: rm .github/workflows/rebuild-404-clean.yml
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 404.html .github/workflows/rebuild-404-clean.yml
+          git commit -m "fix: rebuild 404 on clean Nosotros shell"
+          git push
