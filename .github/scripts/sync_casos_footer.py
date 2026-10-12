@@ -1,47 +1,64 @@
 from pathlib import Path
 import re
 
-home = Path("index.html").read_text(encoding="utf-8")
+source = Path("nosotros.html").read_text(encoding="utf-8")
 casos_path = Path("casos.html")
 casos = casos_path.read_text(encoding="utf-8")
 
-# Exact current Home footer markup.
-footer = re.search(r"<footer>[\s\S]*?</footer>", home)
+# 1) Copy the exact current footer markup from Nosotros.
+footer = re.search(r"<footer>[\s\S]*?</footer>", source)
 if not footer:
-    raise SystemExit("Home footer not found")
+    raise SystemExit("Nosotros footer not found")
 casos, n = re.subn(r"<footer>[\s\S]*?</footer>", footer.group(0), casos, count=1)
 if n != 1:
     raise SystemExit("Casos footer replacement failed")
 
-# Remove every previous Casos footer sync/override so nothing can fight the Home styles.
+# 2) Remove all previously injected Casos footer styles so nothing competes.
 casos = re.sub(r'<style[^>]*id="[^"]*casos[^"]*footer[^"]*"[^>]*>[\s\S]*?</style>\s*', '', casos, flags=re.I)
 
-# Extract the exact base footer CSS from Home's main stylesheet.
+# 3) Copy the footer base CSS from Nosotros' main stylesheet.
 base_match = re.search(
     r'/\* FOOTER — expanded / editorial \*/([\s\S]*?)(?=/\* DRAWER \*/)',
-    home
+    source
 )
 if not base_match:
-    raise SystemExit("Home base footer CSS not found")
-base_footer_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
+    raise SystemExit("Nosotros base footer CSS not found")
+base_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
 
-# Copy every later Home-only footer override block verbatim and in the same order.
-footer_override_blocks = []
-for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', home, flags=re.I):
+# 4) Copy every later style block in Nosotros that explicitly touches the footer.
+# This preserves the exact latest visual system, including HECHO CON ♥ EN LATAM,
+# social buttons, lower legal row, and responsive behavior.
+overrides = []
+for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     attrs, css = m.group(1), m.group(2)
-    style_id = re.search(r'id="([^"]+)"', attrs, flags=re.I)
-    sid = style_id.group(1) if style_id else ""
-    if "footer" in sid.lower():
-        footer_override_blocks.append(m.group(0))
+    if re.search(r'footer|\.footer-', css, flags=re.I):
+        overrides.append(css)
 
-# Install Home's footer CSS LAST in Casos so its visual result is identical.
-clone_css = (
-    '\n<style id="casos-home-footer-base-exact">\n' +
-    base_footer_css +
-    '\n</style>\n' +
-    '\n'.join(footer_override_blocks) +
-    '\n'
+# 5) Install the cloned footer styles LAST in Casos, then lock the same margins
+# used by Nosotros so no older Casos rule can override them.
+final_margin_css = r'''
+/* CASOS — exact Nosotros footer margin lock */
+footer .footer-container{
+  width:min(1220px, calc(100% - 128px)) !important;
+  max-width:1220px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:1100px){
+  footer .footer-container{width:calc(100% - 48px) !important;}
+}
+@media(max-width:620px){
+  footer .footer-container{width:calc(100% - 40px) !important;}
+}
+'''
+
+clone = (
+    '\n<style id="casos-footer-nosotros-exact">\n' +
+    base_css + '\n' +
+    '\n'.join(overrides) + '\n' +
+    final_margin_css +
+    '\n</style>\n'
 )
 
-casos = casos.replace("</head>", clone_css + "</head>", 1)
+casos = casos.replace("</head>", clone + "</head>", 1)
 casos_path.write_text(casos, encoding="utf-8")
