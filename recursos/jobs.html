@@ -1579,6 +1579,21 @@ main#top .container{
   }
 }
 </style>
+<style id="jobs-mobile-top-strip-fix-v1">
+@media(max-width:760px){
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:12px;
+    background:#071022;
+    z-index:1195;
+    pointer-events:none;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -1887,7 +1902,7 @@ main#top .container{
         </div>
       </div>
 
-  <<main id="top">
+  <main id="top">
   <section class="jobs26-hero">
     <div class="container jobs26-hero-grid">
       <div class="jobs26-copy">

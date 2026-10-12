@@ -1522,6 +1522,21 @@ main#top .container{
 @media(max-width:900px){.ga26-process-steps{grid-template-columns:1fr}.ga26-process-steps article,.ga26-process-steps article+article{min-height:0;padding:24px 0 26px;border-right:0;border-bottom:1px solid #DCE3F2}.ga26-process-steps article:last-child{border-bottom:0}.ga26-process-steps span{margin-bottom:20px}}
 </style>
 
+<style id="jobs-mobile-top-strip-fix-v1">
+@media(max-width:760px){
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:12px;
+    background:#071022;
+    z-index:1195;
+    pointer-events:none;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -1830,7 +1845,7 @@ main#top .container{
         </div>
       </div>
 
-  <<main id="top">
+  <main id="top">
   <section class="ga26-hero">
     <div class="container ga26-hero-grid">
       <div>
