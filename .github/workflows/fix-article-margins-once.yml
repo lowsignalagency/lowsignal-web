@@ -1,0 +1,42 @@
+name: Fix article margins once
+on:
+  push:
+    paths: ['.github/workflows/fix-article-margins-once.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply exact article margins
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          files = [
+            'recursos/insights/100-ideas-puestas-en-marcha.html',
+            'recursos/insights/6-meses-construyendo-lowsignal.html',
+            'recursos/insights/ai-native-startups-platanus.html',
+            'recursos/insights/platanus-ai-native-startups-4.html',
+            'recursos/insights/tech-founders-ama.html',
+          ]
+          css = '<style id="article-margin-axis-final">@media(min-width:1441px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 256px)!important;max-width:1480px!important;margin-inline:auto!important}}</style>'
+          for filename in files:
+              p=Path(filename)
+              s=p.read_text()
+              s=re.sub(r'\n?<style id="article-margin-axis-final">.*?</style>\s*','\n',s,flags=re.S)
+              s=s.replace('</body>',css+'\n</body>',1)
+              p.write_text(s)
+          PY
+      - name: Verify
+        run: grep -q 'article-margin-axis-final' recursos/insights/platanus-ai-native-startups-4.html
+      - name: Remove workflow
+        run: rm .github/workflows/fix-article-margins-once.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights/*.html .github/workflows/fix-article-margins-once.yml
+          git commit -m 'fix: align article margins to refreshed visual axis'
+          git push
