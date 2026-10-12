@@ -25,43 +25,26 @@ if not base_match:
     raise SystemExit("Nosotros base footer CSS not found")
 base_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
 
-# Copy every later style block from Nosotros that touches the footer.
+# Copy every later style block from Nosotros that touches the footer, preserving
+# the source order exactly. No Casos-only margin, width, padding or sizing tweaks.
 overrides = []
 for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     css = m.group(2)
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-# Keep the Nosotros footer system, but align the visible footer content to the
-# exact same horizontal start/end as the CTA above. The previous footer sat
-# about 8px too far left after the 40px gutter pass, so use a 48px desktop inset.
-alignment = r'''
-footer .footer-container{
-  padding-left:48px !important;
-  padding-right:48px !important;
-  box-sizing:border-box !important;
-}
-@media(max-width:1100px){
-  footer .footer-container{
-    padding-left:16px !important;
-    padding-right:16px !important;
-  }
-}
-@media(max-width:620px){
-  footer .footer-container{
-    padding-left:0 !important;
-    padding-right:0 !important;
-  }
-}
-'''
-
 clone = (
     '\n<style id="casos-footer-nosotros-exact">\n' +
     base_css + '\n' +
     '\n'.join(overrides) + '\n' +
-    alignment + '\n' +
-    '\n</style>\n'
+    '</style>\n'
 )
 
-casos = casos.replace("</head>", clone + "</head>", 1)
+# Critical: apply the Nosotros footer CSS LAST in the document. Casos has several
+# late style blocks after </head>; inserting in the head let those rules override
+# the cloned footer and made it look smaller/different.
+if "</body>" not in casos:
+    raise SystemExit("Casos closing body not found")
+casos = casos.replace("</body>", clone + "\n</body>", 1)
+
 casos_path.write_text(casos, encoding="utf-8")
