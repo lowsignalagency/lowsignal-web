@@ -3,7 +3,7 @@ name: Fix Casos CTA reference
 on:
   push:
     paths:
-      - .github/workflows/fix-casos-cta-reference.yml
+      - '.github/workflows/fix-casos-cta-reference.yml'
 
 permissions:
   contents: write
@@ -16,94 +16,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Match final CTA to reference
+      - name: Apply CTA reference fix
         shell: bash
         run: |
-          python <<'PY'
-          from pathlib import Path
-          import re
-
-          p = Path('casos.html')
-          s = p.read_text(encoding='utf-8')
-
-          # Replace final CTA markup with the single-line brand CTA from the reference.
-          s = re.sub(
-              r'<section class="stories-new-final">[\s\S]*?</section>',
-              '''<section class="stories-new-final">
-    <div class="container stories-new-final-inner">
-      <h2>¿Construimos lo que viene?</h2>
-      <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
-    </div>
-  </section>''',
-              s,
-              count=1
-          )
-
-          # Remove prior final CTA override and append exact visual treatment last in cascade.
-          s = re.sub(r'<style id="casos-final-cta-v2">[\s\S]*?</style>\s*', '', s)
-          css = '''
-<style id="casos-final-cta-v3">
-.stories-new-final{
-  position:relative !important;
-  overflow:hidden !important;
-  padding:72px 0 !important;
-  min-height:250px !important;
-  display:flex !important;
-  align-items:center !important;
-  background:linear-gradient(135deg,#171BE8 0%,#274BFF 100%) !important;
-}
-.stories-new-final:after{display:none !important}
-.stories-new-final .container{
-  width:min(1220px,calc(100% - 128px)) !important;
-  max-width:1220px !important;
-  margin:0 auto !important;
-}
-.stories-new-final-inner{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-  gap:48px !important;
-}
-.stories-new-final h2{
-  margin:0 !important;
-  color:#fff !important;
-  font-size:clamp(34px,3.3vw,48px) !important;
-  line-height:1.08 !important;
-  letter-spacing:-.045em !important;
-  font-weight:300 !important;
-}
-.stories-new-final a{
-  flex:none !important;
-  min-width:160px !important;
-  height:68px !important;
-  padding:0 30px !important;
-  border-radius:999px !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  background:#fff !important;
-  color:#101B4F !important;
-  font-size:16px !important;
-  font-weight:650 !important;
-  box-shadow:none !important;
-  transition:transform .2s ease,background-color .2s ease !important;
-}
-.stories-new-final a:hover{
-  transform:translateY(-2px) !important;
-  background:#F4F6FF !important;
-}
-@media(max-width:760px){
-  .stories-new-final{padding:52px 0 !important;min-height:210px !important}
-  .stories-new-final .container{width:calc(100% - 32px) !important}
-  .stories-new-final-inner{align-items:flex-start !important;flex-direction:column !important;gap:28px !important}
-  .stories-new-final h2{font-size:36px !important}
-  .stories-new-final a{min-width:138px !important;height:54px !important;font-size:14px !important}
-}
-</style>
-'''
-          s = s.replace('</head>', css + '\n</head>', 1)
-          p.write_text(s, encoding='utf-8')
-          PY
+          echo 'CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAppbXBvcnQgcmUKcCA9IFBhdGgoImNhc29zLmh0bWwiKQpzID0gcC5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04IikKcmVwbGFjZW1lbnQgPSAnJyc8c2VjdGlvbiBjbGFzcz0ic3Rvcmllcy1uZXctZmluYWwiPgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIHN0b3JpZXMtbmV3LWZpbmFsLWlubmVyIj4KICAgICAgPGgyPsK/Q29uc3RydWltb3MgbG8gcXVlIHZpZW5lPzwvaDI+CiAgICAgIDxhIGhyZWY9Imh0dHBzOi8vY2FsZW5kbHkuY29tL2ZlbGlwZS1sb3dzaWduYWwvMzBtaW4iIHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIG5vcmVmZXJyZXIiPkhhYmxlbW9zPC9hPgogICAgPC9kaXY+CiAgPC9zZWN0aW9uPicnJwpzID0gcmUuc3ViKHInPHNlY3Rpb24gY2xhc3M9InN0b3JpZXMtbmV3LWZpbmFsIj5bXHNcU10qPzwvc2VjdGlvbj4nLCByZXBsYWNlbWVudCwgcywgY291bnQ9MSkKcyA9IHJlLnN1YihyJzxzdHlsZSBpZD0iY2Fzb3MtZmluYWwtY3RhLXYyIj5bXHNcU10qPzwvc3R5bGU+XHMqJywgJycsIHMpCnMgPSByZS5zdWIocic8c3R5bGUgaWQ9ImNhc29zLWZpbmFsLWN0YS12MyI+W1xzXFNdKj88L3N0eWxlPlxzKicsICcnLCBzKQpjc3MgPSAnJyc8c3R5bGUgaWQ9ImNhc29zLWZpbmFsLWN0YS12MyI+Ci5zdG9yaWVzLW5ldy1maW5hbHsKICBwb3NpdGlvbjpyZWxhdGl2ZSAhaW1wb3J0YW50OwogIG92ZXJmbG93OmhpZGRlbiAhaW1wb3J0YW50OwogIHBhZGRpbmc6NzJweCAwICFpbXBvcnRhbnQ7CiAgbWluLWhlaWdodDoyNTBweCAhaW1wb3J0YW50OwogIGRpc3BsYXk6ZmxleCAhaW1wb3J0YW50OwogIGFsaWduLWl0ZW1zOmNlbnRlciAhaW1wb3J0YW50OwogIGJhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KDEzNWRlZywjMTcxQkU4IDAlLCMyNzRCRkYgMTAwJSkgIWltcG9ydGFudDsKfQouc3Rvcmllcy1uZXctZmluYWw6YWZ0ZXJ7ZGlzcGxheTpub25lICFpbXBvcnRhbnR9Ci5zdG9yaWVzLW5ldy1maW5hbCAuY29udGFpbmVyewogIHdpZHRoOm1pbigxMjIwcHgsY2FsYygxMDAlIC0gMTI4cHgpKSAhaW1wb3J0YW50OwogIG1heC13aWR0aDoxMjIwcHggIWltcG9ydGFudDsKICBtYXJnaW46MCBhdXRvICFpbXBvcnRhbnQ7Cn0KLnN0b3JpZXMtbmV3LWZpbmFsLWlubmVyewogIGRpc3BsYXk6ZmxleCAhaW1wb3J0YW50OwogIGFsaWduLWl0ZW1zOmNlbnRlciAhaW1wb3J0YW50OwogIGp1c3RpZnktY29udGVudDpzcGFjZS1iZXR3ZWVuICFpbXBvcnRhbnQ7CiAgZ2FwOjQ4cHggIWltcG9ydGFudDsKfQouc3Rvcmllcy1uZXctZmluYWwgaDJ7CiAgbWFyZ2luOjAgIWltcG9ydGFudDsKICBjb2xvcjojZmZmICFpbXBvcnRhbnQ7CiAgZm9udC1zaXplOmNsYW1wKDM0cHgsMy4zdncsNDhweCkgIWltcG9ydGFudDsKICBsaW5lLWhlaWdodDoxLjA4ICFpbXBvcnRhbnQ7CiAgbGV0dGVyLXNwYWNpbmc6LS4wNDVlbSAhaW1wb3J0YW50OwogIGZvbnQtd2VpZ2h0OjMwMCAhaW1wb3J0YW50Owp9Ci5zdG9yaWVzLW5ldy1maW5hbCBhewogIGZsZXg6bm9uZSAhaW1wb3J0YW50OwogIG1pbi13aWR0aDoxNjBweCAhaW1wb3J0YW50OwogIGhlaWdodDo2OHB4ICFpbXBvcnRhbnQ7CiAgcGFkZGluZzowIDMwcHggIWltcG9ydGFudDsKICBib3JkZXItcmFkaXVzOjk5OXB4ICFpbXBvcnRhbnQ7CiAgZGlzcGxheTppbmxpbmUtZmxleCAhaW1wb3J0YW50OwogIGFsaWduLWl0ZW1zOmNlbnRlciAhaW1wb3J0YW50OwogIGp1c3RpZnktY29udGVudDpjZW50ZXIgIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kOiNmZmYgIWltcG9ydGFudDsKICBjb2xvcjojMTAxQjRGICFpbXBvcnRhbnQ7CiAgZm9udC1zaXplOjE2cHggIWltcG9ydGFudDsKICBmb250LXdlaWdodDo2NTAgIWltcG9ydGFudDsKICBib3gtc2hhZG93Om5vbmUgIWltcG9ydGFudDsKICB0cmFuc2l0aW9uOnRyYW5zZm9ybSAuMnMgZWFzZSxiYWNrZ3JvdW5kLWNvbG9yIC4ycyBlYXNlICFpbXBvcnRhbnQ7Cn0KLnN0b3JpZXMtbmV3LWZpbmFsIGE6aG92ZXJ7CiAgdHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTJweCkgIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kOiNGNEY2RkYgIWltcG9ydGFudDsKfQpAbWVkaWEobWF4LXdpZHRoOjc2MHB4KXsKICAuc3Rvcmllcy1uZXctZmluYWx7cGFkZGluZzo1MnB4IDAgIWltcG9ydGFudDttaW4taGVpZ2h0OjIxMHB4ICFpbXBvcnRhbnR9CiAgLnN0b3JpZXMtbmV3LWZpbmFsIC5jb250YWluZXJ7d2lkdGg6Y2FsYygxMDAlIC0gMzJweCkgIWltcG9ydGFudH0KICAuc3Rvcmllcy1uZXctZmluYWwtaW5uZXJ7YWxpZ24taXRlbXM6ZmxleC1zdGFydCAhaW1wb3J0YW50O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbiAhaW1wb3J0YW50O2dhcDoyOHB4ICFpbXBvcnRhbnR9CiAgLnN0b3JpZXMtbmV3LWZpbmFsIGgye2ZvbnQtc2l6ZTozNnB4ICFpbXBvcnRhbnR9CiAgLnN0b3JpZXMtbmV3LWZpbmFsIGF7bWluLXdpZHRoOjEzOHB4ICFpbXBvcnRhbnQ7aGVpZ2h0OjU0cHggIWltcG9ydGFudDtmb250LXNpemU6MTRweCAhaW1wb3J0YW50fQp9Cjwvc3R5bGU+CicnJwpzID0gcy5yZXBsYWNlKCI8L2hlYWQ+IiwgY3NzICsgIlxuPC9oZWFkPiIsIDEpCnAud3JpdGVfdGV4dChzLCBlbmNvZGluZz0idXRmLTgiKQo=' | base64 -d > /tmp/fix.py
+          python /tmp/fix.py
 
       - name: Commit changes
         shell: bash
@@ -111,5 +28,5 @@ jobs:
           git config user.name lowsignal-bot
           git config user.email actions@users.noreply.github.com
           git add casos.html
-          git commit -m "Match Casos CTA to reference" || exit 0
+          git commit -m 'Match Casos CTA to reference' || exit 0
           git push
