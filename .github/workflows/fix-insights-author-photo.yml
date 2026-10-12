@@ -1,0 +1,56 @@
+name: Fix Insights author photo
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-insights-author-photo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-author-photo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace embedded author image with stable asset
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          changed = []
+          pattern = re.compile(
+              r'(<div class="article-author">\s*<img src=")data:image/jpeg;base64,[^"]+(" alt="Felipe Quiroz">)',
+              re.S,
+          )
+
+          for path in Path("recursos/insights").glob("*.html"):
+              text = path.read_text(encoding="utf-8")
+              updated, count = pattern.subn(
+                  r'\1https://lowsignal.cl/assets/team_felipe-1.png\2',
+                  text,
+              )
+              if count:
+                  path.write_text(updated, encoding="utf-8")
+                  changed.append(f"{path}: {count}")
+
+          print("\n".join(changed) if changed else "No matching author images found")
+          PY
+
+      - name: Commit fix
+        shell: bash
+        run: |
+          if git diff --quiet -- recursos/insights; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "lowsignal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add recursos/insights
+          git commit -m "Fix Insights author photo"
+          git push
