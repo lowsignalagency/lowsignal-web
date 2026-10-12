@@ -1,0 +1,65 @@
+name: Fix Jobs mobile top strip once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-jobs-mobile-top-strip-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix malformed main and mobile top strip
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          targets = [
+              Path('recursos/jobs.html'),
+              Path('recursos/jobs/growth-ambassador.html'),
+          ]
+
+          css = '''
+<style id="jobs-mobile-top-strip-fix-v1">
+@media(max-width:760px){
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:12px;
+    background:#071022;
+    z-index:1195;
+    pointer-events:none;
+  }
+}
+</style>
+'''
+
+          for path in targets:
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('<<main id="top">', '<main id="top">')
+              if 'jobs-mobile-top-strip-fix-v1' not in text:
+                  text = text.replace('</head>', css + '\n</head>', 1)
+              path.write_text(text, encoding='utf-8')
+
+          for path in targets:
+              text = path.read_text(encoding='utf-8')
+              assert '<<main id="top">' not in text
+              assert '<main id="top">' in text
+              assert 'jobs-mobile-top-strip-fix-v1' in text
+              print(path, 'ok')
+          PY
+      - name: Commit and remove workflow
+        run: |
+          rm .github/workflows/fix-jobs-mobile-top-strip-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows/fix-jobs-mobile-top-strip-once.yml
+          git commit -m "fix: remove Jobs mobile top strip"
+          git push
