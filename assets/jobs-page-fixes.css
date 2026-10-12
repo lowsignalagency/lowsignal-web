@@ -142,3 +142,27 @@
   .jobs26-faq-list summary span{font-size:21px!important}
   .jobs26-faq-list details>p{padding:0 30px 22px 0!important;font-size:12.5px!important}
 }
+
+/* =========================================================
+   JOBS CONTENT GRID — exact Nosotros width
+   This intentionally overrides the accidental 1620px inline rule.
+   Navbar and footer are untouched.
+========================================================= */
+html body main#top .container{
+  width:min(1220px,calc(100% - 128px))!important;
+  max-width:1220px!important;
+  margin-inline:auto!important;
+}
+
+@media(max-width:1100px){
+  html body main#top .container{
+    width:calc(100% - 48px)!important;
+    max-width:none!important;
+  }
+}
+
+@media(max-width:760px){
+  html body main#top .container{
+    width:calc(100% - 32px)!important;
+  }
+}
