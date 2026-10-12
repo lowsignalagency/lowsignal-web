@@ -1,0 +1,40 @@
+name: Remove legacy Insights arrow spans
+on:
+  push:
+    paths:
+      - .github/workflows/remove-insights-arrow-spans.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove legacy arrow spans
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('recursos/insights.html')
+          s = p.read_text()
+          before = s.count('<span>↗</span>')
+          s = s.replace(' <span>↗</span>', '')
+          s = s.replace('<span>↗</span>', '')
+          p.write_text(s)
+          after = s.count('<span>↗</span>')
+          print(f'removed={before-after}')
+          if after != 0:
+              raise SystemExit('Legacy arrow spans remain')
+          PY
+      - name: Verify single arrow renderer
+        run: |
+          grep -q 'insights-arrow-final-v2' recursos/insights.html
+          ! grep -q '<span>↗</span>' recursos/insights.html
+      - name: Remove workflow
+        run: rm .github/workflows/remove-insights-arrow-spans.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/remove-insights-arrow-spans.yml
+          git commit -m 'fix: remove duplicate Insights arrow markup'
+          git push
