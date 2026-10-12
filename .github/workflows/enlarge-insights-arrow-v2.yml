@@ -16,14 +16,17 @@ jobs:
           from pathlib import Path
           p=Path('recursos/insights.html')
           s=p.read_text()
-          s=s.replace('M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5','M6.5 17.5L17.5 6.5M17.5 6.5H10.5M17.5 6.5V13.5')
-          s=s.replace('width:18px!important;\n  height:18px!important;','width:21px!important;\n  height:21px!important;')
+          marker='<style id="insights-arrow-scale-final">'
+          if marker in s:
+              start=s.index(marker)
+              end=s.index('</style>',start)+len('</style>')
+              s=s[:start]+s[end:]
+          css='''<style id="insights-arrow-scale-final">\n.insights-new-card .insights-new-read .insights-arrow-svg{\n  width:20px!important;\n  height:20px!important;\n  transform:translate(calc(-50% - 1px),calc(-50% + 1px)) scale(1.45)!important;\n  transform-origin:center!important;\n}\n</style>'''
+          s=s.replace('</body>',css+'\n</body>',1)
           p.write_text(s)
           PY
       - name: Verify
-        run: |
-          grep -q 'M6.5 17.5L17.5 6.5' recursos/insights.html
-          grep -q 'width:21px!important' recursos/insights.html
+        run: grep -q 'insights-arrow-scale-final' recursos/insights.html
       - name: Remove workflow
         run: rm .github/workflows/enlarge-insights-arrow-v2.yml
       - name: Commit
@@ -31,5 +34,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recursos/insights.html .github/workflows/enlarge-insights-arrow-v2.yml
-          git commit -m 'fix: enlarge Insights arrow visual'
+          git commit -m 'fix: visibly enlarge Insights arrows'
           git push
