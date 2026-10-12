@@ -2795,6 +2795,40 @@
 }
 </style>
 
+<style id="insights-margin-system-v3">
+:root{--insights-content:1480px}
+.insights-new-hero .container,
+.insights-new-featured .container,
+.insights-new-grid-section .container,
+.insights-new-themes .container,
+.insights-new-final .container{
+  width:min(var(--insights-content),calc(100% - 160px)) !important;
+  max-width:var(--insights-content) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:1440px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 96px) !important}
+}
+@media(max-width:1100px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 48px) !important}
+}
+@media(max-width:760px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 32px) !important}
+}
+</style>
 </head>
 <body>
 

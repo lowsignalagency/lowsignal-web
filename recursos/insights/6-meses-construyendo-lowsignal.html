@@ -2892,6 +2892,32 @@
 }
 </style>
 
+<style id="insight-article-margin-system-v3">
+:root{--insights-content:1480px}
+.article-new-hero .container,
+.article-new-body .container,
+.article-new-more .container{
+  width:min(var(--insights-content),calc(100% - 160px)) !important;
+  max-width:var(--insights-content) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:1440px){
+  .article-new-hero .container,
+  .article-new-body .container,
+  .article-new-more .container{width:calc(100% - 96px) !important}
+}
+@media(max-width:1100px){
+  .article-new-hero .container,
+  .article-new-body .container,
+  .article-new-more .container{width:calc(100% - 48px) !important}
+}
+@media(max-width:760px){
+  .article-new-hero .container,
+  .article-new-body .container,
+  .article-new-more .container{width:calc(100% - 32px) !important}
+}
+</style>
 </head>
 <body>
 
