@@ -1,0 +1,30 @@
+name: Refresh individual case pages
+
+on:
+  push:
+    paths:
+      - .github/scripts/sync_individual_cases.py
+      - .github/workflows/sync-individual-cases.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-cases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Refresh all case pages
+        run: python .github/scripts/sync_individual_cases.py
+
+      - name: Commit case updates
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add casos/*.html
+          git commit -m "Refresh individual Customer Stories" || exit 0
+          git push
