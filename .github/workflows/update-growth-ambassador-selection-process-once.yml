@@ -1,9 +1,6 @@
-name: Update Growth Ambassador selection process once
+name: Update Growth Ambassador selection process
 
-on:
-  push:
-    paths:
-      - '.github/workflows/update-growth-ambassador-selection-process-once.yml'
+on: push
 
 permissions:
   contents: write
@@ -13,103 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Replace about block with selection process
+      - name: Patch selection process
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
-          path = Path('recursos/jobs/growth-ambassador.html')
-          text = path.read_text(encoding='utf-8')
-
-          old = '''        <section><p class="ga26-eyebrow">SOBRE LOWSIGNAL</p><h2>Less noise.<br><strong>More growth.</strong></h2><p>Trabajamos con organizaciones de distintas industrias construyendo sistemas de crecimiento que combinan estrategia, creatividad, tecnología y ejecución.</p></section>'''
-
-          new = '''        <section class="ga26-selection-process">
-          <p class="ga26-eyebrow">PROCESO DE SELECCIÓN</p>
-          <h2>Simple, directo<br><strong>y sin vueltas.</strong></h2>
-          <div class="ga26-process-steps">
-            <article>
-              <span>01</span>
-              <h3>Conversación con Felipe</h3>
-              <p>Una conversación con Felipe, Co-Founder &amp; COO, para conocerte y para que tú también conozcas mejor a lowsignal.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Fase técnica</h3>
-              <p>Una instancia práctica en base al rol, para entender cómo piensas, resuelves y ejecutas.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Café con el equipo</h3>
-              <p>Para cerrar, un café con el equipo y ver si hacemos buen match para trabajar juntos.</p>
-            </article>
-          </div>
-        </section>'''
-
-          if old not in text:
-              raise SystemExit('Expected SOBRE LOWSIGNAL block not found')
-          text = text.replace(old, new, 1)
-
-          css = '''
-<style id="ga26-selection-process-v1">
-.ga26-selection-process h2{
-  margin-bottom:34px;
-}
-.ga26-process-steps{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  border-top:1px solid #DCE3F2;
-  border-bottom:1px solid #DCE3F2;
-}
-.ga26-process-steps article{
-  min-height:250px;
-  padding:28px 28px 30px 0;
-  border-right:1px solid #DCE3F2;
-}
-.ga26-process-steps article+article{
-  padding-left:28px;
-}
-.ga26-process-steps article:last-child{
-  border-right:0;
-}
-.ga26-process-steps span{
-  display:block;
-  margin-bottom:52px;
-  color:#1419E0;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:-.02em;
-}
-.ga26-process-steps h3{
-  margin:0;
-  color:#16204A;
-  font-size:18px;
-  line-height:1.28;
-  font-weight:600;
-}
-.ga26-process-steps p{
-  margin:12px 0 0;
-  color:#7A86A7;
-  font-size:13px;
-  line-height:1.65;
-}
-@media(max-width:900px){
-  .ga26-process-steps{grid-template-columns:1fr}
-  .ga26-process-steps article,
-  .ga26-process-steps article+article{
-    min-height:0;
-    padding:24px 0 26px;
-    border-right:0;
-    border-bottom:1px solid #DCE3F2;
-  }
-  .ga26-process-steps article:last-child{border-bottom:0}
-  .ga26-process-steps span{margin-bottom:20px}
-}
-</style>
-'''
-          text = text.replace('</head>', css + '\n</head>', 1)
-          path.write_text(text, encoding='utf-8')
+          import base64
+          p = Path('recursos/jobs/growth-ambassador.html')
+          t = p.read_text(encoding='utf-8')
+          old = base64.b64decode('ICAgICAgICA8c2VjdGlvbj48cCBjbGFzcz0iZ2EyNi1leWVicm93Ij5TT0JSRSBMT1dTSUdOQUw8L3A+PGgyPkxlc3Mgbm9pc2UuPGJyPjxzdHJvbmc+TW9yZSBncm93dGguPC9zdHJvbmc+PC9oMj48cD5UcmFiYWphbW9zIGNvbiBvcmdhbml6YWNpb25lcyBkZSBkaXN0aW50YXMgaW5kdXN0cmlhcyBjb25zdHJ1eWVuZG8gc2lzdGVtYXMgZGUgY3JlY2ltaWVudG8gcXVlIGNvbWJpbmFuIGVzdHJhdGVnaWEsIGNyZWF0aXZpZGFkLCB0ZWNub2xvZ8OtYSB5IGVqZWN1Y2nDs24uPC9wPjwvc2VjdGlvbj4=').decode()
+          new = base64.b64decode('ICAgICAgICA8c2VjdGlvbiBjbGFzcz0iZ2EyNi1zZWxlY3Rpb24tcHJvY2VzcyI+CiAgICAgICAgICA8cCBjbGFzcz0iZ2EyNi1leWVicm93Ij5QUk9DRVNPIERFIFNFTEVDQ0nDk048L3A+CiAgICAgICAgICA8aDI+U2ltcGxlLCBkaXJlY3RvPGJyPjxzdHJvbmc+eSBzaW4gdnVlbHRhcy48L3N0cm9uZz48L2gyPgogICAgICAgICAgPGRpdiBjbGFzcz0iZ2EyNi1wcm9jZXNzLXN0ZXBzIj4KICAgICAgICAgICAgPGFydGljbGU+PHNwYW4+MDE8L3NwYW4+PGgzPkNvbnZlcnNhY2nDs24gY29uIEZlbGlwZTwvaDM+PHA+VW5hIGNvbnZlcnNhY2nDs24gY29uIEZlbGlwZSwgQ28tRm91bmRlciAmYW1wOyBDT08sIHBhcmEgY29ub2NlcnRlIHkgcGFyYSBxdWUgdMO6IHRhbWJpw6luIGNvbm96Y2FzIG1lam9yIGEgbG93c2lnbmFsLjwvcD48L2FydGljbGU+CiAgICAgICAgICAgIDxhcnRpY2xlPjxzcGFuPjAyPC9zcGFuPjxoMz5GYXNlIHTDqWNuaWNhPC9oMz48cD5VbmEgaW5zdGFuY2lhIHByw6FjdGljYSBlbiBiYXNlIGFsIHJvbCwgcGFyYSBlbnRlbmRlciBjw7NtbyBwaWVuc2FzLCByZXN1ZWx2ZXMgeSBlamVjdXRhcy48L3A+PC9hcnRpY2xlPgogICAgICAgICAgICA8YXJ0aWNsZT48c3Bhbj4wMzwvc3Bhbj48aDM+Q2Fmw6kgY29uIGVsIGVxdWlwbzwvaDM+PHA+UGFyYSBjZXJyYXIsIHVuIGNhZsOpIGNvbiBlbCBlcXVpcG8geSB2ZXIgc2kgaGFjZW1vcyBidWVuIG1hdGNoIHBhcmEgdHJhYmFqYXIganVudG9zLjwvcD48L2FydGljbGU+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L3NlY3Rpb24+').decode()
+          css = base64.b64decode('PHN0eWxlIGlkPSJnYTI2LXNlbGVjdGlvbi1wcm9jZXNzLXYxIj4KLmdhMjYtc2VsZWN0aW9uLXByb2Nlc3MgaDJ7bWFyZ2luLWJvdHRvbTozNHB4fQouZ2EyNi1wcm9jZXNzLXN0ZXBze2Rpc3BsYXk6Z3JpZDtncmlkLXRlbXBsYXRlLWNvbHVtbnM6cmVwZWF0KDMsbWlubWF4KDAsMWZyKSk7Ym9yZGVyLXRvcDoxcHggc29saWQgI0RDRTNGMjtib3JkZXItYm90dG9tOjFweCBzb2xpZCAjRENFM0YyfQouZ2EyNi1wcm9jZXNzLXN0ZXBzIGFydGljbGV7bWluLWhlaWdodDoyNTBweDtwYWRkaW5nOjI4cHggMjhweCAzMHB4IDA7Ym9yZGVyLXJpZ2h0OjFweCBzb2xpZCAjRENFM0YyfQouZ2EyNi1wcm9jZXNzLXN0ZXBzIGFydGljbGUrYXJ0aWNsZXtwYWRkaW5nLWxlZnQ6MjhweH0uZ2EyNi1wcm9jZXNzLXN0ZXBzIGFydGljbGU6bGFzdC1jaGlsZHtib3JkZXItcmlnaHQ6MH0KLmdhMjYtcHJvY2Vzcy1zdGVwcyBzcGFue2Rpc3BsYXk6YmxvY2s7bWFyZ2luLWJvdHRvbTo1MnB4O2NvbG9yOiMxNDE5RTA7Zm9udC1zaXplOjEzcHg7Zm9udC13ZWlnaHQ6NzAwfQouZ2EyNi1wcm9jZXNzLXN0ZXBzIGgze21hcmdpbjowO2NvbG9yOiMxNjIwNEE7Zm9udC1zaXplOjE4cHg7bGluZS1oZWlnaHQ6MS4yODtmb250LXdlaWdodDo2MDB9Ci5nYTI2LXByb2Nlc3Mtc3RlcHMgcHttYXJnaW46MTJweCAwIDA7Y29sb3I6IzdBODZBNztmb250LXNpemU6MTNweDtsaW5lLWhlaWdodDoxLjY1fQpAbWVkaWEobWF4LXdpZHRoOjkwMHB4KXsuZ2EyNi1wcm9jZXNzLXN0ZXBze2dyaWQtdGVtcGxhdGUtY29sdW1uczoxZnJ9LmdhMjYtcHJvY2Vzcy1zdGVwcyBhcnRpY2xlLC5nYTI2LXByb2Nlc3Mtc3RlcHMgYXJ0aWNsZSthcnRpY2xle21pbi1oZWlnaHQ6MDtwYWRkaW5nOjI0cHggMCAyNnB4O2JvcmRlci1yaWdodDowO2JvcmRlci1ib3R0b206MXB4IHNvbGlkICNEQ0UzRjJ9LmdhMjYtcHJvY2Vzcy1zdGVwcyBhcnRpY2xlOmxhc3QtY2hpbGR7Ym9yZGVyLWJvdHRvbTowfS5nYTI2LXByb2Nlc3Mtc3RlcHMgc3BhbnttYXJnaW4tYm90dG9tOjIwcHh9fQo8L3N0eWxlPgo=').decode()
+          if old not in t:
+              raise SystemExit('SOBRE LOWSIGNAL block not found')
+          t = t.replace(old, new, 1)
+          if 'ga26-selection-process-v1' not in t:
+              t = t.replace('</head>', css + '\n</head>', 1)
+          p.write_text(t, encoding='utf-8')
           PY
-      - name: Commit and remove workflow
+      - name: Commit
         run: |
           rm .github/workflows/update-growth-ambassador-selection-process-once.yml
           git config user.name "github-actions[bot]"
