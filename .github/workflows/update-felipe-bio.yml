@@ -1,0 +1,30 @@
+name: Update Felipe bio
+
+on:
+  push:
+    paths:
+      - .github/scripts/update_felipe_bio.py
+      - .github/workflows/update-felipe-bio.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-bio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update bio paragraph
+        run: python .github/scripts/update_felipe_bio.py
+
+      - name: Commit bio update
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add equipo/felipe-quiroz.html
+          git commit -m "Update Felipe profile bio" || exit 0
+          git push
