@@ -1,0 +1,54 @@
+name: Final center Insights arrows
+on:
+  push:
+    paths:
+      - '.github/workflows/final-center-insights-arrows.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix arrow markup and styles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('recursos/insights.html')
+          s = p.read_text()
+          s = s.replace('</style></style>', '</style>')
+          s = s.replace('M7 17L17 7M17 7H9M17 7V15', 'M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5')
+          marker = '<style id="insights-arrow-absolute-final">'
+          if marker in s:
+              start = s.index(marker)
+              end = s.index('</style>', start) + len('</style>')
+              s = s[:start] + s[end:]
+          css = '''<style id="insights-arrow-absolute-final">
+.insights-new-card .insights-new-read{position:relative!important}
+.insights-new-card .insights-new-read .insights-arrow-svg{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:14px!important;
+  height:14px!important;
+  margin:0!important;
+  transform:translate(calc(-50% - 1px),calc(-50% + 1px))!important;
+}
+</style>'''
+          s = s.replace('</body>', css + '\n</body>', 1)
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          grep -q 'insights-arrow-absolute-final' recursos/insights.html
+          grep -q 'M8.5 15.5L15.5 8.5' recursos/insights.html
+          ! grep -q '</style></style>' recursos/insights.html
+      - name: Remove workflow
+        run: rm .github/workflows/final-center-insights-arrows.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/final-center-insights-arrows.yml
+          git commit -m 'fix: center Insights arrows definitively'
+          git push
