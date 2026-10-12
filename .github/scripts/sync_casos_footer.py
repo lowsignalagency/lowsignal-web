@@ -26,29 +26,41 @@ if not base_match:
 base_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
 
 # 4) Copy every later style block in Nosotros that explicitly touches the footer.
-# This preserves the exact latest visual system, including HECHO CON ♥ EN LATAM,
-# social buttons, lower legal row, and responsive behavior.
 overrides = []
 for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     attrs, css = m.group(1), m.group(2)
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-# 5) Install the cloned footer styles LAST in Casos, then lock the same margins
-# used by Nosotros so no older Casos rule can override them.
+# 5) Keep the Nosotros footer, but align its visible content to the same
+# horizontal rhythm as the Casos CTA. The screenshot showed the footer content
+# sitting ~64px wider on each side, so we preserve the outer container and add
+# matching inner gutters.
 final_margin_css = r'''
-/* CASOS — exact Nosotros footer margin lock */
+/* CASOS — footer aligned to CTA / page grid */
 footer .footer-container{
-  width:min(1220px, calc(100% - 128px)) !important;
-  max-width:1220px !important;
+  width:min(1348px, calc(100% - 128px)) !important;
+  max-width:1348px !important;
   margin-left:auto !important;
   margin-right:auto !important;
+  padding-left:64px !important;
+  padding-right:64px !important;
+  box-sizing:border-box !important;
 }
 @media(max-width:1100px){
-  footer .footer-container{width:calc(100% - 48px) !important;}
+  footer .footer-container{
+    width:calc(100% - 48px) !important;
+    max-width:none !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
 }
 @media(max-width:620px){
-  footer .footer-container{width:calc(100% - 40px) !important;}
+  footer .footer-container{
+    width:calc(100% - 40px) !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
 }
 '''
 
