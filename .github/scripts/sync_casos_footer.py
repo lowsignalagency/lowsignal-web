@@ -32,27 +32,25 @@ for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-# 5) Keep the Nosotros footer, but align its visible content to the same
-# horizontal rhythm as the Casos CTA. The screenshot showed the footer content
-# sitting ~64px wider on each side, so we preserve the outer container and add
-# matching inner gutters.
+# 5) Final margin lock: use exactly the same visible width as the Casos CTA.
+# No inner padding/gutter tricks — the footer container itself matches the CTA.
 final_margin_css = r'''
-/* CASOS — footer aligned to CTA / page grid */
+/* CASOS — exact CTA/footer horizontal alignment */
 footer .footer-container{
-  width:min(1348px, calc(100% - 128px)) !important;
-  max-width:1348px !important;
+  width:min(1220px, calc(100% - 128px)) !important;
+  max-width:1220px !important;
   margin-left:auto !important;
   margin-right:auto !important;
-  padding-left:64px !important;
-  padding-right:64px !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
   box-sizing:border-box !important;
 }
 @media(max-width:1100px){
   footer .footer-container{
     width:calc(100% - 48px) !important;
     max-width:none !important;
-    padding-left:24px !important;
-    padding-right:24px !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
   }
 }
 @media(max-width:620px){
