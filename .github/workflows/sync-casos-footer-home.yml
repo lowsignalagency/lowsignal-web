@@ -1,0 +1,30 @@
+name: Sync Casos footer with Home
+
+on:
+  push:
+    paths:
+      - .github/workflows/sync-casos-footer-home.yml
+      - .github/scripts/sync_casos_footer.py
+
+permissions:
+  contents: write
+
+jobs:
+  sync-footer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync footer markup and sizing
+        run: python .github/scripts/sync_casos_footer.py
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add casos.html
+          git commit -m "Sync Casos footer exactly to Home" || exit 0
+          git push
