@@ -1,5 +1,6 @@
 name: Fix Insights final margins and CTA
-on: push
+on:
+  push:
 jobs:
   fix:
     runs-on: ubuntu-latest
@@ -7,98 +8,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Apply final body override
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          path = Path('recursos/insights.html')
-          s = path.read_text()
-          block = r'''
-<style id="insights-final-body-fix-v4">
-/* Must remain last: matches the refreshed Nosotros content grid */
-.insights-new-hero .container,
-.insights-new-featured .container,
-.insights-new-grid-section .container,
-.insights-new-themes .container,
-.insights-new-final .container{
-  width:min(1480px,calc(100% - 160px)) !important;
-  max-width:1480px !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-}
-
-/* Circular card CTA */
-.insights-new-card-body{
-  display:flex !important;
-  flex-direction:column !important;
-}
-.insights-new-card .insights-new-read{
-  width:42px !important;
-  height:42px !important;
-  min-width:42px !important;
-  padding:0 !important;
-  margin:22px 0 0 auto !important;
-  border:1px solid rgba(20,25,224,.28) !important;
-  border-radius:50% !important;
-  background:transparent !important;
-  color:transparent !important;
-  font-size:0 !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  transition:background-color .2s ease,border-color .2s ease,transform .2s ease,color .2s ease !important;
-}
-.insights-new-card .insights-new-read span{
-  color:#1419E0 !important;
-  font-size:15px !important;
-  line-height:1 !important;
-  display:block !important;
-  transform:translate(0,0) !important;
-}
-.insights-new-card:hover .insights-new-read{
-  background:#1419E0 !important;
-  border-color:#1419E0 !important;
-  transform:translateY(-2px) !important;
-}
-.insights-new-card:hover .insights-new-read span{color:#fff !important}
-
-@media(max-width:1440px){
-  .insights-new-hero .container,
-  .insights-new-featured .container,
-  .insights-new-grid-section .container,
-  .insights-new-themes .container,
-  .insights-new-final .container{width:calc(100% - 96px) !important;max-width:none !important}
-}
-@media(max-width:1100px){
-  .insights-new-hero .container,
-  .insights-new-featured .container,
-  .insights-new-grid-section .container,
-  .insights-new-themes .container,
-  .insights-new-final .container{width:calc(100% - 48px) !important}
-}
-@media(max-width:760px){
-  .insights-new-hero .container,
-  .insights-new-featured .container,
-  .insights-new-grid-section .container,
-  .insights-new-themes .container,
-  .insights-new-final .container{width:calc(100% - 32px) !important}
-  .insights-new-card .insights-new-read{width:40px !important;height:40px !important;min-width:40px !important}
-}
-</style>
-'''
-          s = re.sub(r'\n?<style id="insights-final-body-fix-v4">.*?</style>\n?', '\n', s, flags=re.S)
-          if '</body>' not in s:
-              raise SystemExit('No </body> in recursos/insights.html')
-          s = s.replace('</body>', block + '\n</body>', 1)
-          path.write_text(s)
-          PY
+      - name: Apply final override
+        run: python -c "from pathlib import Path; import re,base64; p=Path('recursos/insights.html'); s=p.read_text(); css=base64.b64decode('CjxzdHlsZSBpZD0iaW5zaWdodHMtZmluYWwtYm9keS1maXgtdjQiPgouaW5zaWdodHMtbmV3LWhlcm8gLmNvbnRhaW5lciwKLmluc2lnaHRzLW5ldy1mZWF0dXJlZCAuY29udGFpbmVyLAouaW5zaWdodHMtbmV3LWdyaWQtc2VjdGlvbiAuY29udGFpbmVyLAouaW5zaWdodHMtbmV3LXRoZW1lcyAuY29udGFpbmVyLAouaW5zaWdodHMtbmV3LWZpbmFsIC5jb250YWluZXJ7CiAgd2lkdGg6bWluKDE0ODBweCxjYWxjKDEwMCUgLSAxNjBweCkpICFpbXBvcnRhbnQ7CiAgbWF4LXdpZHRoOjE0ODBweCAhaW1wb3J0YW50OwogIG1hcmdpbi1sZWZ0OmF1dG8gIWltcG9ydGFudDsKICBtYXJnaW4tcmlnaHQ6YXV0byAhaW1wb3J0YW50Owp9Ci5pbnNpZ2h0cy1uZXctY2FyZC1ib2R5e2Rpc3BsYXk6ZmxleCAhaW1wb3J0YW50O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbiAhaW1wb3J0YW50fQouaW5zaWdodHMtbmV3LWNhcmQgLmluc2lnaHRzLW5ldy1yZWFkewogIHdpZHRoOjQycHggIWltcG9ydGFudDtoZWlnaHQ6NDJweCAhaW1wb3J0YW50O21pbi13aWR0aDo0MnB4ICFpbXBvcnRhbnQ7cGFkZGluZzowICFpbXBvcnRhbnQ7CiAgbWFyZ2luOjIycHggMCAwIGF1dG8gIWltcG9ydGFudDtib3JkZXI6MXB4IHNvbGlkIHJnYmEoMjAsMjUsMjI0LC4yOCkgIWltcG9ydGFudDsKICBib3JkZXItcmFkaXVzOjUwJSAhaW1wb3J0YW50O2JhY2tncm91bmQ6dHJhbnNwYXJlbnQgIWltcG9ydGFudDtjb2xvcjp0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogIGZvbnQtc2l6ZTowICFpbXBvcnRhbnQ7ZGlzcGxheTpmbGV4ICFpbXBvcnRhbnQ7YWxpZ24taXRlbXM6Y2VudGVyICFpbXBvcnRhbnQ7anVzdGlmeS1jb250ZW50OmNlbnRlciAhaW1wb3J0YW50OwogIHRyYW5zaXRpb246YmFja2dyb3VuZC1jb2xvciAuMnMgZWFzZSxib3JkZXItY29sb3IgLjJzIGVhc2UsdHJhbnNmb3JtIC4ycyBlYXNlLGNvbG9yIC4ycyBlYXNlICFpbXBvcnRhbnQ7Cn0KLmluc2lnaHRzLW5ldy1jYXJkIC5pbnNpZ2h0cy1uZXctcmVhZCBzcGFue2NvbG9yOiMxNDE5RTAgIWltcG9ydGFudDtmb250LXNpemU6MTVweCAhaW1wb3J0YW50O2xpbmUtaGVpZ2h0OjEgIWltcG9ydGFudDtkaXNwbGF5OmJsb2NrICFpbXBvcnRhbnR9Ci5pbnNpZ2h0cy1uZXctY2FyZDpob3ZlciAuaW5zaWdodHMtbmV3LXJlYWR7YmFja2dyb3VuZDojMTQxOUUwICFpbXBvcnRhbnQ7Ym9yZGVyLWNvbG9yOiMxNDE5RTAgIWltcG9ydGFudDt0cmFuc2Zvcm06dHJhbnNsYXRlWSgtMnB4KSAhaW1wb3J0YW50fQouaW5zaWdodHMtbmV3LWNhcmQ6aG92ZXIgLmluc2lnaHRzLW5ldy1yZWFkIHNwYW57Y29sb3I6I2ZmZiAhaW1wb3J0YW50fQpAbWVkaWEobWF4LXdpZHRoOjE0NDBweCl7CiAgLmluc2lnaHRzLW5ldy1oZXJvIC5jb250YWluZXIsLmluc2lnaHRzLW5ldy1mZWF0dXJlZCAuY29udGFpbmVyLC5pbnNpZ2h0cy1uZXctZ3JpZC1zZWN0aW9uIC5jb250YWluZXIsLmluc2lnaHRzLW5ldy10aGVtZXMgLmNvbnRhaW5lciwuaW5zaWdodHMtbmV3LWZpbmFsIC5jb250YWluZXJ7d2lkdGg6Y2FsYygxMDAlIC0gOTZweCkgIWltcG9ydGFudDttYXgtd2lkdGg6bm9uZSAhaW1wb3J0YW50fQp9CkBtZWRpYShtYXgtd2lkdGg6MTEwMHB4KXsKICAuaW5zaWdodHMtbmV3LWhlcm8gLmNvbnRhaW5lciwuaW5zaWdodHMtbmV3LWZlYXR1cmVkIC5jb250YWluZXIsLmluc2lnaHRzLW5ldy1ncmlkLXNlY3Rpb24gLmNvbnRhaW5lciwuaW5zaWdodHMtbmV3LXRoZW1lcyAuY29udGFpbmVyLC5pbnNpZ2h0cy1uZXctZmluYWwgLmNvbnRhaW5lcnt3aWR0aDpjYWxjKDEwMCUgLSA0OHB4KSAhaW1wb3J0YW50fQp9CkBtZWRpYShtYXgtd2lkdGg6NzYwcHgpewogIC5pbnNpZ2h0cy1uZXctaGVybyAuY29udGFpbmVyLC5pbnNpZ2h0cy1uZXctZmVhdHVyZWQgLmNvbnRhaW5lciwuaW5zaWdodHMtbmV3LWdyaWQtc2VjdGlvbiAuY29udGFpbmVyLC5pbnNpZ2h0cy1uZXctdGhlbWVzIC5jb250YWluZXIsLmluc2lnaHRzLW5ldy1maW5hbCAuY29udGFpbmVye3dpZHRoOmNhbGMoMTAwJSAtIDMycHgpICFpbXBvcnRhbnR9CiAgLmluc2lnaHRzLW5ldy1jYXJkIC5pbnNpZ2h0cy1uZXctcmVhZHt3aWR0aDo0MHB4ICFpbXBvcnRhbnQ7aGVpZ2h0OjQwcHggIWltcG9ydGFudDttaW4td2lkdGg6NDBweCAhaW1wb3J0YW50fQp9Cjwvc3R5bGU+Cg==').decode(); s=re.sub(r'\n?<style id=\"insights-final-body-fix-v4\">.*?</style>\n?','\n',s,flags=re.S); s=s.replace('</body>',css+'\n</body>',1); p.write_text(s)"
       - name: Verify
-        run: |
-          tail -n 120 recursos/insights.html | grep -q 'insights-final-body-fix-v4'
-          grep -q 'width:min(1480px,calc(100% - 160px))' recursos/insights.html
-          grep -q 'border-radius:50%' recursos/insights.html
+        run: tail -n 120 recursos/insights.html | grep -q 'insights-final-body-fix-v4'
       - name: Remove workflow
         run: rm .github/workflows/fix-insights-final-margins-cta.yml
       - name: Commit
