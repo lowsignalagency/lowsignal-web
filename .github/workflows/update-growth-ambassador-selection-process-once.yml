@@ -1,0 +1,119 @@
+name: Update Growth Ambassador selection process once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-growth-ambassador-selection-process-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace about block with selection process
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('recursos/jobs/growth-ambassador.html')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''        <section><p class="ga26-eyebrow">SOBRE LOWSIGNAL</p><h2>Less noise.<br><strong>More growth.</strong></h2><p>Trabajamos con organizaciones de distintas industrias construyendo sistemas de crecimiento que combinan estrategia, creatividad, tecnología y ejecución.</p></section>'''
+
+          new = '''        <section class="ga26-selection-process">
+          <p class="ga26-eyebrow">PROCESO DE SELECCIÓN</p>
+          <h2>Simple, directo<br><strong>y sin vueltas.</strong></h2>
+          <div class="ga26-process-steps">
+            <article>
+              <span>01</span>
+              <h3>Conversación con Felipe</h3>
+              <p>Una conversación con Felipe, Co-Founder &amp; COO, para conocerte y para que tú también conozcas mejor a lowsignal.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Fase técnica</h3>
+              <p>Una instancia práctica en base al rol, para entender cómo piensas, resuelves y ejecutas.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Café con el equipo</h3>
+              <p>Para cerrar, un café con el equipo y ver si hacemos buen match para trabajar juntos.</p>
+            </article>
+          </div>
+        </section>'''
+
+          if old not in text:
+              raise SystemExit('Expected SOBRE LOWSIGNAL block not found')
+          text = text.replace(old, new, 1)
+
+          css = '''
+<style id="ga26-selection-process-v1">
+.ga26-selection-process h2{
+  margin-bottom:34px;
+}
+.ga26-process-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid #DCE3F2;
+  border-bottom:1px solid #DCE3F2;
+}
+.ga26-process-steps article{
+  min-height:250px;
+  padding:28px 28px 30px 0;
+  border-right:1px solid #DCE3F2;
+}
+.ga26-process-steps article+article{
+  padding-left:28px;
+}
+.ga26-process-steps article:last-child{
+  border-right:0;
+}
+.ga26-process-steps span{
+  display:block;
+  margin-bottom:52px;
+  color:#1419E0;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.ga26-process-steps h3{
+  margin:0;
+  color:#16204A;
+  font-size:18px;
+  line-height:1.28;
+  font-weight:600;
+}
+.ga26-process-steps p{
+  margin:12px 0 0;
+  color:#7A86A7;
+  font-size:13px;
+  line-height:1.65;
+}
+@media(max-width:900px){
+  .ga26-process-steps{grid-template-columns:1fr}
+  .ga26-process-steps article,
+  .ga26-process-steps article+article{
+    min-height:0;
+    padding:24px 0 26px;
+    border-right:0;
+    border-bottom:1px solid #DCE3F2;
+  }
+  .ga26-process-steps article:last-child{border-bottom:0}
+  .ga26-process-steps span{margin-bottom:20px}
+}
+</style>
+'''
+          text = text.replace('</head>', css + '\n</head>', 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit and remove workflow
+        run: |
+          rm .github/workflows/update-growth-ambassador-selection-process-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs/growth-ambassador.html .github/workflows/update-growth-ambassador-selection-process-once.yml
+          git commit -m "feat: add Growth Ambassador selection process"
+          git push
