@@ -14,13 +14,9 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import base64
           targets = [Path('recursos/jobs.html'), Path('recursos/jobs/growth-ambassador.html')]
-          css = '''<style id="jobs-mobile-top-strip-fix-v1">
-@media(max-width:760px){
-  body::before{content:"";position:fixed;top:0;left:0;right:0;height:12px;background:#071022;z-index:1195;pointer-events:none}
-}
-</style>
-'''
+          css = base64.b64decode('PHN0eWxlIGlkPSJqb2JzLW1vYmlsZS10b3Atc3RyaXAtZml4LXYxIj4KQG1lZGlhKG1heC13aWR0aDo3NjBweCl7CiAgYm9keTo6YmVmb3JlewogICAgY29udGVudDoiIjsKICAgIHBvc2l0aW9uOmZpeGVkOwogICAgdG9wOjA7CiAgICBsZWZ0OjA7CiAgICByaWdodDowOwogICAgaGVpZ2h0OjEycHg7CiAgICBiYWNrZ3JvdW5kOiMwNzEwMjI7CiAgICB6LWluZGV4OjExOTU7CiAgICBwb2ludGVyLWV2ZW50czpub25lOwogIH0KfQo8L3N0eWxlPgo=').decode()
           for p in targets:
               t = p.read_text(encoding='utf-8')
               t = t.replace('<<main id="top">', '<main id="top">')
