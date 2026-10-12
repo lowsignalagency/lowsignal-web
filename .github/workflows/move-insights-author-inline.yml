@@ -15,12 +15,9 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
           p = Path('recursos/insights.html')
           s = p.read_text()
-
           s = re.sub(r'\s*<div class="insights-author-name">Felipe Quiroz</div>', '', s)
-
           def fix_meta(m):
               inner = m.group(1)
               if 'insights-meta-author' in inner:
@@ -32,28 +29,19 @@ jobs:
               else:
                   inner += '<span class="insights-meta-author">Felipe Quiroz</span>'
               return '<div class="insights-new-meta">' + inner + '</div>'
-
           s, n = re.subn(r'<div class="insights-new-meta">(.*?)</div>', fix_meta, s, flags=re.S)
           if n < 5:
               raise SystemExit(f'Expected at least 5 meta rows, found {n}')
-
-          css = '''
-<style id="insights-inline-author-v1">
-.insights-new-meta .insights-meta-author{
-  color:#566481;
-  font-weight:600;
-}
-</style>
-'''
+          css = '<style id="insights-inline-author-v1">.insights-new-meta .insights-meta-author{color:#566481;font-weight:600}</style>'
           if 'insights-inline-author-v1' not in s:
               s = s.replace('</body>', css + '\n</body>', 1)
-
           p.write_text(s)
           PY
       - name: Verify
         run: |
-          test "$(grep -o 'insights-meta-author">Felipe Quiroz' recursos/insights.html | wc -l)" -ge 5
-          ! grep -q 'insights-author-name">Felipe Quiroz' recursos/insights.html
+          count=$(grep -o 'insights-meta-author">Felipe Quiroz' recursos/insights.html | wc -l)
+          test "$count" -ge 5
+          if grep -q 'insights-author-name">Felipe Quiroz' recursos/insights.html; then exit 1; fi
       - name: Remove workflow
         run: rm .github/workflows/move-insights-author-inline.yml
       - name: Commit
