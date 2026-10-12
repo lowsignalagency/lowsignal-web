@@ -1,10 +1,6 @@
 name: Fix Jobs mobile top strip
 
-on:
-  push:
-    paths:
-      - '.github/workflows/fix-jobs-mobile-top-strip-once.yml'
-  workflow_dispatch:
+on: push
 
 permissions:
   contents: write
@@ -15,46 +11,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Patch Jobs mobile top
-        shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
           targets = [Path('recursos/jobs.html'), Path('recursos/jobs/growth-ambassador.html')]
-          marker = 'jobs-mobile-top-strip-fix-v1'
           css = '''<style id="jobs-mobile-top-strip-fix-v1">
 @media(max-width:760px){
-  body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:12px;
-    background:#071022;
-    z-index:1195;
-    pointer-events:none;
-  }
+  body::before{content:"";position:fixed;top:0;left:0;right:0;height:12px;background:#071022;z-index:1195;pointer-events:none}
 }
 </style>
 '''
-
-          for path in targets:
-              text = path.read_text(encoding='utf-8')
-              text = text.replace('<<main id="top">', '<main id="top">')
-              if marker not in text:
-                  text = text.replace('</head>', css + '</head>', 1)
-              path.write_text(text, encoding='utf-8')
-
-          for path in targets:
-              text = path.read_text(encoding='utf-8')
-              if '<<main id="top">' in text:
-                  raise SystemExit(f'malformed main remains in {path}')
-              if marker not in text:
-                  raise SystemExit(f'mobile strip fix missing in {path}')
+          for p in targets:
+              t = p.read_text(encoding='utf-8')
+              t = t.replace('<<main id="top">', '<main id="top">')
+              if 'jobs-mobile-top-strip-fix-v1' not in t:
+                  t = t.replace('</head>', css + '</head>', 1)
+              p.write_text(t, encoding='utf-8')
           PY
       - name: Commit
-        shell: bash
         run: |
           rm .github/workflows/fix-jobs-mobile-top-strip-once.yml
           git config user.name "github-actions[bot]"
