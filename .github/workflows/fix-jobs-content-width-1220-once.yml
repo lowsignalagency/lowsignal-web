@@ -1,0 +1,82 @@
+name: Fix Jobs content width to Nosotros once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-jobs-content-width-1220-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set Jobs content width to Nosotros grid only
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          targets = [
+              Path('recursos/jobs.html'),
+              Path('recursos/jobs/growth-ambassador.html'),
+          ]
+
+          style = '''
+<style id="jobs-content-alignment-v3">
+/* Jobs content only — exact Nosotros content grid. Navbar/footer untouched. */
+main#top .container{
+  width:min(1220px,calc(100% - 128px)) !important;
+  max-width:1220px !important;
+  margin-inline:auto !important;
+}
+
+@media(max-width:1100px){
+  main#top .container{
+    width:calc(100% - 48px) !important;
+    max-width:none !important;
+  }
+}
+
+@media(max-width:760px){
+  main#top .container{
+    width:calc(100% - 32px) !important;
+  }
+}
+</style>
+'''
+
+          for path in targets:
+              text = path.read_text(encoding='utf-8')
+              text = re.sub(r'\n?<style id="jobs-content-alignment-v2">.*?</style>\n?', '\n', text, flags=re.S|re.I)
+              text = re.sub(r'\n?<style id="jobs-content-alignment-v3">.*?</style>\n?', '\n', text, flags=re.S|re.I)
+              text = text.replace('</head>', style + '\n</head>', 1)
+              path.write_text(text, encoding='utf-8')
+
+          # Guardrail: shell markup remains exactly equal to Nosotros.
+          ref = Path('nosotros.html').read_text(encoding='utf-8')
+          def get(pat, txt):
+              m = re.search(pat, txt, re.S|re.I)
+              if not m:
+                  raise RuntimeError(pat)
+              return m.group(0)
+          ref_nav = get(r'<header class="lnav"[^>]*>.*?</header>', ref)
+          ref_footer = get(r'<footer[^>]*>.*?</footer>', ref)
+          for path in targets:
+              text = path.read_text(encoding='utf-8')
+              assert get(r'<header class="lnav"[^>]*>.*?</header>', text) == ref_nav
+              assert get(r'<footer[^>]*>.*?</footer>', text) == ref_footer
+              assert '1620px' not in get(r'<style id="jobs-content-alignment-v3">.*?</style>', text)
+              assert '1220px' in get(r'<style id="jobs-content-alignment-v3">.*?</style>', text)
+              print(f'{path}: content width 1220; shell unchanged')
+          PY
+      - name: Commit and remove workflow
+        run: |
+          rm .github/workflows/fix-jobs-content-width-1220-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows/fix-jobs-content-width-1220-once.yml
+          git commit -m "fix: restore Jobs content width to Nosotros grid"
+          git push
