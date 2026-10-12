@@ -13,8 +13,8 @@ casos, n = re.subn(r"<footer>[\s\S]*?</footer>", footer.group(0), casos, count=1
 if n != 1:
     raise SystemExit("Casos footer replacement failed")
 
-# Remove every previously injected Casos footer/navbar exact-sync block.
-casos = re.sub(r'<style[^>]*id="[^"]*casos[^"]*(?:footer|navbar)[^"]*"[^>]*>[\s\S]*?</style>\s*', '', casos, flags=re.I)
+# Remove every previously injected Casos footer block.
+casos = re.sub(r'<style[^>]*id="[^"]*casos[^"]*footer[^"]*"[^>]*>[\s\S]*?</style>\s*', '', casos, flags=re.I)
 
 # Copy the base footer CSS from Nosotros.
 base_match = re.search(
@@ -26,62 +26,79 @@ if not base_match:
 base_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
 
 # Copy every later style block from Nosotros that touches the footer, preserving
-# the source order exactly. No Casos-only margin, width, padding or sizing tweaks.
+# the source order exactly.
 overrides = []
 for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     css = m.group(2)
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-footer_clone = (
+# Final lower-footer lock. These are the exact dimensions used by Nosotros for
+# the location/social row and the copyright/LATAM/legal row. Keeping them last
+# prevents old Casos rules from making this part of the footer look smaller.
+lower_footer_lock = r'''
+@media(min-width:901px){
+  footer .footer-meta{
+    margin-top:34px !important;
+    padding:17px 0 !important;
+    grid-template-columns:1fr 1fr 1fr !important;
+    gap:20px !important;
+    font-size:11px !important;
+  }
+  footer .footer-bottom{
+    display:grid !important;
+    grid-template-columns:1fr auto 1fr !important;
+    gap:28px !important;
+    align-items:center !important;
+    padding-top:17px !important;
+    color:#68758E !important;
+    font-size:11px !important;
+  }
+  footer .footer-bottom-links{
+    display:flex !important;
+    gap:24px !important;
+    justify-content:flex-end !important;
+    flex-wrap:wrap !important;
+  }
+  footer .footer-made-latam{
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    color:#8994AA !important;
+    font-size:10px !important;
+  }
+  footer .footer-made-line{
+    color:#AEB7CA !important;
+    font-size:12px !important;
+    line-height:1 !important;
+  }
+  footer .footer-made-country{
+    display:inline-flex !important;
+    align-items:center !important;
+    padding-left:12px !important;
+    border-left:1px solid rgba(137,148,170,.28) !important;
+  }
+  footer .footer-made-country img{
+    display:block !important;
+    width:40px !important;
+    height:auto !important;
+    object-fit:contain !important;
+    opacity:.92 !important;
+  }
+}
+'''
+
+clone = (
     '\n<style id="casos-footer-nosotros-exact">\n' +
     base_css + '\n' +
     '\n'.join(overrides) + '\n' +
+    lower_footer_lock + '\n' +
     '</style>\n'
 )
 
-# Exact visible desktop navbar CTA from Nosotros.
-navbar_clone = r'''
-<style id="casos-navbar-nosotros-exact">
-@media(min-width:761px){
-  body > .lnav .lnav-contact{
-    min-height:44px !important;
-    height:auto !important;
-    padding:0 22px !important;
-    border:0 !important;
-    border-radius:999px !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    background:#1419E0 !important;
-    color:#fff !important;
-    font-size:13px !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    box-shadow:none !important;
-    white-space:nowrap !important;
-    transition:transform .18s ease,background .18s ease !important;
-  }
-  body > .lnav .lnav-contact:hover{
-    transform:translateY(-1px) !important;
-    background:#2832F3 !important;
-    color:#fff !important;
-    box-shadow:none !important;
-  }
-}
-@media(max-width:1100px) and (min-width:761px){
-  body > .lnav .lnav-contact{
-    min-height:40px !important;
-    padding:0 17px !important;
-    font-size:12px !important;
-  }
-}
-</style>
-'''
-
-# Apply source-accurate styles LAST so older Casos overrides cannot win.
+# Apply Nosotros footer CSS LAST in the document so Casos cannot override it.
 if "</body>" not in casos:
     raise SystemExit("Casos closing body not found")
-casos = casos.replace("</body>", footer_clone + "\n" + navbar_clone + "\n</body>", 1)
+casos = casos.replace("</body>", clone + "\n</body>", 1)
 
 casos_path.write_text(casos, encoding="utf-8")
