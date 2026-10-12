@@ -1,0 +1,35 @@
+name: Center Insights card arrows
+on:
+  push:
+    paths:
+      - .github/workflows/center-insights-arrow.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Center arrows
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('recursos/insights.html')
+          s=p.read_text()
+          marker='</style>\n</body>'
+          css='''\n<style id="insights-arrow-center-v1">\n.insights-new-card .insights-new-read::after{\n  transform:translate(-2px,2px) !important;\n}\n</style>'''
+          if 'insights-arrow-center-v1' not in s:
+              s=s.replace(marker, css+marker, 1)
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: grep -q 'insights-arrow-center-v1' recursos/insights.html
+      - name: Remove workflow
+        run: rm .github/workflows/center-insights-arrow.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/center-insights-arrow.yml
+          git commit -m 'fix: optically center Insights card arrows'
+          git push
