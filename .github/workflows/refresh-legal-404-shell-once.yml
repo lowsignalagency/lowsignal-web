@@ -1,0 +1,67 @@
+name: Refresh 404 and legal pages
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild pages on Nosotros shell
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, base64
+
+          repo = Path('.')
+          nosotros = (repo / 'nosotros.html').read_text(encoding='utf-8')
+
+          body_open_match = re.search(r'(?s)(<body[^>]*>)(.*?)(<main id="top">)', nosotros)
+          footer_match = re.search(r'(?s)(<footer.*)$', nosotros)
+          if not body_open_match or not footer_match:
+              raise SystemExit('Could not extract Nosotros shell')
+
+          nav_shell = body_open_match.group(2)
+          body_open = body_open_match.group(1)
+          footer_shell = footer_match.group(1)
+          base_head = nosotros[:nosotros.index('</head>') + len('</head>')]
+
+          legal_css = base64.b64decode('CjxzdHlsZSBpZD0ibGVnYWwtcmVmcmVzaC0yMDI2Ij4KbWFpbiN0b3B7YmFja2dyb3VuZDojZmZmO2NvbG9yOiMwNzEwMjJ9Ci5sZWdhbC1oZXJve3BhZGRpbmc6MTc4cHggMCA5MnB4O2JhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KDE4MGRlZywjRjdGOUZGIDAlLCNmZmYgMTAwJSl9Ci5sZWdhbC1oZXJvLWdyaWR7d2lkdGg6bWluKDEyMjBweCxjYWxjKDEwMCUgLSAxMjhweCkpO21hcmdpbjowIGF1dG87ZGlzcGxheTpncmlkO2dyaWQtdGVtcGxhdGUtY29sdW1uczptaW5tYXgoMCwxLjFmcikgbWlubWF4KDI4MHB4LC45ZnIpO2dhcDo3MnB4O2FsaWduLWl0ZW1zOmVuZH0KLmxlZ2FsLWtpY2tlcnttYXJnaW46MDtjb2xvcjojMTQxOUUwO2ZvbnQtc2l6ZToxMXB4O2ZvbnQtd2VpZ2h0OjcwMDtsZXR0ZXItc3BhY2luZzouMmVtO3RleHQtdHJhbnNmb3JtOnVwcGVyY2FzZX0KLmxlZ2FsLWhlcm8gaDF7bWFyZ2luOjIycHggMCAwO2ZvbnQtc2l6ZTpjbGFtcCg1OHB4LDZ2dyw4OHB4KTtsaW5lLWhlaWdodDouOTY7bGV0dGVyLXNwYWNpbmc6LS4wNmVtO2ZvbnQtd2VpZ2h0OjMwMDtjb2xvcjojMEYxODNEfQoubGVnYWwtaGVybyBoMSBzdHJvbmd7Y29sb3I6IzE0MTlFMDtmb250LXdlaWdodDozMDB9Ci5sZWdhbC1sZWFke21hcmdpbjowIDAgOHB4O2NvbG9yOiM2RTdBOUE7Zm9udC1zaXplOjE3cHg7bGluZS1oZWlnaHQ6MS43O21heC13aWR0aDo1MjBweH0KLmxlZ2FsLWluZGV4e3dpZHRoOm1pbigxMjIwcHgsY2FsYygxMDAlIC0gMTI4cHgpKTttYXJnaW46MCBhdXRvO3BhZGRpbmc6MjRweCAwO2JvcmRlci10b3A6MXB4IHNvbGlkICNEQ0UzRjI7Ym9yZGVyLWJvdHRvbToxcHggc29saWQgI0RDRTNGMjtkaXNwbGF5OmZsZXg7Z2FwOjEwcHg7ZmxleC13cmFwOndyYXB9Ci5sZWdhbC1pbmRleCBhe2Rpc3BsYXk6aW5saW5lLWZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO21pbi1oZWlnaHQ6MzhweDtwYWRkaW5nOjAgMTRweDtib3JkZXI6MXB4IHNvbGlkICNEQ0UzRjI7Ym9yZGVyLXJhZGl1czo5OTlweDtjb2xvcjojNTM2MTgwO2ZvbnQtc2l6ZToxMXB4O2ZvbnQtd2VpZ2h0OjYwMDt0cmFuc2l0aW9uOmNvbG9yIC4ycyBlYXNlLGJvcmRlci1jb2xvciAuMnMgZWFzZSxiYWNrZ3JvdW5kIC4ycyBlYXNlLHRyYW5zZm9ybSAuMnMgZWFzZX0KLmxlZ2FsLWluZGV4IGE6aG92ZXJ7Y29sb3I6IzE0MTlFMDtib3JkZXItY29sb3I6I0FFQkJGRjtiYWNrZ3JvdW5kOiNGNkY4RkY7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTFweCl9Ci5sZWdhbC1ib2R5e3BhZGRpbmc6ODhweCAwIDExMHB4fQoubGVnYWwtYm9keT4uY29udGFpbmVye3dpZHRoOm1pbigxMjIwcHgsY2FsYygxMDAlIC0gMTI4cHgpKTttYXJnaW46MCBhdXRvO2Rpc3BsYXk6Z3JpZDtncmlkLXRlbXBsYXRlLWNvbHVtbnM6MjUwcHggbWlubWF4KDAsMWZyKTtnYXA6OTBweDthbGlnbi1pdGVtczpzdGFydH0KLmxlZ2FsLXNpZGViYXJ7cG9zaXRpb246c3RpY2t5O3RvcDoxMThweDtwYWRkaW5nLXRvcDo2cHh9Ci5sZWdhbC1zaWRlYmFyIHB7bWFyZ2luOjA7Y29sb3I6IzE0MTlFMDtmb250LXNpemU6MTBweDtmb250LXdlaWdodDo3MDA7bGV0dGVyLXNwYWNpbmc6LjE2ZW07dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlfQoubGVnYWwtc2lkZWJhciBzcGFue2Rpc3BsYXk6YmxvY2s7bWFyZ2luLXRvcDoxNnB4O2NvbG9yOiMxNzIwNEE7Zm9udC1zaXplOjE4cHg7Zm9udC13ZWlnaHQ6NjAwfQoubGVnYWwtc2lkZWJhciBzbWFsbHtkaXNwbGF5OmJsb2NrO21hcmdpbi10b3A6NnB4O2NvbG9yOiM3Qjg2QTU7Zm9udC1zaXplOjExcHh9Ci5sZWdhbC1jb250ZW50e2JvcmRlci10b3A6MXB4IHNvbGlkICNEQ0UzRjJ9Ci5sZWdhbC1jb250ZW50IGFydGljbGV7cGFkZGluZzozOHB4IDAgNDJweDtib3JkZXItYm90dG9tOjFweCBzb2xpZCAjRENFM0YyO3Njcm9sbC1tYXJnaW4tdG9wOjEzMHB4fQoubGVnYWwtY29udGVudCBhcnRpY2xlPnNwYW57ZGlzcGxheTpibG9jaztjb2xvcjojMTQxOUUwO2ZvbnQtc2l6ZToxMHB4O2ZvbnQtd2VpZ2h0OjcwMDtsZXR0ZXItc3BhY2luZzouMTJlbX0KLmxlZ2FsLWNvbnRlbnQgaDJ7bWFyZ2luOjEwcHggMCAwO2NvbG9yOiMwRjE4M0Q7Zm9udC1zaXplOmNsYW1wKDMwcHgsMy4xdncsNDJweCk7bGluZS1oZWlnaHQ6MS4wODtsZXR0ZXItc3BhY2luZzotLjA0NWVtO2ZvbnQtd2VpZ2h0OjQwMH0KLmxlZ2FsLWNvbnRlbnQgcCwubGVnYWwtY29udGVudCBsaXtjb2xvcjojNjU3MThFO2ZvbnQtc2l6ZToxNXB4O2xpbmUtaGVpZ2h0OjEuODJ9Ci5sZWdhbC1jb250ZW50IHB7bWF4LXdpZHRoOjgyMHB4O21hcmdpbjoxN3B4IDAgMH0KLmxlZ2FsLWNvbnRlbnQgdWwsLmxlZ2FsLWNvbnRlbnQgb2x7bWF4LXdpZHRoOjgyMHB4O21hcmdpbjoxN3B4IDAgMDtwYWRkaW5nLWxlZnQ6MjBweH0KLmxlZ2FsLWNvbnRlbnQgYXtjb2xvcjojMTQxOUUwO2ZvbnQtd2VpZ2h0OjYwMDt0cmFuc2l0aW9uOm9wYWNpdHkgLjJzIGVhc2V9Ci5sZWdhbC1jb250ZW50IGE6aG92ZXJ7b3BhY2l0eTouNjV9Ci5sZWdhbC1jb250YWN0e3BhZGRpbmc6ODRweCAwO2JhY2tncm91bmQ6IzE0MTlFMDtjb2xvcjojZmZmfQoubGVnYWwtY29udGFjdC1pbm5lcnt3aWR0aDptaW4oMTIyMHB4LGNhbGMoMTAwJSAtIDEyOHB4KSk7bWFyZ2luOjAgYXV0bztkaXNwbGF5OmZsZXg7anVzdGlmeS1jb250ZW50OnNwYWNlLWJldHdlZW47Z2FwOjQ4cHg7YWxpZ24taXRlbXM6Y2VudGVyfQoubGVnYWwtY29udGFjdCBoMnttYXJnaW46MDtmb250LXNpemU6Y2xhbXAoMzhweCw0dncsNThweCk7bGluZS1oZWlnaHQ6MS4wNDtsZXR0ZXItc3BhY2luZzotLjA0NWVtO2ZvbnQtd2VpZ2h0OjMwMH0KLmxlZ2FsLWNvbnRhY3QgcHttYXJnaW46MTJweCAwIDA7Y29sb3I6I0M5RDBGRjtmb250LXNpemU6MTRweH0KLmxlZ2FsLWNvbnRhY3QtYWN0aW9ue2Rpc3BsYXk6aW5saW5lLWZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO2p1c3RpZnktY29udGVudDpjZW50ZXI7bWluLWhlaWdodDo1MnB4O3BhZGRpbmc6MCAyMnB4O2JvcmRlci1yYWRpdXM6OTk5cHg7YmFja2dyb3VuZDojZmZmO2NvbG9yOiMxNDE5RTA7Zm9udC1zaXplOjEzcHg7Zm9udC13ZWlnaHQ6NjUwO3RyYW5zaXRpb246dHJhbnNmb3JtIC4ycyBlYXNlLGJveC1zaGFkb3cgLjJzIGVhc2UsYmFja2dyb3VuZCAuMnMgZWFzZX0KLmxlZ2FsLWNvbnRhY3QtYWN0aW9uOmhvdmVye3RyYW5zZm9ybTp0cmFuc2xhdGVZKC0zcHgpO2JveC1zaGFkb3c6MCAxNHB4IDMwcHggcmdiYSgwLDAsMCwuMTgpO2JhY2tncm91bmQ6I0Y0RjZGRn0KQG1lZGlhKG1heC13aWR0aDo5MDBweCl7CiAgLmxlZ2FsLWhlcm8tZ3JpZCwubGVnYWwtYm9keT4uY29udGFpbmVye2dyaWQtdGVtcGxhdGUtY29sdW1uczoxZnI7Z2FwOjM0cHh9CiAgLmxlZ2FsLXNpZGViYXJ7ZGlzcGxheTpub25lfQp9CkBtZWRpYShtYXgtd2lkdGg6NzYwcHgpewogIC5sZWdhbC1oZXJve3BhZGRpbmc6MTI2cHggMCA2MnB4fQogIC5sZWdhbC1oZXJvLWdyaWQsLmxlZ2FsLWluZGV4LC5sZWdhbC1ib2R5Pi5jb250YWluZXIsLmxlZ2FsLWNvbnRhY3QtaW5uZXJ7d2lkdGg6Y2FsYygxMDAlIC0gMzJweCl9CiAgLmxlZ2FsLWhlcm8gaDF7Zm9udC1zaXplOjQ2cHh9CiAgLmxlZ2FsLWxlYWR7Zm9udC1zaXplOjE1cHh9CiAgLmxlZ2FsLWluZGV4e3BhZGRpbmc6MThweCAwfQogIC5sZWdhbC1ib2R5e3BhZGRpbmc6NThweCAwIDcycHh9CiAgLmxlZ2FsLWNvbnRlbnQgYXJ0aWNsZXtwYWRkaW5nOjI4cHggMCAzMnB4fQogIC5sZWdhbC1jb250ZW50IGgye2ZvbnQtc2l6ZToyOXB4fQogIC5sZWdhbC1jb250ZW50IHAsLmxlZ2FsLWNvbnRlbnQgbGl7Zm9udC1zaXplOjE0cHg7bGluZS1oZWlnaHQ6MS43Mn0KICAubGVnYWwtY29udGFjdHtwYWRkaW5nOjYycHggMH0KICAubGVnYWwtY29udGFjdC1pbm5lcnthbGlnbi1pdGVtczpmbGV4LXN0YXJ0O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbn0KICAubGVnYWwtY29udGFjdC1hY3Rpb257d2lkdGg6MTAwJX0KfQo8L3N0eWxlPgo=').decode()
+          error_css = base64.b64decode('CjxzdHlsZSBpZD0iZXJyb3ItcmVmcmVzaC0yMDI2Ij4KbWFpbiN0b3B7YmFja2dyb3VuZDojMDcxMDIyO2NvbG9yOiNmZmZ9Ci5lcnJvci1uZXd7bWluLWhlaWdodDpjYWxjKDEwMHZoIC0gODhweCk7cGFkZGluZzoxNTRweCAwIDk2cHg7YmFja2dyb3VuZDpyYWRpYWwtZ3JhZGllbnQoNzAlIDkwJSBhdCAxMDAlIDAlLHJnYmEoMjAsMjUsMjI0LC4zNCksdHJhbnNwYXJlbnQgNjIlKSwjMDcxMDIyfQouZXJyb3ItbmV3LWNhcmR7d2lkdGg6bWluKDEyMjBweCxjYWxjKDEwMCUgLSAxMjhweCkpO21hcmdpbjowIGF1dG87cG9zaXRpb246cmVsYXRpdmU7bWluLWhlaWdodDo2MTBweDtib3JkZXI6MXB4IHNvbGlkIHJnYmEoMTUyLDE3MSwyNTUsLjE4KTtib3JkZXItcmFkaXVzOjI4cHg7b3ZlcmZsb3c6aGlkZGVuO2JhY2tncm91bmQ6IzBBMTMyOH0KLmVycm9yLW5ldy1waG90b3twb3NpdGlvbjphYnNvbHV0ZTtpbnNldDowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7b2JqZWN0LWZpdDpjb3ZlcjtvcGFjaXR5Oi4yODtmaWx0ZXI6c2F0dXJhdGUoLjY1KSBjb250cmFzdCgxLjA1KX0KLmVycm9yLW5ldy1vdmVybGF5e3Bvc2l0aW9uOmFic29sdXRlO2luc2V0OjA7YmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQoOTBkZWcscmdiYSg3LDE1LDM0LC45OCkgMCUscmdiYSg3LDE1LDM0LC44NikgNDglLHJnYmEoNywxNSwzNCwuMzIpIDEwMCUpfQouZXJyb3ItbmV3LWNvbnRlbnR7cG9zaXRpb246cmVsYXRpdmU7ei1pbmRleDoyO21pbi1oZWlnaHQ6NjEwcHg7cGFkZGluZzo1OHB4IDYycHg7ZGlzcGxheTpmbGV4O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbjtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO21heC13aWR0aDo3OTBweH0KLmVycm9yLW5ldy1raWNrZXJ7bWFyZ2luOjA7Y29sb3I6IzhFQTNGRjtmb250LXNpemU6MTBweDtmb250LXdlaWdodDo3MDA7bGV0dGVyLXNwYWNpbmc6LjJlbTt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2V9Ci5lcnJvci1uZXcgaDF7bWFyZ2luOjIwcHggMCAwO2ZvbnQtc2l6ZTpjbGFtcCg3MHB4LDl2dywxMzJweCk7bGluZS1oZWlnaHQ6Ljg4O2xldHRlci1zcGFjaW5nOi0uMDdlbTtmb250LXdlaWdodDozMDB9Ci5lcnJvci1uZXcgaDEgc3Ryb25ne2Rpc3BsYXk6YmxvY2s7Y29sb3I6I0E4QjhGRjtmb250LXdlaWdodDozMDB9Ci5lcnJvci1uZXcgcHttYXgtd2lkdGg6NTgwcHg7bWFyZ2luOjI4cHggMCAwO2NvbG9yOiM5REE4QzY7Zm9udC1zaXplOjE3cHg7bGluZS1oZWlnaHQ6MS43fQouZXJyb3ItbmV3LWFjdGlvbnN7ZGlzcGxheTpmbGV4O2dhcDoxMnB4O2ZsZXgtd3JhcDp3cmFwO21hcmdpbi10b3A6MzRweH0KLmVycm9yLW5ldy1hY3Rpb25zIGEsLmVycm9yLW5ldyBhLmVycm9yLW5ldy1jdGF7ZGlzcGxheTppbmxpbmUtZmxleDthbGlnbi1pdGVtczpjZW50ZXI7anVzdGlmeS1jb250ZW50OmNlbnRlcjttaW4taGVpZ2h0OjUwcHg7cGFkZGluZzowIDIycHg7Ym9yZGVyLXJhZGl1czo5OTlweDtmb250LXNpemU6MTNweDtmb250LXdlaWdodDo2NTA7dHJhbnNpdGlvbjp0cmFuc2Zvcm0gLjJzIGVhc2UsYm94LXNoYWRvdyAuMnMgZWFzZSxiYWNrZ3JvdW5kIC4ycyBlYXNlLGNvbG9yIC4ycyBlYXNlfQouZXJyb3ItbmV3LWFjdGlvbnMgYTpmaXJzdC1jaGlsZCwuZXJyb3ItbmV3IGEuZXJyb3ItbmV3LWN0YXtiYWNrZ3JvdW5kOiNmZmY7Y29sb3I6IzE0MTlFMH0KLmVycm9yLW5ldy1hY3Rpb25zIGE6bm90KDpmaXJzdC1jaGlsZCl7Ym9yZGVyOjFweCBzb2xpZCByZ2JhKDI1NSwyNTUsMjU1LC4yNik7Y29sb3I6I2ZmZn0KLmVycm9yLW5ldy1hY3Rpb25zIGE6aG92ZXIsLmVycm9yLW5ldyBhLmVycm9yLW5ldy1jdGE6aG92ZXJ7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTNweCk7Ym94LXNoYWRvdzowIDE0cHggMzBweCByZ2JhKDAsMCwwLC4yKX0KLmVycm9yLW5ldy1hY3Rpb25zIGE6Zmlyc3QtY2hpbGQ6aG92ZXIsLmVycm9yLW5ldyBhLmVycm9yLW5ldy1jdGE6aG92ZXJ7YmFja2dyb3VuZDojRUVGM0ZGfQouZXJyb3ItbmV3LWFjdGlvbnMgYTpub3QoOmZpcnN0LWNoaWxkKTpob3ZlcntiYWNrZ3JvdW5kOnJnYmEoMjU1LDI1NSwyNTUsLjA4KTtib3JkZXItY29sb3I6cmdiYSgyNTUsMjU1LDI1NSwuNSl9CkBtZWRpYShtYXgtd2lkdGg6NzYwcHgpewogIC5lcnJvci1uZXd7cGFkZGluZzoxMDhweCAwIDQ4cHg7bWluLWhlaWdodDphdXRvfQogIC5lcnJvci1uZXctY2FyZHt3aWR0aDpjYWxjKDEwMCUgLSAyNHB4KTttaW4taGVpZ2h0OjYyMHB4O2JvcmRlci1yYWRpdXM6MjBweH0KICAuZXJyb3ItbmV3LWNvbnRlbnR7bWluLWhlaWdodDo2MjBweDtwYWRkaW5nOjM0cHggMjRweH0KICAuZXJyb3ItbmV3IGgxe2ZvbnQtc2l6ZTo3MnB4fQogIC5lcnJvci1uZXcgcHtmb250LXNpemU6MTVweH0KICAuZXJyb3ItbmV3LWFjdGlvbnN7ZmxleC1kaXJlY3Rpb246Y29sdW1ufQogIC5lcnJvci1uZXctYWN0aW9ucyBhLC5lcnJvci1uZXcgYS5lcnJvci1uZXctY3Rhe3dpZHRoOjEwMCV9Cn0KPC9zdHlsZT4K').decode()
+
+          targets = {
+              'politica-de-privacidad.html': legal_css,
+              'terminos-de-servicio.html': legal_css,
+              '404.html': error_css,
+          }
+
+          for filename, extra_css in targets.items():
+              path = repo / filename
+              old = path.read_text(encoding='utf-8')
+              title_match = re.search(r'(?s)<title>(.*?)</title>', old)
+              title = title_match.group(1) if title_match else 'lowsignal'
+              main_match = re.search(r'(?s)<main id="top">.*?</main>', old)
+              if not main_match:
+                  raise SystemExit(f'Main not found in {filename}')
+              main = main_match.group(0)
+
+              head = re.sub(r'(?s)<title>.*?</title>', f'<title>{title}</title>', base_head, count=1)
+              if filename == '404.html' and 'name="robots"' not in head:
+                  head = head.replace('</head>', '<meta name="robots" content="noindex,follow">\n</head>')
+              head = head.replace('</head>', extra_css + '\n</head>')
+
+              rebuilt = head + '\n' + body_open + '\n' + nav_shell + '\n' + main + '\n' + footer_shell
+              path.write_text(rebuilt, encoding='utf-8')
+              print(filename, 'rebuilt')
+          PY
+      - name: Commit
+        run: |
+          rm .github/workflows/refresh-legal-404-shell-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 404.html politica-de-privacidad.html terminos-de-servicio.html .github/workflows/refresh-legal-404-shell-once.yml
+          git commit -m "feat: refresh 404 and legal pages"
+          git push
