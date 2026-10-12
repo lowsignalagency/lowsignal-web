@@ -10314,5 +10314,40 @@ footer{
 }
 </style>
 
+
+<style id="insights-final-body-fix-v4">
+.insights-new-hero .container,
+.insights-new-featured .container,
+.insights-new-grid-section .container,
+.insights-new-themes .container,
+.insights-new-final .container{
+  width:min(1480px,calc(100% - 160px)) !important;
+  max-width:1480px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.insights-new-card-body{display:flex !important;flex-direction:column !important}
+.insights-new-card .insights-new-read{
+  width:42px !important;height:42px !important;min-width:42px !important;padding:0 !important;
+  margin:22px 0 0 auto !important;border:1px solid rgba(20,25,224,.28) !important;
+  border-radius:50% !important;background:transparent !important;color:transparent !important;
+  font-size:0 !important;display:flex !important;align-items:center !important;justify-content:center !important;
+  transition:background-color .2s ease,border-color .2s ease,transform .2s ease,color .2s ease !important;
+}
+.insights-new-card .insights-new-read span{color:#1419E0 !important;font-size:15px !important;line-height:1 !important;display:block !important}
+.insights-new-card:hover .insights-new-read{background:#1419E0 !important;border-color:#1419E0 !important;transform:translateY(-2px) !important}
+.insights-new-card:hover .insights-new-read span{color:#fff !important}
+@media(max-width:1440px){
+  .insights-new-hero .container,.insights-new-featured .container,.insights-new-grid-section .container,.insights-new-themes .container,.insights-new-final .container{width:calc(100% - 96px) !important;max-width:none !important}
+}
+@media(max-width:1100px){
+  .insights-new-hero .container,.insights-new-featured .container,.insights-new-grid-section .container,.insights-new-themes .container,.insights-new-final .container{width:calc(100% - 48px) !important}
+}
+@media(max-width:760px){
+  .insights-new-hero .container,.insights-new-featured .container,.insights-new-grid-section .container,.insights-new-themes .container,.insights-new-final .container{width:calc(100% - 32px) !important}
+  .insights-new-card .insights-new-read{width:40px !important;height:40px !important;min-width:40px !important}
+}
+</style>
+
 </body>
 </html>
