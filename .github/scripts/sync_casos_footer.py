@@ -13,8 +13,8 @@ casos, n = re.subn(r"<footer>[\s\S]*?</footer>", footer.group(0), casos, count=1
 if n != 1:
     raise SystemExit("Casos footer replacement failed")
 
-# Remove every previously injected Casos footer block.
-casos = re.sub(r'<style[^>]*id="[^"]*casos[^"]*footer[^"]*"[^>]*>[\s\S]*?</style>\s*', '', casos, flags=re.I)
+# Remove every previously injected Casos footer/navbar exact-sync block.
+casos = re.sub(r'<style[^>]*id="[^"]*casos[^"]*(?:footer|navbar)[^"]*"[^>]*>[\s\S]*?</style>\s*', '', casos, flags=re.I)
 
 # Copy the base footer CSS from Nosotros.
 base_match = re.search(
@@ -33,18 +33,55 @@ for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-clone = (
+footer_clone = (
     '\n<style id="casos-footer-nosotros-exact">\n' +
     base_css + '\n' +
     '\n'.join(overrides) + '\n' +
     '</style>\n'
 )
 
-# Critical: apply the Nosotros footer CSS LAST in the document. Casos has several
-# late style blocks after </head>; inserting in the head let those rules override
-# the cloned footer and made it look smaller/different.
+# Exact visible desktop navbar CTA from Nosotros.
+navbar_clone = r'''
+<style id="casos-navbar-nosotros-exact">
+@media(min-width:761px){
+  body > .lnav .lnav-contact{
+    min-height:44px !important;
+    height:auto !important;
+    padding:0 22px !important;
+    border:0 !important;
+    border-radius:999px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#1419E0 !important;
+    color:#fff !important;
+    font-size:13px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    box-shadow:none !important;
+    white-space:nowrap !important;
+    transition:transform .18s ease,background .18s ease !important;
+  }
+  body > .lnav .lnav-contact:hover{
+    transform:translateY(-1px) !important;
+    background:#2832F3 !important;
+    color:#fff !important;
+    box-shadow:none !important;
+  }
+}
+@media(max-width:1100px) and (min-width:761px){
+  body > .lnav .lnav-contact{
+    min-height:40px !important;
+    padding:0 17px !important;
+    font-size:12px !important;
+  }
+}
+</style>
+'''
+
+# Apply source-accurate styles LAST so older Casos overrides cannot win.
 if "</body>" not in casos:
     raise SystemExit("Casos closing body not found")
-casos = casos.replace("</body>", clone + "\n</body>", 1)
+casos = casos.replace("</body>", footer_clone + "\n" + navbar_clone + "\n</body>", 1)
 
 casos_path.write_text(casos, encoding="utf-8")
