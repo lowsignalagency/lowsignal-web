@@ -1,0 +1,31 @@
+name: Legal match navbar margins
+on: push
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Match legal pages to lnav row
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          paths = [Path('politica-de-privacidad.html'), Path('terminos-de-servicio.html')]
+          for p in paths:
+              s = p.read_text()
+              s = s.replace('width:min(1480px,calc(100% - 160px)) !important;', 'width:min(1220px,calc(100% - 128px)) !important;')
+              s = s.replace('max-width:1480px !important;', 'max-width:1220px !important;')
+              s = s.replace('width:calc(100% - 112px) !important;', 'width:min(1220px,calc(100% - 128px)) !important;')
+              p.write_text(s)
+          PY
+      - name: Remove one-shot workflow
+        run: rm .github/workflows/legal-match-navbar-margins.yml
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add politica-de-privacidad.html terminos-de-servicio.html .github/workflows/legal-match-navbar-margins.yml
+          git commit -m "fix: match legal margins to navbar"
+          git push
