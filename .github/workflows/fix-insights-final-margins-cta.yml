@@ -1,0 +1,110 @@
+name: Fix Insights final margins and CTA
+on: push
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply final body override
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('recursos/insights.html')
+          s = path.read_text()
+          block = r'''
+<style id="insights-final-body-fix-v4">
+/* Must remain last: matches the refreshed Nosotros content grid */
+.insights-new-hero .container,
+.insights-new-featured .container,
+.insights-new-grid-section .container,
+.insights-new-themes .container,
+.insights-new-final .container{
+  width:min(1480px,calc(100% - 160px)) !important;
+  max-width:1480px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Circular card CTA */
+.insights-new-card-body{
+  display:flex !important;
+  flex-direction:column !important;
+}
+.insights-new-card .insights-new-read{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  padding:0 !important;
+  margin:22px 0 0 auto !important;
+  border:1px solid rgba(20,25,224,.28) !important;
+  border-radius:50% !important;
+  background:transparent !important;
+  color:transparent !important;
+  font-size:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  transition:background-color .2s ease,border-color .2s ease,transform .2s ease,color .2s ease !important;
+}
+.insights-new-card .insights-new-read span{
+  color:#1419E0 !important;
+  font-size:15px !important;
+  line-height:1 !important;
+  display:block !important;
+  transform:translate(0,0) !important;
+}
+.insights-new-card:hover .insights-new-read{
+  background:#1419E0 !important;
+  border-color:#1419E0 !important;
+  transform:translateY(-2px) !important;
+}
+.insights-new-card:hover .insights-new-read span{color:#fff !important}
+
+@media(max-width:1440px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 96px) !important;max-width:none !important}
+}
+@media(max-width:1100px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 48px) !important}
+}
+@media(max-width:760px){
+  .insights-new-hero .container,
+  .insights-new-featured .container,
+  .insights-new-grid-section .container,
+  .insights-new-themes .container,
+  .insights-new-final .container{width:calc(100% - 32px) !important}
+  .insights-new-card .insights-new-read{width:40px !important;height:40px !important;min-width:40px !important}
+}
+</style>
+'''
+          s = re.sub(r'\n?<style id="insights-final-body-fix-v4">.*?</style>\n?', '\n', s, flags=re.S)
+          if '</body>' not in s:
+              raise SystemExit('No </body> in recursos/insights.html')
+          s = s.replace('</body>', block + '\n</body>', 1)
+          path.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          tail -n 120 recursos/insights.html | grep -q 'insights-final-body-fix-v4'
+          grep -q 'width:min(1480px,calc(100% - 160px))' recursos/insights.html
+          grep -q 'border-radius:50%' recursos/insights.html
+      - name: Remove workflow
+        run: rm .github/workflows/fix-insights-final-margins-cta.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/fix-insights-final-margins-cta.yml
+          git commit -m 'fix: force Insights margins and round card CTA'
+          git push
