@@ -1424,41 +1424,93 @@
   }
 }
 </style>
-<meta name="robots" content="noindex,follow">
 
-<style id="error-refresh-2026">
-main#top{background:#071022;color:#fff}
-.error-new{min-height:calc(100vh - 88px);padding:154px 0 96px;background:radial-gradient(70% 90% at 100% 0%,rgba(20,25,224,.34),transparent 62%),#071022}
-.error-new-card{width:min(1220px,calc(100% - 128px));margin:0 auto;position:relative;min-height:610px;border:1px solid rgba(152,171,255,.18);border-radius:28px;overflow:hidden;background:#0A1328}
-.error-new-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:saturate(.65) contrast(1.05)}
-.error-new-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,15,34,.98) 0%,rgba(7,15,34,.86) 48%,rgba(7,15,34,.32) 100%)}
-.error-new-content{position:relative;z-index:2;min-height:610px;padding:58px 62px;display:flex;flex-direction:column;justify-content:center;max-width:790px}
-.error-new-kicker{margin:0;color:#8EA3FF;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.error-new h1{margin:20px 0 0;font-size:clamp(70px,9vw,132px);line-height:.88;letter-spacing:-.07em;font-weight:300}
-.error-new h1 strong{display:block;color:#A8B8FF;font-weight:300}
-.error-new p{max-width:580px;margin:28px 0 0;color:#9DA8C6;font-size:17px;line-height:1.7}
-.error-new-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-.error-new-actions a,.error-new a.error-new-cta{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;font-size:13px;font-weight:650;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
-.error-new-actions a:first-child,.error-new a.error-new-cta{background:#fff;color:#1419E0}
-.error-new-actions a:not(:first-child){border:1px solid rgba(255,255,255,.26);color:#fff}
-.error-new-actions a:hover,.error-new a.error-new-cta:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.2)}
-.error-new-actions a:first-child:hover,.error-new a.error-new-cta:hover{background:#EEF3FF}
-.error-new-actions a:not(:first-child):hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+<style id="error404-clean-v1">
+.error404{
+  min-height:calc(100vh - 88px);
+  padding:150px 0 110px;
+  background:#071022;
+  color:#fff;
+}
+.error404-inner{
+  width:min(1220px,calc(100% - 128px));
+  margin:0 auto;
+}
+.error404-kicker{
+  margin:0;
+  color:#8AA4FF;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.error404 h1{
+  max-width:900px;
+  margin:22px 0 0;
+  font-size:clamp(72px,8vw,124px);
+  line-height:.92;
+  letter-spacing:-.06em;
+  font-weight:300;
+}
+.error404 h1 strong{
+  display:block;
+  color:#8AA4FF;
+  font-weight:300;
+}
+.error404 p{
+  max-width:580px;
+  margin:28px 0 0;
+  color:#A7B2CA;
+  font-size:16px;
+  line-height:1.7;
+}
+.error404-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+.error404-actions a{
+  min-height:50px;
+  padding:0 22px;
+  border-radius:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:650;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.error404-primary{
+  background:#fff;
+  color:#1419E0;
+  border:1px solid #fff;
+}
+.error404-secondary{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.24);
+}
+@media(hover:hover){
+  .error404-actions a:hover{transform:translateY(-2px)}
+  .error404-primary:hover{background:#F1F3FF;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+  .error404-secondary:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.45)}
+}
+@media(max-width:1100px){
+  .error404-inner{width:calc(100% - 48px)}
+}
 @media(max-width:760px){
-  .error-new{padding:108px 0 48px;min-height:auto}
-  .error-new-card{width:calc(100% - 24px);min-height:620px;border-radius:20px}
-  .error-new-content{min-height:620px;padding:34px 24px}
-  .error-new h1{font-size:72px}
-  .error-new p{font-size:15px}
-  .error-new-actions{flex-direction:column}
-  .error-new-actions a,.error-new a.error-new-cta{width:100%}
+  .error404{min-height:auto;padding:120px 0 72px}
+  .error404-inner{width:calc(100% - 40px)}
+  .error404 h1{font-size:64px}
+  .error404 p{font-size:15px}
+  .error404-actions{flex-direction:column}
+  .error404-actions a{width:100%}
 }
 </style>
 
-<link rel="stylesheet" href="https://lowsignal.cl/assets/legal-404-2026-fix.css?v=3">
 </head>
 <body>
-
 
   <header class="lnav" aria-label="Navegación principal">
   <div class="lnav-row">
@@ -1767,36 +1819,29 @@ main#top{background:#071022;color:#fff}
 
   
 <main id="top">
-  <section class="error-new">
-    <div class="container error-new-card">
-      <img class="error-new-photo" src="https://lowsignal.cl/assets/torre-lowsignal.jpg" alt="" aria-hidden="true">
-      <div class="error-new-overlay"></div>
-
-      <div class="error-new-content">
-        <div class="error-new-top">
-          <p class="error-new-kicker">ERROR <span></span> 404</p>
-          <div class="error-new-code" aria-hidden="true">404</div>
-        </div>
-
-        <div class="error-new-copy">
-          <h1>Perdiste<br><strong>la señal.</strong></h1>
-          <p>La página que buscas no existe o cambió de lugar.</p>
-        </div>
-
-        <div class="error-new-actions">
-          <a class="error-new-primary" href="https://lowsignal.cl">Volver al inicio</a>
-          <a class="error-new-secondary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
-        </div>
-      </div>
-
-      <div class="error-new-side" aria-hidden="true">
-        <span>LESS NOISE.</span>
-        <strong>MORE GROWTH.</strong>
+  <section class="error404">
+    <div class="error404-inner">
+      <p class="error404-kicker">404 · Página no encontrada</p>
+      <h1>Te perdiste.<strong>Volvamos a la señal.</strong></h1>
+      <p>La página que buscas no existe, cambió de dirección o ya no está disponible.</p>
+      <div class="error404-actions">
+        <a class="error404-primary" href="https://lowsignal.cl/">Volver al inicio</a>
+        <a class="error404-secondary" href="https://lowsignal.cl/contacto">Hablemos</a>
       </div>
     </div>
   </section>
 </main>
-<footer>
+
+
+
+
+
+
+
+
+
+
+  <footer>
     <div class="container footer-container">
       <div class="footer-main">
         <div class="footer-brand">
