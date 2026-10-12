@@ -1,0 +1,108 @@
+name: Sync Casos CTA with Home
+
+on:
+  push:
+    paths:
+      - .github/workflows/sync-casos-cta-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync-cta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Match Home CTA sizing
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('casos.html')
+          s=p.read_text(encoding='utf-8')
+          s=re.sub(r'<style id="casos-final-cta-v3">[\s\S]*?</style>\s*','',s)
+          css='''
+<style id="casos-final-cta-v4">
+/* Match the CTA band used on Home */
+.stories-new-final{
+  position:relative !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  min-height:0 !important;
+  background:linear-gradient(105deg,#1419E0,#2447F5) !important;
+  color:#fff !important;
+}
+.stories-new-final:after{display:none !important}
+.stories-new-final .container{
+  width:min(1220px,calc(100% - 128px)) !important;
+  max-width:1220px !important;
+  margin:0 auto !important;
+}
+.stories-new-final-inner{
+  min-height:208px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:40px !important;
+}
+.stories-new-final h2{
+  margin:0 !important;
+  color:#fff !important;
+  font-size:30px !important;
+  line-height:1.25 !important;
+  letter-spacing:-.03em !important;
+  font-weight:300 !important;
+}
+.stories-new-final a{
+  flex:none !important;
+  min-width:0 !important;
+  min-height:50px !important;
+  height:auto !important;
+  padding:0 24px !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#fff !important;
+  color:#17235D !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  box-shadow:none !important;
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,color .2s ease !important;
+}
+.stories-new-final a:hover{
+  background:#F6F8FF !important;
+  color:#14206A !important;
+  transform:translateY(-2px) !important;
+  box-shadow:0 14px 32px rgba(9,18,54,.18) !important;
+}
+@media(max-width:760px){
+  .stories-new-final .container{width:calc(100% - 32px) !important}
+  .stories-new-final-inner{
+    min-height:190px !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    flex-direction:column !important;
+    gap:28px !important;
+  }
+  .stories-new-final h2{font-size:25px !important}
+  .stories-new-final a{width:100% !important}
+}
+</style>
+'''
+          s=s.replace('</head>',css+'\n</head>',1)
+          p.write_text(s,encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add casos.html
+          git commit -m "Match Casos CTA sizing to Home" || exit 0
+          git push
