@@ -1478,6 +1478,43 @@ main#top{background:#fff;color:#071022}
 </style>
 
 <link rel="stylesheet" href="https://lowsignal.cl/assets/legal-404-2026-fix.css?v=2">
+<style id="legal-clean-v3">
+/* Align legal pages to the exact content grid used by Nosotros */
+.legal-hero{padding:124px 0 70px !important;background:#fff !important}
+.legal-hero-grid,
+.legal-body>.container,
+.legal-contact-inner{
+  width:min(1200px,calc(100% - 64px)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.legal-hero-grid{
+  display:block !important;
+  max-width:none !important;
+}
+.legal-index{display:none !important}
+.legal-hero h1{max-width:760px !important;margin-top:20px !important}
+.legal-lead{max-width:760px !important;margin-top:28px !important}
+.legal-update{margin-top:30px !important}
+.legal-body{padding:72px 0 104px !important;border-top:1px solid #DDE4F0 !important}
+.legal-body>.container{
+  display:grid !important;
+  grid-template-columns:190px minmax(0,1fr) !important;
+  gap:72px !important;
+}
+.legal-content{min-width:0 !important}
+@media(max-width:980px){
+  .legal-body>.container{grid-template-columns:1fr !important;gap:26px !important}
+  .legal-sidebar{display:none !important}
+}
+@media(max-width:760px){
+  .legal-hero{padding:104px 0 52px !important}
+  .legal-hero-grid,
+  .legal-body>.container,
+  .legal-contact-inner{width:calc(100% - 32px) !important}
+  .legal-body{padding:54px 0 72px !important}
+}
+</style>
 </head>
 <body>
 
@@ -1797,17 +1834,6 @@ main#top{background:#fff;color:#071022}
         <p class="legal-lead">Cómo recopilamos, usamos y protegemos tus datos personales cuando interactúas con lowsignal.</p>
         <p class="legal-update">ÚLTIMA ACTUALIZACIÓN · SEPTIEMBRE 2026</p>
       </div>
-
-      <aside class="legal-index" aria-label="Contenido">
-        <p>CONTENIDO</p>
-        <a href="#quienes-somos"><span>01</span>Quiénes somos</a>
-        <a href="#datos"><span>02</span>Qué datos recopilamos</a>
-        <a href="#uso"><span>03</span>Para qué los usamos</a>
-        <a href="#cookies"><span>04</span>Cookies</a>
-        <a href="#retencion"><span>05</span>Cuánto tiempo los guardamos</a>
-        <a href="#derechos"><span>06</span>Tus derechos</a>
-        <a href="#seguridad"><span>07</span>Seguridad</a>
-      </aside>
     </div>
   </section>
 
