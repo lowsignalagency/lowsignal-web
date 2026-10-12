@@ -1,0 +1,17 @@
+name: Bump Jobs CSS v8 once
+on: [push]
+permissions:
+  contents: write
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sed -i 's/jobs-page-fixes.css?v=7/jobs-page-fixes.css?v=8/g' recursos/jobs.html recursos/jobs/growth-ambassador.html
+      - run: |
+          rm -f .github/workflows/bump-jobs-css-v8-once.yml .github/workflows/fix-jobs-footer-cta-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows
+          git commit -m 'fix: use Home footer styles on Jobs'
+          git push
