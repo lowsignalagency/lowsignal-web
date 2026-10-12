@@ -1,100 +1,34 @@
 name: Simplify Growth Ambassador hero once
-
-on:
-  push:
-    paths:
-      - '.github/workflows/simplify-growth-ambassador-hero-once.yml'
-
+on: [push]
 permissions:
   contents: write
-
 jobs:
   patch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Simplify hero and add apply CTA
+      - name: Patch Growth Ambassador hero
+        shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
-          path = Path('recursos/jobs/growth-ambassador.html')
-          text = path.read_text(encoding='utf-8')
-
-          old = '''        <div class="ga26-pills"><span>Remoto</span><span>Flexible</span><span>Sin experiencia previa</span><span>Variable por resultados</span></div>
-      </div>
-      <aside class="ga26-summary">
-        <span>EL OBJETIVO</span>
-        <strong>Abre la conversación.</strong>
-        <p>Tú generas la oportunidad. Desde la reunión en adelante, el equipo de lowsignal se encarga de propuesta, negociación y cierre.</p>
-        <a href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular ↗</a>
-      </aside>'''
-
-          new = '''        <div class="ga26-pills"><span>Remoto</span><span>Flexible</span><span>Sin experiencia previa</span><span>Variable por resultados</span></div>
-        <a class="ga26-apply" href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular <span aria-hidden="true">↗</span></a>
-      </div>'''
-
-          if old not in text:
-              raise SystemExit('Expected Growth Ambassador hero block not found')
-          text = text.replace(old, new, 1)
-
-          css = '''
-<style id="ga26-hero-simplified-v1">
-/* Growth Ambassador hero — single-column, cleaner application CTA */
-.ga26-hero-grid{
-  display:block !important;
-}
-.ga26-hero-grid > div{
-  max-width:760px;
-}
-.ga26-apply{
-  margin-top:34px;
-  min-height:50px;
-  padding:0 22px;
-  width:max-content;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:1px solid rgba(255,255,255,.92);
-  border-radius:999px;
-  background:#fff;
-  color:#1419E0;
-  font-size:13px;
-  font-weight:650;
-  transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
-}
-.ga26-apply span{
-  transition:transform .2s ease;
-}
-@media(hover:hover){
-  .ga26-apply:hover{
-    transform:translateY(-3px);
-    background:#EEF3FF;
-    color:#0F1F8C;
-    box-shadow:0 14px 30px rgba(0,0,0,.20);
-  }
-  .ga26-apply:hover span{
-    transform:translate(2px,-2px);
-  }
-}
-.ga26-apply:active{
-  transform:translateY(0) scale(.985);
-}
-.ga26-apply:focus-visible{
-  outline:2px solid #8EA3FF;
-  outline-offset:4px;
-}
-@media(max-width:760px){
-  .ga26-hero-grid > div{max-width:none}
-  .ga26-apply{margin-top:28px;min-height:48px;padding:0 20px}
-}
-</style>
-'''
-          text = text.replace('</head>', css + '\n</head>', 1)
-          path.write_text(text, encoding='utf-8')
+          import re, base64
+          p = Path('recursos/jobs/growth-ambassador.html')
+          t = p.read_text(encoding='utf-8')
+          t2, n = re.subn(r'\s*<aside class="ga26-summary">.*?</aside>', '', t, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('ga26-summary not found')
+          cta = base64.b64decode('PGEgY2xhc3M9ImdhMjYtYXBwbHkiIGhyZWY9Im1haWx0bzpjb250YWN0b0Bsb3dzaWduYWwuY2w/c3ViamVjdD1Qb3N0dWxhY2klQzMlQjNuJTIwR3Jvd3RoJTIwQW1iYXNzYWRvciI+UG9zdHVsYXIgPHNwYW4gYXJpYS1oaWRkZW49InRydWUiPuKGlzwvc3Bhbj48L2E+').decode()
+          needle = '<div class="ga26-pills"><span>Remoto</span><span>Flexible</span><span>Sin experiencia previa</span><span>Variable por resultados</span></div>'
+          if needle not in t2:
+              raise SystemExit('pills block not found')
+          t2 = t2.replace(needle, needle + '\n        ' + cta, 1)
+          css = base64.b64decode('PHN0eWxlIGlkPSJnYTI2LWhlcm8tc2ltcGxpZmllZC12MSI+Ci5nYTI2LWhlcm8tZ3JpZHtkaXNwbGF5OmJsb2NrIWltcG9ydGFudH0KLmdhMjYtaGVyby1ncmlkPmRpdnttYXgtd2lkdGg6NzYwcHh9Ci5nYTI2LWFwcGx5e21hcmdpbi10b3A6MzRweDttaW4taGVpZ2h0OjUwcHg7cGFkZGluZzowIDIycHg7d2lkdGg6bWF4LWNvbnRlbnQ7ZGlzcGxheTppbmxpbmUtZmxleDthbGlnbi1pdGVtczpjZW50ZXI7anVzdGlmeS1jb250ZW50OmNlbnRlcjtnYXA6OHB4O2JvcmRlcjoxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwuOTIpO2JvcmRlci1yYWRpdXM6OTk5cHg7YmFja2dyb3VuZDojZmZmO2NvbG9yOiMxNDE5RTA7Zm9udC1zaXplOjEzcHg7Zm9udC13ZWlnaHQ6NjUwO3RyYW5zaXRpb246dHJhbnNmb3JtIC4ycyBlYXNlLGJveC1zaGFkb3cgLjJzIGVhc2UsYmFja2dyb3VuZC1jb2xvciAuMnMgZWFzZSxjb2xvciAuMnMgZWFzZX0KLmdhMjYtYXBwbHkgc3Bhbnt0cmFuc2l0aW9uOnRyYW5zZm9ybSAuMnMgZWFzZX0KQG1lZGlhKGhvdmVyOmhvdmVyKXsuZ2EyNi1hcHBseTpob3Zlcnt0cmFuc2Zvcm06dHJhbnNsYXRlWSgtM3B4KTtiYWNrZ3JvdW5kOiNFRUYzRkY7Y29sb3I6IzBGMUY4Qztib3gtc2hhZG93OjAgMTRweCAzMHB4IHJnYmEoMCwwLDAsLjIwKX0uZ2EyNi1hcHBseTpob3ZlciBzcGFue3RyYW5zZm9ybTp0cmFuc2xhdGUoMnB4LC0ycHgpfX0KLmdhMjYtYXBwbHk6YWN0aXZle3RyYW5zZm9ybTp0cmFuc2xhdGVZKDApIHNjYWxlKC45ODUpfQouZ2EyNi1hcHBseTpmb2N1cy12aXNpYmxle291dGxpbmU6MnB4IHNvbGlkICM4RUEzRkY7b3V0bGluZS1vZmZzZXQ6NHB4fQpAbWVkaWEobWF4LXdpZHRoOjc2MHB4KXsuZ2EyNi1oZXJvLWdyaWQ+ZGl2e21heC13aWR0aDpub25lfS5nYTI2LWFwcGx5e21hcmdpbi10b3A6MjhweDttaW4taGVpZ2h0OjQ4cHg7cGFkZGluZzowIDIwcHh9fQo8L3N0eWxlPg==').decode()
+          t2 = re.sub(r'\n?<style id="ga26-hero-simplified-v1">.*?</style>\n?', '\n', t2, flags=re.S)
+          t2 = t2.replace('</head>', css + '\n</head>', 1)
+          p.write_text(t2, encoding='utf-8')
           PY
-      - name: Commit and remove workflow
+      - name: Commit
         run: |
           rm .github/workflows/simplify-growth-ambassador-hero-once.yml
           git config user.name "github-actions[bot]"
