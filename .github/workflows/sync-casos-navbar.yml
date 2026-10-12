@@ -27,13 +27,11 @@ jobs:
           target_path = Path('casos.html')
           target = target_path.read_text(encoding='utf-8')
 
-          # Extract the actual visible desktop navbar markup used by Nosotros/Home.
           header_match = re.search(r'(<header class="lnav"[\s\S]*?</header>)', source)
           if not header_match:
               raise SystemExit('Could not find .lnav header in nosotros.html')
           header = header_match.group(1)
 
-          # Extract the exact desktop navbar style blocks currently used on Nosotros.
           style_ids = ['video-accurate-navbar-v21', 'v60-visible-navbar-fixes', 'global-visible-lnav-fixed-v1']
           styles = []
           for sid in style_ids:
@@ -43,26 +41,23 @@ jobs:
           if not styles:
               raise SystemExit('Could not find current .lnav styles in nosotros.html')
 
-          # Remove previous sync block if present.
           target = re.sub(r'<!-- CASOS L-NAV SYNC START -->[\s\S]*?<!-- CASOS L-NAV SYNC END -->\s*', '', target)
+          target = re.sub(r'<header class="lnav"[\s\S]*?</header>\s*', '', target, count=1)
 
-          sync_css = '''
-<style id="casos-lnav-sync-overrides">
-@media(min-width:761px){
-  body > .nav-wrap{display:none !important}
-  body > .mobile-nav-panel{display:none !important}
-  body > .lnav{display:block !important;position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:2000 !important}
-  .stories-new-hero{padding-top:172px !important}
-}
-@media(max-width:760px){
-  body > .lnav{display:none !important}
-}
-</style>
-'''
-          head_block = '<!-- CASOS L-NAV SYNC START -->\n' + '\n'.join(styles) + sync_css + '<!-- CASOS L-NAV SYNC END -->\n'
+          sync_css = '\n'.join([
+              '<style id="casos-lnav-sync-overrides">',
+              '@media(min-width:761px){',
+              '  body > .nav-wrap{display:none !important}',
+              '  body > .mobile-nav-panel{display:none !important}',
+              '  body > .lnav{display:block !important;position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:2000 !important}',
+              '  .stories-new-hero{padding-top:172px !important}',
+              '}',
+              '@media(max-width:760px){body > .lnav{display:none !important}}',
+              '</style>'
+          ])
+          head_block = '<!-- CASOS L-NAV SYNC START -->\n' + '\n'.join(styles) + '\n' + sync_css + '\n<!-- CASOS L-NAV SYNC END -->\n'
           target = target.replace('</head>', head_block + '</head>', 1)
 
-          # Insert exact desktop navbar before legacy/mobile nav wrapper.
           nav_marker = '<div class="nav-wrap">'
           if nav_marker not in target:
               raise SystemExit('Could not find nav-wrap in casos.html')
