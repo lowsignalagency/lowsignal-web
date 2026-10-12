@@ -28,29 +28,31 @@ base_css = "/* FOOTER — expanded / editorial */" + base_match.group(1)
 # 4) Copy every later style block in Nosotros that explicitly touches the footer.
 overrides = []
 for m in re.finditer(r'<style([^>]*)>([\s\S]*?)</style>', source, flags=re.I):
-    attrs, css = m.group(1), m.group(2)
+    css = m.group(2)
     if re.search(r'footer|\.footer-', css, flags=re.I):
         overrides.append(css)
 
-# 5) Final margin lock: use exactly the same visible width as the Casos CTA.
-# No inner padding/gutter tricks — the footer container itself matches the CTA.
+# 5) Fine-tune the visible footer content to the same horizontal rhythm as the CTA.
+# Keep the wider Nosotros footer shell but use a smaller 40px inner gutter.
+# This corrects the slight over-shift from the previous 64px version without
+# collapsing the footer back out toward the viewport edges.
 final_margin_css = r'''
-/* CASOS — exact CTA/footer horizontal alignment */
+/* CASOS — footer/CTA optical alignment */
 footer .footer-container{
-  width:min(1220px, calc(100% - 128px)) !important;
-  max-width:1220px !important;
+  width:min(1348px, calc(100% - 128px)) !important;
+  max-width:1348px !important;
   margin-left:auto !important;
   margin-right:auto !important;
-  padding-left:0 !important;
-  padding-right:0 !important;
+  padding-left:40px !important;
+  padding-right:40px !important;
   box-sizing:border-box !important;
 }
 @media(max-width:1100px){
   footer .footer-container{
     width:calc(100% - 48px) !important;
     max-width:none !important;
-    padding-left:0 !important;
-    padding-right:0 !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
   }
 }
 @media(max-width:620px){
