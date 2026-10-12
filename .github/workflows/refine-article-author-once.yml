@@ -1,0 +1,39 @@
+name: Refine article author once
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refine-article-author-once.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refine author block
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          files=['recursos/insights/100-ideas-puestas-en-marcha.html','recursos/insights/6-meses-construyendo-lowsignal.html','recursos/insights/ai-native-startups-platanus.html','recursos/insights/platanus-ai-native-startups-4.html','recursos/insights/tech-founders-ama.html']
+          css='<style id="article-author-system-v1">.article-author{display:flex!important;align-items:center!important;gap:16px!important;margin-top:22px!important}.article-author img{width:64px!important;height:64px!important;border-radius:50%!important;object-fit:cover!important;object-position:center 34%!important;flex:0 0 64px!important;image-rendering:auto!important}.article-author>div{display:flex!important;flex-direction:column!important;gap:4px!important}.article-author strong{color:#071022!important;font-size:14px!important;line-height:1.2!important;font-weight:650!important;letter-spacing:-.01em!important}.article-author span{color:#7A849F!important;font-size:11px!important;line-height:1.35!important;font-weight:400!important}@media(max-width:620px){.article-author{gap:13px!important;margin-top:18px!important}.article-author img{width:56px!important;height:56px!important;flex-basis:56px!important}.article-author strong{font-size:13px!important}.article-author span{font-size:10px!important}}</style>'
+          for f in files:
+              p=Path(f); s=p.read_text()
+              s=re.sub(r'<style id="article-author-system-v1">.*?</style>',css,s,flags=re.S)
+              s=re.sub(r'https://lowsignal\.cl/assets/felipe-quiroz-author\.jpg(?:\?v=\d+)?','https://lowsignal.cl/assets/felipe-quiroz-author.jpg?v=6',s)
+              p.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          grep -q 'width:64px!important' recursos/insights/platanus-ai-native-startups-4.html
+          grep -q 'felipe-quiroz-author.jpg?v=6' recursos/insights/tech-founders-ama.html
+      - name: Remove workflow
+        run: rm .github/workflows/refine-article-author-once.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights/*.html .github/workflows/refine-article-author-once.yml
+          git commit -m 'fix: refine Insights article author avatar'
+          git push
