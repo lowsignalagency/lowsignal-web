@@ -1,0 +1,196 @@
+name: Rebuild Insights cleanly
+on:
+  push:
+    paths:
+      - '.github/workflows/rebuild-insights-clean.yml'
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild Insights index and articles on Nosotros shell
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          template = (root / 'nosotros.html').read_text()
+
+          def extract_main(s):
+              m = re.search(r'<main\b[^>]*>.*?</main>', s, re.S)
+              if not m:
+                  raise SystemExit('main not found')
+              return m.group(0)
+
+          def extract_title(s):
+              m = re.search(r'<title>(.*?)</title>', s, re.S)
+              return m.group(1).strip() if m else 'Insights | lowsignal'
+
+          def extract_description(s):
+              m = re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']\s*/?>', s, re.S | re.I)
+              return m.group(0) if m else ''
+
+          def extract_style_with_marker(s, marker):
+              pos = s.find(marker)
+              if pos < 0:
+                  raise SystemExit(f'style marker not found: {marker}')
+              start = s.rfind('<style', 0, pos)
+              start = s.find('>', start) + 1
+              end = s.find('</style>', pos)
+              if start <= 0 or end < 0:
+                  raise SystemExit(f'style boundaries not found: {marker}')
+              return s[start:end]
+
+          def build_from_template(src, page_css, extra_css, title, desc=''):
+              out = template
+              out = re.sub(r'<main\b[^>]*>.*?</main>', src, out, count=1, flags=re.S)
+              out = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', out, count=1, flags=re.S)
+              if desc and 'name="description"' not in out:
+                  out = out.replace('</head>', f'  {desc}\n</head>', 1)
+              injected = f'\n<style id="insights-clean-page">\n{page_css}\n{extra_css}\n</style>\n'
+              out = out.replace('</head>', injected + '</head>', 1)
+              return out
+
+          # ---------- INDEX ----------
+          index_path = root / 'recursos/insights.html'
+          index_old = index_path.read_text()
+          index_main = extract_main(index_old)
+          index_css = extract_style_with_marker(index_old, 'LOWSIGNAL INSIGHTS — 2026 REDESIGN')
+          index_extra = r'''
+          /* Insights clean shell — aligned to Nosotros */
+          .insights-new-hero .container,
+          .insights-new-featured .container,
+          .insights-new-grid-section .container,
+          .insights-new-themes .container,
+          .insights-new-final .container{
+            width:min(1220px,calc(100% - 128px));
+            margin-left:auto;
+            margin-right:auto;
+          }
+          .insights-new-hero{
+            padding:152px 0 94px;
+          }
+          .insights-new-copy h1{
+            max-width:760px;
+            font-size:clamp(52px,5vw,72px);
+            line-height:1.02;
+          }
+          .insights-new-feature-card,
+          .insights-new-card,
+          .insights-new-theme-grid article{
+            transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+          }
+          .insights-new-feature-card:hover,
+          .insights-new-card:hover,
+          .insights-new-theme-grid article:hover{
+            transform:translateY(-4px);
+            box-shadow:0 18px 42px rgba(7,15,34,.08);
+          }
+          @media(max-width:1100px) and (min-width:761px){
+            .insights-new-hero .container,
+            .insights-new-featured .container,
+            .insights-new-grid-section .container,
+            .insights-new-themes .container,
+            .insights-new-final .container{width:calc(100% - 48px)}
+            .insights-new-hero{padding-top:132px}
+          }
+          @media(max-width:760px){
+            .insights-new-hero .container,
+            .insights-new-featured .container,
+            .insights-new-grid-section .container,
+            .insights-new-themes .container,
+            .insights-new-final .container{width:calc(100% - 32px)}
+            .insights-new-hero{padding:112px 0 64px}
+            .insights-new-copy h1{font-size:42px;line-height:1.04}
+            .insights-new-featured,.insights-new-grid-section,.insights-new-themes{padding:68px 0}
+          }
+          '''
+          index_path.write_text(build_from_template(index_main, index_css, index_extra, extract_title(index_old), extract_description(index_old)))
+
+          # ---------- ARTICLES ----------
+          article_paths = [
+              root / 'recursos/insights/100-ideas-puestas-en-marcha.html',
+              root / 'recursos/insights/6-meses-construyendo-lowsignal.html',
+              root / 'recursos/insights/ai-native-startups-platanus.html',
+              root / 'recursos/insights/platanus-ai-native-startups-4.html',
+              root / 'recursos/insights/tech-founders-ama.html',
+          ]
+
+          shared_article_css = extract_style_with_marker(article_paths[1].read_text(), 'INSIGHT ARTICLE — 2026 REDESIGN')
+          article_extra = r'''
+          /* Article clean shell — aligned to Nosotros */
+          .article-new-hero .container,
+          .article-new-body .container,
+          .article-new-more .container{
+            width:min(1220px,calc(100% - 128px));
+            margin-left:auto;
+            margin-right:auto;
+          }
+          .article-new-hero{padding:150px 0 92px}
+          .article-new-hero h1{
+            max-width:900px;
+            font-size:clamp(50px,5vw,72px);
+            line-height:1.02;
+          }
+          .article-new-body-grid{
+            grid-template-columns:200px minmax(0,760px);
+            gap:76px;
+            justify-content:center;
+          }
+          .article-new-content{min-width:0}
+          .article-new-content img{height:auto}
+          .article-new-more-grid>a{transition:transform .22s ease,border-color .22s ease}
+          .article-new-more-grid>a:hover{transform:translateY(-3px)}
+          @media(max-width:1100px) and (min-width:761px){
+            .article-new-hero .container,
+            .article-new-body .container,
+            .article-new-more .container{width:calc(100% - 48px)}
+            .article-new-hero{padding-top:130px}
+          }
+          @media(max-width:980px){
+            .article-new-body-grid{grid-template-columns:1fr;gap:36px;justify-content:stretch}
+            .article-new-sidebar{position:static}
+          }
+          @media(max-width:760px){
+            .article-new-hero .container,
+            .article-new-body .container,
+            .article-new-more .container{width:calc(100% - 32px)}
+            .article-new-hero{padding:112px 0 62px}
+            .article-new-hero h1{font-size:42px;line-height:1.04}
+            .article-new-body{padding:68px 0}
+            .article-new-cover{height:auto;aspect-ratio:16/10;margin-top:32px;border-radius:16px}
+          }
+          '''
+
+          for p in article_paths:
+              old = p.read_text()
+              main = extract_main(old)
+              p.write_text(build_from_template(main, shared_article_css, article_extra, extract_title(old), extract_description(old)))
+
+          PY
+      - name: Verify clean structure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [Path('recursos/insights.html')] + sorted(Path('recursos/insights').glob('*.html'))
+          files = [p for p in files if p.name != '...']
+          for p in files:
+              s = p.read_text()
+              assert s.count('<main') == 1, (p, 'main count')
+              assert 'width:min(1220px,calc(100% - 128px))' in s, (p, 'missing 1220 grid')
+              assert '<header class="lnav"' in s, (p, 'missing modern navbar')
+              assert '<footer' in s, (p, 'missing footer')
+              print('OK', p)
+          PY
+      - name: Remove one-shot workflow
+        run: rm .github/workflows/rebuild-insights-clean.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html recursos/insights/*.html .github/workflows/rebuild-insights-clean.yml
+          git commit -m 'feat: rebuild Insights on clean site shell'
+          git push
