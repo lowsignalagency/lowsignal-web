@@ -1,0 +1,56 @@
+name: Jobs inline container fix
+on:
+  push:
+    paths:
+      - '.github/workflows/jobs-inline-container-fix.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch Jobs containers
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          paths = [Path('recursos/jobs.html'), Path('recursos/jobs/growth-ambassador.html')]
+          css = '''<style id="jobs-exact-nosotros-container-v1">
+          main#top .container{
+            width:min(1220px,calc(100% - 128px)) !important;
+            max-width:1220px !important;
+            margin-left:auto !important;
+            margin-right:auto !important;
+          }
+          @media(max-width:1100px) and (min-width:761px){
+            main#top .container{
+              width:calc(100% - 48px) !important;
+              max-width:none !important;
+            }
+          }
+          @media(max-width:760px){
+            main#top .container{
+              width:calc(100% - 32px) !important;
+              max-width:none !important;
+            }
+          }
+          </style>'''
+          for path in paths:
+            text = path.read_text(encoding='utf-8')
+            text = re.sub(r'<style id="jobs-content-alignment-v2">.*?</style>', '', text, flags=re.S)
+            text = re.sub(r'<style id="jobs-content-alignment-v3">.*?</style>', '', text, flags=re.S)
+            text = re.sub(r'<style id="jobs-exact-nosotros-container-v1">.*?</style>', '', text, flags=re.S)
+            text = text.replace('</head>', css + '\n</head>', 1)
+            path.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify and commit
+        run: |
+          grep -q 'jobs-exact-nosotros-container-v1' recursos/jobs.html
+          grep -q 'width:min(1220px,calc(100% - 128px))' recursos/jobs.html
+          rm .github/workflows/jobs-inline-container-fix.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs.html recursos/jobs/growth-ambassador.html .github/workflows/jobs-inline-container-fix.yml
+          git commit -m "fix: align Jobs content exactly to Nosotros navbar"
+          git push
