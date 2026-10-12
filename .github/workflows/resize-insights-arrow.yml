@@ -1,0 +1,29 @@
+name: Resize Insights arrow
+on:
+  push:
+    paths:
+      - '.github/workflows/resize-insights-arrow.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resize arrow
+        run: |
+          sed -i 's/width:14px!important;/width:18px!important;/g' recursos/insights.html
+          sed -i 's/height:14px!important;/height:18px!important;/g' recursos/insights.html
+      - name: Verify
+        run: |
+          grep -q 'width:18px!important' recursos/insights.html
+          grep -q 'height:18px!important' recursos/insights.html
+      - name: Remove workflow
+        run: rm .github/workflows/resize-insights-arrow.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recursos/insights.html .github/workflows/resize-insights-arrow.yml
+          git commit -m 'fix: enlarge centered Insights arrows'
+          git push
