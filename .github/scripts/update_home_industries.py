@@ -1,0 +1,60 @@
+from pathlib import Path
+
+p = Path('index.html')
+s = p.read_text(encoding='utf-8')
+start = s.index('<section class="lsr-block" id="soluciones">')
+end = s.index('<section class="lsr-band">', start)
+
+html = '''<section class="lsr-industries-simple" id="industrias">
+  <div class="lsr-wrap">
+    <div class="lsr-industries-simple-head lsr-reveal">
+      <div class="lsr-eyebrow">Where we build</div>
+      <h2>Una lógica distinta para cada industria.</h2>
+      <p>Education, B2B y B2C requieren canales, mensajes y sistemas diferentes. Elige tu contexto y revisa cómo trabajamos, qué hemos construido y qué plan calza mejor contigo.</p>
+    </div>
+    <div class="lsr-industries-simple-grid" id="planes">
+      <article class="lsr-industry-simple-card lsr-reveal">
+        <div>
+          <small>01 · EDUCATION</small>
+          <h3>Visibilidad, admisión y experiencia digital.</h3>
+          <p>Para colegios, redes educativas, fundaciones e instituciones.</p>
+          <div class="lsr-industry-proof"><span><b>20+</b>proyectos</span><span><b>5+</b>organizaciones</span><span><b>100K+</b>familias</span></div>
+        </div>
+        <div class="lsr-industry-simple-bottom"><strong>Desde 5 UF + IVA / mes</strong><div class="lsr-industry-simple-actions"><a class="is-secondary" href="https://lowsignal.cl/industrias/educacion">Ver más</a><a class="is-primary" href="https://lowsignal.cl/industrias/educacion#planes-education">Ver planes</a></div></div>
+      </article>
+      <article class="lsr-industry-simple-card lsr-reveal">
+        <div>
+          <small>02 · B2B</small>
+          <h3>Demanda, posicionamiento y pipeline.</h3>
+          <p>Para SaaS, tecnología, servicios profesionales e industria.</p>
+          <div class="lsr-industry-proof"><span><b>1K+</b>oportunidades</span><span><b>SaaS</b>&amp; tech</span><span><b>B2B</b>services</span></div>
+        </div>
+        <div class="lsr-industry-simple-bottom"><strong>Desde 6 UF + IVA / mes</strong><div class="lsr-industry-simple-actions"><a class="is-secondary" href="https://lowsignal.cl/industrias/b2b">Ver más</a><a class="is-primary" href="https://lowsignal.cl/industrias/b2b#planes-b2b">Ver planes</a></div></div>
+      </article>
+      <article class="lsr-industry-simple-card lsr-reveal">
+        <div>
+          <small>03 · B2C</small>
+          <h3>Contenido, marca, performance y conversión.</h3>
+          <p>Para retail, hospitality, food, lifestyle y marcas de consumo.</p>
+          <div class="lsr-industry-proof"><span><b>400+</b>piezas</span><span><b>100+</b>campañas</span><span><b>4</b>verticales</span></div>
+        </div>
+        <div class="lsr-industry-simple-bottom"><strong>Desde 5 UF + IVA / mes</strong><div class="lsr-industry-simple-actions"><a class="is-secondary" href="https://lowsignal.cl/industrias/marcas-b2c">Ver más</a><a class="is-primary" href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c">Ver planes</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+'''
+
+s = s[:start] + html + s[end:]
+
+css = '''
+<style id="home-industries-simple-v2">
+.lsr-industries-simple{padding:108px 0;background:#F8FAFF;color:#071022;scroll-margin-top:130px}.lsr-industries-simple-head{max-width:900px}.lsr-industries-simple-head h2{margin:14px 0 0;color:#071022;font-size:clamp(40px,4.2vw,58px);line-height:1.04;letter-spacing:-.048em;font-weight:300}.lsr-industries-simple-head p{max-width:740px;margin:20px 0 0;color:#5D6884;font-size:14px;line-height:1.7}.lsr-industries-simple-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:46px}.lsr-industry-simple-card{min-height:410px;padding:28px;border:1px solid #DCE3F0;border-radius:18px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:34px;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}.lsr-industry-simple-card:hover{transform:translateY(-4px);border-color:#C7D1E8;box-shadow:0 18px 42px rgba(18,35,78,.06)}.lsr-industry-simple-card small{display:block;color:#1419E0;font-size:9px;font-weight:800;letter-spacing:.14em}.lsr-industry-simple-card h3{margin:20px 0 0;color:#0A1229;font-size:27px;line-height:1.16;letter-spacing:-.035em;font-weight:500}.lsr-industry-simple-card p{margin:14px 0 0;color:#68758E;font-size:13px;line-height:1.65}.lsr-industry-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px}.lsr-industry-proof span{padding:12px 10px;border:1px solid #E5EAF3;border-radius:12px;background:#F8FAFF;color:#6A748B;font-size:9px;line-height:1.35}.lsr-industry-proof b{display:block;margin-bottom:3px;color:#1419E0;font-size:15px;letter-spacing:-.02em}.lsr-industry-simple-bottom{padding-top:22px;border-top:1px solid #E7EBF3}.lsr-industry-simple-bottom>strong{display:block;color:#27324F;font-size:12px;font-weight:700}.lsr-industry-simple-actions{display:flex;gap:10px;margin-top:18px}.lsr-industry-simple-actions a{min-height:42px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease}.lsr-industry-simple-actions .is-secondary{border:1px solid #D3DBEA;color:#25304D;background:#fff}.lsr-industry-simple-actions .is-primary{border:1px solid #1419E0;color:#fff;background:#1419E0}.lsr-industry-simple-actions a:hover{transform:translateY(-2px)}.lsr-industry-simple-actions .is-secondary:hover{border-color:#BFCBFF;color:#1419E0;background:#F7F8FF}.lsr-industry-simple-actions .is-primary:hover{background:#2832F3;border-color:#2832F3}@media(max-width:980px){.lsr-industries-simple-grid{grid-template-columns:1fr}.lsr-industry-simple-card{min-height:0}}@media(max-width:620px){.lsr-industries-simple{padding:64px 0}.lsr-industries-simple-head h2{font-size:34px}.lsr-industries-simple-head p{font-size:13px}.lsr-industries-simple-grid{margin-top:30px;gap:12px}.lsr-industry-simple-card{padding:22px;gap:28px}.lsr-industry-simple-card h3{font-size:24px}.lsr-industry-proof{gap:6px}.lsr-industry-proof span{padding:10px 8px;font-size:8px}.lsr-industry-proof b{font-size:13px}.lsr-industry-simple-actions{display:grid;grid-template-columns:1fr 1fr}.lsr-industry-simple-actions a{width:100%}}
+</style>
+'''
+
+if 'home-industries-simple-v2' not in s:
+    s = s.replace('</head>', css + '</head>', 1)
+
+p.write_text(s, encoding='utf-8')
