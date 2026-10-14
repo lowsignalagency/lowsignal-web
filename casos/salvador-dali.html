@@ -2138,6 +2138,73 @@
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+
+<style id="case-dali-testimonial-v1">
+.case-dali-testimonial{
+  padding:104px 0;
+  background:#fff;
+}
+.case-dali-testimonial-card{
+  position:relative;
+  overflow:hidden;
+  padding:56px 60px;
+  border-radius:24px;
+  background:#1419E0;
+  color:#fff;
+}
+.case-dali-testimonial-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(55% 120% at 100% 0%,rgba(138,164,255,.34),transparent 72%);
+  pointer-events:none;
+}
+.case-dali-testimonial-quote{
+  position:relative;
+  z-index:1;
+  color:#AFC0FF;
+  font-size:52px;
+  line-height:.8;
+  font-weight:300;
+}
+.case-dali-testimonial blockquote{
+  position:relative;
+  z-index:1;
+  max-width:980px;
+  margin:22px 0 0;
+  font-size:clamp(28px,3.25vw,44px);
+  line-height:1.16;
+  letter-spacing:-.035em;
+  font-weight:300;
+}
+.case-dali-testimonial-person{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:34px;
+}
+.case-dali-testimonial-person img{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 68%;
+}
+.case-dali-testimonial-person b,
+.case-dali-testimonial-person span{display:block}
+.case-dali-testimonial-person b{font-size:13px;font-weight:700}
+.case-dali-testimonial-person span{margin-top:4px;color:#DDE3FF;font-size:11px}
+@media(max-width:620px){
+  .case-dali-testimonial{padding:70px 0}
+  .case-dali-testimonial .container{width:calc(100% - 32px)!important}
+  .case-dali-testimonial-card{padding:34px 26px;border-radius:18px}
+  .case-dali-testimonial blockquote{font-size:27px;line-height:1.2}
+  .case-dali-testimonial-person{margin-top:28px}
+  .case-dali-testimonial-person img{width:52px;height:52px;object-position:center 72%}
+}
+</style>
 </head>
 <body>
 
@@ -2554,6 +2621,22 @@
         <article><span>01</span><div><h3>Social Media</h3><p>Un feed que refleja la vida real del colegio y construye cercanía con las familias.</p></div></article>
         <article><span>02</span><div><h3>Paid Media</h3><p>Campañas enfocadas en llegar a nuevas familias durante el periodo de admisión.</p></div></article>
         <article><span>03</span><div><h3>Web Development</h3><p>Un sitio preparado para convertir interés en postulaciones.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-dali-testimonial" aria-label="Testimonio de Colegio Salvador Dalí">
+    <div class="container">
+      <div class="case-dali-testimonial-card">
+        <div class="case-dali-testimonial-quote">“</div>
+        <blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote>
+        <div class="case-dali-testimonial-person">
+          <img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal">
+          <div>
+            <b>Karina Ravanal</b>
+            <span>Directora, Colegio Salvador Dalí</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
