@@ -1,0 +1,22 @@
+name: Fix industry mobile close icon
+on:
+  push:
+    paths:
+      - '.github/scripts/fix_industry_mobile_close.py'
+      - '.github/workflows/temp-fix-industry-mobile-close.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/fix_industry_mobile_close.py
+      - run: git config user.name lowsignal-bot
+      - run: git config user.email actions@users.noreply.github.com
+      - run: git add industrias/educacion.html industrias/b2b.html industrias/marcas-b2c.html
+      - run: git commit -m 'Fix mobile close icon on industry pages'
+        continue-on-error: true
+      - run: git push
