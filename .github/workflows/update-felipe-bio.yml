@@ -2,8 +2,9 @@ name: Update Felipe bio
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - .github/scripts/update_felipe_bio.py
       - .github/workflows/update-felipe-bio.yml
 
 permissions:
@@ -15,16 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: b2b-pricing-v1
           fetch-depth: 0
 
-      - name: Update bio paragraph
-        run: python .github/scripts/update_felipe_bio.py
+      - name: Apply B2B pricing preview
+        run: python .github/scripts/apply_b2b_pricing.py
 
-      - name: Commit bio update
+      - name: Commit B2B pricing preview
         shell: bash
         run: |
           git config user.name lowsignal-bot
           git config user.email actions@users.noreply.github.com
-          git add equipo/felipe-quiroz.html
-          git commit -m "Update Felipe profile bio" || exit 0
-          git push
+          git add industrias/b2b.html
+          git commit -m "Add B2B pricing plans" || exit 0
+          git push origin HEAD:b2b-pricing-v1
