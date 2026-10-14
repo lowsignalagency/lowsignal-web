@@ -1,0 +1,65 @@
+name: Temporary Home pricing and B2B heading
+
+on:
+  push:
+    paths:
+      - .github/workflows/temp-home-pricing.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply changes
+        shell: python
+        run: |
+          from pathlib import Path
+
+          # HOME
+          p = Path('index.html')
+          s = p.read_text()
+
+          css = '''\n<style id="home-pricing-access-v1">\n.lnav-plans{min-height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.20);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:#F3F5FF;font-size:12px;font-weight:600;white-space:nowrap;transition:.18s ease}.lnav-plans:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}\n.lsr-home-pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.lsr-price-link{min-height:82px;padding:16px 18px;border:1px solid #DDE4F0;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:.2s ease}.lsr-price-link:hover{border-color:#BFCBFF;background:#F6F8FF;transform:translateY(-2px)}.lsr-price-link span{display:flex;flex-direction:column;gap:5px}.lsr-price-link small{color:#6F7C9D;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.lsr-price-link strong{color:#15204A;font-size:13px;font-weight:600}.lsr-price-link b{color:#1419E0;font-size:11px;font-weight:700;white-space:nowrap}.mobile-nav-plans{display:block;margin-top:8px;padding:14px 0;color:#8EA3FF;font-size:14px;font-weight:600}\n@media(max-width:1100px) and (min-width:761px){.lnav-plans{display:none}}\n@media(max-width:760px){.lsr-home-pricing{grid-template-columns:1fr}.lsr-price-link{min-height:72px}.lnav-plans{display:none}}\n</style>\n'''
+          if 'home-pricing-access-v1' not in s:
+              s = s.replace('</head>', css + '</head>', 1)
+
+          old_actions = '''    <div class="lnav-actions">\n      <a class="lnav-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>\n      \n    </div>'''
+          new_actions = '''    <div class="lnav-actions">\n      <a class="lnav-plans" href="#planes">Ver planes</a>\n      <a class="lnav-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>\n      \n    </div>'''
+          if old_actions in s and 'class="lnav-plans"' not in s:
+              s = s.replace(old_actions, new_actions, 1)
+
+          old_mobile = '''          <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>\n          <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>'''
+          new_mobile = '''          <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>\n          <a class="mobile-nav-plans" href="#planes">Ver planes</a>\n          <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>'''
+          if old_mobile in s and 'class="mobile-nav-plans"' not in s:
+              s = s.replace(old_mobile, new_mobile, 1)
+
+          old_ind = '''        <div class="lsr-feature-list">\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/educacion"><span>Educación — visibilidad, admisión y experiencia digital</span><b>↗</b></a>\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/b2b"><span>B2B — demanda, posicionamiento y pipeline</span><b>↗</b></a>\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/b2c"><span>B2C — contenido, marca, performance y conversión</span><b>↗</b></a>\n        </div>'''
+          new_ind = '''        <div class="lsr-feature-list">\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/educacion"><span>Educación — visibilidad, admisión y experiencia digital</span><b>↗</b></a>\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/b2b"><span>B2B — demanda, posicionamiento y pipeline</span><b>↗</b></a>\n          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/marcas-b2c"><span>B2C — contenido, marca, performance y conversión</span><b>↗</b></a>\n        </div>\n        <div class="lsr-home-pricing" id="planes">\n          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/educacion#planes-education"><span><small>Education</small><strong>Desde 5 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>\n          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/b2b#planes-b2b"><span><small>B2B</small><strong>Desde 6 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>\n          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><span><small>B2C</small><strong>Desde 5 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>\n        </div>'''
+          if old_ind in s and 'class="lsr-home-pricing"' not in s:
+              s = s.replace(old_ind, new_ind, 1)
+
+          p.write_text(s)
+
+          # B2B PRICING HEADING — keep each sentence on one line on desktop
+          p = Path('industrias/b2b.html')
+          s = p.read_text()
+          marker = '<style id="b2b-pricing-heading-v2">'
+          css2 = '''\n<style id="b2b-pricing-heading-v2">\n@media(min-width:981px){.b2b-pricing-head{grid-template-columns:1.3fr .7fr !important;gap:54px !important}.b2b-pricing-head h2{font-size:clamp(38px,3.45vw,50px) !important;white-space:nowrap}}\n@media(max-width:980px){.b2b-pricing-head h2{white-space:normal}}\n</style>\n'''
+          if marker not in s:
+              s = s.replace('</head>', css2 + '</head>', 1)
+          p.write_text(s)
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add index.html industrias/b2b.html
+          git commit -m "Add Home pricing access and refine B2B pricing heading" || exit 0
+          git push
