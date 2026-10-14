@@ -2205,6 +2205,72 @@
   .case-dali-testimonial-person img{width:52px;height:52px;object-position:center 72%}
 }
 </style>
+
+<style id="dali-testimonial-rech-match-v2">
+/* Match the RECH customer-story testimonial treatment exactly. */
+.case-new-testimonial.case-dali-testimonial-rech{
+  position:relative;
+  overflow:hidden;
+  background:#070F22;
+  padding:104px 0;
+}
+.case-new-testimonial.case-dali-testimonial-rech:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(45% 55% at 0% 100%,rgba(20,74,224,.26),transparent 70%);
+}
+.case-dali-testimonial-rech .case-new-testimonial-inner{
+  position:relative;
+  max-width:980px;
+}
+.case-dali-testimonial-rech .case-new-quote-mark{
+  color:#1419E0;
+  font-size:92px;
+  line-height:.7;
+  font-weight:700;
+}
+.case-dali-testimonial-rech blockquote{
+  margin:22px 0 0;
+  color:#F8F8F8;
+  font-size:clamp(30px,3.6vw,44px);
+  line-height:1.26;
+  letter-spacing:-.03em;
+  font-weight:300;
+}
+.case-dali-testimonial-rech .case-new-person{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:34px;
+  padding-top:24px;
+  border-top:1px solid rgba(150,175,255,.16);
+}
+.case-dali-testimonial-rech .case-new-person img{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 88% !important;
+}
+.case-dali-testimonial-rech .case-new-person b{
+  display:block;
+  color:#fff;
+  font-size:15px;
+}
+.case-dali-testimonial-rech .case-new-person span{
+  display:block;
+  margin-top:4px;
+  color:#8B92A8;
+  font-size:12px;
+}
+@media(max-width:620px){
+  .case-new-testimonial.case-dali-testimonial-rech{padding:74px 0}
+  .case-dali-testimonial-rech blockquote{font-size:28px}
+  .case-dali-testimonial-rech .case-new-quote-mark{font-size:72px}
+  .case-dali-testimonial-rech .case-new-person img{object-position:center 90% !important}
+}
+</style>
 </head>
 <body>
 
@@ -2625,17 +2691,15 @@
     </div>
   </section>
 
-  <section class="case-dali-testimonial" aria-label="Testimonio de Colegio Salvador Dalí">
-    <div class="container">
-      <div class="case-dali-testimonial-card">
-        <div class="case-dali-testimonial-quote">“</div>
-        <blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote>
-        <div class="case-dali-testimonial-person">
-          <img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal">
-          <div>
-            <b>Karina Ravanal</b>
-            <span>Directora, Colegio Salvador Dalí</span>
-          </div>
+  <section class="case-new-testimonial case-dali-testimonial-rech" aria-label="Testimonio de Colegio Salvador Dalí">
+    <div class="container case-new-testimonial-inner">
+      <div class="case-new-quote-mark">“</div>
+      <blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote>
+      <div class="case-new-person">
+        <img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal">
+        <div>
+          <b>Karina Ravanal</b>
+          <span>Directora, Colegio Salvador Dalí</span>
         </div>
       </div>
     </div>

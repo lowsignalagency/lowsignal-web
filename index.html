@@ -12862,6 +12862,22 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 </style>
 
+
+<style id="karina-home-crop-v2">
+/* Karina Ravanal — keep the face high in the circular testimonial crop. */
+.lsr-case-person img[src*="karina-csd.jpg"],
+.home26-person img[src*="karina-csd.jpg"]{
+  object-fit:cover !important;
+  object-position:center 88% !important;
+}
+@media(max-width:760px){
+  .lsr-case-person img[src*="karina-csd.jpg"],
+  .home26-person img[src*="karina-csd.jpg"]{
+    object-position:center 90% !important;
+  }
+}
+</style>
+
 </body>
 </html>
 
