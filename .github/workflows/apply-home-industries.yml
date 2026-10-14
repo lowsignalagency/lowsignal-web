@@ -1,0 +1,21 @@
+name: Apply Home Industries
+on:
+  push:
+    paths:
+      - '.github/trigger-home-industries.txt'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/update_home_industries.py
+      - run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add index.html
+          git commit -m 'Simplify home with richer industry paths' || exit 0
+          git push
