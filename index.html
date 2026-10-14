@@ -7657,6 +7657,13 @@ footer .footer-container{
   }
 }
 </style>
+
+<style id="home-pricing-access-v1">
+.lnav-plans{min-height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.20);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:#F3F5FF;font-size:12px;font-weight:600;white-space:nowrap;transition:.18s ease}.lnav-plans:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}
+.lsr-home-pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.lsr-price-link{min-height:82px;padding:16px 18px;border:1px solid #DDE4F0;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:.2s ease}.lsr-price-link:hover{border-color:#BFCBFF;background:#F6F8FF;transform:translateY(-2px)}.lsr-price-link span{display:flex;flex-direction:column;gap:5px}.lsr-price-link small{color:#6F7C9D;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.lsr-price-link strong{color:#15204A;font-size:13px;font-weight:600}.lsr-price-link b{color:#1419E0;font-size:11px;font-weight:700;white-space:nowrap}.mobile-nav-plans{display:block;margin-top:8px;padding:14px 0;color:#8EA3FF;font-size:14px;font-weight:600}
+@media(max-width:1100px) and (min-width:761px){.lnav-plans{display:none}}
+@media(max-width:760px){.lsr-home-pricing{grid-template-columns:1fr}.lsr-price-link{min-height:72px}.lnav-plans{display:none}}
+</style>
 </head>
 <body>
 
@@ -7745,6 +7752,7 @@ footer .footer-container{
     </nav>
 
     <div class="lnav-actions">
+      <a class="lnav-plans" href="#planes">Ver planes</a>
       <a class="lnav-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
       
     </div>
@@ -7962,6 +7970,7 @@ footer .footer-container{
           </div>
 
           <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
+          <a class="mobile-nav-plans" href="#planes">Ver planes</a>
           <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
         </div>
       </div>
@@ -8152,7 +8161,12 @@ footer .footer-container{
         <div class="lsr-feature-list">
           <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/educacion"><span>Educación — visibilidad, admisión y experiencia digital</span><b>↗</b></a>
           <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/b2b"><span>B2B — demanda, posicionamiento y pipeline</span><b>↗</b></a>
-          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/b2c"><span>B2C — contenido, marca, performance y conversión</span><b>↗</b></a>
+          <a class="lsr-feature lsr-industry-link" href="https://lowsignal.cl/industrias/marcas-b2c"><span>B2C — contenido, marca, performance y conversión</span><b>↗</b></a>
+        </div>
+        <div class="lsr-home-pricing" id="planes">
+          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/educacion#planes-education"><span><small>Education</small><strong>Desde 5 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>
+          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/b2b#planes-b2b"><span><small>B2B</small><strong>Desde 6 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>
+          <a class="lsr-price-link" href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><span><small>B2C</small><strong>Desde 5 UF + IVA / mes</strong></span><b>Ver planes ↗</b></a>
         </div>
         <div class="lsr-metrics">
           <div class="lsr-metric">
