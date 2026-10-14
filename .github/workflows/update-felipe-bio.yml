@@ -3,7 +3,6 @@ name: Update Felipe bio
 on:
   push:
     paths:
-      - .github/scripts/update_felipe_bio.py
       - .github/workflows/update-felipe-bio.yml
 
 permissions:
@@ -15,16 +14,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: b2c-pricing-v1
           fetch-depth: 0
 
-      - name: Update bio paragraph
-        run: python .github/scripts/update_felipe_bio.py
+      - name: Align industry pricing nav
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('industrias/marcas-b2c.html')
+          s = p.read_text(encoding='utf-8')
+          items = [
+            ('<a href="https://lowsignal.cl/industrias/educacion"><b>lowsignal for education</b><small>Para colegios, redes, fundaciones e instituciones.</small></a>', '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><b>Planes para instituciones</b><small>Desde 5 UF + IVA / mes.</small></a>'),
+            ('<a href="https://lowsignal.cl/industrias/b2b"><b>lowsignal for B2B</b><small>Para SaaS, tecnología, servicios e industria.</small></a>', '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><b>Planes para empresas</b><small>Desde 6 UF + IVA / mes.</small></a>'),
+            ('<a href="https://lowsignal.cl/industrias/marcas-b2c"><b>lowsignal for B2C</b><small>Para retail, hospitality, food y lifestyle.</small></a>', '<a href="#planes-b2c"><b>Planes para marcas</b><small>Desde 5 UF + IVA / mes.</small></a>')
+          ]
+          for base, link in items:
+              if base in s and link not in s:
+                  s = s.replace(base, base + link, 1)
+          mobile = [
+            ('<a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Colegios, redes y fundaciones</small></a>', '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><strong>Planes para instituciones</strong><small>Desde 5 UF + IVA / mes</small></a>'),
+            ('<a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a>', '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><strong>Planes para empresas</strong><small>Desde 6 UF + IVA / mes</small></a>'),
+            ('<a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a>', '<a href="#planes-b2c"><strong>Planes para marcas</strong><small>Desde 5 UF + IVA / mes</small></a>')
+          ]
+          for base, link in mobile:
+              if base in s and link not in s:
+                  s = s.replace(base, base + link, 1)
+          p.write_text(s, encoding='utf-8')
 
-      - name: Commit bio update
+      - name: Commit nav preview
         shell: bash
         run: |
           git config user.name lowsignal-bot
           git config user.email actions@users.noreply.github.com
-          git add equipo/felipe-quiroz.html
-          git commit -m "Update Felipe profile bio" || exit 0
-          git push
+          git add industrias/marcas-b2c.html
+          git commit -m "Align B2C pricing navigation" || exit 0
+          git push origin HEAD:b2c-pricing-v1
