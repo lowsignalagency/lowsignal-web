@@ -1,0 +1,22 @@
+name: Fix Home mobile industry pills v3
+on:
+  push:
+    paths:
+      - '.github/scripts/fix_home_mobile_pills_v3.py'
+      - '.github/workflows/temp-fix-home-mobile-pills-v3.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/fix_home_mobile_pills_v3.py
+      - run: git config user.name lowsignal-bot
+      - run: git config user.email actions@users.noreply.github.com
+      - run: git add index.html
+      - run: git commit -m 'Use compact Home mobile industry pills'
+        continue-on-error: true
+      - run: git push
