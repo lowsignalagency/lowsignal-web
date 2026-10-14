@@ -155,6 +155,65 @@
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+
+<style id="industry-mobile-close-fix-v1">
+@media(max-width:760px){
+  .mobile-toggle,
+  .mobile-nav-toggle{
+    position:relative !important;
+    overflow:visible !important;
+  }
+  .mobile-toggle > span,
+  .mobile-nav-toggle > span{
+    opacity:0 !important;
+  }
+  .mobile-toggle::before,
+  .mobile-toggle::after,
+  .mobile-nav-toggle::before,
+  .mobile-nav-toggle::after{
+    content:"" !important;
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    width:22px !important;
+    height:1.5px !important;
+    border-radius:999px !important;
+    background:#fff !important;
+    transform-origin:center !important;
+    transition:transform .2s ease !important;
+  }
+  .mobile-toggle::before,
+  .mobile-nav-toggle::before{
+    transform:translate(-50%,-6px) !important;
+  }
+  .mobile-toggle::after,
+  .mobile-nav-toggle::after{
+    transform:translate(-50%,5px) !important;
+  }
+  .mobile-toggle[aria-expanded="true"]::before,
+  .mobile-nav-toggle[aria-expanded="true"]::before{
+    transform:translate(-50%,-50%) rotate(45deg) !important;
+  }
+  .mobile-toggle[aria-expanded="true"]::after,
+  .mobile-nav-toggle[aria-expanded="true"]::after{
+    transform:translate(-50%,-50%) rotate(-45deg) !important;
+  }
+  .mobile-nav-summary .industry-mobile-chevron{
+    width:13px !important;
+    height:9px !important;
+    fill:none !important;
+    stroke:currentColor !important;
+    stroke-width:2 !important;
+    stroke-linecap:round !important;
+    stroke-linejoin:round !important;
+    transition:transform .2s ease !important;
+    flex:none !important;
+  }
+  .mobile-nav-summary[aria-expanded="true"] .industry-mobile-chevron{
+    transform:rotate(180deg) !important;
+  }
+}
+</style>
 </head>
 <body>
   <header class="lnav" aria-label="Navegación principal">
@@ -195,9 +254,9 @@
 
   <div class="mobile-bar"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button></div>
   <div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner">
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Soluciones <span>⌄</span></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Social Media</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Paid Media</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Web Development</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Growth Systems</small></a><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>AI & Automation</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Products & Apps</small></a></div></div>
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Industrias <span>⌄</span></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Colegios, redes y fundaciones</small></a><a href="#planes-education"><strong>Planes Education</strong><small>Presence, Growth y Scale</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a></div></div>
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Recursos <span>⌄</span></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/casos"><strong>Customer stories</strong><small>Casos de clientes</small></a><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y aprendizajes</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Trabaja con nosotros</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Programa de referidos</small></a></div></div>
+    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Soluciones <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Social Media</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Paid Media</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Web Development</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Growth Systems</small></a><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>AI & Automation</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Products & Apps</small></a></div></div>
+    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Industrias <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Colegios, redes y fundaciones</small></a><a href="#planes-education"><strong>Planes Education</strong><small>Presence, Growth y Scale</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a></div></div>
+    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Recursos <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/casos"><strong>Customer stories</strong><small>Casos de clientes</small></a><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y aprendizajes</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Trabaja con nosotros</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Programa de referidos</small></a></div></div>
     <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
           <a class="mobile-nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>
           <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank">Hablemos</a>
