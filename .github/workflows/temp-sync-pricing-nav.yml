@@ -1,0 +1,99 @@
+name: Temporary global pricing nav sync
+
+on:
+  push:
+    paths:
+      - .github/workflows/temp-sync-pricing-nav.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync-nav:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync pricing navigation across HTML
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          css = '''\n<style id="global-pricing-nav-v1">\n.lnav-plans{min-height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.20);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:#F3F5FF;font-size:12px;font-weight:600;white-space:nowrap;transition:.18s ease}.lnav-plans:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}\n@media(max-width:1100px) and (min-width:761px){.lnav-plans{display:none}}\n@media(max-width:760px){.lnav-plans{display:none}.mobile-nav-plans{display:block!important;color:#8EA3FF!important}}\n</style>\n'''
+
+          plan_desktop = {
+            'educacion': '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><b>Planes para instituciones</b><small>Desde 5 UF + IVA / mes.</small></a>',
+            'b2b': '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><b>Planes para empresas</b><small>Desde 6 UF + IVA / mes.</small></a>',
+            'b2c': '<a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><b>Planes para marcas</b><small>Desde 5 UF + IVA / mes.</small></a>'
+          }
+          plan_mobile = {
+            'educacion': '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><strong>Planes para instituciones</strong><small>Desde 5 UF + IVA / mes</small></a>',
+            'b2b': '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><strong>Planes para empresas</strong><small>Desde 6 UF + IVA / mes</small></a>',
+            'b2c': '<a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><strong>Planes para marcas</strong><small>Desde 5 UF + IVA / mes</small></a>'
+          }
+
+          main_desktop = {
+            'educacion': r'(<a href="https://lowsignal\.cl/industrias/educacion"><b>lowsignal for education</b><small>.*?</small></a>)(?!\s*<a[^>]+planes-education)',
+            'b2b': r'(<a href="https://lowsignal\.cl/industrias/b2b"><b>lowsignal for B2B</b><small>.*?</small></a>)(?!\s*<a[^>]+planes-b2b)',
+            'b2c': r'(<a href="https://lowsignal\.cl/industrias/marcas-b2c"><b>lowsignal for B2C</b><small>.*?</small></a>)(?!\s*<a[^>]+planes-b2c)'
+          }
+          main_mobile = {
+            'educacion': r'(<a href="https://lowsignal\.cl/industrias/educacion"><strong>lowsignal for education</strong><small>.*?</small></a>)(?!\s*<a[^>]+planes-education)',
+            'b2b': r'(<a href="https://lowsignal\.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>.*?</small></a>)(?!\s*<a[^>]+planes-b2b)',
+            'b2c': r'(<a href="https://lowsignal\.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>.*?</small></a>)(?!\s*<a[^>]+planes-b2c)'
+          }
+
+          old_industry_block = '''<a href="https://lowsignal.cl/industrias/educacion">Educación</a>\n                <a href="https://lowsignal.cl/industrias/b2b">Empresas B2B</a>\n                <a href="https://lowsignal.cl/industrias/marcas-b2c">Marcas B2C</a>'''
+          new_industry_block = '''<a href="https://lowsignal.cl/industrias/educacion">Educación</a>\n                <a href="https://lowsignal.cl/industrias/educacion#planes-education">Planes para instituciones · desde 5 UF</a>\n                <a href="https://lowsignal.cl/industrias/b2b">Empresas B2B</a>\n                <a href="https://lowsignal.cl/industrias/b2b#planes-b2b">Planes para empresas · desde 6 UF</a>\n                <a href="https://lowsignal.cl/industrias/marcas-b2c">Marcas B2C</a>\n                <a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c">Planes para marcas · desde 5 UF</a>'''
+
+          changed = []
+          for p in Path('.').rglob('*.html'):
+            if '.git' in p.parts:
+              continue
+            s = p.read_text(encoding='utf-8')
+            original = s
+
+            # New lnav mega menu
+            for key, pat in main_desktop.items():
+              s = re.sub(pat, lambda m, k=key: m.group(1) + plan_desktop[k], s, flags=re.S)
+            for key, pat in main_mobile.items():
+              s = re.sub(pat, lambda m, k=key: m.group(1) + plan_mobile[k], s, flags=re.S)
+
+            # Older nav mega menu
+            if old_industry_block in s:
+              s = s.replace(old_industry_block, new_industry_block)
+
+            # New lnav top-level pricing access
+            if '<div class="lnav-actions">' in s and 'class="lnav-plans"' not in s:
+              s = re.sub(r'(<div class="lnav-actions">\s*)(<a class="lnav-contact")', r'\1<a class="lnav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>\n      \2', s)
+
+            # Older nav top-level pricing access
+            if 'class="nav-talk"' in s and 'class="nav-direct nav-plans"' not in s:
+              s = re.sub(r'(<a class="nav-talk" href="https://calendly\.com/felipe-lowsignal/30min")', '<a class="nav-direct nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>\n        \\1', s)
+
+            # Mobile top-level pricing access
+            if 'class="mobile-nav-talk"' in s and 'class="mobile-nav-direct mobile-nav-plans"' not in s and 'class="mobile-nav-plans"' not in s:
+              s = re.sub(r'(<a class="mobile-nav-talk" href="https://calendly\.com/felipe-lowsignal/30min")', '<a class="mobile-nav-direct mobile-nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>\n          \\1', s)
+
+            if 'class="lnav-plans"' in s and 'global-pricing-nav-v1' not in s:
+              s = s.replace('</head>', css + '</head>', 1)
+
+            if s != original:
+              p.write_text(s, encoding='utf-8')
+              changed.append(str(p))
+
+          print(f'Updated {len(changed)} HTML files')
+          for item in changed:
+            print(item)
+
+      - name: Commit synced navbars
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add '*.html' '**/*.html'
+          git commit -m "Sync pricing navigation across site" || exit 0
+          git push
