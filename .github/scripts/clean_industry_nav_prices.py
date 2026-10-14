@@ -8,6 +8,13 @@ replacements = {
     ' · Planes desde 11 UF + IVA / mes.': '.',
     ' · Planes desde 12 UF + IVA / mes.': '.',
     ' · Planes desde 14 UF + IVA / mes.': '.',
+    ' · Planes desde 5 UF': '',
+    ' · Planes desde 6 UF': '',
+    ' · Planes desde 8 UF': '',
+    ' · Planes desde 10 UF': '',
+    ' · Planes desde 11 UF': '',
+    ' · Planes desde 12 UF': '',
+    ' · Planes desde 14 UF': '',
 }
 
 changed=[]
@@ -25,7 +32,6 @@ for path in sorted(Path('.').rglob('*.html')):
 print(f'Updated {len(changed)} HTML files')
 for p in changed: print(p)
 
-# safety check
 remaining=[]
 for path in sorted(Path('.').rglob('*.html')):
     if any(part.startswith('.') for part in path.parts[:-1]):
