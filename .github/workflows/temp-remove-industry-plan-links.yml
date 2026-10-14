@@ -1,0 +1,22 @@
+name: Navbar industry cleanup
+on:
+  push:
+    paths:
+      - '.github/scripts/remove_industry_plan_links.py'
+      - '.github/workflows/temp-remove-industry-plan-links.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/remove_industry_plan_links.py
+      - run: git config user.name lowsignal-bot
+      - run: git config user.email actions@users.noreply.github.com
+      - run: git add -u
+      - run: git commit -m 'Clean industry dropdown plan links'
+        continue-on-error: true
+      - run: git push
