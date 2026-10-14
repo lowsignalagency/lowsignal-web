@@ -13,3 +13,4 @@ if 'education-mobile-nav-tap-fix-v1' not in s:
 
 p.write_text(s, encoding='utf-8')
 print('Fixed Education mobile nav pricing link and tap state')
+# trigger
