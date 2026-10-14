@@ -1,0 +1,137 @@
+name: Apply B2B pricing preview
+on:
+  push:
+    branches: [b2b-pricing-v1]
+    paths: [.github/workflows/apply-b2b-pricing.yml]
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b2b-pricing-v1
+      - name: Insert B2B pricing
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('industrias/b2b.html')
+          s = p.read_text(encoding='utf-8')
+
+          css = r'''<style id="b2b-pricing-v1">
+          .b2b-pricing{background:#fff;padding:108px 0 112px}
+          .b2b-pricing-head{display:grid;grid-template-columns:1fr .82fr;gap:76px;align-items:end}
+          .b2b-pricing-head h2{margin:17px 0 0;color:#10193C;font-size:clamp(38px,4vw,54px);line-height:1.08;letter-spacing:-.045em;font-weight:300}
+          .b2b-pricing-head h2 strong{color:#1419E0;font-weight:300}
+          .b2b-pricing-intro{margin:0;color:#7A86A7;font-size:14px;line-height:1.72}
+          .b2b-pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:48px;align-items:stretch}
+          .b2b-plan{position:relative;display:flex;flex-direction:column;min-height:650px;padding:28px;border:1px solid #DCE3F2;border-radius:18px;background:#fff}
+          .b2b-plan.is-featured{background:#0A1230;border-color:#0A1230;box-shadow:0 18px 44px rgba(10,18,48,.14)}
+          .b2b-plan-badge{position:absolute;top:18px;right:18px;padding:7px 10px;border-radius:999px;background:#EEF0FF;color:#3148D8;font-size:8px;font-weight:800;letter-spacing:.12em}
+          .b2b-plan-kicker{margin:0;color:#5365D9;font-size:9px;font-weight:800;letter-spacing:.16em}
+          .b2b-plan.is-featured .b2b-plan-kicker{color:#8EA3FF}
+          .b2b-plan h3{margin:15px 0 0;color:#16204A;font-size:24px;line-height:1.22;letter-spacing:-.03em;font-weight:500}
+          .b2b-plan.is-featured h3{color:#fff}
+          .b2b-plan-desc{margin:12px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}
+          .b2b-plan.is-featured .b2b-plan-desc{color:#98A4C5}
+          .b2b-plan-price{margin-top:26px;padding-top:24px;border-top:1px solid #E3E8F2;display:flex;align-items:baseline;gap:7px}
+          .b2b-plan.is-featured .b2b-plan-price{border-color:rgba(255,255,255,.12)}
+          .b2b-plan-price strong{color:#1419E0;font-size:38px;letter-spacing:-.05em;font-weight:600}
+          .b2b-plan.is-featured .b2b-plan-price strong{color:#A9B5FF}
+          .b2b-plan-price span{color:#8490AD;font-size:11px}
+          .b2b-plan ul{list-style:none;margin:26px 0 30px;padding:0}
+          .b2b-plan li{position:relative;padding-left:17px;color:#576584;font-size:12px;line-height:1.48}
+          .b2b-plan li+li{margin-top:11px}
+          .b2b-plan li:before{content:"/";position:absolute;left:0;color:#5365D9;font-weight:800}
+          .b2b-plan.is-featured li{color:#C2CAE0}
+          .b2b-plan.is-featured li:before{color:#8EA3FF}
+          .b2b-plan-cta{width:100%;min-height:48px;margin-top:auto;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#F3F5FA;color:#17235D;font-size:11px;font-weight:700;transition:.2s ease}
+          .b2b-plan-cta:hover{transform:translateY(-2px);background:#E9EDF7}
+          .b2b-plan.is-featured .b2b-plan-cta{background:#fff;color:#17235D}
+          .b2b-pricing-note{margin-top:18px;color:#7A86A7;font-size:10px;line-height:1.55}
+          .b2b-pricing-note strong{color:#16204A;font-weight:600}
+          .b2b-pricing-custom{margin-top:18px;padding:28px 30px;border:1px solid #DCE3F2;border-radius:18px;background:#F4F6FC;display:flex;align-items:center;justify-content:space-between;gap:28px}
+          .b2b-pricing-custom>div{max-width:760px}.b2b-pricing-custom span{display:block;color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}
+          .b2b-pricing-custom h3{margin:9px 0 0;color:#16204A;font-size:24px;letter-spacing:-.03em;font-weight:500}
+          .b2b-pricing-custom p{margin:8px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}
+          .b2b-pricing-custom a{flex:none;min-height:46px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#1419E0;color:#fff;font-size:11px;font-weight:700;transition:.2s ease}
+          .b2b-pricing-custom a:hover{transform:translateY(-2px);background:#2832F3}
+          @media(max-width:980px){.b2b-pricing-head{grid-template-columns:1fr;gap:22px}.b2b-pricing-grid{grid-template-columns:1fr}.b2b-plan{min-height:0}.b2b-pricing-custom{flex-direction:column;align-items:flex-start}.b2b-pricing-custom a{width:100%}}
+          @media(max-width:760px){.b2b-pricing{padding:78px 0}.b2b-pricing-head h2{font-size:35px}.b2b-pricing-grid{margin-top:34px}.b2b-plan{padding:24px}.b2b-pricing-custom{padding:22px}.b2b-pricing-custom h3{font-size:21px}}
+          </style>'''
+          if 'id="b2b-pricing-v1"' not in s:
+              s = s.replace('</head>', css + '\n</head>', 1)
+
+          section = r'''  <section class="b2b-pricing" id="planes-b2b">
+            <div class="ls-social-shell">
+              <div class="b2b-pricing-head">
+                <div>
+                  <p class="b2b-eyebrow">PLANES B2B</p>
+                  <h2>Una base clara para crecer.<br><strong>Elige cuánto quieres acelerar.</strong></h2>
+                </div>
+                <p class="b2b-pricing-intro">Planes mensuales para empresas B2B que necesitan fortalecer posicionamiento, generar demanda y convertir señales digitales en nuevas oportunidades comerciales.</p>
+              </div>
+              <div class="b2b-pricing-grid">
+                <article class="b2b-plan">
+                  <p class="b2b-plan-kicker">PRESENCE</p>
+                  <h3>Presencia que construye confianza.</h3>
+                  <p class="b2b-plan-desc">Para empresas que necesitan verse activas, profesionales y mantener una presencia digital consistente.</p>
+                  <div class="b2b-plan-price"><strong>6 UF</strong><span>+ IVA / mes</span></div>
+                  <ul>
+                    <li>3 jornadas de contenido al año</li><li>1 reel o video mensual</li><li>4 posts o carruseles mensuales</li><li>Gestión de redes sociales</li><li>Gestión de Ads</li><li>Hasta 1 campaña activa</li><li>Gestión de LinkedIn empresa</li><li>Planificación y reporte mensual</li>
+                  </ul>
+                  <a class="b2b-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Conversemos</a>
+                </article>
+                <article class="b2b-plan is-featured">
+                  <span class="b2b-plan-badge">RECOMENDADO</span>
+                  <p class="b2b-plan-kicker">GROWTH</p>
+                  <h3>Demanda, contenido y pipeline conectados.</h3>
+                  <p class="b2b-plan-desc">Para empresas que quieren transformar marketing digital en conversaciones comerciales y nuevas oportunidades.</p>
+                  <div class="b2b-plan-price"><strong>10 UF</strong><span>+ IVA / mes</span></div>
+                  <ul>
+                    <li>4 jornadas de contenido al año</li><li>3 reels o videos mensuales</li><li>6 posts o carruseles mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 3 campañas activas</li><li>LinkedIn empresa + 1 ejecutivo</li><li>Lead generation</li><li>Landing según campaña</li><li>Reporte mensual con insights y próximos pasos</li>
+                  </ul>
+                  <a class="b2b-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Quiero crecer</a>
+                </article>
+                <article class="b2b-plan">
+                  <p class="b2b-plan-kicker">SCALE</p>
+                  <h3>Un sistema de growth B2B más completo.</h3>
+                  <p class="b2b-plan-desc">Para equipos que necesitan conectar contenido, demanda, web, automatización y seguimiento comercial.</p>
+                  <div class="b2b-plan-price"><strong>14 UF</strong><span>+ IVA / mes</span></div>
+                  <ul>
+                    <li>5 jornadas de contenido al año</li><li>5 reels o videos mensuales</li><li>8 posts o carruseles mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 4 campañas activas</li><li>LinkedIn empresa + ejecutivos</li><li>Lead generation</li><li>Landing de conversión</li><li>Automatización y CRM según alcance</li><li>Soporte web prioritario</li><li>Dashboard y revisión estratégica</li>
+                  </ul>
+                  <a class="b2b-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos de Scale</a>
+                </article>
+              </div>
+              <div class="b2b-pricing-note"><strong>Inversión publicitaria no incluida.</strong> El presupuesto de LinkedIn, Google, Meta u otras plataformas se define según objetivos y campaña.</div>
+              <div class="b2b-pricing-custom"><div><span>PLAN A MEDIDA</span><h3>¿Necesitas algo distinto?</h3><p>Podemos adaptar el alcance a tu empresa.</p></div><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Conversemos</a></div>
+            </div>
+          </section>
+
+'''
+          marker = '  <section class="b2b-cases">'
+          if 'id="planes-b2b"' not in s:
+              if marker not in s:
+                  raise SystemExit('B2B cases marker not found')
+              s = s.replace(marker, section + marker, 1)
+
+          desktop = '<a href="https://lowsignal.cl/industrias/b2b"><b>lowsignal for B2B</b><small>Para SaaS, tecnología, servicios e industria.</small></a>'
+          desktop_new = desktop + '<a href="#planes-b2b"><b>Planes para empresas</b><small>Presence, Growth y Scale.</small></a>'
+          if desktop in s and 'href="#planes-b2b"><b>Planes para empresas</b>' not in s:
+              s = s.replace(desktop, desktop_new, 1)
+
+          mobile = '<a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a>'
+          mobile_new = mobile + '<a href="#planes-b2b"><strong>Planes B2B</strong><small>Presence, Growth y Scale</small></a>'
+          if mobile in s and 'href="#planes-b2b"><strong>Planes B2B</strong>' not in s:
+              s = s.replace(mobile, mobile_new, 1)
+
+          p.write_text(s, encoding='utf-8')
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/b2b.html
+          git commit -m "Add B2B pricing plans" || exit 0
+          git push origin HEAD:b2b-pricing-v1
