@@ -1,0 +1,74 @@
+name: Temporary restore navbar with subtle pricing
+
+on:
+  push:
+    paths:
+      - .github/workflows/temp-restore-navbar-subtle-pricing.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore navbar and fold pricing into existing copy
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          mobile_css = '''\n<style id="global-mobile-nav-stability-v1">\n@media(max-width:760px){body>.nav-wrap .nav{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;padding-left:18px!important;padding-right:18px!important;gap:12px!important}body>.nav-wrap .brand{min-width:0!important;max-width:70%!important}body>.nav-wrap .brand img{max-width:100%!important;height:auto!important;max-height:26px!important}.mobile-nav-toggle{flex:0 0 auto!important;margin-left:auto!important}.mobile-nav-panel{max-width:100vw!important;overflow-x:hidden!important}.mobile-nav-inner,.mobile-nav-group,.mobile-nav-submenu{min-width:0!important;max-width:100%!important}.mobile-nav-submenu a{min-width:0!important;max-width:100%!important;overflow:hidden!important}.mobile-nav-submenu strong,.mobile-nav-submenu small{white-space:normal!important;overflow-wrap:anywhere!important}}\n</style>\n'''
+
+          desktop_replacements = [
+            (r'(<a href="https://lowsignal\.cl/industrias/educacion"><b>lowsignal for education</b><small>)(.*?)(</small></a>)', 'Para colegios, redes, fundaciones e instituciones · Planes desde 5 UF + IVA / mes.'),
+            (r'(<a href="https://lowsignal\.cl/industrias/b2b"><b>lowsignal for B2B</b><small>)(.*?)(</small></a>)', 'Para SaaS, tecnología, servicios e industria · Planes desde 6 UF + IVA / mes.'),
+            (r'(<a href="https://lowsignal\.cl/industrias/marcas-b2c"><b>lowsignal for B2C</b><small>)(.*?)(</small></a>)', 'Para retail, hospitality, food y lifestyle · Planes desde 5 UF + IVA / mes.')
+          ]
+          mobile_replacements = [
+            (r'(<a href="https://lowsignal\.cl/industrias/educacion"><strong>lowsignal for education</strong><small>)(.*?)(</small></a>)', 'Colegios, redes y fundaciones · Planes desde 5 UF'),
+            (r'(<a href="https://lowsignal\.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>)(.*?)(</small></a>)', 'Servicios y ciclos de venta complejos · Planes desde 6 UF'),
+            (r'(<a href="https://lowsignal\.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>)(.*?)(</small></a>)', 'Consumo, retail y experiencias · Planes desde 5 UF')
+          ]
+
+          changed=[]
+          for p in Path('.').rglob('*.html'):
+            if '.git' in p.parts:
+              continue
+            s=p.read_text(encoding='utf-8')
+            original=s
+
+            # Remove the latest added strip / special pricing nav UI.
+            s=re.sub(r'\n?<style id="global-pricing-nav-v2">.*?</style>\n?', '\n', s, flags=re.S)
+            s=re.sub(r'\s*<div class="lnav-industry-top">.*?</div>', '', s, flags=re.S)
+            s=re.sub(r'\s*<div class="nav-industry-top">.*?</div>', '', s, flags=re.S)
+            s=re.sub(r'\s*<a class="mobile-industry-plans".*?</a>', '', s, flags=re.S)
+
+            # Fold plan pricing into the descriptive text that already exists.
+            for pat, text in desktop_replacements + mobile_replacements:
+              s=re.sub(pat, lambda m, t=text: m.group(1)+t+m.group(3), s, flags=re.S)
+
+            # Keep only the mobile anti-overflow fixes, without changing navbar design.
+            s=re.sub(r'\n?<style id="global-mobile-nav-stability-v1">.*?</style>\n?', '\n', s, flags=re.S)
+            if ('mobile-nav-panel' in s or 'mobile-nav-toggle' in s):
+              s=s.replace('</head>', mobile_css+'</head>', 1)
+
+            if s!=original:
+              p.write_text(s, encoding='utf-8')
+              changed.append(str(p))
+
+          print('Updated', len(changed), 'HTML files')
+          for x in changed: print(x)
+
+      - name: Commit restored navbar
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add '*.html' '**/*.html'
+          git commit -m "Restore navbar and keep pricing subtle" || exit 0
+          git push
