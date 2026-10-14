@@ -1,0 +1,23 @@
+name: Temporary clean industry nav prices
+on:
+  push:
+    paths:
+      - '.github/scripts/clean_industry_nav_prices.py'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Clean industry nav prices
+        run: python3 .github/scripts/clean_industry_nav_prices.py
+      - name: Commit navbar cleanup
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add '*.html' 'casos/*.html' 'equipo/*.html' 'industrias/*.html' 'recursos/*.html' 'recursos/insights/*.html' 'recursos/jobs/*.html' 'soluciones/*.html'
+          git commit -m "Remove pricing text from industry dropdowns" || exit 0
+          git push
