@@ -1,0 +1,22 @@
+name: Update Home industry pills
+on:
+  push:
+    paths:
+      - '.github/scripts/update_home_industry_pills.py'
+      - '.github/workflows/temp-update-home-industry-pills.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/update_home_industry_pills.py
+      - run: git config user.name lowsignal-bot
+      - run: git config user.email actions@users.noreply.github.com
+      - run: git add index.html
+      - run: git commit -m 'Update Home industry segment buttons'
+        continue-on-error: true
+      - run: git push
