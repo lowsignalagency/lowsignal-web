@@ -1,0 +1,23 @@
+name: Temporary Home industry sections v2
+on:
+  push:
+    paths:
+      - '.github/scripts/home_industry_sections_v2.py'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply Low-branded industry sections
+        run: python3 .github/scripts/home_industry_sections_v2.py
+      - name: Commit Home update
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add index.html
+          git commit -m "Refine Home industry sections with Low palette" || exit 0
+          git push
