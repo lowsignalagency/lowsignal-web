@@ -1,0 +1,23 @@
+name: Temporary global plans button
+on:
+  push:
+    paths:
+      - '.github/scripts/global_plans_button.py'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add plans button globally
+        run: python3 .github/scripts/global_plans_button.py
+      - name: Commit navbar sync
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add '*.html' 'casos/*.html' 'equipo/*.html' 'industrias/*.html' 'recursos/*.html' 'recursos/insights/*.html' 'recursos/jobs/*.html' 'soluciones/*.html'
+          git commit -m "Add Ver planes button across navbars" || exit 0
+          git push
