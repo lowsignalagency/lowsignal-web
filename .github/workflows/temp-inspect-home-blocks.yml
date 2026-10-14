@@ -1,0 +1,25 @@
+name: Temporary inspect home blocks
+on:
+  push:
+    paths:
+      - .github/workflows/temp-inspect-home-blocks.yml
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect home sections
+        shell: python
+        run: |
+          from pathlib import Path
+          s=Path('index.html').read_text(encoding='utf-8')
+          needles=['For companies building what','Where we build','home26-solutions','home26-industries','lsr-industr']
+          lines=s.splitlines()
+          for needle in needles:
+            print('\n===',needle,'===')
+            for i,line in enumerate(lines):
+              if needle.lower() in line.lower():
+                a=max(0,i-18); b=min(len(lines),i+90)
+                print(f'-- line {i+1} --')
+                print('\n'.join(f'{j+1}: {lines[j]}' for j in range(a,b)))
+                break
