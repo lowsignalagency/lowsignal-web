@@ -12,3 +12,4 @@ if 'home-plans-anchor-v1' not in s:
     s=s.replace('</head>',style+'</head>',1)
 p.write_text(s,encoding='utf-8')
 print('Added #planes anchor before Education section')
+# trigger
