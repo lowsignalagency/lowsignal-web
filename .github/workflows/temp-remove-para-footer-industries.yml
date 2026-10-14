@@ -1,0 +1,22 @@
+name: Remove Para from footer industries
+on:
+  push:
+    paths:
+      - '.github/scripts/remove_para_footer_industries.py'
+      - '.github/workflows/temp-remove-para-footer-industries.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 .github/scripts/remove_para_footer_industries.py
+      - run: git config user.name lowsignal-bot
+      - run: git config user.email actions@users.noreply.github.com
+      - run: git add '*.html' '**/*.html'
+      - run: git commit -m 'Remove Para from footer industry labels'
+        continue-on-error: true
+      - run: git push
