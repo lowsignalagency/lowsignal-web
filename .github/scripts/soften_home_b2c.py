@@ -29,3 +29,4 @@ override = '''
 s = s.replace('</head>', override + '</head>', 1)
 p.write_text(s, encoding='utf-8')
 print('Softened Home B2C section')
+# trigger
