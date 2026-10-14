@@ -1,0 +1,34 @@
+name: Finalize Education pricing
+on:
+  push:
+    branches: [education-pricing-v1]
+    paths: [.github/workflows/finalize-education-pricing.yml]
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: education-pricing-v1
+      - name: Add Scale CTA spacing
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('industrias/educacion.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '.edu-plan-cta{width:100%;min-height:48px;margin-top:auto;'
+          insert = '.edu-plan:nth-child(3) ul{margin-bottom:28px}'
+          if insert not in s:
+              if marker not in s:
+                  raise SystemExit('CTA CSS marker not found')
+              s = s.replace(marker, insert + marker, 1)
+          p.write_text(s, encoding='utf-8')
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/educacion.html
+          git commit -m "Add spacing above Scale CTA" || exit 0
+          git push origin HEAD:education-pricing-v1
