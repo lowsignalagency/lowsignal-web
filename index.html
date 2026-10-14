@@ -7693,6 +7693,68 @@ footer .footer-container{
 .low-industry-b2c .low-btn-secondary:hover{border-color:#1419E0;color:#1419E0;background:#F7F8FF}
 .low-industry-b2c .low-btn-primary:hover{background:#2B35F0;border-color:#2B35F0}
 </style>
+
+<style id="global-plans-nav-button-v1">
+/* Global secondary CTA: Ver planes */
+.lnav-plans{
+  min-height:44px;
+  padding:0 20px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:transparent;
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.lnav-plans:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.40);
+  transform:translateY(-1px);
+}
+.nav-plans{
+  min-height:40px;
+  padding:0 16px;
+  border:1px solid rgba(10,10,10,.18);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#0A0A0A;
+  background:transparent;
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+}
+.nav-plans:hover{border-color:#1419E0;color:#1419E0;background:#F5F7FF}
+@media(max-width:1100px) and (min-width:761px){
+  .lnav-plans{min-height:40px;padding:0 15px;font-size:11px}
+}
+@media(max-width:760px){
+  .mobile-nav-plans{
+    min-height:48px !important;
+    margin-top:14px !important;
+    border:1px solid rgba(20,25,224,.18) !important;
+    border-radius:12px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    color:#1419E0 !important;
+    background:#F4F6FF !important;
+    font-size:13px !important;
+    font-weight:650 !important;
+    text-decoration:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+  .mobile-nav-plans:hover{background:#EAEEFF !important}
+}
+</style>
 </head>
 <body>
 
@@ -7814,6 +7876,7 @@ footer .footer-container{
         </button>
 
         <a class="nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
+        <a class="nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>
         <a class="nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
       </div>
 
@@ -7997,7 +8060,7 @@ footer .footer-container{
           </div>
 
           <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
-          <a class="mobile-nav-plans" href="#planes">Ver planes</a>
+          <a class="mobile-nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>
           <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
         </div>
       </div>
