@@ -1,0 +1,95 @@
+name: Temporary navbar pricing strip sync
+
+on:
+  push:
+    paths:
+      - .github/workflows/temp-nav-pricing-strip.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Refine pricing navigation and mobile nav
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          css = '''\n<style id="global-pricing-nav-v2">\n.lnav-industry-top{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 0 18px;margin-bottom:-8px;border-bottom:1px solid rgba(255,255,255,.08)}.lnav-industry-top span{color:#687593;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.lnav-industry-top a{color:#AFC0FF;font-size:11px;font-weight:600;transition:color .18s ease,transform .18s ease}.lnav-industry-top a:hover{color:#fff;transform:translateX(2px)}\n.nav-industry-top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 22px;padding:0 2px 18px;border-bottom:1px solid #E8EDF6}.nav-industry-top span{color:#7A879B;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav-industry-top a{color:#1419E0;font-size:11px;font-weight:700}.mobile-industry-plans{margin:0 0 8px!important;padding:12px 0!important;border-bottom:1px solid rgba(255,255,255,.09)!important}.mobile-industry-plans strong{color:#8EA3FF!important}.mobile-industry-plans small{color:#7582A0!important}\n@media(max-width:760px){body>.nav-wrap .nav{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;padding-left:18px!important;padding-right:18px!important;gap:12px!important}body>.nav-wrap .brand{min-width:0!important;max-width:70%!important}body>.nav-wrap .brand img{max-width:100%!important;height:auto!important;max-height:26px!important}.mobile-nav-toggle{flex:0 0 auto!important;margin-left:auto!important}.mobile-nav-panel{max-width:100vw!important;overflow-x:hidden!important}.mobile-nav-inner,.mobile-nav-group,.mobile-nav-submenu{min-width:0!important;max-width:100%!important}.mobile-nav-submenu a{min-width:0!important;max-width:100%!important;overflow:hidden!important}.mobile-nav-submenu strong,.mobile-nav-submenu small{white-space:normal!important;overflow-wrap:anywhere!important}.nav-plans,.mobile-nav-plans{display:none!important}}\n</style>\n'''
+
+          # Added by the previous version and now intentionally removed.
+          remove_exact = [
+            '<a class="lnav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>',
+            '<a class="nav-direct nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>',
+            '<a class="mobile-nav-direct mobile-nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>',
+            '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><b>Planes para instituciones</b><small>Desde 5 UF + IVA / mes.</small></a>',
+            '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><b>Planes para empresas</b><small>Desde 6 UF + IVA / mes.</small></a>',
+            '<a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><b>Planes para marcas</b><small>Desde 5 UF + IVA / mes.</small></a>',
+            '<a href="https://lowsignal.cl/industrias/educacion#planes-education"><strong>Planes para instituciones</strong><small>Desde 5 UF + IVA / mes</small></a>',
+            '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b"><strong>Planes para empresas</strong><small>Desde 6 UF + IVA / mes</small></a>',
+            '<a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c"><strong>Planes para marcas</strong><small>Desde 5 UF + IVA / mes</small></a>',
+            '<a href="https://lowsignal.cl/industrias/educacion#planes-education">Planes para instituciones · desde 5 UF</a>',
+            '<a href="https://lowsignal.cl/industrias/b2b#planes-b2b">Planes para empresas · desde 6 UF</a>',
+            '<a href="https://lowsignal.cl/industrias/marcas-b2c#planes-b2c">Planes para marcas · desde 5 UF</a>'
+          ]
+
+          lnav_strip = '<div class="lnav-industry-top"><span>Soluciones por industria</span><a href="https://lowsignal.cl/#planes">Ver planes →</a></div>'
+          old_strip = '<div class="nav-industry-top"><span>Soluciones por industria</span><a href="https://lowsignal.cl/#planes">Ver planes →</a></div>'
+          mobile_strip = '<a class="mobile-industry-plans" href="https://lowsignal.cl/#planes"><strong>Ver planes</strong><small>Education · B2B · B2C</small></a>'
+
+          changed=[]
+          for p in Path('.').rglob('*.html'):
+            if '.git' in p.parts:
+              continue
+            s=p.read_text(encoding='utf-8')
+            original=s
+
+            # Remove v1 CSS and old duplicated pricing links/buttons.
+            s=re.sub(r'\n?<style id="global-pricing-nav-v1">.*?</style>\n?', '\n', s, flags=re.S)
+            for item in remove_exact:
+              s=s.replace(item,'')
+
+            # Normalise whitespace left by removed links.
+            s=re.sub(r'\n[ \t]+\n', '\n', s)
+
+            # New desktop lnav strip: only inside the Industrias item.
+            if 'lnav-industry-top' not in s:
+              pat=r'(<div class="lnav-item">\s*<button type="button" class="lnav-trigger">Industrias.*?</button>\s*<div class="lnav-mega">\s*<div class="lnav-mega-inner">)'
+              s=re.sub(pat, lambda m: m.group(1)+'\n            '+lnav_strip, s, count=1, flags=re.S)
+
+            # Older desktop nav strip.
+            if 'nav-industry-top' not in s:
+              pat=r'(<div class="mega-menu" data-menu-panel="industrias">\s*)'
+              s=re.sub(pat, lambda m: m.group(1)+'          '+old_strip+'\n', s, count=1, flags=re.S)
+
+            # Mobile: one single pricing access at top of Industrias accordion.
+            if 'mobile-industry-plans' not in s:
+              pat=r'(<div class="mobile-nav-submenu" id="mobile-submenu-1" hidden>)'
+              s=re.sub(pat, lambda m: m.group(1)+'\n              '+mobile_strip, s, count=1)
+
+            # Add the new styling once.
+            if ('lnav-industry-top' in s or 'nav-industry-top' in s or 'mobile-industry-plans' in s) and 'global-pricing-nav-v2' not in s:
+              s=s.replace('</head>', css+'</head>',1)
+
+            if s!=original:
+              p.write_text(s,encoding='utf-8')
+              changed.append(str(p))
+
+          print('Updated',len(changed),'HTML files')
+          for x in changed: print(x)
+
+      - name: Commit navbar refinement
+        shell: bash
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add '*.html' '**/*.html'
+          git commit -m "Refine pricing access and mobile navbar" || exit 0
+          git push
