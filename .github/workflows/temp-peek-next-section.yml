@@ -1,0 +1,24 @@
+name: Peek next industry section
+on:
+  push:
+    paths:
+      - .github/scripts/peek_next_section.py
+      - .github/workflows/temp-peek-next-section.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply scroll cue
+        run: python .github/scripts/peek_next_section.py
+      - name: Commit changes
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add industrias/educacion.html industrias/b2b.html
+          git commit -m "Improve next-section cue for Education and B2B" || exit 0
+          git push
