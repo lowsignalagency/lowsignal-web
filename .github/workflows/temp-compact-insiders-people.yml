@@ -1,0 +1,24 @@
+name: Compact Insiders people cards
+on:
+  push:
+    paths:
+      - .github/scripts/compact_insiders_people.py
+      - .github/workflows/temp-compact-insiders-people.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compact cards
+        run: python .github/scripts/compact_insiders_people.py
+      - name: Commit changes
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add recursos/insiders.html
+          git commit -m "Compact Insiders people cards" || exit 0
+          git push
