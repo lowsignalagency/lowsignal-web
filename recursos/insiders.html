@@ -3407,6 +3407,46 @@ footer .footer-container{
   .ins-v2-person-photo{aspect-ratio:1 / 1.08}
   .ins-v2-person-join{grid-column:auto}
 }
+
+.ins-v2-founder-quote{
+  margin-top:54px;
+  padding-top:30px;
+  border-top:1px solid #DCE3F2;
+  max-width:860px;
+}
+.ins-v2-founder-quote blockquote{
+  margin:0;
+  max-width:820px;
+  color:#10193C;
+  font-size:clamp(26px,3vw,40px);
+  line-height:1.18;
+  letter-spacing:-.035em;
+  font-weight:300;
+}
+.ins-v2-founder-quote blockquote strong{
+  color:#1419E0;
+  font-weight:300;
+}
+.ins-v2-founder-signature{
+  margin-top:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.ins-v2-founder-signature:before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:#1419E0;
+  flex:0 0 auto;
+}
+.ins-v2-founder-signature div{display:flex;flex-direction:column;gap:3px}
+.ins-v2-founder-signature b{color:#10182A;font-size:12px;font-weight:600}
+.ins-v2-founder-signature span{color:#7A86A7;font-size:10px}
+@media(max-width:760px){
+  .ins-v2-founder-quote{margin-top:42px;padding-top:24px}
+  .ins-v2-founder-quote blockquote{font-size:26px;line-height:1.2}
+}
 </style>
 </head>
 <body>
@@ -3896,6 +3936,16 @@ footer .footer-container{
           </div>
           <a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Quiero ser Insider <span>↗</span></a>
         </article>
+      </div>
+
+      <div class="ins-v2-founder-quote">
+        <blockquote>“Creemos en el <strong>talento joven</strong>, en las buenas conexiones y en la gente que mueve oportunidades.”</blockquote>
+        <div class="ins-v2-founder-signature">
+          <div>
+            <b>Felipe Quiroz</b>
+            <span>Co-Founder & COO, lowsignal</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
