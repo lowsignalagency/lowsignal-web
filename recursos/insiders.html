@@ -3371,7 +3371,7 @@ footer .footer-container{
 .ins-v2-people-head h2{margin:20px 0 0;color:#10193C;font-size:clamp(36px,3.9vw,54px);line-height:1.09;letter-spacing:-.043em;font-weight:300}
 .ins-v2-people-head h2 strong{color:#1419E0;font-weight:300}
 .ins-v2-people-head>p{max-width:520px;margin:0;color:#7A86A7;font-size:14px;line-height:1.72}
-.ins-v2-people-grid{display:grid;grid-template-columns:minmax(0,260px) minmax(0,260px) minmax(0,250px);gap:22px;margin-top:44px;align-items:start;justify-content:start}
+.ins-v2-people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,260px));gap:22px;margin-top:44px;align-items:start;justify-content:start}
 .ins-v2-person-card,.ins-v2-person-join{min-height:310px;border-radius:16px;overflow:hidden}
 .ins-v2-person-card{border:1px solid #DCE3F2;background:#F8FAFF;display:flex;flex-direction:column}
 .ins-v2-person-photo{position:relative;height:220px;min-height:220px;overflow:hidden;background:#E8ECF7}
@@ -3381,17 +3381,17 @@ footer .footer-container{
 .ins-v2-person-meta{min-height:74px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .ins-v2-person-meta h3{margin:0;color:#15204A;font-size:20px;letter-spacing:-.025em}
 .ins-v2-person-meta p{margin:5px 0 0;color:#7A86A7;font-size:11px}
-.ins-v2-person-join{padding:28px;background:linear-gradient(145deg,#1419E0 0%,#2447F5 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
-.ins-v2-person-join>span{color:#BFC9FF;font-size:9px;font-weight:700;letter-spacing:.18em}
-.ins-v2-person-join h3{margin:0;font-size:clamp(28px,2.5vw,38px);line-height:1.05;letter-spacing:-.045em;font-weight:300}
-.ins-v2-person-join p{margin:18px 0 0;color:#D7DFFF;font-size:13px;line-height:1.68}
-.ins-v2-person-join>a{min-height:48px;padding:0 16px;border-radius:999px;background:#fff;color:#17235D;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
+.ins-v2-person-join{padding:20px;background:linear-gradient(145deg,#1419E0 0%,#2447F5 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.ins-v2-person-join>span{color:#C9D2FF;font-size:8px;font-weight:700;letter-spacing:.16em}
+.ins-v2-person-join h3{margin:0;font-size:22px;line-height:1.12;letter-spacing:-.035em;font-weight:400}
+.ins-v2-person-join p{margin:12px 0 0;color:#D7DFFF;font-size:11.5px;line-height:1.6}
+.ins-v2-person-join>a{min-height:42px;padding:0 14px;border-radius:999px;background:#fff;color:#17235D;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
 .ins-v2-person-join>a:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.16)}
 .ins-v2-person-join>a span{font-size:15px}
 @media(max-width:980px){
   .ins-v2-people-head{grid-template-columns:1fr;gap:26px}
   .ins-v2-people-grid{grid-template-columns:minmax(0,260px) minmax(0,260px);justify-content:start}
-  .ins-v2-person-join{grid-column:1/-1;min-height:220px}
+  .ins-v2-person-join{grid-column:auto;min-height:310px}
 }
 @media(max-width:760px){
   .ins-v2-people{padding:72px 0}
@@ -3400,7 +3400,7 @@ footer .footer-container{
   .ins-v2-person-card,.ins-v2-person-join{min-height:0;border-radius:16px}
   .ins-v2-person-photo{height:230px;min-height:230px}
   .ins-v2-person-meta{min-height:82px;padding:16px}
-  .ins-v2-person-join{grid-column:auto;min-height:300px;padding:24px}
+  .ins-v2-person-join{grid-column:auto;min-height:260px;padding:20px}
 }
 </style>
 </head>
@@ -3884,10 +3884,10 @@ footer .footer-container{
         </article>
 
         <article class="ins-v2-person-join">
-          <span>YOUR SPOT?</span>
+          <span>SÚMATE A LA RED</span>
           <div>
-            <h3>Tu nombre podría<br>estar acá.</h3>
-            <p>Si tienes red, criterio y sabes detectar una buena oportunidad cuando la ves, queremos conocerte.</p>
+            <h3>Tu red puede abrir lo que viene.</h3>
+            <p>Conecta una buena oportunidad con lowsignal y sé parte de Insiders.</p>
           </div>
           <a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Quiero ser Insider <span>↗</span></a>
         </article>
