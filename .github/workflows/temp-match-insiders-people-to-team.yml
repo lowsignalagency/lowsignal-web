@@ -1,0 +1,24 @@
+name: Match Insiders people to team
+on:
+  push:
+    paths:
+      - .github/scripts/match_insiders_people_to_team.py
+      - .github/workflows/temp-match-insiders-people-to-team.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Match profile layout
+        run: python .github/scripts/match_insiders_people_to_team.py
+      - name: Commit changes
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add recursos/insiders.html
+          git commit -m "Match Insiders profiles to team layout" || exit 0
+          git push
