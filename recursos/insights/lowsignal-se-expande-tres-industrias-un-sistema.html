@@ -2542,6 +2542,8 @@
 }
 .article-new-share{display:flex;gap:13px;margin-top:12px;flex-wrap:wrap}
 .article-new-share a{color:#1419E0;font-size:11px;font-weight:700}
+.article-new-share button.article-copy-link{padding:0;border:0;background:none;color:#1419E0;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
+.article-new-share button.article-copy-link:focus-visible{outline:2px solid #1419E0;outline-offset:4px;border-radius:2px}
 
 .article-new-content>p{
   margin:0 0 28px;color:#2A3558;font-size:17px;line-height:1.78
@@ -3337,7 +3339,7 @@
           <div class="article-new-share">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Flowsignal-se-expande-tres-industrias-un-sistema" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Flowsignal-se-expande-tres-industrias-un-sistema&amp;text=lowsignal%20se%20expande%3A%20tres%20industrias%2C%20un%20solo%20sistema" target="_blank" rel="noopener noreferrer">X</a>
-            <a href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">Copiar link</a>
+            <button type="button" class="article-copy-link" data-copy-link aria-live="polite">Copiar link</button>
           </div>
         </div>
       </aside>
@@ -10482,5 +10484,55 @@ footer{
 
 <style id="article-system-final-v1">.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:min(1480px,calc(100% - 160px))!important;max-width:1480px!important;margin-inline:auto!important}.article-new-hero{padding:150px 0 72px!important}.article-new-hero-grid{grid-template-columns:minmax(0,1fr) minmax(240px,.30fr)!important;gap:64px!important;margin-top:24px!important;align-items:end!important}.article-new-hero h1{max-width:940px!important;font-size:clamp(42px,3.6vw,56px)!important;line-height:1.04!important;letter-spacing:-.045em!important}.article-new-hero h1 strong{display:block!important}.article-new-hero-grid>div>p{max-width:760px!important;margin-top:24px!important;font-size:16px!important;line-height:1.62!important}.article-new-meta{margin-top:22px!important;font-size:11px!important}.article-author{gap:14px!important;margin-top:18px!important}.article-author img{width:60px!important;height:60px!important;border-radius:50%!important;object-fit:cover!important;object-position:center 32%!important;flex:0 0 60px!important}.article-author>div{gap:4px!important}.article-author strong{font-size:14px!important;line-height:1.2!important}.article-author span{font-size:11px!important;line-height:1.35!important}.article-new-result{align-self:end!important}.article-new-cover{margin-top:46px!important;border-radius:20px!important}.article-new-body{padding:96px 0!important}.article-new-body-grid{grid-template-columns:200px minmax(0,760px)!important;gap:76px!important;justify-content:start!important}@media(max-width:1440px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 112px)!important}}@media(max-width:1100px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 48px)!important}.article-new-hero-grid{grid-template-columns:1fr!important;gap:30px!important}.article-new-result{max-width:360px!important}.article-new-body-grid{grid-template-columns:1fr!important;gap:38px!important}}@media(max-width:760px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 40px)!important}.article-new-hero{padding:118px 0 56px!important}.article-new-hero h1{font-size:36px!important;line-height:1.05!important}.article-new-hero-grid>div>p{font-size:15px!important}.article-author img{width:52px!important;height:52px!important;flex-basis:52px!important}.article-author strong{font-size:13px!important}.article-author span{font-size:10px!important}.article-new-cover{margin-top:30px!important;border-radius:16px!important}.article-new-body{padding:68px 0!important}}</style>
 <style id="article-margin-axis-final">@media(min-width:1441px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 256px)!important;max-width:1480px!important;margin-inline:auto!important}}</style>
+<script>
+(() => {
+  const button = document.querySelector("[data-copy-link]");
+  if (!button) return;
+
+  const defaultLabel = button.textContent.trim();
+  let feedbackTimer;
+
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch (_) {
+      copied = false;
+    }
+    textarea.remove();
+    return copied;
+  }
+
+  button.addEventListener("click", async () => {
+    const link = window.location.href;
+    let copied = false;
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(link);
+        copied = true;
+      } else {
+        copied = fallbackCopy(link);
+      }
+    } catch (_) {
+      copied = fallbackCopy(link);
+    }
+
+    button.textContent = copied ? "¡Link copiado!" : "No se pudo copiar";
+    window.clearTimeout(feedbackTimer);
+    feedbackTimer = window.setTimeout(() => {
+      button.textContent = defaultLabel;
+    }, 2200);
+  });
+})();
+</script>
 </body>
 </html>
