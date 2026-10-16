@@ -1,0 +1,24 @@
+name: Compact Insiders like Nosotros
+on:
+  push:
+    paths:
+      - .github/scripts/compact_insiders_like_nosotros.py
+      - .github/workflows/temp-compact-insiders-like-nosotros.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Resize Insiders cards
+        run: python .github/scripts/compact_insiders_like_nosotros.py
+      - name: Commit changes
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add recursos/insiders.html
+          git commit -m "Size Insiders people cards like Nosotros" || exit 0
+          git push
