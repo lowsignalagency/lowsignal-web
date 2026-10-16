@@ -1,0 +1,24 @@
+name: Swap Insiders visual order
+on:
+  push:
+    paths:
+      - .github/scripts/swap_insiders_visual_order.py
+      - .github/workflows/temp-swap-insiders-visual-order.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Swap visual order
+        run: python .github/scripts/swap_insiders_visual_order.py
+      - name: Commit changes
+        run: |
+          git config user.name lowsignal-bot
+          git config user.email actions@users.noreply.github.com
+          git add recursos/insiders.html
+          git commit -m "Put Samuel first in Insiders" || exit 0
+          git push
