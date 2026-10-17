@@ -10082,5 +10082,35 @@ body footer .footer-bottom{
   .ins-v4-marker,.ins-v4-cta{transition:none}
 }
 </style>
+
+<style id="insiders-mobile-avatar-circle">
+/* Keep ambassador portraits perfectly round at every viewport */
+.ins-v4-people .ins-v4-member img{
+  display:block!important;
+  width:60px!important;
+  min-width:60px!important;
+  max-width:none!important;
+  height:60px!important;
+  min-height:60px!important;
+  max-height:60px!important;
+  aspect-ratio:1 / 1!important;
+  flex:0 0 60px!important;
+  object-fit:cover!important;
+  object-position:center 25%!important;
+  border:2px solid rgba(255,255,255,.72)!important;
+  border-radius:50%!important;
+  clip-path:circle(50% at 50% 50%)!important;
+}
+@media(max-width:760px){
+  .ins-v4-people .ins-v4-member img{
+    width:52px!important;
+    min-width:52px!important;
+    height:52px!important;
+    min-height:52px!important;
+    max-height:52px!important;
+    flex-basis:52px!important;
+  }
+}
+</style>
 </body>
 </html>
