@@ -3882,43 +3882,67 @@ footer .footer-container{
     </div>
   </section>
 
-  <section class="ins-v2-people" aria-labelledby="insiders-people-title">
+  <section class="ins-v2-people ins-v4-people" aria-labelledby="insiders-people-title">
     <div class="ls-social-shell">
-      <div class="ins-v2-people-head">
+      <div class="ins-v4-head">
         <div>
-          <p class="ins-v2-eyebrow">THE NETWORK</p>
-          <h2 id="insiders-people-title">Esto recién empieza.<br><strong>Súmate a la red.</strong></h2>
+          <p class="ins-v2-eyebrow">LOWSIGNAL INSIDERS <span>·</span> CONNECT. REFER. GROW.</p>
+          <h2 id="insiders-people-title">Las oportunidades<br>empiezan con <strong>una conexión.</strong></h2>
         </div>
-        <p>Joaquín y Samuel ya son parte de lowsignal Insiders. Estamos sumando personas de todo Chile con criterio, buenas conexiones y ganas de mover oportunidades.</p>
+        <p>Insiders es una comunidad para quienes reconocen el potencial en otros y quieren ser parte de lo que viene. Una conversación puede abrir un nuevo camino.</p>
       </div>
 
-      <div class="ins-v2-people-grid">
-        <article class="ins-v2-person-card">
-          <div class="ins-v2-person-photo">
-            <img src="https://lowsignal.cl/assets/samuel.png" alt="Samuel" loading="lazy">
+      <div class="ins-v4-timeline" aria-label="Cómo funciona lowsignal Insiders">
+        <article class="ins-v4-step">
+          <div class="ins-v4-marker"><span>01</span></div>
+          <div class="ins-v4-step-copy">
+            <p class="ins-v4-step-label">TODO PARTE POR VERLO</p>
+            <h3>Reconoces una oportunidad.</h3>
+            <p>Conoces una empresa, institución o marca que tiene espacio para crecer. Tú ves el potencial antes que los demás.</p>
           </div>
-          <div class="ins-v2-person-meta">
-            <div><h3>Samuel</h3></div>
-            </div>
+          <span class="ins-v4-step-tag">DETECTAR</span>
         </article>
 
-        <article class="ins-v2-person-card">
-          <div class="ins-v2-person-photo">
-            <img src="https://lowsignal.cl/assets/joaquin.png" alt="Joaquín" loading="lazy">
+        <article class="ins-v4-step">
+          <div class="ins-v4-marker"><span>02</span></div>
+          <div class="ins-v4-step-copy">
+            <p class="ins-v4-step-label">UNA CONEXIÓN CAMBIA TODO</p>
+            <h3>Nos presentas.</h3>
+            <p>Nos conectas con esa organización. Nosotros escuchamos, entendemos su desafío y trabajamos en una solución que le haga sentido.</p>
           </div>
-          <div class="ins-v2-person-meta">
-            <div><h3>Joaquín</h3></div>
-            </div>
+          <span class="ins-v4-step-tag">CONECTAR</span>
         </article>
 
-        <article class="ins-v2-person-join">
-          <span>SÚMATE A LA RED</span>
-          <div>
-            <h3>Tu red puede abrir lo que viene.</h3>
-            <p>Conecta una buena oportunidad con lowsignal y sé parte de Insiders.</p>
+        <article class="ins-v4-step">
+          <div class="ins-v4-marker"><span>03</span></div>
+          <div class="ins-v4-step-copy">
+            <p class="ins-v4-step-label">CRECEMOS EN CONJUNTO</p>
+            <h3>La oportunidad se mueve.</h3>
+            <p>Si el proyecto se concreta, recibes una recompensa y sigues creciendo junto a una red que abre nuevas conversaciones.</p>
           </div>
-          <a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Quiero ser Insider <span>↗</span></a>
+          <span class="ins-v4-step-tag">CRECER</span>
         </article>
+      </div>
+
+      <div class="ins-v4-invite">
+        <div class="ins-v4-community">
+          <div class="ins-v4-members" aria-label="Miembros de lowsignal Insiders">
+            <div class="ins-v4-member">
+              <img src="https://lowsignal.cl/assets/joaquin.png" alt="Joaquín" loading="lazy">
+              <span>Joaquín</span>
+            </div>
+            <div class="ins-v4-member">
+              <img src="https://lowsignal.cl/assets/samuel.png" alt="Samuel" loading="lazy">
+              <span>Samuel</span>
+            </div>
+          </div>
+          <div class="ins-v4-invite-copy">
+            <span class="ins-v4-invite-kicker">LA RED YA EMPEZÓ</span>
+            <h3>Tu próxima conexión<br>puede ser la que sigue.</h3>
+            <p>Joaquín y Samuel ya son parte. Súmate y hagamos que una buena conexión llegue más lejos.</p>
+          </div>
+        </div>
+        <a class="ins-v4-cta" href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Quiero ser Insider <span>↗</span></a>
       </div>
 
       <div class="ins-v2-founder-quote">
@@ -3926,7 +3950,7 @@ footer .footer-container{
         <div class="ins-v2-founder-signature">
           <div>
             <b>Felipe Quiroz</b>
-            <span>Co-Founder & COO, lowsignal</span>
+            <span>Co-Founder &amp; COO, lowsignal</span>
           </div>
         </div>
       </div>
@@ -9993,6 +10017,70 @@ body footer .footer-bottom{
   border-radius:50% !important;
 }
 .ins-v2-person-meta{text-align:center}
+</style>
+<style id="insiders-community-timeline">
+.ins-v4-people{padding-top:104px!important;padding-bottom:104px!important}
+.ins-v4-head{display:grid;grid-template-columns:1fr .72fr;gap:72px;align-items:end}
+.ins-v4-head .ins-v2-eyebrow{display:flex;align-items:center;gap:9px}
+.ins-v4-head .ins-v2-eyebrow span{color:#AAB4D0}
+.ins-v4-head h2{max-width:760px;margin:20px 0 0;color:#10193C;font-size:clamp(40px,4.6vw,62px);line-height:1.04;letter-spacing:-.05em;font-weight:300}
+.ins-v4-head h2 strong{color:#1419E0;font-weight:300}
+.ins-v4-head>p{max-width:450px;margin:0;color:#7A86A7;font-size:15px;line-height:1.75}
+.ins-v4-timeline{position:relative;max-width:900px;margin:58px auto 0}
+.ins-v4-timeline:before{content:"";position:absolute;left:27px;top:27px;bottom:53px;width:1px;background:linear-gradient(180deg,#AAB8FF 0%,#D8DFF1 85%,transparent 100%)}
+.ins-v4-step{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) auto;align-items:start;gap:28px;padding:0 0 38px}
+.ins-v4-step:last-child{padding-bottom:0}
+.ins-v4-marker{position:relative;z-index:1;width:55px;height:55px;display:grid;place-items:center;border:1px solid #C8D1E8;border-radius:50%;background:#fff;color:#1419E0;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.ins-v4-marker span{font-size:12px;font-weight:650;letter-spacing:.02em}
+.ins-v4-step:hover .ins-v4-marker{background:#1419E0;border-color:#1419E0;color:#fff;transform:scale(1.05)}
+.ins-v4-step-copy{padding:3px 0 0}
+.ins-v4-step-label{margin:0 0 8px;color:#7886A7;font-size:9px;font-weight:700;letter-spacing:.17em}
+.ins-v4-step-copy h3{margin:0;color:#10193C;font-size:23px;line-height:1.24;letter-spacing:-.03em;font-weight:550}
+.ins-v4-step-copy>p:last-child{max-width:590px;margin:9px 0 0;color:#71809C;font-size:13px;line-height:1.7}
+.ins-v4-step-tag{margin-top:8px;padding:8px 11px;border:1px solid #E1E6F1;border-radius:999px;color:#6F7D99;font-size:8px;font-weight:700;letter-spacing:.12em}
+.ins-v4-invite{margin:66px auto 0;max-width:1060px;padding:30px 34px;border-radius:20px;background:radial-gradient(550px 260px at 100% 0%,rgba(54,84,255,.30),transparent 70%),linear-gradient(135deg,#071022 0%,#111D4C 100%);display:flex;align-items:center;justify-content:space-between;gap:32px;color:#fff}
+.ins-v4-community{display:flex;align-items:center;gap:28px}
+.ins-v4-members{display:flex;gap:14px}
+.ins-v4-member{display:flex;flex-direction:column;align-items:center;gap:8px;color:#C7D0E7;font-size:10px}
+.ins-v4-member img{width:60px;height:60px;border:2px solid rgba(255,255,255,.72);border-radius:50%;object-fit:cover;object-position:center 25%;background:#30384D}
+.ins-v4-invite-kicker{color:#9DADFF;font-size:9px;font-weight:700;letter-spacing:.16em}
+.ins-v4-invite-copy h3{margin:8px 0 0;font-size:23px;line-height:1.2;letter-spacing:-.025em;font-weight:500}
+.ins-v4-invite-copy p{max-width:450px;margin:8px 0 0;color:#AFBAD5;font-size:12px;line-height:1.6}
+.ins-v4-cta{flex:0 0 auto;min-height:48px;padding:0 19px;border-radius:999px;background:#fff;color:#17235D;display:inline-flex;align-items:center;justify-content:center;gap:22px;font-size:11px;font-weight:650;transition:transform .2s ease,background .2s ease}
+.ins-v4-cta span{font-size:17px;line-height:1}
+.ins-v4-cta:hover{transform:translateY(-2px);background:#EEF2FF}
+@media(max-width:980px){
+  .ins-v4-head{grid-template-columns:1fr .8fr;gap:36px}
+  .ins-v4-step{gap:20px}
+  .ins-v4-step-tag{display:none}
+  .ins-v4-invite{padding:26px}
+}
+@media(max-width:760px){
+  .ins-v4-people{padding-top:72px!important;padding-bottom:74px!important}
+  .ins-v4-head{grid-template-columns:1fr;gap:20px}
+  .ins-v4-head h2{max-width:390px;font-size:36px;line-height:1.08}
+  .ins-v4-head>p{font-size:13px;line-height:1.65}
+  .ins-v4-timeline{margin-top:38px}
+  .ins-v4-timeline:before{left:21px;top:22px;bottom:43px}
+  .ins-v4-step{grid-template-columns:44px minmax(0,1fr);gap:17px;padding-bottom:30px}
+  .ins-v4-marker{width:43px;height:43px}
+  .ins-v4-marker span{font-size:10px}
+  .ins-v4-step-copy{padding-top:1px}
+  .ins-v4-step-label{font-size:8px;letter-spacing:.13em}
+  .ins-v4-step-copy h3{font-size:18px}
+  .ins-v4-step-copy>p:last-child{font-size:12px;line-height:1.65}
+  .ins-v4-invite{margin-top:44px;padding:23px 20px;border-radius:17px;align-items:flex-start;flex-direction:column;gap:22px}
+  .ins-v4-community{align-items:flex-start;gap:18px}
+  .ins-v4-members{gap:8px}
+  .ins-v4-member{font-size:9px}
+  .ins-v4-member img{width:46px;height:46px}
+  .ins-v4-invite-copy h3{font-size:19px}
+  .ins-v4-invite-copy p{font-size:11px}
+  .ins-v4-cta{width:100%;justify-content:space-between}
+}
+@media(prefers-reduced-motion:reduce){
+  .ins-v4-marker,.ins-v4-cta{transition:none}
+}
 </style>
 </body>
 </html>
