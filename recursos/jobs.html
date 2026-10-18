@@ -9430,5 +9430,53 @@ footer{
   .jobs26-gallery-note{font-size:8px;line-height:1.5}
 }
 </style>
+<style id="jobs26-manifesto-open-treatment">
+/* Replace the framed hero card with an open editorial statement. */
+.jobs26-hero .jobs26-manifesto{
+  position:relative !important;
+  min-height:0 !important;
+  padding:14px 0 14px 30px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  justify-content:center !important;
+  gap:26px !important;
+}
+.jobs26-hero .jobs26-manifesto::before{
+  content:"" !important;
+  position:absolute !important;
+  top:8% !important;
+  bottom:8% !important;
+  left:0 !important;
+  width:1px !important;
+  background:linear-gradient(180deg,transparent,rgba(142,163,255,.75) 22%,rgba(142,163,255,.75) 78%,transparent) !important;
+}
+.jobs26-hero .jobs26-manifesto>span{
+  color:#AFC0FF !important;
+}
+.jobs26-hero .jobs26-manifesto>strong{
+  max-width:460px !important;
+  color:#F5F7FF !important;
+  font-size:clamp(34px,3.25vw,46px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.045em !important;
+  font-weight:350 !important;
+}
+.jobs26-hero .jobs26-manifesto>p{
+  max-width:350px !important;
+  color:#B4BFDA !important;
+}
+@media(max-width:760px){
+  .jobs26-hero .jobs26-manifesto{
+    margin-top:20px !important;
+    padding:12px 0 12px 20px !important;
+    gap:18px !important;
+  }
+  .jobs26-hero .jobs26-manifesto>strong{
+    max-width:420px !important;
+    font-size:clamp(30px,8vw,38px) !important;
+  }
+}
+</style>
 </body>
 </html>
