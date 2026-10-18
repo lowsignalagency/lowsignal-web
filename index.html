@@ -7820,11 +7820,13 @@ footer .footer-container{
 
 
 <style id="home-v143-insights-gutter-fix">
-/* Keep the Insights heading and cards inside the same container gutters. */
+/* Keep Insights on the same centered, compact content width as the rest of the site. */
 .home26-insights .container{
-  width:min(var(--container),calc(100% - 64px)) !important;
-  max-width:100% !important;
+  width:calc(100% - 64px) !important;
+  max-width:1200px !important;
   min-width:0 !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
 }
 .home26-insights-head{
   grid-template-columns:minmax(0,1fr) auto !important;
@@ -7856,6 +7858,9 @@ footer .footer-container{
   }
 }
 @media(max-width:620px){
+  .home26-insights .container{
+    width:calc(100% - 40px) !important;
+  }
   .home26-insights-head{
     grid-template-columns:minmax(0,1fr) !important;
   }
