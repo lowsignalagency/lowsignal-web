@@ -9478,5 +9478,54 @@ footer{
   }
 }
 </style>
+<style id="jobs26-role-card-interaction">
+.jobs26-role-card{
+  position:relative !important;
+  overflow:hidden !important;
+  cursor:pointer !important;
+  transition:transform .24s ease,border-color .24s ease,background-color .24s ease,box-shadow .24s ease !important;
+}
+.jobs26-role-card::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  background:linear-gradient(180deg,#AFC0FF,#4058FF) !important;
+  opacity:0 !important;
+  transform:scaleY(.45) !important;
+  transform-origin:center !important;
+  transition:opacity .24s ease,transform .24s ease !important;
+}
+.jobs26-role-card:hover,
+.jobs26-role-card:focus-visible{
+  transform:translateY(-4px) !important;
+  border-color:rgba(142,163,255,.58) !important;
+  background:rgba(20,25,224,.10) !important;
+  box-shadow:0 18px 46px rgba(0,0,0,.22),0 0 0 1px rgba(142,163,255,.08) !important;
+}
+.jobs26-role-card:hover::after,
+.jobs26-role-card:focus-visible::after{
+  opacity:1 !important;
+  transform:scaleY(1) !important;
+}
+.jobs26-role-link b{
+  display:inline-block !important;
+  transition:transform .24s ease,color .24s ease !important;
+}
+.jobs26-role-card:hover .jobs26-role-link b,
+.jobs26-role-card:focus-visible .jobs26-role-link b{
+  transform:translate(3px,-3px) !important;
+  color:#D2DCFF !important;
+}
+.jobs26-role-card:focus-visible{
+  outline:2px solid #AFC0FF !important;
+  outline-offset:4px !important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jobs26-role-card,
+  .jobs26-role-card::after,
+  .jobs26-role-link b{transition:none !important}
+}
+</style>
 </body>
 </html>
