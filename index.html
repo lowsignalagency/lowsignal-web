@@ -8444,6 +8444,11 @@ footer .footer-container{
         </div>
       </a>
     </div>
+
+    <div class="lsr-cases-footer">
+      <p>Proyectos y alianzas construidas junto a clientes de distintas industrias.</p>
+      <a href="https://lowsignal.cl/casos">Ver más historias <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -12919,6 +12924,142 @@ document.addEventListener('DOMContentLoaded', () => {
   .home26-person img[src*="karina-csd.jpg"]{
     object-position:center 90% !important;
   }
+}
+</style>
+
+
+<style id="lowsignal-customer-stories-editorial">
+/* Customer Stories: editorial two-card layout inspired by the supplied reference. */
+.lsr-cases{
+  padding:88px 0 72px !important;
+  background:#07090D !important;
+  color:#F6F7FB !important;
+}
+.lsr-cases .lsr-eyebrow{color:#8AA4FF !important}
+.lsr-cases-head{margin-bottom:34px !important}
+.lsr-cases-head h2{color:#F7F8FC !important}
+.lsr-cases-head h2 strong{color:#8AA4FF !important}
+.lsr-cases-nav{display:none !important}
+.lsr-cases-track{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.9fr) minmax(290px,1fr) !important;
+  gap:14px !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+.lsr-cases-track > .lsr-case-card:nth-child(n+3){display:none !important}
+.lsr-cases-track > .lsr-case-card{
+  min-width:0 !important;
+  min-height:420px !important;
+  max-height:none !important;
+  padding:30px 32px 24px !important;
+  border:0 !important;
+  border-radius:14px !important;
+  box-shadow:none !important;
+  transform:none !important;
+  scroll-snap-align:none !important;
+}
+.lsr-cases-track > .lsr-case-card:first-child{
+  background:linear-gradient(135deg,#DCEBFF 0%,#E8E5FF 100%) !important;
+}
+.lsr-cases-track > .lsr-case-card:nth-child(2){
+  background:#E5F522 !important;
+}
+.lsr-case-top img{max-width:210px !important}
+.lsr-case-top span{color:rgba(7,16,34,.48) !important;font-size:10px !important}
+.lsr-case-quote{display:none !important}
+.lsr-cases-track > .lsr-case-card blockquote{
+  margin:38px 0 30px !important;
+  max-width:740px !important;
+  color:#0B1221 !important;
+  font-size:clamp(25px,2.35vw,38px) !important;
+  line-height:1.17 !important;
+  letter-spacing:-.045em !important;
+  font-weight:400 !important;
+  -webkit-line-clamp:5 !important;
+}
+.lsr-cases-track > .lsr-case-card:nth-child(2) blockquote{
+  font-size:clamp(22px,1.9vw,30px) !important;
+}
+.lsr-case-bottom{
+  border-top-color:rgba(7,16,34,.14) !important;
+  padding-top:16px !important;
+}
+.lsr-case-person img{
+  width:50px !important;
+  height:50px !important;
+}
+.lsr-case-person b{color:#071022 !important;font-size:14px !important}
+.lsr-case-person span{color:rgba(7,16,34,.62) !important;font-size:11px !important}
+.lsr-case-link{color:#1419E0 !important;font-size:12px !important}
+.lsr-cases-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  margin-top:26px;
+}
+.lsr-cases-footer p{
+  margin:0;
+  color:#8B909B;
+  font-size:14px;
+  line-height:1.55;
+}
+.lsr-cases-footer a{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  min-height:46px;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  color:#F7F8FC;
+  font-size:13px;
+  font-weight:600;
+  transition:background .2s ease,border-color .2s ease,color .2s ease;
+}
+.lsr-cases-footer a:hover{
+  background:#fff;
+  color:#071022;
+  border-color:#fff;
+}
+.lsr-cases-footer a span{font-size:17px;line-height:1}
+.lsr-tech-partners{background:#07090D !important}
+.lsr-tech-head{border-top-color:rgba(255,255,255,.13) !important}
+@media(max-width:760px){
+  .lsr-cases{padding:64px 0 52px !important}
+  .lsr-cases-head{margin-bottom:24px !important}
+  .lsr-cases-head h2{font-size:clamp(34px,8vw,46px) !important}
+  .lsr-cases-track{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  .lsr-cases-track > .lsr-case-card{
+    min-height:350px !important;
+    padding:24px 22px 20px !important;
+  }
+  .lsr-cases-track > .lsr-case-card blockquote{
+    margin:30px 0 24px !important;
+    font-size:clamp(24px,6vw,32px) !important;
+  }
+  .lsr-cases-track > .lsr-case-card:nth-child(2) blockquote{
+    font-size:clamp(22px,5.5vw,29px) !important;
+  }
+  .lsr-case-person img{width:44px !important;height:44px !important}
+  .lsr-case-bottom{gap:10px !important}
+  .lsr-case-link{font-size:11px !important}
+  .lsr-cases-footer{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:16px;
+    margin-top:20px;
+  }
+}
+@media(max-width:390px){
+  .lsr-cases-track > .lsr-case-card{padding:22px 18px 18px !important}
+  .lsr-case-person{gap:10px !important}
+  .lsr-case-person span{font-size:10px !important}
+  .lsr-case-link{white-space:normal !important;text-align:right}
 }
 </style>
 
