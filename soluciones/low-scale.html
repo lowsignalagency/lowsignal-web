@@ -3746,20 +3746,24 @@ footer .footer-container{
 
   <section class="solution-testimonial scale-testimonial">
     <div class="container solution-testimonial-grid">
-      <div>
+      <div class="solution-testimonial-copy">
         <p class="solution-eyebrow">LO QUE DICEN NUESTROS CLIENTES</p>
         <div class="solution-quote-mark">“</div>
         <blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote>
       </div>
 
-      <div class="solution-testimonial-side">
-        <div class="solution-person">
+      <div class="solution-testimonial-bottom">
+        <div class="solution-testimonial-brand">
+          <img class="solution-client-logo" src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez">
+          <div class="solution-person">
           <img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz">
           <div><b>Nicolás Muñoz</b><span>Director Ejecutivo, Red Educacional Camilo Henríquez</span></div>
         </div>
-        <img class="solution-client-logo" src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez">
-        <p>Contenido, campañas y experiencia web para una red de colegios.</p>
-        <a href="https://lowsignal.cl/casos/rech">Ver este caso <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="solution-testimonial-actions">
+          <p>Contenido, campañas y experiencia web para una red de colegios.</p>
+          <a href="https://lowsignal.cl/casos/rech">Ver este caso <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </div>
     <div class="solution-testimonial-more"><a href="https://lowsignal.cl/casos">Ver más Customer Stories <span aria-hidden="true">→</span></a></div>
@@ -9550,60 +9554,99 @@ body footer .footer-bottom{
 </script>
 
 
+
+
+
 <style id="solution-customer-story-home-style">
-/* Customer story card aligned with the homepage visual system. */
+/* Compact testimonial card aligned with the homepage customer stories. */
 .solution-testimonial{
-  padding:76px 0 82px !important;
+  padding:72px 0 78px !important;
   background:#070F22 !important;
 }
-.solution-testimonial:before{opacity:.52 !important}
+.solution-testimonial:before{opacity:.42 !important}
 .solution-testimonial-grid{
-  grid-template-columns:minmax(0,1.45fr) minmax(260px,.75fr) !important;
-  gap:44px !important;
-  align-items:center !important;
-  padding:34px 38px !important;
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:26px !important;
+  align-items:stretch !important;
+  padding:34px 38px 26px !important;
   border:0 !important;
   border-radius:18px !important;
   background:linear-gradient(135deg,#EEF3FF 0%,#DCE6FF 100%) !important;
 }
+.solution-testimonial-copy{max-width:900px !important}
 .solution-testimonial .solution-eyebrow{
+  margin:0 0 14px !important;
   color:#1419E0 !important;
 }
 .solution-quote-mark{display:none !important}
 .solution-testimonial blockquote{
+  max-width:900px !important;
   margin:0 !important;
   color:#071022 !important;
-  font-size:clamp(25px,2.45vw,36px) !important;
-  line-height:1.2 !important;
+  font-size:clamp(24px,2.05vw,31px) !important;
+  line-height:1.23 !important;
   letter-spacing:-.05em !important;
   font-weight:400 !important;
 }
 .solution-testimonial blockquote strong{color:#1419E0 !important;font-weight:600 !important}
-.solution-testimonial-side{
-  padding:0 !important;
-  border:0 !important;
-  border-radius:0 !important;
-  background:transparent !important;
+.solution-testimonial-bottom{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:30px !important;
+  padding-top:20px !important;
+  border-top:1px solid rgba(7,16,34,.13) !important;
 }
-.solution-person{gap:12px !important}
-.solution-person img{width:52px !important;height:52px !important}
-.solution-person b{color:#071022 !important;font-size:14px !important}
-.solution-person span{color:#65738F !important;font-size:11px !important}
-.solution-client-logo{
-  max-width:210px !important;
-  height:42px !important;
-  margin-top:22px !important;
+.solution-testimonial-brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:18px !important;
+  min-width:0 !important;
+}
+.solution-testimonial-brand .solution-client-logo{
+  flex:0 0 auto !important;
+  width:auto !important;
+  max-width:132px !important;
+  height:38px !important;
+  margin:0 !important;
+  padding-right:18px !important;
+  border-right:1px solid rgba(7,16,34,.14) !important;
   filter:brightness(0) saturate(100%) invert(9%) sepia(18%) saturate(1861%) hue-rotate(185deg) brightness(94%) contrast(96%) !important;
 }
-.solution-testimonial-side>p{
-  color:#65738F !important;
-  font-size:12px !important;
+.solution-testimonial-brand .solution-person{
+  display:flex !important;
+  align-items:center !important;
+  gap:11px !important;
 }
-.solution-testimonial-side>a{
+.solution-testimonial-brand .solution-person img{
+  width:48px !important;
+  height:48px !important;
+  flex:0 0 48px !important;
+}
+.solution-testimonial-brand .solution-person b{color:#071022 !important;font-size:13px !important}
+.solution-testimonial-brand .solution-person span{color:#65738F !important;font-size:10px !important}
+.solution-testimonial-actions{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-end !important;
+  gap:12px !important;
+  max-width:260px !important;
+  flex:0 0 auto !important;
+}
+.solution-testimonial-actions>p{
+  margin:0 !important;
+  color:#65738F !important;
+  font-size:11px !important;
+  line-height:1.45 !important;
+  text-align:right !important;
+}
+.solution-testimonial-actions>a{
   display:inline-flex !important;
   align-items:center !important;
+  justify-content:center !important;
   gap:9px !important;
-  margin-top:16px !important;
+  margin:0 !important;
   padding:11px 16px !important;
   border:1px solid #1419E0 !important;
   border-radius:999px !important;
@@ -9611,52 +9654,69 @@ body footer .footer-bottom{
   color:#FFFFFF !important;
   font-size:12px !important;
   font-weight:600 !important;
+  white-space:nowrap !important;
 }
-.solution-testimonial-side>a:hover{background:#144AE0 !important;border-color:#144AE0 !important}
-.solution-testimonial-side>a span{font-size:15px !important;line-height:1 !important}
+.solution-testimonial-actions>a:hover{background:#144AE0 !important;border-color:#144AE0 !important}
+.solution-testimonial-actions>a span{font-size:15px !important;line-height:1 !important}
 .solution-testimonial-more{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:18px;
+  display:flex !important;
+  justify-content:flex-end !important;
+  margin-top:17px !important;
+  padding-right:38px !important;
 }
 .solution-testimonial-more a{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:#BFCBFF;
-  font-size:13px;
-  font-weight:600;
-  transition:color .2s ease,transform .2s ease;
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  color:#BFCBFF !important;
+  font-size:12px !important;
+  font-weight:600 !important;
+  transition:color .2s ease,transform .2s ease !important;
 }
-.solution-testimonial-more a:hover{color:#FFFFFF;transform:translateX(3px)}
-.solution-testimonial-more a span{font-size:17px;line-height:1}
+.solution-testimonial-more a:hover{color:#FFFFFF !important;transform:translateX(3px)}
+.solution-testimonial-more a span{font-size:16px !important;line-height:1 !important}
 @media(max-width:760px){
-  .solution-testimonial{padding:54px 0 58px !important}
+  .solution-testimonial{padding:52px 0 56px !important}
   .solution-testimonial-grid{
-    grid-template-columns:1fr !important;
-    gap:24px !important;
-    padding:24px 22px !important;
+    gap:22px !important;
+    padding:24px 22px 20px !important;
   }
   .solution-testimonial blockquote{
-    font-size:clamp(23px,5.6vw,29px) !important;
-    line-height:1.24 !important;
+    font-size:clamp(22px,5.2vw,28px) !important;
+    line-height:1.26 !important;
   }
-  .solution-testimonial-side{
-    display:grid !important;
-    grid-template-columns:minmax(0,1fr) auto !important;
-    gap:12px 16px !important;
-    align-items:center !important;
+  .solution-testimonial-bottom{
+    align-items:flex-start !important;
+    flex-direction:column !important;
+    gap:18px !important;
   }
-  .solution-person{grid-column:1/-1 !important}
-  .solution-client-logo{margin-top:4px !important;max-width:150px !important;height:34px !important}
-  .solution-testimonial-side>p{grid-column:1/-1 !important;margin:0 !important}
-  .solution-testimonial-side>a{grid-column:1/-1 !important;justify-self:start !important;margin-top:2px !important}
-  .solution-testimonial-more{justify-content:flex-start;margin-top:16px}
+  .solution-testimonial-brand{gap:12px !important;width:100% !important}
+  .solution-testimonial-brand .solution-client-logo{
+    max-width:106px !important;
+    height:32px !important;
+    padding-right:12px !important;
+  }
+  .solution-testimonial-brand .solution-person{gap:9px !important}
+  .solution-testimonial-brand .solution-person img{
+    width:42px !important;height:42px !important;flex-basis:42px !important;
+  }
+  .solution-testimonial-brand .solution-person b{font-size:12px !important}
+  .solution-testimonial-brand .solution-person span{font-size:9px !important}
+  .solution-testimonial-actions{
+    align-items:flex-start !important;
+    max-width:none !important;
+    width:100% !important;
+    gap:11px !important;
+  }
+  .solution-testimonial-actions>p{text-align:left !important}
+  .solution-testimonial-more{justify-content:flex-start !important;padding:0 22px !important}
 }
 @media(max-width:390px){
-  .solution-testimonial-grid{padding:22px 18px !important}
+  .solution-testimonial-grid{padding:21px 17px 18px !important}
+  .solution-testimonial-brand .solution-client-logo{max-width:88px !important}
+  .solution-testimonial-brand .solution-person span{max-width:145px !important}
+  .solution-testimonial-more{padding:0 17px !important}
 }
 </style>
-
 </body>
 </html>
