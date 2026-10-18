@@ -12932,7 +12932,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Customer Stories: editorial two-card layout inspired by the supplied reference. */
 .lsr-cases{
   padding:88px 0 72px !important;
-  background:#07090D !important;
+  background:#070F22 !important;
   color:#F6F7FB !important;
 }
 .lsr-cases .lsr-eyebrow{color:#8AA4FF !important}
@@ -12960,12 +12960,15 @@ document.addEventListener('DOMContentLoaded', () => {
   scroll-snap-align:none !important;
 }
 .lsr-cases-track > .lsr-case-card:first-child{
-  background:linear-gradient(135deg,#DCEBFF 0%,#E8E5FF 100%) !important;
+  background:linear-gradient(135deg,#EEF3FF 0%,#DCE6FF 100%) !important;
 }
 .lsr-cases-track > .lsr-case-card:nth-child(2){
-  background:#E5F522 !important;
+  background:linear-gradient(135deg,#1419E0 0%,#144AE0 100%) !important;
 }
 .lsr-case-top img{max-width:210px !important}
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-logo-fcct{
+  filter:brightness(0) invert(1) !important;
+}
 .lsr-case-top span{color:rgba(7,16,34,.48) !important;font-size:10px !important}
 .lsr-case-quote{display:none !important}
 .lsr-cases-track > .lsr-case-card blockquote{
@@ -12979,7 +12982,17 @@ document.addEventListener('DOMContentLoaded', () => {
   -webkit-line-clamp:5 !important;
 }
 .lsr-cases-track > .lsr-case-card:nth-child(2) blockquote{
+  color:#FFFFFF !important;
   font-size:clamp(22px,1.9vw,30px) !important;
+}
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-top span,
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-person b,
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-person span{
+  color:rgba(255,255,255,.82) !important;
+}
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-link{color:#FFFFFF !important}
+.lsr-cases-track > .lsr-case-card:nth-child(2) .lsr-case-bottom{
+  border-top-color:rgba(255,255,255,.24) !important;
 }
 .lsr-case-bottom{
   border-top-color:rgba(7,16,34,.14) !important;
@@ -13024,7 +13037,7 @@ document.addEventListener('DOMContentLoaded', () => {
   border-color:#fff;
 }
 .lsr-cases-footer a span{font-size:17px;line-height:1}
-.lsr-tech-partners{background:#07090D !important}
+.lsr-tech-partners{background:#070F22 !important}
 .lsr-tech-head{border-top-color:rgba(255,255,255,.13) !important}
 @media(max-width:760px){
   .lsr-cases{padding:64px 0 52px !important}
