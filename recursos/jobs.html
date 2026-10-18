@@ -1657,6 +1657,145 @@ main#top .container{
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+<style id="jobs26-origin-timeline">
+.jobs26-timeline{
+  position:relative;
+  overflow:hidden;
+  padding:88px 0 82px;
+  color:#F5F7FF;
+  background:
+    radial-gradient(55% 90% at 100% 15%,rgba(20,25,224,.15),transparent 70%),
+    #071022;
+  border-top:1px solid rgba(138,164,255,.12);
+  border-bottom:1px solid rgba(138,164,255,.12);
+}
+.jobs26-timeline-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(250px,.52fr);
+  column-gap:48px;
+  align-items:end;
+}
+.jobs26-timeline-head .jobs26-eyebrow{
+  grid-column:1/-1;
+  margin:0 0 16px;
+  color:#AFC0FF;
+}
+.jobs26-timeline-head h2{
+  max-width:680px;
+  margin:0;
+  color:#F5F7FF;
+  font-size:clamp(36px,4vw,54px);
+  line-height:1.04;
+  letter-spacing:-.045em;
+  font-weight:300;
+}
+.jobs26-timeline-head h2 strong{color:#9DB0FF;font-weight:650}
+.jobs26-timeline-head>p:last-child{
+  max-width:370px;
+  margin:0 0 4px;
+  color:#B4BFDA;
+  font-size:13px;
+  line-height:1.7;
+}
+.jobs26-timeline-viewport{margin-top:54px}
+.jobs26-timeline-track{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:26px;
+}
+.jobs26-timeline-track::before{
+  content:"";
+  position:absolute;
+  top:6px;
+  left:6px;
+  right:6px;
+  height:1px;
+  background:linear-gradient(90deg,#5269FF,rgba(138,164,255,.22));
+}
+.jobs26-timeline-item{
+  position:relative;
+  min-width:0;
+  padding-top:28px;
+}
+.jobs26-timeline-item::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  width:13px;
+  height:13px;
+  border:3px solid #071022;
+  border-radius:50%;
+  background:#8EA3FF;
+  box-shadow:0 0 0 1px rgba(142,163,255,.65);
+}
+.jobs26-timeline-date{
+  display:block;
+  margin-bottom:14px;
+  color:#AFC0FF;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.13em;
+}
+.jobs26-timeline-item h3{
+  margin:0;
+  color:#F5F7FF;
+  font-size:19px;
+  line-height:1.25;
+  letter-spacing:-.025em;
+}
+.jobs26-timeline-item p{
+  max-width:250px;
+  margin:10px 0 0;
+  color:#AEBBD6;
+  font-size:12px;
+  line-height:1.65;
+}
+.jobs26-timeline-next h3{color:#AFC0FF}
+.jobs26-timeline-hint{display:none}
+@media(max-width:980px){
+  .jobs26-timeline-head{grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);column-gap:28px}
+  .jobs26-timeline-viewport{
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(142,163,255,.45) transparent;
+    padding-bottom:12px;
+  }
+  .jobs26-timeline-track{
+    display:flex;
+    width:max-content;
+    min-width:100%;
+    gap:0;
+  }
+  .jobs26-timeline-track::before{right:0}
+  .jobs26-timeline-item{flex:0 0 250px;padding-right:24px}
+  .jobs26-timeline-item p{max-width:220px}
+  .jobs26-timeline-hint{
+    display:block;
+    margin:8px 0 0;
+    color:#8795B5;
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.14em;
+  }
+  .jobs26-timeline-hint span{color:#AFC0FF}
+}
+@media(max-width:620px){
+  .jobs26-timeline{padding:68px 0 64px}
+  .jobs26-timeline-head{grid-template-columns:minmax(0,1fr);gap:0}
+  .jobs26-timeline-head .jobs26-eyebrow{margin-bottom:14px}
+  .jobs26-timeline-head h2{font-size:35px}
+  .jobs26-timeline-head>p:last-child{margin-top:16px;font-size:12px}
+  .jobs26-timeline-viewport{margin-top:38px}
+  .jobs26-timeline-item{flex-basis:230px;padding-right:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .jobs26-timeline-viewport{scroll-behavior:auto}
+}
+</style>
 </head>
 <body>
 
@@ -2015,6 +2154,42 @@ main#top .container{
         </div>
       </div>
       <div class="jobs26-gallery-note"><span></span> GENTE REAL. TRABAJO CON PROPÓSITO. CRECIMIENTO COMPARTIDO.</div>
+    </div>
+  </section>
+
+  <section class="jobs26-timeline" id="historia" aria-labelledby="jobs26-timeline-title">
+    <div class="container">
+      <div class="jobs26-timeline-head">
+        <p class="jobs26-eyebrow">NUESTRA HISTORIA</p>
+        <h2 id="jobs26-timeline-title">De una conversación a<br><strong>todo lo que viene.</strong></h2>
+        <p>Una idea que empezó en una mesa y sigue creciendo con cada proyecto, cada persona y cada desafío.</p>
+      </div>
+
+      <div class="jobs26-timeline-viewport" aria-label="Línea de tiempo de lowsignal">
+        <div class="jobs26-timeline-track">
+          <article class="jobs26-timeline-item">
+            <span class="jobs26-timeline-date">2025 · EL INICIO</span>
+            <h3>Una idea en Birra Bar</h3>
+            <p>Ahí nació lowsignal: la decisión de construir una Growth Company desde Chile.</p>
+          </article>
+          <article class="jobs26-timeline-item">
+            <span class="jobs26-timeline-date">2025–26 · EN MOVIMIENTO</span>
+            <h3>La idea se vuelve trabajo</h3>
+            <p>Empezamos a construir junto a organizaciones, empresas y marcas con desafíos reales de crecimiento.</p>
+          </article>
+          <article class="jobs26-timeline-item">
+            <span class="jobs26-timeline-date">2026 · MÁS CLARIDAD</span>
+            <h3>Tres industrias, un sistema</h3>
+            <p>Ordenamos nuestra propuesta para Education, B2B y B2C, con seis soluciones conectadas.</p>
+          </article>
+          <article class="jobs26-timeline-item jobs26-timeline-next">
+            <span class="jobs26-timeline-date">LO QUE VIENE</span>
+            <h3>Build what's next.</h3>
+            <p>Sumar talento, resolver nuevos desafíos y construir más crecimiento junto a nuestros clientes.</p>
+          </article>
+        </div>
+      </div>
+      <p class="jobs26-timeline-hint">DESLIZA PARA RECORRER <span aria-hidden="true">→</span></p>
     </div>
   </section>
 
