@@ -3794,7 +3794,7 @@ footer .footer-container{
       <div class="b2b-solution-grid">
         <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-social">
           <span>01</span>
-          <small class="b2b-solution-kicker">LOW SOCIAL</small>
+          
           <h3>Social Media</h3>
           <p>Construimos autoridad con mensajes, contenido y presencia que ayudan a explicar por qué elegirte.</p>
           <div class="b2b-solution-footer">
@@ -3804,7 +3804,7 @@ footer .footer-container{
         </a>
         <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-ads">
           <span>02</span>
-          <small class="b2b-solution-kicker">LOW ADS</small>
+          
           <h3>Paid Media</h3>
           <p>Campañas en LinkedIn, Google y Meta para llegar a decisores y abrir nuevas conversaciones.</p>
           <div class="b2b-solution-footer">
@@ -3814,7 +3814,7 @@ footer .footer-container{
         </a>
         <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-web">
           <span>03</span>
-          <small class="b2b-solution-kicker">LOW WEB</small>
+          
           <h3>Web Development</h3>
           <p>Sitios que ordenan la propuesta, muestran prueba y convierten visitas en reuniones.</p>
           <div class="b2b-solution-footer">
@@ -3824,10 +3824,14 @@ footer .footer-container{
         </a>
         <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-flow">
           <span>04</span>
-          <small class="b2b-solution-kicker">LOW FLOW</small>
+          
           <h3>Automatización e IA</h3>
           <p>Flujos, seguimiento e IA para que cada señal llegue al equipo correcto y avance.</p>
           <div class="b2b-solution-footer">
+            <small>LOW FLOW</small>
+            <small>LOW WEB</small>
+            <small>LOW ADS</small>
+            <small>LOW SOCIAL</small>
             
             <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
           </div>
@@ -10404,6 +10408,56 @@ body footer .footer-bottom{
   .b2b-solution-grid h3,
   .b2b-solution-grid>.b2b-solution-card h3{margin-top:12px !important}
   .b2b-solution-footer{margin-top:16px;padding-top:0}
+}
+</style>
+
+
+<style id="industry-b2b-restore-workflow-format">
+.b2b-solution-grid>.b2b-solution-card>span:first-child{
+  position:relative;
+  z-index:1;
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid #C9D4F2;
+  border-radius:50%;
+  background:#fff;
+  color:#1419E0;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.b2b-solution-grid>.b2b-solution-card h3{margin:24px 0 0}
+.b2b-solution-grid>.b2b-solution-card .b2b-solution-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:22px;
+  padding-top:14px;
+  border-top:1px solid #E3E8F3;
+}
+.b2b-solution-grid>.b2b-solution-card .b2b-solution-footer small{
+  color:#5365D9;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.16em;
+}
+@media(max-width:760px){
+  .b2b-solution-grid>.b2b-solution-card>span:first-child{
+    position:absolute;
+    left:0;
+    top:20px;
+    width:38px;
+    height:38px;
+  }
+  .b2b-solution-grid>.b2b-solution-card:first-child>span:first-child{top:8px}
+  .b2b-solution-grid>.b2b-solution-card h3{margin:0 !important}
+  .b2b-solution-grid>.b2b-solution-card .b2b-solution-footer{
+    margin-top:16px;
+    padding-top:12px;
+  }
 }
 </style>
 
