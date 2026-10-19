@@ -3408,6 +3408,26 @@ footer .footer-container{
   .b2c-new-hero h1{max-width:100% !important;}
 }
 </style>
+<style id="low-b2c-faq-v1">
+.ls-social-faq{padding:78px 0 84px;background:#EEF3FF}
+.ls-social-faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
+.ls-social-faq-label{margin:0 0 14px;color:#1419E0;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.2}
+.ls-social-faq-heading h2{max-width:340px;margin:0;color:#071022;font-size:clamp(26px,2.3vw,32px);font-weight:400;line-height:1.18;letter-spacing:-.045em}
+.ls-social-faq-heading p:not(.ls-social-faq-label){max-width:310px;margin:11px 0 0;color:#65738F;font-size:12px;line-height:1.55}
+.ls-social-faq-list{border-top:1px solid #D4DDF0}
+.ls-social-faq-item{border-bottom:1px solid #D4DDF0}
+.ls-social-faq-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}
+.ls-social-faq-item summary::-webkit-details-marker{display:none}
+.ls-social-faq-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
+.ls-social-faq-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
+.ls-social-faq-icon::before,.ls-social-faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
+.ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.ls-social-faq-item[open] .ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.ls-social-faq-answer{padding:0 34px 18px 0}
+.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
+@media(max-width:760px){.ls-social-faq{padding:62px 0 68px}.ls-social-faq-grid{grid-template-columns:1fr;gap:26px}.ls-social-faq-label{margin-bottom:10px}.ls-social-faq-heading h2{max-width:330px;font-size:29px}.ls-social-faq-heading p:not(.ls-social-faq-label){margin-top:8px;font-size:12px}.ls-social-faq-item summary{min-height:54px;font-size:13px}.ls-social-faq-answer{padding-right:24px}}
+@media(prefers-reduced-motion:reduce){.ls-social-faq-icon::before,.ls-social-faq-icon::after{transition:none}}
+</style>
 </head>
 <body>
 
@@ -3883,6 +3903,25 @@ footer .footer-container{
     </div>
   </section>
 
+  <section class="ls-social-faq" aria-labelledby="b2c-faq-title">
+    <div class="ls-social-shell ls-social-faq-grid">
+      <div class="ls-social-faq-heading">
+        <p class="ls-social-faq-label">FAQS</p>
+        <h2 id="b2c-faq-title">Encuentra respuestas<br>a tus preguntas</h2>
+        <p>Todo lo que necesitas saber sobre lowsignal for B2C.</p>
+      </div>
+      <div class="ls-social-faq-list">
+        <details class="ls-social-faq-item"><summary>¿Qué es lowsignal for B2C?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Es un sistema de growth para marcas de consumo que conecta estrategia, contenido, campañas y experiencia digital para fortalecer su presencia y apoyar sus objetivos comerciales.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Con qué tipo de marcas trabajan?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Trabajamos con marcas de retail, gastronomía, hotelería, lifestyle y otros negocios que buscan conectar mejor con sus clientes y crecer en canales digitales.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Pueden ayudar a aumentar las ventas?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Diseñamos iniciativas para atraer y convertir clientes, combinando contenido, campañas y puntos de contacto digitales de acuerdo con el producto, la audiencia y los objetivos de cada marca.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Pueden gestionar redes sociales y campañas pagadas?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Podemos conectar la estrategia y creación de contenido para redes sociales con campañas de paid media, midiendo su aporte a los objetivos definidos.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Cómo se miden los resultados?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Definimos indicadores según el desafío: alcance, interacción, tráfico, consultas, ventas u otras métricas disponibles para evaluar cada iniciativa.</p></div></details>
+      </div>
+    </div>
+  </section>
+  <script id="low-b2c-faq-controller-v1">
+  (function(){var section=document.querySelector('.ls-social-faq[aria-labelledby="b2c-faq-title"]');if(!section)return;var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});})();
+  </script>
   <section class="lsr-band">
     <div class="lsr-wrap lsr-band-inner">
       <p class="lsr-reveal">¿Construimos lo que viene?</p>
