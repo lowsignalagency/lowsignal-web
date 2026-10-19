@@ -3936,7 +3936,9 @@ footer .footer-container{
               <span>Samuel</span>
             </div>
             <div class="ins-v4-member">
-              <img src="https://lowsignal.cl/assets/pablo-embajador.png" alt="Pablo" loading="lazy">
+              <span class="ins-v4-avatar-zoom">
+                <img src="https://lowsignal.cl/assets/pablo-embajador.png" alt="Pablo" loading="lazy">
+              </span>
               <span>Pablo</span>
             </div>
           </div>
@@ -10123,6 +10125,24 @@ body footer .footer-bottom{
   gap:8px!important;
   width:max-content!important;
   flex:0 0 auto!important;
+}
+</style>
+
+<style id="insiders-pablo-avatar-crop">
+.ins-v4-people .ins-v4-avatar-zoom{
+  display:block;width:60px;height:60px;flex:0 0 60px;
+  overflow:hidden;border:2px solid rgba(255,255,255,.72);border-radius:50%;
+  background:#30384D;
+}
+.ins-v4-people .ins-v4-avatar-zoom img{
+  display:block!important;width:100%!important;min-width:100%!important;max-width:none!important;
+  height:100%!important;min-height:100%!important;max-height:none!important;
+  aspect-ratio:auto!important;flex:none!important;object-fit:cover!important;
+  object-position:center 25%!important;border:0!important;border-radius:0!important;
+  clip-path:none!important;transform:scale(1.28)!important;
+}
+@media(max-width:760px){
+  .ins-v4-people .ins-v4-avatar-zoom{width:52px;height:52px;flex-basis:52px}
 }
 </style>
 </body>
