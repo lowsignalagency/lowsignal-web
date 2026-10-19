@@ -3749,6 +3749,11 @@ footer .footer-container{
           <a class="b2b-secondary" href="#planes-b2b">Ver planes</a>
         </div>
       </div>
+      <div class="b2b-client-logos" aria-label="Clientes B2B">
+        <img src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="hUB">
+        <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS">
+        <img src="https://lowsignal.cl/assets/ambitec-white.png" alt="Ambitec">
+      </div>
     </div>
   </section>
 
@@ -10190,6 +10195,39 @@ body footer .footer-bottom{
 }
 </style>
 
+
+
+<style id="industry-b2b-client-logos">
+.b2b-client-logos{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:58px;
+  margin-top:66px;
+  padding-top:27px;
+  border-top:1px solid rgba(138,164,255,.14);
+}
+.b2b-client-logos img{
+  width:auto;
+  height:32px;
+  max-width:150px;
+  object-fit:contain;
+  opacity:.88;
+}
+.b2b-client-logos img:first-child{height:35px}
+.b2b-client-logos img:last-child{height:29px}
+@media(max-width:760px){
+  .b2b-client-logos{
+    justify-content:space-between;
+    gap:20px;
+    margin-top:44px;
+    padding-top:22px;
+  }
+  .b2b-client-logos img{max-width:27%;height:25px}
+  .b2b-client-logos img:first-child{height:28px}
+  .b2b-client-logos img:last-child{height:23px}
+}
+</style>
 
 </body>
 </html>
