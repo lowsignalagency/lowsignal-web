@@ -3792,42 +3792,42 @@ footer .footer-container{
       <h2>Un sistema para atraer, convertir<br> <strong>y mover oportunidades.</strong></h2>
 
       <div class="b2b-solution-grid">
-        <article>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-social">
           <span>01</span>
           <h3>Social Media</h3>
           <p>Construimos autoridad con mensajes, contenido y presencia que ayudan a explicar por qué elegirte.</p>
           <div class="b2b-solution-footer">
             <small>LOW SOCIAL</small>
-            <a href="https://lowsignal.cl/soluciones/low-social">Ver solución <span>↗</span></a>
+            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
           </div>
-        </article>
-        <article>
+        </a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-ads">
           <span>02</span>
           <h3>Paid Media</h3>
           <p>Campañas en LinkedIn, Google y Meta para llegar a decisores y abrir nuevas conversaciones.</p>
           <div class="b2b-solution-footer">
             <small>LOW ADS</small>
-            <a href="https://lowsignal.cl/soluciones/low-ads">Ver solución <span>↗</span></a>
+            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
           </div>
-        </article>
-        <article>
+        </a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-web">
           <span>03</span>
           <h3>Web Development</h3>
           <p>Sitios que ordenan la propuesta, muestran prueba y convierten visitas en reuniones.</p>
           <div class="b2b-solution-footer">
             <small>LOW WEB</small>
-            <a href="https://lowsignal.cl/soluciones/low-web">Ver solución <span>↗</span></a>
+            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
           </div>
-        </article>
-        <article>
+        </a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-flow">
           <span>04</span>
           <h3>Automatización e IA</h3>
           <p>Flujos, seguimiento e IA para que cada señal llegue al equipo correcto y avance.</p>
           <div class="b2b-solution-footer">
             <small>LOW FLOW</small>
-            <a href="https://lowsignal.cl/soluciones/low-flow">Ver solución <span>↗</span></a>
+            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
           </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>
@@ -10328,6 +10328,49 @@ body footer .footer-bottom{
   .b2b-solution-grid h3{margin:0 !important;font-size:18px}
   .b2b-solution-footer{margin-top:16px;padding-top:12px}
   .b2b-solution-grid article:last-child{border-bottom:0}
+}
+</style>
+
+
+<style id="industry-b2b-solution-full-card-click">
+.b2b-solution-grid>.b2b-solution-card{
+  position:relative;
+  z-index:1;
+  display:block;
+  min-height:252px;
+  padding:0 24px 22px;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+.b2b-solution-grid>.b2b-solution-card:first-child{padding-left:0}
+.b2b-solution-grid>.b2b-solution-card:last-child{padding-right:0}
+.b2b-solution-card:hover{transform:translateY(-3px)}
+.b2b-solution-card:focus-visible{outline:2px solid #536BFF;outline-offset:5px;border-radius:4px}
+.b2b-solution-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#1419E0;
+  font-size:10px;
+  font-weight:700;
+}
+.b2b-solution-cta>span{transition:transform .2s ease}
+.b2b-solution-card:hover .b2b-solution-cta>span{transform:translate(2px,-2px)}
+@media(max-width:980px){
+  .b2b-solution-grid>.b2b-solution-card{min-height:240px}
+  .b2b-solution-grid>.b2b-solution-card:nth-child(odd){padding-left:0}
+  .b2b-solution-grid>.b2b-solution-card:nth-child(even){padding-right:0}
+}
+@media(max-width:760px){
+  .b2b-solution-grid>.b2b-solution-card{
+    min-height:0;
+    padding:22px 0 26px 58px !important;
+    border-bottom:1px solid #E3E8F3;
+  }
+  .b2b-solution-grid>.b2b-solution-card:first-child{padding-top:10px !important}
+  .b2b-solution-grid>.b2b-solution-card:last-child{border-bottom:0}
 }
 </style>
 
