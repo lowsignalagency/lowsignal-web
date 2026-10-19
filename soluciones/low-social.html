@@ -3319,6 +3319,27 @@ footer .footer-container{
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+
+<style id="low-social-faq-v1">
+.ls-social-faq{padding:88px 0 94px;background:#F5F7FB}
+.ls-social-faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
+.ls-social-faq-heading h2{max-width:390px;margin:0;color:#071022;font-size:clamp(30px,3.1vw,42px);font-weight:500;line-height:1.12;letter-spacing:-.055em}
+.ls-social-faq-heading p{max-width:310px;margin:13px 0 0;color:#65738F;font-size:13px;line-height:1.55}
+.ls-social-faq-list{border-top:1px solid #DCE2EC}
+.ls-social-faq-item{border-bottom:1px solid #DCE2EC}
+.ls-social-faq-item summary{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:15px 0;color:#111827;font-size:14px;font-weight:550;line-height:1.45;list-style:none;cursor:pointer}
+.ls-social-faq-item summary::-webkit-details-marker{display:none}
+.ls-social-faq-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
+.ls-social-faq-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
+.ls-social-faq-icon::before,.ls-social-faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
+.ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.ls-social-faq-item[open] .ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.ls-social-faq-answer{padding:0 34px 18px 0}
+.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
+@media(max-width:760px){.ls-social-faq{padding:66px 0 72px}.ls-social-faq-grid{grid-template-columns:1fr;gap:30px}.ls-social-faq-heading h2{font-size:32px}.ls-social-faq-heading p{margin-top:9px;font-size:12px}.ls-social-faq-item summary{min-height:58px;font-size:13px}.ls-social-faq-answer{padding-right:24px}}
+@media(prefers-reduced-motion:reduce){.ls-social-faq-icon::before,.ls-social-faq-icon::after{transition:none}}
+</style>
+
 </head>
 <body>
 
@@ -3803,7 +3824,25 @@ footer .footer-container{
       </div>
     </div>
   </section>
-<section class="lsr-band">
+  <section class="ls-social-faq" aria-labelledby="ls-social-faq-title">
+    <div class="ls-social-shell ls-social-faq-grid">
+      <div class="ls-social-faq-heading">
+        <h2 id="ls-social-faq-title">Encuentra respuestas<br>a tus preguntas</h2>
+        <p>Todo lo que necesitas saber sobre Low Social.</p>
+      </div>
+      <div class="ls-social-faq-list">
+        <details class="ls-social-faq-item"><summary>¿Qué incluye el servicio de Low Social?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Conectamos estrategia, planificación, diseño, producción y copywriting. También podemos incluir publicación, gestión de comunidad y análisis de resultados, según los objetivos y el alcance que definamos juntos.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Low Social se adapta a mi industria?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Trabajamos con organizaciones de educación, empresas B2B y marcas B2C. Adaptamos los contenidos al negocio, su audiencia y la forma en que cada marca necesita crecer.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Tengo que entregarles las fotos y los videos?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Podemos trabajar con material que ya tengas o planificar nuevas piezas gráficas y audiovisuales. Definimos el formato y la producción según la estrategia y los recursos de cada proyecto.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿También publican y gestionan las redes?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Podemos encargarnos de la publicación y la gestión de comunidad como parte del servicio. Acordamos esos canales y responsabilidades al definir el alcance mensual.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Cómo medimos si el contenido está funcionando?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Revisamos el desempeño de las piezas y los canales para reconocer qué genera interés, interacción o demanda. Con esos aprendizajes ajustamos la planificación del siguiente ciclo.</p></div></details>
+      </div>
+    </div>
+  </section>
+  <script id="low-social-faq-controller-v1">
+  (function(){document.querySelectorAll('.ls-social-faq').forEach(function(section){var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});});})();
+  </script>
+  <section class="lsr-band">
   <div class="lsr-wrap lsr-band-inner">
     <p class="lsr-reveal">¿Construimos lo que viene?</p>
     <a class="lsr-reveal" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
