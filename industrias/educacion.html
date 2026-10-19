@@ -326,6 +326,26 @@
   .edu-new-context{padding-top:62px !important;}
 }
 </style>
+<style id="low-education-faq-v1">
+.ls-social-faq{padding:78px 0 84px;background:#EEF3FF}
+.ls-social-faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
+.ls-social-faq-label{margin:0 0 14px;color:#1419E0;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.2}
+.ls-social-faq-heading h2{max-width:340px;margin:0;color:#071022;font-size:clamp(26px,2.3vw,32px);font-weight:400;line-height:1.18;letter-spacing:-.045em}
+.ls-social-faq-heading p:not(.ls-social-faq-label){max-width:310px;margin:11px 0 0;color:#65738F;font-size:12px;line-height:1.55}
+.ls-social-faq-list{border-top:1px solid #D4DDF0}
+.ls-social-faq-item{border-bottom:1px solid #D4DDF0}
+.ls-social-faq-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}
+.ls-social-faq-item summary::-webkit-details-marker{display:none}
+.ls-social-faq-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
+.ls-social-faq-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
+.ls-social-faq-icon::before,.ls-social-faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
+.ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.ls-social-faq-item[open] .ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.ls-social-faq-answer{padding:0 34px 18px 0}
+.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
+@media(max-width:760px){.ls-social-faq{padding:62px 0 68px}.ls-social-faq-grid{grid-template-columns:1fr;gap:26px}.ls-social-faq-label{margin-bottom:10px}.ls-social-faq-heading h2{max-width:330px;font-size:29px}.ls-social-faq-heading p:not(.ls-social-faq-label){margin-top:8px;font-size:12px}.ls-social-faq-item summary{min-height:54px;font-size:13px}.ls-social-faq-answer{padding-right:24px}}
+@media(prefers-reduced-motion:reduce){.ls-social-faq-icon::before,.ls-social-faq-icon::after{transition:none}}
+</style>
 </head>
 <body>
   <header class="lnav" aria-label="Navegación principal">
@@ -406,7 +426,26 @@
     <section class="edu-new-impact"><div class="ls-social-shell"><p class="edu-new-eyebrow">IMPACTO</p><h2><span class="edu-heading-desktop">La experiencia digital también<br><strong>forma parte del proyecto educativo.</strong></span><span class="edu-heading-mobile">La experiencia digital también <strong>forma parte del proyecto educativo.</strong></span></h2><div class="edu-new-impact-grid"><article><strong>5+</strong><span>Organizaciones</span><p>trabajando en crecimiento, admisión y experiencia digital.</p></article><article><strong>20+</strong><span>Proyectos</span><p>estrategias y soluciones diseñadas para mover resultados.</p></article><article><strong>100K+</strong><span>Familias alcanzadas</span><p>a través de campañas, plataformas y contenido digital.</p></article></div></div></section>
   <section class="edu-new-cases"><div class="ls-social-shell"><div class="edu-new-section-head"><div><p class="edu-new-eyebrow">CASOS</p><h2><span class="edu-heading-desktop">Comunidades que convierten<br><strong>presencia en confianza.</strong></span><span class="edu-heading-mobile">Comunidades que convierten <strong>presencia en confianza.</strong></span></h2></div><p>Instituciones distintas, con un mismo desafío: hacer que su propuesta educativa se entienda y se sienta antes del primer contacto.</p></div><div class="edu-new-case-grid"><a href="https://lowsignal.cl/casos/rech" class="edu-new-case-card"><img src="https://lowsignal.cl/assets/comunidad-rech.jpg" alt="Red Educacional Camilo Henríquez"><div class="edu-new-case-shade"></div><div class="edu-new-case-copy"><img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="RECH"><h3>Infraestructura digital para una red de comunidades educativas.</h3><b>Ver caso ↗</b></div></a><a href="https://lowsignal.cl/casos/san-jorge" class="edu-new-case-card"><img src="https://lowsignal.cl/assets/sanjorge-ninos.png" alt="Colegio San Jorge"><div class="edu-new-case-shade"></div><div class="edu-new-case-copy"><img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge"><h3>Una presencia digital que refleja la vida real del colegio.</h3><b>Ver caso ↗</b></div></a></div><div class="edu-new-testimonial"><div><span class="edu-new-quote-mark">“</span><blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote></div><div class="edu-new-person"><img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz"><div><b>Nicolás Muñoz</b><span>Director Ejecutivo, Red Educacional Camilo Henríquez</span></div></div></div></div></section>
 
-    <section class="lsr-band"><div class="lsr-band-inner"><p>¿Construimos lo que viene?</p><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a></div></section>
+    <section class="ls-social-faq" aria-labelledby="edu-faq-title">
+    <div class="ls-social-shell ls-social-faq-grid">
+      <div class="ls-social-faq-heading">
+        <p class="ls-social-faq-label">FAQS</p>
+        <h2 id="edu-faq-title">Preguntas sobre<br>Low Signal for Education</h2>
+        <p>Cómo impulsamos el crecimiento de organizaciones educativas.</p>
+      </div>
+      <div class="ls-social-faq-list">
+        <details class="ls-social-faq-item"><summary>¿Qué es Low Signal for Education?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Es la forma en que adaptamos nuestro sistema de growth a los desafíos del mundo educativo: conectamos estrategia, contenido, campañas digitales y experiencias web para fortalecer la presencia y apoyar objetivos de crecimiento.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Con qué organizaciones educativas trabajan?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Trabajamos con colegios, redes educacionales y organizaciones que entregan servicios o soluciones para el sector. Definimos el alcance según los objetivos y el contexto de cada institución.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Pueden apoyar campañas de admisión?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Podemos ayudar a comunicar la propuesta educativa, crear contenidos y campañas digitales, y mejorar los puntos de contacto para acompañar a las familias durante el proceso de admisión.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Qué servicios se pueden incluir?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Según la necesidad, podemos combinar estrategia de marca y contenidos, redes sociales, campañas de Ads, desarrollo web, automatización y analítica. Partimos por el desafío y armamos un alcance a medida.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Cómo sabemos si las acciones están funcionando?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Definimos objetivos e indicadores desde el inicio y revisamos señales como alcance, interacción, visitas, consultas o conversiones, según el propósito de cada iniciativa.</p></div></details>
+      </div>
+    </div>
+  </section>
+  <script id="low-education-faq-controller-v1">
+  (function(){var section=document.querySelector('.ls-social-faq[aria-labelledby="edu-faq-title"]');if(!section)return;var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});})();
+  </script>
+  <section class="lsr-band"><div class="lsr-band-inner"><p>¿Construimos lo que viene?</p><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a></div></section>
   </main>
 
   <footer><div class="footer-container"><div class="footer-main"><div class="footer-brand"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"><p class="footer-brand-copy">Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.</p><div class="footer-claim">Less noise. <strong>More growth.</strong></div></div><div><div class="footer-title">SOLUCIONES</div><div class="footer-links"><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a></div></div><div><div class="footer-title">INDUSTRIAS</div><div class="footer-links"><a href="https://lowsignal.cl/industrias/educacion">Colegios / Proveedores de educación</a><a href="https://lowsignal.cl/industrias/b2b">B2B / Empresas</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C / Marcas</a></div></div><div><div class="footer-title">EMPRESA</div><div class="footer-links"><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insights">Insights</a><a href="https://lowsignal.cl/casos">Casos</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a></div></div></div><div class="footer-meta"><div>Las Condes, Santiago · Chile</div><div class="center"><a class="footer-mail" href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl</a></div><div class="right footer-meta-social" aria-label="Social">
