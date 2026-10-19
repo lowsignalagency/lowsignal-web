@@ -3791,43 +3791,11 @@ footer .footer-container{
       <p class="b2b-eyebrow">CÓMO AYUDAMOS</p>
       <h2>Un sistema para atraer, convertir<br> <strong>y mover oportunidades.</strong></h2>
 
-      <div class="b2b-solution-grid">
-        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-social">
-          <span>01</span>
-          <h3>Social Media</h3>
-          <p>Construimos autoridad con mensajes, contenido y presencia que ayudan a explicar por qué elegirte.</p>
-          <div class="b2b-solution-footer">
-            <small>LOW SOCIAL</small>
-            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
-          </div>
-        </a>
-        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-ads">
-          <span>02</span>
-          <h3>Paid Media</h3>
-          <p>Campañas en LinkedIn, Google y Meta para llegar a decisores y abrir nuevas conversaciones.</p>
-          <div class="b2b-solution-footer">
-            <small>LOW ADS</small>
-            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
-          </div>
-        </a>
-        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-web">
-          <span>03</span>
-          <h3>Web Development</h3>
-          <p>Sitios que ordenan la propuesta, muestran prueba y convierten visitas en reuniones.</p>
-          <div class="b2b-solution-footer">
-            <small>LOW WEB</small>
-            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
-          </div>
-        </a>
-        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-flow">
-          <span>04</span>
-          <h3>Automatización e IA</h3>
-          <p>Flujos, seguimiento e IA para que cada señal llegue al equipo correcto y avance.</p>
-          <div class="b2b-solution-footer">
-            <small>LOW FLOW</small>
-            <span class="b2b-solution-cta">Ver solución <span>↗</span></span>
-          </div>
-        </a>
+      <div class="b2b-solution-grid" aria-label="Soluciones conectadas para empresas B2B">
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-social"><span class="b2b-solution-step-number">01</span><small>LOW SOCIAL</small><h3>Social Media</h3><p>Construimos autoridad con mensajes, contenido y presencia que ayudan a explicar por qué elegirte.</p><span class="b2b-solution-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-ads"><span class="b2b-solution-step-number">02</span><small>LOW ADS</small><h3>Paid Media</h3><p>Campañas en LinkedIn, Google y Meta para llegar a decisores y abrir nuevas conversaciones.</p><span class="b2b-solution-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-web"><span class="b2b-solution-step-number">03</span><small>LOW WEB</small><h3>Web Development</h3><p>Sitios que ordenan la propuesta, muestran prueba y convierten visitas en reuniones.</p><span class="b2b-solution-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2b-solution-card" href="https://lowsignal.cl/soluciones/low-flow"><span class="b2b-solution-step-number">04</span><small>LOW FLOW</small><h3>Automatización e IA</h3><p>Flujos, seguimiento e IA para que cada señal llegue al equipo correcto y avance.</p><span class="b2b-solution-cta">Ver solución <span>↗</span></span></a>
       </div></div>
     </div>
   </section>
@@ -10450,6 +10418,123 @@ body footer .footer-bottom{
     margin-top:16px;
     padding-top:12px;
   }
+}
+</style>
+
+
+<style id="industry-b2b-match-b2c-workflow">
+.b2b-solution-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:26px;
+  margin-top:58px;
+}
+.b2b-solution-grid::before{display:none}
+.b2b-solution-grid>.b2b-solution-card{
+  position:relative;
+  z-index:auto;
+  display:block;
+  min-height:216px;
+  padding:0 14px 20px 0 !important;
+  background:transparent;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+.b2b-solution-grid>.b2b-solution-card::before,
+.b2b-solution-grid>.b2b-solution-card::after{
+  content:"";
+  position:absolute;
+  top:17px;
+  height:1px;
+  background:#DCE3F2;
+  pointer-events:none;
+}
+.b2b-solution-grid>.b2b-solution-card::before{display:none}
+.b2b-solution-grid>.b2b-solution-card::after{left:35px;right:-43.5px;z-index:0}
+.b2b-solution-grid>.b2b-solution-card:last-child::after{display:none}
+.b2b-solution-grid>.b2b-solution-card:hover{transform:translateY(-3px)}
+.b2b-solution-grid>.b2b-solution-card:focus-visible{outline:2px solid #536BFF;outline-offset:6px;border-radius:4px}
+.b2b-solution-step-number{
+  position:relative;
+  z-index:1;
+  width:35px;
+  height:35px;
+  border:1px solid #DCE3F2;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#1419E0;
+  font-size:10px;
+  font-weight:700;
+}
+.b2b-solution-grid>.b2b-solution-card>small{
+  display:block;
+  margin-top:28px;
+  color:#5365D9;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.16em;
+}
+.b2b-solution-grid>.b2b-solution-card h3{
+  margin:16px 0 0 !important;
+  color:#16204A;
+  font-size:19px;
+  line-height:1.3;
+  letter-spacing:-.025em;
+  font-weight:600;
+}
+.b2b-solution-grid>.b2b-solution-card p{
+  margin:9px 0 0 !important;
+  color:#7A86A7;
+  font-size:12px;
+  line-height:1.65;
+}
+.b2b-solution-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:18px;
+  color:#1419E0;
+  font-size:10px;
+  font-weight:700;
+}
+.b2b-solution-cta>span{transition:transform .2s ease}
+.b2b-solution-card:hover .b2b-solution-cta>span{transform:translate(2px,-2px)}
+@media(max-width:980px){
+  .b2b-solution-grid{
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:48px;
+    padding-left:3px;
+  }
+  .b2b-solution-grid::before{
+    content:"";
+    display:block;
+    position:absolute;
+    top:17px;
+    bottom:18px;
+    left:17px;
+    width:1px;
+    height:auto;
+    background:#DCE3F2;
+  }
+  .b2b-solution-grid>.b2b-solution-card::before,
+  .b2b-solution-grid>.b2b-solution-card::after{display:none!important}
+  .b2b-solution-grid>.b2b-solution-card{
+    min-height:0;
+    padding:0 0 32px !important;
+  }
+  .b2b-solution-grid>.b2b-solution-card>small{margin:0 0 0 54px;padding-top:4px}
+  .b2b-solution-grid>.b2b-solution-card h3,
+  .b2b-solution-grid>.b2b-solution-card p,
+  .b2b-solution-grid>.b2b-solution-card .b2b-solution-cta{margin-left:54px}
+  .b2b-solution-grid>.b2b-solution-card h3{margin-top:12px!important}
+  .b2b-solution-grid>.b2b-solution-card p{margin-top:8px!important}
+  .b2b-solution-grid>.b2b-solution-card .b2b-solution-cta{margin-top:12px}
 }
 </style>
 
