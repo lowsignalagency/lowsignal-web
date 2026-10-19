@@ -4014,40 +4014,34 @@ footer .footer-container{
     </div>
   </section>
 
-  <section class="ins-v2-faq">
-    <div class="ls-social-shell ins-v2-faq-grid">
-      <div class="ins-v2-faq-intro">
-        <p class="ins-v2-eyebrow">PREGUNTAS FRECUENTES</p>
-        <h2>
-          <span class="ins-v2-heading-desktop">Todo lo que necesitas<br><strong>para empezar.</strong></span>
-          <span class="ins-v2-heading-mobile">Todo lo que necesitas <strong>para empezar.</strong></span>
-        </h2>
-        <a href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl ↗</a>
+  <section class="insiders-faq-refresh" aria-labelledby="insiders-faq-refresh-title">
+    <div class="ls-social-shell insiders-faq-refresh-grid">
+      <div class="insiders-faq-refresh-heading">
+        <p class="insiders-faq-refresh-label">FAQS</p>
+        <h2 id="insiders-faq-refresh-title">Encuentra respuestas<br>a tus preguntas</h2>
+        <p>Todo lo que necesitas saber sobre lowsignal Insiders.</p>
       </div>
-
-      <div class="ins-v2-faq-list">
-        <details>
-          <summary>¿Quién puede ser Insider?<span>+</span></summary>
-          <p>Buscamos personas conectadas, curiosas y con buen criterio para detectar oportunidades reales. No necesitas trabajar en marketing ni ser cliente de lowsignal.</p>
-        </details>
-
-        <details>
-          <summary>¿Cómo sabemos que la empresa viene de ti?<span>+</span></summary>
-          <p>La empresa agenda con el link de nuestra bio o escribe a contacto@lowsignal.cl mencionando tu nombre.</p>
-        </details>
-
-        <details>
-          <summary>¿Cuándo recibo la recompensa?<span>+</span></summary>
-          <p>Una vez que la empresa firma el contrato y recibimos el primer pago.</p>
-        </details>
-
-        <details>
-          <summary>¿Aplica para clientes actuales?<span>+</span></summary>
-          <p>No. El programa es válido únicamente para nuevos clientes de lowsignal.</p>
-        </details>
+      <div class="insiders-faq-refresh-list">
+        <details class="insiders-faq-refresh-item"><summary>¿Quién puede ser Insider?<span class="insiders-faq-refresh-icon" aria-hidden="true"></span></summary><div class="insiders-faq-refresh-answer"><p>Buscamos personas conectadas, curiosas y con buen criterio para detectar oportunidades reales. No necesitas trabajar en marketing ni ser cliente de lowsignal.</p></div></details>
+        <details class="insiders-faq-refresh-item"><summary>¿Cómo sabemos que la empresa viene de ti?<span class="insiders-faq-refresh-icon" aria-hidden="true"></span></summary><div class="insiders-faq-refresh-answer"><p>La empresa agenda con el link de nuestra bio o escribe a contacto@lowsignal.cl mencionando tu nombre.</p></div></details>
+        <details class="insiders-faq-refresh-item"><summary>¿Cuándo recibo la recompensa?<span class="insiders-faq-refresh-icon" aria-hidden="true"></span></summary><div class="insiders-faq-refresh-answer"><p>Una vez que la empresa firma el contrato y recibimos el primer pago.</p></div></details>
+        <details class="insiders-faq-refresh-item"><summary>¿Aplica para clientes actuales?<span class="insiders-faq-refresh-icon" aria-hidden="true"></span></summary><div class="insiders-faq-refresh-answer"><p>No. El programa es válido únicamente para nuevos clientes de lowsignal.</p></div></details>
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var section=document.querySelector('.insiders-faq-refresh');
+    if(!section)return;
+    var items=section.querySelectorAll('.insiders-faq-refresh-item');
+    items.forEach(function(item){
+      item.addEventListener('toggle',function(){
+        if(!item.open)return;
+        items.forEach(function(other){if(other!==item)other.open=false;});
+      });
+    });
+  })();
+  </script>
 
   <section class="lsr-band">
     <div class="lsr-wrap lsr-band-inner">
@@ -10144,6 +10138,34 @@ body footer .footer-bottom{
 @media(max-width:760px){
   .ins-v4-people .ins-v4-avatar-zoom{width:52px;height:52px;flex-basis:52px}
 }
+</style>
+<style id="insiders-faq-refresh-style">
+.insiders-faq-refresh{padding:78px 0 84px;background:#EEF3FF;color:#071022}
+.insiders-faq-refresh-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
+.insiders-faq-refresh-label{margin:0 0 14px;color:#1419E0;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.2}
+.insiders-faq-refresh-heading h2{max-width:340px;margin:0;color:#071022;font-size:clamp(26px,2.3vw,32px);font-weight:400;line-height:1.18;letter-spacing:-.045em}
+.insiders-faq-refresh-heading p:not(.insiders-faq-refresh-label){max-width:310px;margin:11px 0 0;color:#65738F;font-size:12px;line-height:1.55}
+.insiders-faq-refresh-list{border-top:1px solid #D4DDF0}
+.insiders-faq-refresh-item{border-bottom:1px solid #D4DDF0}
+.insiders-faq-refresh-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}
+.insiders-faq-refresh-item summary::-webkit-details-marker{display:none}
+.insiders-faq-refresh-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
+.insiders-faq-refresh-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
+.insiders-faq-refresh-icon::before,.insiders-faq-refresh-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
+.insiders-faq-refresh-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.insiders-faq-refresh-item[open] .insiders-faq-refresh-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.insiders-faq-refresh-answer{padding:0 34px 18px 0}
+.insiders-faq-refresh-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
+@media(max-width:760px){
+  .insiders-faq-refresh{padding:62px 0 68px}
+  .insiders-faq-refresh-grid{grid-template-columns:1fr;gap:26px}
+  .insiders-faq-refresh-label{margin-bottom:10px}
+  .insiders-faq-refresh-heading h2{max-width:330px;font-size:29px}
+  .insiders-faq-refresh-heading p:not(.insiders-faq-refresh-label){margin-top:8px;font-size:12px}
+  .insiders-faq-refresh-item summary{min-height:54px;font-size:13px}
+  .insiders-faq-refresh-answer{padding-right:24px}
+}
+@media(prefers-reduced-motion:reduce){.insiders-faq-refresh-icon::before,.insiders-faq-refresh-icon::after{transition:none}}
 </style>
 </body>
 </html>
