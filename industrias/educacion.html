@@ -435,5 +435,9 @@
       if('IntersectionObserver'in window){const io=new IntersectionObserver((entries,obs)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});reveal.forEach(el=>io.observe(el))}else reveal.forEach(el=>el.classList.add('is-visible'));
     })();
   </script>
+<style id="edu-hero-spacing-adjustment">
+@media(min-width:761px){.edu-new-hero{padding-top:156px!important}}
+@media(max-width:760px){.edu-new-hero{padding-top:128px!important}}
+</style>
 </body>
 </html>
