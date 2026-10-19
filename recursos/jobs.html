@@ -2264,13 +2264,36 @@ main#top .container{
     </div>
   </section>
 
-  <section class="jobs26-faq" id="faq"><div class="container"><p class="jobs26-eyebrow">PREGUNTAS FRECUENTES</p><h2>Antes de postular,<br><strong>quizás te preguntes esto.</strong></h2><div class="jobs26-faq-list">
-<details><summary>¿Qué buscamos en alguien que se suma?<span>+</span></summary><p>Personas curiosas, autónomas y con ganas de hacer que las cosas pasen. Valoramos criterio, iniciativa, velocidad para aprender y capacidad para resolver problemas reales.</p></details>
-<details><summary>¿Necesito cumplir todos los requisitos del rol?<span>+</span></summary><p>No necesariamente. Nos importa el fit con el desafío, tu forma de pensar y tu capacidad de aprender.</p></details>
-<details><summary>¿Cómo trabajamos?<span>+</span></summary><p>Con autonomía, responsabilidad y comunicación directa. Preferimos avanzar, probar y mejorar antes que sumar capas innecesarias de proceso.</p></details>
-<details><summary>¿Cómo es el proceso de selección?<span>+</span></summary><p>Depende del rol. Normalmente partimos con una conversación para conocernos y entender fit; en algunas posiciones podemos revisar una experiencia, caso o desafío concreto.</p></details>
-<details><summary>¿Puedo escribir aunque no vea una posición exacta para mí?<span>+</span></summary><p>Sí. Si crees que puedes aportar a lowsignal, escríbenos a contacto@lowsignal.cl y cuéntanos brevemente qué te interesa construir con nosotros.</p></details>
-</div></div></section><section class="jobs26-final-cta"><div class="container"><p class="jobs26-eyebrow">BUILD WHAT'S NEXT</p><h2>Queremos personas que se muevan rápido y disfruten <strong>resolver problemas difíciles.</strong></h2><div class="jobs26-final-row"><p>Si te hace sentido, revisa las posiciones abiertas o escríbenos.</p><div><a href="#roles">Ver posiciones abiertas</a><a href="mailto:contacto@lowsignal.cl?subject=Quiero%20trabajar%20en%20lowsignal">Escríbenos</a></div></div></div></section>
+  <section class="jobs26-faq-refresh" id="faq" aria-labelledby="jobs26-faq-title">
+  <div class="container jobs26-faq-refresh-grid">
+    <div class="jobs26-faq-refresh-heading">
+      <p class="jobs26-faq-refresh-label">FAQS</p>
+      <h2 id="jobs26-faq-title">Encuentra respuestas<br>a tus preguntas</h2>
+      <p>Todo lo que necesitas saber sobre trabajar en lowsignal.</p>
+    </div>
+    <div class="jobs26-faq-refresh-list">
+        <details class="jobs26-faq-refresh-item"><summary>¿Qué buscamos en alguien que se suma?<span class="jobs26-faq-refresh-icon" aria-hidden="true"></span></summary><div class="jobs26-faq-refresh-answer"><p>Personas curiosas, autónomas y con ganas de hacer que las cosas pasen. Valoramos criterio, iniciativa, velocidad para aprender y capacidad para resolver problemas reales.</p></div></details>
+        <details class="jobs26-faq-refresh-item"><summary>¿Necesito cumplir todos los requisitos del rol?<span class="jobs26-faq-refresh-icon" aria-hidden="true"></span></summary><div class="jobs26-faq-refresh-answer"><p>No necesariamente. Nos importa el fit con el desafío, tu forma de pensar y tu capacidad de aprender.</p></div></details>
+        <details class="jobs26-faq-refresh-item"><summary>¿Cómo trabajamos?<span class="jobs26-faq-refresh-icon" aria-hidden="true"></span></summary><div class="jobs26-faq-refresh-answer"><p>Con autonomía, responsabilidad y comunicación directa. Preferimos avanzar, probar y mejorar antes que sumar capas innecesarias de proceso.</p></div></details>
+        <details class="jobs26-faq-refresh-item"><summary>¿Cómo es el proceso de selección?<span class="jobs26-faq-refresh-icon" aria-hidden="true"></span></summary><div class="jobs26-faq-refresh-answer"><p>Depende del rol. Normalmente partimos con una conversación para conocernos y entender fit; en algunas posiciones podemos revisar una experiencia, caso o desafío concreto.</p></div></details>
+        <details class="jobs26-faq-refresh-item"><summary>¿Puedo escribir aunque no vea una posición exacta para mí?<span class="jobs26-faq-refresh-icon" aria-hidden="true"></span></summary><div class="jobs26-faq-refresh-answer"><p>Sí. Si crees que puedes aportar a lowsignal, escríbenos a contacto@lowsignal.cl y cuéntanos brevemente qué te interesa construir con nosotros.</p></div></details>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var section=document.querySelector('.jobs26-faq-refresh');
+  if(!section)return;
+  var items=section.querySelectorAll('.jobs26-faq-refresh-item');
+  items.forEach(function(item){
+    item.addEventListener('toggle',function(){
+      if(!item.open)return;
+      items.forEach(function(other){if(other!==item)other.open=false;});
+    });
+  });
+})();
+</script>
+<section class="jobs26-final-cta"><div class="container"><p class="jobs26-eyebrow">BUILD WHAT'S NEXT</p><h2>Queremos personas que se muevan rápido y disfruten <strong>resolver problemas difíciles.</strong></h2><div class="jobs26-final-row"><p>Si te hace sentido, revisa las posiciones abiertas o escríbenos.</p><div><a href="#roles">Ver posiciones abiertas</a><a href="mailto:contacto@lowsignal.cl?subject=Quiero%20trabajar%20en%20lowsignal">Escríbenos</a></div></div></div></section>
 </main>
 
 
@@ -9532,44 +9555,33 @@ footer{
   .jobs26-role-link b{transition:none !important}
 }
 </style>
-<style id="jobs26-faq-compact-spacing">
-/* Compact the FAQ block so the questions scan faster and use less vertical space. */
-.jobs26-faq{
-  padding:56px 0 60px !important;
-}
-.jobs26-faq h2{
-  margin:10px 0 22px !important;
-  font-size:clamp(32px,3vw,40px) !important;
-  line-height:1.06 !important;
-}
-.jobs26-faq-list summary{
-  padding:10px 0 !important;
-  font-size:15px !important;
-  line-height:1.4 !important;
-  gap:18px !important;
-}
-.jobs26-faq-list summary span{
-  font-size:18px !important;
-  line-height:1 !important;
-}
-.jobs26-faq-list details p{
-  padding:0 42px 18px 0 !important;
-  font-size:12px !important;
-  line-height:1.6 !important;
-}
+<style id="jobs26-faq-refresh-style">
+.jobs26-faq-refresh{padding:78px 0 84px;background:#EEF3FF;color:#071022}
+.jobs26-faq-refresh-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
+.jobs26-faq-refresh-label{margin:0 0 14px;color:#1419E0;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.2}
+.jobs26-faq-refresh-heading h2{max-width:340px;margin:0;color:#071022;font-size:clamp(26px,2.3vw,32px);font-weight:400;line-height:1.18;letter-spacing:-.045em}
+.jobs26-faq-refresh-heading p:not(.jobs26-faq-refresh-label){max-width:310px;margin:11px 0 0;color:#65738F;font-size:12px;line-height:1.55}
+.jobs26-faq-refresh-list{border-top:1px solid #D4DDF0}
+.jobs26-faq-refresh-item{border-bottom:1px solid #D4DDF0}
+.jobs26-faq-refresh-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}
+.jobs26-faq-refresh-item summary::-webkit-details-marker{display:none}
+.jobs26-faq-refresh-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
+.jobs26-faq-refresh-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
+.jobs26-faq-refresh-icon::before,.jobs26-faq-refresh-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
+.jobs26-faq-refresh-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.jobs26-faq-refresh-item[open] .jobs26-faq-refresh-icon::after{transform:translate(-50%,-50%) rotate(0)}
+.jobs26-faq-refresh-answer{padding:0 34px 18px 0}
+.jobs26-faq-refresh-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
 @media(max-width:760px){
-  .jobs26-faq{
-    padding:42px 0 46px !important;
-  }
-  .jobs26-faq h2{
-    margin:9px 0 18px !important;
-    font-size:30px !important;
-  }
-  .jobs26-faq-list summary{
-    padding:9px 0 !important;
-    font-size:14px !important;
-  }
+  .jobs26-faq-refresh{padding:62px 0 68px}
+  .jobs26-faq-refresh-grid{grid-template-columns:1fr;gap:26px}
+  .jobs26-faq-refresh-label{margin-bottom:10px}
+  .jobs26-faq-refresh-heading h2{max-width:330px;font-size:29px}
+  .jobs26-faq-refresh-heading p:not(.jobs26-faq-refresh-label){margin-top:8px;font-size:12px}
+  .jobs26-faq-refresh-item summary{min-height:54px;font-size:13px}
+  .jobs26-faq-refresh-answer{padding-right:24px}
 }
+@media(prefers-reduced-motion:reduce){.jobs26-faq-refresh-icon::before,.jobs26-faq-refresh-icon::after{transition:none}}
 </style>
 </body>
 </html>
