@@ -3777,47 +3777,12 @@ footer .footer-container{
       <p class="b2c-new-eyebrow">CÓMO AYUDAMOS</p>
       <h2>Un sistema para atraer, convertir<br> <strong>y fidelizar.</strong></h2>
 
-      <div class="b2c-new-solution-grid">
-        <article>
-          <span>/ 01</span>
-          <h3>Contenido & comunidad</h3>
-          <p>Contenido con identidad para construir deseo, consistencia y conexión con la marca.</p>
-          <div class="b2c-new-solution-footer">
-            <small>LOW SOCIAL</small>
-            <a href="https://lowsignal.cl/soluciones/low-social">Ver solución <span>↗</span></a>
-          </div>
-        </article>
-
-        <article>
-          <span>/ 02</span>
-          <h3>Demanda pagada</h3>
-          <p>Campañas en Meta, TikTok y Google para transformar alcance en tráfico, reservas y ventas.</p>
-          <div class="b2c-new-solution-footer">
-            <small>LOW ADS</small>
-            <a href="https://lowsignal.cl/soluciones/low-ads">Ver solución <span>↗</span></a>
-          </div>
-        </article>
-
-        <article>
-          <span>/ 03</span>
-          <h3>Web & conversión</h3>
-          <p>Webs y tiendas que ordenan la experiencia y hacen más fácil comprar, reservar o contactar.</p>
-          <div class="b2c-new-solution-footer">
-            <small>LOW WEB</small>
-            <a href="https://lowsignal.cl/soluciones/low-web">Ver solución <span>↗</span></a>
-          </div>
-        </article>
-
-        <article>
-          <span>/ 04</span>
-          <h3>Automatización & CRM</h3>
-          <p>WhatsApp, seguimiento y flujos que reducen tiempos de respuesta y ayudan a fidelizar.</p>
-          <div class="b2c-new-solution-footer">
-            <small>LOW FLOW</small>
-            <a href="https://lowsignal.cl/soluciones/low-flow">Ver solución <span>↗</span></a>
-          </div>
-        </article>
-      </div>
+      <div class="b2c-new-solution-grid" aria-label="Soluciones conectadas para marcas B2C">
+        <a class="b2c-solution-step" href="https://lowsignal.cl/soluciones/low-social"><span class="b2c-solution-step-number">01</span><small>LOW SOCIAL</small><h3>Contenido & comunidad</h3><p>Contenido con identidad para construir deseo, consistencia y conexión con la marca.</p><span class="b2c-solution-step-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2c-solution-step" href="https://lowsignal.cl/soluciones/low-ads"><span class="b2c-solution-step-number">02</span><small>LOW ADS</small><h3>Demanda pagada</h3><p>Campañas en Meta, TikTok y Google para transformar alcance en tráfico, reservas y ventas.</p><span class="b2c-solution-step-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2c-solution-step" href="https://lowsignal.cl/soluciones/low-web"><span class="b2c-solution-step-number">03</span><small>LOW WEB</small><h3>Web & conversión</h3><p>Webs y tiendas que ordenan la experiencia y hacen más fácil comprar, reservar o contactar.</p><span class="b2c-solution-step-cta">Ver solución <span>↗</span></span></a>
+        <a class="b2c-solution-step" href="https://lowsignal.cl/soluciones/low-flow"><span class="b2c-solution-step-number">04</span><small>LOW FLOW</small><h3>Automatización & CRM</h3><p>WhatsApp, seguimiento y flujos que reducen tiempos de respuesta y ayudan a fidelizar.</p><span class="b2c-solution-step-cta">Ver solución <span>↗</span></span></a>
+      </div></div>
     </div>
   </section>
 
@@ -9956,6 +9921,34 @@ body footer .footer-bottom{
   .b2c-logo-strip img[alt="Espacio Brooklyn"]{max-width:132px;max-height:36px}
   .b2c-logo-strip img[alt="DIMOR Automotora"]{max-width:74px;max-height:42px}
   .b2c-logo-strip img[alt="Vándalo"]{width:56px;height:56px;max-width:56px;max-height:56px}
+}
+</style>
+<style id="b2c-connected-solutions">
+.b2c-new-solution-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:58px}
+.b2c-solution-step{position:relative;display:block;min-height:216px;padding:0 14px 20px 0;background:transparent;transition:transform .2s ease}
+.b2c-solution-step:before,.b2c-solution-step:after{content:"";position:absolute;top:17px;height:1px;background:#DCE3F2;pointer-events:none}
+.b2c-solution-step:before{display:none}
+.b2c-solution-step:after{left:35px;right:-43.5px;z-index:0}
+.b2c-solution-step:first-child:before,.b2c-solution-step:last-child:after{display:none}
+.b2c-solution-step:hover{transform:translateY(-3px)}
+.b2c-solution-step:focus-visible{outline:2px solid #536BFF;outline-offset:6px;border-radius:4px}
+.b2c-solution-step-number{position:relative;z-index:1;width:35px;height:35px;border:1px solid #DCE3F2;border-radius:50%;display:grid;place-items:center;background:#fff;color:#1419E0;font-size:10px;font-weight:700}
+.b2c-solution-step>small{display:block;margin-top:28px;color:#5365D9;font-size:8px;font-weight:700;letter-spacing:.16em}
+.b2c-solution-step h3{margin:16px 0 0;color:#16204A;font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:600}
+.b2c-solution-step p{margin:9px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}
+.b2c-solution-step-cta{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:#1419E0;font-size:10px;font-weight:700}
+.b2c-solution-step-cta span{transition:transform .2s ease}
+.b2c-solution-step:hover .b2c-solution-step-cta span{transform:translate(2px,-2px)}
+@media(max-width:980px){
+  .b2c-new-solution-grid{grid-template-columns:1fr;gap:0;margin-top:48px;padding-left:3px}
+  .b2c-new-solution-grid:before{content:"";position:absolute;top:17px;bottom:18px;left:17px;width:1px;background:#DCE3F2}
+  .b2c-solution-step:before,.b2c-solution-step:after{display:none!important}
+  .b2c-solution-step{min-height:0;padding:0 0 32px}
+  .b2c-solution-step>small{margin:0 0 0 54px;padding-top:4px}
+  .b2c-solution-step h3,.b2c-solution-step p,.b2c-solution-step-cta{margin-left:54px}
+  .b2c-solution-step h3{margin-top:12px}
+  .b2c-solution-step p{margin-top:8px}
+  .b2c-solution-step-cta{margin-top:12px}
 }
 </style>
 </body>
