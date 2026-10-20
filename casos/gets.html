@@ -2326,12 +2326,27 @@
           <span>SOCIAL MEDIA · PAID MEDIA</span>
           <h3>Una marca B2B que muestra lo que construye.</h3>
           <p>El sistema convierte proyectos y experiencia técnica en contenido entendible, consistente y útil para la generación de confianza.</p>
+          <div class="gets-links">
+            <a href="https://www.getseducacion.cl/" target="_blank" rel="noopener noreferrer">Visitar sitio web <span aria-hidden="true">↗</span></a>
+            <a href="https://www.instagram.com/getseducacion/" target="_blank" rel="noopener noreferrer">Ver Instagram <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="case-new-system case-gets-system">
+  <section class="case-new-testimonial case-gets-testimonial">
+  <div class="container case-new-testimonial-inner">
+    <div class="case-new-quote-mark">“</div>
+    <blockquote>lowsignal se ha convertido en un aliado estratégico. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote>
+    <div class="case-new-person">
+      <img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz">
+      <div><b>Nicolás Muñoz</b><span>Director, GETS</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-new-system case-gets-system">
     <div class="container case-new-system-grid">
       <div>
         <p class="case-new-eyebrow">SISTEMA</p>
@@ -13502,5 +13517,54 @@ footer .footer-container{
   }
 }
 </style>
+<style id="gets-testimonial-and-social-links">
+@media (min-width: 761px) {
+  .case-gets-work .case-new-gallery {
+    grid-template-rows: minmax(250px, 340px) minmax(280px, auto) !important;
+  }
+}
+.case-gets-work .gets-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+  margin-top: 17px !important;
+}
+.case-gets-work .gets-links a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  min-height: 40px !important;
+  padding: 0 14px !important;
+  border: 1px solid rgba(169,181,255,.34) !important;
+  border-radius: 999px !important;
+  color: #F4F6FF !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  transition: background .2s ease,border-color .2s ease,transform .2s ease !important;
+}
+.case-gets-work .gets-links a span {
+  color: #A9B5FF !important;
+  font-size: 14px !important;
+}
+.case-gets-work .gets-links a:hover {
+  background: rgba(138,164,255,.12) !important;
+  border-color: rgba(169,181,255,.72) !important;
+  transform: translateY(-1px) !important;
+}
+@media (max-width: 760px) {
+  .case-gets-work .gets-links {
+    gap: 8px !important;
+    margin-top: 15px !important;
+  }
+  .case-gets-work .gets-links a {
+    min-height: 39px !important;
+    padding: 0 13px !important;
+    font-size: 11px !important;
+  }
+}
+</style>
+
 </body>
 </html>
