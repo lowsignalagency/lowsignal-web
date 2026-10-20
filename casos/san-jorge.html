@@ -14839,5 +14839,23 @@ footer .container,
   }
 }</style>
 
+
+<style id="sanjorge-gallery-lower-pair">
+/* Menos alto el bloque de foto y su tarjeta compañera, conservando alturas iguales. */
+.case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+  aspect-ratio: 3 / 2 !important;
+  align-self: stretch !important;
+}
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+  min-height: 0 !important;
+  align-self: stretch !important;
+}
+@media (max-width: 760px) {
+  .case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+    aspect-ratio: 3 / 2 !important;
+  }
+}
+</style>
+
 </body>
 </html>
