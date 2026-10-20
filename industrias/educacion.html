@@ -580,7 +580,7 @@
         panel.querySelectorAll('.mobile-nav-summary').forEach(btn=>btn.addEventListener('click',()=>{const menu=btn.nextElementSibling;const open=btn.getAttribute('aria-expanded')==='true';panel.querySelectorAll('.mobile-nav-summary').forEach(other=>{if(other!==btn){other.setAttribute('aria-expanded','false');if(other.nextElementSibling)other.nextElementSibling.hidden=true}});btn.setAttribute('aria-expanded',String(!open));if(menu)menu.hidden=open}));
         panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');document.body.style.overflow=''}));
       }
-      const reveal=[...document.querySelectorAll('.edu-new-context .ls-social-shell,.edu-new-solutions .ls-social-shell,.edu-new-system-grid,.edu-pricing-head,.edu-pricing-grid,.edu-new-cases .ls-social-shell,.edu-new-impact .ls-social-shell')];
+      const reveal=[...document.querySelectorAll('.edu-new-context .ls-social-shell,.edu-new-solutions .ls-social-shell,.edu-new-testimonials .ls-social-shell,.edu-pricing-head,.edu-pricing-grid,.ls-social-faq-grid,.lsr-band-inner')];
       reveal.forEach(el=>el.classList.add('edu-reveal'));
       if('IntersectionObserver'in window){const io=new IntersectionObserver((entries,obs)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});reveal.forEach(el=>io.observe(el))}else reveal.forEach(el=>el.classList.add('is-visible'));
     })();
