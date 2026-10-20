@@ -1792,6 +1792,56 @@
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+<style id="customer-stories-refinement-2026">
+/* Case pages share a narrative rhythm and a single testimonial treatment. */
+.case-new-story{background:#F4F6FB!important;padding:100px 0!important}
+.case-new-story-head{grid-template-columns:1fr .62fr!important;gap:56px!important}
+.case-new-steps{gap:14px!important;margin-top:46px!important}
+.case-new-steps article{min-height:250px!important;padding:25px!important;border:1px solid #E2E7F2!important;border-radius:18px!important;background:#fff!important;box-shadow:0 10px 28px rgba(18,34,91,.04);transition:transform .22s ease,box-shadow .22s ease}
+.case-new-steps article:hover{transform:translateY(-4px);box-shadow:0 17px 35px rgba(18,34,91,.09)}
+.case-new-steps article>span{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#EEF1FF;color:#1419E0!important;font-size:10px!important}
+.case-new-steps small{margin-top:auto;padding-top:34px;color:#697594!important}
+.case-new-steps h3{font-size:18px!important;line-height:1.45!important;letter-spacing:-.015em}
+.case-new-steps .is-highlight{background:#1419E0!important;border-color:#1419E0!important;box-shadow:0 14px 34px rgba(20,25,224,.18)}
+.case-new-steps .is-highlight>span{background:rgba(255,255,255,.15);color:#fff!important}
+.case-new-steps .is-highlight small{color:#C8D1FF!important}
+.case-new-steps .is-highlight h3{color:#fff!important}
+.case-new-work{padding:100px 0!important}
+.case-new-system{display:none!important}
+.case-new-testimonial,.case-dali-testimonial{padding:72px 0!important;background:#F4F6FB!important}
+.case-new-testimonial:before,.case-dali-testimonial:before{display:none!important}
+.case-new-testimonial-inner,.case-dali-testimonial-inner{
+  display:grid!important;grid-template-columns:minmax(0,1fr) 260px;grid-template-areas:"mark person" "quote person";
+  align-items:center;column-gap:52px;max-width:1160px!important;padding:48px 54px!important;
+  border-radius:24px;background:#1419E0!important;box-shadow:0 24px 60px rgba(20,25,224,.16);
+}
+.case-new-quote-mark,.case-dali-testimonial-quote{grid-area:mark;margin:0!important;color:#AFC0FF!important;font-size:64px!important;line-height:.6!important}
+.case-new-testimonial blockquote,.case-dali-testimonial blockquote{
+  grid-area:quote;max-width:unset!important;margin:14px 0 0!important;color:#fff!important;
+  font-size:clamp(25px,3vw,38px)!important;line-height:1.28!important;letter-spacing:-.035em!important;font-weight:350!important
+}
+.case-new-testimonial .case-new-person,.case-dali-testimonial .case-dali-testimonial-person{
+  grid-area:person;align-self:end;display:flex!important;align-items:center;gap:13px;
+  margin:0!important;padding:20px 0 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.24)!important
+}
+.case-new-testimonial .case-new-person img,.case-dali-testimonial .case-dali-testimonial-person img{
+  width:54px!important;height:54px!important;border-radius:50%!important;object-fit:cover!important;object-position:center 18%!important
+}
+.case-new-testimonial .case-new-person b,.case-dali-testimonial .case-dali-testimonial-person b{color:#fff!important;font-size:13px!important}
+.case-new-testimonial .case-new-person span,.case-dali-testimonial .case-dali-testimonial-person span{color:#D7DFFF!important;font-size:10px!important}
+@media(max-width:760px){
+ .case-new-story,.case-new-work{padding:72px 0!important}
+ .case-new-story-head{grid-template-columns:1fr!important;gap:18px!important}
+ .case-new-steps{grid-template-columns:1fr!important;margin-top:30px!important}
+ .case-new-steps article{min-height:0!important;padding:22px!important}
+ .case-new-steps small{padding-top:23px}
+ .case-new-testimonial,.case-dali-testimonial{padding:44px 0!important}
+ .case-new-testimonial-inner,.case-dali-testimonial-inner{grid-template-columns:1fr!important;grid-template-areas:"mark" "quote" "person";gap:0!important;padding:30px 24px!important;border-radius:18px}
+ .case-new-testimonial blockquote,.case-dali-testimonial blockquote{font-size:25px!important}
+ .case-new-testimonial .case-new-person,.case-dali-testimonial .case-dali-testimonial-person{margin-top:25px!important}
+}
+@media(prefers-reduced-motion:reduce){.case-new-steps article,.stories-new-card{transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -2155,7 +2205,7 @@
         <article>
           <span>/ 02</span>
           <div>
-            <small>SISTEMA</small>
+            <small>RESPUESTA</small>
             <h3>Definimos una línea visual y editorial común, un sitio que ordena la red y un plan de contenido que da voz a cada colegio dentro del mismo sistema.</h3>
           </div>
         </article>
@@ -2163,7 +2213,7 @@
         <article class="is-highlight">
           <span>/ 03</span>
           <div>
-            <small>RESULTADO</small>
+            <small>CAMBIO</small>
             <h3>Una presencia digital clara y consistente, que refleja el valor real de la red frente a familias y comunidad.</h3>
           </div>
         </article>
