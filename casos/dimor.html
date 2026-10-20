@@ -1759,6 +1759,216 @@
 }
 @media(prefers-reduced-motion:reduce){.case-new-steps article,.stories-new-card{transition:none!important}}
 </style>
+
+<style id="dimor-case-refresh-v1">
+/* hUB — formato visual unificado con los Customer Stories recientes. */
+.case-new-hero.case-dimor-hero{
+  position:relative!important;overflow:hidden!important;padding:158px 0 0!important;color:#fff!important;
+  background:radial-gradient(70% 110% at 100% 0%,rgba(28,50,190,.28),transparent 65%),#070F22!important;
+}
+.case-new-hero.case-dimor-hero .container{width:min(1320px,calc(100% - 128px))!important;max-width:1320px!important}
+.case-dimor-hero .case-new-back{color:#AAB5CE!important;font-size:12px!important}
+.case-dimor-hero .case-new-kicker span{color:#AAB5CE!important}
+.case-dimor-hero .case-new-kicker b{color:#A9B5FF!important}
+.case-dimor-hero h1{
+  max-width:930px!important;margin-top:25px!important;color:#fff!important;
+  font-size:clamp(48px,5vw,68px)!important;line-height:1.08!important;letter-spacing:-.06em!important;font-weight:400!important;
+}
+.case-dimor-hero h1 strong{color:#A9B5FF!important;font-weight:600!important}
+.case-dimor-hero .case-new-hero-grid{grid-template-columns:minmax(0,1fr) 290px!important;gap:56px!important;align-items:center!important;margin-top:46px!important}
+.case-dimor-hero .case-new-hero-grid>div:first-child>p{max-width:690px!important;margin-top:24px!important;color:#BFC8DC!important;font-size:16px!important;line-height:1.7!important}
+.case-dimor-hero .case-new-meta-grid{max-width:900px!important;margin-top:36px!important;border-color:rgba(255,255,255,.16)!important}
+.case-dimor-hero .case-new-meta-grid>div{padding-top:18px!important}
+.case-dimor-hero .case-new-meta-grid>div+div{border-color:rgba(255,255,255,.16)!important}
+.case-dimor-hero .case-new-meta-grid span{color:#8793AD!important}
+.case-dimor-hero .case-new-meta-grid b{color:#F3F5FC!important;font-size:12px!important}
+.case-dimor-hero .case-new-brand-card{
+  padding:24px!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:16px!important;
+  background:rgba(255,255,255,.055)!important;box-shadow:none!important;
+}
+.case-dimor-hero .case-new-brand-card img{height:48px!important;max-width:190px!important;object-fit:contain!important}
+.case-dimor-hero .case-new-brand-card p{margin-top:20px!important;color:#BFC8DC!important;font-size:12px!important;line-height:1.65!important}
+.case-dimor-hero .case-new-cover{position:relative!important;z-index:1!important;margin:52px 0 -78px!important;height:auto!important;aspect-ratio:2.05/1!important;border-radius:16px!important;background:#101A31!important;box-shadow:0 30px 76px rgba(0,0,0,.24)!important}
+.case-dimor-hero .case-new-cover img{object-fit:cover!important;object-position:center 42%!important}
+.case-new-story.case-dimor-story{padding:154px 0 94px!important;background:#fff!important}
+.case-dimor-story .case-new-story-head{grid-template-columns:1.05fr .7fr!important;gap:78px!important}
+.case-dimor-story h2,.case-dimor-work h2,.case-dimor-system h2{font-size:clamp(38px,4.5vw,58px)!important;line-height:1.04!important;letter-spacing:-.055em!important;font-weight:400!important}
+.case-dimor-story h2 strong,.case-dimor-system h2 strong{font-weight:600!important}
+.case-dimor-story .case-new-story-head>p,.case-dimor-work .case-new-work-head>p{font-size:15px!important;line-height:1.8!important;color:#596689!important}
+.case-dimor-story .case-new-steps{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin-top:48px!important}
+.case-dimor-story .case-new-steps article{min-height:218px!important;padding:24px!important;border:1px solid #E6EAF3!important;border-radius:12px!important;background:#F7F8FC!important;box-shadow:none!important}
+.case-dimor-story .case-new-steps article::before{display:none!important}
+.case-dimor-story .case-new-steps article>span{color:#5269EA!important;font-size:11px!important}
+.case-dimor-story .case-new-steps small{color:#7D879C!important;font-size:9px!important}
+.case-dimor-story .case-new-steps h3{margin-top:15px!important;color:#13204F!important;font-size:16px!important;line-height:1.52!important;font-weight:400!important}
+.case-dimor-story .case-new-steps .is-highlight{border-color:#1419E0!important;background:#1419E0!important;box-shadow:0 18px 36px rgba(20,25,224,.13)!important}
+.case-dimor-story .case-new-steps .is-highlight>span{color:#fff!important}
+.case-dimor-story .case-new-steps .is-highlight small{color:#C9D1FF!important}
+.case-dimor-story .case-new-steps .is-highlight h3{color:#fff!important}
+.case-dimor-work.case-new-work{padding:100px 0!important;background:#070F22!important}
+.case-dimor-work:before{background:radial-gradient(45% 65% at 100% 0%,rgba(20,25,224,.2),transparent 72%)!important}
+.case-dimor-work .case-new-work-head{grid-template-columns:1fr .68fr!important;gap:72px!important}
+.case-dimor-work h2{color:#fff!important}
+.case-dimor-work h2 strong{color:#A9B5FF!important;font-weight:600!important}
+.case-dimor-work .case-new-work-head>p{color:#AAB5CE!important}
+.case-dimor-work .case-new-gallery{display:grid!important;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)!important;grid-template-rows:minmax(270px,350px) 220px!important;gap:14px!important;margin-top:44px!important}
+.case-dimor-work .case-new-gallery figure,.case-dimor-work .case-new-gallery-copy{min-width:0!important;min-height:0!important;margin:0!important;border-radius:12px!important;overflow:hidden!important}
+.case-dimor-work .case-new-gallery-main{grid-row:1/3!important}
+.case-dimor-work .case-new-gallery figure img{width:100%!important;height:100%!important;object-fit:cover!important}
+.case-dimor-work .case-new-gallery-copy{padding:28px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;border:1px solid rgba(255,255,255,.13)!important;background:#101A31!important}
+.case-dimor-work .case-new-gallery-copy span{color:#A9B5FF!important;font-size:9px!important;letter-spacing:.14em!important}
+.case-dimor-work .case-new-gallery-copy h3{margin:18px 0 0!important;color:#fff!important;font-size:clamp(22px,2.5vw,32px)!important;line-height:1.16!important;letter-spacing:-.04em!important;font-weight:400!important}
+.case-dimor-work .case-new-gallery-copy p{margin:14px 0 0!important;color:#AAB5CE!important;font-size:12px!important;line-height:1.7!important}
+.case-dimor-system.case-new-system{padding:96px 0!important;background:#F4F6FB!important}
+.case-dimor-system .case-new-system-grid{grid-template-columns:.85fr 1.15fr!important;gap:88px!important}
+.case-dimor-system .case-new-system-list article{padding:19px 0!important;border-color:#DCE2EE!important}
+.case-dimor-system .case-new-system-list article>span{color:#5269EA!important;font-size:22px!important}
+.case-dimor-system .case-new-system-list h3{color:#14204F!important;font-size:17px!important;font-weight:500!important}
+.case-dimor-system .case-new-system-list p{color:#69758D!important;font-size:12px!important;line-height:1.7!important}
+.case-new-testimonial
+.case-dimor-next.case-new-next{padding:88px 0!important;background:#fff!important}
+.case-dimor-next .case-new-next-head h2{font-size:clamp(28px,3vw,40px)!important;letter-spacing:-.045em!important}
+.case-dimor-next .case-new-next-card{border-radius:14px!important;overflow:hidden!important}
+@media(max-width:900px){
+ .case-dimor-hero .container{width:calc(100% - 48px)!important}
+ .case-dimor-hero .case-new-hero-grid{grid-template-columns:minmax(0,1fr) 240px!important;gap:28px!important}
+ .case-dimor-hero .case-new-cover{aspect-ratio:1.6/1!important}
+ .case-dimor-system .case-new-system-grid{gap:48px!important}
+ .case-dimor-work .case-new-gallery{grid-template-rows:minmax(230px,300px) 200px!important}
+}
+@media(max-width:760px){
+ .case-new-hero.case-dimor-hero{padding:128px 0 0!important}
+ .case-dimor-hero .container{width:calc(100% - 40px)!important}
+ .case-dimor-hero .case-new-hero-grid{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;margin-top:34px!important}
+ .case-dimor-hero h1{max-width:600px!important;font-size:clamp(40px,10.2vw,56px)!important;line-height:1.07!important;letter-spacing:-.04em!important}
+ .case-dimor-hero .case-new-hero-grid>div:first-child>p{font-size:14px!important;margin-top:18px!important;line-height:1.7!important}
+ .case-dimor-hero h1 br{display:none!important}
+ .case-dimor-hero h1 strong{display:block!important}
+ .case-dimor-hero .case-new-meta-grid{grid-template-columns:1fr 1fr!important;margin-top:26px!important}
+ .case-dimor-hero .case-new-meta-grid>div{padding:14px 10px 0 0!important}
+ .case-dimor-hero .case-new-meta-grid>div+div{padding-left:12px!important}
+ .case-dimor-hero .case-new-meta-grid>div:last-child{grid-column:1/-1;border-left:0!important;padding:14px 0 0!important}
+ .case-dimor-hero .case-new-brand-card{display:grid!important;grid-template-columns:82px minmax(0,1fr)!important;align-items:center!important;gap:18px!important;margin:0!important;padding:18px 0 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.16)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+ .case-dimor-hero .case-new-brand-card img{width:82px!important;height:auto!important;max-height:38px!important;object-fit:contain!important}
+ .case-dimor-hero .case-new-brand-card p{margin:0!important;font-size:11px!important;line-height:1.55!important}
+ .case-dimor-hero .case-new-cover{margin:28px 0 -42px!important;aspect-ratio:1.12/1!important;border-radius:12px!important}
+ .case-dimor-hero .case-new-cover img{object-position:center 42%!important}
+ .case-dimor-story.case-new-story{padding:100px 0 66px!important}
+ .case-dimor-story .case-new-story-head,.case-dimor-work .case-new-work-head{grid-template-columns:1fr!important;gap:20px!important}
+ .case-dimor-story h2,.case-dimor-work h2,.case-dimor-system h2{font-size:clamp(34px,9vw,44px)!important;line-height:1.08!important}
+ .case-dimor-story .case-new-steps{grid-template-columns:1fr!important;gap:0!important;margin-top:28px!important}
+ .case-dimor-story .case-new-steps article,.case-dimor-story .case-new-steps .is-highlight{
+   display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;align-items:start!important;gap:12px!important;
+   min-height:0!important;padding:18px 0!important;border:0!important;border-top:1px solid #DCE2EE!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+ }
+ .case-dimor-story .case-new-steps article:last-child{border-bottom:1px solid #DCE2EE!important}
+ .case-dimor-story .case-new-steps article::before{display:none!important}
+ .case-dimor-story .case-new-steps article>span,.case-dimor-story .case-new-steps .is-highlight>span{padding:0!important;min-height:0!important;background:transparent!important;color:#5269EA!important;font-size:11px!important}
+ .case-dimor-story .case-new-steps small,.case-dimor-story .case-new-steps .is-highlight small{color:#7D879C!important;font-size:9px!important;letter-spacing:.14em!important}
+ .case-dimor-story .case-new-steps h3,.case-dimor-story .case-new-steps .is-highlight h3{max-width:none!important;margin-top:7px!important;color:#13204F!important;font-size:15px!important;line-height:1.58!important;font-weight:400!important}
+ .case-dimor-work.case-new-work{padding:70px 0!important}
+ .case-dimor-work .case-new-gallery{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important;gap:14px!important;margin-top:28px!important}
+ .case-dimor-work .case-new-gallery figure,.case-dimor-work .case-new-gallery figure.case-new-gallery-main,.case-dimor-work .case-new-gallery figure:not(.case-new-gallery-main){width:100%!important;height:auto!important;aspect-ratio:1.14/1!important;border-radius:12px!important}
+ .case-dimor-work .case-new-gallery figure img{width:100%!important;height:100%!important;object-fit:cover!important}
+ .case-dimor-work .case-new-gallery-copy{width:100%!important;min-height:0!important;padding:10px 2px 8px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+ .case-dimor-work .case-new-gallery-copy h3{margin-top:12px!important;font-size:23px!important;line-height:1.22!important}
+ .case-dimor-work .case-new-gallery-copy p{margin-top:10px!important;font-size:13px!important;line-height:1.65!important}
+ .case-dimor-system.case-new-system{padding:70px 0!important}
+ .case-dimor-system .case-new-system-grid{grid-template-columns:1fr!important;gap:22px!important}
+ .case-dimor-system .case-new-system-list article{padding:16px 0!important}
+ .case-dimor-testimonial.case-new-testimonial{padding:64px 0!important}
+ .case-dimor-testimonial .case-new-testimonial-inner{width:calc(100% - 40px)!important;max-width:calc(100% - 40px)!important;grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"mark" "quote" "person"!important;column-gap:0!important;row-gap:0!important}
+ .case-dimor-testimonial .case-new-quote-mark{font-size:54px!important}
+ .case-dimor-testimonial blockquote{font-size:clamp(24px,7vw,31px)!important;line-height:1.34!important;letter-spacing:-.025em!important;margin:8px 0 22px!important}
+ .case-dimor-testimonial .case-new-person{gap:12px!important;align-self:start!important}
+ .case-dimor-testimonial .case-new-person img{width:48px!important;min-width:48px!important;max-width:48px!important;height:48px!important;min-height:48px!important;max-height:48px!important;aspect-ratio:1/1!important;flex:0 0 48px!important}
+ .case-dimor-testimonial .case-new-person b{font-size:12px!important}
+ .case-dimor-testimonial .case-new-person span{font-size:10px!important;line-height:1.45!important}
+ .case-dimor-next.case-new-next{padding:66px 0!important}
+ .case-dimor-next .case-new-next-card{height:340px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .case-dimor-hero *, .case-dimor-story *, .case-dimor-work *, .case-dimor-system *, .case-dimor-testimonial *, .case-dimor-next *{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+<style id="dimor-page-unified-margins">
+/* Mismo ancho, centrado y cortes responsive que la navbar (.lnav-row). */
+.case-new-hero .container,
+.case-new-hero.case-dimor-hero .container,
+.case-new-story .container,
+.case-new-work .container,
+.case-new-system .container,
+.case-new-next .container,
+.case-dimor-next .container,
+.case-new-testimonial .case-new-testimonial-inner{
+  width:min(1220px,calc(100vw - 128px))!important;
+  max-width:1220px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(max-width:1100px){
+  .case-new-hero .container,
+  .case-new-hero.case-dimor-hero .container,
+  .case-new-story .container,
+  .case-new-work .container,
+  .case-new-system .container,
+  .case-new-next .container,
+  .case-dimor-next .container,
+  .case-new-testimonial .case-new-testimonial-inner{
+    width:calc(100vw - 48px)!important;
+    max-width:calc(100vw - 48px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+@media(max-width:760px){
+  .case-new-hero .container,
+  .case-new-hero.case-dimor-hero .container,
+  .case-new-story .container,
+  .case-new-work .container,
+  .case-new-system .container,
+  .case-new-next .container,
+  .case-dimor-next .container,
+  .case-new-testimonial .case-new-testimonial-inner{
+    width:calc(100vw - 40px)!important;
+    max-width:calc(100vw - 40px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+</style>
+<style id="dimor-mobile-hero-polish">
+/* Hero móvil: título más compacto y ficha con una sola guía. */
+@media(max-width:760px){
+  .case-dimor-hero h1{
+    max-width:100%!important;
+    font-size:clamp(34px,8.8vw,42px)!important;
+    line-height:1.12!important;
+    letter-spacing:-.035em!important;
+    text-wrap:balance;
+  }
+  .case-dimor-hero h1 strong{display:inline!important}
+  .case-dimor-hero .case-new-meta-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    margin-top:24px!important;
+    border-top:1px solid rgba(255,255,255,.16)!important;
+  }
+  .case-dimor-hero .case-new-meta-grid>div,
+  .case-dimor-hero .case-new-meta-grid>div+div,
+  .case-dimor-hero .case-new-meta-grid>div:last-child{
+    grid-column:auto!important;
+    padding:14px 0!important;
+    border-left:0!important;
+    border-bottom:1px solid rgba(255,255,255,.16)!important;
+  }
+}
+</style>
+<style id="dimor-gallery-card-spacing">
+@media(min-width:761px){.case-dimor-work .case-new-gallery{grid-template-rows:minmax(270px,350px) 320px!important}}
+@media(min-width:761px) and (max-width:900px){.case-dimor-work .case-new-gallery{grid-template-rows:minmax(230px,300px) 360px!important}}
+@media(max-width:760px){.case-dimor-work .case-new-gallery{grid-template-rows:auto!important}}
+</style>
 </head>
 <body>
 
@@ -2070,14 +2280,14 @@
       </div>
 
 <main id="top">
-  <section class="case-new-hero">
+  <section class="case-new-hero case-dimor-hero">
     <div class="container">
       <a class="case-new-back" href="https://lowsignal.cl/casos">← Customer Stories</a>
 
       <div class="case-new-hero-grid">
         <div>
           <div class="case-new-kicker"><span>CUSTOMER STORY</span><b>B2B</b></div>
-          <h1>Un feed que muestra la <strong>operación real.</strong></h1>
+          <h1>Un feed que muestra<br> <strong>la operación real.</strong></h1>
           <p>Una empresa de operación y logística que quería llevar su trabajo en terreno a sus redes.</p>
 
           <div class="case-new-meta-grid">
@@ -2087,31 +2297,31 @@
           </div>
         </div>
 
-        <div class="case-new-brand-card">
+        <div class="case-new-brand-card case-new-brand-card-dark">
           <img src="https://lowsignal.cl/assets/dimor-logo.png" alt="Dimor">
           <p>Operación, logística y trabajo en terreno convertidos en una presencia digital más consistente.</p>
         </div>
       </div>
 
       <figure class="case-new-cover">
-        <img src="https://lowsignal.cl/assets/dimor-truck.jpg" alt="Dimor — customer story">
+        <img src="https://lowsignal.cl/assets/dimor-truck.jpg" alt="Vehículos de Dimor en terreno">
       </figure>
     </div>
   </section>
 
-  <section class="case-new-story">
+  <section class="case-new-story case-dimor-story">
     <div class="container">
       <div class="case-new-story-head">
         <div>
           <p class="case-new-eyebrow">EL CASO</p>
-          <h2>Del terreno a una marca <strong>más visible.</strong></h2>
+          <h2>Del terreno a una marca<br> <strong>más visible.</strong></h2>
         </div>
         <p>El desafío no era inventar una historia nueva, sino mostrar mejor lo que Dimor ya estaba haciendo todos los días.</p>
       </div>
 
       <div class="case-new-steps">
         <article>
-          <span>/ 01</span>
+          <span>01</span>
           <div>
             <small>DESAFÍO</small>
             <h3>Mostrar la escala y la calidad de la operación de forma atractiva y constante.</h3>
@@ -2119,7 +2329,7 @@
         </article>
 
         <article>
-          <span>/ 02</span>
+          <span>02</span>
           <div>
             <small>RESPUESTA</small>
             <h3>Producción de contenido en terreno y un feed con una línea visual consistente.</h3>
@@ -2127,7 +2337,7 @@
         </article>
 
         <article class="is-highlight">
-          <span>/ 03</span>
+          <span>03</span>
           <div>
             <small>CAMBIO</small>
             <h3>Una presencia digital que refleja la operación real de la empresa y fortalece su marca.</h3>
@@ -2137,25 +2347,25 @@
     </div>
   </section>
 
-  <section class="case-new-work">
+  <section class="case-new-work case-dimor-work dimor-gallery">
     <div class="container">
       <div class="case-new-work-head">
         <div>
           <p class="case-new-eyebrow case-new-eyebrow-dark">EL TRABAJO</p>
-          <h2>Contenido construido desde <strong>la operación.</strong></h2>
+          <h2>Contenido construido<br> <strong>desde la operación.</strong></h2>
         </div>
         <p>La ejecución se centró en capturar terreno, personas y operación para construir una línea visual reconocible y sostenida en el tiempo.</p>
       </div>
 
-      <div class="case-new-gallery">
+      <div class="case-new-gallery dimor-gallery">
         <figure class="case-new-gallery-main">
-          <img src="https://lowsignal.cl/assets/dimor-ig.jpg" alt="Contenido de Dimor">
+          <img src="https://lowsignal.cl/assets/dimor-ig.jpg" alt="Contenido para las redes sociales de Dimor">
         </figure>
         <figure>
           <img src="https://lowsignal.cl/assets/dimor-tile-1.jpg" alt="Pieza visual de Dimor">
         </figure>
         <div class="case-new-gallery-copy">
-          <span>Social Media · Content</span>
+          <span>SOCIAL MEDIA · CONTENIDO</span>
           <h3>La operación como principal activo de marca.</h3>
           <p>En vez de producir contenido desconectado del negocio, el sistema parte desde lo que realmente ocurre en terreno.</p>
         </div>
@@ -2163,11 +2373,11 @@
     </div>
   </section>
 
-  <section class="case-new-system">
+  <section class="case-new-system case-dimor-system">
     <div class="container case-new-system-grid">
       <div>
         <p class="case-new-eyebrow">SISTEMA</p>
-        <h2>Menos piezas aisladas.<br><strong>Más consistencia.</strong></h2>
+        <h2>Menos piezas aisladas.<br> <strong>Más consistencia.</strong></h2>
       </div>
 
       <div class="case-new-system-list">
@@ -2178,7 +2388,7 @@
     </div>
   </section>
 
-  <section class="case-new-next">
+  <section class="case-new-next case-dimor-next">
     <div class="container">
       <div class="case-new-next-head">
         <div>
@@ -2200,7 +2410,7 @@
     </div>
   </section>
 
-  <section class="lsr-band" id="contacto">
+<section class="lsr-band" id="contacto">
   <div class="lsr-wrap lsr-band-inner">
     <p>¿Construimos lo que viene?</p>
     <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
