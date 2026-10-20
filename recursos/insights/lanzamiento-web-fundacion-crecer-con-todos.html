@@ -10636,5 +10636,31 @@ footer{
   .article-new-hero h1{font-size:clamp(38px,9vw,48px)!important;line-height:1.06!important}
 }
 </style>
+
+<style id="fcct-insight-related-cards-rhythm">
+/* Compacta las cards de cierre y fija la altura para igualarlas al resto de insights. */
+.article-new-more{padding:80px 0!important}
+.article-new-more-grid{margin-top:32px!important}
+.article-new-more-grid>a{
+  height:240px!important;min-height:240px!important;
+  grid-template-columns:minmax(0,210px) minmax(0,1fr)!important;
+}
+.article-new-more-grid img{width:100%!important;height:100%!important;min-height:0!important;object-fit:cover!important}
+.article-new-more-grid>a>div{min-width:0!important;padding:20px!important}
+.article-new-more-grid h3{font-size:19px!important;line-height:1.22!important}
+@media(max-width:980px){
+  .article-new-more-grid>a{grid-template-columns:160px minmax(0,1fr)!important}
+}
+@media(max-width:760px){
+  .article-new-more{padding:60px 0!important}
+  .article-new-more-grid{margin-top:26px!important}
+  .article-new-more-grid>a{
+    display:grid!important;grid-template-columns:1fr!important;
+    height:auto!important;min-height:0!important;
+  }
+  .article-new-more-grid img{height:160px!important;min-height:0!important}
+  .article-new-more-grid>a>div{padding:18px!important}
+}
+</style>
 </body>
 </html>
