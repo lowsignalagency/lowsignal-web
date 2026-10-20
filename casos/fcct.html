@@ -2284,6 +2284,48 @@
 }
 </style>
 
+
+
+<style id="fcct-testimonial-and-visit-link-v1">
+/* Clear, accessible link to the foundation's site. */
+.case-fcct-work .fcct-visit-link{
+  display:inline-flex!important;align-items:center!important;gap:9px!important;align-self:flex-start!important;
+  margin-top:22px!important;padding:11px 15px!important;border:1px solid rgba(138,164,255,.3)!important;
+  border-radius:999px!important;color:#EAF0FF!important;font-size:12px!important;font-weight:600!important;
+  line-height:1.2!important;transition:background .2s ease,border-color .2s ease,transform .2s ease!important;
+}
+.case-fcct-work .fcct-visit-link span{color:#AFC0FF!important;font-size:15px!important;line-height:1!important}
+.case-fcct-work .fcct-visit-link:hover{background:rgba(138,164,255,.1)!important;border-color:rgba(138,164,255,.62)!important;transform:translateY(-2px)!important}
+.case-fcct-work .fcct-visit-link:focus-visible{outline:2px solid #AFC0FF!important;outline-offset:3px!important}
+
+/* Match the other case studies and remove the unused portrait column. */
+.case-fcct-testimonial{
+  padding:78px 0!important;background:#070F22!important;
+}
+.case-fcct-testimonial:before{
+  background:radial-gradient(48% 65% at 8% 100%,rgba(20,74,224,.2),transparent 72%)!important;
+}
+.case-fcct-testimonial .case-new-testimonial-inner{
+  width:min(1220px,calc(100% - 128px))!important;max-width:1220px!important;
+  display:block!important;
+}
+.case-fcct-testimonial .case-new-quote-mark{color:#8AA4FF!important;font-size:66px!important}
+.case-fcct-testimonial blockquote{
+  max-width:1000px!important;margin:10px 0 26px!important;font-size:clamp(28px,3.2vw,40px)!important;
+  line-height:1.3!important;letter-spacing:-.035em!important;font-weight:300!important;
+}
+.case-fcct-testimonial .case-new-person{margin-top:0!important;padding-top:22px!important}
+.case-fcct-testimonial .case-new-person span{color:#AAB4CF!important}
+@media(max-width:1100px){.case-fcct-testimonial .case-new-testimonial-inner{width:calc(100% - 48px)!important}}
+@media(max-width:760px){
+  .case-fcct-work .fcct-visit-link{margin-top:20px!important}
+  .case-fcct-testimonial{padding:64px 0!important}
+  .case-fcct-testimonial .case-new-testimonial-inner{width:calc(100% - 40px)!important}
+  .case-fcct-testimonial .case-new-quote-mark{font-size:54px!important}
+  .case-fcct-testimonial blockquote{font-size:clamp(24px,7vw,31px)!important;line-height:1.34!important;margin:8px 0 22px!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -2683,6 +2725,7 @@
           <span>WEB DEVELOPMENT · SOCIAL MEDIA</span>
           <h3>El trabajo de la fundación, más cerca de las personas.</h3>
           <p>Un espacio digital para conocer sus programas, entender su misión y descubrir el trabajo que realizan junto a su comunidad.</p>
+          <a class="fcct-visit-link" href="https://fundacioncrecercontodos.cl/" target="_blank" rel="noopener noreferrer">Visitar web <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>
