@@ -10230,6 +10230,67 @@ body footer .footer-bottom{
   .insiders-faq-refresh-answer{padding-right:24px}
 }
 @media(prefers-reduced-motion:reduce){.insiders-faq-refresh-icon::before,.insiders-faq-refresh-icon::after{transition:none}}
+
+/* Insiders: entradas suaves al recorrer la página */
+@media(prefers-reduced-motion:no-preference){
+  .insr-motion-ready [data-insr-reveal],
+  .insr-motion-ready [data-insr-stagger]>*{
+    opacity:0;
+    translate:0 22px;
+    transition:opacity .72s cubic-bezier(.2,.7,.2,1),translate .72s cubic-bezier(.2,.7,.2,1);
+    will-change:opacity,translate;
+  }
+  .insr-motion-ready [data-insr-reveal].insr-is-visible,
+  .insr-motion-ready [data-insr-stagger].insr-is-visible>*{
+    opacity:1;
+    translate:0 0;
+  }
+  .insr-motion-ready [data-insr-stagger].insr-is-visible>*:nth-child(2){transition-delay:.1s}
+  .insr-motion-ready [data-insr-stagger].insr-is-visible>*:nth-child(3){transition-delay:.2s}
+  .insr-motion-ready [data-insr-stagger].insr-is-visible>*:nth-child(4){transition-delay:.3s}
+  .insr-motion-ready .insr-map-pins circle{transform-box:fill-box;transform-origin:center;animation:insr-pin-pulse 3.4s ease-in-out infinite}
+  .insr-motion-ready .insr-map-pins circle:nth-child(2n){animation-delay:.65s}
+  .insr-motion-ready .insr-map-pins circle:nth-child(3n){animation-delay:1.3s}
+}
+@keyframes insr-pin-pulse{0%,100%{scale:1;opacity:.8}50%{scale:1.45;opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  [data-insr-reveal],[data-insr-stagger]>*{opacity:1!important;translate:none!important;transition:none!important}
+  .insr-map-pins circle{animation:none!important}
+}
 </style>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window))return;
+  var root=document.documentElement;
+  var reveal=[
+    '.insr-hero-copy','.insr-map-card',
+    '.insr-manifesto-top','.insr-manifesto h2','.insr-manifesto-bottom',
+    '.insr-section-intro','.insr-process-note',
+    '.insr-industries-head',
+    '.insr-community-head','.insr-community-copy','.insr-founder-quote',
+    '.insr-faq-heading','.insr-final-inner'
+  ];
+  reveal.forEach(function(selector){document.querySelectorAll(selector).forEach(function(el){el.setAttribute('data-insr-reveal','')})});
+  [
+    '.insr-process-grid','.insr-industries-grid','.insr-people','.insr-faq-list'
+  ].forEach(function(selector){document.querySelectorAll(selector).forEach(function(el){el.setAttribute('data-insr-stagger','')})});
+  root.classList.add('insr-motion-ready');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('insr-is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+  document.querySelectorAll('[data-insr-reveal],[data-insr-stagger]').forEach(function(el){
+    if(el.matches('.insr-hero-copy,.insr-map-card')){requestAnimationFrame(function(){el.classList.add('insr-is-visible')})}
+    else observer.observe(el);
+  });
+})();
+</script>
+
 </body>
 </html>
