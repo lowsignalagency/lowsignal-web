@@ -10773,5 +10773,11 @@ footer{
   });
 })();
 </script>
+
+<style id="article-expansion-rows-fix">
+/* Mantiene la etiqueta a la izquierda y agrupa título + descripción en una columna amplia. */
+.article-new-process>article:not(.article-shared-system)>p{grid-column:2!important;min-width:0!important}
+@media(max-width:760px){.article-new-process>article:not(.article-shared-system)>p{grid-column:1!important}}
+</style>
 </body>
 </html>
