@@ -2980,6 +2980,32 @@
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+<style id="sae-mobile-native-scroll">
+@media(max-width:760px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:clip!important;
+    overscroll-behavior-x:none;
+  }
+  body{touch-action:pan-y pinch-zoom}
+  main,.article-new-hero,.article-new-body,.article-new-more{
+    max-width:100%;
+    overflow-x:clip;
+    touch-action:pan-y pinch-zoom;
+  }
+  .article-new-hero--sae .article-new-cover{
+    height:auto!important;
+    aspect-ratio:16/10;
+  }
+  .article-new-hero--sae .article-new-cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 44%;
+  }
+}
+</style>
 </head>
 <body>
 
