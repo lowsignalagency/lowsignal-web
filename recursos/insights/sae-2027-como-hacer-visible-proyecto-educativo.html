@@ -3340,7 +3340,8 @@
           <div class="article-new-share">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Fsae-2027-como-hacer-visible-proyecto-educativo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Fsae-2027-como-hacer-visible-proyecto-educativo&amp;text=437%20mil%20estudiantes%20participaron%20en%20el%20SAE%202027%3A%20%C2%BFc%C3%B3mo%20hacer%20visible%20el%20proyecto%20educativo%20de%20tu%20colegio%3F" target="_blank" rel="noopener noreferrer">X</a>
-            <a href="https://lowsignal.cl/recursos/insights/sae-2027-como-hacer-visible-proyecto-educativo">Copiar link</a>
+            <button class="article-copy-link" type="button" data-copy-url="https://lowsignal.cl/recursos/insights/sae-2027-como-hacer-visible-proyecto-educativo">Copiar link</button>
+            <span class="article-copy-status" role="status" aria-live="polite"></span>
           </div>
         </div>
       </aside>
@@ -10458,7 +10459,7 @@ footer{
 <style id="article-margin-axis-final">@media(min-width:1441px){.article-new-hero .container,.article-new-body .container,.article-new-more .container{width:calc(100% - 256px)!important;max-width:1480px!important;margin-inline:auto!important}}</style>
 
 <style id="sae-article-tuning">
-.article-new-hero--sae h1{font-size:clamp(42px,4.5vw,66px)}
+.article-new-hero--sae h1{font-size:clamp(42px,3.6vw,56px)}
 .article-new-hero--sae .article-new-cover{height:520px}
 .article-new-hero--sae .article-new-cover img{object-position:center 44%}
 .article-new-source{margin-top:34px!important;padding-top:18px;border-top:1px solid #DDE4F0;color:#65738F;font-size:13px}
@@ -10470,5 +10471,52 @@ footer{
   .article-new-hero--sae .article-new-cover{height:300px}
 }
 </style>
+<style id="sae-copy-link-and-heading">
+.article-new-hero--sae h1{font-size:clamp(42px,3.6vw,56px)!important;line-height:1.06!important}
+.article-new-share .article-copy-link{padding:0;border:0;background:none;color:#1419E0;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
+.article-new-share .article-copy-link:hover{text-decoration:underline;text-underline-offset:3px}
+.article-new-share .article-copy-link:focus-visible{outline:2px solid #1419E0;outline-offset:4px;border-radius:3px}
+.article-copy-status{flex-basis:100%;min-height:16px;color:#65738F;font-size:11px}
+@media(max-width:760px){.article-new-hero--sae h1{font-size:36px!important;line-height:1.08!important}}
+</style>
+<script>
+(() => {
+  const button = document.querySelector(".article-copy-link");
+  const status = document.querySelector(".article-copy-status");
+  if (!button || !status) return;
+
+  const fallbackCopy = (value) => {
+    const field = document.createElement("textarea");
+    field.value = value;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand("copy");
+    field.remove();
+    return copied;
+  };
+
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copyUrl;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(value);
+      } else if (!fallbackCopy(value)) {
+        throw new Error("copy failed");
+      }
+      status.textContent = "¡Enlace copiado!";
+      button.textContent = "¡Copiado!";
+      window.setTimeout(() => {
+        button.textContent = "Copiar link";
+        status.textContent = "";
+      }, 2200);
+    } catch {
+      status.textContent = "No se pudo copiar. Copia el enlace desde la barra del navegador.";
+    }
+  });
+})();
+</script>
 </body>
 </html>
