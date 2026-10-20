@@ -352,10 +352,16 @@
 .edu-new-testimonials .edu-new-section-head>p{color:#9AA8C8}
 .edu-new-testimonials .edu-new-section-head h2{color:#F4F6FF;font-size:clamp(34px,3.8vw,52px);line-height:1.08;font-weight:300;letter-spacing:-.035em;max-width:600px}.edu-new-testimonials .edu-new-section-head h2 strong{font-weight:inherit}
 .edu-testimonials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;align-items:stretch}
-.edu-testimonial-card{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-width:0;min-height:340px;padding:26px;border-radius:16px}
+.edu-testimonial-card{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-width:0;min-height:340px;padding:26px;border:1px solid transparent;border-radius:16px;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .22s ease,box-shadow .22s ease}
 .edu-testimonial-feature{padding:26px;background:#E8EEFF;color:#10193C}
 .edu-testimonial-vale{background:linear-gradient(145deg,#1A22D6,#2447F5);color:#fff}
-.edu-testimonial-karina{background:linear-gradient(145deg,#14244E,#0E1938);color:#fff;border:1px solid rgba(160,180,255,.16)}
+.edu-testimonial-karina{background:linear-gradient(145deg,#14244E,#0E1938);color:#fff;border-color:rgba(160,180,255,.16)}
+ .edu-testimonial-feature:hover,.edu-testimonial-feature:focus-visible{border-color:rgba(20,25,224,.20);box-shadow:0 18px 42px rgba(7,16,34,.09)}
+ .edu-testimonial-vale:hover,.edu-testimonial-vale:focus-visible,.edu-testimonial-karina:hover,.edu-testimonial-karina:focus-visible{border-color:rgba(168,184,255,.5);box-shadow:0 18px 42px rgba(0,0,0,.2)}
+ .edu-testimonial-card:focus-visible{outline:2px solid #8EA3FF;outline-offset:4px}
+ .edu-testimonial-link{display:inline-flex;align-items:center;gap:4px;margin-left:auto;white-space:nowrap;font-size:10px;font-weight:700;color:inherit}
+ .edu-testimonial-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+ .edu-testimonial-card:hover .edu-testimonial-link svg,.edu-testimonial-card:focus-visible .edu-testimonial-link svg{transform:translate(2px,-2px)}
 .edu-testimonial-copy{min-width:0}
 .edu-testimonial-quote{display:block;margin:0 0 8px;color:#829AFF;font-family:Georgia,serif;font-size:38px;line-height:.75}
 .edu-testimonial-card blockquote{margin:0;font-size:18px;line-height:1.48;font-weight:300;letter-spacing:-.02em}
@@ -368,7 +374,7 @@
 .edu-testimonial-person div{min-width:0;flex:1}
 .edu-testimonial-person b{display:block;font-size:12px;font-weight:700;line-height:1.35}
 .edu-testimonial-person span{display:block;margin-top:4px;font-size:10px;line-height:1.4;opacity:.76}
-.edu-testimonial-person a{display:inline-flex;align-items:center;gap:4px;margin-left:auto;white-space:nowrap;font-size:10px;font-weight:700;color:inherit!important}
+
 .edu-testimonial-person a svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:1000px){.edu-testimonials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.edu-testimonial-card{min-height:320px}.edu-testimonial-card blockquote{font-size:17px}.edu-testimonial-feature blockquote{font-size:18px}}
 @media(max-width:680px){.edu-new-testimonials .edu-new-section-head h2{font-size:34px;line-height:1.1}.edu-new-testimonials{padding:68px 0 76px}.edu-testimonials-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}.edu-testimonial-card{gap:24px;min-height:0;padding:23px 21px}.edu-testimonial-card blockquote,.edu-testimonial-feature blockquote{font-size:18px}.edu-testimonial-person{gap:9px;padding-top:13px}.edu-testimonial-person img{flex-basis:42px;width:42px;height:42px}.edu-testimonial-person span{font-size:9px}.edu-testimonial-person a{font-size:9px}}
@@ -460,28 +466,28 @@
       <p>Las comunidades educativas con las que trabajamos cuentan mejor que nadie lo que construimos en conjunto.</p>
     </div>
     <div class="edu-testimonials-grid">
-      <article class="edu-testimonial-card edu-testimonial-feature">
+      <a class="edu-testimonial-card edu-testimonial-feature" href="https://lowsignal.cl/casos/rech" aria-label="Leer el caso de Red Educacional Camilo Henríquez">
         <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote></div>
-        <footer class="edu-testimonial-person">
+        <div class="edu-testimonial-person">
           <img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz">
           <div><b>Nicolás Muñoz</b><span>Director Ejecutivo, Red Educacional Camilo Henríquez</span></div>
-          <a href="https://lowsignal.cl/casos/rech">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </footer>
-      </article>
-      <article class="edu-testimonial-card edu-testimonial-vale">
+          <a class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </a>
+      <a class="edu-testimonial-card edu-testimonial-vale" href="https://lowsignal.cl/casos/fcct" aria-label="Leer el caso de Fundación Educacional Crecer con Todos">
         <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>lowsignal entendió nuestra misión desde el inicio, ayudándonos a contar nuestra historia y mostrar el impacto que generamos. Todo el proceso fue cercano y profesional.</blockquote></div>
         <footer class="edu-testimonial-person">
           <img src="https://lowsignal.cl/assets/valentina-w.jpg" alt="Valentina Wagenreld">
           <div><b>Valentina Wagenreld</b><span>Directora Ejecutiva, Fundación Educacional Crecer con Todos</span></div>
-          <a href="https://lowsignal.cl/casos/fcct">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </footer>
       </article>
-      <article class="edu-testimonial-card edu-testimonial-karina">
+      <a class="edu-testimonial-card edu-testimonial-karina" href="https://lowsignal.cl/casos/salvador-dali" aria-label="Leer el caso del Colegio Salvador Dalí">
         <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote></div>
         <footer class="edu-testimonial-person">
           <span class="edu-testimonial-avatar"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"></span>
           <div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div>
-          <a href="https://lowsignal.cl/casos/salvador-dali">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </footer>
       </article>
     </div>
