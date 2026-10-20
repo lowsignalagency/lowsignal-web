@@ -14857,5 +14857,32 @@ footer .container,
 }
 </style>
 
+
+<style id="sanjorge-footer-grid-alignment">
+/* Footer y CTA alineados al mismo margen que las secciones del caso. */
+footer .footer-container,
+.lsr-band .lsr-wrap {
+  box-sizing: border-box !important;
+  width: min(1220px, calc(100vw - 128px)) !important;
+  max-width: 1220px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 1100px) {
+  footer .footer-container,
+  .lsr-band .lsr-wrap {
+    width: calc(100vw - 48px) !important;
+    max-width: calc(100vw - 48px) !important;
+  }
+}
+@media (max-width: 760px) {
+  footer .footer-container,
+  .lsr-band .lsr-wrap {
+    width: calc(100vw - 40px) !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+}
+</style>
+
 </body>
 </html>
