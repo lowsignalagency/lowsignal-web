@@ -2243,7 +2243,7 @@
       <div class="case-new-quote-mark" aria-hidden="true">“</div>
       <blockquote>lowsignal ha sido un aporte muy importante para nosotros. Nos ayudó a ordenar nuestras redes y nuestra web, llegar mejor a nuestro público y contar lo que hacemos. Es un equipo muy responsable.</blockquote>
       <div class="case-new-person">
-        <img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay" loading="lazy">
+        <span class="case-new-person-avatar"><img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay" loading="lazy"></span>
         <div>
           <b>Jorge Menay</b>
           <span>Director, Colegio San Jorge de Las Condes</span>
@@ -14781,5 +14781,57 @@ footer .container,
   }
 }
 </style>
+
+<style id="sanjorge-testimonial-margin-and-portrait">
+/* El testimonio comparte el mismo eje horizontal del resto de la página. */
+.case-sanjorge-testimonial .case-new-testimonial-inner {
+  width: min(1220px, calc(100vw - 128px)) !important;
+  max-width: 1220px !important;
+  margin-inline: auto !important;
+}
+/* Recorte más cercano del retrato, manteniendo el círculo y el tamaño de la ficha. */
+.case-sanjorge-testimonial .case-new-person-avatar {
+  display: block !important;
+  position: relative !important;
+  flex: 0 0 68px !important;
+  width: 68px !important;
+  height: 68px !important;
+  overflow: hidden !important;
+  border-radius: 50% !important;
+}
+.case-sanjorge-testimonial .case-new-person-avatar img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  flex: none !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transform: scale(1.45) !important;
+  transform-origin: center 0% !important;
+}
+@media (max-width: 1100px) {
+  .case-sanjorge-testimonial .case-new-testimonial-inner {
+    width: calc(100vw - 48px) !important;
+    max-width: calc(100vw - 48px) !important;
+  }
+}
+@media (max-width: 760px) {
+  .case-sanjorge-testimonial .case-new-testimonial-inner {
+    width: calc(100vw - 40px) !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+  .case-sanjorge-testimonial .case-new-person-avatar {
+    flex-basis: 60px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .case-sanjorge-testimonial .case-new-person-avatar img {
+    transform: scale(1.45) !important;
+  }
+}
+</style>
+
 </body>
 </html>
