@@ -2236,6 +2236,37 @@
 }
 </style>
 
+
+<style id="fcct-gallery-screenshot-fit">
+/* The website capture needs its full desktop frame visible. */
+.case-fcct-work .case-new-gallery{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-rows:auto 220px!important;
+}
+.case-fcct-work .case-new-gallery-main{
+  grid-column:1/-1!important;
+  grid-row:auto!important;
+  aspect-ratio:16/7!important;
+  background:#fff!important;
+}
+.case-fcct-work .case-new-gallery-main img{
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:#fff!important;
+}
+@media(max-width:760px){
+  .case-fcct-work .case-new-gallery{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important}
+  .case-fcct-work .case-new-gallery figure.case-new-gallery-main{
+    aspect-ratio:16/9!important;
+    background:#fff!important;
+  }
+  .case-fcct-work .case-new-gallery-main img{
+    object-fit:contain!important;
+    background:#fff!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
