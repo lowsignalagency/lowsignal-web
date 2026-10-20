@@ -14998,29 +14998,60 @@ footer .footer-container,
 </style>
 <style id="sanjorge-mobile-card-and-web-zoom">
 @media (max-width: 760px) {
-  /* La ficha queda angosta y alineada con el margen izquierdo del contenido. */
+  /* Ficha y foto del colegio comparten ancho y margen. */
   .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark {
     box-sizing: border-box !important;
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr) !important;
+    align-items: center !important;
+    gap: 20px !important;
     width: 100% !important;
-    max-width: 280px !important;
+    max-width: none !important;
     margin-left: 0 !important;
-    margin-right: auto !important;
+    margin-right: 0 !important;
+    padding: 22px !important;
   }
-  /* Agrandar la imagen dentro del marco y recortar sus bordes blancos. */
+  .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark img {
+    width: 100% !important;
+    max-width: 150px !important;
+    height: auto !important;
+    max-height: 62px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+  .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark p {
+    min-width: 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+  .case-sanjorge-hero .case-new-cover {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  /* Recortar el margen blanco que viene dentro de la captura del sitio. */
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
     overflow: hidden !important;
     background: #070F22 !important;
   }
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main img {
     display: block !important;
-    width: 120% !important;
+    width: 130% !important;
     max-width: none !important;
     height: 100% !important;
-    margin-left: -10% !important;
+    margin-left: -15% !important;
     object-fit: cover !important;
     object-position: center top !important;
     transform: none !important;
+  }
+}
+@media (max-width: 420px) {
+  .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark {
+    grid-template-columns: minmax(0, .68fr) minmax(0, 1.32fr) !important;
+    gap: 16px !important;
+    padding: 18px !important;
   }
 }
 </style>
