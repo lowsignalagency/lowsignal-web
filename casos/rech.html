@@ -13387,7 +13387,7 @@ footer .footer-container{
 
 
 <style id="rech-page-unified-margins">
-/* Un solo margen para hero, contenido, testimonio y siguiente caso. */
+/* Las secciones siguen la misma guía dinámica del contenido de la navbar. */
 .case-new-hero .container,
 .case-new-hero.case-rech-hero .container,
 .case-new-story .container,
@@ -13396,9 +13396,10 @@ footer .footer-container{
 .case-new-next .container,
 .case-rech-next .container,
 .case-new-testimonial .case-new-testimonial-inner{
-  width:min(1320px,calc(100% - 128px))!important;
+  --case-content-gutter:max(64px,calc((100vw - 1750px)/2));
+  width:min(1320px,calc(100vw - 2 * var(--case-content-gutter)))!important;
   max-width:1320px!important;
-  margin-left:auto!important;
+  margin-left:var(--case-content-gutter)!important;
   margin-right:auto!important;
 }
 @media(max-width:900px){
@@ -13410,8 +13411,11 @@ footer .footer-container{
   .case-new-next .container,
   .case-rech-next .container,
   .case-new-testimonial .case-new-testimonial-inner{
-    width:calc(100% - 48px)!important;
-    max-width:calc(100% - 48px)!important;
+    --case-content-gutter:24px;
+    width:calc(100vw - 48px)!important;
+    max-width:calc(100vw - 48px)!important;
+    margin-left:var(--case-content-gutter)!important;
+    margin-right:auto!important;
   }
 }
 @media(max-width:760px){
@@ -13423,8 +13427,11 @@ footer .footer-container{
   .case-new-next .container,
   .case-rech-next .container,
   .case-new-testimonial .case-new-testimonial-inner{
-    width:calc(100% - 40px)!important;
-    max-width:calc(100% - 40px)!important;
+    --case-content-gutter:20px;
+    width:calc(100vw - 40px)!important;
+    max-width:calc(100vw - 40px)!important;
+    margin-left:var(--case-content-gutter)!important;
+    margin-right:auto!important;
   }
 }
 </style>
