@@ -14917,27 +14917,82 @@ footer .footer-container,
   }
 }
 </style>
-
-<style id="sanjorge-mobile-gallery-order-final">
-/* En móvil, la explicación queda junto a la captura web; la foto acompaña al final. */
+<style id="sanjorge-mobile-layout-repair-v2">
 @media (max-width: 760px) {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+  }
+  .case-sanjorge-hero,
+  .case-sanjorge-story,
+  .case-sanjorge-work,
+  .case-sanjorge-system,
+  .case-sanjorge-testimonial,
+  .case-sanjorge-next,
+  .lsr-band,
+  footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: clip !important;
+  }
+  .case-sanjorge-hero.case-sanjorge-hero > .container,
+  .case-sanjorge-story.case-sanjorge-story > .container,
+  .case-sanjorge-work.case-sanjorge-work > .container,
+  .case-sanjorge-system.case-sanjorge-system > .container,
+  .case-sanjorge-next.case-sanjorge-next > .container,
+  .case-sanjorge-testimonial .case-new-testimonial-inner,
+  .lsr-band .lsr-wrap,
+  footer .footer-container {
+    width: calc(100% - 40px) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .case-sanjorge-hero *,
+  .case-sanjorge-story *,
+  .case-sanjorge-work *,
+  .case-sanjorge-system *,
+  .case-sanjorge-testimonial *,
+  .case-sanjorge-next * {
+    min-width: 0;
+  }
+  .case-sanjorge-hero img,
+  .case-sanjorge-work img,
+  .case-sanjorge-testimonial img,
+  .case-sanjorge-next img {
+    max-width: 100% !important;
+  }
   .case-sanjorge-work .sanjorge-gallery {
-    display: grid !important;
+    width: 100% !important;
+    max-width: 100% !important;
     grid-template-columns: minmax(0, 1fr) !important;
     grid-template-rows: auto auto auto !important;
     grid-auto-flow: row !important;
   }
+  /* Mantener la composición original: web, foto del colegio y ficha del trabajo. */
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
     grid-column: 1 !important;
     grid-row: 1 !important;
   }
-  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+  .case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
     grid-column: 1 !important;
     grid-row: 2 !important;
   }
-  .case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
     grid-column: 1 !important;
     grid-row: 3 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > figure,
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
 }
 </style>
