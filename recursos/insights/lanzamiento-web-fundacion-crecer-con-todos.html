@@ -10609,5 +10609,35 @@ footer{
   .article-new-hero *, .article-new-body *, .article-new-more *{scroll-behavior:auto!important;transition:none!important}
 }
 </style>
+
+<style id="fcct-insight-margin-title-fix">
+/* Ancho exterior más cercano a la grilla de navegación y título sin desborde. */
+.article-new-hero .container,.article-new-body .container,.article-new-more .container{
+  width:min(1320px,calc(100% - 80px))!important;
+  max-width:1320px!important;
+}
+.article-new-hero h1{
+  max-width:100%!important;
+  font-size:clamp(46px,5.4vw,72px)!important;
+  line-height:1.04!important;
+  letter-spacing:-.055em!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+@media(max-width:1100px){
+  .article-new-hero .container,.article-new-body .container,.article-new-more .container{
+    width:calc(100% - 48px)!important;
+    max-width:calc(100% - 48px)!important;
+  }
+  .article-new-hero h1{font-size:clamp(42px,5.8vw,64px)!important}
+}
+@media(max-width:760px){
+  .article-new-hero .container,.article-new-body .container,.article-new-more .container{
+    width:calc(100% - 40px)!important;
+    max-width:calc(100% - 40px)!important;
+  }
+  .article-new-hero h1{font-size:clamp(38px,9vw,48px)!important;line-height:1.06!important}
+}
+</style>
 </body>
 </html>
