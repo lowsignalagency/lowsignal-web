@@ -2161,7 +2161,7 @@
       <div class="case-new-hero-grid">
         <div>
           <div class="case-new-kicker"><span>CUSTOMER STORY</span><b>EDUCACIÓN</b></div>
-          <h1>La infraestructura digital<br>que impulsa a las<br><strong>comunidades de la RECH.</strong></h1>
+          <h1>La infraestructura digital<br> que impulsa a las<br> <strong>comunidades de la RECH.</strong></h1>
           <p>Una red de colegios con muchas comunidades y una sola identidad. Construimos el sistema digital que las conecta.</p>
 
           <div class="case-new-meta-grid">
@@ -13429,6 +13429,33 @@ footer .footer-container{
     max-width:calc(100vw - 40px)!important;
     margin-left:auto!important;
     margin-right:auto!important;
+  }
+}
+</style>
+<style id="rech-mobile-hero-polish">
+/* Hero móvil: título más compacto y ficha con una sola guía. */
+@media(max-width:760px){
+  .case-rech-hero h1{
+    max-width:100%!important;
+    font-size:clamp(34px,8.8vw,42px)!important;
+    line-height:1.12!important;
+    letter-spacing:-.035em!important;
+    text-wrap:balance;
+  }
+  .case-rech-hero h1 strong{display:inline!important}
+  .case-rech-hero .case-new-meta-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    margin-top:24px!important;
+    border-top:1px solid rgba(255,255,255,.16)!important;
+  }
+  .case-rech-hero .case-new-meta-grid>div,
+  .case-rech-hero .case-new-meta-grid>div+div,
+  .case-rech-hero .case-new-meta-grid>div:last-child{
+    grid-column:auto!important;
+    padding:14px 0!important;
+    border-left:0!important;
+    border-bottom:1px solid rgba(255,255,255,.16)!important;
   }
 }
 </style>
