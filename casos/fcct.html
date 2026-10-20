@@ -2331,6 +2331,23 @@
 .case-fcct-testimonial .case-new-person b{color:#070F22!important}
 .case-fcct-testimonial .case-new-person span{color:#65738F!important}
 .case-fcct-testimonial .case-new-person img{border-color:rgba(20,25,224,.22)!important}
+
+/* Crop the website screenshot to remove its white browser gutters. */
+.case-fcct-work .case-new-gallery figure.case-new-gallery-main{
+  overflow:hidden!important;
+  background:#EEF3FF!important;
+}
+.case-fcct-work .case-new-gallery figure.case-new-gallery-main img{
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:transparent!important;
+  transform:scale(1.05)!important;
+}
+@media(max-width:760px){
+  .case-fcct-work .case-new-gallery figure.case-new-gallery-main img{
+    transform:scale(1.03)!important;
+  }
+}
 </style>
 </head>
 <body>
