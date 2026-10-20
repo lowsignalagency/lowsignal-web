@@ -2886,6 +2886,86 @@
   .mobile-nav-plans:hover{background:#EAEEFF !important}
 }
 </style>
+
+<style id="insights-editorial-refresh-v1">
+/* Insights: una bitácora editorial con más contraste y ritmo. */
+.insights-new-hero{
+  position:relative;
+  overflow:hidden;
+  background:#071022;
+  padding-top:166px;
+  padding-bottom:108px;
+}
+.insights-new-hero:after{
+  content:"";
+  position:absolute;
+  right:0;top:0;bottom:0;width:35%;
+  background:linear-gradient(115deg,transparent 18%,rgba(20,25,224,.18) 100%);
+  pointer-events:none;
+}
+.insights-new-hero>.container{position:relative;z-index:1}
+.insights-new-kicker{color:#A8B8FF}
+.insights-new-kicker span{background:#536CEB}
+.insights-new-copy h1{color:#F8FAFF}
+.insights-new-copy h1 strong{color:#6478FF}
+.insights-new-copy>p:last-child{max-width:650px;color:#AAB4CB}
+.insights-new-side{border-color:rgba(255,255,255,.2)}
+.insights-new-side span{color:#8EA0FF}
+.insights-new-side p{color:#B4BED4}
+.insights-new-featured{padding-top:84px;padding-bottom:90px}
+.insights-new-feature-card{
+  border-color:#E3E9F7;
+  box-shadow:0 18px 60px rgba(7,15,34,.06);
+}
+.insights-new-feature-image>span{border-radius:4px}
+.insights-new-cards{gap:20px}
+.insights-new-card{
+  display:flex;flex-direction:column;
+  border-color:#E4E9F4;border-radius:14px;
+}
+.insights-new-card-image{height:auto;aspect-ratio:1.42}
+.insights-new-card-image img{display:block}
+.insights-new-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.insights-new-card .insights-new-read{margin-top:auto;padding-top:22px}
+.insights-new-card h3{color:#111B39}
+.insights-new-card:hover h3{color:#1419E0}
+.insights-new-card:hover .insights-new-read{gap:13px}
+.insights-new-read{transition:gap .2s ease}
+.insights-new-read svg{transition:transform .2s ease}
+.insights-new-card:hover .insights-new-read svg,
+.insights-new-feature-card:hover .insights-new-read svg{transform:translate(2px,-2px)}
+.insights-new-theme-grid article{
+  border-radius:10px;
+  transition:transform .24s ease,border-color .24s ease,background .24s ease;
+}
+.insights-new-theme-grid article:hover{
+  transform:translateY(-4px);
+  border-color:rgba(138,164,255,.48);
+  background:rgba(255,255,255,.045);
+}
+.insights-editorial-reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);
+}
+.insights-editorial-reveal.is-visible{opacity:1;transform:translateY(0)}
+.insights-new-card.insights-editorial-reveal:nth-child(3n + 2){transition-delay:80ms}
+.insights-new-card.insights-editorial-reveal:nth-child(3n){transition-delay:150ms}
+@media(max-width:760px){
+  .insights-new-hero{padding-top:128px;padding-bottom:72px}
+  .insights-new-hero:after{width:72%;opacity:.55}
+  .insights-new-featured{padding-top:60px;padding-bottom:64px}
+  .insights-new-cards{gap:16px}
+  .insights-new-card-image{aspect-ratio:1.35}
+}
+@media(prefers-reduced-motion:reduce){
+  .insights-editorial-reveal,.insights-new-card,.insights-new-theme-grid article,
+  .insights-new-card img,.insights-new-read,.insights-new-read svg{
+    transition:none!important;transform:none!important
+  }
+  .insights-editorial-reveal{opacity:1}
+}
+</style>
+
 </head>
 <body>
 
@@ -3206,8 +3286,8 @@
       </div>
 
       <div class="insights-new-side">
-        <span>EN LOWSIGNAL</span>
-        <p>Compartimos lo que aprendemos mientras construimos: decisiones, experimentos, eventos y momentos que valen la pena documentar.</p>
+        <span>NOTAS DESDE ADENTRO</span>
+        <p>Decisiones, experimentos y aprendizajes compartidos mientras construimos lowsignal junto a clientes, partners y equipo.</p>
       </div>
     </div>
   </section>
@@ -3240,17 +3320,7 @@
       </div>
 
       <div class="insights-new-cards">
-        <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
-          <div class="insights-new-card-image">
-            <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal">
-          </div>
-          <div class="insights-new-card-body">
-            <div class="insights-new-meta"><b>EXPANSIÓN</b><span>16 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>4 min</span></div>
-            <h3>lowsignal se expande: tres industrias, un solo sistema</h3>
-            <p>Más foco para generar más impacto: Education, B2B y B2C pasan a ser nuestras tres verticales de crecimiento.</p>
-            <div class="insights-new-read">Leer más<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
-          </div>
-        </a>
+        
 
         <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/tech-founders-ama">
           <div class="insights-new-card-image">
@@ -10572,5 +10642,23 @@ footer{
   transform-origin:center!important;
 }
 </style>
+
+<script id="insights-editorial-motion-v1">
+document.addEventListener('DOMContentLoaded',()=>{
+  const targets=document.querySelectorAll(
+    '.insights-new-copy,.insights-new-side,.insights-new-feature-card,'+
+    '.insights-new-grid-head,.insights-new-card,.insights-new-themes-head,'+
+    '.insights-new-theme-grid article'
+  );
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const observer=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target)}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+  targets.forEach(el=>{el.classList.add('insights-editorial-reveal');observer.observe(el)});
+});
+</script>
+
 </body>
 </html>
