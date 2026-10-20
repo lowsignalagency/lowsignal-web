@@ -3833,7 +3833,7 @@ footer .footer-container{
         <p>La voz de quienes han confiado en nosotros para construir su crecimiento.</p>
       </div>
 
-      <div class="b2b-case-grid" role="group" aria-label="Testimonio de un cliente B2B">
+      <div class="b2b-case-grid" role="group" aria-label="Testimonios de clientes B2B">
         <a href="https://lowsignal.cl/casos/gets" class="b2b-case-card b2b-proof-quote" aria-label="Leer el caso GETS y el testimonio de Nicolás Muñoz">
           <div class="b2b-proof-quote-copy">
             <span class="b2b-proof-quote-mark" aria-hidden="true">“</span>
@@ -3845,10 +3845,10 @@ footer .footer-container{
               <b>Nicolás Muñoz</b>
               <span>Director, GETS</span>
             </div>
-            <span class="b2b-proof-quote-link">Ver caso ↗</span>
+            <span class="b2b-proof-quote-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
         </a>
-        <a href="https://lowsignal.cl/casos/rikdom" class="b2b-case-card b2b-proof-quote" aria-label="Leer el caso Rikdom y el testimonio de Rodrigo Cuevas">
+        <a href="https://lowsignal.cl/casos/rikdom" class="b2b-case-card b2b-proof-quote b2b-proof-quote-rikdom" aria-label="Leer el caso Rikdom y el testimonio de Rodrigo Cuevas">
           <div class="b2b-proof-quote-copy">
             <span class="b2b-proof-quote-mark" aria-hidden="true">“</span>
             <blockquote>lowsignal entendió lo que queríamos mostrar con Rikdom y lo llevó a una web clara, moderna y fácil de navegar. Hoy nuestros productos se ven mucho mejor y es más fácil para los clientes conocerlos.</blockquote>
@@ -3857,9 +3857,9 @@ footer .footer-container{
             <span class="b2b-proof-quote-avatar"><img src="https://lowsignal.cl/assets/rodrigo.jpg" alt="Rodrigo Cuevas"></span>
             <div>
               <b>Rodrigo Cuevas</b>
-              <span>Rikdom</span>
+              <span>Socio fundador, Rikdom</span>
             </div>
-            <span class="b2b-proof-quote-link">Ver caso ↗</span>
+            <span class="b2b-proof-quote-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
         </a>
       </div>
@@ -10594,3 +10594,114 @@ body footer .footer-bottom{
 
 </body>
 </html>
+
+<style id="b2b-testimonials-education-layout">
+/* Align B2B testimonials with the card treatment used in Education. */
+.b2b-cases .b2b-case-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:16px !important;
+}
+.b2b-cases .b2b-case-card{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  gap:28px !important;
+  min-height:340px !important;
+  height:auto !important;
+  padding:26px !important;
+}
+.b2b-cases .b2b-proof-quote-copy{min-width:0}
+.b2b-cases .b2b-proof-quote-mark{
+  margin:0 0 8px;
+  font-size:38px;
+  line-height:.75;
+}
+.b2b-cases .b2b-proof-quote blockquote{
+  margin:0 !important;
+  font-size:18px !important;
+  line-height:1.48 !important;
+  letter-spacing:-.02em !important;
+}
+.b2b-cases .b2b-proof-quote-person{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:10px !important;
+  width:100%;
+  height:auto !important;
+  margin-top:auto !important;
+  padding:15px 0 0 !important;
+  border:0 !important;
+  border-top:1px solid rgba(255,255,255,.24) !important;
+}
+.b2b-cases .b2b-proof-quote-avatar{
+  flex:0 0 44px !important;
+  width:44px !important;
+  height:44px !important;
+}
+.b2b-cases .b2b-proof-quote-person>div{min-width:0;flex:1}
+.b2b-cases .b2b-proof-quote-person b{font-size:12px}
+.b2b-cases .b2b-proof-quote-person div span{font-size:10px;line-height:1.4}
+.b2b-cases .b2b-proof-quote-link{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin:0 0 0 auto !important;
+  font-size:10px;
+}
+.b2b-cases .b2b-proof-quote-link svg{
+  width:13px;
+  height:13px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:transform .2s ease;
+}
+.b2b-cases .b2b-case-card:hover .b2b-proof-quote-link svg,
+.b2b-cases .b2b-case-card:focus-visible .b2b-proof-quote-link svg{
+  transform:translate(2px,-2px);
+}
+.b2b-cases .b2b-proof-quote-rikdom{
+  background:linear-gradient(145deg,#14244E,#0E1938) !important;
+  border-color:rgba(160,180,255,.16) !important;
+}
+@media(max-width:980px){
+  .b2b-cases .b2b-case-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .b2b-cases .b2b-case-card{min-height:320px !important}
+}
+@media(max-width:680px){
+  .b2b-cases .b2b-case-grid{
+    display:flex !important;
+    gap:12px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important;
+    overscroll-behavior-x:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+    scrollbar-width:none !important;
+    padding-bottom:2px !important;
+  }
+  .b2b-cases .b2b-case-grid::-webkit-scrollbar{display:none !important}
+  .b2b-cases .b2b-case-card{
+    flex:0 0 100% !important;
+    min-height:320px !important;
+    scroll-snap-align:start !important;
+    scroll-snap-stop:always !important;
+    padding:23px 21px !important;
+  }
+  .b2b-cases .b2b-proof-quote blockquote{font-size:18px !important}
+  .b2b-cases .b2b-proof-quote-person{gap:9px !important;padding-top:13px !important}
+  .b2b-cases .b2b-proof-quote-avatar{
+    flex-basis:42px !important;
+    width:42px !important;
+    height:42px !important;
+  }
+  .b2b-cases .b2b-proof-quote-person b{font-size:12px}
+  .b2b-cases .b2b-proof-quote-person div span{font-size:9px}
+  .b2b-cases .b2b-proof-quote-link{font-size:9px}
+}
+</style>
