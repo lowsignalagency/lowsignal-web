@@ -14789,15 +14789,20 @@ footer .container,
   max-width: 1220px !important;
   margin-inline: auto !important;
 }
-/* Recorte más cercano del retrato, manteniendo el círculo y el tamaño de la ficha. */
+/* Recorte cercano con una máscara circular exacta. */
 .case-sanjorge-testimonial .case-new-person-avatar {
   display: block !important;
   position: relative !important;
   flex: 0 0 68px !important;
   width: 68px !important;
+  min-width: 68px !important;
   height: 68px !important;
+  min-height: 68px !important;
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box !important;
   overflow: hidden !important;
   border-radius: 50% !important;
+  clip-path: circle(50% at 50% 50%) !important;
 }
 .case-sanjorge-testimonial .case-new-person-avatar img {
   display: block !important;
@@ -14805,11 +14810,11 @@ footer .container,
   height: 100% !important;
   max-width: none !important;
   flex: none !important;
-  border-radius: 50% !important;
+  border-radius: 0 !important;
   object-fit: cover !important;
-  object-position: center top !important;
+  object-position: center 24% !important;
   transform: scale(1.45) !important;
-  transform-origin: center 0% !important;
+  transform-origin: center 24% !important;
 }
 @media (max-width: 1100px) {
   .case-sanjorge-testimonial .case-new-testimonial-inner {
@@ -14825,13 +14830,14 @@ footer .container,
   .case-sanjorge-testimonial .case-new-person-avatar {
     flex-basis: 60px !important;
     width: 60px !important;
+    min-width: 60px !important;
     height: 60px !important;
+    min-height: 60px !important;
   }
   .case-sanjorge-testimonial .case-new-person-avatar img {
     transform: scale(1.45) !important;
   }
-}
-</style>
+}</style>
 
 </body>
 </html>
