@@ -1958,6 +1958,85 @@
 }
 @media(prefers-reduced-motion:reduce){.case-new-steps article,.stories-new-card{transition:none!important}}
 </style>
+
+<style id="fcct-case-refresh-v2">
+/* FCCT — editorial story refresh */
+.case-fcct-hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 83% 18%,rgba(44,69,228,.28),transparent 34%),
+    radial-gradient(ellipse at 10% 90%,rgba(22,65,161,.18),transparent 36%),
+    #080F24 !important;
+  color:#F5F7FF !important;
+}
+.case-fcct-hero::before{
+  content:"";
+  position:absolute;
+  right:-8vw;
+  top:105px;
+  width:min(42vw,620px);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:1px solid rgba(157,174,255,.09);
+  pointer-events:none;
+}
+.case-fcct-hero .container{position:relative;z-index:1}
+.case-fcct-hero .case-new-back{color:#AAB5D0 !important}
+.case-fcct-hero .case-new-kicker span{color:#AAB5D0 !important}
+.case-fcct-hero .case-new-kicker b{color:#9BAAFF !important}
+.case-fcct-hero h1{color:#F7F8FC !important;max-width:800px !important}
+.case-fcct-hero h1 strong{color:#8EA3FF !important}
+.case-fcct-hero .case-new-hero-grid>div:first-child>p{color:#AAB5D0 !important}
+.case-fcct-hero .case-new-meta-grid{border-color:rgba(197,208,238,.18) !important}
+.case-fcct-hero .case-new-meta-grid>div+div{border-color:rgba(197,208,238,.18) !important}
+.case-fcct-hero .case-new-meta-grid span{color:#8591AF !important}
+.case-fcct-hero .case-new-meta-grid b{color:#E8ECF8 !important}
+.case-fcct-hero .case-new-brand-card-dark{
+  background:rgba(255,255,255,.055) !important;
+  border:1px solid rgba(185,198,242,.16) !important;
+  box-shadow:0 22px 60px rgba(0,0,0,.22) !important;
+  backdrop-filter:blur(14px);
+}
+.case-fcct-hero .case-new-brand-card-dark p{color:#AAB5D0 !important}
+.case-fcct-hero .case-new-cover{overflow:hidden !important}
+.case-fcct-hero .case-new-cover img{display:block;width:100%;height:clamp(300px,43vw,560px);object-fit:cover;object-position:center 42%}
+.case-new-story{background:#fff !important}
+.case-new-story .case-new-steps article{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.case-new-story .case-new-steps article::before{display:none !important}
+.case-new-story .case-new-steps article:not(.is-highlight){background:#F7F8FC !important;border-color:#E8EBF3 !important;box-shadow:none !important}
+.case-new-story .case-new-steps article.is-highlight{background:linear-gradient(145deg,#1219D7,#294AF5) !important}
+.case-new-work{background:#F3F5FA !important}
+.case-new-work .case-new-gallery-main img{object-fit:cover;object-position:top center}
+.case-new-testimonial{background:#091126 !important;color:#fff !important}
+.case-new-testimonial blockquote{color:#F4F6FC !important}
+.case-new-testimonial .case-new-person b{color:#fff !important}
+.case-new-testimonial .case-new-person span{color:#AAB5D0 !important}
+.case-new-next{background:#fff !important}
+@media(max-width:760px){
+  .case-fcct-hero::before{width:78vw;right:-38vw;top:120px}
+  .case-fcct-hero{padding-top:136px !important;padding-bottom:52px !important}
+  .case-fcct-hero h1{max-width:100% !important;font-size:clamp(35px,9vw,42px) !important;line-height:1.1 !important;letter-spacing:-.04em !important}
+  .case-fcct-hero .case-new-hero-grid{gap:28px !important}
+  .case-fcct-hero .case-new-brand-card{max-width:none !important}
+  .case-fcct-hero .case-new-meta-grid{gap:0 !important}
+  .case-fcct-hero .case-new-meta-grid>div{padding:13px 0 !important}
+  .case-fcct-hero .case-new-cover{margin-top:28px !important;border-radius:14px !important}
+  .case-fcct-hero .case-new-cover img{height:clamp(250px,72vw,390px);object-position:center 38%}
+  .case-new-story .case-new-story-head,.case-new-work .case-new-work-head{gap:20px !important}
+  .case-new-story .case-new-steps article{min-height:0 !important}
+  .case-new-work .case-new-gallery{grid-template-columns:1fr !important}
+  .case-new-work .case-new-gallery figure{min-height:0 !important}
+  .case-new-work .case-new-gallery-main img{height:auto !important;max-height:460px !important;object-fit:contain !important;background:#fff}
+  .case-new-work .case-new-gallery figure:not(.case-new-gallery-main) img{height:260px !important;object-fit:cover !important}
+  .case-new-work .case-new-gallery-copy{min-height:0 !important}
+  .case-new-testimonial{padding:56px 0 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .case-new-story .case-new-steps article{transition:none !important}
+}
+</style>
+
 </head>
 <body>
 
@@ -2276,8 +2355,8 @@
       <div class="case-new-hero-grid">
         <div>
           <div class="case-new-kicker"><span>CUSTOMER STORY</span><b>EDUCACIÓN</b></div>
-          <h1>Un ecosistema digital para<br><strong>escalar su impacto.</strong></h1>
-          <p>Una fundación con una misión clara que necesitaba contar su historia y mostrar el impacto que genera.</p>
+          <h1>Una historia clara.<br><strong>Un impacto que crece.</strong></h1>
+          <p>Acompañamos a Fundación Educacional Crecer con Todos a ordenar su presencia digital y hacer visible el trabajo que transforma su comunidad.</p>
 
           <div class="case-new-meta-grid">
             <div><span>CLIENTE</span><b>Fundación Educacional Crecer con Todos</b></div>
@@ -2303,9 +2382,9 @@
       <div class="case-new-story-head">
         <div>
           <p class="case-new-eyebrow">EL CASO</p>
-          <h2>Contar mejor la misión.<br><strong>Mostrar mejor el impacto.</strong></h2>
+          <h2>Una misión que merece<br><strong>llegar más lejos.</strong></h2>
         </div>
-        <p>El trabajo partió por ordenar la historia de la fundación y hacer más visible el impacto de sus programas para donantes, aliados y comunidad.</p>
+        <p>Ordenamos la historia de la fundación para que donantes, aliados y comunidad puedan conocer mejor sus programas y el impacto que generan.</p>
       </div>
 
       <div class="case-new-steps">
@@ -2313,7 +2392,7 @@
           <span>/ 01</span>
           <div>
             <small>DESAFÍO</small>
-            <h3>Transmitir la misión de la fundación de forma clara y mostrar el impacto de sus programas a donantes, aliados y comunidad.</h3>
+            <h3>Hacer más clara la misión y acercar el trabajo de la fundación a quienes quieren conocerlo.</h3>
           </div>
         </article>
 
@@ -2321,7 +2400,7 @@
           <span>/ 02</span>
           <div>
             <small>RESPUESTA</small>
-            <h3>Un sitio que ordena su historia y sus programas, junto a una línea de contenido que muestra resultados reales.</h3>
+            <h3>Una web que organiza sus programas y contenidos que muestran lo que pasa en su comunidad.</h3>
           </div>
         </article>
 
@@ -2329,7 +2408,7 @@
           <span>/ 03</span>
           <div>
             <small>CAMBIO</small>
-            <h3>Un ecosistema digital fortalecido, listo para acompañar el crecimiento de la fundación.</h3>
+            <h3>Una presencia digital preparada para acompañar el crecimiento de la fundación.</h3>
           </div>
         </article>
       </div>
@@ -2341,9 +2420,9 @@
       <div class="case-new-work-head">
         <div>
           <p class="case-new-eyebrow case-new-eyebrow-dark">EL TRABAJO</p>
-          <h2>Web y contenido trabajando <strong>como un sistema.</strong></h2>
+          <h2>Una web que ordena.<br><strong>Contenidos que acercan.</strong></h2>
         </div>
-        <p>La nueva presencia digital conecta una web que ordena la información con contenido que muestra el impacto real de la fundación.</p>
+        <p>La web presenta la misión y sus programas con claridad. Los contenidos ayudan a acercar ese trabajo a la comunidad.</p>
       </div>
 
       <div class="case-new-gallery fcct-gallery">
@@ -2355,8 +2434,8 @@
         </figure>
         <div class="case-new-gallery-copy">
           <span>WEB DEVELOPMENT · SOCIAL MEDIA</span>
-          <h3>Una historia más clara y un impacto más visible.</h3>
-          <p>El sitio organiza la propuesta de la fundación y el contenido ayuda a mostrar lo que ocurre en sus programas.</p>
+          <h3>El trabajo de la fundación, más cerca de las personas.</h3>
+          <p>Un espacio digital para conocer sus programas, entender su misión y descubrir el trabajo que realizan junto a su comunidad.</p>
         </div>
       </div>
     </div>
@@ -2372,20 +2451,6 @@
           <b>Valentina Wagenreld</b>
           <span>Directora Ejecutiva, Fundación Educacional Crecer con Todos</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="case-new-system">
-    <div class="container case-new-system-grid">
-      <div>
-        <p class="case-new-eyebrow">ECOSISTEMA</p>
-        <h2>Dos frentes.<br><strong>Una misma historia.</strong></h2>
-      </div>
-
-      <div class="case-new-system-list">
-        <article><span>01</span><div><h3>Web Development</h3><p>Un sitio que ordena la historia de la fundación y presenta sus programas con mayor claridad.</p></div></article>
-        <article><span>02</span><div><h3>Social Media</h3><p>Contenido orientado a mostrar resultados reales e impacto en la comunidad.</p></div></article>
       </div>
     </div>
   </section>
