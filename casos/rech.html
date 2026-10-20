@@ -13386,20 +13386,43 @@ footer .footer-container{
 </style>
 
 
-<style id="rech-testimonial-aligned-margins">
-/* Usa exactamente el mismo ancho y margen que el hero en cada breakpoint. */
-.case-rech-testimonial .case-new-testimonial-inner{
-  width:min(1320px,calc(100% - 128px))!important;
+<style id="rech-page-unified-margins">
+/* Un solo margen para hero, contenido, testimonio y siguiente caso. */
+.case-new-hero .container,
+.case-new-hero.case-rech-hero .container,
+.case-new-story .container,
+.case-new-work .container,
+.case-new-system .container,
+.case-new-next .container,
+.case-rech-next .container,
+.case-new-testimonial .case-new-testimonial-inner{
+  width:min(1320px,calc(100% - 96px))!important;
   max-width:1320px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
 }
 @media(max-width:900px){
-  .case-rech-testimonial .case-new-testimonial-inner{
+  .case-new-hero .container,
+  .case-new-hero.case-rech-hero .container,
+  .case-new-story .container,
+  .case-new-work .container,
+  .case-new-system .container,
+  .case-new-next .container,
+  .case-rech-next .container,
+  .case-new-testimonial .case-new-testimonial-inner{
     width:calc(100% - 48px)!important;
     max-width:calc(100% - 48px)!important;
   }
 }
 @media(max-width:760px){
-  .case-rech-testimonial .case-new-testimonial-inner{
+  .case-new-hero .container,
+  .case-new-hero.case-rech-hero .container,
+  .case-new-story .container,
+  .case-new-work .container,
+  .case-new-system .container,
+  .case-new-next .container,
+  .case-rech-next .container,
+  .case-new-testimonial .case-new-testimonial-inner{
     width:calc(100% - 40px)!important;
     max-width:calc(100% - 40px)!important;
   }
