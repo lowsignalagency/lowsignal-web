@@ -13387,15 +13387,21 @@ footer .footer-container{
 
 
 <style id="rech-testimonial-aligned-margins">
-/* Alinea el contenido del testimonio con el margen común de las secciones. */
+/* Usa exactamente el mismo ancho y margen que el hero en cada breakpoint. */
 .case-rech-testimonial .case-new-testimonial-inner{
-  width:min(90.6%,1220px)!important;
-  max-width:1220px!important;
+  width:min(1320px,calc(100% - 128px))!important;
+  max-width:1320px!important;
 }
-@media(max-width:980px){
+@media(max-width:900px){
   .case-rech-testimonial .case-new-testimonial-inner{
     width:calc(100% - 48px)!important;
     max-width:calc(100% - 48px)!important;
+  }
+}
+@media(max-width:760px){
+  .case-rech-testimonial .case-new-testimonial-inner{
+    width:calc(100% - 40px)!important;
+    max-width:calc(100% - 40px)!important;
   }
 }
 </style>
