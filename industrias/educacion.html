@@ -379,6 +379,35 @@
 @media(max-width:1000px){.edu-testimonials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.edu-testimonial-card{min-height:320px}.edu-testimonial-card blockquote{font-size:17px}.edu-testimonial-feature blockquote{font-size:18px}}
 @media(max-width:680px){.edu-new-testimonials .edu-new-section-head h2{font-size:34px;line-height:1.1}.edu-new-testimonials{padding:68px 0 76px}.edu-testimonials-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}.edu-testimonial-card{gap:24px;min-height:0;padding:23px 21px}.edu-testimonial-card blockquote,.edu-testimonial-feature blockquote{font-size:18px}.edu-testimonial-person{gap:9px;padding-top:13px}.edu-testimonial-person img{flex-basis:42px;width:42px;height:42px}.edu-testimonial-person span{font-size:9px}.edu-testimonial-person a{font-size:9px}}
 </style>
+
+<style id="edu-testimonials-mobile-scroll">
+@media(max-width:680px){
+  .edu-testimonials-grid{
+    display:flex!important;
+    gap:12px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-inline:0!important;
+    overscroll-behavior-x:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+    padding-bottom:2px!important;
+  }
+  .edu-testimonials-grid::-webkit-scrollbar{display:none!important}
+  .edu-testimonial-card{
+    flex:0 0 100%!important;
+    min-height:320px!important;
+    scroll-snap-align:start!important;
+    scroll-snap-stop:always!important;
+  }
+  .edu-testimonials-grid:focus-visible{
+    outline:2px solid #8EA3FF!important;
+    outline-offset:5px!important;
+    border-radius:16px!important;
+  }
+}
+</style>
 </head>
 <body>
   <header class="lnav" aria-label="Navegación principal">
@@ -464,7 +493,7 @@
       <div><p class="edu-new-eyebrow">VOCES DE EDUCACIÓN</p><h2 id="edu-testimonials-title"><span class="edu-heading-desktop">Historias reales.<br><strong>Crecimiento real.</strong></span><span class="edu-heading-mobile">Historias reales. <strong>Crecimiento real.</strong></span></h2></div>
       <p>Las comunidades educativas con las que trabajamos cuentan mejor que nadie lo que construimos en conjunto.</p>
     </div>
-    <div class="edu-testimonials-grid">
+    <div class="edu-testimonials-grid" role="group" aria-label="Testimonios de instituciones educativas" tabindex="0">
       <a class="edu-testimonial-card edu-testimonial-feature" href="https://lowsignal.cl/casos/rech" aria-label="Leer el caso de Red Educacional Camilo Henríquez">
         <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote></div>
         <div class="edu-testimonial-person">
