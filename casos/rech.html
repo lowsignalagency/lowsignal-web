@@ -13387,7 +13387,7 @@ footer .footer-container{
 
 
 <style id="rech-page-unified-margins">
-/* Las secciones siguen la misma guía dinámica del contenido de la navbar. */
+/* Mismo ancho, centrado y cortes responsive que la navbar (.lnav-row). */
 .case-new-hero .container,
 .case-new-hero.case-rech-hero .container,
 .case-new-story .container,
@@ -13396,13 +13396,12 @@ footer .footer-container{
 .case-new-next .container,
 .case-rech-next .container,
 .case-new-testimonial .case-new-testimonial-inner{
-  --case-content-gutter:max(64px,calc((100vw - 1750px)/2));
-  width:min(1320px,calc(100vw - var(--case-content-gutter) - var(--case-content-gutter)))!important;
-  max-width:1320px!important;
-  margin-left:var(--case-content-gutter)!important;
+  width:min(1220px,calc(100vw - 128px))!important;
+  max-width:1220px!important;
+  margin-left:auto!important;
   margin-right:auto!important;
 }
-@media(max-width:900px){
+@media(max-width:1100px){
   .case-new-hero .container,
   .case-new-hero.case-rech-hero .container,
   .case-new-story .container,
@@ -13411,10 +13410,9 @@ footer .footer-container{
   .case-new-next .container,
   .case-rech-next .container,
   .case-new-testimonial .case-new-testimonial-inner{
-    --case-content-gutter:24px;
     width:calc(100vw - 48px)!important;
     max-width:calc(100vw - 48px)!important;
-    margin-left:var(--case-content-gutter)!important;
+    margin-left:auto!important;
     margin-right:auto!important;
   }
 }
@@ -13427,10 +13425,9 @@ footer .footer-container{
   .case-new-next .container,
   .case-rech-next .container,
   .case-new-testimonial .case-new-testimonial-inner{
-    --case-content-gutter:20px;
     width:calc(100vw - 40px)!important;
     max-width:calc(100vw - 40px)!important;
-    margin-left:var(--case-content-gutter)!important;
+    margin-left:auto!important;
     margin-right:auto!important;
   }
 }
