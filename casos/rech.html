@@ -13364,5 +13364,25 @@ footer .footer-container{
  .case-rech-hero *, .case-rech-story *, .case-rech-work *, .case-rech-system *, .case-rech-testimonial *, .case-rech-next *{scroll-behavior:auto!important;transition:none!important}
 }
 </style>
+
+
+<style id="rech-testimonial-flat-fix">
+/* El testimonio vive directamente sobre el fondo azul, sin una segunda tarjeta. */
+.case-rech-testimonial .case-new-testimonial-inner{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+  padding:0!important;
+  outline:0!important;
+}
+.case-rech-testimonial .case-new-person{border-top:1px solid rgba(255,255,255,.28)!important;padding-top:24px!important}
+@media(max-width:760px){
+  .case-rech-testimonial .case-new-testimonial-inner{
+    background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;
+  }
+  .case-rech-testimonial .case-new-person{border-top:1px solid rgba(255,255,255,.28)!important;padding-top:18px!important}
+}
+</style>
 </body>
 </html>
