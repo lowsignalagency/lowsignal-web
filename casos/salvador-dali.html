@@ -13946,6 +13946,48 @@ footer .footer-container{
 .case-dali-testimonial-rech .case-new-person img{
   object-position:center 100%!important;
 }
+
+/* Ajustes mobile: texto continuo, sin columna vacía ni ancho perdido. */
+@media(max-width:760px){
+  .case-new-testimonial.case-dali-testimonial-rech{
+    padding:56px 0!important;
+  }
+  .case-dali-testimonial-rech .case-new-testimonial-inner{
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-areas:"mark" "quote" "person"!important;
+    column-gap:0!important;
+    row-gap:0!important;
+  }
+  .case-dali-testimonial-rech blockquote{
+    max-width:100%!important;
+    margin:8px 0 22px!important;
+    font-size:clamp(23px,6.8vw,29px)!important;
+    line-height:1.34!important;
+    letter-spacing:-.025em!important;
+    word-break:normal!important;
+    overflow-wrap:normal!important;
+  }
+  .case-dali-testimonial-rech .case-new-person{
+    width:100%!important;
+    min-width:0!important;
+    gap:12px!important;
+    align-self:start!important;
+  }
+  .case-dali-testimonial-rech .case-new-person>div{
+    min-width:0!important;
+    flex:1 1 auto!important;
+  }
+  .case-dali-testimonial-rech .case-new-person b,
+  .case-dali-testimonial-rech .case-new-person span{
+    white-space:normal!important;
+    word-break:normal!important;
+    overflow-wrap:normal!important;
+    line-height:1.45!important;
+  }
+}
 </style>
 </body>
 </html>
