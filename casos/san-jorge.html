@@ -14747,5 +14747,39 @@ footer .container,
   .case-sanjorge-work .sanjorge-gallery { height: auto !important; }
 }
 </style>
+
+<style id="sanjorge-gallery-height-photo-zoom">
+/* Menos alto, sin franjas blancas alrededor de la captura. */
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
+  height: clamp(340px, 42vw, 560px) !important;
+  aspect-ratio: auto !important;
+  background: #070F22 !important;
+}
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 46% !important;
+  background: #070F22 !important;
+}
+.case-sanjorge-testimonial .case-new-person img {
+  width: 60px !important;
+  height: 60px !important;
+  flex: 0 0 60px !important;
+  object-position: center 12% !important;
+}
+@media (max-width: 760px) {
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .case-sanjorge-testimonial .case-new-person img {
+    width: 56px !important;
+    height: 56px !important;
+    flex-basis: 56px !important;
+    object-position: center 10% !important;
+  }
+}
+</style>
 </body>
 </html>
