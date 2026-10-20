@@ -13953,8 +13953,8 @@ footer .footer-container{
     padding:56px 0!important;
   }
   .case-dali-testimonial-rech .case-new-testimonial-inner{
-    width:100%!important;
-    max-width:none!important;
+    width:calc(100% - 40px)!important;
+    max-width:calc(100% - 40px)!important;
     min-width:0!important;
     grid-template-columns:minmax(0,1fr)!important;
     grid-template-areas:"mark" "quote" "person"!important;
@@ -13986,6 +13986,30 @@ footer .footer-container{
     word-break:normal!important;
     overflow-wrap:normal!important;
     line-height:1.45!important;
+  }
+}
+
+@media(max-width:760px){
+  .case-new-hero h1,
+  .case-new-story h2,
+  .case-new-work h2,
+  .case-new-system h2{
+    letter-spacing:-.035em!important;
+    word-spacing:.02em!important;
+  }
+  .case-dali-testimonial-rech blockquote{
+    letter-spacing:0!important;
+    word-spacing:.025em!important;
+  }
+  .case-new-hero-grid>div:first-child>p,
+  .case-new-story-head>p,
+  .case-new-work-head>p,
+  .case-new-steps h3{
+    word-break:normal!important;
+    overflow-wrap:normal!important;
+  }
+  .case-dali-testimonial-rech .case-new-person span{
+    margin-top:3px!important;
   }
 }
 </style>
