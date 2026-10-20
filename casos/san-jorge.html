@@ -14884,5 +14884,39 @@ footer .footer-container,
 }
 </style>
 
+
+<style id="sanjorge-mobile-final-polish">
+@media (max-width: 760px) {
+  /* Evitar que la portada consuma casi toda la primera pantalla. */
+  .case-sanjorge-hero .case-new-cover {
+    height: 230px !important;
+    min-height: 0 !important;
+  }
+  /* Foto y firma del testimonio quedan alineadas y con separación consistente. */
+  .case-sanjorge-testimonial .case-new-person {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding-top: 18px !important;
+  }
+  .case-sanjorge-testimonial .case-new-person .case-new-person-avatar {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    min-width: 60px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    margin: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+  .case-sanjorge-testimonial .case-new-person > div {
+    min-width: 0 !important;
+  }
+  .case-sanjorge-testimonial .case-new-person > div span {
+    overflow-wrap: anywhere !important;
+  }
+}
+</style>
+
 </body>
 </html>
