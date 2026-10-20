@@ -3562,8 +3562,8 @@ footer .footer-container{
 .insr-founder-quote>span{color:#8899FF;font-size:62px;font-weight:300;line-height:.8}
 .insr-founder-quote>p{max-width:750px;margin:0;color:#E7EAF7;font-size:clamp(17px,2vw,24px);line-height:1.42;letter-spacing:-.02em;font-weight:300}
 .insr-founder-quote>p strong{color:#AAB8FF;font-weight:500}
-.insr-founder-quote footer{display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:0;background:transparent;border:0;color:#fff;font-size:10px}
-.insr-founder-quote footer span{color:#7E8BAE;font-size:8px}
+.insr-quote-author{display:flex;flex-direction:column;align-items:flex-end;gap:4px;color:#fff;font-size:10px}
+.insr-quote-author span{color:#7E8BAE;font-size:8px}
 .insr-faq{padding:100px 0;background:#F3F5FB}
 .insr-faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:82px;align-items:start}
 .insr-faq-heading h2{font-size:clamp(38px,4vw,52px)}
@@ -3645,7 +3645,7 @@ footer .footer-container{
 .insr-founder-quote{grid-template-columns:25px 1fr;gap:9px;margin-top:28px;padding:21px 0}
 .insr-founder-quote>span{font-size:42px}
 .insr-founder-quote>p{font-size:16px}
-.insr-founder-quote footer{grid-column:2;align-items:flex-start;margin-top:4px}
+.insr-quote-author{grid-column:2;align-items:flex-start;margin-top:4px}
 .insr-faq-grid{grid-template-columns:1fr;gap:28px}
 .insr-faq-heading h2{font-size:40px}
 .insr-faq-heading>p:last-child{font-size:12px}
@@ -3659,6 +3659,25 @@ footer .footer-container{
 .insr-map-route{animation:none}
 .insr-button,.insr-process-grid article,.insr-industry-card,.insr-person-photo img,.insr-community-copy>a,.insr-final a{transition:none}
 }
+
+/* Distinct visual cues for each growth vertical */
+.insr-industry-education .insr-industry-art i{
+  bottom:39px;width:48px;height:34px!important;border:1px solid #D9E0F5;border-radius:8px;background:rgba(255,255,255,.9)!important;
+  box-shadow:0 7px 15px rgba(31,48,118,.06);transform:none
+}
+.insr-industry-education .insr-industry-art i:nth-child(1){left:23%}
+.insr-industry-education .insr-industry-art i:nth-child(2){left:42%}
+.insr-industry-education .insr-industry-art i:nth-child(3){left:61%}
+.insr-industry-education .insr-industry-art b{left:32%;right:31%;bottom:56px;background:#909EFF;transform:rotate(0)}
+.insr-industry-b2c .insr-industry-art i{
+  bottom:36px;width:37px;height:37px!important;border-radius:50%;background:#9AA8FF!important;transform:none;
+  box-shadow:0 0 0 8px rgba(87,107,255,.08)
+}
+.insr-industry-b2c .insr-industry-art i:nth-child(1){left:31%}
+.insr-industry-b2c .insr-industry-art i:nth-child(2){left:47%;background:#7488FF!important}
+.insr-industry-b2c .insr-industry-art i:nth-child(3){left:63%;background:#364FFF!important}
+.insr-industry-b2c .insr-industry-art b{left:37%;right:34%;bottom:50px;height:28px;border:1px solid #A2AEFF;border-bottom:0;border-radius:50% 50% 0 0;background:transparent;transform:none}
+.insr-industry-education:hover .insr-industry-art i,.insr-industry-b2c:hover .insr-industry-art i{transform:translateY(-3px)}
 </style>
 </head>
 <body>
@@ -4076,7 +4095,7 @@ footer .footer-container{
         </div>
         <div class="insr-community-copy"><span>LA EXPANSIÓN YA EMPEZÓ</span><h3>Con los indicados,<br>llegamos más lejos.</h3><p>Joaquín, Samuel y Pablo ya son parte de la red. Buscamos a las próximas personas que quieran abrir camino con nosotros.</p><a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Súmate a Insiders <span aria-hidden="true">↗</span></a></div>
       </div>
-      <blockquote class="insr-founder-quote"><span aria-hidden="true">“</span><p>Creemos en el talento joven, en las buenas conexiones y en la gente que <strong>mueve oportunidades.</strong></p><footer><b>Felipe Quiroz</b><span>Co-Founder &amp; COO, lowsignal</span></footer></blockquote>
+      <blockquote class="insr-founder-quote"><span aria-hidden="true">“</span><p>Creemos en el talento joven, en las buenas conexiones y en la gente que <strong>mueve oportunidades.</strong></p><div class="insr-quote-author"><b>Felipe Quiroz</b><span>Co-Founder &amp; COO, lowsignal</span></div></blockquote>
     </div>
   </section>
 
