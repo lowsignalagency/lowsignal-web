@@ -14998,34 +14998,22 @@ footer .footer-container,
 </style>
 <style id="sanjorge-mobile-card-and-web-zoom">
 @media (max-width: 760px) {
-  /* La ficha del colegio queda más compacta y centrada en móvil. */
-  .case-sanjorge-hero .case-new-brand-card {
-    width: calc(100% - 24px) !important;
-    max-width: 340px !important;
+  /* Reducir solo el ancho de la ficha; mantener intactos logo, texto y espaciado. */
+  .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 300px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding: 15px !important;
-    gap: 14px !important;
   }
-  .case-sanjorge-hero .case-new-brand-card img {
-    width: 88px !important;
-    max-width: 88px !important;
-    flex-basis: 88px !important;
-  }
-  /* Recorte leve para quitar los bordes blancos de la captura web. */
+  /* Acercar la captura dentro del mismo marco, sin mover ni redimensionar la tarjeta. */
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
     overflow: hidden !important;
     background: #070F22 !important;
   }
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main img {
-    transform: scale(1.07) !important;
-    transform-origin: center center !important;
-  }
-}
-@media (max-width: 390px) {
-  .case-sanjorge-hero .case-new-brand-card {
-    width: calc(100% - 12px) !important;
-    gap: 12px !important;
+    transform: scale(1.14) !important;
+    transform-origin: center top !important;
   }
 }
 </style>
