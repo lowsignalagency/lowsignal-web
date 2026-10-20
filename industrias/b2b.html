@@ -10552,15 +10552,17 @@ body footer .footer-bottom{
     .b2b-cases .b2b-section-head{gap:20px}
     .b2b-cases .b2b-case-grid{margin-top:30px}
     .b2b-cases .b2b-case-card{grid-template-columns:1fr;gap:30px;min-height:0;padding:30px}
-    .b2b-cases .b2b-proof-quote-person{display:grid;grid-template-columns:60px minmax(0,1fr) auto;align-items:center;gap:12px;height:auto;padding:20px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.24)}
-    .b2b-proof-quote-link{margin:0}
-    .b2b-cases .b2b-proof-quote blockquote{font-size:22px}
+    .b2b-cases .b2b-proof-quote-person{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:12px;height:auto;padding:20px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.24)}
+    .b2b-proof-quote-link{justify-self:end;margin:0}
+    .b2b-cases .b2b-proof-quote blockquote{font-size:21px;line-height:1.42}
   }
   @media(max-width:430px){
-    .b2b-cases .b2b-case-card{padding:24px}
-    .b2b-cases .b2b-proof-quote-person{grid-template-columns:48px minmax(0,1fr);gap:10px}
-    .b2b-proof-quote-person img{flex-basis:48px;width:48px;height:48px}
-    .b2b-proof-quote-link{grid-column:2}
+    .b2b-cases .b2b-case-card{padding:22px}
+    .b2b-cases .b2b-proof-quote-person{grid-template-columns:44px minmax(0,1fr) auto;gap:9px}
+    .b2b-proof-quote-person img{flex-basis:44px;width:44px;height:44px}
+    .b2b-proof-quote-person b{font-size:12px}
+    .b2b-proof-quote-person div span{font-size:11px}
+    .b2b-proof-quote-link{grid-column:auto;font-size:10px}
   }
 </style>
 
