@@ -1796,6 +1796,84 @@ main#top .container{
   .jobs26-timeline-viewport{scroll-behavior:auto}
 }
 </style>
+
+<style id="jobs26-story-redesign">
+.jobs26-story{
+  position:relative;
+  overflow:hidden;
+  padding:88px 0 82px;
+  color:#F5F7FF;
+  background:radial-gradient(52% 95% at 100% 12%,rgba(39,61,220,.18),transparent 72%),#071022;
+  border-top:1px solid rgba(138,164,255,.12);
+  border-bottom:1px solid rgba(138,164,255,.12);
+}
+.jobs26-story-layout{display:grid;grid-template-columns:minmax(245px,.67fr) minmax(0,1.55fr);gap:42px;align-items:center}
+.jobs26-story-intro .jobs26-eyebrow{margin-bottom:18px;color:#AFC0FF}
+.jobs26-story-intro h2{max-width:390px;margin:0;color:#F5F7FF;font-size:clamp(37px,4vw,54px);line-height:1.04;letter-spacing:-.045em;font-weight:300}
+.jobs26-story-intro h2 strong{color:#9DB0FF;font-weight:600}
+.jobs26-story-intro>p:not(.jobs26-eyebrow){max-width:390px;margin:20px 0 0;color:#B4BFDA;font-size:13px;line-height:1.75}
+.jobs26-story-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.jobs26-story-stats>div{min-width:82px;padding:11px 13px;border:1px solid rgba(142,163,255,.25);border-radius:12px;background:rgba(255,255,255,.025)}
+.jobs26-story-stats strong,.jobs26-story-stats span{display:block}
+.jobs26-story-stats strong{color:#F4F6FC;font-size:17px;line-height:1.1}
+.jobs26-story-stats span{margin-top:4px;color:#9EABD0;font-size:9px}
+.jobs26-story-rail{min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:rgba(142,163,255,.45) transparent;padding:2px 0 14px}
+.jobs26-story-rail:focus-visible{outline:2px solid #9DB0FF;outline-offset:5px;border-radius:14px}
+.jobs26-story-track{display:flex;width:max-content;gap:16px}
+.jobs26-story-card{position:relative;flex:0 0 270px;min-height:376px;padding:26px;border:1px solid rgba(142,163,255,.18);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));scroll-snap-align:start}
+.jobs26-story-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:center;flex-basis:690px;min-height:376px;padding:24px}
+.jobs26-story-feature-copy{display:flex;flex-direction:column;align-items:flex-start}
+.jobs26-story-date{display:block;color:#AFC0FF;font-size:9px;font-weight:700;letter-spacing:.14em}
+.jobs26-story-feature h3{margin:22px 0 0;color:#fff;font-size:clamp(32px,3.1vw,43px);line-height:1.06;letter-spacing:-.045em;font-weight:500}
+.jobs26-story-feature-copy>p,.jobs26-story-milestone>p{margin:14px 0 0;color:#B4BFDA;font-size:12px;line-height:1.7}
+.jobs26-story-location{display:inline-flex;align-items:center;gap:7px;margin-top:20px;padding:8px 11px;border-radius:999px;background:rgba(142,163,255,.12);color:#C8D3FF;font-size:10px}
+.jobs26-story-location span{color:#AFC0FF;font-size:14px}
+.jobs26-story-feature figure{height:318px;min-width:0;margin:0;overflow:hidden;border-radius:15px;background:#111a31}
+.jobs26-story-feature figure img{width:100%;height:100%;object-fit:cover;object-position:center 43%}
+.jobs26-story-index{position:absolute;right:22px;bottom:18px;color:#7E8CAC;font-size:8px;font-weight:700;letter-spacing:.12em}
+.jobs26-story-milestone{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+.jobs26-story-icon{display:grid;place-items:center;width:44px;height:44px;margin:34px 0 23px;border-radius:13px;background:#fff;color:#243CE4;font-size:24px}
+.jobs26-story-milestone h3{max-width:210px;margin:0;color:#F5F7FF;font-size:25px;line-height:1.15;letter-spacing:-.035em;font-weight:500}
+.jobs26-story-milestone>p{max-width:215px;margin-top:13px}
+.jobs26-story-next h3{color:#AFC0FF}
+.jobs26-story-hint{display:none}
+.jobs26-work{background:#0A1429!important}
+.jobs26-work-list,.jobs26-work-list article{border-color:rgba(138,164,255,.18)!important}
+.jobs26-culture-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.jobs26-culture-grid article{min-height:190px}
+@media(max-width:1000px){
+ .jobs26-story-layout{grid-template-columns:minmax(210px,.62fr) minmax(0,1.38fr);gap:28px}
+ .jobs26-story-feature{flex-basis:620px}
+ .jobs26-story-feature h3{font-size:36px}
+}
+@media(max-width:760px){
+ .jobs26-story{padding:70px 0 62px}
+ .jobs26-story-layout{grid-template-columns:1fr;gap:32px}
+ .jobs26-story-intro h2{font-size:38px}
+ .jobs26-story-intro>p:not(.jobs26-eyebrow){font-size:12px}
+ .jobs26-story-stats{margin-top:22px}
+ .jobs26-story-rail{margin-right:-32px;padding-right:32px}
+ .jobs26-story-track{gap:12px}
+ .jobs26-story-feature{display:flex;flex-direction:column;align-items:stretch;flex-basis:min(82vw,360px);min-height:0;padding:18px}
+ .jobs26-story-feature-copy{min-height:235px}
+ .jobs26-story-feature h3{margin-top:16px;font-size:34px}
+ .jobs26-story-feature-copy>p{font-size:11px}
+ .jobs26-story-feature figure{height:205px}
+ .jobs26-story-card:not(.jobs26-story-feature){flex-basis:min(72vw,285px);min-height:350px;padding:22px}
+ .jobs26-story-icon{margin:38px 0 24px}
+ .jobs26-story-hint{display:block;margin:8px 32px 0;color:#8795B5;font-size:8px;font-weight:700;letter-spacing:.14em}
+ .jobs26-story-hint span{color:#AFC0FF}
+ .jobs26-culture-grid{grid-template-columns:1fr 1fr}
+ .jobs26-culture-grid article{min-height:165px;padding:20px}
+}
+@media(max-width:480px){
+ .jobs26-story-rail{margin-right:-20px;padding-right:20px}
+ .jobs26-story-stats>div{min-width:75px}
+ .jobs26-story-feature{flex-basis:calc(88vw - 20px)}
+ .jobs26-story-card:not(.jobs26-story-feature){flex-basis:76vw}
+ .jobs26-culture-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
@@ -2115,7 +2193,7 @@ main#top .container{
         <p class="jobs26-lead">Somos una Growth Company construida para convertir estrategia en ejecución. Trabajamos entre negocio, contenido, tecnología e IA con una idea simple: menos ruido, más impacto.</p>
         <div class="jobs26-actions">
           <a class="jobs26-primary" href="#roles">Ver posiciones abiertas</a>
-          <a class="jobs26-secondary" href="#culture">Conoce nuestra cultura</a>
+          <a class="jobs26-secondary" href="#work">Cómo trabajamos</a>
         </div>
       </div>
 
@@ -2161,63 +2239,58 @@ main#top .container{
     </div>
   </section>
 
-  <section class="jobs26-timeline" id="historia" aria-labelledby="jobs26-timeline-title">
-    <div class="container">
-      <div class="jobs26-timeline-head">
+  <section class="jobs26-story" id="historia" aria-labelledby="jobs26-story-title">
+    <div class="container jobs26-story-layout">
+      <div class="jobs26-story-intro">
         <p class="jobs26-eyebrow">NUESTRA HISTORIA</p>
-        <h2 id="jobs26-timeline-title">De una conversación a<br><strong>todo lo que viene.</strong></h2>
-        <p>Una idea que empezó en una mesa y sigue creciendo con cada proyecto, cada persona y cada desafío.</p>
+        <h2 id="jobs26-story-title">Cómo llegamos <strong>hasta aquí.</strong></h2>
+        <p>Todo comenzó en una mesa de Birra Bar, en Los Trapenses. Una conversación, una idea y las ganas de construir una Growth Company desde Chile.</p>
+        <div class="jobs26-story-stats" aria-label="lowsignal en cifras">
+          <div><strong>2025</strong><span>el comienzo</span></div>
+          <div><strong>3</strong><span>industrias</span></div>
+          <div><strong>6</strong><span>soluciones</span></div>
+        </div>
       </div>
-
-      <div class="jobs26-timeline-viewport" aria-label="Línea de tiempo de lowsignal">
-        <div class="jobs26-timeline-track">
-          <article class="jobs26-timeline-item">
-            <span class="jobs26-timeline-date">2025 · EL INICIO</span>
-            <h3>Una idea en Birra Bar</h3>
-            <p>Ahí nació lowsignal: la decisión de construir una Growth Company desde Chile.</p>
+      <div class="jobs26-story-rail" role="region" aria-label="Historia de lowsignal. Desliza para recorrer los hitos." tabindex="0">
+        <div class="jobs26-story-track">
+          <article class="jobs26-story-card jobs26-story-feature">
+            <div class="jobs26-story-feature-copy">
+              <span class="jobs26-story-date">2025 · EL INICIO</span>
+              <h3>Nació en<br>Birra Bar.</h3>
+              <p>Felipe y Damián empezaron lowsignal con una convicción: ayudar a las empresas a crecer conectando estrategia y ejecución.</p>
+              <span class="jobs26-story-location"><span aria-hidden="true">⌖</span> Los Trapenses · Santiago</span>
+            </div>
+            <figure><img src="https://lowsignal.cl/assets/founders-parque.jpg" alt="Felipe y Damián, fundadores de lowsignal" loading="lazy"></figure>
+            <span class="jobs26-story-index" aria-hidden="true">01 / 04</span>
           </article>
-          <article class="jobs26-timeline-item">
-            <span class="jobs26-timeline-date">2025–26 · EN MOVIMIENTO</span>
-            <h3>La idea se vuelve trabajo</h3>
+          <article class="jobs26-story-card jobs26-story-milestone">
+            <span class="jobs26-story-date">2025–26 · EN MOVIMIENTO</span>
+            <span class="jobs26-story-icon" aria-hidden="true">↗</span>
+            <h3>La idea se vuelve trabajo.</h3>
             <p>Empezamos a construir junto a organizaciones, empresas y marcas con desafíos reales de crecimiento.</p>
+            <span class="jobs26-story-index" aria-hidden="true">02 / 04</span>
           </article>
-          <article class="jobs26-timeline-item">
-            <span class="jobs26-timeline-date">2026 · MÁS CLARIDAD</span>
-            <h3>Tres industrias, un sistema</h3>
-            <p>Ordenamos nuestra propuesta para Education, B2B y B2C, con seis soluciones conectadas.</p>
+          <article class="jobs26-story-card jobs26-story-milestone">
+            <span class="jobs26-story-date">2026 · MÁS CLARIDAD</span>
+            <span class="jobs26-story-icon" aria-hidden="true">◎</span>
+            <h3>Tres industrias.<br>Un sistema.</h3>
+            <p>Conectamos seis soluciones para educación, empresas B2B y marcas B2C.</p>
+            <span class="jobs26-story-index" aria-hidden="true">03 / 04</span>
           </article>
-          <article class="jobs26-timeline-item jobs26-timeline-next">
-            <span class="jobs26-timeline-date">LO QUE VIENE</span>
-            <h3>Build what's next.</h3>
+          <article class="jobs26-story-card jobs26-story-milestone jobs26-story-next">
+            <span class="jobs26-story-date">LO QUE VIENE</span>
+            <span class="jobs26-story-icon" aria-hidden="true">✳</span>
+            <h3>Build what’s next.</h3>
             <p>Sumar talento, resolver nuevos desafíos y construir más crecimiento junto a nuestros clientes.</p>
+            <span class="jobs26-story-index" aria-hidden="true">04 / 04</span>
           </article>
         </div>
       </div>
-      <p class="jobs26-timeline-hint">DESLIZA PARA RECORRER <span aria-hidden="true">→</span></p>
     </div>
+    <p class="jobs26-story-hint">DESLIZA PARA RECORRER <span aria-hidden="true">→</span></p>
   </section>
 
-  <section class="jobs26-culture" id="culture">
-    <div class="container">
-      <div class="jobs26-head">
-        <div>
-          <p class="jobs26-eyebrow">CULTURA LOW</p>
-          <h2>No buscamos llenar sillas.<br><strong>Buscamos builders.</strong></h2>
-        </div>
-        <p>La cultura se nota en cómo pensamos, cómo decidimos y cómo hacemos que las cosas pasen.</p>
-      </div>
-
-      <div class="jobs26-culture-grid">
-        <article><span>/ 01</span><div><h3>Ownership</h3><p>Te haces cargo del resultado, no solo de la tarea.</p></div></article>
-        <article><span>/ 02</span><div><h3>Claridad</h3><p>Menos vueltas. Problemas claros, decisiones claras.</p></div></article>
-        <article><span>/ 03</span><div><h3>Velocidad</h3><p>Preferimos avanzar, aprender y mejorar rápido.</p></div></article>
-        <article><span>/ 04</span><div><h3>Curiosidad</h3><p>Preguntar mejor es parte del trabajo.</p></div></article>
-        <article class="is-blue"><span>/ 05</span><div><h3>Build what's next.</h3><p>No esperamos el futuro. Lo construimos.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="jobs26-work">
+  <section class="jobs26-work" id="work">
     <div class="container jobs26-work-grid">
       <div>
         <p class="jobs26-eyebrow">CÓMO TRABAJAMOS</p>
@@ -2228,6 +2301,24 @@ main#top .container{
         <article><span>02</span><div><h3>Cerca del cliente</h3><p>Entender contexto y operación es parte del proceso.</p></div></article>
         <article><span>03</span><div><h3>Cross-functional</h3><p>Estrategia, creatividad, tecnología y ejecución conviven en el mismo sistema.</p></div></article>
         <article><span>04</span><div><h3>Aprender haciendo</h3><p>La autonomía viene acompañada de exposición a proyectos y decisiones reales.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="jobs26-culture" id="culture" aria-labelledby="jobs26-culture-title">
+    <div class="container">
+      <div class="jobs26-head">
+        <div>
+          <p class="jobs26-eyebrow">LA EXPERIENCIA LOW</p>
+          <h2 id="jobs26-culture-title">Una base para <strong>crecer.</strong></h2>
+        </div>
+        <p>Autonomía, curiosidad y trabajo real: así se siente construir en un equipo que conecta estrategia, creatividad y tecnología.</p>
+      </div>
+      <div class="jobs26-culture-grid">
+        <article><span>/ 01</span><div><h3>Ownership</h3><p>Te haces cargo del resultado, no solo de la tarea.</p></div></article>
+        <article><span>/ 02</span><div><h3>Claridad</h3><p>Menos vueltas. Problemas claros, decisiones claras.</p></div></article>
+        <article><span>/ 03</span><div><h3>Velocidad</h3><p>Preferimos avanzar, aprender y mejorar rápido.</p></div></article>
+        <article><span>/ 04</span><div><h3>Aprender haciendo</h3><p>Participas en proyectos y decisiones reales, junto a distintas disciplinas.</p></div></article>
       </div>
     </div>
   </section>
