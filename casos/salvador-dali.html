@@ -14149,5 +14149,17 @@ footer .footer-container{
   }
 }
 </style>
+<style id="dali-mobile-title-fix">
+/* Ajusta el titular del caso para que no domine toda la primera pantalla móvil. */
+@media(max-width:760px){
+  .case-new-hero.case-dali-hero h1{
+    max-width:100%!important;
+    font-size:clamp(34px,9vw,42px)!important;
+    line-height:1.11!important;
+    letter-spacing:-.035em!important;
+    text-wrap:balance;
+  }
+}
+</style>
 </body>
 </html>
