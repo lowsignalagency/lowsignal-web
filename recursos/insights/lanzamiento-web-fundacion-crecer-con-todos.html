@@ -10611,30 +10611,27 @@ footer{
 </style>
 
 <style id="fcct-insight-margin-title-fix">
-/* Ancho exterior más cercano a la grilla de navegación y título sin desborde. */
+/* Keep the title inside the article grid at desktop and mobile widths. */
 .article-new-hero .container,.article-new-body .container,.article-new-more .container{
-  width:min(1320px,calc(100% - 80px))!important;
-  max-width:1320px!important;
+  width:min(1320px,calc(100% - 80px))!important;max-width:1320px!important;min-width:0!important;
 }
+.article-new-hero-grid,.article-new-hero-grid>div{min-width:0!important}
 .article-new-hero h1{
-  max-width:100%!important;
-  font-size:clamp(46px,5.4vw,72px)!important;
-  line-height:1.04!important;
-  letter-spacing:-.055em!important;
-  overflow-wrap:normal!important;
-  word-break:normal!important;
+  display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;
+  white-space:normal!important;text-wrap:balance!important;
+  font-size:clamp(44px,4.4vw,64px)!important;line-height:1.06!important;letter-spacing:-.05em!important;
+  overflow-wrap:normal!important;word-break:normal!important;
 }
+.article-new-hero h1 strong{display:block!important;max-width:100%!important;white-space:normal!important}
 @media(max-width:1100px){
   .article-new-hero .container,.article-new-body .container,.article-new-more .container{
-    width:calc(100% - 48px)!important;
-    max-width:calc(100% - 48px)!important;
+    width:calc(100% - 48px)!important;max-width:calc(100% - 48px)!important;
   }
-  .article-new-hero h1{font-size:clamp(42px,5.8vw,64px)!important}
+  .article-new-hero h1{font-size:clamp(40px,5.2vw,58px)!important}
 }
 @media(max-width:760px){
   .article-new-hero .container,.article-new-body .container,.article-new-more .container{
-    width:calc(100% - 40px)!important;
-    max-width:calc(100% - 40px)!important;
+    width:calc(100% - 40px)!important;max-width:calc(100% - 40px)!important;
   }
   .article-new-hero h1{font-size:clamp(38px,9vw,48px)!important;line-height:1.06!important}
 }
