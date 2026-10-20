@@ -14918,5 +14918,29 @@ footer .footer-container,
 }
 </style>
 
+<style id="sanjorge-mobile-gallery-order-final">
+/* En móvil, la explicación queda junto a la captura web; la foto acompaña al final. */
+@media (max-width: 760px) {
+  .case-sanjorge-work .sanjorge-gallery {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    grid-auto-flow: row !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+}
+</style>
+
 </body>
 </html>
