@@ -14998,22 +14998,29 @@ footer .footer-container,
 </style>
 <style id="sanjorge-mobile-card-and-web-zoom">
 @media (max-width: 760px) {
-  /* Reducir solo el ancho de la ficha; mantener intactos logo, texto y espaciado. */
+  /* La ficha queda angosta y alineada con el margen izquierdo del contenido. */
   .case-sanjorge-hero .case-new-brand-card.case-new-brand-card-dark {
     box-sizing: border-box !important;
+    display: block !important;
     width: 100% !important;
     max-width: 280px !important;
-    margin-left: auto !important;
+    margin-left: 0 !important;
     margin-right: auto !important;
   }
-  /* Acercar la captura dentro del mismo marco, sin mover ni redimensionar la tarjeta. */
+  /* Agrandar la imagen dentro del marco y recortar sus bordes blancos. */
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
     overflow: hidden !important;
     background: #070F22 !important;
   }
   .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main img {
-    transform: scale(1.18) !important;
-    transform-origin: center top !important;
+    display: block !important;
+    width: 120% !important;
+    max-width: none !important;
+    height: 100% !important;
+    margin-left: -10% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    transform: none !important;
   }
 }
 </style>
