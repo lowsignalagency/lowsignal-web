@@ -13959,5 +13959,24 @@ footer .footer-container{
 }
 </style>
 
+
+<style id="fcct-mobile-overlap-fix">
+@media(max-width:760px){
+  /* Keep the floating mobile navbar above page headings while scrolling. */
+  body>.nav-wrap{z-index:99999!important}
+  body>.nav-wrap>.nav{position:relative!important;z-index:99999!important;background:#070F22!important}
+  body>.nav-wrap .brand,body>.nav-wrap .mobile-nav-toggle{position:relative!important;z-index:100000!important}
+
+  /* The last metadata row has no trailing rule crossing its label. */
+  .case-fcct-hero .case-new-meta-grid>div{padding-bottom:18px!important}
+  .case-fcct-hero .case-new-meta-grid>div:last-child{padding-bottom:0!important;border-bottom:0!important}
+
+  /* Keep the website explanation next to its preview in the mobile reading order. */
+  .case-fcct-work .case-new-gallery figure.case-new-gallery-main{grid-row:1!important}
+  .case-fcct-work .case-new-gallery-copy{grid-row:2!important}
+  .case-fcct-work .case-new-gallery figure:not(.case-new-gallery-main){grid-row:3!important}
+}
+</style>
+
 </body>
 </html>
