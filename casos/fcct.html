@@ -13978,5 +13978,36 @@ footer .footer-container{
 }
 </style>
 
+
+<style id="fcct-mobile-photo-crop-final">
+@media(max-width:760px){
+  /* Crop the side gutters lightly while keeping the website preview legible. */
+  .case-fcct-work .case-new-gallery figure.case-new-gallery-main img{
+    object-fit:cover!important;
+    object-position:center center!important;
+    transform:scale(1.04)!important;
+    transform-origin:center center!important;
+    background:transparent!important;
+  }
+  /* Lock Vale's portrait to a true circle, even when the flex row gets narrow. */
+  .case-fcct-testimonial .case-new-person img{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:56px!important;
+    min-width:56px!important;
+    max-width:56px!important;
+    height:56px!important;
+    min-height:56px!important;
+    max-height:56px!important;
+    flex:0 0 56px!important;
+    aspect-ratio:1/1!important;
+    border-radius:50%!important;
+    object-fit:cover!important;
+    object-position:center 22%!important;
+    clip-path:circle(50%)!important;
+  }
+}
+</style>
+
 </body>
 </html>
