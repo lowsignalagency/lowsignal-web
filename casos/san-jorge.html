@@ -14631,5 +14631,111 @@ footer .container,
   }
 }
 </style>
+
+<style id="sanjorge-gallery-readable-layout">
+/* Mostrar la captura completa del sitio y dar espacio a la ficha del proyecto. */
+.case-sanjorge-work .sanjorge-gallery {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+}
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+}
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  background: #fff !important;
+}
+.case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+}
+.case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  padding: clamp(28px, 3.2vw, 44px) !important;
+}
+.case-sanjorge-work .case-new-gallery-copy > span {
+  line-height: 1.5 !important;
+}
+.case-sanjorge-work .case-new-gallery-copy h3 {
+  max-width: 540px !important;
+  margin: 0 !important;
+  font-size: clamp(24px, 2.5vw, 34px) !important;
+  line-height: 1.2 !important;
+}
+.case-sanjorge-work .case-new-gallery-copy p {
+  max-width: 520px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+.case-sanjorge-work .sanjorge-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 4px !important;
+}
+.case-sanjorge-work .sanjorge-links a {
+  min-height: 42px !important;
+  padding-inline: 16px !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 760px) {
+  .case-sanjorge-work .sanjorge-gallery {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    gap: 14px !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-main {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > figure:not(.case-new-gallery-main) {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+  .case-sanjorge-work .sanjorge-gallery > .case-new-gallery-copy {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    padding: 26px !important;
+    gap: 14px !important;
+  }
+  .case-sanjorge-work .case-new-gallery-copy h3 {
+    font-size: 25px !important;
+  }
+  .case-sanjorge-work .sanjorge-links a {
+    white-space: normal !important;
+  }
+}
+</style>
 </body>
 </html>
