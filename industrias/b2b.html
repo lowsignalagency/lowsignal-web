@@ -3771,10 +3771,17 @@ footer .footer-container{
         </div>
       </div>
       <div class="b2b-client-logos" aria-label="Clientes B2B">
-        <img src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="hUB">
-        <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS">
-        <img src="https://lowsignal.cl/assets/ambitec-white.png" alt="Ambitec">
-        <img src="https://lowsignal.cl/assets/rikdom.png" alt="Rikdom">
+        <div class="b2b-logos-heading"><p class="b2b-logos-label">CONFÍAN EN NOSOTROS</p></div>
+        <div class="b2b-logo-marquee">
+          <div class="b2b-logo-track"><img src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="hUB">
+            <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS">
+            <img src="https://lowsignal.cl/assets/ambitec-white.png" alt="Ambitec">
+            <img src="https://lowsignal.cl/assets/rikdom.png" alt="Rikdom"></div>
+          <div class="b2b-logo-track" aria-hidden="true"><img src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="">
+            <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="">
+            <img src="https://lowsignal.cl/assets/ambitec-white.png" alt="">
+            <img src="https://lowsignal.cl/assets/rikdom.png" alt=""></div>
+        </div>
       </div>
     </div>
   </section>
@@ -10589,6 +10596,56 @@ body footer .footer-bottom{
   width:100%;
   max-width:none;
   text-align:left;
+}
+</style>
+
+
+<style id="b2b-client-logo-marquee">
+.b2b-client-logos{
+  display:block!important;margin-top:66px!important;padding:0!important;border:0!important;
+}
+.b2b-client-logos .b2b-logos-heading{
+  margin:0!important;padding:18px 0 0!important;border-top:1px solid rgba(138,164,255,.14)!important;
+}
+.b2b-client-logos .b2b-logos-label{
+  margin:0!important;color:#8AA4FF!important;font-size:9px!important;font-weight:650!important;
+  letter-spacing:.18em!important;line-height:1.4!important;
+}
+.b2b-client-logos .b2b-logo-marquee{
+  --b2b-logo-gap:58px;display:flex!important;align-items:center!important;gap:var(--b2b-logo-gap)!important;
+  overflow:hidden!important;margin-top:16px!important;padding:0!important;
+  mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)!important;
+}
+.b2b-client-logos .b2b-logo-track{
+  display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-start!important;
+  gap:var(--b2b-logo-gap)!important;min-width:max-content!important;margin:0!important;padding:0!important;
+  animation:b2bLogoMarquee 14s linear infinite!important;
+}
+.b2b-client-logos .b2b-logo-track img{
+  display:block!important;flex:0 0 auto!important;width:auto!important;height:32px!important;
+  max-width:150px!important;object-fit:contain!important;object-position:center!important;
+  filter:brightness(0) invert(1)!important;opacity:.72!important;transition:opacity .2s ease!important;
+}
+.b2b-client-logos .b2b-logo-track img:first-child,
+.b2b-client-logos .b2b-logo-track img:last-child{height:35px!important}
+.b2b-client-logos .b2b-logo-marquee:hover .b2b-logo-track{animation-play-state:paused!important}
+.b2b-client-logos .b2b-logo-marquee:hover .b2b-logo-track img{opacity:.96!important}
+@keyframes b2bLogoMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-100% - var(--b2b-logo-gap)))}
+}
+@media(max-width:760px){
+  .b2b-client-logos{margin-top:44px!important}
+  .b2b-client-logos .b2b-logos-heading{padding-top:15px!important}
+  .b2b-client-logos .b2b-logo-marquee{--b2b-logo-gap:26px!important;margin-top:13px!important}
+  .b2b-client-logos .b2b-logo-track{animation-duration:12s!important}
+  .b2b-client-logos .b2b-logo-track img{height:30px!important;max-width:112px!important}
+  .b2b-client-logos .b2b-logo-track img:first-child,
+  .b2b-client-logos .b2b-logo-track img:last-child{height:30px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .b2b-client-logos .b2b-logo-track{animation:none!important}
 }
 </style>
 
