@@ -13455,22 +13455,23 @@ footer .footer-container{
 
 
 <style id="case-rikdom-screenshot-reduced">
-/* Mantener la captura del sitio a lo ancho del margen del hero. */
+/* La captura del sitio llena el marco, sin franjas laterales. */
 .case-rikdom-hero .case-new-cover{
   width:100%!important;
   max-width:none!important;
   height:auto!important;
-  aspect-ratio:16/9!important;
-  max-height:600px!important;
+  aspect-ratio:2940/1674!important;
+  max-height:none!important;
   margin:44px 0 0!important;
+  overflow:hidden!important;
 }
 .case-rikdom-hero .case-new-cover img{
   width:100%!important;
   height:100%!important;
-  object-fit:contain!important;
+  object-fit:cover!important;
   object-position:center!important;
 }
-/* La foto del galpón tiene menos altura y peso dentro de la sección de trabajo. */
+/* La foto del galpón conserva el tamaño reducido en la sección de trabajo. */
 .case-rikdom-showcase{
   grid-template-columns:.9fr 1.1fr!important;
 }
@@ -13482,7 +13483,7 @@ footer .footer-container{
 @media(max-width:760px){
   .case-rikdom-hero .case-new-cover{
     width:100%!important;
-    aspect-ratio:16/9!important;
+    aspect-ratio:2940/1674!important;
     max-height:none!important;
     margin:34px 0 0!important;
   }
