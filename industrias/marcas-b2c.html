@@ -10395,11 +10395,21 @@ body footer .footer-bottom{
 
 <style id="b2c-logo-marquee-screen-composite">
 /* Los PNG/JPG de estas marcas incluyen fondo negro. Mezclar la pista completa contra el navy lo integra sin cuadrados. */
-.b2c-new-logos .b2c-logo-marquee{mix-blend-mode:screen!important}
+.b2c-new-logos .b2c-logo-marquee,
 .b2c-new-logos .b2c-logo-strip{mix-blend-mode:normal!important}
 .b2c-new-logos .b2c-logo-strip img[src*="dimor-logo.png"],
 .b2c-new-logos .b2c-logo-strip img[src*="logo-vandalo.png"]{
   filter:none!important;mix-blend-mode:normal!important;
+  -webkit-mask-image:url("https://lowsignal.cl/assets/dimor-logo.png");
+  mask-image:url("https://lowsignal.cl/assets/dimor-logo.png");
+  mask-mode:luminance!important;-webkit-mask-mode:luminance!important;
+  mask-repeat:no-repeat!important;-webkit-mask-repeat:no-repeat!important;
+  mask-position:center!important;-webkit-mask-position:center!important;
+  mask-size:contain!important;-webkit-mask-size:contain!important;
+}
+.b2c-new-logos .b2c-logo-strip img[src*="logo-vandalo.png"]{
+  -webkit-mask-image:url("https://lowsignal.cl/assets/logo-vandalo.png");
+  mask-image:url("https://lowsignal.cl/assets/logo-vandalo.png");
 }
 </style>
 
