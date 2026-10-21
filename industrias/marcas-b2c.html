@@ -3812,25 +3812,41 @@ footer .footer-container{
     <div class="ls-social-shell">
       <div class="b2c-new-section-head">
         <div>
-          <p class="b2c-new-eyebrow">TESTIMONIO</p>
+          <p class="b2c-new-eyebrow">TESTIMONIOS</p>
           <h2 id="b2c-testimonial-title">La experiencia de trabajar con <strong>lowsignal.</strong></h2>
         </div>
         <p>La voz de quienes han confiado en nosotros para construir su crecimiento.</p>
       </div>
 
-      <div class="b2c-new-testimonial b2c-new-testimonial-card">
-        <div class="b2c-new-testimonial-copy">
-          <span class="b2c-new-quote-mark" aria-hidden="true">“</span>
-          <blockquote>
-            En lowsignal encontré versatilidad, compromiso y un equipo que realmente se involucra.
-            <strong>No solo ejecutan, entienden el negocio.</strong>
-          </blockquote>
-        </div>
-        <div class="b2c-new-person">
-          <span class="b2c-new-avatar"><img src="https://lowsignal.cl/assets/david-suazo.jpg" alt="David Suazo"></span>
-          <div><b>David Suazo</b><span>Founder, DulceReino</span></div>
-          <a class="b2c-new-testimonial-link" href="https://lowsignal.cl/casos/dulce-reino">Ver caso ↗</a>
-        </div>
+      <div class="b2c-testimonial-grid">
+        <article class="b2c-new-testimonial b2c-new-testimonial-card">
+          <div class="b2c-new-testimonial-copy">
+            <span class="b2c-new-quote-mark" aria-hidden="true">“</span>
+            <blockquote>
+              En lowsignal encontré versatilidad, compromiso y un equipo que realmente se involucra.
+              <strong>No solo ejecutan, entienden el negocio.</strong>
+            </blockquote>
+          </div>
+          <div class="b2c-new-person">
+            <span class="b2c-new-avatar"><img src="https://lowsignal.cl/assets/david-suazo.jpg" alt="David Suazo"></span>
+            <div><b>David Suazo</b><span>Founder, DulceReino</span></div>
+            <a class="b2c-new-testimonial-link" href="https://lowsignal.cl/casos/dulce-reino">Ver caso ↗</a>
+          </div>
+        </article>
+
+        <article class="b2c-new-testimonial b2c-new-testimonial-card">
+          <div class="b2c-new-testimonial-copy">
+            <span class="b2c-new-quote-mark" aria-hidden="true">“</span>
+            <blockquote>
+              lowsignal ha sido un gran aliado comercial para Dimor. Nos ha ayudado a abrir nuevas oportunidades de negocio y a crecer exponencialmente. Su equipo es muy responsable y la experiencia ha sido muy grata.
+            </blockquote>
+          </div>
+          <div class="b2c-new-person">
+            <span class="b2c-new-avatar"><img src="https://lowsignal.cl/assets/dimor_ignacio.jpg" alt="Ignacio Díaz"></span>
+            <div><b>Ignacio Díaz</b><span>Gerente General, Dimor</span></div>
+            <a class="b2c-new-testimonial-link" href="https://lowsignal.cl/casos/dimor">Ver caso ↗</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -10024,6 +10040,81 @@ body footer .footer-bottom{
   width:100%;
   max-width:none;
   text-align:left;
+}
+</style>
+
+
+<style id="b2c-dual-testimonial-layout">
+/* Dos testimonios con el mismo peso visual y lectura cómoda en móvil. */
+.b2c-new-cases .b2c-testimonial-grid{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:stretch!important;gap:22px!important;margin-top:42px!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-card{
+  display:flex!important;flex-direction:column!important;justify-content:space-between!important;
+  grid-template-columns:minmax(0,1fr)!important;align-items:stretch!important;
+  min-width:0!important;min-height:390px!important;height:auto!important;
+  margin:0!important;padding:clamp(26px,3vw,38px)!important;gap:28px!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-copy{min-width:0!important}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-quote-mark{
+  color:#AFC0FF!important;font-size:60px!important;line-height:.75!important;
+}
+.b2c-new-cases .b2c-testimonial-grid blockquote{
+  max-width:none!important;margin:14px 0 0!important;color:#fff!important;
+  font-size:clamp(19px,1.75vw,24px)!important;line-height:1.45!important;letter-spacing:-.018em!important;
+}
+.b2c-new-cases .b2c-testimonial-grid blockquote strong{color:#E3E9FF!important;font-weight:500!important}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-person{
+  display:grid!important;grid-template-columns:56px minmax(0,1fr) auto!important;
+  align-items:center!important;gap:12px!important;min-width:0!important;
+  margin-top:auto!important;padding:20px 0 0!important;
+  border:0!important;border-top:1px solid rgba(255,255,255,.28)!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-avatar{
+  display:block!important;box-sizing:border-box!important;flex:none!important;
+  width:56px!important;height:56px!important;aspect-ratio:1/1!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-avatar img{
+  object-position:center 22%!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-person>div{min-width:0!important}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-person b{
+  color:#fff!important;font-size:13px!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-person span{
+  color:#D9DFFF!important;font-size:11px!important;line-height:1.4!important;
+}
+.b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-link{
+  justify-self:end!important;align-self:center!important;margin:0!important;
+  color:#fff!important;font-size:11px!important;white-space:nowrap!important;
+}
+@media(max-width:980px){
+  .b2c-new-cases .b2c-testimonial-grid{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-card{min-height:0!important}
+  .b2c-new-cases .b2c-testimonial-grid blockquote{font-size:clamp(21px,3vw,26px)!important}
+}
+@media(max-width:760px){
+  .b2c-new-cases .b2c-testimonial-grid{margin-top:30px!important;gap:14px!important}
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-card{
+    padding:26px 24px!important;gap:24px!important;
+  }
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-quote-mark{font-size:52px!important}
+  .b2c-new-cases .b2c-testimonial-grid blockquote{font-size:22px!important;line-height:1.42!important}
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-person{
+    grid-template-columns:52px minmax(0,1fr) auto!important;gap:10px!important;padding-top:18px!important;
+  }
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-avatar{width:52px!important;height:52px!important}
+}
+@media(max-width:430px){
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-card{padding:24px 20px!important}
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-person{
+    grid-template-columns:48px minmax(0,1fr)!important;column-gap:10px!important;
+  }
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-avatar{width:48px!important;height:48px!important}
+  .b2c-new-cases .b2c-testimonial-grid .b2c-new-testimonial-link{
+    grid-column:2!important;justify-self:start!important;margin-top:5px!important;
+  }
 }
 </style>
 
