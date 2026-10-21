@@ -2791,8 +2791,7 @@ footer .footer-container{
           <p class="stories-new-eyebrow stories-new-eyebrow-dark">CÓMO TRABAJAMOS</p>
           <h2>No hacemos piezas sueltas.<br><strong>Construimos sistemas.</strong></h2>
         </div>
-        <p class="stories-new-proof-intro">Cada decisión conecta con la siguiente: estrategia clara, ejecución coordinada y optimización continua.</p>
-      </div>
+        </div>
       <div class="stories-new-proof-list">
         <article><span>/ 01</span><div><h3>Estrategia</h3><p>Partimos por el desafío de negocio.</p></div></article>
         <article><span>/ 02</span><div><h3>Ejecución</h3><p>Conectamos contenido, pauta, web y tecnología.</p></div></article>
@@ -14002,6 +14001,56 @@ body .stories-new-list .container .stories-new-grid{grid-template-columns:repeat
 }
 @media(prefers-reduced-motion:reduce){
   .stories-new-proof-list article{transition:none}
+}
+</style>
+
+<style id="stories-proof-compact-v2">
+.stories-new-proof{
+  padding:62px 0!important;
+  background:radial-gradient(42% 90% at 100% 0%,rgba(36,71,245,.13),transparent 72%),#070F22!important;
+}
+.stories-new-proof-grid{
+  display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  align-items:center;gap:54px;
+}
+.stories-new-proof-head{display:block}
+.stories-new-proof h2{
+  max-width:520px;margin-top:14px;
+  font-size:clamp(38px,4vw,50px)!important;line-height:1.08!important;
+}
+.stories-new-proof-intro{display:none!important}
+.stories-new-proof-list{
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:0;
+}
+.stories-new-proof-list article{
+  min-height:160px;padding:18px 14px!important;
+  border:0!important;border-top:1px solid rgba(180,196,230,.2)!important;
+  border-radius:0!important;background:transparent!important;
+}
+.stories-new-proof-list article::before{left:14px;width:30px}
+.stories-new-proof-list article>div{padding-top:20px}
+.stories-new-proof-list h3{font-size:18px!important}
+.stories-new-proof-list p{font-size:12px!important;line-height:1.55!important}
+.stories-new-proof-list article:hover{
+  transform:translateY(-2px);background:transparent!important;
+  border-color:rgba(138,164,255,.55)!important;
+}
+@media(max-width:900px){
+  .stories-new-proof-grid{grid-template-columns:1fr;gap:28px}
+  .stories-new-proof h2{max-width:700px}
+}
+@media(max-width:680px){
+  .stories-new-proof{padding:54px 0!important}
+  .stories-new-proof h2{font-size:clamp(34px,8.5vw,42px)!important}
+  .stories-new-proof-list{grid-template-columns:1fr;gap:0;margin-top:4px}
+  .stories-new-proof-list article{
+    min-height:0;padding:16px 0!important;
+    display:grid!important;grid-template-columns:48px minmax(0,1fr);gap:12px;
+  }
+  .stories-new-proof-list article::before{left:0;width:26px}
+  .stories-new-proof-list article>div{margin-top:0!important;padding-top:0!important}
+  .stories-new-proof-list h3{font-size:17px!important}
+  .stories-new-proof-list p{max-width:none;margin-top:4px!important}
 }
 </style>
 </body>
