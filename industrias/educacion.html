@@ -464,7 +464,7 @@
 
     <section class="edu-new-logos" aria-label="Instituciones que confían en lowsignal">
     <div class="ls-social-shell">
-      <p class="edu-logos-label">CONFÍAN EN NOSOTROS</p>
+      <div class="edu-logos-heading"><p class="edu-logos-label">CONFÍAN EN NOSOTROS</p></div>
       <div class="edu-logo-marquee">
         <div class="edu-new-logo-strip"><img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="RECH">
           <img src="https://lowsignal.cl/assets/logo-dali-darkbg.png" alt="Colegio Salvador Dalí">
@@ -725,6 +725,26 @@
 .edu-new-logos .edu-logo-marquee{margin-top:18px!important}
 @media(max-width:760px){
   .edu-new-logos .edu-logo-marquee{margin-top:14px!important}
+}
+</style>
+
+
+<style id="edu-logo-white-and-rule-order">
+.edu-new-logos .edu-logos-heading{
+  margin:0!important;padding:18px 0 0!important;border-top:1px solid rgba(138,164,255,.14)!important;
+}
+.edu-new-logos .edu-logos-label{margin:0!important}
+.edu-new-logos .edu-logo-marquee{
+  margin-top:16px!important;padding:0!important;border-top:0!important;
+}
+.edu-new-logos .edu-new-logo-strip img{
+  filter:brightness(0) invert(1)!important;opacity:.72!important;
+  transition:opacity .2s ease!important;
+}
+.edu-new-logos .edu-logo-marquee:hover .edu-new-logo-strip img{opacity:.96!important}
+@media(max-width:760px){
+  .edu-new-logos .edu-logos-heading{padding-top:15px!important}
+  .edu-new-logos .edu-logo-marquee{margin-top:13px!important}
 }
 </style>
 
