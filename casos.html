@@ -2786,9 +2786,12 @@ footer .footer-container{
 
   <section class="stories-new-proof">
     <div class="container stories-new-proof-grid">
-      <div>
-        <p class="stories-new-eyebrow stories-new-eyebrow-dark">CÓMO TRABAJAMOS</p>
-        <h2>No hacemos piezas sueltas.<br><strong>Construimos sistemas.</strong></h2>
+      <div class="stories-new-proof-head">
+        <div>
+          <p class="stories-new-eyebrow stories-new-eyebrow-dark">CÓMO TRABAJAMOS</p>
+          <h2>No hacemos piezas sueltas.<br><strong>Construimos sistemas.</strong></h2>
+        </div>
+        <p class="stories-new-proof-intro">Cada decisión conecta con la siguiente: estrategia clara, ejecución coordinada y optimización continua.</p>
       </div>
       <div class="stories-new-proof-list">
         <article><span>/ 01</span><div><h3>Estrategia</h3><p>Partimos por el desafío de negocio.</p></div></article>
@@ -13933,5 +13936,73 @@ body .stories-new-list .container .stories-new-grid{grid-template-columns:repeat
 </style>
 
 <!-- Customer Stories publication refresh, 2026-10-20 -->
+
+<style id="stories-proof-system-refresh-v1">
+.stories-new-proof{
+  position:relative!important;overflow:hidden!important;
+  padding:clamp(82px,8vw,118px) 0!important;
+  background:radial-gradient(58% 75% at 100% 0%,rgba(36,71,245,.18),transparent 72%),#070F22!important;
+}
+.stories-new-proof::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.035),transparent 32%,transparent 72%,rgba(255,255,255,.02));
+}
+.stories-new-proof-grid{
+  position:relative;z-index:1;display:block!important;
+}
+.stories-new-proof-head{
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.75fr);
+  align-items:end;gap:56px;
+}
+.stories-new-proof h2{
+  max-width:760px;margin:18px 0 0;color:#F8FAFF;
+  font-size:clamp(42px,5.2vw,66px)!important;line-height:1.04!important;
+  letter-spacing:-.052em;
+}
+.stories-new-proof h2 strong{color:#8AA4FF}
+.stories-new-proof-intro{
+  max-width:480px;margin:0 0 6px;color:#AAB5CE;
+  font-size:16px;line-height:1.75;
+}
+.stories-new-proof-list{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;margin-top:48px;
+}
+.stories-new-proof-list article{
+  position:relative;display:flex!important;flex-direction:column;align-items:flex-start;
+  min-height:220px;padding:26px 28px!important;overflow:hidden;
+  border:1px solid rgba(180,196,230,.16)!important;border-radius:14px;
+  background:rgba(255,255,255,.035);transition:transform .24s ease,border-color .24s ease,background .24s ease;
+}
+.stories-new-proof-list article::before{
+  content:"";position:absolute;left:28px;top:0;width:38px;height:2px;background:#6F8BFF;
+}
+.stories-new-proof-list article>span{
+  color:#8AA4FF!important;font-size:11px!important;font-weight:700;
+  letter-spacing:.06em;
+}
+.stories-new-proof-list article>div{margin-top:auto;padding-top:32px}
+.stories-new-proof-list h3{margin:0!important;color:#F8FAFF!important;font-size:21px!important;line-height:1.25}
+.stories-new-proof-list p{max-width:280px;margin:9px 0 0!important;color:#AAB5CE!important;font-size:13px!important;line-height:1.65!important}
+.stories-new-proof-list article:hover{
+  transform:translateY(-4px);border-color:rgba(138,164,255,.48)!important;background:rgba(255,255,255,.065);
+}
+@media(max-width:900px){
+  .stories-new-proof-head{grid-template-columns:1fr;gap:22px}
+  .stories-new-proof-intro{max-width:600px}
+}
+@media(max-width:680px){
+  .stories-new-proof{padding:72px 0!important}
+  .stories-new-proof h2{font-size:clamp(36px,9vw,46px)!important}
+  .stories-new-proof-list{grid-template-columns:1fr;gap:12px;margin-top:32px}
+  .stories-new-proof-list article{min-height:0;padding:23px!important}
+  .stories-new-proof-list article::before{left:23px}
+  .stories-new-proof-list article>div{margin-top:24px;padding-top:0}
+  .stories-new-proof-list h3{font-size:19px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .stories-new-proof-list article{transition:none}
+}
+</style>
 </body>
 </html>
