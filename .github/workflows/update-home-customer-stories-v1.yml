@@ -20,3 +20,4 @@ jobs:
           git add index.html
           git diff --cached --quiet || git commit -m "Refresh home customer stories"
           git push
+# trigger 2
