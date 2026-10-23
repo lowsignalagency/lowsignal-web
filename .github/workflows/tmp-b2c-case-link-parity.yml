@@ -1,0 +1,35 @@
+name: One-off B2C case link parity
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-b2c-case-link-parity.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Match B2C testimonial case link to B2B
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('industrias/marcas-b2c.html')
+          s = p.read_text()
+          s = s.replace('<a href="https://lowsignal.cl/casos/dulce-reino">Ver caso ↗</a>', '<a class="b2cr-testimonial-case" href="https://lowsignal.cl/casos/dulce-reino">Ver caso ↗</a>')
+          s = s.replace('<a href="https://lowsignal.cl/casos/dimor">Ver caso ↗</a>', '<a class="b2cr-testimonial-case" href="https://lowsignal.cl/casos/dimor">Ver caso ↗</a>')
+          marker = '</style>\n<style id="b2c-pattern-parity-final-v1">'
+          css = '''</style>\n<style id="b2c-testimonial-case-link-parity-v1">\n.b2cr-testimonial-case{margin-left:auto!important;color:#A8B8FF!important;font-size:10px!important;font-weight:700!important;white-space:nowrap!important;line-height:1!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important;display:inline!important;min-height:0!important;box-shadow:none!important;transform:none!important}\n@media(max-width:760px){.b2cr-testimonial-case{display:none!important}}\n</style>\n<style id="b2c-pattern-parity-final-v1">'''
+          if marker in s:
+              s = s.replace(marker, css, 1)
+          elif '</head>' in s:
+              s = s.replace('</head>', '<style id="b2c-testimonial-case-link-parity-v1">.b2cr-testimonial-case{margin-left:auto!important;color:#A8B8FF!important;font-size:10px!important;font-weight:700!important;white-space:nowrap!important;line-height:1!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important;display:inline!important;min-height:0!important;box-shadow:none!important;transform:none!important}@media(max-width:760px){.b2cr-testimonial-case{display:none!important}}</style>\n</head>', 1)
+          p.write_text(s)
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "Felipe Quiroz"
+          git config user.email "felipe@lowsignal.cl"
+          git add industrias/marcas-b2c.html
+          git diff --cached --quiet || git commit -m "Match B2C case links to B2B"
+          git push
