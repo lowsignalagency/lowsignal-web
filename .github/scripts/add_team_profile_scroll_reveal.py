@@ -14,17 +14,17 @@ marker = 'team-profile-scroll-reveal-v1'
 css = r'''
 <style id="team-profile-scroll-reveal-v1">
 html.js-reveal-ready .team-scroll-reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity .7s cubic-bezier(.2,.75,.2,1),transform .7s cubic-bezier(.2,.75,.2,1);
+  opacity:.78;
+  transform:translateY(8px);
+  transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);
   will-change:opacity,transform;
 }
 html.js-reveal-ready .team-scroll-reveal.is-visible{
   opacity:1;
   transform:none;
 }
-html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="1"]{transition-delay:.05s}
-html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="2"]{transition-delay:.10s}
+html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="1"]{transition-delay:.02s}
+html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="2"]{transition-delay:.04s}
 @media (prefers-reduced-motion: reduce){
   html.js-reveal-ready .team-scroll-reveal,
   html.js-reveal-ready .team-scroll-reveal.is-visible{
@@ -68,7 +68,7 @@ js = r'''
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  }, {threshold:0.04, rootMargin:'0px 0px 10% 0px'});
 
   nodes.forEach(function(el){ observer.observe(el); });
 })();
@@ -80,12 +80,24 @@ for p in files:
         print(f'Skipping missing {p}')
         continue
     s = p.read_text(encoding='utf-8')
+
     if marker in s:
-        print(f'Already patched {p}')
-        continue
-    if '</head>' in s:
-        s = s.replace('</head>', css + '\n</head>', 1)
-    if '</body>' in s:
-        s = s.replace('</body>', js + '\n</body>', 1)
+        # Update the existing reveal in place so every profile receives refinements.
+        start = s.find('<style id="team-profile-scroll-reveal-v1">')
+        end = s.find('</style>', start)
+        if start != -1 and end != -1:
+            s = s[:start] + css.strip() + s[end + len('</style>'):]
+
+        start = s.find('<script id="team-profile-scroll-reveal-v1-script">')
+        end = s.find('</script>', start)
+        if start != -1 and end != -1:
+            s = s[:start] + js.strip() + s[end + len('</script>'):]
+        print(f'Softened scroll reveal in {p}')
+    else:
+        if '</head>' in s:
+            s = s.replace('</head>', css + '\n</head>', 1)
+        if '</body>' in s:
+            s = s.replace('</body>', js + '\n</body>', 1)
+        print(f'Added scroll reveal to {p}')
+
     p.write_text(s, encoding='utf-8')
-    print(f'Added scroll reveal to {p}')
