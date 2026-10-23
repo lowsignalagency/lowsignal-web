@@ -1,0 +1,37 @@
+name: One-off B2B Lagos logo sizing patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-lagos-logo-size.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch Lagos logo size only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('industrias/b2b.html')
+          s = p.read_text()
+          old = ".trust-grid img{max-width:122px;max-height:44px;object-fit:contain;margin:0;opacity:.88;transition:.2s ease}.trust-grid img:hover"
+          new = ".trust-grid img{max-width:122px;max-height:44px;object-fit:contain;margin:0;opacity:.88;transition:.2s ease}.trust-grid img:last-child{max-width:146px;max-height:50px}.trust-grid img:hover"
+          if old not in s:
+              raise SystemExit('Expected trust-grid CSS not found; refusing to modify anything.')
+          p.write_text(s.replace(old, new, 1))
+          PY
+      - name: Commit patch and remove one-off workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/tmp-lagos-logo-size.yml
+          git add industrias/b2b.html
+          git commit -m "Increase Lagos logo size in B2B trust strip"
+          git push
