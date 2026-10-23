@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/redesign-team-profiles-v1.yml'
       - '.github/scripts/redesign_team_profiles_v1.py'
+      - '.github/scripts/add_team_profile_scroll_reveal.py'
 
 jobs:
   redesign:
@@ -14,10 +15,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Redesign team profiles
         run: python .github/scripts/redesign_team_profiles_v1.py
+      - name: Add scroll reveal
+        run: python .github/scripts/add_team_profile_scroll_reveal.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add equipo/damian-aldunate.html equipo/matias-bussinger.html equipo/martin-alvarado.html equipo/jorge-munoz.html equipo/lia-morice.html
-          git diff --cached --quiet || git commit -m "Redesign active team profiles"
+          git add equipo/felipe-quiroz.html equipo/damian-aldunate.html equipo/matias-bussinger.html equipo/martin-alvarado.html equipo/jorge-munoz.html equipo/lia-morice.html
+          git diff --cached --quiet || git commit -m "Add scroll reveal to team profiles"
           git push
