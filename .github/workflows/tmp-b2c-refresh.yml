@@ -75,3 +75,5 @@ jobs:
           git add industrias/marcas-b2c.html
           git commit -m "Refresh B2C industry page"
           git push
+
+# trigger
