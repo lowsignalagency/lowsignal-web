@@ -1,0 +1,23 @@
+name: Refresh Customer Stories showcase
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-cases-showcase.yml'
+      - '.github/scripts/refresh_cases_showcase.py'
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh casos page
+        run: python .github/scripts/refresh_cases_showcase.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos.html
+          git diff --cached --quiet || git commit -m "Refresh Customer Stories showcase"
+          git push
