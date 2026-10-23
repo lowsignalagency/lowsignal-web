@@ -20,3 +20,4 @@ jobs:
           git add soluciones/low-ads.html soluciones/low-web.html soluciones/low-flow.html soluciones/low-apps.html soluciones/low-scale.html
           git diff --cached --quiet || git commit -m "Remove redundant solution process sections"
           git push
+# trigger
