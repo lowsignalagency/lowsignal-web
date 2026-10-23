@@ -1,0 +1,23 @@
+name: Refine Felipe mobile back
+on:
+  push:
+    paths:
+      - '.github/workflows/refine-felipe-mobile-back.yml'
+      - '.github/scripts/refine_felipe_mobile_back.py'
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refine Felipe mobile back
+        run: python .github/scripts/refine_felipe_mobile_back.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add equipo/felipe-quiroz.html
+          git diff --cached --quiet || git commit -m "Refine Felipe mobile back link"
+          git push
