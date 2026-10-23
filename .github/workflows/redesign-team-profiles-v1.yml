@@ -7,6 +7,7 @@ on:
       - '.github/scripts/remove_team_back_links.py'
       - '.github/scripts/redesign_insiders_v2.py'
       - '.github/scripts/fix_insiders_labels.py'
+      - '.github/scripts/fix_insiders_process_line.py'
 
 jobs:
   update:
@@ -23,6 +24,8 @@ jobs:
         run: python .github/scripts/redesign_insiders_v2.py
       - name: Fix Insiders labels
         run: python .github/scripts/fix_insiders_labels.py
+      - name: Fix Insiders process line
+        run: python .github/scripts/fix_insiders_process_line.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
