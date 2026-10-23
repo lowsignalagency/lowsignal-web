@@ -1,0 +1,32 @@
+name: Update B2C DulceReino testimonial background
+on:
+  push:
+    paths:
+      - '.github/workflows/update-b2c-dulcereino-bg.yml'
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update DulceReino testimonial image
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('industrias/marcas-b2c.html')
+          s = p.read_text()
+          old = "https://lowsignal.cl/assets/dulce-local.jpg"
+          new = "https://lowsignal.cl/assets/dulce-reino-pasteleria.jpg"
+          if old not in s:
+              raise SystemExit('Old DulceReino background not found')
+          s = s.replace(old, new)
+          p.write_text(s)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/marcas-b2c.html
+          git diff --cached --quiet || git commit -m "Use DulceReino pasteleria photo in B2C testimonial"
+          git push
