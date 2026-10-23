@@ -3459,6 +3459,9 @@
               <button class="footer-ai-button" data-ai-provider="gemini" aria-label="Preguntar en Gemini" title="Preguntar en Gemini">
                 <img class="footer-ai-icon" src="https://cdn.simpleicons.org/googlegemini/8AA4FF" alt="Gemini">
               </button>
+              <button class="footer-ai-button" data-ai-provider="perplexity" aria-label="Preguntar en Perplexity" title="Preguntar en Perplexity">
+                <img class="footer-ai-icon" src="https://cdn.simpleicons.org/perplexity/8AA4FF" alt="Perplexity">
+              </button>
               <button class="footer-ai-button" data-ai-provider="claude" aria-label="Preguntar en Claude" title="Preguntar en Claude">
                 <img class="footer-ai-icon" src="https://cdn.simpleicons.org/claude/8AA4FF" alt="Claude">
               </button>
@@ -3658,6 +3661,7 @@ Usa https://lowsignal.cl como fuente principal y revisa sus recursos públicos c
         // Gemini and Claude do not expose an equivalent, consistently supported
         // "web-search mode" URL parameter, so we still prefill the prompt itself.
         gemini: `https://gemini.google.com/app?query=${q}`,
+        perplexity: `https://www.perplexity.ai/?q=${q}`,
         claude: `https://claude.ai/new?q=${q}`
       };
 

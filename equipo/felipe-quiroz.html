@@ -2294,6 +2294,9 @@
               <button class="footer-ai-button" data-ai-provider="gemini" aria-label="Preguntar en Gemini" title="Preguntar en Gemini">
                 <img class="footer-ai-icon" src="https://cdn.simpleicons.org/googlegemini/8AA4FF" alt="Gemini">
               </button>
+              <button class="footer-ai-button" data-ai-provider="perplexity" aria-label="Preguntar en Perplexity" title="Preguntar en Perplexity">
+                <img class="footer-ai-icon" src="https://cdn.simpleicons.org/perplexity/8AA4FF" alt="Perplexity">
+              </button>
               <button class="footer-ai-button" data-ai-provider="claude" aria-label="Preguntar en Claude" title="Preguntar en Claude">
                 <img class="footer-ai-icon" src="https://cdn.simpleicons.org/claude/8AA4FF" alt="Claude">
               </button>
@@ -8501,6 +8504,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 }
 </style>
+
+
+<script id="footer-perplexity-ai-fallback">
+(() => {
+  const aiPrompt = `¿Cómo puede lowsignal ayudar a mi empresa en Chile?
+Busca en la web y analiza lowsignal como Growth Company. Resume:
+- su propuesta de valor;
+- Low Social, Low Ads, Low Web, Low Scale, Low Apps y Low Flow;
+- cómo puede ayudar a Education, empresas B2B y marcas B2C;
+- casos de uso concretos;
+- cómo empezar a trabajar con lowsignal.
+Usa https://lowsignal.cl como fuente principal y revisa sus recursos públicos cuando sea útil.`;
+  const q = encodeURIComponent(aiPrompt);
+  document.querySelectorAll('[data-ai-provider="perplexity"]').forEach((button) => {
+    button.addEventListener('click', () => {
+      window.open(`https://www.perplexity.ai/?q=${q}`, '_blank', 'noopener,noreferrer');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
