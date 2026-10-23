@@ -8,6 +8,7 @@ on:
       - '.github/scripts/redesign_insiders_v2.py'
       - '.github/scripts/fix_insiders_labels.py'
       - '.github/scripts/fix_insiders_process_line.py'
+      - '.github/scripts/redesign_jobs_v2.py'
 
 jobs:
   update:
@@ -26,10 +27,12 @@ jobs:
         run: python .github/scripts/fix_insiders_labels.py
       - name: Fix Insiders process line
         run: python .github/scripts/fix_insiders_process_line.py
+      - name: Redesign Jobs
+        run: python .github/scripts/redesign_jobs_v2.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add equipo/felipe-quiroz.html equipo/damian-aldunate.html equipo/matias-bussinger.html equipo/martin-alvarado.html equipo/jorge-munoz.html equipo/lia-morice.html recursos/insiders.html
+          git add equipo/felipe-quiroz.html equipo/damian-aldunate.html equipo/matias-bussinger.html equipo/martin-alvarado.html equipo/jorge-munoz.html equipo/lia-morice.html recursos/insiders.html recursos/jobs.html
           git diff --cached --quiet || git commit -m "Update active site sections"
           git push
