@@ -30,3 +30,5 @@ jobs:
           git add industrias/marcas-b2c.html
           git diff --cached --quiet || git commit -m "Use DulceReino pasteleria photo in B2C testimonial"
           git push
+
+# trigger 2
