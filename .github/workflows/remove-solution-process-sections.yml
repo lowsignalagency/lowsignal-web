@@ -1,0 +1,22 @@
+name: Remove redundant solution process sections
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-solution-process-sections.yml'
+      - '.github/scripts/remove_solution_process_sections.py'
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove process sections
+        run: python .github/scripts/remove_solution_process_sections.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add soluciones/low-ads.html soluciones/low-web.html soluciones/low-flow.html soluciones/low-apps.html soluciones/low-scale.html
+          git diff --cached --quiet || git commit -m "Remove redundant solution process sections"
+          git push
