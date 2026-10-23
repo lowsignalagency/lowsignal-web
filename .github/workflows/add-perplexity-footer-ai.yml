@@ -1,0 +1,36 @@
+name: Add Perplexity Footer AI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/add_perplexity_footer_ai.py'
+      - '.github/workflows/add-perplexity-footer-ai.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-footers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add Perplexity to AI footer controls
+        run: python .github/scripts/add_perplexity_footer_ai.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- '*.html'; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' '**/*.html'
+          git commit -m "Add Perplexity to footer AI links"
+          git push
