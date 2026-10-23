@@ -30,3 +30,4 @@ jobs:
           git add industrias/marcas-b2c.html
           git diff --cached --quiet || git commit -m "Match B2C testimonial case arrow to B2B visual"
           git push
+# trigger
