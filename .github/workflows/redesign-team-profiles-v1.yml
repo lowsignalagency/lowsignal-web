@@ -1,0 +1,23 @@
+name: Redesign team profiles v1
+on:
+  push:
+    paths:
+      - '.github/workflows/redesign-team-profiles-v1.yml'
+      - '.github/scripts/redesign_team_profiles_v1.py'
+
+jobs:
+  redesign:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Redesign team profiles
+        run: python .github/scripts/redesign_team_profiles_v1.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add equipo/damian-aldunate.html equipo/matias-bussinger.html equipo/martin-alvarado.html equipo/jorge-munoz.html equipo/lia-morice.html
+          git diff --cached --quiet || git commit -m "Redesign active team profiles"
+          git push
