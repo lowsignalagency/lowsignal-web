@@ -1,778 +1,219 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="lowsignal for education: growth, admisión, contenido, campañas, web y automatización para colegios, redes, fundaciones e instituciones educativas.">
   <link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png">
-  <link rel="shortcut icon" href="https://lowsignal.cl/assets/profile.png">
   <link rel="apple-touch-icon" href="https://lowsignal.cl/assets/profile.png">
-  <title>Educación | Growth para colegios e instituciones | lowsignal</title>
+  <title>lowsignal for education | Growth para educación</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#070F22;--blue:#1419E0;--blue2:#2447F5;--ink:#10193C;--muted:#7A86A7;--line:#DCE3F2;--light:#F4F6FC;--shell:1220px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
-    img{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    .ls-social-shell{width:min(var(--shell),calc(100% - 128px));margin:0 auto}
+    :root{--navy:#070F22;--navy2:#0B1530;--blue:#1419E0;--blue2:#2447F5;--lav:#A8B8FF;--ink:#10193C;--muted:#6F7C9D;--line:#DCE3F2;--light:#F4F6FC;--soft:#EEF3FF;--shell:1220px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}.shell{width:min(var(--shell),calc(100% - 128px));margin:0 auto}.eyebrow{margin:0;color:#536BFF;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.section-title{margin:18px 0 0;font-size:clamp(36px,3.8vw,54px);line-height:1.08;letter-spacing:-.045em;font-weight:300}.section-title strong{color:var(--blue);font-weight:300}.section-copy{max-width:760px;margin:24px 0 0;color:var(--muted);font-size:15px;line-height:1.75}.btn{min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:650;transition:.2s ease}.btn:hover{transform:translateY(-2px)}
 
-    /* desktop navigation */
-    .lnav{position:fixed;top:0;left:0;right:0;z-index:1000;width:100%;background:rgba(7,15,34,.985);border-bottom:1px solid rgba(255,255,255,.08)}
-    .lnav-row{width:min(var(--shell),calc(100% - 128px));height:88px;margin:0 auto;display:flex;align-items:center;gap:36px}
-    .lnav-logo{display:flex;align-items:center;flex:none}.lnav-logo img{height:27px;width:auto}
-    .lnav-menu{display:flex;align-items:center;gap:32px;margin-left:auto;height:100%}
-    .lnav-item{position:static;display:flex;align-items:center;height:100%}
-    .lnav-trigger,.lnav-direct{border:0;background:none;padding:0;color:#C8D0E7;font:500 13px/1 "Be Vietnam Pro",sans-serif;cursor:pointer;transition:color .18s ease}
-    .lnav-trigger{height:100%;display:flex;align-items:center;gap:10px}.lnav-trigger:hover,.lnav-direct:hover{color:#fff}
-    .lnav-chevron{width:15px;height:9px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;color:#AAB4CF;transition:.18s ease}
-    .lnav-item:hover .lnav-chevron,.lnav-item:focus-within .lnav-chevron{transform:rotate(180deg);color:#8AA4FF}
-    .lnav-actions{display:flex;align-items:center;gap:10px;margin-left:4px}.lnav-contact{min-height:44px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#1419E0;color:#fff;font-size:13px;font-weight:600;transition:.18s ease}.lnav-contact:hover{transform:translateY(-1px);background:#2832F3}
-    .lnav-mega{position:absolute;top:88px;left:0;right:0;width:100%;padding:38px 0 42px;background:radial-gradient(34% 100% at 88% 30%,rgba(20,25,224,.14),transparent 72%),rgba(7,15,34,.99);border-top:1px solid rgba(255,255,255,.075);border-bottom:1px solid rgba(138,164,255,.10);box-shadow:0 24px 56px rgba(0,0,0,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-5px);transition:.16s ease}
-    .lnav-item:hover .lnav-mega,.lnav-item:focus-within .lnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-    .lnav-mega-inner{width:min(var(--shell),calc(100% - 128px));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:68px}
-    .lnav-col-title{color:#8AA4FF;font-size:10px;font-weight:600}.lnav-col-sub{min-height:42px;margin-top:8px;color:#687593;font-size:11px;line-height:1.55;max-width:330px}
-    .lnav-col>a{display:block;margin:5px -12px 0;padding:10px 12px;border:1px solid transparent;border-radius:10px;transition:.18s ease}.lnav-col>a:hover{background:rgba(138,164,255,.09);border-color:rgba(138,164,255,.16);transform:translateX(3px)}
-    .lnav-col b{display:block;color:#E8EBF6;font-size:14px;line-height:1.3;font-weight:400}.lnav-col small{display:block;margin-top:5px;color:#687593;font-size:10px;line-height:1.45}
+    /* nav */
+    .lnav{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(7,15,34,.985);border-bottom:1px solid rgba(255,255,255,.08)}.lnav-row{width:min(var(--shell),calc(100% - 128px));height:88px;margin:0 auto;display:flex;align-items:center;gap:34px}.lnav-logo img{height:27px;width:auto}.lnav-menu{display:flex;align-items:center;gap:31px;margin-left:auto;height:100%}.lnav-item{position:static;display:flex;align-items:center;height:100%}.lnav-trigger,.lnav-direct{border:0;background:none;padding:0;color:#C8D0E7;font:500 13px/1 "Be Vietnam Pro",sans-serif;cursor:pointer}.lnav-trigger{height:100%;display:flex;align-items:center;gap:9px}.lnav-trigger:hover,.lnav-direct:hover{color:#fff}.lnav-chevron{width:14px;height:9px;fill:none;stroke:currentColor;stroke-width:2;transition:.18s ease}.lnav-item:hover .lnav-chevron,.lnav-item:focus-within .lnav-chevron{transform:rotate(180deg)}.lnav-actions{display:flex;align-items:center;gap:10px}.lnav-plans{color:#BFC9E2;font-size:12px}.lnav-contact{min-height:44px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;background:var(--blue);color:#fff;font-size:13px;font-weight:600}.lnav-mega{position:absolute;top:88px;left:0;right:0;padding:38px 0 42px;background:radial-gradient(34% 100% at 88% 30%,rgba(20,25,224,.14),transparent 72%),rgba(7,15,34,.99);border-top:1px solid rgba(255,255,255,.075);border-bottom:1px solid rgba(138,164,255,.10);box-shadow:0 24px 56px rgba(0,0,0,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-5px);transition:.16s ease}.lnav-item:hover .lnav-mega,.lnav-item:focus-within .lnav-mega{opacity:1;visibility:visible;pointer-events:auto;transform:none}.lnav-mega-inner{width:min(var(--shell),calc(100% - 128px));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:68px}.lnav-col-title{color:#8AA4FF;font-size:10px;font-weight:600}.lnav-col-sub{min-height:42px;margin-top:8px;color:#687593;font-size:11px;line-height:1.55}.lnav-col>a{display:block;margin:5px -12px 0;padding:10px 12px;border:1px solid transparent;border-radius:10px;transition:.18s ease}.lnav-col>a:hover{background:rgba(138,164,255,.09);border-color:rgba(138,164,255,.16);transform:translateX(3px)}.lnav-col b{display:block;color:#E8EBF6;font-size:14px;font-weight:400}.lnav-col small{display:block;margin-top:5px;color:#687593;font-size:10px;line-height:1.45}.mobile-bar,.mobile-panel{display:none}
 
-    /* mobile navigation */
-    .mobile-bar,.mobile-nav-panel{display:none}
+    /* hero */
+    .hero{padding:152px 0 64px;background:radial-gradient(56% 120% at 100% 0%,rgba(36,71,245,.28),transparent 64%),linear-gradient(180deg,#071022 0%,#091128 100%);color:#fff}.hero .eyebrow{color:#8EA3FF}.hero-copy{max-width:1040px}.hero h1{max-width:1020px;margin:23px 0 0;font-size:clamp(52px,5.2vw,74px);line-height:1.01;letter-spacing:-.058em;font-weight:300}.hero h1 strong{color:var(--lav);font-weight:300}.hero-lead{max-width:850px;margin:30px 0 0;color:#A0ABC7;font-size:17px;line-height:1.72}.hero-actions{display:flex;gap:12px;margin-top:32px}.hero .primary{background:#fff;color:#17235D}.hero .secondary{border:1px solid rgba(255,255,255,.18);color:#fff}.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:48px}.hero-tags span{padding:8px 11px;border:1px solid rgba(168,184,255,.16);border-radius:999px;color:#92A0BF;font-size:10px}
 
-    /* shared education */
-    .edu-new-kicker,.edu-new-eyebrow{margin:0;color:#536BFF;font-size:10px;font-weight:700;letter-spacing:.20em}
-    .edu-heading-mobile,.edu-title-mobile{display:none}
-    .edu-new-hero{position:relative;padding:188px 0 96px;background:radial-gradient(60% 110% at 100% 0%,rgba(20,25,224,.28),transparent 62%),linear-gradient(180deg,#071022 0%,#091128 100%);color:#fff}
-    .edu-new-hero-copy{max-width:900px}.edu-new-hero .edu-new-kicker{color:#8EA3FF}
-    .edu-new-hero h1{max-width:900px;margin:26px 0 0;font-size:clamp(48px,4.8vw,68px);line-height:1.015;letter-spacing:-.055em;font-weight:300}.edu-new-hero h1 strong{color:#A8B8FF;font-weight:300}
-    .edu-new-hero-lead{max-width:820px;margin:34px 0 0;color:#99A6C7;font-size:18px;line-height:1.7}
-    .edu-new-actions{display:flex;gap:12px;margin-top:34px}.edu-new-primary,.edu-new-secondary{min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:650;transition:.2s ease}.edu-new-primary{background:#fff;color:#17235D}.edu-new-secondary{border:1px solid rgba(255,255,255,.18);color:#fff}.edu-new-primary:hover,.edu-new-secondary:hover{transform:translateY(-2px)}
-    .edu-new-hero-meta{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px;border-top:1px solid rgba(138,164,255,.16)}.edu-new-hero-meta>div{padding:24px 28px 0;border-right:1px solid rgba(138,164,255,.12)}.edu-new-hero-meta>div:first-child{padding-left:0}.edu-new-hero-meta>div:last-child{border-right:0}.edu-new-hero-meta strong{display:block;color:#fff;font-size:28px;letter-spacing:-.04em}.edu-new-hero-meta span{display:block;margin-top:6px;color:#7F8CAD;font-size:11px;line-height:1.5}
+    /* trust */
+    .trust{padding:26px 0 30px;background:#071022;border-top:1px solid rgba(138,164,255,.12)}.trust-label{color:#697897;font-size:9px;font-weight:700;letter-spacing:.16em}.trust-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px;align-items:center;margin-top:20px}.trust-grid img{max-width:120px;max-height:46px;object-fit:contain;filter:none;margin:auto;opacity:.88}
 
-    .edu-new-context{padding:108px 0 112px;background:#F4F6FC}.edu-new-solutions{padding:108px 0 72px;background:#fff}.edu-new-cases{padding:108px 0 112px;background:#F4F6FC}.edu-new-impact{padding:108px 0 116px;background:#fff}
-    .edu-new-context h2,.edu-new-solutions h2,.edu-new-cases h2,.edu-new-impact h2{margin:20px 0 0;color:#10193C;font-size:clamp(36px,3.8vw,52px);line-height:1.09;letter-spacing:-.043em;font-weight:300}.edu-new-context h2 strong,.edu-new-solutions h2 strong,.edu-new-cases h2 strong,.edu-new-impact h2 strong{color:#1419E0;font-weight:300}
-    .edu-new-context-lead{max-width:900px;margin:28px 0 0;color:#6F7C9D;font-size:16px;line-height:1.7}
-    .edu-new-journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px}.edu-new-journey-grid article{min-height:230px;padding:24px;border:1px solid #DCE3F2;border-radius:16px;background:#fff}.edu-new-journey-grid span{width:42px;height:42px;border-radius:10px;background:#EEF0FF;color:#1419E0;display:grid;place-items:center;font-size:10px;font-weight:700}.edu-new-journey-grid h3{margin:30px 0 0;color:#15204A;font-size:18px}.edu-new-journey-grid p{margin:9px 0 0;color:#7A86A7;font-size:13px;line-height:1.65}
+    /* positioning */
+    .positioning{padding:92px 0 102px;background:var(--light)}.positioning-head{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:end}.positioning-head .section-copy{margin:0}.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}.journey article{min-height:235px;padding:24px;border:1px solid var(--line);border-radius:16px;background:#fff}.journey-num{width:40px;height:40px;border-radius:10px;background:#EEF0FF;color:var(--blue);display:grid;place-items:center;font-size:10px;font-weight:700}.journey h3{margin:30px 0 0;font-size:18px;letter-spacing:-.025em}.journey p{margin:9px 0 0;color:#7A86A7;font-size:12.5px;line-height:1.65}
 
-    .edu-new-solution-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:58px}
-    .edu-solution-step:before,.edu-solution-step:after{content:"";position:absolute;top:17px;height:1px;background:#DCE3F2;pointer-events:none}
-    .edu-solution-step:before{display:none}
-    .edu-solution-step:after{left:35px;right:-43.5px;z-index:0}
-    .edu-solution-step:first-child:before{display:none}
-    .edu-solution-step:last-child:after{display:none}
-    .edu-solution-step{position:relative;display:block;min-height:216px;padding:0 14px 20px 0;background:transparent;transition:transform .2s ease}
-    .edu-solution-step:hover{transform:translateY(-3px)}
-    .edu-solution-step:focus-visible{outline:2px solid #536BFF;outline-offset:6px;border-radius:4px}
-    .edu-solution-step-number{position:relative;z-index:1;width:35px;height:35px;border:1px solid #DCE3F2;border-radius:50%;display:grid;place-items:center;background:#fff;color:#1419E0;font-size:10px;font-weight:700}
-    .edu-solution-step>small{display:block;margin-top:28px;color:#5365D9;font-size:8px;font-weight:700;letter-spacing:.16em}
-    .edu-solution-step h3{margin:16px 0 0;color:#16204A;font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:600}
-    .edu-solution-step p{margin:9px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}
-    .edu-solution-step-cta{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:#1419E0;font-size:10px;font-weight:700}
-    .edu-solution-step-cta span{transition:transform .2s ease}
-    .edu-solution-step:hover .edu-solution-step-cta span{transform:translate(2px,-2px)}
+    /* outcomes */
+    .outcomes{padding:100px 0 108px;background:#fff}.outcomes-head{max-width:850px}.outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:48px}.outcome{min-height:260px;padding:30px;border:1px solid var(--line);border-radius:18px;background:#fff;position:relative;overflow:hidden}.outcome:after{content:"";position:absolute;right:-50px;bottom:-70px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(20,25,224,.09),transparent 68%)}.outcome small{display:block;color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}.outcome h3{max-width:420px;margin:20px 0 0;font-size:25px;line-height:1.24;letter-spacing:-.035em;font-weight:500}.outcome p{max-width:520px;margin:12px 0 0;color:#75809E;font-size:13px;line-height:1.7}.outcome .mini{display:inline-flex;margin-top:22px;color:var(--blue);font-size:10px;font-weight:700}
 
-    .edu-new-system{padding:104px 0 108px;background:#071022;color:#fff}.edu-new-system-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.edu-new-eyebrow-dark{color:#8EA3FF}.edu-new-system h2{margin:20px 0 0;font-size:clamp(40px,4.4vw,58px);line-height:1.08;letter-spacing:-.045em;font-weight:300}.edu-new-system h2 strong{color:#A8B8FF;font-weight:300}.edu-new-system-copy{margin:0;color:#8F9BBA;font-size:15px;line-height:1.72;max-width:650px}.edu-new-flow{margin-top:34px;border-top:1px solid rgba(138,164,255,.16)}.edu-new-flow article{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(138,164,255,.14)}.edu-new-flow article>span{color:#8EA3FF;font-size:18px;font-weight:600}.edu-new-flow h3{margin:0;color:#fff;font-size:15px}.edu-new-flow p{margin:5px 0 0;color:#7E89A7;font-size:12px;line-height:1.55}
+    /* proof band */
+    .proof-band{padding:92px 0;background:var(--navy);color:#fff}.proof-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;align-items:start}.proof-band .eyebrow{color:#8EA3FF}.proof-band .section-title strong{color:var(--lav)}.proof-band .section-copy{color:#8F9BBA}.proof-points{border-top:1px solid rgba(138,164,255,.16)}.proof-point{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid rgba(138,164,255,.14)}.proof-point>span{color:#8EA3FF;font-size:20px;font-weight:600}.proof-point h3{margin:0;font-size:15px}.proof-point p{margin:6px 0 0;color:#7E89A7;font-size:12px;line-height:1.6}
+
+    /* capabilities */
+    .capabilities{padding:100px 0 106px;background:#fff}.cap-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:50px}.cap{position:relative;padding:0 12px 18px 0}.cap-num{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--blue);font-size:10px;font-weight:700}.cap small{display:block;margin-top:26px;color:#5365D9;font-size:8px;font-weight:700;letter-spacing:.16em}.cap h3{margin:14px 0 0;font-size:19px;line-height:1.3;letter-spacing:-.025em}.cap p{margin:9px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}.cap a{display:inline-flex;gap:6px;margin-top:17px;color:var(--blue);font-size:10px;font-weight:700}
+
+    /* testimonials */
+    .testimonials{padding:92px 0 100px;background:#EEF3FF}.testimonial-head{display:grid;grid-template-columns:1fr .68fr;gap:70px;align-items:end}.testimonial-head .section-copy{margin:0}.testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:42px}.testimonial-card{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:350px;padding:26px;border-radius:16px;transition:.2s ease}.testimonial-card:hover{transform:translateY(-3px)}.testimonial-card:nth-child(1){background:#fff;color:#10193C;border:1px solid #DCE3F2}.testimonial-card:nth-child(2){background:linear-gradient(145deg,#1A22D6,#2447F5);color:#fff}.testimonial-card:nth-child(3){background:linear-gradient(145deg,#14244E,#0E1938);color:#fff}.quote-mark{display:block;color:#829AFF;font-family:Georgia,serif;font-size:38px;line-height:.75}.testimonial-card blockquote{margin:14px 0 0;font-size:18px;line-height:1.5;font-weight:300;letter-spacing:-.02em}.testimonial-card:first-child blockquote strong{color:#263CE4}.person{display:flex;align-items:center;gap:10px;padding-top:15px;border-top:1px solid rgba(80,100,145,.25)}.person img{width:44px;height:44px;border-radius:50%;object-fit:cover}.person div{min-width:0;flex:1}.person b{display:block;font-size:12px}.person span{display:block;margin-top:4px;font-size:9.5px;line-height:1.4;opacity:.76}.case-link{font-size:9px;font-weight:700;white-space:nowrap}
 
     /* pricing */
-    .edu-pricing{scroll-margin-top:110px;padding:108px 0 116px;background:#fff}.edu-pricing-head{display:grid;grid-template-columns:1fr .72fr;gap:72px;align-items:end}.edu-pricing h2{margin:20px 0 0;color:#10193C;font-size:clamp(36px,3.8vw,52px);line-height:1.09;letter-spacing:-.043em;font-weight:300}.edu-pricing h2 strong{color:#1419E0;font-weight:300}.edu-pricing-intro{margin:0;color:#7A86A7;font-size:13px;line-height:1.72;max-width:470px}
-    .edu-pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:48px;align-items:stretch}.edu-plan{position:relative;min-height:650px;padding:28px;border:1px solid #DCE3F2;border-radius:18px;background:#fff;display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.edu-plan:hover{transform:translateY(-3px);border-color:#C7D2EC;box-shadow:0 18px 40px rgba(20,25,224,.07)}.edu-plan.is-featured{background:#071022;border-color:#071022;color:#fff;box-shadow:0 22px 54px rgba(7,16,34,.13)}
-    .edu-plan-badge{position:absolute;top:20px;right:20px;padding:7px 10px;border-radius:999px;background:#2637D9;color:#DDE4FF;font-size:8px;font-weight:700;letter-spacing:.14em}.edu-plan-kicker{margin:0;color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}.edu-plan.is-featured .edu-plan-kicker{color:#8EA3FF}.edu-plan h3{margin:18px 0 0;color:#16204A;font-size:24px;letter-spacing:-.03em;font-weight:500}.edu-plan.is-featured h3{color:#fff}.edu-plan-desc{min-height:64px;margin:10px 0 0;color:#7A86A7;font-size:12px;line-height:1.6}.edu-plan.is-featured .edu-plan-desc{color:#95A2C3}
-    .edu-plan-price{display:flex;align-items:baseline;gap:7px;margin-top:28px;padding-bottom:24px;border-bottom:1px solid #E2E7F2}.edu-plan.is-featured .edu-plan-price{border-bottom-color:rgba(138,164,255,.16)}.edu-plan-price strong{color:#1419E0;font-size:42px;line-height:1;letter-spacing:-.055em}.edu-plan.is-featured .edu-plan-price strong{color:#A8B8FF}.edu-plan-price span{color:#7A86A7;font-size:11px}.edu-plan.is-featured .edu-plan-price span{color:#7F8CAD}.edu-plan ul{list-style:none;margin:24px 0 0;padding:0}.edu-plan li{position:relative;padding-left:18px;color:#596689;font-size:12px;line-height:1.5}.edu-plan li+li{margin-top:13px}.edu-plan li:before{content:"/";position:absolute;left:0;color:#1419E0;font-weight:700}.edu-plan.is-featured li{color:#D5DCF3}.edu-plan.is-featured li:before{color:#8EA3FF}
-    .edu-plan:nth-child(3) ul{margin-bottom:28px}.edu-plan-cta{width:100%;min-height:48px;margin-top:auto;padding:0 18px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#EEF0FF;color:#17235D;font-size:11px;font-weight:700;transition:.2s ease}.edu-plan-cta:hover{transform:translateY(-2px);background:#E3E7FF}.edu-plan.is-featured .edu-plan-cta{background:#fff;color:#17235D}.edu-pricing-note{margin:24px 0 0;padding-top:20px;border-top:1px solid #E2E7F2;display:flex;justify-content:space-between;gap:24px;color:#7A86A7;font-size:10px;line-height:1.55}.edu-pricing-note strong{color:#16204A;font-weight:600}.edu-pricing-custom{margin-top:18px;padding:28px 30px;border:1px solid #DCE3F2;border-radius:18px;background:#F4F6FC;display:flex;align-items:center;justify-content:space-between;gap:28px}.edu-pricing-custom>div{max-width:760px}.edu-pricing-custom span{display:block;color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}.edu-pricing-custom h3{margin:9px 0 0;color:#16204A;font-size:24px;letter-spacing:-.03em;font-weight:500}.edu-pricing-custom p{margin:8px 0 0;color:#7A86A7;font-size:12px;line-height:1.65}.edu-pricing-custom a{flex:none;min-height:46px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#1419E0;color:#fff;font-size:11px;font-weight:700;transition:.2s ease}.edu-pricing-custom a:hover{transform:translateY(-2px);background:#2832F3}
+    .pricing{scroll-margin-top:110px;padding:104px 0 112px;background:#fff}.pricing-head{display:grid;grid-template-columns:1fr .72fr;gap:72px;align-items:end}.pricing-head .section-copy{margin:0}.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:48px}.plan{position:relative;min-height:650px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;display:flex;flex-direction:column}.plan.featured{background:#071022;border-color:#071022;color:#fff;box-shadow:0 22px 54px rgba(7,16,34,.13)}.badge{position:absolute;top:20px;right:20px;padding:7px 10px;border-radius:999px;background:#2637D9;color:#DDE4FF;font-size:8px;font-weight:700;letter-spacing:.14em}.plan-kicker{margin:0;color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}.featured .plan-kicker{color:#8EA3FF}.plan h3{margin:18px 0 0;font-size:24px;letter-spacing:-.03em;font-weight:500}.plan-desc{min-height:64px;margin:10px 0 0;color:#7A86A7;font-size:12px;line-height:1.6}.featured .plan-desc{color:#95A2C3}.price{display:flex;align-items:baseline;gap:7px;margin-top:28px;padding-bottom:24px;border-bottom:1px solid #E2E7F2}.featured .price{border-bottom-color:rgba(138,164,255,.16)}.price strong{color:var(--blue);font-size:42px;line-height:1;letter-spacing:-.055em}.featured .price strong{color:var(--lav)}.price span{color:#7A86A7;font-size:11px}.plan ul{list-style:none;margin:24px 0 0;padding:0}.plan li{position:relative;padding-left:18px;color:#596689;font-size:12px;line-height:1.5}.plan li+li{margin-top:13px}.plan li:before{content:"/";position:absolute;left:0;color:var(--blue);font-weight:700}.featured li{color:#D5DCF3}.featured li:before{color:#8EA3FF}.plan-cta{margin-top:auto;padding-top:28px;color:var(--blue);font-size:11px;font-weight:700}.featured .plan-cta{color:#A8B8FF}.pricing-note{margin-top:16px;color:#7A86A7;font-size:10px;line-height:1.6}.custom{margin-top:16px;padding:24px 28px;border:1px solid var(--line);border-radius:16px;display:flex;justify-content:space-between;gap:24px;align-items:center}.custom span{color:#5365D9;font-size:9px;font-weight:700;letter-spacing:.16em}.custom h3{margin:8px 0 0;font-size:19px}.custom p{margin:6px 0 0;color:#7A86A7;font-size:11px}.custom a{color:var(--blue);font-size:11px;font-weight:700}
 
-    .edu-new-section-head{display:grid;grid-template-columns:1fr .7fr;gap:70px;align-items:end}.edu-new-section-head>p{margin:0;color:#7A86A7;font-size:13px;line-height:1.7}.edu-new-case-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0}.edu-new-case-card{position:relative;height:410px;overflow:hidden;border-radius:18px}.edu-new-case-card>img:first-child{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.edu-new-case-card:first-child>img:first-child{object-position:center 64%}.edu-new-case-card:nth-child(2)>img:first-child{object-position:center 74%}.edu-new-case-card:hover>img:first-child{transform:scale(1.02)}.edu-new-case-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,34,.05) 32%,rgba(7,15,34,.90) 100%)}.edu-new-case-copy{position:absolute;left:26px;right:26px;bottom:24px}.edu-new-case-copy img{width:auto;max-width:180px;max-height:44px;object-fit:contain;object-position:left center}.edu-new-case-copy h3{max-width:520px;margin:16px 0 0;color:#fff;font-size:20px;line-height:1.35;font-weight:500}.edu-new-case-copy b{display:block;margin-top:14px;color:#9DAEFF;font-size:10px}
-    .edu-new-logo-strip{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:38px;padding:26px 28px;border-radius:14px;background:#071022}.edu-new-logo-strip img{width:auto;max-width:140px;max-height:36px;object-fit:contain;opacity:.84}.edu-new-testimonial{display:grid;grid-template-columns:1fr auto;gap:70px;align-items:end;margin-top:54px;padding-top:46px;border-top:1px solid #DCE3F2}.edu-new-quote-mark{display:block;color:#1419E0;font-size:78px;line-height:.7;font-weight:700}.edu-new-testimonial blockquote{margin:18px 0 0;max-width:860px;color:#16204A;font-size:28px;line-height:1.38;font-weight:300;letter-spacing:-.025em}.edu-new-testimonial blockquote strong{color:#1419E0;font-weight:300}.edu-new-person{display:flex;align-items:center;gap:14px}.edu-new-person img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:center 20%}.edu-new-person b{display:block;color:#16204A;font-size:14px}.edu-new-person span{display:block;margin-top:3px;max-width:250px;color:#7A86A7;font-size:11px;line-height:1.4}
-    .edu-new-impact-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:76px;border-top:1px solid #DCE3F2}.edu-new-impact-grid article{padding:28px 28px 0;border-right:1px solid #DCE3F2}.edu-new-impact-grid article:first-child{padding-left:0}.edu-new-impact-grid article:last-child{border-right:0}.edu-new-impact-grid strong{display:block;color:#1419E0;font-size:42px;letter-spacing:-.05em}.edu-new-impact-grid span{display:block;margin-top:10px;color:#16204A;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.edu-new-impact-grid p{margin:8px 0 0;color:#7A86A7;font-size:12px;line-height:1.55}
+    /* faq + cta */
+    .faq{padding:82px 0 90px;background:#EEF3FF}.faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px)}.faq-list{border-top:1px solid #D4DDF0}.faq details{border-bottom:1px solid #D4DDF0}.faq summary{min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;list-style:none;cursor:pointer}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";color:#7C8799;font-size:18px}.faq details[open] summary:after{content:"−"}.faq-answer{padding:0 34px 18px 0}.faq-answer p{margin:0;color:#667085;font-size:12px;line-height:1.7}.cta-band{background:var(--blue);color:#fff}.cta-inner{width:min(var(--shell),calc(100% - 128px));min-height:164px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px}.cta-inner p{margin:0;font-size:clamp(28px,3vw,42px);font-weight:300;letter-spacing:-.04em}.cta-inner a{padding:12px 18px;border:1px solid rgba(255,255,255,.5);border-radius:999px;font-size:12px;font-weight:700}
 
-    .lsr-band{background:linear-gradient(105deg,#1419E0,#2447F5);color:#fff}.lsr-band-inner{width:min(var(--shell),calc(100% - 128px));min-height:208px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}.lsr-band p{margin:0;color:#fff;font-size:30px;line-height:1.25;letter-spacing:-.03em;font-weight:300}.lsr-band a{min-height:50px;padding:0 24px;border-radius:999px;background:#fff;color:#17235D;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;white-space:nowrap;transition:.2s ease}.lsr-band a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(9,18,54,.18)}
+    /* footer */
+    footer{padding:70px 0 26px;background:#070F22;color:#fff}.footer-container{width:min(var(--shell),calc(100% - 128px));margin:0 auto}.footer-main{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:55px}.footer-brand img{height:26px;width:auto}.footer-brand-copy{max-width:360px;margin:20px 0 0;color:#7E89A7;font-size:11px;line-height:1.65}.footer-claim{margin-top:20px;color:#8895B4;font-size:12px}.footer-claim strong{color:#fff}.footer-title{color:#8EA3FF;font-size:9px;font-weight:700;letter-spacing:.15em}.footer-links{display:grid;gap:10px;margin-top:16px}.footer-links a{color:#A5B0CB;font-size:11px}.footer-links a:hover{color:#fff}.footer-meta{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;margin-top:54px;padding-top:22px;border-top:1px solid rgba(138,164,255,.13);color:#687593;font-size:10px}.footer-meta .center{text-align:center}.footer-social{display:flex;justify-content:flex-end;gap:10px}.footer-social a{width:34px;height:34px;border:1px solid rgba(138,164,255,.18);border-radius:9px;display:grid;place-items:center;color:#8AA4FF;font-size:11px}
 
-    footer{background:#050A18;color:#A0A9BF;padding:50px 0 22px;font-size:14px;border-top:1px solid rgba(255,255,255,.06)}.footer-container{width:min(var(--shell),calc(100% - 128px));margin:0 auto}.footer-main{display:grid;grid-template-columns:1.45fr .8fr .72fr .78fr;gap:46px;align-items:start}.footer-brand img{height:24px;width:auto}.footer-brand-copy{max-width:350px;margin:18px 0 0;font-size:13px;line-height:1.65;color:#8E98AE}.footer-claim{margin-top:20px;font-size:16px;color:#F4F6FB}.footer-claim strong,.footer-title{color:#7690FF}.footer-title{margin:2px 0 16px;font-size:10px;font-weight:700;letter-spacing:.2em}.footer-links{display:flex;flex-direction:column;gap:10px}.footer-links a{color:#C5CCDA;font-size:13px;transition:.2s ease}.footer-links a:hover{color:#8AA4FF;transform:translateX(2px)}.footer-meta{margin-top:34px;padding:17px 0;border-top:1px solid rgba(150,175,255,.14);border-bottom:1px solid rgba(150,175,255,.14);display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center;color:#8994AA;font-size:11px}.footer-meta .center{text-align:center}.footer-meta .right{text-align:right}.footer-mail{color:#B4BED0}.footer-bottom{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;padding-top:17px;color:#68758E;font-size:11px}.footer-made-latam{display:flex;align-items:center;gap:10px;color:#8994AA;font-size:10px;font-weight:700;letter-spacing:.12em;white-space:nowrap}.footer-made-country{display:inline-flex;align-items:center;padding-left:12px;border-left:1px solid rgba(137,148,170,.28)}.footer-made-country img{width:40px}.footer-bottom-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}.footer-bottom a{color:#68758E}
-
-    /* subtle reveal */
-    .edu-reveal{opacity:0;transform:translateY(18px);transition:opacity .58s ease,transform .68s cubic-bezier(.2,.75,.2,1)}.edu-reveal.is-visible{opacity:1;transform:none}
-
-    @media(max-width:1100px){.ls-social-shell,.lnav-row,.lnav-mega-inner,.footer-container,.lsr-band-inner{width:calc(100% - 48px)}.lnav-row{height:80px;gap:22px}.lnav-menu{gap:20px}.lnav-trigger,.lnav-direct{font-size:12px}.lnav-mega{top:80px}.lnav-mega-inner{gap:36px}}
-    @media(max-width:980px){.edu-new-system-grid,.edu-new-section-head,.edu-pricing-head{grid-template-columns:1fr;gap:34px}.edu-new-journey-grid{grid-template-columns:1fr 1fr}.edu-new-case-grid,.edu-pricing-grid{grid-template-columns:1fr}.edu-new-solution-grid{grid-template-columns:1fr;gap:0;margin-top:48px;padding-left:3px}.edu-new-solution-grid:before{top:17px;bottom:18px;left:17px;right:auto;width:1px;height:auto}.edu-solution-step:before,.edu-solution-step:after{display:none!important}.edu-solution-step{min-height:0;padding:0 0 32px 0}.edu-solution-step>small{margin:0 0 0 54px;padding-top:4px}.edu-solution-step h3,.edu-solution-step p,.edu-solution-step-cta{margin-left:54px}.edu-solution-step h3{margin-top:12px}.edu-solution-step p{margin-top:8px}.edu-solution-step-cta{margin-top:12px}.edu-plan{min-height:0}.edu-plan-cta{margin-top:30px}.edu-new-testimonial{grid-template-columns:1fr;gap:24px}.edu-new-impact-grid{grid-template-columns:1fr}.edu-new-impact-grid article{padding:24px 0;border-right:0;border-bottom:1px solid #DCE3F2}.footer-main{grid-template-columns:1.25fr 1fr}.footer-brand{grid-column:1/-1}}
-    @media(max-width:760px){
-      .lnav{display:none}.mobile-bar{display:flex;position:fixed;top:10px;left:12px;right:12px;height:58px;padding:0 16px;align-items:center;z-index:1200;border-radius:16px;background:rgba(7,15,34,.97);box-shadow:0 10px 30px rgba(4,10,28,.22)}.mobile-bar img{height:20px}.mobile-toggle{margin-left:auto;width:40px;height:40px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer}.mobile-toggle span,.mobile-toggle:before{content:"";display:block;width:21px;height:1.5px;background:#fff;transition:.2s ease}.mobile-toggle span{transform:translateY(-4px)}.mobile-toggle:before{transform:translateY(4px)}.mobile-toggle[aria-expanded="true"] span{transform:translateY(1px) rotate(45deg)}.mobile-toggle[aria-expanded="true"]:before{transform:translateY(-1px) rotate(-45deg)}
-      .mobile-nav-panel{display:block;position:fixed;inset:0;z-index:1100;padding:86px 18px 28px;background:#070F22;visibility:hidden;opacity:0;pointer-events:none;overflow-y:auto;transition:.18s ease}.mobile-nav-panel.is-open{visibility:visible;opacity:1;pointer-events:auto}.mobile-nav-group{border-bottom:1px solid rgba(138,164,255,.14)}.mobile-nav-summary{width:100%;min-height:62px;padding:0;border:0;background:transparent;display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:17px;text-align:left}.mobile-nav-submenu{display:flex;flex-direction:column;gap:7px;padding:0 0 16px}.mobile-nav-submenu[hidden]{display:none}.mobile-nav-submenu a{padding:13px 14px;border:1px solid rgba(138,164,255,.10);border-radius:12px;background:rgba(138,164,255,.035)}.mobile-nav-submenu strong{display:block;color:#fff;font-size:14px}.mobile-nav-submenu small{display:block;margin-top:4px;color:#8290B2;font-size:11px}.mobile-nav-direct{min-height:62px;display:flex;align-items:center;border-bottom:1px solid rgba(138,164,255,.14);color:#fff;font-size:17px}.mobile-nav-talk{min-height:50px;margin-top:18px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#fff;color:#17235D;font-size:13px;font-weight:650}
-      .ls-social-shell,.footer-container,.lsr-band-inner{width:calc(100% - 40px)}.edu-title-desktop,.edu-heading-desktop{display:none}.edu-title-mobile,.edu-heading-mobile{display:inline}.edu-new-hero{padding:132px 0 72px}.edu-new-hero h1{max-width:340px;font-size:36px;line-height:1.045}.edu-new-hero-lead{margin-top:24px;font-size:15px;line-height:1.62}.edu-new-actions{margin-top:28px;flex-direction:column}.edu-new-primary,.edu-new-secondary{width:100%}.edu-new-hero-meta{grid-template-columns:1fr;margin-top:42px}.edu-new-hero-meta>div{padding:18px 0;border-right:0;border-bottom:1px solid rgba(138,164,255,.12)}.edu-new-context,.edu-new-solutions,.edu-new-system,.edu-pricing,.edu-new-cases,.edu-new-impact{padding:72px 0}.edu-new-context h2,.edu-new-solutions h2,.edu-new-system h2,.edu-pricing h2,.edu-new-cases h2,.edu-new-impact h2{max-width:340px;font-size:30px;line-height:1.10}.edu-new-context-lead{margin-top:20px;font-size:14px}.edu-new-journey-grid{grid-template-columns:1fr;margin-top:34px;gap:10px}.edu-new-journey-grid article{min-height:0;padding:20px}.edu-new-solution-grid,.edu-pricing-grid{margin-top:34px;gap:10px}.edu-new-case-grid{margin-top:0;gap:10px}.edu-new-solution-grid article,.edu-plan{min-height:0;padding:22px;border-radius:14px}.edu-new-solution-grid h3{margin-top:26px}.edu-new-solution-footer{position:static;margin-top:28px}.edu-plan h3{font-size:21px}.edu-plan-price strong{font-size:36px}.edu-pricing-note{flex-direction:column;gap:8px}.edu-pricing-custom{padding:22px;align-items:flex-start;flex-direction:column}.edu-pricing-custom h3{font-size:21px}.edu-pricing-custom a{width:100%}.edu-new-case-card{height:300px}.edu-new-logo-strip{justify-content:flex-start;gap:20px 26px}.edu-new-logo-strip img{max-width:105px;max-height:30px}.edu-new-testimonial blockquote{font-size:23px}.edu-new-impact-grid{margin-top:44px}.lsr-band-inner{min-height:176px;flex-direction:column;align-items:flex-start;justify-content:center;gap:22px}.lsr-band p{font-size:25px}.lsr-band a{width:100%}.footer-main{grid-template-columns:1fr;gap:34px}.footer-brand{grid-column:auto}.footer-meta{grid-template-columns:1fr}.footer-meta .center,.footer-meta .right{text-align:left}.footer-bottom{grid-template-columns:1fr;gap:14px}.footer-bottom-links{justify-content:flex-start}}
-    @media(max-width:390px){.edu-new-hero h1{max-width:315px;font-size:33px}.edu-new-context h2,.edu-new-solutions h2,.edu-new-system h2,.edu-pricing h2,.edu-new-cases h2,.edu-new-impact h2{max-width:310px;font-size:28px}}
-    @media(prefers-reduced-motion:reduce){.edu-reveal{opacity:1!important;transform:none!important;transition:none!important}}
-  
-    /* Education page: proof, imagery and trust sequence */
-    .edu-new-logos{padding:22px 0 34px;background:#fff}
-    .edu-new-logos>.ls-social-shell>.edu-new-eyebrow{text-align:center;margin:0 0 14px}
-    .edu-new-logos .edu-new-logo-strip{margin-top:0;justify-content:space-around}
-    .edu-solution-media{height:154px;margin:-28px -28px 24px;overflow:hidden;border-radius:15px 15px 0 0;background:#E8ECF6}
-    .edu-solution-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-    .edu-new-solution-grid article:hover .edu-solution-media img{transform:scale(1.035)}
-    .edu-new-solution-grid h3{margin-top:0}
-    .edu-new-solution-grid article:nth-child(4) .edu-solution-media{background:#fff}
-    @media(max-width:700px){
-      .edu-new-logos{padding:18px 0 28px}
-      .edu-new-logos .edu-new-logo-strip{gap:18px;justify-content:center;padding:22px 18px}
-      .edu-new-logos .edu-new-logo-strip img{max-width:112px;max-height:29px}
-      .edu-solution-media{height:166px}
-    }
-  
-    /* Illustrated solution cards, drawn in the page's own visual language */
-    .edu-new-solution-grid article{min-height:382px;display:flex;flex-direction:column;padding:28px}
-    .edu-solution-media{height:158px;margin:-28px -28px 24px;overflow:hidden;border-radius:15px 15px 0 0;background:#EEF1FF;display:block}
-    .edu-solution-art svg{display:block;width:100%;height:100%;object-fit:cover}
-    .edu-new-solution-grid h3{margin-top:0}
-    .edu-new-solution-footer{position:static;margin-top:auto;padding-top:22px}
-    .edu-new-solution-grid article:nth-child(4) .edu-solution-media{background:#2533EF}
-    @media(max-width:700px){.edu-new-solution-grid article{min-height:360px}.edu-solution-media{height:166px}}
-  
-    /* Let the client logos continue the hero background across the full viewport */
-    .edu-new-logos{padding:26px 0 40px;background:linear-gradient(180deg,#091128 0%,#071022 100%)}
-    
-    .edu-new-logos .edu-new-logo-strip{padding:12px 0;background:transparent;border-radius:0}
-    @media(max-width:700px){.edu-new-logos{padding:22px 0 30px}.edu-new-logos .edu-new-logo-strip{padding:8px 4px}}
-  
-    /* Compact solution cards on mid-size and mobile screens */
-    .edu-new-solution-grid article{min-height:320px;padding:24px}
-    .edu-solution-media{height:132px;margin:-24px -24px 20px}
-    .edu-new-solution-grid h3{font-size:20px}
-    .edu-new-solution-grid p{font-size:12.5px;line-height:1.55}
-    .edu-new-solution-footer{padding-top:16px}
-    @media(max-width:700px){
-      .edu-new-solution-grid article{min-height:0;padding:20px}
-      .edu-solution-media{height:128px;margin:-20px -20px 18px}
-      .edu-new-solution-grid h3{font-size:19px}
-      .edu-new-solution-grid p{font-size:13px}
-      .edu-new-solution-footer{padding-top:14px}
-    }
+    @media(max-width:1000px){.shell,.lnav-row,.lnav-mega-inner,.footer-container,.cta-inner{width:min(var(--shell),calc(100% - 64px))}.journey{grid-template-columns:repeat(2,1fr)}.cap-grid{grid-template-columns:repeat(2,1fr)}.testimonial-grid{grid-template-columns:1fr 1fr}.testimonial-card:last-child{grid-column:1/-1}.pricing-grid{grid-template-columns:1fr}.plan{min-height:auto}.positioning-head,.testimonial-head,.pricing-head,.proof-layout{grid-template-columns:1fr;gap:28px}.trust-grid{grid-template-columns:repeat(3,1fr)}.footer-main{grid-template-columns:1.6fr 1fr 1fr}.footer-main>div:last-child{display:none}}
+    @media(max-width:760px){.shell,.footer-container,.cta-inner{width:calc(100% - 40px)}.lnav{display:none}.mobile-bar{position:fixed;top:0;left:0;right:0;z-index:1100;height:70px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#070F22;border-bottom:1px solid rgba(255,255,255,.08)}.mobile-bar img{height:24px}.mobile-toggle{width:40px;height:40px;border:0;background:transparent;position:relative}.mobile-toggle:before,.mobile-toggle:after{content:"";position:absolute;left:9px;right:9px;height:1px;background:#fff;transition:.2s ease}.mobile-toggle:before{top:15px}.mobile-toggle:after{top:24px}.mobile-toggle.open:before{top:20px;transform:rotate(45deg)}.mobile-toggle.open:after{top:20px;transform:rotate(-45deg)}.mobile-panel{position:fixed;inset:70px 0 0;z-index:1090;padding:22px 20px 34px;background:#070F22;overflow:auto;color:#fff}.mobile-panel.open{display:block}.mobile-panel a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px}.mobile-panel small{display:block;margin-top:4px;color:#687593;font-size:10px}.hero{padding:116px 0 48px}.hero h1{font-size:46px}.hero-lead{font-size:15px}.hero-actions{flex-direction:column;align-items:flex-start}.hero-tags{margin-top:34px}.trust{padding:24px 0}.trust-grid{grid-template-columns:repeat(2,1fr);gap:24px}.trust-grid img{max-width:105px}.positioning,.outcomes,.capabilities,.testimonials,.pricing{padding:72px 0}.positioning-head{display:block}.positioning-head .section-copy{margin-top:22px}.journey,.outcomes-grid,.cap-grid,.testimonial-grid{grid-template-columns:1fr}.journey{margin-top:34px}.journey article{min-height:auto}.outcome{min-height:auto}.proof-band{padding:72px 0}.proof-point{grid-template-columns:48px 1fr}.testimonial-card,.testimonial-card:last-child{grid-column:auto;min-height:310px}.pricing-grid{margin-top:34px}.custom{align-items:flex-start;flex-direction:column}.faq{padding:68px 0}.faq-grid{grid-template-columns:1fr;gap:28px}.cta-inner{min-height:180px;align-items:flex-start;justify-content:center;flex-direction:column}.footer-main{grid-template-columns:1fr 1fr;gap:40px 26px}.footer-brand{grid-column:1/-1}.footer-main>div:last-child{display:block}.footer-meta{grid-template-columns:1fr;gap:14px}.footer-meta .center{text-align:left}.footer-social{justify-content:flex-start}.section-title{font-size:36px}}
   </style>
-
-
-
-<style id="global-mobile-nav-stability-v1">
-@media(max-width:760px){body>.nav-wrap .nav{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;padding-left:18px!important;padding-right:18px!important;gap:12px!important}body>.nav-wrap .brand{min-width:0!important;max-width:70%!important}body>.nav-wrap .brand img{max-width:100%!important;height:auto!important;max-height:26px!important}.mobile-nav-toggle{flex:0 0 auto!important;margin-left:auto!important}.mobile-nav-panel{max-width:100vw!important;overflow-x:hidden!important}.mobile-nav-inner,.mobile-nav-group,.mobile-nav-submenu{min-width:0!important;max-width:100%!important}.mobile-nav-submenu a{min-width:0!important;max-width:100%!important;overflow:hidden!important}.mobile-nav-submenu strong,.mobile-nav-submenu small{white-space:normal!important;overflow-wrap:anywhere!important}}
-</style>
-
-<style id="global-plans-nav-button-v1">
-/* Global secondary CTA: Ver planes */
-.lnav-plans{
-  min-height:44px;
-  padding:0 20px;
-  border:1px solid rgba(255,255,255,.24);
-  border-radius:999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  background:transparent;
-  font-size:12px;
-  font-weight:600;
-  white-space:nowrap;
-  transition:background .18s ease,border-color .18s ease,transform .18s ease;
-}
-.lnav-plans:hover{
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.40);
-  transform:translateY(-1px);
-}
-.nav-plans{
-  min-height:40px;
-  padding:0 16px;
-  border:1px solid rgba(10,10,10,.18);
-  border-radius:999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:#0A0A0A;
-  background:transparent;
-  font-size:12px;
-  font-weight:600;
-  white-space:nowrap;
-}
-.nav-plans:hover{border-color:#1419E0;color:#1419E0;background:#F5F7FF}
-@media(max-width:1100px) and (min-width:761px){
-  .lnav-plans{min-height:40px;padding:0 15px;font-size:11px}
-}
-@media(max-width:760px){
-  .mobile-nav-plans{
-    min-height:48px !important;
-    margin-top:14px !important;
-    border:1px solid rgba(20,25,224,.18) !important;
-    border-radius:12px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    color:#1419E0 !important;
-    background:#F4F6FF !important;
-    font-size:13px !important;
-    font-weight:650 !important;
-    text-decoration:none !important;
-    width:100% !important;
-    max-width:100% !important;
-    box-sizing:border-box !important;
-  }
-  .mobile-nav-plans:hover{background:#EAEEFF !important}
-}
-</style>
-
-<style id="industry-mobile-close-fix-v1">
-@media(max-width:760px){
-  .mobile-toggle,
-  .mobile-nav-toggle{
-    position:relative !important;
-    overflow:visible !important;
-  }
-  .mobile-toggle > span,
-  .mobile-nav-toggle > span{
-    opacity:0 !important;
-  }
-  .mobile-toggle::before,
-  .mobile-toggle::after,
-  .mobile-nav-toggle::before,
-  .mobile-nav-toggle::after{
-    content:"" !important;
-    position:absolute !important;
-    left:50% !important;
-    top:50% !important;
-    width:22px !important;
-    height:1.5px !important;
-    border-radius:999px !important;
-    background:#fff !important;
-    transform-origin:center !important;
-    transition:transform .2s ease !important;
-  }
-  .mobile-toggle::before,
-  .mobile-nav-toggle::before{
-    transform:translate(-50%,-6px) !important;
-  }
-  .mobile-toggle::after,
-  .mobile-nav-toggle::after{
-    transform:translate(-50%,5px) !important;
-  }
-  .mobile-toggle[aria-expanded="true"]::before,
-  .mobile-nav-toggle[aria-expanded="true"]::before{
-    transform:translate(-50%,-50%) rotate(45deg) !important;
-  }
-  .mobile-toggle[aria-expanded="true"]::after,
-  .mobile-nav-toggle[aria-expanded="true"]::after{
-    transform:translate(-50%,-50%) rotate(-45deg) !important;
-  }
-  .mobile-nav-summary .industry-mobile-chevron{
-    width:13px !important;
-    height:9px !important;
-    fill:none !important;
-    stroke:currentColor !important;
-    stroke-width:2 !important;
-    stroke-linecap:round !important;
-    stroke-linejoin:round !important;
-    transition:transform .2s ease !important;
-    flex:none !important;
-  }
-  .mobile-nav-summary[aria-expanded="true"] .industry-mobile-chevron{
-    transform:rotate(180deg) !important;
-  }
-}
-</style>
-
-<style id="education-mobile-nav-tap-fix-v1">
-@media(max-width:760px){
-  .mobile-bar a,
-  .mobile-toggle,
-  .mobile-nav-panel a,
-  .mobile-nav-summary{
-    -webkit-tap-highlight-color:transparent !important;
-    tap-highlight-color:transparent !important;
-  }
-  .mobile-nav-submenu a:active,
-  .mobile-nav-direct:active,
-  .mobile-nav-plans:active,
-  .mobile-nav-talk:active{
-    background:rgba(138,164,255,.12) !important;
-    color:#fff !important;
-  }
-  .mobile-nav-summary:active{
-    color:#8AA4FF !important;
-    background:transparent !important;
-  }
-}
-</style>
-
-<style id="education-footer-social-icons-v1">
-.footer-meta-social{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:10px!important}
-.footer-meta-social a{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(138,164,255,.18);border-radius:9px;color:#8AA4FF;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
-.footer-meta-social a:hover{background:rgba(138,164,255,.08);border-color:rgba(138,164,255,.34);color:#fff;transform:translateY(-1px)}
-.footer-meta-social .brand-svg{width:16px;height:16px;flex:0 0 16px}
-@media(max-width:760px){.footer-meta-social{justify-content:flex-start!important}}
-</style>
-
-
-<style id="industry-hero-clean-v2-edu-new">
-/* Compact industry hero without duplicated metrics */
-.edu-new-hero{padding:156px 0 68px !important;}
-.edu-new-hero h1{max-width:1120px !important;}
-@media(max-width:760px){
-  .edu-new-hero{padding:124px 0 52px !important;}
-  .edu-new-hero h1{max-width:100% !important;}
-}
-</style>
-
-<style id="industry-next-section-peek-v1-edu-new">
-/* Keep the next section visible sooner after the hero */
-.edu-new-hero{padding:140px 0 52px !important;}
-.edu-new-context{padding-top:76px !important;}
-@media(max-width:760px){
-  .edu-new-hero{padding:118px 0 44px !important;}
-  .edu-new-context{padding-top:62px !important;}
-}
-</style>
-<style id="low-education-faq-v1">
-.ls-social-faq{padding:78px 0 84px;background:#EEF3FF}
-.ls-social-faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(48px,8vw,112px);align-items:start}
-.ls-social-faq-label{margin:0 0 14px;color:#1419E0;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.2}
-.ls-social-faq-heading h2{max-width:340px;margin:0;color:#071022;font-size:clamp(26px,2.3vw,32px);font-weight:400;line-height:1.18;letter-spacing:-.045em}
-.ls-social-faq-heading p:not(.ls-social-faq-label){max-width:310px;margin:11px 0 0;color:#65738F;font-size:12px;line-height:1.55}
-.ls-social-faq-list{border-top:1px solid #D4DDF0}
-.ls-social-faq-item{border-bottom:1px solid #D4DDF0}
-.ls-social-faq-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}
-.ls-social-faq-item summary::-webkit-details-marker{display:none}
-.ls-social-faq-item summary:focus-visible{outline:2px solid #1419E0;outline-offset:5px;border-radius:2px}
-.ls-social-faq-icon{position:relative;flex:0 0 16px;width:16px;height:16px;color:#7C8799}
-.ls-social-faq-icon::before,.ls-social-faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease}
-.ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
-.ls-social-faq-item[open] .ls-social-faq-icon::after{transform:translate(-50%,-50%) rotate(0)}
-.ls-social-faq-answer{padding:0 34px 18px 0}
-.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}
-@media(max-width:760px){.ls-social-faq{padding:62px 0 68px}.ls-social-faq-grid{grid-template-columns:1fr;gap:26px}.ls-social-faq-label{margin-bottom:10px}.ls-social-faq-heading h2{max-width:330px;font-size:29px}.ls-social-faq-heading p:not(.ls-social-faq-label){margin-top:8px;font-size:12px}.ls-social-faq-item summary{min-height:54px;font-size:13px}.ls-social-faq-answer{padding-right:24px}}
-@media(prefers-reduced-motion:reduce){.ls-social-faq-icon::before,.ls-social-faq-icon::after{transition:none}}
-</style>
-
-<style id="edu-new-testimonials-design">
-.edu-new-cases .edu-new-section-head{grid-template-columns:1fr;gap:0}.edu-new-testimonials{padding:88px 0 96px;background:#070F22;color:#F4F6FF}
-.edu-new-testimonials .edu-new-section-head>p{color:#9AA8C8}
-.edu-new-testimonials .edu-new-section-head h2{color:#F4F6FF;font-size:clamp(34px,3.8vw,52px);line-height:1.08;font-weight:300;letter-spacing:-.035em;max-width:600px}.edu-new-testimonials .edu-new-section-head h2 strong{font-weight:inherit}
-.edu-testimonials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;align-items:stretch}
-.edu-testimonial-card{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-width:0;min-height:340px;padding:26px;border:1px solid transparent;border-radius:16px;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .22s ease,box-shadow .22s ease}
-.edu-testimonial-feature{padding:26px;background:#E8EEFF;color:#10193C}
-.edu-testimonial-vale{background:linear-gradient(145deg,#1A22D6,#2447F5);color:#fff}
-.edu-testimonial-karina{background:linear-gradient(145deg,#14244E,#0E1938);color:#fff;border-color:rgba(160,180,255,.16)}
- .edu-testimonial-feature:hover,.edu-testimonial-feature:focus-visible{border-color:rgba(20,25,224,.20);box-shadow:0 18px 42px rgba(7,16,34,.09)}
- .edu-testimonial-vale:hover,.edu-testimonial-vale:focus-visible,.edu-testimonial-karina:hover,.edu-testimonial-karina:focus-visible{border-color:rgba(168,184,255,.5);box-shadow:0 18px 42px rgba(0,0,0,.2)}
- .edu-testimonial-card:focus-visible{outline:2px solid #8EA3FF;outline-offset:4px}
- .edu-testimonial-link{display:inline-flex;align-items:center;gap:4px;margin-left:auto;white-space:nowrap;font-size:10px;font-weight:700;color:inherit}
- .edu-testimonial-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
- .edu-testimonial-card:hover .edu-testimonial-link svg,.edu-testimonial-card:focus-visible .edu-testimonial-link svg{transform:translate(2px,-2px)}
-.edu-testimonial-copy{min-width:0}
-.edu-testimonial-quote{display:block;margin:0 0 8px;color:#829AFF;font-family:Georgia,serif;font-size:38px;line-height:.75}
-.edu-testimonial-card blockquote{margin:0;font-size:18px;line-height:1.48;font-weight:300;letter-spacing:-.02em}
-.edu-testimonial-feature blockquote{font-size:20px;line-height:1.45}
-.edu-testimonial-card blockquote strong{font-weight:600}
-.edu-testimonial-feature blockquote strong{color:#263CE4}
-.edu-testimonial-person{display:flex;align-items:center;gap:10px;margin-top:auto;padding:15px 0 0;border-top:1px solid rgba(80,100,145,.25);background:transparent!important;color:inherit!important}
-.edu-testimonial-person img{flex:0 0 44px;width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center 22%}
-.edu-testimonial-karina .edu-testimonial-avatar{display:block;flex:0 0 44px;width:44px;height:44px;border-radius:50%;overflow:hidden}.edu-testimonial-karina .edu-testimonial-avatar img{object-position:center 100%;transform:scale(1.2);transform-origin:center bottom}
-.edu-testimonial-person div{min-width:0;flex:1}
-.edu-testimonial-person b{display:block;font-size:12px;font-weight:700;line-height:1.35}
-.edu-testimonial-person span{display:block;margin-top:4px;font-size:10px;line-height:1.4;opacity:.76}
-
-.edu-testimonial-person a svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:1000px){.edu-testimonials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.edu-testimonial-card{min-height:320px}.edu-testimonial-card blockquote{font-size:17px}.edu-testimonial-feature blockquote{font-size:18px}}
-@media(max-width:680px){.edu-new-testimonials .edu-new-section-head h2{font-size:34px;line-height:1.1}.edu-new-testimonials{padding:68px 0 76px}.edu-testimonials-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}.edu-testimonial-card{gap:24px;min-height:0;padding:23px 21px}.edu-testimonial-card blockquote,.edu-testimonial-feature blockquote{font-size:18px}.edu-testimonial-person{gap:9px;padding-top:13px}.edu-testimonial-person img{flex-basis:42px;width:42px;height:42px}.edu-testimonial-person span{font-size:9px}.edu-testimonial-person a{font-size:9px}}
-</style>
-
-<style id="edu-testimonials-mobile-scroll">
-@media(max-width:680px){
-  .edu-testimonials-grid{
-    display:flex!important;
-    gap:12px!important;
-    overflow-x:auto!important;
-    overflow-y:hidden!important;
-    scroll-snap-type:x mandatory!important;
-    scroll-padding-inline:0!important;
-    overscroll-behavior-x:contain!important;
-    -webkit-overflow-scrolling:touch!important;
-    scrollbar-width:none!important;
-    padding-bottom:2px!important;
-  }
-  .edu-testimonials-grid::-webkit-scrollbar{display:none!important}
-  .edu-testimonial-card{
-    flex:0 0 100%!important;
-    min-height:320px!important;
-    scroll-snap-align:start!important;
-    scroll-snap-stop:always!important;
-  }
-  .edu-testimonials-grid:focus-visible{
-    outline:2px solid #8EA3FF!important;
-    outline-offset:5px!important;
-    border-radius:16px!important;
-  }
-}
-</style>
 </head>
 <body>
   <header class="lnav" aria-label="Navegación principal">
     <div class="lnav-row">
       <a class="lnav-logo" href="https://lowsignal.cl" aria-label="lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a>
       <nav class="lnav-menu" aria-label="Principal">
-        <div class="lnav-item">
-          <button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button>
-          <div class="lnav-mega"><div class="lnav-mega-inner">
-            <div class="lnav-col"><div class="lnav-col-title">Demand & Brand</div><div class="lnav-col-sub">Construye presencia, demanda y conexión con tu mercado.</div><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y distribución.</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Paid media y generación de demanda.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">Digital Products</div><div class="lnav-col-sub">Experiencias digitales pensadas para convertir y escalar.</div><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Websites y experiencias digitales.</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y aplicaciones digitales.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">Systems & Scale</div><div class="lnav-col-sub">Conecta crecimiento, operación, automatización e IA.</div><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Growth systems y operación.</small></a><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>Automatización e IA.</small></a></div>
-          </div></div>
-        </div>
-        <div class="lnav-item">
-          <button type="button" class="lnav-trigger">Industrias <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button>
-          <div class="lnav-mega"><div class="lnav-mega-inner">
-            <div class="lnav-col"><div class="lnav-col-title">Educación</div><div class="lnav-col-sub">Visibilidad, admisión y experiencia digital.</div><a href="https://lowsignal.cl/industrias/educacion"><b>lowsignal for education</b><small>Para colegios, redes, fundaciones e instituciones.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">B2B</div><div class="lnav-col-sub">Demanda, posicionamiento y pipeline.</div><a href="https://lowsignal.cl/industrias/b2b"><b>lowsignal for B2B</b><small>Para SaaS, tecnología, servicios e industria.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">B2C</div><div class="lnav-col-sub">Contenido, performance y conversión.</div><a href="https://lowsignal.cl/industrias/marcas-b2c"><b>lowsignal for B2C</b><small>Para retail, hospitality, food y lifestyle.</small></a></div>
-          </div></div>
-        </div>
-        <div class="lnav-item">
-          <button type="button" class="lnav-trigger">Recursos <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button>
-          <div class="lnav-mega"><div class="lnav-mega-inner">
-            <div class="lnav-col"><div class="lnav-col-title">Customer Stories</div><div class="lnav-col-sub">Cómo trabajamos y qué construimos con nuestros clientes.</div><a href="https://lowsignal.cl/casos"><b>Ver casos</b><small>Proyectos, resultados y aprendizajes.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">Insights</div><div class="lnav-col-sub">Ideas sobre growth, producto, tecnología e IA.</div><a href="https://lowsignal.cl/recursos/insights"><b>Explorar insights</b><small>Artículos y conversaciones.</small></a></div>
-            <div class="lnav-col"><div class="lnav-col-title">Community</div><div class="lnav-col-sub">Oportunidades para construir junto a lowsignal.</div><a href="https://lowsignal.cl/recursos/jobs"><b>Jobs</b><small>Trabaja con nosotros.</small></a><a href="https://lowsignal.cl/recursos/insiders"><b>Insiders</b><small>Programa de referidos.</small></a></div>
-          </div></div>
-        </div>
+        <div class="lnav-item"><button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega"><div class="lnav-mega-inner">
+          <div class="lnav-col"><div class="lnav-col-title">Demand & Brand</div><div class="lnav-col-sub">Construye presencia, demanda y conexión con tu mercado.</div><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y distribución.</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Paid media y generación de demanda.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">Digital Products</div><div class="lnav-col-sub">Experiencias digitales pensadas para convertir y escalar.</div><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Websites y experiencias digitales.</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y aplicaciones digitales.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">Systems & Scale</div><div class="lnav-col-sub">Conecta crecimiento, operación, automatización e IA.</div><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Growth systems y operación.</small></a><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>Automatización e IA.</small></a></div>
+        </div></div></div>
+        <div class="lnav-item"><button type="button" class="lnav-trigger">Industrias <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega"><div class="lnav-mega-inner">
+          <div class="lnav-col"><div class="lnav-col-title">Educación</div><div class="lnav-col-sub">Visibilidad, admisión y experiencia digital.</div><a href="https://lowsignal.cl/industrias/educacion"><b>lowsignal for education</b><small>Para colegios, redes, fundaciones e instituciones.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">B2B</div><div class="lnav-col-sub">Demanda, posicionamiento y pipeline.</div><a href="https://lowsignal.cl/industrias/b2b"><b>lowsignal for B2B</b><small>Para SaaS, tecnología, servicios e industria.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">B2C</div><div class="lnav-col-sub">Contenido, performance y conversión.</div><a href="https://lowsignal.cl/industrias/marcas-b2c"><b>lowsignal for B2C</b><small>Para retail, hospitality, food y lifestyle.</small></a></div>
+        </div></div></div>
+        <div class="lnav-item"><button type="button" class="lnav-trigger">Recursos <svg class="lnav-chevron" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega"><div class="lnav-mega-inner">
+          <div class="lnav-col"><div class="lnav-col-title">Customer Stories</div><div class="lnav-col-sub">Cómo trabajamos y qué construimos con nuestros clientes.</div><a href="https://lowsignal.cl/casos"><b>Ver casos</b><small>Proyectos, resultados y aprendizajes.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">Insights</div><div class="lnav-col-sub">Ideas sobre growth, producto, tecnología e IA.</div><a href="https://lowsignal.cl/recursos/insights"><b>Explorar insights</b><small>Artículos y conversaciones.</small></a></div>
+          <div class="lnav-col"><div class="lnav-col-title">Community</div><div class="lnav-col-sub">Oportunidades para construir junto a lowsignal.</div><a href="https://lowsignal.cl/recursos/jobs"><b>Jobs</b><small>Trabaja con nosotros.</small></a><a href="https://lowsignal.cl/recursos/insiders"><b>Insiders</b><small>Programa de referidos.</small></a></div>
+        </div></div></div>
         <a class="lnav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
       </nav>
-      <div class="lnav-actions">
-      <a class="lnav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>
-      <a class="lnav-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a></div>
+      <div class="lnav-actions"><a class="lnav-plans" href="https://lowsignal.cl/#planes">Ver planes</a><a class="lnav-contact" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Hablemos</a></div>
     </div>
   </header>
 
-  <div class="mobile-bar"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button></div>
-  <div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner">
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Soluciones <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Social Media</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Paid Media</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Web Development</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Growth Systems</small></a><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>AI & Automation</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Products & Apps</small></a></div></div>
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Industrias <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Colegios, redes y fundaciones</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a></div></div>
-    <div class="mobile-nav-group"><button class="mobile-nav-summary" aria-expanded="false">Recursos <svg class="industry-mobile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" hidden><a href="https://lowsignal.cl/casos"><strong>Customer stories</strong><small>Casos de clientes</small></a><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y aprendizajes</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Trabaja con nosotros</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Programa de referidos</small></a></div></div>
-    <a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a>
-          <a class="mobile-nav-plans" href="https://lowsignal.cl/#planes">Ver planes</a>
-          <a class="mobile-nav-talk" href="https://calendly.com/felipe-lowsignal/30min" target="_blank">Hablemos</a>
-  </div></div>
-
-  <main id="top">
-    <section class="edu-new-hero"><div class="ls-social-shell">
-      <div class="edu-new-hero-copy"><p class="edu-new-kicker">LOWSIGNAL FOR EDUCATION</p><h1><span class="edu-title-desktop">Presencia digital que<br>genera <strong>confianza.</strong></span><span class="edu-title-mobile">Presencia digital que genera <strong>confianza.</strong></span></h1><p class="edu-new-hero-lead">Ayudamos a colegios, redes educativas y organizaciones del sector a conectar contenido, campañas, web y automatización en un sistema que atrae nuevas familias y fortalece comunidad.</p><div class="edu-new-actions"><a class="edu-new-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a><a class="edu-new-secondary" href="#planes-education">Ver planes</a></div></div>
-    </div>
-  </section>
-
-    <section class="edu-new-logos" aria-label="Instituciones que confían en lowsignal">
-    <div class="ls-social-shell">
-      <div class="edu-logos-heading"><p class="edu-logos-label">CONFÍAN EN NOSOTROS</p></div>
-      <div class="edu-logo-marquee">
-        <div class="edu-new-logo-strip"><img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="RECH">
-          <img src="https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png" alt="Colegio Salvador Dalí">
-          <img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge">
-          <img src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="Crecer con Todos">
-          <img src="https://lowsignal.cl/assets/preuapp-white.png" alt="PreuApp">
-          <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS"></div>
-        <div class="edu-new-logo-strip" aria-hidden="true"><img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="">
-          <img src="https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png" alt="">
-          <img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="">
-          <img src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="">
-          <img src="https://lowsignal.cl/assets/preuapp-white.png" alt="">
-          <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt=""></div>
-      </div>
-    </div>
-  </section>
-  <section class="edu-new-context"><div class="ls-social-shell"><p class="edu-new-eyebrow">POR QUÉ ESTA SOLUCIÓN</p><h2><span class="edu-heading-desktop">La decisión no empieza con la postulación.<br><strong>Empieza mucho antes.</strong></span><span class="edu-heading-mobile">La decisión no empieza con la postulación. <strong>Empieza mucho antes.</strong></span></h2><p class="edu-new-context-lead">Antes de visitar un colegio o iniciar un proceso de admisión, una familia ya revisó tu sitio, tus redes, tus fotos, tu mensaje y la forma en que presentas tu proyecto educativo.</p><div class="edu-new-journey-grid"><article><span>01</span><h3>Te descubre</h3><p>Llega por búsqueda, redes, una campaña o la recomendación de otra familia.</p></article><article><span>02</span><h3>Te investiga</h3><p>Revisa tu web, tu feed, actividades, enfoque educativo y cómo se vive la comunidad.</p></article><article><span>03</span><h3>Te compara</h3><p>Evalúa alternativas y forma una opinión antes de conversar con admisión.</p></article><article><span>04</span><h3>Confía</h3><p>Una experiencia digital clara y coherente reduce fricción y facilita el siguiente paso.</p></article></div></div></section>
-
-    <section class="edu-new-solutions" id="sistema"><div class="ls-social-shell"><p class="edu-new-eyebrow">CÓMO AYUDAMOS</p><h2><span class="edu-heading-desktop">Un sistema para atraer familias,<br><strong>convertir interés en acción.</strong></span><span class="edu-heading-mobile">Un sistema para atraer familias, <strong>convertir interés en acción.</strong></span></h2><div class="edu-new-solution-grid" aria-label="Soluciones conectadas para educación">
-      <a class="edu-solution-step" href="https://lowsignal.cl/soluciones/low-social"><span class="edu-solution-step-number">01</span><small>LOW SOCIAL</small><h3>Social Media</h3><p>Mostramos la vida diaria y el proyecto educativo para construir cercanía y confianza.</p><span class="edu-solution-step-cta">Ver solución <span>↗</span></span></a>
-      <a class="edu-solution-step" href="https://lowsignal.cl/soluciones/low-ads"><span class="edu-solution-step-number">02</span><small>LOW ADS</small><h3>Paid Media</h3><p>Llegamos a familias relevantes y llevamos su interés a consultas, visitas y postulaciones.</p><span class="edu-solution-step-cta">Ver solución <span>↗</span></span></a>
-      <a class="edu-solution-step" href="https://lowsignal.cl/soluciones/low-web"><span class="edu-solution-step-number">03</span><small>LOW WEB</small><h3>Web Development</h3><p>Una experiencia clara para conocer la institución y dar el siguiente paso.</p><span class="edu-solution-step-cta">Ver solución <span>↗</span></span></a>
-      <a class="edu-solution-step" href="https://lowsignal.cl/soluciones/low-flow"><span class="edu-solution-step-number">04</span><small>LOW FLOW</small><h3>Automatización e IA</h3><p>Respondemos a tiempo y acompañamos cada proceso de admisión hasta su cierre.</p><span class="edu-solution-step-cta">Ver solución <span>↗</span></span></a>
-    </div></div></section>
-
-    
-
-    <section class="edu-new-testimonials" aria-labelledby="edu-testimonials-title">
-  <div class="ls-social-shell">
-    <div class="edu-new-section-head">
-      <div><p class="edu-new-eyebrow">VOCES DE EDUCACIÓN</p><h2 id="edu-testimonials-title"><span class="edu-heading-desktop">La experiencia,<br><strong>en sus palabras.</strong></span><span class="edu-heading-mobile">La experiencia, <strong>en sus palabras.</strong></span></h2></div>
-      <p>Directivos y comunidades educativas cuentan, desde su experiencia, lo que hemos construido en conjunto.</p>
-    </div>
-    <div class="edu-testimonials-grid" role="group" aria-label="Testimonios de instituciones educativas" tabindex="0">
-      <a class="edu-testimonial-card edu-testimonial-feature" href="https://lowsignal.cl/casos/rech" aria-label="Leer el caso de Red Educacional Camilo Henríquez">
-        <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote></div>
-        <div class="edu-testimonial-person">
-          <img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz">
-          <div><b>Nicolás Muñoz</b><span>Director Ejecutivo, Red Educacional Camilo Henríquez</span></div>
-          <span class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-        </div>
-      </a>
-      <a class="edu-testimonial-card edu-testimonial-vale" href="https://lowsignal.cl/casos/fcct" aria-label="Leer el caso de Fundación Educacional Crecer con Todos">
-        <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>lowsignal entendió nuestra misión desde el inicio, ayudándonos a contar nuestra historia y mostrar el impacto que generamos. Todo el proceso fue cercano y profesional.</blockquote></div>
-        <div class="edu-testimonial-person">
-          <img src="https://lowsignal.cl/assets/valentina-w.jpg" alt="Valentina Wagenreld">
-          <div><b>Valentina Wagenreld</b><span>Directora Ejecutiva, Fundación Educacional Crecer con Todos</span></div>
-          <span class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-        </div>
-      </a>
-      <a class="edu-testimonial-card edu-testimonial-karina" href="https://lowsignal.cl/casos/salvador-dali" aria-label="Leer el caso del Colegio Salvador Dalí">
-        <div class="edu-testimonial-copy"><span class="edu-testimonial-quote" aria-hidden="true">“</span><blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote></div>
-        <div class="edu-testimonial-person">
-          <span class="edu-testimonial-avatar"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"></span>
-          <div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div>
-          <span class="edu-testimonial-link">Ver caso <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-        </div>
-      </a>
-    </div>
+  <div class="mobile-bar"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false"></button></div>
+  <div class="mobile-panel" aria-hidden="true">
+    <a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Education</small></a>
+    <a href="https://lowsignal.cl/soluciones/low-social">Low Social<small>Contenido y comunidad</small></a>
+    <a href="https://lowsignal.cl/soluciones/low-ads">Low Ads<small>Paid media</small></a>
+    <a href="https://lowsignal.cl/soluciones/low-web">Low Web<small>Websites</small></a>
+    <a href="https://lowsignal.cl/soluciones/low-flow">Low Flow<small>Automatización e IA</small></a>
+    <a href="https://lowsignal.cl/casos">Customer Stories</a>
+    <a href="https://lowsignal.cl/nosotros">Nosotros</a>
+    <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Hablemos</a>
   </div>
-</section>
-<section class="edu-pricing" id="planes-education"><div class="ls-social-shell">
-      <div class="edu-pricing-head"><div><p class="edu-new-eyebrow">PLANES EDUCATION</p><h2>Una base clara para crecer.<br><strong>Elige cuánto quieres acelerar.</strong></h2></div><p class="edu-pricing-intro">Planes mensuales pensados para colegios, redes educativas, fundaciones e instituciones que necesitan presencia, captación y una ejecución consistente durante todo el año.</p></div>
-      <div class="edu-pricing-grid">
-        <article class="edu-plan"><p class="edu-plan-kicker">PRESENCE</p><h3>Presencia que se mantiene activa.</h3><p class="edu-plan-desc">Para instituciones que quieren ordenar su comunicación, mantener consistencia y sostener campañas digitales durante el año.</p><div class="edu-plan-price"><strong>5 UF</strong><span>+ IVA / mes</span></div><ul><li>3 jornadas de contenido al año</li><li>1 reel o video mensual</li><li>4 posts o carruseles mensuales</li><li>Hasta 4 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión de Ads</li><li>Hasta 1 campaña activa</li><li>Planificación y reporte mensual</li></ul><a class="edu-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Conversemos</a></article>
-        <article class="edu-plan is-featured"><span class="edu-plan-badge">RECOMENDADO</span><p class="edu-plan-kicker">GROWTH</p><h3>Captación, contenido y performance conectados.</h3><p class="edu-plan-desc">Para instituciones que quieren transformar marketing digital en más interés, visitas, consultas y oportunidades de admisión.</p><div class="edu-plan-price"><strong>8 UF</strong><span>+ IVA / mes</span></div><ul><li>4 jornadas de contenido al año</li><li>4 reels o videos mensuales</li><li>6 posts o carruseles mensuales</li><li>Hasta 8 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 3 campañas activas</li><li>Campañas especiales de admisión</li><li>Reporte mensual con insights y próximos pasos</li></ul><a class="edu-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Quiero crecer</a></article>
-        <article class="edu-plan"><p class="edu-plan-kicker">SCALE</p><h3>Un sistema digital más completo.</h3><p class="edu-plan-desc">Para organizaciones que necesitan mayor frecuencia, soporte prioritario y conectar contenido, campañas, web y automatización.</p><div class="edu-plan-price"><strong>12 UF</strong><span>+ IVA / mes</span></div><ul><li>5 jornadas de contenido al año</li><li>6 reels o videos mensuales</li><li>8 posts o carruseles mensuales</li><li>Hasta 12 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 4 campañas activas</li><li>Soporte web prioritario</li><li>Automatizaciones y seguimiento según alcance</li><li>Dashboard y revisión estratégica</li></ul><a class="edu-plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos de Scale</a></article>
-      </div>
-      <div class="edu-pricing-note"><span><strong>Inversión publicitaria no incluida.</strong> El presupuesto de Meta, Google u otras plataformas se define según objetivos y campaña.</span></div>
-      <div class="edu-pricing-custom"><div><span>PLAN A MEDIDA</span><h3>¿Necesitas algo distinto?</h3><p>Podemos adaptar el alcance a tu institución.</p></div><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Conversemos</a></div>
-    </div></section>
 
-    
-  
+  <main>
+    <section class="hero">
+      <div class="shell hero-copy">
+        <p class="eyebrow">LOWSIGNAL FOR EDUCATION</p>
+        <h1>Growth para instituciones que quieren ser <strong>elegidas.</strong></h1>
+        <p class="hero-lead">Ayudamos a colegios, redes, fundaciones e instituciones educativas a fortalecer su marca, atraer nuevas familias y convertir su presencia digital en un sistema real de crecimiento.</p>
+        <div class="hero-actions"><a class="btn primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Hablemos</a><a class="btn secondary" href="#como-ayudamos">Cómo ayudamos</a></div>
+        <div class="hero-tags"><span>Colegios</span><span>Redes educacionales</span><span>Fundaciones</span><span>EdTech</span><span>Instituciones educativas</span></div>
+      </div>
+    </section>
 
-<section class="ls-social-faq" aria-labelledby="edu-faq-title">
-    <div class="ls-social-shell ls-social-faq-grid">
-      <div class="ls-social-faq-heading">
-        <p class="ls-social-faq-label">FAQS</p>
-        <h2 id="edu-faq-title">Encuentra respuestas<br>a tus preguntas</h2>
-        <p>Todo lo que necesitas saber sobre lowsignal for Education.</p>
+    <section class="trust" aria-label="Instituciones que confían en lowsignal">
+      <div class="shell"><div class="trust-label">TRABAJAMOS CON ORGANIZACIONES DE EDUCACIÓN</div><div class="trust-grid">
+        <img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez">
+        <img src="https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png" alt="Colegio Salvador Dalí">
+        <img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge">
+        <img src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos">
+        <img src="https://lowsignal.cl/assets/preuapp-white.png" alt="PreuApp">
+        <img src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS">
+      </div></div>
+    </section>
+
+    <section class="positioning">
+      <div class="shell">
+        <div class="positioning-head"><div><p class="eyebrow">LA DECISIÓN EMPIEZA ANTES</p><h2 class="section-title">Tu institución ya está siendo evaluada.<br><strong>Incluso antes de una visita.</strong></h2></div><p class="section-copy">Una familia revisa tu sitio, tus redes, tus fotos, tu mensaje y la forma en que presentas tu proyecto educativo antes de conversar con admisión. Por eso no basta con “estar” en digital: cada punto de contacto tiene que construir confianza y facilitar el siguiente paso.</p></div>
+        <div class="journey">
+          <article><span class="journey-num">01</span><h3>Te descubre</h3><p>Por búsqueda, redes, campañas o la recomendación de otra familia.</p></article>
+          <article><span class="journey-num">02</span><h3>Te investiga</h3><p>Revisa tu web, actividades, propuesta educativa, equipo y comunidad.</p></article>
+          <article><span class="journey-num">03</span><h3>Te compara</h3><p>Contrasta alternativas y forma una opinión antes de hablar contigo.</p></article>
+          <article><span class="journey-num">04</span><h3>Te elige</h3><p>Una experiencia clara, coherente y cercana reduce fricción y genera confianza.</p></article>
+        </div>
       </div>
-      <div class="ls-social-faq-list">
-        <details class="ls-social-faq-item"><summary>¿Qué es lowsignal for Education?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Es la forma en que adaptamos nuestro sistema de growth a los desafíos del mundo educativo: conectamos estrategia, contenido, campañas digitales y experiencias web para fortalecer la presencia y apoyar objetivos de crecimiento.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Con qué organizaciones educativas trabajan?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Trabajamos con colegios, redes educacionales y organizaciones que entregan servicios o soluciones para el sector. Definimos el alcance según los objetivos y el contexto de cada institución.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Pueden apoyar campañas de admisión?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Podemos ayudar a comunicar la propuesta educativa, crear contenidos y campañas digitales, y mejorar los puntos de contacto para acompañar a las familias durante el proceso de admisión.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Qué servicios se pueden incluir?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Según la necesidad, podemos combinar estrategia de marca y contenidos, redes sociales, campañas de Ads, desarrollo web, automatización y analítica. Partimos por el desafío y armamos un alcance a medida.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Cómo sabemos si las acciones están funcionando?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Definimos objetivos e indicadores desde el inicio y revisamos señales como alcance, interacción, visitas, consultas o conversiones, según el propósito de cada iniciativa.</p></div></details>
+    </section>
+
+    <section class="outcomes" id="como-ayudamos">
+      <div class="shell">
+        <div class="outcomes-head"><p class="eyebrow">HECHO PARA EDUCACIÓN</p><h2 class="section-title">No vendemos marketing genérico.<br><strong>Resolvemos desafíos educativos.</strong></h2><p class="section-copy">Partimos por lo que necesita mover tu institución y construimos el sistema alrededor de ese objetivo.</p></div>
+        <div class="outcomes-grid">
+          <article class="outcome"><small>ADMISIÓN & CAPTACIÓN</small><h3>Convierte visibilidad en nuevas familias.</h3><p>Campañas, landing pages, contenido y seguimiento pensados para generar consultas, visitas, postulaciones y oportunidades reales de admisión.</p><span class="mini">Captación · Performance · Conversión</span></article>
+          <article class="outcome"><small>MARCA & COMUNIDAD</small><h3>Haz visible lo que hace distinta a tu institución.</h3><p>Transformamos la vida escolar, el proyecto educativo, las actividades y las historias de tu comunidad en una presencia digital coherente y cercana.</p><span class="mini">Contenido · Redes · Audiovisual</span></article>
+          <article class="outcome"><small>EXPERIENCIA DIGITAL</small><h3>Una web que acompaña la decisión.</h3><p>Ordenamos la información que realmente busca una familia y diseñamos experiencias para entender, confiar y dar el siguiente paso sin fricción.</p><span class="mini">Web · UX · SEO · Analítica</span></article>
+          <article class="outcome"><small>OPERACIÓN & SEGUIMIENTO</small><h3>Que ningún interés se pierda en el camino.</h3><p>Conectamos formularios, CRM, automatizaciones y reporting para responder mejor, dar seguimiento y tener visibilidad del proceso completo.</p><span class="mini">CRM · Automatización · IA · Reporting</span></article>
+        </div>
       </div>
-    </div>
-  </section>
-  <script id="low-education-faq-controller-v1">
-  (function(){var section=document.querySelector('.ls-social-faq[aria-labelledby="edu-faq-title"]');if(!section)return;var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});})();
-  </script>
-  <section class="lsr-band"><div class="lsr-band-inner"><p>¿Construimos lo que viene?</p><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a></div></section>
+    </section>
+
+    <section class="proof-band">
+      <div class="shell proof-layout">
+        <div><p class="eyebrow">POR QUÉ LOWSIGNAL</p><h2 class="section-title">Entendemos que educación<br><strong>no funciona como cualquier industria.</strong></h2><p class="section-copy">La decisión involucra confianza, reputación, comunidad, proyecto educativo y múltiples personas. Por eso trabajamos el crecimiento desde el contexto de cada institución, no desde una receta estándar.</p></div>
+        <div class="proof-points">
+          <article class="proof-point"><span>01</span><div><h3>Hablamos el lenguaje del sector</h3><p>Entendemos procesos de admisión, comunicación con apoderados, reputación institucional y ciclos educativos.</p></div></article>
+          <article class="proof-point"><span>02</span><div><h3>Conectamos estrategia y ejecución</h3><p>No dejamos la estrategia en una presentación: contenido, campañas, web y automatización funcionan como un mismo sistema.</p></div></article>
+          <article class="proof-point"><span>03</span><div><h3>Trabajamos con evidencia</h3><p>Definimos señales claras para saber qué está funcionando y dónde mover recursos, creatividad o inversión.</p></div></article>
+          <article class="proof-point"><span>04</span><div><h3>Podemos crecer contigo</h3><p>Desde presencia digital hasta sistemas más completos de adquisición, seguimiento y automatización.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="capabilities">
+      <div class="shell"><p class="eyebrow">EL SISTEMA</p><h2 class="section-title">Cuatro capacidades.<br><strong>Un mismo objetivo.</strong></h2><p class="section-copy">No necesitas contratar cada solución por separado. Elegimos y conectamos las capacidades que hacen sentido para el desafío de tu institución.</p>
+        <div class="cap-grid">
+          <article class="cap"><span class="cap-num">01</span><small>LOW SOCIAL</small><h3>Contenido & comunidad</h3><p>Construimos una presencia consistente que muestra la experiencia real de tu institución.</p><a href="https://lowsignal.cl/soluciones/low-social">Ver solución ↗</a></article>
+          <article class="cap"><span class="cap-num">02</span><small>LOW ADS</small><h3>Paid media & demanda</h3><p>Llevamos tu propuesta a las audiencias correctas y medimos el interés que generamos.</p><a href="https://lowsignal.cl/soluciones/low-ads">Ver solución ↗</a></article>
+          <article class="cap"><span class="cap-num">03</span><small>LOW WEB</small><h3>Experiencia digital</h3><p>Diseñamos sitios y landing pages claros, rápidos y pensados para convertir interés en acción.</p><a href="https://lowsignal.cl/soluciones/low-web">Ver solución ↗</a></article>
+          <article class="cap"><span class="cap-num">04</span><small>LOW FLOW</small><h3>Automatización & IA</h3><p>Conectamos procesos, respuestas y seguimiento para que la operación acompañe el crecimiento.</p><a href="https://lowsignal.cl/soluciones/low-flow">Ver solución ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="shell">
+        <div class="testimonial-head"><div><p class="eyebrow">CUSTOMER STORIES</p><h2 class="section-title">Ya estamos construyendo<br><strong>con educación.</strong></h2></div><p class="section-copy">Colegios, redes y fundaciones con necesidades distintas, pero una misma idea: comunicar mejor su valor y construir una presencia digital más fuerte.</p></div>
+        <div class="testimonial-grid">
+          <a class="testimonial-card" href="https://lowsignal.cl/casos/rech"><div><span class="quote-mark">“</span><blockquote>lowsignal se ha convertido en un <strong>aliado estratégico</strong> para nuestra red. Entendieron nuestra visión y se involucraron de verdad en el proyecto.</blockquote></div><div class="person"><img src="https://lowsignal.cl/assets/nicolas-munoz.jpg" alt="Nicolás Muñoz"><div><b>Nicolás Muñoz</b><span>Director Ejecutivo, Red Educacional Camilo Henríquez</span></div><span class="case-link">Ver caso ↗</span></div></a>
+          <a class="testimonial-card" href="https://lowsignal.cl/casos/fcct"><div><span class="quote-mark">“</span><blockquote>lowsignal entendió nuestra misión desde el inicio, ayudándonos a contar nuestra historia y mostrar el impacto que generamos. Todo el proceso fue cercano y profesional.</blockquote></div><div class="person"><img src="https://lowsignal.cl/assets/valentina-w.jpg" alt="Valentina Wagenreld"><div><b>Valentina Wagenreld</b><span>Directora Ejecutiva, Fundación Educacional Crecer con Todos</span></div><span class="case-link">Ver caso ↗</span></div></a>
+          <a class="testimonial-card" href="https://lowsignal.cl/casos/salvador-dali"><div><span class="quote-mark">“</span><blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote></div><div class="person"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"><div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div><span class="case-link">Ver caso ↗</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="planes-education">
+      <div class="shell">
+        <div class="pricing-head"><div><p class="eyebrow">PLANES EDUCATION</p><h2 class="section-title">Una base clara para crecer.<br><strong>Elige cuánto quieres acelerar.</strong></h2></div><p class="section-copy">Planes mensuales para instituciones que necesitan presencia, captación y una ejecución consistente durante todo el año.</p></div>
+        <div class="pricing-grid">
+          <article class="plan"><p class="plan-kicker">PRESENCE</p><h3>Presencia que se mantiene activa.</h3><p class="plan-desc">Para instituciones que quieren ordenar su comunicación y sostener una presencia digital consistente.</p><div class="price"><strong>5 UF</strong><span>+ IVA / mes</span></div><ul><li>3 jornadas de contenido al año</li><li>1 reel o video mensual</li><li>4 posts o carruseles mensuales</li><li>Hasta 4 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión de Ads</li><li>Hasta 1 campaña activa</li><li>Planificación y reporte mensual</li></ul><a class="plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Conversemos</a></article>
+          <article class="plan featured"><span class="badge">RECOMENDADO</span><p class="plan-kicker">GROWTH</p><h3>Captación, contenido y performance conectados.</h3><p class="plan-desc">Para instituciones que quieren transformar marketing digital en más interés, visitas y oportunidades de admisión.</p><div class="price"><strong>8 UF</strong><span>+ IVA / mes</span></div><ul><li>4 jornadas de contenido al año</li><li>4 reels o videos mensuales</li><li>6 posts o carruseles mensuales</li><li>Hasta 8 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 3 campañas activas</li><li>Campañas especiales de admisión</li><li>Reporte mensual con insights y próximos pasos</li></ul><a class="plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Quiero crecer</a></article>
+          <article class="plan"><p class="plan-kicker">SCALE</p><h3>Un sistema digital más completo.</h3><p class="plan-desc">Para organizaciones que necesitan mayor frecuencia y conectar contenido, campañas, web y automatización.</p><div class="price"><strong>12 UF</strong><span>+ IVA / mes</span></div><ul><li>5 jornadas de contenido al año</li><li>6 reels o videos mensuales</li><li>8 posts o carruseles mensuales</li><li>Hasta 12 stories mensuales</li><li>Gestión de redes sociales</li><li>Gestión y optimización de Ads</li><li>Hasta 4 campañas activas</li><li>Soporte web prioritario</li><li>Automatizaciones y seguimiento según alcance</li><li>Dashboard y revisión estratégica</li></ul><a class="plan-cta" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Hablemos de Scale</a></article>
+        </div>
+        <div class="pricing-note"><strong>Inversión publicitaria no incluida.</strong> El presupuesto de Meta, Google u otras plataformas se define según objetivos y campaña.</div>
+        <div class="custom"><div><span>PLAN A MEDIDA</span><h3>¿Necesitas algo distinto?</h3><p>Podemos adaptar el alcance a tu institución.</p></div><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Conversemos ↗</a></div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="shell faq-grid"><div><p class="eyebrow">FAQS</p><h2 class="section-title" style="font-size:clamp(28px,2.7vw,38px)">Lo que suelen<br><strong>preguntarnos.</strong></h2><p class="section-copy" style="font-size:12px">Sobre lowsignal for education, admisión y cómo trabajamos.</p></div><div class="faq-list">
+        <details><summary>¿Qué es lowsignal for education?</summary><div class="faq-answer"><p>Es nuestra vertical especializada en educación. Adaptamos las capacidades de lowsignal a desafíos como admisión, marca, comunidad, experiencia digital, seguimiento y crecimiento de instituciones educativas.</p></div></details>
+        <details><summary>¿Trabajan solo con colegios?</summary><div class="faq-answer"><p>No. Trabajamos con colegios, redes educacionales, fundaciones, EdTech y otras organizaciones vinculadas a educación.</p></div></details>
+        <details><summary>¿Pueden apoyar campañas de admisión?</summary><div class="faq-answer"><p>Sí. Podemos trabajar propuesta, contenido, campañas, landing pages, formularios, seguimiento y medición para acompañar todo el recorrido desde el interés hasta la postulación.</p></div></details>
+        <details><summary>¿Tengo que contratar todos los servicios?</summary><div class="faq-answer"><p>No. Partimos por el objetivo de tu institución y combinamos solo las capacidades que hacen sentido para ese desafío.</p></div></details>
+        <details><summary>¿Cómo medimos si está funcionando?</summary><div class="faq-answer"><p>Definimos indicadores desde el inicio según el objetivo: alcance, tráfico, consultas, leads, visitas, postulaciones, conversiones u otras señales relevantes para la institución.</p></div></details>
+      </div></div>
+    </section>
+
+    <section class="cta-band"><div class="cta-inner"><p>¿Tu institución quiere dar<br>el siguiente paso?</p><a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener">Hablemos</a></div></section>
   </main>
 
-  <footer><div class="footer-container"><div class="footer-main"><div class="footer-brand"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"><p class="footer-brand-copy">Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.</p><div class="footer-claim">Less noise. <strong>More growth.</strong></div></div><div><div class="footer-title">SOLUCIONES</div><div class="footer-links"><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a></div></div><div><div class="footer-title">INDUSTRIAS</div><div class="footer-links"><a href="https://lowsignal.cl/industrias/educacion">Colegios / Proveedores de educación</a><a href="https://lowsignal.cl/industrias/b2b">B2B / Empresas</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C / Marcas</a></div></div><div><div class="footer-title">EMPRESA</div><div class="footer-links"><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insights">Insights</a><a href="https://lowsignal.cl/casos">Casos</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a></div></div></div><div class="footer-meta"><div>Las Condes, Santiago · Chile</div><div class="center"><a class="footer-mail" href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl</a></div><div class="right footer-meta-social" aria-label="Social">
-  <a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-    <svg class="brand-svg" viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="8" cy="8.2" r="1.15" fill="currentColor"/>
-      <path d="M6.9 10.7h2.2V17H6.9v-6.3Zm4.05 0h2.1v.86c.72-.77 1.54-1.12 2.5-1.12 1.97 0 3.05 1.3 3.05 3.55V17h-2.2v-2.72c0-1.15-.38-1.87-1.4-1.87-1.04 0-1.75.7-1.75 2.16V17h-2.3v-6.3Z" fill="currentColor"/>
-    </svg>
-  </a>
-  <a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-    <svg class="brand-svg" viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="17.4" cy="6.7" r="1.1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a href="https://www.facebook.com/lowsignalagency" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-    <svg class="brand-svg" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.87.24-1.46 1.52-1.46H16.9V4.02A22.4 22.4 0 0 0 14.52 3.9c-2.35 0-3.96 1.43-3.96 4.06V10H8v3h2.56v8h3.14Z" fill="currentColor"/>
-    </svg>
-  </a>
-  <a href="https://github.com/lowsignalagency" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-    <svg class="brand-svg" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3.2a8.8 8.8 0 0 0-2.78 17.15c.44.08.6-.19.6-.42v-1.68c-2.45.53-2.97-1.04-2.97-1.04-.4-1.02-.98-1.29-.98-1.29-.8-.55.06-.54.06-.54.89.06 1.36.91 1.36.91.79 1.35 2.07.96 2.58.73.08-.57.31-.96.56-1.18-1.95-.22-4-0.98-4-4.35 0-.96.34-1.75.91-2.36-.09-.22-.4-1.12.09-2.33 0 0 .74-.24 2.42.9A8.4 8.4 0 0 1 12 7.43a8.4 8.4 0 0 1 2.2.3c1.68-1.14 2.42-.9 2.42-.9.49 1.21.18 2.11.09 2.33.57.61.91 1.4.91 2.36 0 3.38-2.06 4.13-4.01 4.35.32.27.6.8.6 1.61v2.45c0 .23.16.51.6.42A8.8 8.8 0 0 0 12 3.2Z" fill="currentColor"/>
-    </svg>
-  </a>
-</div></div><div class="footer-bottom"><div>© 2026 lowsignal. Todos los derechos reservados.</div><div class="footer-made-latam"><span>HECHO CON ♥ EN LATAM</span><span class="footer-made-country"><img src="https://lowsignal.cl/assets/marca_chile.svg" alt="Chile"></span></div><div class="footer-bottom-links"><a href="https://lowsignal.cl/politica-de-privacidad">Política de Privacidad</a><a href="https://lowsignal.cl/terminos-de-servicio">Términos de Servicio</a></div></div></div></footer>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"><p class="footer-brand-copy">Somos una Growth Company. Diseñamos sistemas que conectan estrategia, tecnología, contenido e IA para impulsar un crecimiento sostenible.</p><div class="footer-claim">Less noise. <strong>More growth.</strong></div></div>
+        <div><div class="footer-title">SOLUCIONES</div><div class="footer-links"><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a></div></div>
+        <div><div class="footer-title">INDUSTRIAS</div><div class="footer-links"><a href="https://lowsignal.cl/industrias/educacion">lowsignal for education</a><a href="https://lowsignal.cl/industrias/b2b">lowsignal for B2B</a><a href="https://lowsignal.cl/industrias/marcas-b2c">lowsignal for B2C</a></div></div>
+        <div><div class="footer-title">EMPRESA</div><div class="footer-links"><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insights">Insights</a><a href="https://lowsignal.cl/casos">Casos</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a></div></div>
+      </div>
+      <div class="footer-meta"><div>Las Condes, Santiago · Chile</div><div class="center"><a href="mailto:contacto@lowsignal.cl">contacto@lowsignal.cl</a></div><div class="footer-social"><a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener" aria-label="Instagram">ig</a><a href="https://github.com/lowsignalagency" target="_blank" rel="noopener" aria-label="GitHub">gh</a></div></div>
+    </div>
+  </footer>
 
   <script>
-    (()=>{
-      const toggle=document.querySelector('.mobile-toggle');
-      const panel=document.querySelector('.mobile-nav-panel');
-      if(toggle&&panel){
-        toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));panel.classList.toggle('is-open',!open);panel.setAttribute('aria-hidden',String(open));document.body.style.overflow=!open?'hidden':''});
-        panel.querySelectorAll('.mobile-nav-summary').forEach(btn=>btn.addEventListener('click',()=>{const menu=btn.nextElementSibling;const open=btn.getAttribute('aria-expanded')==='true';panel.querySelectorAll('.mobile-nav-summary').forEach(other=>{if(other!==btn){other.setAttribute('aria-expanded','false');if(other.nextElementSibling)other.nextElementSibling.hidden=true}});btn.setAttribute('aria-expanded',String(!open));if(menu)menu.hidden=open}));
-        panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');document.body.style.overflow=''}));
-      }
-      const reveal=[...document.querySelectorAll('.edu-new-context .ls-social-shell,.edu-new-solutions .ls-social-shell,.edu-new-testimonials .ls-social-shell,.edu-pricing-head,.edu-pricing-grid,.ls-social-faq-grid,.lsr-band-inner')];
-      reveal.forEach(el=>el.classList.add('edu-reveal'));
-      if('IntersectionObserver'in window){const io=new IntersectionObserver((entries,obs)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});reveal.forEach(el=>io.observe(el))}else reveal.forEach(el=>el.classList.add('is-visible'));
+    (function(){
+      var toggle=document.querySelector('.mobile-toggle');
+      var panel=document.querySelector('.mobile-panel');
+      if(toggle&&panel){toggle.addEventListener('click',function(){var open=toggle.classList.toggle('open');panel.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));panel.setAttribute('aria-hidden',String(!open));});}
+      document.querySelectorAll('.faq details').forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;document.querySelectorAll('.faq details').forEach(function(other){if(other!==item)other.open=false;});});});
     })();
   </script>
-<style id="edu-hero-spacing-adjustment">
-@media(min-width:761px){.edu-new-hero{padding-top:156px!important}}
-@media(max-width:760px){.edu-new-hero{padding-top:128px!important}}
-</style>
-
-<style id="edu-logo-rule-alignment">
-.edu-new-logos{
-  padding:0 0 34px !important;
-  background:linear-gradient(180deg,#091128 0%,#071022 100%) !important;
-}
-.edu-new-logos .edu-new-logo-strip{
-  justify-content:flex-start !important;
-  gap:58px !important;
-  margin-top:0 !important;
-  padding:27px 0 0 !important;
-  border-top:1px solid rgba(138,164,255,.14);
-  border-radius:0 !important;
-  background:transparent !important;
-}
-@media(max-width:760px){
-  .edu-new-logos{padding:0 0 28px !important}
-  .edu-new-logos .edu-new-logo-strip{
-    justify-content:flex-start !important;
-    gap:20px 26px !important;
-    padding-top:22px !important;
-  }
-  .edu-new-logo-strip img{max-width:112px;max-height:30px}
-}
-</style>
-
-
-<style id="edu-mobile-timeline-line-fix">
-@media(max-width:760px){
-  .edu-new-solution-grid{
-    position:relative;
-    grid-template-columns:1fr !important;
-    gap:0 !important;
-    padding-left:3px !important;
-  }
-  .edu-new-solution-grid::before{
-    content:"";
-    display:block;
-    position:absolute;
-    z-index:0;
-    top:17px;
-    bottom:18px;
-    left:20px;
-    width:1px;
-    height:auto;
-    background:#DCE3F2;
-    pointer-events:none;
-  }
-  .edu-solution-step{
-    min-height:0 !important;
-    padding:0 0 32px !important;
-  }
-  .edu-solution-step::before,
-  .edu-solution-step::after{display:none !important}
-  .edu-solution-step-number{position:relative;z-index:1}
-}
-</style>
-
-
-<style id="edu-solution-kicker-spacing-match-b2c">
-.edu-new-solution-grid>.edu-solution-step h3{margin-top:16px !important}
-@media(max-width:980px){
-  .edu-new-solution-grid>.edu-solution-step h3{margin-top:12px !important}
-}
-</style>
-
-
-<style id="edu-client-logos-marquee">
-.edu-new-logos .edu-logo-marquee{
-  --edu-marquee-gap:58px;
-  display:flex!important;align-items:center!important;gap:var(--edu-marquee-gap)!important;
-  overflow:hidden!important;margin-top:0!important;padding:27px 0 0!important;
-  border-top:1px solid rgba(138,164,255,.14)!important;border-radius:0!important;background:transparent!important;
-  mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)!important;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)!important;
-}
-.edu-new-logos .edu-new-logo-strip{
-  display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-start!important;
-  gap:var(--edu-marquee-gap)!important;min-width:max-content!important;margin:0!important;padding:0!important;
-  border:0!important;border-radius:0!important;background:transparent!important;
-  animation:eduLogoMarquee 20s linear infinite!important;
-}
-.edu-new-logos .edu-new-logo-strip img{
-  display:block!important;flex:0 0 auto!important;width:auto!important;max-width:150px!important;max-height:34px!important;
-  object-fit:contain!important;object-position:center!important;
-}
-.edu-new-logos .edu-logo-marquee:hover .edu-new-logo-strip{animation-play-state:paused!important}
-@keyframes eduLogoMarquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(calc(-100% - var(--edu-marquee-gap)))}
-}
-@media(max-width:1100px){
-  .edu-new-logos .edu-logo-marquee{--edu-marquee-gap:34px!important}
-  .edu-new-logos .edu-new-logo-strip img{max-width:138px!important;max-height:30px!important}
-}
-@media(max-width:760px){
-  .edu-new-logos .edu-logo-marquee{--edu-marquee-gap:26px!important;padding-top:22px!important}
-  .edu-new-logos .edu-new-logo-strip{animation-duration:17s!important}
-  .edu-new-logos .edu-new-logo-strip img{max-width:112px!important;max-height:30px!important}
-}
-@media(prefers-reduced-motion:reduce){
-  .edu-new-logos .edu-new-logo-strip{animation:none!important}
-}
-</style>
-
-
-<style id="edu-logos-label-style">
-.edu-new-logos .edu-logos-label{
-  margin:0 0 0!important;
-  color:#8AA4FF!important;
-  font-size:9px!important;
-  font-weight:650!important;
-  letter-spacing:.18em!important;
-  line-height:1.4!important;
-}
-.edu-new-logos .edu-logo-marquee{margin-top:18px!important}
-@media(max-width:760px){
-  .edu-new-logos .edu-logo-marquee{margin-top:14px!important}
-}
-</style>
-
-
-<style id="edu-logo-white-and-rule-order">
-.edu-new-logos .edu-logos-heading{
-  margin:0!important;padding:18px 0 0!important;border-top:1px solid rgba(138,164,255,.14)!important;
-}
-.edu-new-logos .edu-logos-label{margin:0!important}
-.edu-new-logos .edu-logo-marquee{
-  margin-top:16px!important;padding:0!important;border-top:0!important;
-}
-.edu-new-logos .edu-new-logo-strip img{
-  filter:brightness(0) invert(1)!important;opacity:.72!important;
-  transition:opacity .2s ease!important;
-}
-.edu-new-logos .edu-logo-marquee:hover .edu-new-logo-strip img{opacity:.96!important}
-@media(max-width:760px){
-  .edu-new-logos .edu-logos-heading{padding-top:15px!important}
-  .edu-new-logos .edu-logo-marquee{margin-top:13px!important}
-}
-</style>
-
-
-<style id="edu-csd-logo-home-match">
-.edu-new-logos .edu-new-logo-strip img:nth-child(2){
-  max-width:176px!important;max-height:44px!important;transform:none!important;
-}
-@media(max-width:1100px){
-  .edu-new-logos .edu-new-logo-strip img:nth-child(2){max-width:160px!important;max-height:40px!important}
-}
-@media(max-width:760px){
-  .edu-new-logos .edu-new-logo-strip img:nth-child(2){max-width:138px!important;max-height:34px!important}
-}
-</style>
-
-
-<style id="edu-csd-logo-optical-size">
-.edu-new-logos .edu-new-logo-strip img:nth-child(2){
-  transform:scale(1.28)!important;transform-origin:center center!important;
-}
-@media(max-width:1100px){
-  .edu-new-logos .edu-new-logo-strip img:nth-child(2){transform:scale(1.22)!important}
-}
-@media(max-width:760px){
-  .edu-new-logos .edu-new-logo-strip img:nth-child(2){transform:scale(1.16)!important}
-}
-</style>
-
 </body>
 </html>
