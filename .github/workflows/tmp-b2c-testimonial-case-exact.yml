@@ -1,0 +1,30 @@
+name: One-off exact B2C testimonial case link
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-b2c-testimonial-case-exact.yml'
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch B2C testimonial case links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('industrias/marcas-b2c.html')
+          s=p.read_text()
+          s=s.replace('class="b2cr-testimonial-case"','class="testimonial-case"')
+          css='''\n<style id="b2c-testimonial-case-exact-b2b-v1">\n.b2cr-person .testimonial-case{margin-left:auto!important;color:#A8B8FF!important;font-size:10px!important;font-weight:700!important;white-space:nowrap!important;padding:0!important;border:0!important;background:none!important;border-radius:0!important;display:inline!important;min-height:0!important;box-shadow:none!important;transform:none!important;text-decoration:none!important}\n@media(max-width:760px){.b2cr-person .testimonial-case{display:none!important}}\n</style>\n'''
+          s=s.replace('</head>',css+'</head>',1)
+          p.write_text(s)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "Felipe Quiroz"
+          git config user.email "felipe@lowsignal.cl"
+          git add industrias/marcas-b2c.html
+          git commit -m "Use exact B2B testimonial case link in B2C" || exit 0
+          git push
