@@ -13,6 +13,15 @@ s = re.sub(
     flags=re.S,
 )
 
+# Remove duplicated testimonial proof now that testimonials are stronger on Home and Industry pages.
+s = re.sub(
+    r'\s*<section class="solution-testimonial">.*?</section>\s*',
+    '\n',
+    s,
+    count=1,
+    flags=re.S,
+)
+
 # Avoid repeating the same idea in the kicker and heading.
 s = s.replace('<p class="ls-social-section-kicker">TODO LO QUE INCLUYE</p>\n      <h2 id="ls-social-includes-title">Todo lo que incluye <strong>Low Social.</strong></h2>', '<p class="ls-social-section-kicker">LOW SOCIAL</p>\n      <h2 id="ls-social-includes-title">Todo lo que incluye <strong>Low Social.</strong></h2>', 1)
 
