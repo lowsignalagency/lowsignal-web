@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Home facade copy refresh v1
 path = Path('index.html')
 text = path.read_text(encoding='utf-8')
 
