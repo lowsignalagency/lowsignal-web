@@ -40,4 +40,67 @@ s = s.replace('.ls-social-faq{padding:78px 0 84px;background:#FFFFFF;border-top:
 # Keep mobile spacing proportional after the desktop adjustment.
 s = s.replace('@media(max-width:760px){.ls-social-includes{padding:74px 0 78px}', '@media(max-width:760px){.ls-social-includes{padding:80px 0 84px}', 1)
 
+# Ensure every remaining Low Social content block participates in scroll reveal.
+scroll_controller = '''
+<script id="low-social-scroll-completeness-v1">
+(function(){
+  function init(){
+    const revealSelectors = [
+      '.ls-social-includes .ls-social-section-kicker',
+      '.ls-social-includes h2',
+      '.ls-social-smart-inner',
+      '.ls-social-faq-heading',
+      '.lsr-band-inner'
+    ];
+    const staggerSelectors = [
+      '.ls-social-includes-grid',
+      '.ls-social-faq-list'
+    ];
+    const targets = [];
+
+    revealSelectors.forEach(function(selector){
+      document.querySelectorAll(selector).forEach(function(el){
+        el.classList.add('ls-scroll-reveal');
+        targets.push(el);
+      });
+    });
+
+    staggerSelectors.forEach(function(selector){
+      document.querySelectorAll(selector).forEach(function(el){
+        el.classList.add('ls-scroll-stagger');
+        targets.push(el);
+      });
+    });
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      targets.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)){
+      targets.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+
+    const observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+
+    targets.forEach(function(el){
+      if (!el.classList.contains('is-visible')) observer.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+'''
+if 'low-social-scroll-completeness-v1' not in s:
+    s = s.replace('</body>', scroll_controller + '\n</body>', 1)
+
 p.write_text(s)
