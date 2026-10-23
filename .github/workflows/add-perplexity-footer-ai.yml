@@ -34,3 +34,5 @@ jobs:
           git add '*.html' '**/*.html'
           git commit -m "Add Perplexity to footer AI links"
           git push
+
+# trigger
