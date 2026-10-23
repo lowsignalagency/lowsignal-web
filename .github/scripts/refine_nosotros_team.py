@@ -72,3 +72,4 @@ if marker not in s:
     print('Refined nosotros team grid')
 else:
     print('Already refined')
+# trigger refinement
