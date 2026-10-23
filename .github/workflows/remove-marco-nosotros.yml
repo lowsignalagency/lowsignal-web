@@ -1,9 +1,10 @@
-name: Remove Marco from Nosotros
+name: Refine Nosotros
 on:
   push:
     paths:
       - '.github/workflows/remove-marco-nosotros.yml'
       - '.github/scripts/remove_marco_nosotros.py'
+      - '.github/scripts/refine_nosotros_team.py'
 
 jobs:
   update:
@@ -14,10 +15,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Remove Marco
         run: python .github/scripts/remove_marco_nosotros.py
+      - name: Refine team directory
+        run: python .github/scripts/refine_nosotros_team.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add nosotros.html
-          git diff --cached --quiet || git commit -m "Remove Marco from Nosotros"
+          git diff --cached --quiet || git commit -m "Refine Nosotros team directory"
           git push
