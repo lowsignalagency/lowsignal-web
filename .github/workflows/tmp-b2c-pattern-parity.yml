@@ -1,0 +1,27 @@
+name: One-off B2C pattern parity
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-b2c-pattern-parity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply B2C pattern fixes
+        run: python _tools/b2c-pattern-parity.py
+      - name: Commit and clean temporary files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/tmp-b2c-pattern-parity.yml _tools/b2c-pattern-parity.py
+          git add industrias/marcas-b2c.html
+          git commit -m "Match B2C cards and testimonial controls"
+          git push
