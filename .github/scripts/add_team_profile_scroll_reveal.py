@@ -14,17 +14,17 @@ marker = 'team-profile-scroll-reveal-v1'
 css = r'''
 <style id="team-profile-scroll-reveal-v1">
 html.js-reveal-ready .team-scroll-reveal{
-  opacity:.78;
-  transform:translateY(8px);
-  transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);
+  opacity:0;
+  transform:translateY(22px);
+  transition:
+    opacity .66s ease,
+    transform .72s cubic-bezier(.2,.75,.2,1);
   will-change:opacity,transform;
 }
 html.js-reveal-ready .team-scroll-reveal.is-visible{
   opacity:1;
-  transform:none;
+  transform:translateY(0);
 }
-html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="1"]{transition-delay:.02s}
-html.js-reveal-ready .team-scroll-reveal[data-reveal-delay="2"]{transition-delay:.04s}
 @media (prefers-reduced-motion: reduce){
   html.js-reveal-ready .team-scroll-reveal,
   html.js-reveal-ready .team-scroll-reveal.is-visible{
@@ -51,9 +51,8 @@ js = r'''
       if (nodes.indexOf(el) === -1) nodes.push(el);
     });
   });
-  nodes.forEach(function(el, i){
+  nodes.forEach(function(el){
     el.classList.add('team-scroll-reveal');
-    el.setAttribute('data-reveal-delay', String((i % 3)));
   });
 
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -68,7 +67,7 @@ js = r'''
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold:0.04, rootMargin:'0px 0px 10% 0px'});
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
 
   nodes.forEach(function(el){ observer.observe(el); });
 })();
@@ -82,7 +81,6 @@ for p in files:
     s = p.read_text(encoding='utf-8')
 
     if marker in s:
-        # Update the existing reveal in place so every profile receives refinements.
         start = s.find('<style id="team-profile-scroll-reveal-v1">')
         end = s.find('</style>', start)
         if start != -1 and end != -1:
@@ -92,7 +90,7 @@ for p in files:
         end = s.find('</script>', start)
         if start != -1 and end != -1:
             s = s[:start] + js.strip() + s[end + len('</script>'):]
-        print(f'Softened scroll reveal in {p}')
+        print(f'Updated scroll reveal in {p}')
     else:
         if '</head>' in s:
             s = s.replace('</head>', css + '\n</head>', 1)
