@@ -17,9 +17,14 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           p=Path('.github/scripts/redesign_felipe_profile.py')
-          s=p.read_text(encoding='utf-8')
-          s=s.replace("pattern = re.compile(r'\\s*<section class=\"profile-hero\">.*?</section>\\s*(?=<section class=\"lsr-band\" id=\"contacto\">)', re.S)", "pattern = re.compile(r'\\s*<section class=\"profile-hero\">.*?</section>', re.S)")
-          p.write_text(s, encoding='utf-8')
+          lines=p.read_text(encoding='utf-8').splitlines()
+          out=[]
+          for line in lines:
+              if line.startswith('pattern = re.compile'):
+                  out.append("pattern = re.compile(r'\\s*<section class=\"profile-hero\">.*?</section>', re.S)")
+              else:
+                  out.append(line)
+          p.write_text('\n'.join(out)+'\n', encoding='utf-8')
           PY
       - name: Redesign Felipe profile
         run: python .github/scripts/redesign_felipe_profile.py
@@ -30,4 +35,4 @@ jobs:
           git add equipo/felipe-quiroz.html
           git diff --cached --quiet || git commit -m "Redesign Felipe founder profile"
           git push
-# trigger v2
+# trigger v3
