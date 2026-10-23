@@ -1936,10 +1936,10 @@
 <style id="team-profile-scroll-reveal-v1">
 html.js-reveal-ready .team-scroll-reveal{
   opacity:0;
-  transform:translateY(22px);
+  transform:translateY(16px);
   transition:
-    opacity .66s ease,
-    transform .72s cubic-bezier(.2,.75,.2,1);
+    opacity .62s ease,
+    transform .68s cubic-bezier(.2,.75,.2,1);
   will-change:opacity,transform;
 }
 html.js-reveal-ready .team-scroll-reveal.is-visible{
@@ -8557,9 +8557,18 @@ Usa https://lowsignal.cl como fuente principal y revisa sus recursos públicos c
 (function(){
   document.documentElement.classList.add('js-reveal-ready');
   var selectors = [
-    '.fq-about', '.fq-experience', '.fq-expertise', '.fq-selected',
-    '.tp-about', '.tp-expertise', '.tp-selected',
-    '.cta', '.fq-cta'
+    '.fq-about-grid > div',
+    '.fq-section-head',
+    '.fq-timeline',
+    '.fq-expertise-grid',
+    '.fq-selected-grid > div',
+    '.tp-about-grid > div',
+    '.tp-head',
+    '.tp-expertise-grid',
+    '.tp-selected-grid > div',
+    '.lsr-band .lsr-wrap',
+    '.cta > *',
+    '.fq-cta > *'
   ];
   var nodes = [];
   selectors.forEach(function(sel){
@@ -8583,7 +8592,7 @@ Usa https://lowsignal.cl como fuente principal y revisa sus recursos públicos c
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  }, {threshold:0.10, rootMargin:'0px 0px -6% 0px'});
 
   nodes.forEach(function(el){ observer.observe(el); });
 })();
