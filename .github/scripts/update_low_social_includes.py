@@ -1,7 +1,17 @@
 from pathlib import Path
+import re
 
 p = Path('soluciones/low-social.html')
 s = p.read_text()
+
+# Remove the cross-industry cases block now that cases live in Industry pages.
+s = re.sub(
+    r'\s*<section class="solution-cases" id="casos">.*?</section>\s*',
+    '\n',
+    s,
+    count=1,
+    flags=re.S,
+)
 
 # Avoid repeating the same idea in the kicker and heading.
 s = s.replace('<p class="ls-social-section-kicker">TODO LO QUE INCLUYE</p>\n      <h2 id="ls-social-includes-title">Todo lo que incluye <strong>Low Social.</strong></h2>', '<p class="ls-social-section-kicker">LOW SOCIAL</p>\n      <h2 id="ls-social-includes-title">Todo lo que incluye <strong>Low Social.</strong></h2>', 1)
