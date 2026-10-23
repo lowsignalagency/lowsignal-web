@@ -40,6 +40,52 @@ s = s.replace('.ls-social-faq{padding:78px 0 84px;background:#FFFFFF;border-top:
 # Keep mobile spacing proportional after the desktop adjustment.
 s = s.replace('@media(max-width:760px){.ls-social-includes{padding:74px 0 78px}', '@media(max-width:760px){.ls-social-includes{padding:80px 0 84px}', 1)
 
+# Reframe the six "Qué hacemos" cards around capabilities/value, so they do not duplicate the deliverables inventory below.
+card_updates = [
+    (
+        'Estrategia de contenido',
+        'Objetivos, audiencias, pilares, tono y líneas editoriales alineadas con el negocio.',
+        'Dirección editorial',
+        'Definimos qué historias debe contar la marca, para quién y con qué intención.'
+    ),
+    (
+        'Planificación mensual',
+        'Posts, carruseles, reels y stories organizados con intención, ritmo y consistencia.',
+        'Presencia consistente',
+        'Construimos un ritmo de contenido reconocible y sostenible en el tiempo.'
+    ),
+    (
+        'Diseño & producción',
+        'Contenido gráfico, audiovisual y fotográfico construido desde la identidad de cada marca.',
+        'Identidad en movimiento',
+        'Traducimos la marca a piezas gráficas, fotografía y video que se sienten propias.'
+    ),
+    (
+        'Copywriting',
+        'Mensajes claros, reconocibles y diseñados para conectar con cada audiencia.',
+        'Mensajes que conectan',
+        'Convertimos ideas complejas en mensajes simples, claros y fáciles de recordar.'
+    ),
+    (
+        'Gestión de comunidad',
+        'Publicación, seguimiento y conversación para transformar alcance en relación.',
+        'Comunidad & relación',
+        'Diseñamos una presencia que no solo publica: escucha, responde y construye vínculo.'
+    ),
+    (
+        'Medición & optimización',
+        'Analizamos desempeño, detectamos señales y ajustamos lo que realmente mueve resultados.',
+        'Aprendizaje continuo',
+        'Leemos señales del contenido para entender qué funciona y mejorar cada ciclo.'
+    ),
+]
+for old_title, old_copy, new_title, new_copy in card_updates:
+    s = s.replace(f'<h3>{old_title}</h3>\n          <p>{old_copy}</p>', f'<h3>{new_title}</h3>\n          <p>{new_copy}</p>', 1)
+
+# Slightly improve FAQ readability on desktop while preserving the current mobile scale.
+s = s.replace('.ls-social-faq-item summary{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:13px 0;color:#111827;font-size:13px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}', '.ls-social-faq-item summary{min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:14px 0;color:#111827;font-size:14px;font-weight:500;line-height:1.45;list-style:none;cursor:pointer}', 1)
+s = s.replace('.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:12px;line-height:1.7}', '.ls-social-faq-answer p{max-width:640px;margin:0;color:#667085;font-size:13px;line-height:1.7}', 1)
+
 # Ensure every remaining Low Social content block participates in scroll reveal.
 scroll_controller = '''
 <script id="low-social-scroll-completeness-v1">
