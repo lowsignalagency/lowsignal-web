@@ -1,0 +1,40 @@
+name: One-off add Vandalo B2C
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-add-vandalo-b2c.yml'
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Patch B2C trust logos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('industrias/marcas-b2c.html')
+          s = p.read_text()
+          old = '<img src="https://lowsignal.cl/assets/brooklyn-white.png" alt="Espacio Brooklyn"><img src="https://lowsignal.cl/assets/dimor-logo-white-cutout.svg" alt="DIMOR Automotora">'
+          new = '<img src="https://lowsignal.cl/assets/brooklyn-white.png" alt="Espacio Brooklyn"><img class="b2cr-trust-vandalo" src="https://lowsignal.cl/assets/vandalo-logo-white-cutout.svg" alt="Vándalo"><img src="https://lowsignal.cl/assets/dimor-logo-white-cutout.svg" alt="DIMOR Automotora">'
+          if old not in s:
+              raise SystemExit('trust snippet not found')
+          s = s.replace(old, new, 1)
+          marker = '</style>\n</head>'
+          css = '''\n<style id="b2c-vandalo-trust-v1">\n.b2cr-trust-grid img.b2cr-trust-vandalo{max-width:132px!important;max-height:46px!important}\n@media(max-width:760px){.b2cr-trust-grid img.b2cr-trust-vandalo{max-width:118px!important;max-height:42px!important}}\n</style>\n'''
+          if marker not in s:
+              raise SystemExit('style marker not found')
+          s = s.replace(marker, '</style>'+css+'</head>', 1)
+          p.write_text(s)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "Felipe Quiroz"
+          git config user.email "felipe@lowsignal.cl"
+          git add industrias/marcas-b2c.html
+          git commit -m "Restore Vandalo logo to B2C trust strip" || exit 0
+          git push
