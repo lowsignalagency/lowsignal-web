@@ -17,5 +17,17 @@ s = s.replace(
     1
 )
 
+# Keep the back link below the floating navbar.
+s = s.replace(
+    '.fq-profile{margin-top:-100px;padding:162px 0 82px;',
+    '.fq-profile{margin-top:-100px;padding:214px 0 82px;',
+    1
+)
+s = s.replace(
+    '@media(max-width:760px){.fq-shell{width:calc(100% - 40px)}.fq-profile{padding:132px 0 62px}',
+    '@media(max-width:760px){.fq-shell{width:calc(100% - 40px)}.fq-profile{padding:158px 0 62px}',
+    1
+)
+
 p.write_text(s, encoding='utf-8')
-print('Refined Felipe profile metadata and heading spacing')
+print('Refined Felipe profile metadata, heading spacing and back link spacing')
