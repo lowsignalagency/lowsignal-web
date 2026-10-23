@@ -16,10 +16,15 @@ for p in files:
     s = re.sub(r'\s*<a class="fq-back" href="https://lowsignal\.cl/nosotros">← Volver al equipo</a>\s*', '\n', s, count=1)
     s = re.sub(r'\s*<a class="tp-back" href="https://lowsignal\.cl/nosotros">← Volver al equipo</a>\s*', '\n', s, count=1)
     s = re.sub(r'\s*<a class="(?:fq-back|tp-back)" href="https://lowsignal\.cl/nosotros">← Equipo</a>\s*', '\n', s, count=1)
+
+    # Restore the vertical breathing room the removed back link used to create.
+    s = s.replace('.fq-profile{margin-top:-100px;padding:214px 0 82px;', '.fq-profile{margin-top:-100px;padding:274px 0 82px;')
+    s = s.replace('.tp-profile{margin-top:-100px;padding:214px 0 86px;', '.tp-profile{margin-top:-100px;padding:274px 0 86px;')
+
     if s != before:
         p.write_text(s, encoding='utf-8')
-        print(f'Removed back link from {p}')
+        print(f'Updated {p}')
     else:
-        print(f'No back link found in {p}')
+        print(f'No changes needed in {p}')
 
-print('remove-team-back-links-v2')
+print('team-profile-spacing-v1')
