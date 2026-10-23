@@ -1,0 +1,22 @@
+name: Standardize solution colors
+on:
+  push:
+    paths:
+      - '.github/workflows/standardize-solution-colors.yml'
+      - '.github/scripts/standardize_solution_colors.py'
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Standardize colors
+        run: python .github/scripts/standardize_solution_colors.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add soluciones/low-ads.html soluciones/low-web.html soluciones/low-flow.html soluciones/low-apps.html soluciones/low-scale.html
+          git diff --cached --quiet || git commit -m "Standardize solution section colors"
+          git push
