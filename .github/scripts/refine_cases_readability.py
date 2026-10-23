@@ -12,12 +12,12 @@ if old in s:
 style_id = 'cases-readability-v3'
 style = r'''
 <style id="cases-readability-v3">
-/* Final readability pass for testimonial-style Customer Stories */
+/* Final readability + color refinement for testimonial-style Customer Stories */
 .stories-new-card .stories-new-meta{
   color:#B7C0D4!important;
 }
 .stories-new-card .stories-new-meta b{
-  color:#9BB0FF!important;
+  color:#AFC0FF!important;
 }
 .stories-new-card .stories-new-meta span:before{
   background:#77839E!important;
@@ -41,6 +41,63 @@ style = r'''
 .stories-new-link{
   color:#FFFFFF!important;
   opacity:1!important;
+}
+
+/* Softer testimonial-style accent instead of electric blue */
+.stories-new-list .stories-new-eyebrow,
+.stories-new-list h2 strong{
+  color:#8AA4FF!important;
+}
+.stories-new-list h2 strong{
+  font-weight:600!important;
+}
+.stories-new-filter.is-active{
+  background:#2435C7!important;
+  border-color:#4358E8!important;
+  color:#FFFFFF!important;
+}
+
+/* CTA card: dark premium treatment, not saturated blue */
+.stories-new-cta-card{
+  background:
+    radial-gradient(80% 90% at 100% 0%,rgba(138,164,255,.22),transparent 68%),
+    linear-gradient(145deg,#111A39 0%,#18265A 100%)!important;
+  border:1px solid rgba(138,164,255,.24)!important;
+  box-shadow:0 20px 50px rgba(0,0,0,.20)!important;
+}
+.stories-new-cta-card:after{
+  background:radial-gradient(60% 70% at 100% 0%,rgba(138,164,255,.12),transparent 72%)!important;
+}
+.stories-new-cta-card>span{
+  color:#AFC0FF!important;
+}
+.stories-new-cta-card h3{
+  color:#FFFFFF!important;
+}
+.stories-new-cta-card h3 strong{
+  color:#A8B8FF!important;
+  font-weight:600!important;
+}
+.stories-new-cta-card b{
+  display:inline-flex!important;
+  width:auto!important;
+  margin-top:24px!important;
+  padding:12px 16px!important;
+  border-radius:10px!important;
+  background:#A8B8FF!important;
+  color:#071022!important;
+  border:1px solid #BBC8FF!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  box-shadow:none!important;
+}
+.stories-new-cta-card:hover b{
+  background:#BDC9FF!important;
+}
+/* Override broad inherited CTA color rule */
+.stories-new-cta-card b,
+.stories-new-cta-card b *{
+  color:#071022!important;
 }
 
 .stories-new-proof-head{
@@ -67,8 +124,12 @@ style = r'''
 </style>
 '''
 
-if style_id not in s:
+if f'<style id="{style_id}">' in s:
+    start = s.index(f'<style id="{style_id}">')
+    end = s.index('</style>', start) + len('</style>')
+    s = s[:start] + style.strip() + s[end:]
+else:
     s = s.replace('</head>', style + '\n</head>', 1)
 
 p.write_text(s, encoding='utf-8')
-print('Refined Customer Stories readability')
+print('Refined Customer Stories readability and colors')
