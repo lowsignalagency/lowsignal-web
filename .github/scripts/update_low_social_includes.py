@@ -30,6 +30,10 @@ s = s.replace('.ls-social-includes{padding:104px 0 108px;background:#F7F8FA;colo
 s = s.replace('.ls-social-includes-col li:before{content:"✓";position:absolute;left:0;top:-1px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#E9F2FF;color:#1682FF;font-size:12px;font-weight:700}', '.ls-social-includes-col li:before{content:"✓";position:absolute;left:0;top:-1px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#DCE9FF;color:#1419E0;font-size:12px;font-weight:700}', 1)
 s = s.replace('.ls-social-smart{\n  background:#F4F6FC;', '.ls-social-smart{\n  background:#E2E9F8;', 1)
 
+# After removing proof blocks, restore an intentional color rhythm:
+# white -> ice -> deeper ice -> white -> blue CTA.
+s = s.replace('.ls-social-faq{padding:78px 0 84px;background:#EEF3FF}', '.ls-social-faq{padding:78px 0 84px;background:#FFFFFF;border-top:1px solid #D7E0F2}', 1)
+
 # Keep mobile spacing proportional after the desktop adjustment.
 s = s.replace('@media(max-width:760px){.ls-social-includes{padding:74px 0 78px}', '@media(max-width:760px){.ls-social-includes{padding:80px 0 84px}', 1)
 
