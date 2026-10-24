@@ -1,0 +1,26 @@
+name: Run Salvador Dali RECH-style refresh
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_salvador_dali_rech_style.py'
+      - '.github/workflows/run-refresh-salvador-dali-rech-style.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/refresh_salvador_dali_rech_style.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos/salvador-dali.html
+          git diff --cached --quiet || git commit -m "Align Salvador Dali case with RECH design"
+          git push
