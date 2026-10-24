@@ -31,7 +31,7 @@ s = s.replace(
 # Remove top back link if an older build brought it back.
 s = re.sub(r'\s*<a class="rechx-back"[^>]*>← Customer Stories</a>\s*', '\n      ', s, count=1)
 
-# Hover polish + anchor smooth scrolling.
+# Hover polish + anchor smooth scrolling only.
 s = re.sub(r'<style id="rech-interaction-polish">.*?</style>\s*', '', s, flags=re.S)
 polish = r'''
 <style id="rech-interaction-polish">
@@ -62,56 +62,7 @@ html{scroll-behavior:smooth!important}
 '''
 s = s.replace('</head>', polish + '\n</head>', 1)
 
-# Real inertial wheel scrolling on desktop mouse wheels.
+# Ensure any previous custom wheel interception is removed so scrolling stays fully native.
 s = re.sub(r'<script id="rech-inertial-scroll">.*?</script>\s*', '', s, flags=re.S)
-inertia = r'''
-<script id="rech-inertial-scroll">
-(() => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const desktop = window.matchMedia('(min-width: 761px) and (hover: hover) and (pointer: fine)').matches;
-  if (reduceMotion || !desktop) return;
-
-  let current = window.scrollY;
-  let target = current;
-  let raf = 0;
-
-  const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-  const clamp = value => Math.max(0, Math.min(value, maxScroll()));
-
-  const animate = () => {
-    current += (target - current) * 0.115;
-    if (Math.abs(target - current) < 0.5) {
-      current = target;
-      window.scrollTo(0, current);
-      raf = 0;
-      return;
-    }
-    window.scrollTo(0, current);
-    raf = requestAnimationFrame(animate);
-  };
-
-  window.addEventListener('scroll', () => {
-    if (!raf) current = target = window.scrollY;
-  }, { passive: true });
-
-  window.addEventListener('wheel', event => {
-    if (event.ctrlKey || event.metaKey) return;
-    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
-
-    // Leave high-resolution trackpads native; smooth only classic wheel steps.
-    if (Math.abs(event.deltaY) < 40) return;
-
-    const el = event.target instanceof Element ? event.target : null;
-    if (el && el.closest('textarea, select, [data-native-scroll]')) return;
-
-    event.preventDefault();
-    const multiplier = event.deltaMode === 1 ? 32 : 1;
-    target = clamp(target + event.deltaY * multiplier * 0.9);
-    if (!raf) raf = requestAnimationFrame(animate);
-  }, { passive: false });
-})();
-</script>
-'''
-s = s.replace('</body>', inertia + '\n</body>', 1)
 
 p.write_text(s, encoding='utf-8')
