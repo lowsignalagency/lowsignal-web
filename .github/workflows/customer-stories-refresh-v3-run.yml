@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/customer-stories-refresh-v3-run.yml'
+      - 'scripts/restore_cases_archive.py'
       - 'scripts/build_rikdom_case_from_rech.py'
       - 'scripts/build_dimor_case_from_rech.py'
       - 'scripts/build_hub_case_from_rech.py'
@@ -23,8 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Apply refresh
-        run: python .github/scripts/customer_stories_refresh_v3.py
+      - name: Restore approved cases archive
+        run: python scripts/restore_cases_archive.py
       - name: Build Rikdom case
         run: python scripts/build_rikdom_case_from_rech.py
       - name: Build Dimor case
@@ -41,7 +42,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add casos.html casos/*.html
           git diff --cached --quiet && exit 0
-          git commit -m "Refresh Customer Stories design and narrative"
+          git commit -m "Restore Customer Stories archive and refresh case pages"
           git push
-
-# hUB editorial refresh trigger
