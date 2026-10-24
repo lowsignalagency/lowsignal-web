@@ -1,0 +1,27 @@
+name: Clone RECH design to CSD
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/clone_rech_to_csd.py'
+      - '.github/workflows/clone-rech-to-csd.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Clone RECH design into CSD
+        run: python scripts/clone_rech_to_csd.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos/salvador-dali.html
+          git diff --cached --quiet || git commit -m "Match Salvador Dali exactly to RECH design"
+          git push
