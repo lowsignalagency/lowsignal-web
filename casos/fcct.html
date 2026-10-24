@@ -2049,9 +2049,18 @@ html{scroll-behavior:smooth!important}
 
 <style id="fcct-editorial-polish">
 .case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}
-.case-editorial-pair figure:first-child{background:#fff;display:flex;align-items:center;justify-content:center}
-.case-editorial-pair figure:first-child img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important}
-.case-editorial-pair figure:nth-child(2) img{object-fit:cover!important}
+.case-editorial-pair{align-items:stretch}
+.case-editorial-pair figure:first-child{display:block;background:transparent;height:auto}
+.case-editorial-pair figure:first-child img{display:block;width:100%!important;height:auto!important;object-fit:initial!important;object-position:initial!important}
+.case-editorial-pair figure:nth-child(2){height:auto}
+.case-editorial-pair figure:nth-child(2) img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
+@media(max-width:1000px){
+  .case-editorial-pair figure:first-child img{height:auto!important}
+  .case-editorial-pair figure:nth-child(2) img{height:360px!important}
+}
+@media(max-width:760px){
+  .case-editorial-pair figure:nth-child(2) img{height:280px!important}
+}
 </style>
 </head>
 <body>
