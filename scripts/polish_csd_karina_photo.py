@@ -1,12 +1,18 @@
 from pathlib import Path
 import re
 
-# Keep Karina Ravanal's testimonial avatar at its normal size,
-# but shift the crop upward so her face sits more naturally inside the circle.
+# Keep Karina Ravanal's testimonial avatar at the normal 56px size,
+# but crop closer and lift the portrait inside a fixed circular frame.
 p = Path('casos/salvador-dali.html')
 s = p.read_text(encoding='utf-8')
 
-style = '''\n<style id="csd-karina-photo-polish">\n.rechx-person img{\n  width:56px!important;\n  height:56px!important;\n  object-fit:cover!important;\n  object-position:center 12%!important;\n}\n.case-new-testimonial .case-new-person img{\n  width:58px!important;\n  height:58px!important;\n  object-fit:cover!important;\n  object-position:center 12%!important;\n}\n</style>\n'''
+# Normalize the testimonial markup so the image can zoom inside a fixed-size circle.
+plain = '<div class="rechx-person"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"><div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div></div>'
+wrapped = '<div class="rechx-person"><span class="csd-karina-crop"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"></span><div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div></div>'
+if plain in s:
+    s = s.replace(plain, wrapped, 1)
+
+style = '''\n<style id="csd-karina-photo-polish">\n.csd-karina-crop{\n  width:56px;\n  height:56px;\n  flex:0 0 56px;\n  border-radius:50%;\n  overflow:hidden;\n  border:2px solid rgba(255,255,255,.5);\n  display:block;\n}\n.csd-karina-crop img{\n  width:100%!important;\n  height:100%!important;\n  max-width:none!important;\n  border:0!important;\n  border-radius:0!important;\n  object-fit:cover!important;\n  object-position:center 18%!important;\n  transform:translateY(-5%) scale(1.28);\n  transform-origin:center 35%;\n}\n</style>\n'''
 
 s = re.sub(r'\n?<style id="csd-karina-photo-polish">.*?</style>\s*', '\n', s, flags=re.S)
 s = s.replace('</head>', style + '</head>', 1)
