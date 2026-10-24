@@ -10,7 +10,7 @@ repls = {
     '<title>Red Educacional Camilo Henríquez | Customer Story | lowsignal</title>': '<title>hUB | Customer Story | lowsignal</title>',
     'CUSTOMER STORY · EDUCACIÓN': 'CUSTOMER STORY · B2C',
     'CUSTOMER STORY <span>·</span> EDUCACIÓN': 'CUSTOMER STORY <span>·</span> B2C',
-    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Una experiencia que ya funcionaba.<br><strong>Una presencia digital para hacerla crecer.</strong>',
+    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'La experiencia de hUB.<br><strong>También en digital.</strong>',
     'Ayudamos a la Red Educacional Camilo Henríquez a ordenar su presencia digital, conectar sus colegios y convertir una identidad compartida en una experiencia clara para familias, estudiantes y comunidades.': 'Ayudamos a hUB a ordenar su presencia digital, mostrar mejor la experiencia de sus espacios y conectar contenido y campañas con nuevas visitas y reservas.',
     'Red Educacional Camilo Henríquez': 'hUB',
     'Web · Social · Contenido': 'Social · Paid Media · Contenido',
@@ -38,8 +38,8 @@ repls = {
 for old, new in repls.items():
     s = s.replace(old, new)
 
-# hUB has no approved customer testimonial in the current case. Remove the inherited RECH testimonial block.
-s = re.sub(r'<section class="rechx-testimonial".*?</section>\s*', '', s, flags=re.S)
+# hUB has no approved customer testimonial yet. Remove any testimonial section inherited from the source case.
+s = re.sub(r'<section[^>]*class="[^"]*testimonial[^"]*"[^>]*>.*?</section>\s*', '', s, flags=re.S | re.I)
 
 polish = '''
 <style id="hub-editorial-polish">
