@@ -24,24 +24,20 @@ jobs:
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
-          # Use the detailed CSD artwork instead of the fully white version in the trust band.
+          # Use the detailed artwork on the home client band.
           s = s.replace(
-              'https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png',
-              'https://lowsignal.cl/assets/CSD-Logo.png'
+              'https://lowsignal.cl/assets/CSD-Logo.png',
+              'https://lowsignal.cl/assets/logo-dali-maipu.png'
           )
 
-          # Remove the old rule that forced the second client logo completely to white.
-          s = re.sub(
-              r'\s*<style id="home-v140-client-logo-white-fix">.*?</style>',
-              '',
-              s,
-              flags=re.S
-          )
+          # Remove previous Dalí-specific overrides so there is one final source of truth.
+          s = re.sub(r'\s*<style id="home-v140-client-logo-white-fix">.*?</style>', '', s, flags=re.S)
+          s = re.sub(r'\s*<style id="home-dali-logo-detail-fix-v1">.*?</style>', '', s, flags=re.S)
+          s = re.sub(r'\s*<style id="home-dali-logo-detail-fix-v2">.*?</style>', '', s, flags=re.S)
 
-          # Ensure the detailed logo keeps its original colors/details in the home client band.
-          fix = '''\n<style id="home-dali-logo-detail-fix-v1">\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:none !important;\n  opacity:.92 !important;\n}\n</style>\n'''
-          if 'home-dali-logo-detail-fix-v1' not in s:
-              s = s.replace('</head>', fix + '\n</head>', 1)
+          # Keep the detailed face visible while matching the subdued client-logo treatment.
+          fix = '''\n<style id="home-dali-logo-detail-fix-v2">\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:grayscale(1) brightness(1.35) contrast(1.08) !important;\n  opacity:.88 !important;\n  max-width:150px !important;\n  max-height:40px !important;\n  transform:scale(1.18) !important;\n  transform-origin:center center !important;\n}\n@media(max-width:760px){\n  .home26-client-logos .home26-client-logo-item:nth-child(2) img{\n    transform:scale(1.08) !important;\n  }\n}\n</style>\n'''
+          s = s.replace('</head>', fix + '\n</head>', 1)
 
           p.write_text(s, encoding='utf-8')
           PY
@@ -51,5 +47,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Fix Salvador Dali logo rendering on home"
+          git commit -m "Use detailed Salvador Dali logo on home"
           git push
