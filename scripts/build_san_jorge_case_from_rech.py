@@ -6,7 +6,7 @@ s = src
 
 repls = {
     '<title>Red Educacional Camilo Henríquez | Customer Story | lowsignal</title>': '<title>Colegio San Jorge de Las Condes | Customer Story | lowsignal</title>',
-    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Un colegio con mucho que contar.<br><strong>Una presencia digital que lo hace visible.</strong>',
+    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Lo que pasa dentro importa.<br><strong>Una presencia digital para mostrarlo mejor.</strong>',
     'Ayudamos a la Red Educacional Camilo Henríquez a ordenar su presencia digital, conectar sus colegios y convertir una identidad compartida en una experiencia clara para familias, estudiantes y comunidades.': 'Ayudamos al Colegio San Jorge de Las Condes a ordenar su presencia digital, fortalecer sus redes y renovar su web para mostrar mejor lo que ocurre dentro del colegio y conectar con nuevas familias.',
     'Red Educacional Camilo Henríquez': 'Colegio San Jorge de Las Condes',
     'Web · Social · Contenido': 'Web · Social · Contenido',
