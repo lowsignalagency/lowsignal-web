@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/customer-stories-refresh-v3-run.yml'
+      - 'scripts/build_rikdom_case_from_rech.py'
   workflow_dispatch:
 
 permissions:
@@ -15,8 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
       - name: Apply refresh
         run: python .github/scripts/customer_stories_refresh_v3.py
+      - name: Build Rikdom case
+        run: python scripts/build_rikdom_case_from_rech.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
