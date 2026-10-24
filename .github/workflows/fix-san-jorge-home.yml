@@ -1,5 +1,6 @@
 name: Fix San Jorge logo on home
 
+# Triggered after workflow exists on main so the push event runs it.
 on:
   push:
     branches: [main]
@@ -35,7 +36,6 @@ jobs:
           # Remove older San Jorge-specific patches if present.
           s = re.sub(r'\s*<style id="home-san-jorge-[^"]+">.*?</style>', '', s, flags=re.S|re.I)
 
-          # Final rule: complete logo, no clipping, balanced against the other marks.
           fix = '''
 <style id="home-san-jorge-final-v16">
 .lsr-trust-logo.lsr-logo-san-jorge{
@@ -54,8 +54,8 @@ jobs:
   max-height:42px !important;
   object-fit:contain !important;
   transform:none !important;
-  filter:none !important;
-  opacity:1 !important;
+  filter:brightness(0) invert(1) !important;
+  opacity:.88 !important;
 }
 @media(max-width:760px){
   .lsr-trust-logo.lsr-logo-san-jorge{
