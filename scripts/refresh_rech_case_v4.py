@@ -31,7 +31,7 @@ s = s.replace(
 # Remove top back link if an older build brought it back.
 s = re.sub(r'\s*<a class="rechx-back"[^>]*>← Customer Stories</a>\s*', '\n      ', s, count=1)
 
-# Smooth anchor scrolling.
+# Hover polish + anchor smooth scrolling.
 s = re.sub(r'<style id="rech-interaction-polish">.*?</style>\s*', '', s, flags=re.S)
 polish = r'''
 <style id="rech-interaction-polish">
@@ -41,37 +41,16 @@ html{scroll-behavior:smooth!important}
   box-shadow:0 14px 36px rgba(7,15,34,.08);
   transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease!important;
 }
-.rechx-next-card img{
-  transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .45s ease!important;
-}
-.rechx-next-overlay{
-  transition:background .4s ease!important;
-}
-.rechx-next-copy{
-  transition:transform .35s cubic-bezier(.2,.7,.2,1)!important;
-}
-.rechx-next-copy b{
-  display:inline-block;
-  transition:transform .3s ease,opacity .3s ease!important;
-}
+.rechx-next-card img{transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .45s ease!important}
+.rechx-next-overlay{transition:background .4s ease!important}
+.rechx-next-copy{transition:transform .35s cubic-bezier(.2,.7,.2,1)!important}
+.rechx-next-copy b{display:inline-block;transition:transform .3s ease,opacity .3s ease!important}
 @media(hover:hover){
-  .rechx-next-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 28px 64px rgba(7,15,34,.18);
-  }
-  .rechx-next-card:hover img{
-    transform:scale(1.035);
-    filter:saturate(1.04) contrast(1.02);
-  }
-  .rechx-next-card:hover .rechx-next-overlay{
-    background:linear-gradient(180deg,rgba(7,15,34,.03) 24%,rgba(7,15,34,.90) 100%);
-  }
-  .rechx-next-card:hover .rechx-next-copy{
-    transform:translateY(-5px);
-  }
-  .rechx-next-card:hover .rechx-next-copy b{
-    transform:translateX(5px);
-  }
+  .rechx-next-card:hover{transform:translateY(-6px);box-shadow:0 28px 64px rgba(7,15,34,.18)}
+  .rechx-next-card:hover img{transform:scale(1.035);filter:saturate(1.04) contrast(1.02)}
+  .rechx-next-card:hover .rechx-next-overlay{background:linear-gradient(180deg,rgba(7,15,34,.03) 24%,rgba(7,15,34,.90) 100%)}
+  .rechx-next-card:hover .rechx-next-copy{transform:translateY(-5px)}
+  .rechx-next-card:hover .rechx-next-copy b{transform:translateX(5px)}
   .rechx-next-head>a{transition:color .2s ease,transform .2s ease}
   .rechx-next-head>a:hover{color:#0D13B9;transform:translateX(3px)}
 }
@@ -82,5 +61,57 @@ html{scroll-behavior:smooth!important}
 </style>
 '''
 s = s.replace('</head>', polish + '\n</head>', 1)
+
+# Real inertial wheel scrolling on desktop mouse wheels.
+s = re.sub(r'<script id="rech-inertial-scroll">.*?</script>\s*', '', s, flags=re.S)
+inertia = r'''
+<script id="rech-inertial-scroll">
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktop = window.matchMedia('(min-width: 761px) and (hover: hover) and (pointer: fine)').matches;
+  if (reduceMotion || !desktop) return;
+
+  let current = window.scrollY;
+  let target = current;
+  let raf = 0;
+
+  const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const clamp = value => Math.max(0, Math.min(value, maxScroll()));
+
+  const animate = () => {
+    current += (target - current) * 0.115;
+    if (Math.abs(target - current) < 0.5) {
+      current = target;
+      window.scrollTo(0, current);
+      raf = 0;
+      return;
+    }
+    window.scrollTo(0, current);
+    raf = requestAnimationFrame(animate);
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!raf) current = target = window.scrollY;
+  }, { passive: true });
+
+  window.addEventListener('wheel', event => {
+    if (event.ctrlKey || event.metaKey) return;
+    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+
+    // Leave high-resolution trackpads native; smooth only classic wheel steps.
+    if (Math.abs(event.deltaY) < 40) return;
+
+    const el = event.target instanceof Element ? event.target : null;
+    if (el && el.closest('textarea, select, [data-native-scroll]')) return;
+
+    event.preventDefault();
+    const multiplier = event.deltaMode === 1 ? 32 : 1;
+    target = clamp(target + event.deltaY * multiplier * 0.9);
+    if (!raf) raf = requestAnimationFrame(animate);
+  }, { passive: false });
+})();
+</script>
+'''
+s = s.replace('</body>', inertia + '\n</body>', 1)
 
 p.write_text(s, encoding='utf-8')
