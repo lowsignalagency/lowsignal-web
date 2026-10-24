@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/apply_editorial_case_layout.py'
+      - 'scripts/apply_editorial_case_layout_v2.py'
       - '.github/workflows/apply-editorial-case-layout.yml'
   workflow_dispatch:
 
@@ -19,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Apply editorial layout
-        run: python scripts/apply_editorial_case_layout.py
+        run: python scripts/apply_editorial_case_layout_v2.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
@@ -31,4 +32,3 @@ jobs:
             git commit -m "Apply editorial layout to customer stories"
             git push
           fi
-# trigger editorial rollout
