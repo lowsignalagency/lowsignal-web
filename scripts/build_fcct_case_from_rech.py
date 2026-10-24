@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Build FCCT from the current RECH editorial customer-story system.
 src = Path('casos/rech.html').read_text(encoding='utf-8')
 s = src
 
