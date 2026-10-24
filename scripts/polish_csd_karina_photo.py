@@ -1,6 +1,7 @@
 from pathlib import Path
 import re
 
+# Keep Karina Ravanal's testimonial portrait framed closer and higher.
 p = Path('casos/salvador-dali.html')
 s = p.read_text(encoding='utf-8')
 
