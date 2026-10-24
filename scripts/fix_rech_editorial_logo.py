@@ -8,3 +8,5 @@ if old not in s:
     raise RuntimeError('Editorial RECH logo block not found')
 s = s.replace(old, new, 1)
 p.write_text(s, encoding='utf-8')
+
+# trigger workflow
