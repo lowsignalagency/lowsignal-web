@@ -41,8 +41,8 @@ for old, new in repls.items():
 # for the first large FCCT image.
 s = s.replace('https://lowsignal.cl/assets/crecer-ninos.png', 'https://lowsignal.cl/assets/impacto-principal.jpg', 1)
 
-# Foundation-specific polish: website screenshot should show from the top.
-polish = '''\n<style id="fcct-editorial-polish">\n.case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}\n.case-editorial-pair figure:first-child img{object-position:center top}\n</style>\n'''
+# Foundation-specific polish.
+polish = '''\n<style id="fcct-editorial-polish">\n.case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}\n.case-editorial-pair figure:first-child{background:#fff;display:flex;align-items:center;justify-content:center}\n.case-editorial-pair figure:first-child img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important}\n.case-editorial-pair figure:nth-child(2) img{object-fit:cover!important}\n</style>\n'''
 s = s.replace('</head>', polish + '</head>', 1)
 
 Path('casos/fcct.html').write_text(s, encoding='utf-8')
