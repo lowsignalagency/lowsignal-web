@@ -1,0 +1,131 @@
+name: Customer Stories refresh v3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/customer-stories-refresh-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh Customer Stories
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          index = Path('casos.html')
+          s = index.read_text(encoding='utf-8')
+
+          # Stronger archive copy: transformation first, services second.
+          replacements = {
+            'Equipos que <strong>construyen.</strong>': 'Trabajo que se ve.<br><strong>Impacto que se siente.</strong>',
+            'Contenido, paid media, web y growth systems conectados a desafíos reales de negocio.': 'Casos reales de marcas, empresas e instituciones que transformaron su presencia digital junto a lowsignal.',
+            'La infraestructura digital que impulsa a las <strong>comunidades de la RECH.</strong>': 'Una experiencia digital que conecta a <strong>toda una comunidad educativa.</strong>',
+            'De las redes a la postulación: un recorrido digital para nuevas familias.': 'Un ecosistema digital que convierte la vida del colegio en confianza para nuevas familias.',
+            'Una plataforma para poner al frente la misión y los programas de la fundación.': 'Una experiencia digital para hacer visible una misión con impacto real.',
+            'Una nueva web para conocer el proyecto educativo; sus redes muestran el día a día.': 'Una presencia digital que acerca el proyecto educativo a nuevas familias.',
+            'Un servicio técnico complejo convertido en contenido claro para quienes deciden.': 'De expertise técnico a una marca que se entiende y genera confianza.',
+            'De la operación en terreno a una presencia digital que muestra el trabajo de Dimor.': 'Una presencia digital que convierte operación real en oportunidades comerciales.',
+            'Una web clara para mostrar todo lo que mueve Rikdom.': 'Una web que ordena una operación compleja y la hace fácil de entender.',
+            'Contenido y campañas que conectan la experiencia de hUB con las reservas.': 'Contenido y performance conectados a una experiencia que se reserva.',
+          }
+          for a,b in replacements.items():
+              s = s.replace(a,b)
+
+          # Insert a compact proof ribbon below archive hero if not present.
+          proof = '''\n<section class="stories-v3-proofbar">\n  <div class="container stories-v3-proofbar-inner">\n    <span>Education</span><i></i><span>B2B</span><i></i><span>B2C</span>\n    <p>Web · Content · Paid Media · Growth Systems · AI & Automation</p>\n  </div>\n</section>\n'''
+          if 'stories-v3-proofbar' not in s:
+              s = s.replace('</section>\n\n  <section class="stories-new-featured">', '</section>'+proof+'\n  <section class="stories-new-featured">', 1)
+
+          css = r'''
+<style id="customer-stories-refresh-v3">
+:root{--stories-v3-navy:#070F22;--stories-v3-blue:#1419E0;--stories-v3-soft:#F3F6FD;--stories-v3-line:#E3E8F2}
+/* Archive hero: less generic, more portfolio/editorial */
+.stories-new-hero{padding-top:158px!important;padding-bottom:54px!important;background:linear-gradient(180deg,#F7F9FD 0%,#EEF3FF 100%)!important;position:relative;overflow:hidden}
+.stories-new-hero:after{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-180px;top:-250px;background:radial-gradient(circle,rgba(20,25,224,.11),transparent 68%);pointer-events:none}
+.stories-new-hero-grid{position:relative;z-index:1;align-items:end!important;gap:72px!important}
+.stories-new-kicker{font-size:10px!important;color:#1419E0!important;letter-spacing:.16em!important}
+.stories-new-hero h1{max-width:920px!important;font-size:clamp(52px,6vw,82px)!important;line-height:.98!important;letter-spacing:-.058em!important;font-weight:300!important}
+.stories-new-hero h1 strong{font-weight:300!important;color:#1419E0!important}
+.stories-new-hero-grid>div:first-child>p:last-child{max-width:720px!important;font-size:17px!important;line-height:1.72!important;color:#53617B!important}
+.stories-new-side{padding:22px 0 0!important;border-top:1px solid rgba(20,25,224,.18)!important}
+.stories-new-side span{font-size:9px!important}.stories-new-side p{font-size:14px!important;color:#66738E!important}
+.stories-v3-proofbar{background:#fff;border-top:1px solid #E7EBF4;border-bottom:1px solid #E7EBF4}
+.stories-v3-proofbar-inner{min-height:70px;display:flex;align-items:center;gap:13px;color:#12204A;font-size:11px;font-weight:650;letter-spacing:.04em;text-transform:uppercase}
+.stories-v3-proofbar-inner i{width:3px;height:3px;border-radius:50%;background:#9AA6C0}.stories-v3-proofbar-inner p{margin-left:auto;color:#77839A;font-size:10px;font-weight:500;letter-spacing:.02em;text-transform:none}
+/* Featured story becomes a magazine cover */
+.stories-new-featured{padding:82px 0 104px!important;background:#fff!important}
+.stories-new-feature{min-height:680px!important;border-radius:30px!important;box-shadow:0 34px 90px rgba(7,15,34,.20)!important}
+.stories-new-feature-media:after{background:linear-gradient(90deg,rgba(4,9,23,.12) 0%,rgba(4,9,23,.20) 42%,rgba(4,9,23,.65) 72%,rgba(4,9,23,.84) 100%)!important}
+.stories-new-feature-copy{top:36px!important;right:36px!important;bottom:36px!important;width:min(510px,44%)!important;padding:40px!important;border-radius:22px!important;background:rgba(7,15,34,.88)!important;border:1px solid rgba(255,255,255,.10)!important;box-shadow:0 20px 60px rgba(0,0,0,.18)!important}
+.stories-new-feature h2{font-size:clamp(36px,3.15vw,50px)!important;font-weight:300!important}.stories-new-feature h2 strong{font-weight:300!important}
+.stories-new-feature blockquote{font-size:14px!important;color:#D5DCEC!important}
+.stories-new-feature-link{display:flex;align-items:center;justify-content:space-between;margin-top:28px!important;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12px!important}
+/* Archive section */
+.stories-new-list{padding:112px 0 126px!important;background:#070F22!important}
+.stories-new-list-head{align-items:flex-end!important}.stories-new-list h2{max-width:760px!important;color:#fff!important;font-size:clamp(40px,4.2vw,58px)!important;line-height:1.03!important;letter-spacing:-.045em!important;font-weight:300!important}.stories-new-list h2 strong{color:#A8B8FF!important;font-weight:300!important}
+.stories-new-list .stories-new-eyebrow{color:#8EA3FF!important}.stories-new-list .stories-new-filter{border-color:rgba(255,255,255,.14)!important;color:#C8D1E5!important;background:rgba(255,255,255,.04)!important}.stories-new-list .stories-new-filter.is-active{background:#fff!important;color:#121B45!important;border-color:#fff!important}
+body .stories-new-list .container .stories-new-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important;margin-top:52px!important}
+.stories-new-card{min-height:610px!important;border-radius:26px!important;border:1px solid rgba(255,255,255,.10)!important;box-shadow:none!important}
+.stories-new-card:hover{transform:translateY(-8px)!important;border-color:rgba(168,184,255,.38)!important;box-shadow:0 30px 72px rgba(0,0,0,.30)!important}
+.stories-new-card-shade{background:linear-gradient(180deg,rgba(5,10,24,.02) 0%,rgba(5,10,24,.18) 42%,rgba(5,10,24,.90) 78%,rgba(5,10,24,.98) 100%)!important}
+.stories-new-logo{left:26px!important;top:26px!important;bottom:auto!important;max-width:150px!important;max-height:52px!important}
+.stories-new-card-body{left:26px!important;right:26px!important;bottom:26px!important;padding:0!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
+.stories-new-card .stories-new-meta{color:#AAB4CA!important}.stories-new-card h3{max-width:560px!important;margin-top:12px!important;color:#fff!important;font-size:clamp(24px,2vw,31px)!important;line-height:1.12!important;letter-spacing:-.035em!important;font-weight:400!important}
+.stories-new-card .stories-new-outcome{margin-top:18px!important;padding:0!important;background:transparent!important;min-height:0!important}.stories-new-card .stories-new-outcome>span{color:#8EA3FF!important;font-size:8px!important}.stories-new-card .stories-new-outcome>p{max-width:520px!important;margin-top:7px!important;color:#D7DDEC!important;font-size:12.5px!important;line-height:1.55!important}
+.stories-new-link{margin-top:22px!important;padding-top:17px!important;border-top:1px solid rgba(255,255,255,.13)!important;color:#fff!important;font-size:11px!important}
+.stories-new-result{display:none!important}
+/* Bottom proof/CTA: quieter and more premium */
+.stories-new-proof{padding:104px 0!important;background:#F5F7FC!important}.stories-new-proof h2{font-weight:300!important}.stories-new-final{padding:90px 0!important;background:#1419E0!important}.stories-new-final h2{font-weight:300!important;letter-spacing:-.045em!important}.stories-new-final a{background:#fff!important;color:#1419E0!important;border-radius:999px!important;padding:0 24px!important}
+@media(max-width:760px){
+ .stories-new-hero{padding-top:112px!important;padding-bottom:42px!important}.stories-new-hero-grid{gap:30px!important}.stories-new-hero h1{font-size:46px!important}.stories-new-hero-grid>div:first-child>p:last-child{font-size:15px!important}.stories-v3-proofbar-inner{min-height:76px;gap:9px;flex-wrap:wrap;padding:15px 0}.stories-v3-proofbar-inner p{width:100%;margin:0;color:#7C879D;font-size:9px}.stories-new-featured{padding:56px 0 70px!important}.stories-new-feature{min-height:630px!important;border-radius:22px!important}.stories-new-feature-copy{left:16px!important;right:16px!important;top:auto!important;bottom:16px!important;width:auto!important;padding:24px 22px!important;border-radius:17px!important}.stories-new-feature h2{font-size:31px!important}.stories-new-list{padding:78px 0 90px!important}.stories-new-list-head{align-items:flex-start!important}.stories-new-list h2{font-size:39px!important}.stories-new-filters{margin-top:8px}.stories-new-card{min-height:540px!important;border-radius:21px!important}.stories-new-card-body{left:20px!important;right:20px!important;bottom:20px!important}.stories-new-card h3{font-size:24px!important}.stories-new-logo{left:20px!important;top:20px!important;max-width:128px!important;max-height:44px!important}
+}
+</style>
+'''
+          s = re.sub(r'<style id="customer-stories-refresh-v3">.*?</style>\s*', '', s, flags=re.S)
+          s = s.replace('</head>', css + '\n</head>', 1)
+          index.write_text(s, encoding='utf-8')
+
+          # Unified detail-page editorial layer. Keep each case's content/assets, improve hierarchy and rhythm.
+          detail_css = r'''
+<style id="case-detail-refresh-v3">
+.case-new-hero{padding-top:132px!important;padding-bottom:82px!important;background:linear-gradient(180deg,#F7F9FD 0%,#EEF3FF 100%)!important}
+.case-new-back{display:inline-flex!important;align-items:center!important;gap:8px!important;color:#61708C!important;font-size:11px!important;letter-spacing:.02em!important}
+.case-new-hero-grid{margin-top:40px!important;gap:56px!important;align-items:start!important}
+.case-new-kicker span,.case-new-kicker b{font-size:9px!important;letter-spacing:.15em!important}.case-new-kicker b{color:#1419E0!important}
+.case-new-hero h1{max-width:930px!important;margin-top:18px!important;font-size:clamp(56px,5.6vw,82px)!important;line-height:.99!important;letter-spacing:-.058em!important;font-weight:300!important}.case-new-hero h1 strong{color:#1419E0!important;font-weight:300!important}
+.case-new-hero-grid>div:first-child>p{max-width:730px!important;margin-top:24px!important;color:#4D5A76!important;font-size:17px!important;line-height:1.7!important}
+.case-new-meta-grid{margin-top:34px!important;border-top:1px solid rgba(20,25,224,.15)!important}.case-new-meta-grid>div{padding-top:17px!important}.case-new-meta-grid small{font-size:8px!important;letter-spacing:.15em!important;color:#7A86A0!important}.case-new-meta-grid b{margin-top:6px!important;font-size:12px!important;color:#15204D!important}
+.case-new-brand-card{border-radius:22px!important;border:1px solid #E0E6F1!important;box-shadow:0 16px 42px rgba(15,31,140,.07)!important;background:#fff!important}
+.case-new-cover{margin-top:54px!important;height:min(62vw,690px)!important;border-radius:28px!important;box-shadow:0 28px 76px rgba(7,15,34,.16)!important;overflow:hidden!important}.case-new-cover img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}.case-new-cover:hover img{transform:scale(1.015)}
+.case-new-story{padding:112px 0!important;background:#fff!important}.case-new-story-head{grid-template-columns:1fr .68fr!important;gap:72px!important;align-items:end!important}.case-new-eyebrow{font-size:9px!important;letter-spacing:.17em!important}.case-new-story h2,.case-new-work h2,.case-new-system h2{font-size:clamp(40px,4.2vw,58px)!important;line-height:1.04!important;letter-spacing:-.05em!important;font-weight:300!important}.case-new-story h2 strong,.case-new-system h2 strong{font-weight:300!important}.case-new-story-head>p,.case-new-work-head>p{font-size:15px!important;line-height:1.75!important;color:#63708B!important}
+.case-new-steps{gap:18px!important;margin-top:52px!important}.case-new-steps article{min-height:270px!important;padding:28px!important;border:1px solid #E1E6F0!important;border-radius:20px!important;background:#F8FAFD!important;box-shadow:none!important}.case-new-steps article:hover{transform:translateY(-5px)!important;border-color:#C9D3EA!important;box-shadow:0 18px 38px rgba(15,31,140,.08)!important}.case-new-steps article>span{width:42px!important;height:42px!important;border-radius:12px!important;background:#E9EDFF!important}.case-new-steps h3{font-size:20px!important;line-height:1.25!important}.case-new-steps p{color:#69758E!important;line-height:1.65!important}
+.case-new-work{padding:112px 0 122px!important;background:#070F22!important;color:#fff!important}.case-new-work .case-new-eyebrow{color:#8EA3FF!important}.case-new-work h2{color:#fff!important}.case-new-work-head>p{color:#AAB4C8!important}.case-new-gallery{gap:18px!important;margin-top:52px!important}.case-new-gallery figure{border-radius:22px!important;overflow:hidden!important;background:#0B1530!important;box-shadow:0 20px 48px rgba(0,0,0,.22)!important}.case-new-gallery img{transition:transform .55s cubic-bezier(.2,.7,.2,1)!important}.case-new-gallery figure:hover img{transform:scale(1.025)!important}
+.case-new-testimonial,.case-dali-testimonial{padding:96px 0!important;background:#EEF3FF!important}.case-new-testimonial-inner,.case-dali-testimonial-inner{padding:46px!important;border-radius:26px!important;background:#1419E0!important;box-shadow:0 30px 72px rgba(20,25,224,.20)!important}.case-new-testimonial blockquote,.case-dali-testimonial blockquote{font-size:clamp(25px,2.6vw,38px)!important;line-height:1.25!important;letter-spacing:-.03em!important;color:#fff!important;font-weight:300!important}
+.case-new-system{padding:110px 0!important;background:#F7F9FD!important}.case-new-system-grid{gap:70px!important}.case-new-system-card{border-radius:20px!important;border-color:#E0E6F0!important;background:#fff!important}.case-new-next{padding:96px 0!important;background:#fff!important}.case-new-final{padding:82px 0!important;background:#1419E0!important}.case-new-final h2{font-weight:300!important;letter-spacing:-.045em!important}.case-new-final a{background:#fff!important;color:#1419E0!important;border-radius:999px!important}
+@media(max-width:760px){.case-new-hero{padding-top:94px!important;padding-bottom:58px!important}.case-new-hero-grid{gap:26px!important;margin-top:26px!important}.case-new-hero h1{font-size:45px!important}.case-new-hero-grid>div:first-child>p{font-size:15px!important}.case-new-cover{height:330px!important;margin-top:36px!important;border-radius:19px!important}.case-new-story,.case-new-work,.case-new-system,.case-new-next{padding:74px 0!important}.case-new-story-head,.case-new-work-head,.case-new-system-grid{grid-template-columns:1fr!important;gap:22px!important}.case-new-story h2,.case-new-work h2,.case-new-system h2{font-size:34px!important}.case-new-steps{grid-template-columns:1fr!important;gap:12px!important;margin-top:34px!important}.case-new-steps article{min-height:0!important;padding:22px!important}.case-new-gallery{grid-template-columns:1fr!important;grid-template-rows:auto!important;gap:12px!important;margin-top:34px!important}.case-new-gallery figure{height:310px!important;border-radius:17px!important}.case-new-testimonial,.case-dali-testimonial{padding:66px 0!important}.case-new-testimonial-inner,.case-dali-testimonial-inner{padding:28px 24px!important;border-radius:19px!important}.case-new-testimonial blockquote,.case-dali-testimonial blockquote{font-size:25px!important}.case-new-final{padding:66px 0!important}}
+</style>
+'''
+
+          for p in sorted(Path('casos').glob('*.html')):
+              t = p.read_text(encoding='utf-8')
+              t = re.sub(r'<style id="case-detail-refresh-v3">.*?</style>\s*', '', t, flags=re.S)
+              t = t.replace('</head>', detail_css + '\n</head>', 1)
+              p.write_text(t, encoding='utf-8')
+          PY
+      - name: Commit refresh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos.html casos/*.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh Customer Stories design and narrative"
+          git push
