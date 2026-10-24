@@ -8,6 +8,7 @@ on:
       - 'scripts/build_rikdom_case_from_rech.py'
       - 'scripts/build_dimor_case_from_rech.py'
       - 'scripts/build_hub_case_from_rech.py'
+      - 'scripts/fix_hub_quote.py'
   workflow_dispatch:
 
 permissions:
@@ -29,6 +30,8 @@ jobs:
         run: python scripts/build_dimor_case_from_rech.py
       - name: Build hUB case
         run: python scripts/build_hub_case_from_rech.py
+      - name: Clean hUB quote
+        run: python scripts/fix_hub_quote.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
