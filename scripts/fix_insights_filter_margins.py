@@ -9,12 +9,14 @@ s = re.sub(r'\n?<style id="insights-topic-axis-fix-v2">.*?</style>\s*', '\n', s,
 
 override = r'''
 <style id="insights-topic-axis-fix-v2">
+/* Match the exact final editorial container used by hero + featured card. */
 .insights-topic-nav .container{
   width:min(1480px,calc(100% - 160px)) !important;
   max-width:1480px !important;
   margin-left:auto !important;
   margin-right:auto !important;
-  padding-inline:0 !important;
+  padding-inline:48px !important;
+  box-sizing:border-box !important;
 }
 @media(max-width:1440px){
   .insights-topic-nav .container{
