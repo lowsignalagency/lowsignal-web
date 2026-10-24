@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Rebuild San Jorge from the current RECH editorial system.
 src = Path('casos/rech.html').read_text(encoding='utf-8')
 s = src
 
