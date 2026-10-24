@@ -38,7 +38,8 @@ jobs:
               'home-dali-logo-single-v9',
               'home-dali-logo-svg-v10',
               'home-dali-logo-svg-v11',
-              'home-dali-logo-svg-v12'
+              'home-dali-logo-svg-v12',
+              'home-dali-logo-svg-v13'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
@@ -58,11 +59,11 @@ jobs:
           )
 
           fix = (
-              '\n<style id="home-dali-logo-svg-v12">\n'
-              '.dali-home-logo{display:block;width:150px;height:auto;max-height:40px;overflow:visible;}\n'
+              '\n<style id="home-dali-logo-svg-v13">\n'
+              '.dali-home-logo{display:block;width:188px;height:auto;max-height:50px;overflow:visible;transform:scale(1.08);transform-origin:center;}\n'
               '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.55) contrast(1.12);}\n'
               '.dali-home-logo .dali-wordmark-white{filter:grayscale(1) brightness(0) invert(1) contrast(1.08);}\n'
-              '@media(max-width:760px){.dali-home-logo{width:132px;max-height:34px;}}\n'
+              '@media(max-width:760px){.dali-home-logo{width:160px;max-height:42px;transform:scale(1.06);}}\n'
               '</style>\n'
           )
           s = s.replace('</head>', fix + '\n</head>', 1)
@@ -74,5 +75,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Match Dali logo size with client logos"
+          git commit -m "Increase Dali logo optical size"
           git push
