@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/fix_csd_editorial_logo_title.py'
+      - 'scripts/clean_case_heroes.py'
       - '.github/workflows/fix-csd-editorial-logo-title.yml'
   workflow_dispatch:
 
@@ -20,14 +21,16 @@ jobs:
           python-version: '3.12'
       - name: Apply CSD editorial fixes
         run: python scripts/fix_csd_editorial_logo_title.py
+      - name: Clean customer story heroes
+        run: python scripts/clean_case_heroes.py
       - name: Commit changes
         run: |
           git config user.name "Felipe Quiroz"
           git config user.email "felipe@lowsignal.cl"
-          git add casos/salvador-dali.html scripts/apply_editorial_case_layout.py
+          git add casos/rech.html casos/salvador-dali.html scripts/apply_editorial_case_layout.py
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0
           fi
-          git commit -m "Fix CSD editorial logo and title"
+          git commit -m "Clean customer story heroes"
           git push
