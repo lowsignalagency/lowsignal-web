@@ -7930,20 +7930,26 @@ footer .footer-container{
 </style>
 
 
-<style id="home-dali-logo-white-type-v4">
-/* Salvador Dalí — detailed face from the requested asset + white lettering overlay. */
+<style id="home-dali-logo-single-v5">
+/* Salvador Dalí — one logo only. Keep facial detail and integrate the mark with the dark band. */
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
+.lsr-trust-logo:nth-child(2)::after,
+.home26-client-logos .home26-client-logo-item:nth-child(2)::after{
+  content:none !important;
+  display:none !important;
+}
+
 .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2),
 .lsr-trust-logo:nth-child(2),
 .home26-client-logos .home26-client-logo-item:nth-child(2){
-  position:relative !important;
   overflow:visible !important;
 }
 
 .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
 .lsr-trust-logo:nth-child(2) img,
 .home26-client-logos .home26-client-logo-item:nth-child(2) img{
-  filter:grayscale(1) brightness(1.05) contrast(.94) !important;
-  opacity:.78 !important;
+  filter:grayscale(1) brightness(1.18) contrast(1.02) !important;
+  opacity:.90 !important;
   mix-blend-mode:normal !important;
   width:auto !important;
   height:auto !important;
@@ -7953,35 +7959,12 @@ footer .footer-container{
   transform:none !important;
 }
 
-/* Overlay only the lettering from the white version; keep the face underneath untouched. */
-.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
-.lsr-trust-logo:nth-child(2)::after,
-.home26-client-logos .home26-client-logo-item:nth-child(2)::after{
-  content:"" !important;
-  position:absolute !important;
-  left:50% !important;
-  top:50% !important;
-  width:132px !important;
-  height:34px !important;
-  transform:translate(-50%,-50%) !important;
-  background:url('https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png') center/contain no-repeat !important;
-  clip-path:inset(0 0 0 36%) !important;
-  opacity:.96 !important;
-  pointer-events:none !important;
-}
-
 @media(max-width:760px){
   .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
   .lsr-trust-logo:nth-child(2) img,
   .home26-client-logos .home26-client-logo-item:nth-child(2) img{
     max-width:116px !important;
     max-height:30px !important;
-  }
-  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
-  .lsr-trust-logo:nth-child(2)::after,
-  .home26-client-logos .home26-client-logo-item:nth-child(2)::after{
-    width:116px !important;
-    height:30px !important;
   }
 }
 </style>
