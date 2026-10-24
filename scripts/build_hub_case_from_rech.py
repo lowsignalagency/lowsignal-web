@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 
 # Rebuild hUB from the current RECH editorial system.
+# Trigger customer stories runner.
 src = Path('casos/rech.html').read_text(encoding='utf-8')
 s = src
 
