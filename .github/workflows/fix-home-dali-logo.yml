@@ -24,19 +24,25 @@ jobs:
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
-          # Use the detailed artwork on the home client band.
-          s = s.replace(
+          # Force the exact requested Dalí asset anywhere the home still references an older variant.
+          for old in [
+              'https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png',
               'https://lowsignal.cl/assets/CSD-Logo.png',
-              'https://lowsignal.cl/assets/logo-dali-maipu.png'
-          )
+              'https://lowsignal.cl/assets/salvador-dali.png',
+              'https://lowsignal.cl/assets/logo-dali-darkbg.png'
+          ]:
+              s = s.replace(old, 'https://lowsignal.cl/assets/logo-dali-maipu.png')
 
-          # Remove previous Dalí-specific overrides so there is one final source of truth.
-          s = re.sub(r'\s*<style id="home-v140-client-logo-white-fix">.*?</style>', '', s, flags=re.S)
-          s = re.sub(r'\s*<style id="home-dali-logo-detail-fix-v1">.*?</style>', '', s, flags=re.S)
-          s = re.sub(r'\s*<style id="home-dali-logo-detail-fix-v2">.*?</style>', '', s, flags=re.S)
+          # Remove old Dalí-specific patches so the final rule below is the only source of truth.
+          for style_id in [
+              'home-v140-client-logo-white-fix',
+              'home-dali-logo-detail-fix-v1',
+              'home-dali-logo-detail-fix-v2',
+              'home-dali-logo-final-v2'
+          ]:
+              s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
-          # Keep the detailed face visible while matching the subdued client-logo treatment.
-          fix = '''\n<style id="home-dali-logo-detail-fix-v2">\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:grayscale(1) brightness(1.35) contrast(1.08) !important;\n  opacity:.88 !important;\n  max-width:150px !important;\n  max-height:40px !important;\n  transform:scale(1.18) !important;\n  transform-origin:center center !important;\n}\n@media(max-width:760px){\n  .home26-client-logos .home26-client-logo-item:nth-child(2) img{\n    transform:scale(1.08) !important;\n  }\n}\n</style>\n'''
+          fix = '''\n<style id="home-dali-logo-final-v2">\n/* Dalí keeps its original detailed artwork; do not apply the global white-logo filter. */\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n.lsr-trust-logo:nth-child(2) img,\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:none !important;\n  opacity:1 !important;\n  mix-blend-mode:normal !important;\n  width:auto !important;\n  height:auto !important;\n  max-width:150px !important;\n  max-height:38px !important;\n  object-fit:contain !important;\n  transform:none !important;\n}\n@media(max-width:760px){\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n  .lsr-trust-logo:nth-child(2) img,\n  .home26-client-logos .home26-client-logo-item:nth-child(2) img{\n    max-width:128px !important;\n    max-height:32px !important;\n  }\n}\n</style>\n'''
           s = s.replace('</head>', fix + '\n</head>', 1)
 
           p.write_text(s, encoding='utf-8')
