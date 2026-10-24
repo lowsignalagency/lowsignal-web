@@ -6,7 +6,7 @@ s = src
 
 repls = {
     '<title>Red Educacional Camilo Henríquez | Customer Story | lowsignal</title>': '<title>Fundación Educacional Crecer con Todos | Customer Story | lowsignal</title>',
-    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Una misión que ya genera impacto.<br><strong>Una experiencia digital que lo hace visible.</strong>',
+    'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Una misión que transforma.<br><strong>Una experiencia digital que la hace visible.</strong>',
     'Ayudamos a la Red Educacional Camilo Henríquez a ordenar su presencia digital, conectar sus colegios y convertir una identidad compartida en una experiencia clara para familias, estudiantes y comunidades.': 'Ayudamos a Fundación Educacional Crecer con Todos a transformar su impacto en una experiencia digital clara, cercana y preparada para conectar con comunidades, aliados y nuevas oportunidades.',
     'Red Educacional Camilo Henríquez': 'Fundación Educacional Crecer con Todos',
     'Web · Social · Contenido': 'Web · Estrategia · Contenido',
