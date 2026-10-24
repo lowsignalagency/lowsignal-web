@@ -1,0 +1,55 @@
+name: Fix Salvador Dali logo on home
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-home-dali-logo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-dali-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix Dali logo treatment
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Use the detailed CSD artwork instead of the fully white version in the trust band.
+          s = s.replace(
+              'https://lowsignal.cl/assets/logo-CSD-blanco%20(1).png',
+              'https://lowsignal.cl/assets/CSD-Logo.png'
+          )
+
+          # Remove the old rule that forced the second client logo completely to white.
+          s = re.sub(
+              r'\s*<style id="home-v140-client-logo-white-fix">.*?</style>',
+              '',
+              s,
+              flags=re.S
+          )
+
+          # Ensure the detailed logo keeps its original colors/details in the home client band.
+          fix = '''\n<style id="home-dali-logo-detail-fix-v1">\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:none !important;\n  opacity:.92 !important;\n}\n</style>\n'''
+          if 'home-dali-logo-detail-fix-v1' not in s:
+              s = s.replace('</head>', fix + '\n</head>', 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix Salvador Dali logo rendering on home"
+          git push
