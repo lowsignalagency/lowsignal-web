@@ -30,7 +30,10 @@ if n != 1:
 s = s[:story_start] + story2 + s[story_end:]
 
 work_start = s.index('<section class="case-new-work case-rech-work">')
-gallery_pos = s.index('<div class="case-new-gallery">', work_start)
+gallery_match = re.search(r'<div class="[^"]*case-new-gallery[^"]*">', s[work_start:])
+if not gallery_match:
+    raise RuntimeError('RECH gallery not found')
+gallery_pos = work_start + gallery_match.start()
 if 'rech-v4-build-grid' not in s[work_start:gallery_pos]:
     ribbon = '''<div class="rech-v4-build-grid" aria-label="Lo que construimos">
         <article><span>01</span><div><b>Arquitectura digital</b><p>Una experiencia común para entender la red y navegar sus comunidades con menos fricción.</p></div></article>
