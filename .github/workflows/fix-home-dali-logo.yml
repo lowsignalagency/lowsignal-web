@@ -36,18 +36,21 @@ jobs:
               'home-dali-logo-gray-face-v7',
               'home-dali-logo-gray-face-v8',
               'home-dali-logo-single-v9',
-              'home-dali-logo-svg-v10'
+              'home-dali-logo-svg-v10',
+              'home-dali-logo-svg-v11'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
           svg = (
               '<svg class="dali-home-logo" viewBox="0 0 1376 190" role="img" aria-label="Colegio Salvador Dalí" preserveAspectRatio="xMidYMid meet">'
-              '<defs><clipPath id="dali-wordmark-clip"><rect x="540" y="0" width="836" height="190"/></clipPath></defs>'
+              '<defs><clipPath id="dali-wordmark-clip"><rect x="650" y="0" width="726" height="190"/></clipPath></defs>'
               '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-face-base"/>'
               '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-wordmark-white" clip-path="url(#dali-wordmark-clip)"/>'
               '</svg>'
           )
 
+          # Normalize any previously injected Dalí SVGs back to one canonical treatment.
+          s = re.sub(r'<svg class="dali-home-logo".*?</svg>', svg, s, flags=re.S)
           s = re.sub(
               r'<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
               svg,
@@ -55,9 +58,9 @@ jobs:
           )
 
           fix = (
-              '\n<style id="home-dali-logo-svg-v10">\n'
+              '\n<style id="home-dali-logo-svg-v11">\n'
               '.dali-home-logo{display:block;width:138px;height:auto;max-height:36px;overflow:visible;}\n'
-              '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.82) contrast(1.14);}\n'
+              '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.55) contrast(1.12);}\n'
               '.dali-home-logo .dali-wordmark-white{filter:grayscale(1) brightness(0) invert(1) contrast(1.08);}\n'
               '@media(max-width:760px){.dali-home-logo{width:120px;max-height:31px;}}\n'
               '</style>\n'
@@ -71,5 +74,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Render Dali logo with gray face and white lettering"
+          git commit -m "Keep Dali face gray and wordmark white"
           git push
