@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/add_insights_topic_filters.py'
       - 'scripts/fix_insights_filter_margins.py'
+      - 'scripts/restore_insights_filter_bar.py'
       - '.github/workflows/refresh-insights-topic-filters.yml'
   workflow_dispatch:
 
@@ -22,6 +23,8 @@ jobs:
           python-version: '3.x'
       - name: Apply Insights filters
         run: python scripts/add_insights_topic_filters.py
+      - name: Restore Insights filter bar robustly
+        run: python scripts/restore_insights_filter_bar.py
       - name: Align Insights filter margins
         run: python scripts/fix_insights_filter_margins.py
       - name: Commit changes
@@ -30,5 +33,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add recursos/insights.html
           git diff --cached --quiet && exit 0
-          git commit -m "Add topic filters to Insights"
+          git commit -m "Restore Insights topic filters"
           git push
