@@ -40,7 +40,7 @@ repls = {
 for old, new in repls.items():
     s = s.replace(old, new)
 
-polish = '''\n<style id="dimor-editorial-polish">\n.case-editorial-client img{\n  max-width:170px!important;\n  max-height:64px!important;\n  width:auto!important;\n  height:auto!important;\n  object-fit:contain!important;\n  object-position:left center!important;\n  margin-left:0!important;\n  filter:none!important;\n}\n.case-editorial-media img{object-position:center center!important}\n.case-editorial-pair figure:first-child img{object-position:left center!important}\n.rechx-person img{object-position:center 20%!important}\n@media(max-width:760px){\n  .case-editorial-client img{max-width:120px!important;max-height:48px!important}\n}\n</style>\n'''
+polish = '''\n<style id="dimor-editorial-polish">\n.case-editorial-client img{\n  max-width:170px!important;\n  max-height:64px!important;\n  width:auto!important;\n  height:auto!important;\n  object-fit:contain!important;\n  object-position:left center!important;\n  margin-left:0!important;\n  filter:none!important;\n}\n.case-editorial-media img{object-position:center center!important}\n.case-editorial-pair figure:first-child img{object-position:center top!important}\n.rechx-person img{object-position:center 20%!important}\n@media(max-width:760px){\n  .case-editorial-client img{max-width:120px!important;max-height:48px!important}\n  .case-editorial-pair figure:first-child img{object-position:center top!important}\n}\n</style>\n'''
 s = s.replace('</head>', polish + '</head>', 1)
 
 Path('casos/dimor.html').write_text(s, encoding='utf-8')
