@@ -139,10 +139,10 @@ configs = {
     },
     'casos/salvador-dali.html': {
         'client': 'Colegio Salvador Dalí',
-        'logo': 'https://lowsignal.cl/assets/logo-dali-darkbg.png',
+        'logo': 'https://lowsignal.cl/assets/logo-dali-maipu.png',
         'objective': 'Mostrar la vida del colegio y acompañar a nuevas familias desde el primer contacto hasta la postulación.',
         'work': 'Social · Paid Media · Web',
-        'context_title': 'Un colegio con mucho que mostrar.<br><strong>Una experiencia digital que debía hacerlo visible.</strong>',
+        'context_title': 'Un colegio con mucho que mostrar. <strong>Una experiencia digital que debía hacerlo visible.</strong>',
         'context_copy': 'El desafío no era simplemente publicar más. Era traducir la vida cotidiana del colegio en una presencia digital capaz de informar, generar confianza y acompañar a nuevas familias durante su decisión.',
         'context_image': 'https://lowsignal.cl/assets/dali-patio-nueva.jpg',
         'finding_title': 'Mucho valor dentro del colegio, pero poco visible fuera de él.',
