@@ -1,0 +1,31 @@
+name: Update Dimor main photo
+
+on:
+  push:
+    paths:
+      - 'scripts/update_dimor_main_photo.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python scripts/update_dimor_main_photo.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add casos/dimor.html
+            git commit -m "Update Dimor customer story photo"
+            git push
+          fi
