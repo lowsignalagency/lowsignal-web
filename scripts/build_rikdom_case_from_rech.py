@@ -1,6 +1,7 @@
 from pathlib import Path
 
 # Rebuild Rikdom from the current RECH editorial system.
+# Touch: trigger the customer-stories workflow after wiring Rikdom into it.
 src = Path('casos/rech.html').read_text(encoding='utf-8')
 s = src
 
