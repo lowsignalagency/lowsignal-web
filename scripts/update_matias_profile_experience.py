@@ -58,7 +58,7 @@ experience = r'''
         <div class="tp-role-meta">
           <b>ConsiliumBots</b>
           <span>Embajador de Innovación Educativa</span>
-          <small>Educación · Tecnología</small>
+          <small>ONG · US / LATAM</small>
         </div>
         <div class="tp-role-body">
           <h3>Acercar innovación digital a comunidades educativas.</h3>
