@@ -2048,9 +2048,48 @@ html{scroll-behavior:smooth!important}
 </style>
 
 <style id="sanjorge-editorial-polish">
-.case-editorial-client img{max-height:62px;width:auto;object-fit:contain;object-position:left center}
-.case-editorial-pair figure:first-child img{object-position:center top}
+/* Make the white San Jorge mark readable on the light sticky panel. */
+.case-editorial-client img{
+  max-height:62px;
+  width:auto;
+  object-fit:contain;
+  object-position:left center;
+  filter:brightness(0) saturate(100%) invert(11%) sepia(17%) saturate(1754%) hue-rotate(183deg) brightness(91%) contrast(93%);
+  opacity:1;
+}
+
+/* Same showcase treatment used in FCCT: one large website visual. */
+.case-editorial-pair{
+  grid-template-columns:1fr!important;
+  gap:0!important;
+}
+.case-editorial-pair figure:first-child{
+  display:block!important;
+  width:100%;
+  height:clamp(420px,46vw,620px)!important;
+  overflow:hidden!important;
+  background:#0B4A86!important;
+}
+.case-editorial-pair figure:first-child img{
+  display:block;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 44%!important;
+  transform:scale(1.02);
+  transform-origin:center center;
+}
+.case-editorial-pair figure:nth-child(2){display:none!important}
 .rechx-person img{object-position:center 22%}
+
+@media(max-width:1000px){
+  .case-editorial-pair figure:first-child{height:440px!important}
+  .case-editorial-pair figure:first-child img{object-position:center 44%!important}
+}
+@media(max-width:760px){
+  .case-editorial-pair figure:first-child{height:320px!important}
+  .case-editorial-pair figure:first-child img{object-position:center 46%!important;transform:scale(1.015)}
+}
 </style>
 </head>
 <body>
