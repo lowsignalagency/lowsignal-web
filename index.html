@@ -7929,6 +7929,27 @@ footer .footer-container{
 @media(prefers-reduced-motion:reduce){.home-story-v2{transition:none}}
 </style>
 
+
+<style id="home-dali-gap-cleanup-v14">
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){
+  min-width:124px !important;
+  flex:0 0 auto !important;
+}
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{
+  max-width:138px !important;
+  max-height:30px !important;
+  transform:none !important;
+}
+@media(max-width:1100px){
+  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){min-width:112px !important;}
+  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{max-width:128px !important;max-height:27px !important;}
+}
+@media(max-width:760px){
+  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){min-width:96px !important;}
+  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{max-width:110px !important;max-height:22px !important;}
+}
+</style>
+
 </head>
 <body>
 
@@ -8276,8 +8297,6 @@ footer .footer-container{
         <div class="lsr-trust-logo">
           <img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez">
         </div>
-        <div class="lsr-trust-logo lsr-trust-wide">
-        </div>
         <div class="lsr-trust-logo">
           <img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge">
         </div>
@@ -8310,8 +8329,6 @@ footer .footer-container{
       <div class="lsr-trust-logos" aria-hidden="true">
         <div class="lsr-trust-logo">
           <img src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="">
-        </div>
-        <div class="lsr-trust-logo lsr-trust-wide">
         </div>
         <div class="lsr-trust-logo">
           <img src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="">
