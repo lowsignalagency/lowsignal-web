@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 # Keep Karina Ravanal's testimonial avatar at the normal 56px size,
-# but crop closer while pulling the face upward inside the fixed circular frame.
+# but crop closer while pulling the face slightly upward inside the fixed circular frame.
 p = Path('casos/salvador-dali.html')
 s = p.read_text(encoding='utf-8')
 
@@ -12,7 +12,7 @@ wrapped = '<div class="rechx-person"><span class="csd-karina-crop"><img src="htt
 if plain in s:
     s = s.replace(plain, wrapped, 1)
 
-style = '''\n<style id="csd-karina-photo-polish">\n.csd-karina-crop{\n  width:56px;\n  height:56px;\n  flex:0 0 56px;\n  border-radius:50%;\n  overflow:hidden;\n  border:2px solid rgba(255,255,255,.5);\n  display:block;\n}\n.csd-karina-crop img{\n  width:100%!important;\n  height:100%!important;\n  max-width:none!important;\n  border:0!important;\n  border-radius:0!important;\n  object-fit:cover!important;\n  object-position:center 26%!important;\n  transform:scale(1.32);\n  transform-origin:center bottom;\n}\n</style>\n'''
+style = '''\n<style id="csd-karina-photo-polish">\n.csd-karina-crop{\n  width:56px;\n  height:56px;\n  flex:0 0 56px;\n  border-radius:50%;\n  overflow:hidden;\n  border:2px solid rgba(255,255,255,.5);\n  display:block;\n}\n.csd-karina-crop img{\n  width:100%!important;\n  height:100%!important;\n  max-width:none!important;\n  border:0!important;\n  border-radius:0!important;\n  object-fit:cover!important;\n  object-position:center 22%!important;\n  transform:translateY(-8%) scale(1.32);\n  transform-origin:center bottom;\n}\n</style>\n'''
 
 s = re.sub(r'\n?<style id="csd-karina-photo-polish">.*?</style>\s*', '\n', s, flags=re.S)
 s = s.replace('</head>', style + '</head>', 1)
