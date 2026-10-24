@@ -32,7 +32,7 @@ repls = {
     'https://lowsignal.cl/assets/comunidad-rech.jpg': 'https://lowsignal.cl/assets/galpon-merk.jpg',
     'https://lowsignal.cl/assets/reunion-rech.jpg': 'https://lowsignal.cl/assets/rikdom_web.jpg',
     'https://lowsignal.cl/casos/salvador-dali': 'https://lowsignal.cl/casos/dimor',
-    'https://lowsignal.cl/assets/dali-patio-nueva.jpg': 'https://lowsignal.cl/assets/dimor-truck.jpg',
+    'https://lowsignal.cl/assets/dali-patio-nueva.jpg': 'https://lowsignal.cl/assets/dimor-concesionario.png',
     'Colegio Salvador Dalí': 'Dimor',
     'EDUCACIÓN · CUSTOMER STORY': 'B2B · CUSTOMER STORY',
 }
