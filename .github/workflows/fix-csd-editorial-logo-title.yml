@@ -1,0 +1,33 @@
+name: Fix CSD editorial logo and title
+
+on:
+  push:
+    paths:
+      - 'scripts/fix_csd_editorial_logo_title.py'
+      - '.github/workflows/fix-csd-editorial-logo-title.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply CSD editorial fixes
+        run: python scripts/fix_csd_editorial_logo_title.py
+      - name: Commit changes
+        run: |
+          git config user.name "Felipe Quiroz"
+          git config user.email "felipe@lowsignal.cl"
+          git add casos/salvador-dali.html scripts/apply_editorial_case_layout.py
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Fix CSD editorial logo and title"
+          git push
