@@ -1,0 +1,43 @@
+name: Fix Comunicaar logo final
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-comunicaar-logo-final.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use uploaded Comunicaar logo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('industrias/marcas-b2c.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('https://lowsignal.cl/assets/logo-centro-comunicaar.png', 'https://lowsignal.cl/assets/logo-comunicaar.png')
+          s = s.replace('https://lowsignal.cl/assets/logo-centro-comunicaar-transparent.png', 'https://lowsignal.cl/assets/logo-comunicaar.png')
+          # Remove the old SVG filter from the Comunicaar-specific CSS without touching sizing.
+          s = re.sub(r'(\.b2cr-trust-grid img\.b2cr-trust-comunicaar\{[^}]*?)filter:url\(#b2cr-comunicaar-key\)!important;?', r'\1filter:none!important;', s, flags=re.S)
+          # If no filter declaration remains in that rule, inject an explicit reset.
+          m = re.search(r'(\.b2cr-trust-grid img\.b2cr-trust-comunicaar\{)([^}]*)\}', s, re.S)
+          if m and 'filter:' not in m.group(2):
+              repl = m.group(1) + '\n  filter:none!important;' + m.group(2) + '}'
+              s = s[:m.start()] + repl + s[m.end():]
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/marcas-b2c.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Use uploaded Comunicaar logo in B2C"
+          git push
