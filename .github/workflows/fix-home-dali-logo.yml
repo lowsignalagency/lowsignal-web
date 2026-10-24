@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Remove Dali logo from home trust strip
+      - name: Remove Dali logo and close trust strip gap
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -24,7 +24,6 @@ jobs:
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
-          # Remove all Dalí-specific CSS treatments added during the logo experiments.
           for style_id in [
               'home-v140-client-logo-white-fix',
               'home-dali-logo-detail-fix-v1',
@@ -40,19 +39,25 @@ jobs:
               'home-dali-logo-svg-v10',
               'home-dali-logo-svg-v11',
               'home-dali-logo-svg-v12',
-              'home-dali-logo-svg-v13'
+              'home-dali-logo-svg-v13',
+              'home-dali-gap-cleanup-v14'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
-          # Remove any injected Dalí SVG from the home.
           s = re.sub(r'\s*<svg class="dali-home-logo".*?</svg>', '', s, flags=re.S)
-
-          # Remove any direct Dalí image variants that may still be present in the home.
           s = re.sub(
               r'\s*<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
               '',
               s
           )
+
+          # Remove the now-empty Dalí slots from both marquee copies.
+          s = re.sub(r'\s*<div class="lsr-trust-logo lsr-trust-wide">\s*</div>', '', s)
+
+          # nth-child(2) used to be Dalí. It is now San Jorge, so reset that slot
+          # to the regular trust-logo sizing to avoid a phantom oversized gap.
+          cleanup = '''\n<style id="home-dali-gap-cleanup-v14">\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){\n  min-width:124px !important;\n  flex:0 0 auto !important;\n}\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{\n  max-width:138px !important;\n  max-height:30px !important;\n  transform:none !important;\n}\n@media(max-width:1100px){\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){min-width:112px !important;}\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{max-width:128px !important;max-height:27px !important;}\n}\n@media(max-width:760px){\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2){min-width:96px !important;}\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img{max-width:110px !important;max-height:22px !important;}\n}\n</style>\n'''
+          s = s.replace('</head>', cleanup + '\n</head>', 1)
 
           p.write_text(s, encoding='utf-8')
           PY
@@ -62,5 +67,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Remove Salvador Dali logo from home"
+          git commit -m "Close trust strip gap after removing Dali"
           git push
