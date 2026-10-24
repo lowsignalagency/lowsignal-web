@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/fix-home-dali-logo.yml'
+      - 'trigger-san-jorge.txt'
   workflow_dispatch:
 
 permissions:
@@ -63,7 +64,6 @@ jobs:
 
           cleanup = '''
 <style id="home-san-jorge-normalize-v17">
-/* Final San Jorge sizing: explicitly smaller than the prior oversized treatment. */
 html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{
   flex:0 0 auto !important;
   min-width:104px !important;
