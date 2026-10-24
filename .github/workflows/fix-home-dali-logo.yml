@@ -42,7 +42,8 @@ jobs:
               'home-dali-logo-svg-v13',
               'home-dali-gap-cleanup-v14',
               'home-san-jorge-normalize-v15',
-              'home-san-jorge-normalize-v16'
+              'home-san-jorge-normalize-v16',
+              'home-san-jorge-normalize-v17'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
@@ -54,7 +55,6 @@ jobs:
           )
           s = re.sub(r'\s*<div class="lsr-trust-logo lsr-trust-wide">\s*</div>', '', s)
 
-          # Give San Jorge its own stable class in both marquee copies.
           s = re.sub(
               r'<div class="lsr-trust-logo(?: lsr-logo-san-jorge)?">\s*(<img[^>]*src="https://lowsignal\.cl/assets/csjo-white-trim\.png"[^>]*>)\s*</div>',
               r'<div class="lsr-trust-logo lsr-logo-san-jorge">\1</div>',
@@ -62,24 +62,24 @@ jobs:
           )
 
           cleanup = '''
-<style id="home-san-jorge-normalize-v16">
-/* San Jorge: full logo visible, no positional inheritance, no clipping. */
-.lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{
+<style id="home-san-jorge-normalize-v17">
+/* Final San Jorge sizing: explicitly smaller than the prior oversized treatment. */
+html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{
   flex:0 0 auto !important;
-  min-width:138px !important;
-  width:138px !important;
-  height:58px !important;
+  min-width:104px !important;
+  width:104px !important;
+  height:46px !important;
   overflow:visible !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
 }
-.lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{
+html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{
   display:block !important;
   width:auto !important;
   height:auto !important;
-  max-width:126px !important;
-  max-height:44px !important;
+  max-width:92px !important;
+  max-height:24px !important;
   object-fit:contain !important;
   object-position:center center !important;
   transform:none !important;
@@ -87,12 +87,12 @@ jobs:
   clip-path:none !important;
 }
 @media(max-width:1100px){
-  .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{min-width:126px !important;width:126px !important;height:54px !important;}
-  .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{max-width:116px !important;max-height:40px !important;}
+  html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{min-width:98px !important;width:98px !important;height:42px !important;}
+  html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{max-width:86px !important;max-height:22px !important;}
 }
 @media(max-width:760px){
-  .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{min-width:112px !important;width:112px !important;height:48px !important;}
-  .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{max-width:104px !important;max-height:36px !important;}
+  html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge{min-width:90px !important;width:90px !important;height:38px !important;}
+  html body .lsr-trust-marquee .lsr-trust-logos .lsr-logo-san-jorge img{max-width:80px !important;max-height:20px !important;}
 }
 </style>
 '''
@@ -105,5 +105,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Fix San Jorge logo clipping"
+          git commit -m "Reduce San Jorge logo size"
           git push
