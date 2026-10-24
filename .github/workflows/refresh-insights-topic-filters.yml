@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/add_insights_topic_filters.py'
+      - 'scripts/fix_insights_filter_margins.py'
       - '.github/workflows/refresh-insights-topic-filters.yml'
   workflow_dispatch:
 
@@ -21,6 +22,8 @@ jobs:
           python-version: '3.x'
       - name: Apply Insights filters
         run: python scripts/add_insights_topic_filters.py
+      - name: Align Insights filter margins
+        run: python scripts/fix_insights_filter_margins.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
