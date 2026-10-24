@@ -7,6 +7,7 @@ s = src
 repls = {
     '<title>Red Educacional Camilo Henríquez | Customer Story | lowsignal</title>': '<title>Dimor | Customer Story | lowsignal</title>',
     'CUSTOMER STORY · EDUCACIÓN': 'CUSTOMER STORY · B2B',
+    'CUSTOMER STORY <span>·</span> EDUCACIÓN': 'CUSTOMER STORY <span>·</span> B2B',
     'Una red. Muchas comunidades.<br><strong>Una experiencia digital que las conecta.</strong>': 'Trabajo que pasa en terreno.<br><strong>Una presencia digital que lo hace visible.</strong>',
     'Ayudamos a la Red Educacional Camilo Henríquez a ordenar su presencia digital, conectar sus colegios y convertir una identidad compartida en una experiencia clara para familias, estudiantes y comunidades.': 'Ayudamos a Dimor a transformar su operación diaria en una presencia digital más clara, consistente y comercial, mostrando mejor su trabajo, sus vehículos y la experiencia detrás de cada servicio.',
     'Red Educacional Camilo Henríquez': 'Dimor',
