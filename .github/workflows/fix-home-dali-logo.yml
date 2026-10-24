@@ -1,4 +1,4 @@
-name: Restore Salvador Dali logo on home
+name: Remove Salvador Dali logo from home
 
 on:
   push:
@@ -11,11 +11,11 @@ permissions:
   contents: write
 
 jobs:
-  restore-dali-logo:
+  remove-dali-logo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Render Dali logo with gray face and white lettering
+      - name: Remove Dali logo from home trust strip
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -24,6 +24,7 @@ jobs:
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
+          # Remove all Dalí-specific CSS treatments added during the logo experiments.
           for style_id in [
               'home-v140-client-logo-white-fix',
               'home-dali-logo-detail-fix-v1',
@@ -43,30 +44,16 @@ jobs:
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
-          svg = (
-              '<svg class="dali-home-logo" viewBox="0 0 1376 190" role="img" aria-label="Colegio Salvador Dalí" preserveAspectRatio="xMidYMid meet">'
-              '<defs><clipPath id="dali-wordmark-clip"><rect x="650" y="0" width="726" height="190"/></clipPath></defs>'
-              '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-face-base"/>'
-              '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-wordmark-white" clip-path="url(#dali-wordmark-clip)"/>'
-              '</svg>'
-          )
+          # Remove any injected Dalí SVG from the home.
+          s = re.sub(r'\s*<svg class="dali-home-logo".*?</svg>', '', s, flags=re.S)
 
-          s = re.sub(r'<svg class="dali-home-logo".*?</svg>', svg, s, flags=re.S)
+          # Remove any direct Dalí image variants that may still be present in the home.
           s = re.sub(
-              r'<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
-              svg,
+              r'\s*<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
+              '',
               s
           )
 
-          fix = (
-              '\n<style id="home-dali-logo-svg-v13">\n'
-              '.dali-home-logo{display:block;width:188px;height:auto;max-height:50px;overflow:visible;transform:scale(1.08);transform-origin:center;}\n'
-              '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.55) contrast(1.12);}\n'
-              '.dali-home-logo .dali-wordmark-white{filter:grayscale(1) brightness(0) invert(1) contrast(1.08);}\n'
-              '@media(max-width:760px){.dali-home-logo{width:160px;max-height:42px;transform:scale(1.06);}}\n'
-              '</style>\n'
-          )
-          s = s.replace('</head>', fix + '\n</head>', 1)
           p.write_text(s, encoding='utf-8')
           PY
       - name: Commit change
@@ -75,5 +62,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Increase Dali logo optical size"
+          git commit -m "Remove Salvador Dali logo from home"
           git push
