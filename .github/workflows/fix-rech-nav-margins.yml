@@ -1,0 +1,22 @@
+name: Fix RECH nav margins
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fix_rech_nav_margins.py'
+      - '.github/workflows/fix-rech-nav-margins.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/fix_rech_nav_margins.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos/rech.html
+          git diff --cached --quiet || git commit -m "Align RECH to navbar margins"
+          git push
