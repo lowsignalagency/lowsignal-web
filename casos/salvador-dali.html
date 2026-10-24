@@ -2053,18 +2053,27 @@ html{scroll-behavior:smooth!important}
 
 
 
+
 <style id="csd-karina-photo-polish">
-.rechx-person img{
-  width:56px!important;
-  height:56px!important;
-  object-fit:cover!important;
-  object-position:center 12%!important;
+.csd-karina-crop{
+  width:56px;
+  height:56px;
+  flex:0 0 56px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.5);
+  display:block;
 }
-.case-new-testimonial .case-new-person img{
-  width:58px!important;
-  height:58px!important;
+.csd-karina-crop img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  border:0!important;
+  border-radius:0!important;
   object-fit:cover!important;
-  object-position:center 12%!important;
+  object-position:center 18%!important;
+  transform:translateY(-5%) scale(1.28);
+  transform-origin:center 35%;
 }
 </style>
 </head>
@@ -2461,7 +2470,7 @@ html{scroll-behavior:smooth!important}
     <div class="container rechx-wrap rechx-quote-inner">
       <div class="rechx-quote-mark">“</div>
       <blockquote>Con lowsignal fortalecimos nuestras redes, nos acercamos a la comunidad y potenciamos las habilidades de nuestros estudiantes.</blockquote>
-      <div class="rechx-person"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"><div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div></div>
+      <div class="rechx-person"><span class="csd-karina-crop"><img src="https://lowsignal.cl/assets/karina-csd.jpg" alt="Karina Ravanal"></span><div><b>Karina Ravanal</b><span>Directora, Colegio Salvador Dalí</span></div></div>
     </div>
   </section>
 
