@@ -1,0 +1,27 @@
+name: Revert casos archive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/revert-casos-archive.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore previous casos archive
+        run: |
+          git checkout a5ab2dfcb77b133d995bbabc8d854b6a7b177746 -- casos.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Restore previous Customer Stories archive design"
+          git push
