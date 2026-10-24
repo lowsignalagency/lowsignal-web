@@ -2967,6 +2967,7 @@
 </style>
 
 
+
 <style id="insights-topic-filter-v1">
 .insights-topic-nav{
   position:sticky;
@@ -2979,8 +2980,8 @@
   backdrop-filter:blur(16px);
 }
 .insights-topic-nav .container{
-  width:min(var(--insights-content,1480px),calc(100% - 160px))!important;
-  max-width:var(--insights-content,1480px)!important;
+  width:min(1360px,calc(100% - 160px))!important;
+  max-width:1360px!important;
   min-height:66px;
   margin:auto;
   display:flex;
@@ -3418,28 +3419,7 @@
     </div>
   </section>
 
-<section class="insights-topic-nav" aria-label="Filtrar insights por tema">
-  <div class="container">
-    <span class="insights-topic-label">Explorar</span>
-    <div class="insights-topic-scroll" role="group" aria-label="Temas">
-      <button class="insights-topic-filter is-active" type="button" data-topic="all">Todos</button>
-      <button class="insights-topic-filter" type="button" data-topic="growth">Growth</button>
-      <button class="insights-topic-filter" type="button" data-topic="marketing">Marketing</button>
-      <button class="insights-topic-filter" type="button" data-topic="ia">IA</button>
-      <button class="insights-topic-filter" type="button" data-topic="producto">Producto</button>
-      <button class="insights-topic-filter" type="button" data-topic="educacion">Educación</button>
-      <button class="insights-topic-filter" type="button" data-topic="b2b">B2B</button>
-      <button class="insights-topic-filter" type="button" data-topic="b2c">B2C</button>
-      <button class="insights-topic-filter" type="button" data-topic="building">Building</button>
-    </div>
-    <label class="insights-topic-search" aria-label="Buscar insights">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
-      <input type="search" placeholder="Buscar insights..." autocomplete="off">
-    </label>
-  </div>
-</section>
-
-  <section class="insights-new-featured">
+<section class="insights-new-featured">
     <div class="container">
       <a class="insights-new-feature-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
         <div class="insights-new-feature-image">
@@ -10875,6 +10855,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   transform:translate(2px,-2px)!important;
 }
 </style>
+
 
 <script id="insights-topic-filter-script">
 (() => {
