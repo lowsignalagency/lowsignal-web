@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/customer-stories-refresh-v3-run.yml'
       - 'scripts/build_rikdom_case_from_rech.py'
+      - 'scripts/build_dimor_case_from_rech.py'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +24,8 @@ jobs:
         run: python .github/scripts/customer_stories_refresh_v3.py
       - name: Build Rikdom case
         run: python scripts/build_rikdom_case_from_rech.py
+      - name: Build Dimor case
+        run: python scripts/build_dimor_case_from_rech.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
