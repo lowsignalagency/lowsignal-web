@@ -40,22 +40,28 @@ jobs:
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
-          svg = '''<svg class="dali-home-logo" viewBox="0 0 1376 190" role="img" aria-label="Colegio Salvador Dalí" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <clipPath id="dali-wordmark-clip"><rect x="540" y="0" width="836" height="190"/></clipPath>
-  </defs>
-  <image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-face-base"/>
-  <image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-wordmark-white" clip-path="url(#dali-wordmark-clip)"/>
-</svg>'''
+          svg = (
+              '<svg class="dali-home-logo" viewBox="0 0 1376 190" role="img" aria-label="Colegio Salvador Dalí" preserveAspectRatio="xMidYMid meet">'
+              '<defs><clipPath id="dali-wordmark-clip"><rect x="540" y="0" width="836" height="190"/></clipPath></defs>'
+              '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-face-base"/>'
+              '<image href="https://lowsignal.cl/assets/logo-dali-maipu.png" x="0" y="0" width="1376" height="190" class="dali-wordmark-white" clip-path="url(#dali-wordmark-clip)"/>'
+              '</svg>'
+          )
 
-          # Replace every Dalí image in the home with the aligned SVG treatment.
           s = re.sub(
               r'<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
               svg,
               s
           )
 
-          fix = '''\n<style id="home-dali-logo-svg-v10">\n.dali-home-logo{\n  display:block;\n  width:138px;\n  height:auto;\n  max-height:36px;\n  overflow:visible;\n}\n.dali-home-logo .dali-face-base{\n  filter:grayscale(1) brightness(.82) contrast(1.14);\n}\n.dali-home-logo .dali-wordmark-white{\n  filter:grayscale(1) brightness(0) invert(1) contrast(1.08);\n}\n@media(max-width:760px){\n  .dali-home-logo{width:120px;max-height:31px;}\n}\n</style>\n'''
+          fix = (
+              '\n<style id="home-dali-logo-svg-v10">\n'
+              '.dali-home-logo{display:block;width:138px;height:auto;max-height:36px;overflow:visible;}\n'
+              '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.82) contrast(1.14);}\n'
+              '.dali-home-logo .dali-wordmark-white{filter:grayscale(1) brightness(0) invert(1) contrast(1.08);}\n'
+              '@media(max-width:760px){.dali-home-logo{width:120px;max-height:31px;}}\n'
+              '</style>\n'
+          )
           s = s.replace('</head>', fix + '\n</head>', 1)
           p.write_text(s, encoding='utf-8')
           PY
