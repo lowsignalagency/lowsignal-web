@@ -45,4 +45,5 @@ style = r'''
 '''
 s = s.replace('</head>', style + '\n</head>', 1)
 
+# Trigger note: keep this fixer as the canonical post-rebuild correction layer.
 p.write_text(s, encoding='utf-8')
