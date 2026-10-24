@@ -38,11 +38,12 @@ jobs:
               'home-v140-client-logo-white-fix',
               'home-dali-logo-detail-fix-v1',
               'home-dali-logo-detail-fix-v2',
-              'home-dali-logo-final-v2'
+              'home-dali-logo-final-v2',
+              'home-dali-logo-optical-v3'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
-          fix = '''\n<style id="home-dali-logo-final-v2">\n/* Dalí keeps its original detailed artwork; do not apply the global white-logo filter. */\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n.lsr-trust-logo:nth-child(2) img,\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:none !important;\n  opacity:1 !important;\n  mix-blend-mode:normal !important;\n  width:auto !important;\n  height:auto !important;\n  max-width:150px !important;\n  max-height:38px !important;\n  object-fit:contain !important;\n  transform:none !important;\n}\n@media(max-width:760px){\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n  .lsr-trust-logo:nth-child(2) img,\n  .home26-client-logos .home26-client-logo-item:nth-child(2) img{\n    max-width:128px !important;\n    max-height:32px !important;\n  }\n}\n</style>\n'''
+          fix = '''\n<style id="home-dali-logo-optical-v3">\n/* Salvador Dalí — keep the facial detail, but match the muted client-logo rhythm. */\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n.lsr-trust-logo:nth-child(2) img,\n.home26-client-logos .home26-client-logo-item:nth-child(2) img{\n  filter:grayscale(1) brightness(1.06) contrast(.92) !important;\n  opacity:.74 !important;\n  mix-blend-mode:normal !important;\n  width:auto !important;\n  height:auto !important;\n  max-width:132px !important;\n  max-height:34px !important;\n  object-fit:contain !important;\n  transform:none !important;\n}\n.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2),\n.lsr-trust-logo:nth-child(2),\n.home26-client-logos .home26-client-logo-item:nth-child(2){\n  overflow:visible !important;\n}\n@media(max-width:760px){\n  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,\n  .lsr-trust-logo:nth-child(2) img,\n  .home26-client-logos .home26-client-logo-item:nth-child(2) img{\n    max-width:116px !important;\n    max-height:30px !important;\n    opacity:.78 !important;\n  }\n}\n</style>\n'''
           s = s.replace('</head>', fix + '\n</head>', 1)
 
           p.write_text(s, encoding='utf-8')
@@ -53,5 +54,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Use detailed Salvador Dali logo on home"
+          git commit -m "Refine Salvador Dali logo on home"
           git push
