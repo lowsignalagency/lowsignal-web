@@ -42,7 +42,9 @@ for old, new in repls.items():
 s = s.replace('https://lowsignal.cl/assets/crecer-ninos.png', 'https://lowsignal.cl/assets/impacto-principal.jpg', 1)
 
 # Foundation-specific polish.
-polish = '''\n<style id="fcct-editorial-polish">\n.case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}\n.case-editorial-pair figure:first-child{background:#fff;display:flex;align-items:center;justify-content:center}\n.case-editorial-pair figure:first-child img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important}\n.case-editorial-pair figure:nth-child(2) img{object-fit:cover!important}\n</style>\n'''
+# The website screenshot keeps its natural aspect ratio instead of being forced into
+# the 420px image height used by the generic two-image editorial pair.
+polish = '''\n<style id="fcct-editorial-polish">\n.case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}\n.case-editorial-pair{align-items:stretch}\n.case-editorial-pair figure:first-child{display:block;background:transparent;height:auto}\n.case-editorial-pair figure:first-child img{display:block;width:100%!important;height:auto!important;object-fit:initial!important;object-position:initial!important}\n.case-editorial-pair figure:nth-child(2){height:auto}\n.case-editorial-pair figure:nth-child(2) img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}\n@media(max-width:1000px){\n  .case-editorial-pair figure:first-child img{height:auto!important}\n  .case-editorial-pair figure:nth-child(2) img{height:360px!important}\n}\n@media(max-width:760px){\n  .case-editorial-pair figure:nth-child(2) img{height:280px!important}\n}\n</style>\n'''
 s = s.replace('</head>', polish + '</head>', 1)
 
 Path('casos/fcct.html').write_text(s, encoding='utf-8')
