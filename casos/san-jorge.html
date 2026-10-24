@@ -2080,7 +2080,28 @@ html{scroll-behavior:smooth!important}
   transform-origin:left center;
 }
 .case-editorial-pair figure:nth-child(2){display:none!important}
-.rechx-person img{object-position:center 22%}
+
+/* Same avatar size; tighter crop so Jorge reads as a portrait, not a full-body shot. */
+.rechx-person .sanjorge-person-crop{
+  width:56px;
+  height:56px;
+  flex:0 0 56px;
+  border-radius:50%;
+  overflow:hidden;
+  display:block;
+  border:1px solid rgba(255,255,255,.32);
+}
+.rechx-person .sanjorge-person-crop img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  border:0!important;
+  border-radius:0!important;
+  object-fit:cover!important;
+  object-position:center 18%!important;
+  transform:scale(1.65)!important;
+  transform-origin:center 20%!important;
+}
 
 @media(max-width:1000px){
   .case-editorial-pair figure:first-child{height:440px!important}
@@ -2485,7 +2506,7 @@ html{scroll-behavior:smooth!important}
     <div class="container rechx-wrap rechx-quote-inner">
       <div class="rechx-quote-mark">“</div>
       <blockquote>lowsignal ha sido un aporte muy importante para nosotros. Nos ayudó a ordenar nuestras redes y nuestra web, llegar mejor a nuestro público y contar lo que hacemos. Es un equipo muy responsable.</blockquote>
-      <div class="rechx-person"><img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay"><div><b>Jorge Menay</b><span>Director Ejecutivo, Colegio San Jorge de Las Condes</span></div></div>
+      <div class="rechx-person"><span class="sanjorge-person-crop"><img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay"></span><div><b>Jorge Menay</b><span>Director Ejecutivo, Colegio San Jorge de Las Condes</span></div></div>
     </div>
   </section>
 
