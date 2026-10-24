@@ -9,10 +9,12 @@ s = re.sub(r'\n?<style id="insights-topic-axis-fix-v2">.*?</style>\s*', '\n', s,
 
 override = r'''
 <style id="insights-topic-axis-fix-v2">
-/* Match the exact final editorial container used by hero + featured card. */
+/* Keep filters aligned with the editorial axis without stacking under the main navbar. */
 .insights-topic-nav{
-  top:72px !important;
-  box-shadow:0 8px 24px rgba(7,15,34,.055) !important;
+  position:relative !important;
+  top:auto !important;
+  z-index:20 !important;
+  box-shadow:none !important;
 }
 .insights-topic-nav .container{
   width:min(1480px,calc(100% - 160px)) !important;
@@ -46,7 +48,6 @@ override = r'''
   }
 }
 @media(max-width:760px){
-  .insights-topic-nav{top:78px !important}
   .insights-topic-nav .container{
     min-height:auto !important;
     padding-top:8px !important;
