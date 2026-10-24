@@ -1,0 +1,29 @@
+name: Build San Jorge case
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_san_jorge_case_from_rech.py'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python scripts/build_san_jorge_case_from_rech.py
+      - name: Commit case
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casos/san-jorge.html
+          git diff --cached --quiet || git commit -m "Refresh San Jorge customer story"
+          git push
