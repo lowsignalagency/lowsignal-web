@@ -10,13 +10,27 @@ s = re.sub(r'\n?<style id="insights-topic-axis-fix-v2">.*?</style>\s*', '\n', s,
 override = r'''
 <style id="insights-topic-axis-fix-v2">
 /* Match the exact final editorial container used by hero + featured card. */
+.insights-topic-nav{
+  top:72px !important;
+  box-shadow:0 8px 24px rgba(7,15,34,.055) !important;
+}
 .insights-topic-nav .container{
   width:min(1480px,calc(100% - 160px)) !important;
   max-width:1480px !important;
+  min-height:58px !important;
   margin-left:auto !important;
   margin-right:auto !important;
   padding-inline:48px !important;
+  padding-top:7px !important;
+  padding-bottom:7px !important;
   box-sizing:border-box !important;
+}
+.insights-topic-filter{
+  min-height:32px !important;
+  padding-inline:12px !important;
+}
+.insights-topic-search{
+  min-height:36px !important;
 }
 @media(max-width:1440px){
   .insights-topic-nav .container{
@@ -29,6 +43,14 @@ override = r'''
   .insights-topic-nav .container{
     width:calc(100% - 48px) !important;
     padding-inline:0 !important;
+  }
+}
+@media(max-width:760px){
+  .insights-topic-nav{top:78px !important}
+  .insights-topic-nav .container{
+    min-height:auto !important;
+    padding-top:8px !important;
+    padding-bottom:9px !important;
   }
 }
 @media(max-width:620px){
