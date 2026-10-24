@@ -37,7 +37,8 @@ jobs:
               'home-dali-logo-gray-face-v8',
               'home-dali-logo-single-v9',
               'home-dali-logo-svg-v10',
-              'home-dali-logo-svg-v11'
+              'home-dali-logo-svg-v11',
+              'home-dali-logo-svg-v12'
           ]:
               s = re.sub(rf'\s*<style id="{style_id}">.*?</style>', '', s, flags=re.S)
 
@@ -49,7 +50,6 @@ jobs:
               '</svg>'
           )
 
-          # Normalize any previously injected Dalí SVGs back to one canonical treatment.
           s = re.sub(r'<svg class="dali-home-logo".*?</svg>', svg, s, flags=re.S)
           s = re.sub(
               r'<img\s+[^>]*src="https://lowsignal\.cl/assets/(?:logo-dali-maipu\.png|logo-CSD-blanco%20\(1\)\.png|CSD-Logo\.png|salvador-dali\.png|logo-dali-darkbg\.png)"[^>]*>',
@@ -58,11 +58,11 @@ jobs:
           )
 
           fix = (
-              '\n<style id="home-dali-logo-svg-v11">\n'
-              '.dali-home-logo{display:block;width:138px;height:auto;max-height:36px;overflow:visible;}\n'
+              '\n<style id="home-dali-logo-svg-v12">\n'
+              '.dali-home-logo{display:block;width:150px;height:auto;max-height:40px;overflow:visible;}\n'
               '.dali-home-logo .dali-face-base{filter:grayscale(1) brightness(.55) contrast(1.12);}\n'
               '.dali-home-logo .dali-wordmark-white{filter:grayscale(1) brightness(0) invert(1) contrast(1.08);}\n'
-              '@media(max-width:760px){.dali-home-logo{width:120px;max-height:31px;}}\n'
+              '@media(max-width:760px){.dali-home-logo{width:132px;max-height:34px;}}\n'
               '</style>\n'
           )
           s = s.replace('</head>', fix + '\n</head>', 1)
@@ -74,5 +74,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Keep Dali face gray and wordmark white"
+          git commit -m "Match Dali logo size with client logos"
           git push
