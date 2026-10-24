@@ -37,8 +37,9 @@ repls = {
 for old, new in repls.items():
     s = s.replace(old, new)
 
-# Use the same Valentina photo featured in the Education testimonial for the first large FCCT image.
-s = s.replace('https://lowsignal.cl/assets/crecer-ninos.png', 'https://lowsignal.cl/assets/valentina-w.jpg', 1)
+# Use the same background photo featured in the FCCT testimonial on the Education page
+# for the first large FCCT image.
+s = s.replace('https://lowsignal.cl/assets/crecer-ninos.png', 'https://lowsignal.cl/assets/impacto-principal.jpg', 1)
 
 # Foundation-specific polish: website screenshot should show from the top.
 polish = '''\n<style id="fcct-editorial-polish">\n.case-editorial-client img{max-height:68px;width:auto;object-fit:contain;object-position:left center}\n.case-editorial-pair figure:first-child img{object-position:center top}\n</style>\n'''
