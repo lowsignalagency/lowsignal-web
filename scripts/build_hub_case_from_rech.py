@@ -41,6 +41,23 @@ for old, new in repls.items():
 # hUB has no approved customer testimonial yet. Remove any testimonial section inherited from the source case.
 s = re.sub(r'<section[^>]*class="[^"]*testimonial[^"]*"[^>]*>.*?</section>\s*', '', s, flags=re.S | re.I)
 
+# Keep the visual rhythm of the testimonial band, but mark it honestly as forthcoming.
+coming_soon = '''
+<section class="hub-coming-soon" aria-label="Testimonio de hUB próximamente">
+  <div class="hub-coming-soon-inner">
+    <p class="hub-coming-soon-kicker">PRÓXIMAMENTE</p>
+    <h2>La voz de hUB<br>también irá aquí.</h2>
+    <p class="hub-coming-soon-copy">Estamos preparando este customer story junto a su equipo.</p>
+  </div>
+</section>
+'''
+
+next_section = re.search(r'<section[^>]*class="[^"]*(?:rechx-next|case-new-next)[^"]*"', s, flags=re.I)
+if next_section:
+    s = s[:next_section.start()] + coming_soon + '\n' + s[next_section.start():]
+else:
+    s = s.replace('</main>', coming_soon + '\n</main>', 1)
+
 polish = '''
 <style id="hub-editorial-polish">
 .case-editorial-client img{
@@ -56,9 +73,50 @@ polish = '''
 .case-editorial-media img{object-position:center 46%!important}
 .case-editorial-pair figure:first-child img{object-position:center top!important}
 .case-editorial-pair figure:nth-child(2) img{object-position:center 50%!important}
+
+.hub-coming-soon{
+  background:#1419E0;
+  color:#fff;
+  padding:118px 0 126px;
+}
+.hub-coming-soon-inner{
+  width:min(1220px,calc(100% - 128px));
+  margin:0 auto;
+}
+.hub-coming-soon-kicker{
+  margin:0 0 42px;
+  color:#AFC0FF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.18em;
+}
+.hub-coming-soon h2{
+  max-width:980px;
+  margin:0;
+  color:#fff;
+  font-size:clamp(54px,6vw,88px);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  font-weight:300;
+}
+.hub-coming-soon-copy{
+  margin:36px 0 0;
+  color:#D8DEFF;
+  font-size:17px;
+  line-height:1.6;
+}
+
+@media(max-width:1100px) and (min-width:761px){
+  .hub-coming-soon-inner{width:calc(100% - 48px)}
+}
 @media(max-width:760px){
   .case-editorial-client img{max-width:112px!important;max-height:44px!important}
   .case-editorial-media img{object-position:center 45%!important}
+  .hub-coming-soon{padding:82px 0 88px}
+  .hub-coming-soon-inner{width:calc(100% - 40px)}
+  .hub-coming-soon-kicker{margin-bottom:26px;font-size:10px}
+  .hub-coming-soon h2{font-size:44px;line-height:1.03}
+  .hub-coming-soon-copy{margin-top:24px;font-size:15px}
 }
 </style>
 '''
