@@ -26,7 +26,7 @@ repls = {
     'El resultado no fue una colección de piezas nuevas. Fue una forma más coherente de presentar la RECH y de conectar el trabajo de sus colegios bajo una misma experiencia.': 'El resultado fue una presencia digital más coherente con la experiencia real de DulceReino, con contenido y campañas trabajando juntos para generar deseo, reconocimiento y nuevas visitas.',
     'https://lowsignal.cl/assets/rech-logo-full.png': 'https://lowsignal.cl/assets/dulcereino-logo-trim.png',
     'https://lowsignal.cl/assets/rech-logo-full-white-trim.png': 'https://lowsignal.cl/assets/dulcereino-logo-trim.png',
-    'https://lowsignal.cl/assets/comunidad-rech.jpg': 'https://lowsignal.cl/assets/dulce-local.jpg',
+    'https://lowsignal.cl/assets/comunidad-rech.jpg': 'https://lowsignal.cl/assets/dulce-reino-pasteleria.jpg',
     'https://lowsignal.cl/assets/reunion-rech.jpg': 'https://lowsignal.cl/assets/dulce-mesa.jpg',
     'No hicimos una página.<br><strong>Construimos una forma de presentar la red.</strong>': 'No hicimos solo contenido.<br><strong>Construimos una vitrina digital que invita a entrar.</strong>',
     'EDUCACIÓN · CUSTOMER STORY': 'B2C · CUSTOMER STORY',
