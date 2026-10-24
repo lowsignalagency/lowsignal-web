@@ -7930,13 +7930,21 @@ footer .footer-container{
 </style>
 
 
-<style id="home-dali-logo-gray-face-v6">
-/* Dalí on dark backgrounds: preserve the face in gray tones and keep the wordmark bright. */
+<style id="home-dali-logo-gray-face-v7">
+/* Colegio Salvador Dalí: gray face + bright lettering on dark backgrounds. */
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2),
+.lsr-trust-logo:nth-child(2),
+.home26-client-logos .home26-client-logo-item:nth-child(2){
+  position:relative !important;
+  overflow:visible !important;
+}
+
+/* Detailed base: keep facial features in gray instead of flattening them to white. */
 .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
 .lsr-trust-logo:nth-child(2) img,
 .home26-client-logos .home26-client-logo-item:nth-child(2) img{
-  filter:grayscale(1) brightness(1.34) contrast(1.18) !important;
-  opacity:.96 !important;
+  filter:grayscale(1) brightness(1.12) contrast(1.12) !important;
+  opacity:.94 !important;
   mix-blend-mode:normal !important;
   width:auto !important;
   height:auto !important;
@@ -7945,12 +7953,37 @@ footer .footer-container{
   object-fit:contain !important;
   transform:none !important;
 }
+
+/* White treatment only over the wordmark zone. The first 23% stays untouched,
+   preserving the face as gray while making the letters read clearly in white. */
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
+.lsr-trust-logo:nth-child(2)::after,
+.home26-client-logos .home26-client-logo-item:nth-child(2)::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  pointer-events:none !important;
+  background-image:url('https://lowsignal.cl/assets/logo-dali-maipu.png') !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:138px 36px !important;
+  filter:grayscale(1) brightness(0) invert(1) contrast(1.05) !important;
+  opacity:.98 !important;
+  clip-path:inset(0 0 0 23%) !important;
+}
+
 @media(max-width:760px){
   .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
   .lsr-trust-logo:nth-child(2) img,
   .home26-client-logos .home26-client-logo-item:nth-child(2) img{
     max-width:120px !important;
     max-height:31px !important;
+  }
+  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
+  .lsr-trust-logo:nth-child(2)::after,
+  .home26-client-logos .home26-client-logo-item:nth-child(2)::after{
+    background-size:120px 31px !important;
   }
 }
 </style>
