@@ -7930,19 +7930,18 @@ footer .footer-container{
 </style>
 
 
-<style id="home-dali-logo-gray-face-v8">
-/* Colegio Salvador Dalí on dark backgrounds: gray portrait + white wordmark. */
-.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2),
-.home26-client-logos .home26-client-logo-item:nth-child(2){
-  position:relative !important;
-  overflow:hidden !important;
+<style id="home-dali-logo-single-v9">
+/* One Dalí logo only: no pseudo-elements, no overlays. */
+.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
+.home26-client-logos .home26-client-logo-item:nth-child(2)::after{
+  content:none !important;
+  display:none !important;
 }
 
-/* Base artwork: deliberately darker so the portrait reads as gray, not white. */
 .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
 .home26-client-logos .home26-client-logo-item:nth-child(2) img{
-  filter:grayscale(1) brightness(.84) contrast(1.16) !important;
-  opacity:1 !important;
+  filter:grayscale(1) brightness(1.18) contrast(1.10) !important;
+  opacity:.96 !important;
   mix-blend-mode:normal !important;
   width:auto !important;
   height:auto !important;
@@ -7952,33 +7951,11 @@ footer .footer-container{
   transform:none !important;
 }
 
-/* Bright overlay only on the right-hand lettering. The first 40% is excluded,
-   so the portrait remains gray with all its tonal detail. */
-.lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
-.home26-client-logos .home26-client-logo-item:nth-child(2)::after{
-  content:"" !important;
-  position:absolute !important;
-  inset:0 !important;
-  display:block !important;
-  pointer-events:none !important;
-  background-image:url('https://lowsignal.cl/assets/logo-dali-maipu.png') !important;
-  background-repeat:no-repeat !important;
-  background-position:center !important;
-  background-size:138px 36px !important;
-  filter:grayscale(1) brightness(0) invert(1) contrast(1.08) !important;
-  opacity:1 !important;
-  clip-path:inset(0 0 0 40%) !important;
-}
-
 @media(max-width:760px){
   .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2) img,
   .home26-client-logos .home26-client-logo-item:nth-child(2) img{
     max-width:120px !important;
     max-height:31px !important;
-  }
-  .lsr-trust-marquee .lsr-trust-logos .lsr-trust-logo:nth-child(2)::after,
-  .home26-client-logos .home26-client-logo-item:nth-child(2)::after{
-    background-size:120px 31px !important;
   }
 }
 </style>
