@@ -2058,7 +2058,7 @@ html{scroll-behavior:smooth!important}
   opacity:1;
 }
 
-/* Same showcase treatment used in FCCT: one large website visual. */
+/* One large website visual, anchored to the left so the hero copy stays visible. */
 .case-editorial-pair{
   grid-template-columns:1fr!important;
   gap:0!important;
@@ -2075,20 +2075,20 @@ html{scroll-behavior:smooth!important}
   width:100%!important;
   height:100%!important;
   object-fit:cover!important;
-  object-position:center 44%!important;
-  transform:scale(1.02);
-  transform-origin:center center;
+  object-position:left 44%!important;
+  transform:scale(1.005);
+  transform-origin:left center;
 }
 .case-editorial-pair figure:nth-child(2){display:none!important}
 .rechx-person img{object-position:center 22%}
 
 @media(max-width:1000px){
   .case-editorial-pair figure:first-child{height:440px!important}
-  .case-editorial-pair figure:first-child img{object-position:center 44%!important}
+  .case-editorial-pair figure:first-child img{object-position:left 44%!important;transform:scale(1.003)}
 }
 @media(max-width:760px){
   .case-editorial-pair figure:first-child{height:320px!important}
-  .case-editorial-pair figure:first-child img{object-position:center 46%!important;transform:scale(1.015)}
+  .case-editorial-pair figure:first-child img{object-position:left 46%!important;transform:none}
 }
 </style>
 </head>
