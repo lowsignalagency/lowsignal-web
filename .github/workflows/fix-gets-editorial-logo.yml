@@ -1,0 +1,45 @@
+name: Fix GETS editorial logo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-gets-editorial-logo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix GETS logo on light editorial panel
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('casos/gets.html')
+          s = p.read_text(encoding='utf-8')
+          start = s.find('<section class="case-editorial">')
+          end = s.find('</section>', start)
+          if start == -1:
+              raise SystemExit('case-editorial section not found')
+          segment = s[start:]
+          old = 'https://lowsignal.cl/assets/gets-logo-white.svg'
+          new = 'https://lowsignal.cl/assets/gets.png'
+          idx = segment.find(old)
+          if idx == -1:
+              raise SystemExit('white GETS logo not found in editorial section')
+          abs_idx = start + idx
+          s = s[:abs_idx] + new + s[abs_idx+len(old):]
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add casos/gets.html
+          git commit -m 'Fix GETS logo contrast in editorial sidebar'
+          git push
