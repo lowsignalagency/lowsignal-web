@@ -22,7 +22,6 @@ jobs:
           p = Path('casos/gets.html')
           s = p.read_text(encoding='utf-8')
           start = s.find('<section class="case-editorial">')
-          end = s.find('</section>', start)
           if start == -1:
               raise SystemExit('case-editorial section not found')
           segment = s[start:]
