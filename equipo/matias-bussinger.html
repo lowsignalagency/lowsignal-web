@@ -1958,6 +1958,16 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
 
 
 
+<style id="matias-linkedin-consilium-v2">
+.tp-linkedin-personal{display:inline-flex;margin-top:22px;color:#AAB7FF;font-size:12px;font-weight:600;transition:color .18s ease,transform .18s ease}
+.tp-linkedin-personal:hover{color:#fff;transform:translateY(-1px)}
+.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}
+.tp-role-brand b{margin:0}
+@media(max-width:760px){.tp-role-brand{gap:8px}.tp-role-brand img{width:26px;height:26px;flex-basis:26px}.tp-linkedin-personal{margin-top:18px}}
+</style>
+
+
 <style id="matias-experience-v1">
 .tp-experience{padding:112px 0 120px;background:#fff;color:#0D1420}
 .tp-experience-head{max-width:760px}
@@ -1967,6 +1977,8 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
 .tp-timeline{margin-top:58px;border-top:1px solid #DDE4F0}
 .tp-role{display:grid;grid-template-columns:70px 260px minmax(0,1fr);gap:34px;padding:32px 0;border-bottom:1px solid #DDE4F0}
 .tp-role-index{color:#8393B1;font-size:11px;padding-top:4px}
+.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}
 .tp-role-meta b{display:block;color:#101827;font-size:19px}
 .tp-role-meta span{display:block;margin-top:6px;color:#53617A;font-size:12px}
 .tp-role-meta small{display:block;margin-top:10px;color:#8490A7;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
@@ -1977,17 +1989,15 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
   .tp-experience-head h2{font-size:39px}
   .tp-role{grid-template-columns:1fr;gap:8px;padding:26px 0}
   .tp-role-index{padding-top:0}
+  .tp-role-brand{gap:8px}
+  .tp-role-brand img{width:26px;height:26px;flex-basis:26px}
 }
 </style>
 
-
-<style id="matias-linkedin-consilium-v2">
+<style id="matias-profile-links-v2">
 .tp-linkedin-personal{display:inline-flex;margin-top:22px;color:#AAB7FF;font-size:12px;font-weight:600;transition:color .18s ease,transform .18s ease}
 .tp-linkedin-personal:hover{color:#fff;transform:translateY(-1px)}
-.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
-.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}
-.tp-role-brand b{margin:0}
-@media(max-width:760px){.tp-role-brand{gap:8px}.tp-role-brand img{width:26px;height:26px;flex-basis:26px}.tp-linkedin-personal{margin-top:18px}}
+@media(max-width:760px){.tp-linkedin-personal{margin-top:18px}}
 </style>
 
 </head>
@@ -2319,6 +2329,7 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
 <section class="tp-about"><div class="tp-shell tp-about-grid"><div><div class="tp-eyebrow">ENFOQUE</div><h2>Tecnología aplicada a <span>problemas reales.</span></h2></div><div class="tp-about-copy"><p>Su foco está en llevar inteligencia artificial y automatización desde la idea a soluciones utilizables.</p><p>En lowsignal trabaja conectando modelos, datos, APIs e interfaces para construir productos y flujos que reduzcan trabajo manual y aumenten capacidad operativa.</p></div></div></section>
 
 
+
 <section class="tp-experience" aria-labelledby="matias-experience-title">
   <div class="tp-shell">
     <div class="tp-experience-head">
@@ -2330,7 +2341,10 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
       <article class="tp-role">
         <div class="tp-role-index">01</div>
         <div class="tp-role-meta">
-          <div class="tp-role-brand"><img src="https://lowsignal.cl/assets/consiliumbots-logo.svg" alt="ConsiliumBots"><b>ConsiliumBots</b></div>
+          <div class="tp-role-brand">
+            <img src="https://lowsignal.cl/assets/consiliumbots-logo.svg" alt="ConsiliumBots">
+            <b>ConsiliumBots</b>
+          </div>
           <span>Embajador de Innovación Educativa</span>
           <small>ONG · US / LATAM</small>
         </div>
