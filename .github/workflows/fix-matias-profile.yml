@@ -1,0 +1,30 @@
+name: Fix Matias profile
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-matias-profile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-matias-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add LinkedIn and ConsiliumBots logo
+        run: |
+          perl -0pi -e 's#(<p class="tp-summary">Construye agentes, automatizaciones e integraciones que conectan datos, procesos comerciales y tecnología para acelerar adquisición, conversión y eficiencia\.</p>)#$1\n        <a class="tp-linkedin-personal" href="https://www.linkedin.com/in/matias-bussinger-3872b4380/" target="_blank" rel="noopener">LinkedIn ↗</a>#s' equipo/matias-bussinger.html
+          perl -0pi -e 's#<div class="tp-role-meta">\s*<b>ConsiliumBots</b>#<div class="tp-role-meta">\n          <div class="tp-role-brand"><img src="https://lowsignal.cl/assets/consiliumbots-logo.svg" alt="ConsiliumBots"><b>ConsiliumBots</b></div>#s' equipo/matias-bussinger.html
+          perl -0pi -e 's#</head>#<style id="matias-linkedin-consilium-v2">\n.tp-linkedin-personal{display:inline-flex;margin-top:22px;color:#AAB7FF;font-size:12px;font-weight:600;transition:color .18s ease,transform .18s ease}.tp-linkedin-personal:hover{color:#fff;transform:translateY(-1px)}.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}.tp-role-brand b{margin:0}@media(max-width:760px){.tp-role-brand{gap:8px}.tp-role-brand img{width:26px;height:26px;flex-basis:26px}.tp-linkedin-personal{margin-top:18px}}\n</style>\n</head>#s' equipo/matias-bussinger.html
+      - name: Commit profile changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add equipo/matias-bussinger.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Restore Matias LinkedIn and add ConsiliumBots logo"
+          git push
