@@ -16,11 +16,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style id="article-styles">
-    :root{--article-navy:#070F22;--article-blue:#1419E0;--article-line:#DFE4EF;--article-ink:#0D1420;--article-muted:#63708C;--article-container:1200px}
+    :root{--article-navy:#070F22;--article-blue:#1419E0;--article-line:#DFE4EF;--article-ink:#0D1420;--article-muted:#63708C;--article-container:1180px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:"Be Vietnam Pro",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--article-ink);background:#fff;-webkit-font-smoothing:antialiased}
-    .article-container{width:min(var(--article-container),calc(100% - 64px));margin:auto}
+    .article-container{width:min(var(--article-container),calc(100% - 64px));max-width:var(--article-container);margin-inline:auto}
 
     .article-hero{padding:170px 0 0;background:var(--article-navy);color:#fff;overflow:hidden}
     .article-kicker{margin:0;color:#8AA4FF;font-size:10px;font-weight:700;letter-spacing:.17em}
@@ -35,7 +35,7 @@
     .article-note{align-self:end;padding:22px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(255,255,255,.035)}
     .article-note span{color:#8FA0FF;font-size:10px;font-weight:700;letter-spacing:.12em}.article-note p{margin:10px 0 0;color:#D0D7E6;font-size:13px;line-height:1.6}
     .article-cover{position:relative;margin:46px 0 -76px;aspect-ratio:2.05/1;border-radius:16px;overflow:hidden;background:#101A34;box-shadow:0 30px 70px rgba(0,0,0,.22)}
-    .article-cover img{width:100%;height:100%;object-fit:cover;object-position:center top}.article-demo-label{position:absolute;right:16px;bottom:14px;padding:7px 10px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(7,15,34,.76);color:#D7DEEF;font-size:9px;font-weight:700;letter-spacing:.08em;backdrop-filter:blur(8px)}
+    .article-cover img{width:100%;height:100%;object-fit:cover;object-position:center top}.article-demo-label{position:absolute;left:16px;top:14px;z-index:2;padding:8px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(7,15,34,.84);color:#F3F5FF;font-size:9px;font-weight:700;letter-spacing:.1em;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 22px rgba(0,0,0,.18)}
 
     .article-body{padding:150px 0 100px;background:#fff}.article-body-grid{display:grid;grid-template-columns:190px minmax(0,760px);justify-content:center;gap:72px;align-items:start}
     .article-sidebar{position:sticky;top:120px}.article-side-block+.article-side-block{margin-top:34px}.article-side-block>span{display:block;margin-bottom:12px;color:#8994A9;font-size:9px;font-weight:700;letter-spacing:.13em}.article-tags{display:flex;flex-wrap:wrap;gap:8px}.article-tags b{padding:7px 10px;border-radius:999px;background:#F1F3F8;color:#4D5B76;font-size:10px;font-weight:600}.article-share{display:flex;flex-direction:column;gap:8px}.article-share a,.article-share button{padding:0;border:0;background:none;text-align:left;color:#5269EA;font:inherit;font-size:12px;cursor:pointer}
@@ -59,8 +59,9 @@
     .article-related-card p{margin:10px 0 0;color:#64708D;font-size:12px;line-height:1.6}
     .article-related-card>strong{display:block;margin-top:18px;color:#1419E0;font-size:10px}
 
+    @media(max-width:1100px){.article-container{width:calc(100% - 48px);max-width:none}}
     @media(max-width:900px){.article-hero-grid{grid-template-columns:1fr}.article-note{display:none}.article-body-grid{grid-template-columns:1fr;gap:32px}.article-sidebar{position:static}.article-side-block:nth-child(2){display:none}}
-    @media(max-width:760px){.article-container{width:calc(100% - 40px)}.article-hero{padding-top:130px}.article-hero h1{font-size:clamp(39px,11vw,52px)}.article-sub{font-size:14px}.article-cover{margin-top:30px;margin-bottom:-44px;aspect-ratio:1.12/1}.article-body{padding:92px 0 68px}.article-lead{font-size:18px}.article-content>p:not(.article-lead){font-size:14px}.article-stack article{grid-template-columns:1fr;gap:8px}.article-related{padding:64px 0}.article-related-head{align-items:flex-start;flex-direction:column;margin-bottom:28px}.article-related-grid{grid-template-columns:1fr}.article-related-card figure{height:220px}}
+    @media(max-width:620px){.article-container{width:calc(100% - 40px)}.article-hero{padding-top:130px}.article-hero h1{font-size:clamp(39px,11vw,52px)}.article-sub{font-size:14px}.article-cover{margin-top:30px;margin-bottom:-44px;aspect-ratio:1.12/1}.article-body{padding:92px 0 68px}.article-lead{font-size:18px}.article-content>p:not(.article-lead){font-size:14px}.article-stack article{grid-template-columns:1fr;gap:8px}.article-related{padding:64px 0}.article-related-head{align-items:flex-start;flex-direction:column;margin-bottom:28px}.article-related-grid{grid-template-columns:1fr}.article-related-card figure{height:220px}}
   </style>
 </head>
 <body>
@@ -79,7 +80,7 @@
           </div>
           <aside class="article-note"><span>BUILDING IN-HOUSE</span><p>Una herramienta interna que nació para reducir ruido operativo. Ahora estamos explorando si puede convertirse en producto.</p></aside>
         </div>
-        <figure class="article-cover"><img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial del panel de Low Workspace"><span class="article-demo-label">IMAGEN REFERENCIAL</span></figure>
+        <figure class="article-cover"><img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial del panel de Low Workspace"><span class="article-demo-label">DEMO · IMAGEN REFERENCIAL</span></figure>
       </div>
     </section>
 
