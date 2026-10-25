@@ -29,4 +29,4 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Add ConsiliumBots experience to Matias profile"
           git push
-# trigger linkedin + consilium logo
+# trigger refined linkedin + consilium treatment
