@@ -29,3 +29,4 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Add logos to Felipe experience"
           git push
+# trigger felipe experience logos
