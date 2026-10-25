@@ -42,3 +42,5 @@ jobs:
           git add '*.html' '**/*.html'
           git commit -m 'Fix Education casing across navbars'
           git push
+
+# trigger: apply to all pages
