@@ -28,3 +28,5 @@ jobs:
           git add casos/gets.html
           git commit -m 'Refresh GETS customer story to editorial format'
           git push
+
+# trigger: 2026-10-25
