@@ -1,15 +1,11 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Insights | lowsignal</title></head><body><script>(async()=>{const r=await fetch('/recursos/insights-original.html?v=20261025',{cache:'no-store'});let s=await r.text();const feature=`      <a class="insights-new-feature-card" href="https://lowsignal.cl/recursos/insights/low-workspace-operating-system">
-        <div class="insights-new-feature-image">
-          <img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial de Low Workspace">
-          <span>DESTACADO</span>
-        </div>
-        <div class="insights-new-feature-copy">
-          <div class="insights-new-meta"><b>PRODUCT</b><span>25 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>5 min de lectura</span></div>
-          <h2>Construimos <em>Low Workspace</em> para operar lowsignal desde un solo lugar.</h2>
-          <p>Clientes, pipeline, revenue, finanzas, tareas y equipo estaban repartidos entre demasiadas herramientas. En vez de sumar una más, construimos la nuestra.</p>
-          <div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
-        </div>
-      </a>`;const expansion=`        <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
-          <div class="insights-new-card-image"><img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal"></div>
-          <div class="insights-new-card-body"><div class="insights-new-meta"><b>EXPANSIÓN</b><span>16 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>4 min</span></div><h3>lowsignal se expande: tres industrias, un solo sistema</h3><p>Concentramos nuestro crecimiento en Educación, B2B y B2C, con soluciones especializadas para cada industria.</p><div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div></div>
-        </a>`;s=s.replace(/<a class="insights-new-feature-card" href="https:\/\/lowsignal\.cl\/recursos\/insights\/lowsignal-se-expande-tres-industrias-un-sistema">[\s\S]*?<\/a>/,feature);if(!s.includes('class="insights-new-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema"')){s=s.replace(/(<a class="insights-new-card" href="https:\/\/lowsignal\.cl\/recursos\/insights\/sae-2027-como-hacer-visible-proyecto-educativo">)/,expansion+'\n$1');}document.open();document.write(s);document.close();})().catch(()=>location.replace('/recursos/insights-original.html'));</script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><title>Insights | lowsignal</title></head><body><script>(async()=>{const r=await fetch('/recursos/insights-original.html?v=20261025',{cache:'no-store'});let s=await r.text();const low=`        <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/low-workspace-operating-system">
+          <div class="insights-new-card-image">
+            <img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial de Low Workspace">
+          </div>
+          <div class="insights-new-card-body">
+            <div class="insights-new-meta"><b>PRODUCT</b><span>25 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>5 min</span></div>
+            <h3>Construimos Low Workspace para operar lowsignal desde un solo lugar</h3>
+            <p>De herramientas desconectadas a una plataforma interna para clientes, pipeline, revenue, finanzas, tareas y equipo.</p>
+            <div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
+          </div>
+        </a>`;if(!s.includes('class="insights-new-card" href="https://lowsignal.cl/recursos/insights/low-workspace-operating-system"')){s=s.replace(/(<a class="insights-new-card" href="https:\/\/lowsignal\.cl\/recursos\/insights\/sae-2027-como-hacer-visible-proyecto-educativo">)/,low+'\n$1');}document.open();document.write(s);document.close();})().catch(()=>location.replace('/recursos/insights-original.html'));</script></body></html>
