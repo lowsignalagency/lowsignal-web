@@ -16,8 +16,15 @@ s = s.replace(
     '<p class="tp-summary">Construye agentes, automatizaciones e integraciones que conectan datos, procesos comerciales y tecnología para acelerar adquisición, conversión y eficiencia.</p>'
 )
 
+# Restore Matias personal LinkedIn under the profile summary.
+s = re.sub(r'\n\s*<a class="tp-linkedin-personal".*?</a>', '', s)
+summary = '<p class="tp-summary">Construye agentes, automatizaciones e integraciones que conectan datos, procesos comerciales y tecnología para acelerar adquisición, conversión y eficiencia.</p>'
+linkedin = '        <a class="tp-linkedin-personal" href="https://www.linkedin.com/in/matias-bussinger-3872b4380/" target="_blank" rel="noopener">LinkedIn ↗</a>'
+s = s.replace(summary, summary + '\n' + linkedin, 1)
+
 # Remove generated experience section/style if this script runs again.
 s = re.sub(r'\n?<style id="matias-experience-v1">.*?</style>\s*', '\n', s, flags=re.S)
+s = re.sub(r'\n?<style id="matias-profile-links-v2">.*?</style>\s*', '\n', s, flags=re.S)
 s = re.sub(r'\n?<section class="tp-experience"[^>]*>.*?</section>\s*', '\n', s, count=1, flags=re.S)
 
 css = r'''
@@ -30,6 +37,8 @@ css = r'''
 .tp-timeline{margin-top:58px;border-top:1px solid #DDE4F0}
 .tp-role{display:grid;grid-template-columns:70px 260px minmax(0,1fr);gap:34px;padding:32px 0;border-bottom:1px solid #DDE4F0}
 .tp-role-index{color:#8393B1;font-size:11px;padding-top:4px}
+.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}
 .tp-role-meta b{display:block;color:#101827;font-size:19px}
 .tp-role-meta span{display:block;margin-top:6px;color:#53617A;font-size:12px}
 .tp-role-meta small{display:block;margin-top:10px;color:#8490A7;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
@@ -40,7 +49,15 @@ css = r'''
   .tp-experience-head h2{font-size:39px}
   .tp-role{grid-template-columns:1fr;gap:8px;padding:26px 0}
   .tp-role-index{padding-top:0}
+  .tp-role-brand{gap:8px}
+  .tp-role-brand img{width:26px;height:26px;flex-basis:26px}
 }
+</style>
+
+<style id="matias-profile-links-v2">
+.tp-linkedin-personal{display:inline-flex;margin-top:22px;color:#AAB7FF;font-size:12px;font-weight:600;transition:color .18s ease,transform .18s ease}
+.tp-linkedin-personal:hover{color:#fff;transform:translateY(-1px)}
+@media(max-width:760px){.tp-linkedin-personal{margin-top:18px}}
 </style>
 '''
 
@@ -56,7 +73,10 @@ experience = r'''
       <article class="tp-role">
         <div class="tp-role-index">01</div>
         <div class="tp-role-meta">
-          <b>ConsiliumBots</b>
+          <div class="tp-role-brand">
+            <img src="https://lowsignal.cl/assets/consiliumbots-logo.svg" alt="ConsiliumBots">
+            <b>ConsiliumBots</b>
+          </div>
           <span>Embajador de Innovación Educativa</span>
           <small>ONG · US / LATAM</small>
         </div>
