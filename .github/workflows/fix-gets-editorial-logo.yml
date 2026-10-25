@@ -25,13 +25,26 @@ jobs:
           if start == -1:
               raise SystemExit('case-editorial section not found')
           segment = s[start:]
-          old = 'https://lowsignal.cl/assets/gets-logo-white.svg'
-          new = 'https://lowsignal.cl/assets/gets.png'
-          idx = segment.find(old)
-          if idx == -1:
-              raise SystemExit('white GETS logo not found in editorial section')
-          abs_idx = start + idx
-          s = s[:abs_idx] + new + s[abs_idx+len(old):]
+          old_candidates = [
+              'https://lowsignal.cl/assets/gets-logo-white.svg',
+              'https://lowsignal.cl/assets/gets.png'
+          ]
+          new = 'https://lowsignal.cl/assets/gets-dark.svg'
+          replaced = False
+          for old in old_candidates:
+              idx = segment.find(old)
+              if idx != -1:
+                  abs_idx = start + idx
+                  s = s[:abs_idx] + new + s[abs_idx+len(old):]
+                  replaced = True
+                  break
+          if not replaced and new not in segment:
+              raise SystemExit('GETS editorial logo not found')
+
+          marker = '<style id="gets-sidebar-logo-v1">'
+          if marker not in s:
+              css = '''\n<style id="gets-sidebar-logo-v1">\n.case-editorial-client{display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important}\n.case-editorial-client img{display:block!important;width:auto!important;height:42px!important;max-width:180px!important;object-fit:contain!important;object-position:left center!important;margin:0 0 20px 0!important}\n.case-editorial-client h3{margin:0!important;text-align:left!important}\n</style>\n'''
+              s = s.replace('</head>', css + '</head>', 1)
           p.write_text(s, encoding='utf-8')
           PY
       - name: Commit change
@@ -40,5 +53,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add casos/gets.html
-          git commit -m 'Fix GETS logo contrast in editorial sidebar'
+          git commit -m 'Fix GETS logo visibility and alignment in editorial sidebar'
           git push
