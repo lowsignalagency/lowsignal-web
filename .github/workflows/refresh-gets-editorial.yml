@@ -1,0 +1,30 @@
+name: Refresh GETS editorial case
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-gets-editorial.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh GETS case
+        run: python scripts/refresh_gets_editorial.py
+      - name: Commit updated case
+        run: |
+          if git diff --quiet; then
+            echo 'No changes needed'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add casos/gets.html
+          git commit -m 'Refresh GETS customer story to editorial format'
+          git push
