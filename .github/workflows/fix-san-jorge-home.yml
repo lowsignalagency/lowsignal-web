@@ -1,6 +1,5 @@
-name: Fix San Jorge logo on home
+name: Publish Low Workspace on home and insights
 
-# Triggered after workflow exists on main so the push event runs it.
 on:
   push:
     branches: [main]
@@ -12,72 +11,117 @@ permissions:
   contents: write
 
 jobs:
-  fix-san-jorge:
+  publish-low-workspace:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Normalize San Jorge logo
+
+      - name: Update Home and Insights
+        shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
 
+          # ----- Insights -----
+          p = Path('recursos/insights.html')
+          s = p.read_text(encoding='utf-8')
+
+          old = '''      <a class="insights-new-feature-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
+        <div class="insights-new-feature-image">
+          <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal">
+          <span>DESTACADO</span>
+        </div>
+        <div class="insights-new-feature-copy">
+          <div class="insights-new-meta"><b>EXPANSIÓN</b><span>16 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>4 min de lectura</span></div>
+          <h2>lowsignal se expande: <em>tres industrias, un solo sistema.</em></h2>
+          <p>Después de trabajar con instituciones, empresas y marcas, concentramos nuestro crecimiento en Educación, B2B y B2C.</p>
+          <div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
+        </div>
+      </a>'''
+
+          new = '''      <a class="insights-new-feature-card" href="https://lowsignal.cl/recursos/insights/low-workspace-operating-system">
+        <div class="insights-new-feature-image">
+          <img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial de Low Workspace">
+          <span>DESTACADO</span>
+        </div>
+        <div class="insights-new-feature-copy">
+          <div class="insights-new-meta"><b>PRODUCT</b><span>25 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>5 min de lectura</span></div>
+          <h2>Construimos <em>Low Workspace</em> para operar lowsignal desde un solo lugar.</h2>
+          <p>Clientes, pipeline, revenue, finanzas, tareas y equipo estaban repartidos entre demasiadas herramientas. En vez de sumar una más, construimos la nuestra.</p>
+          <div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
+        </div>
+      </a>'''
+
+          if old in s:
+              s = s.replace(old, new, 1)
+
+          expansion = '''        <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
+          <div class="insights-new-card-image">
+            <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal">
+          </div>
+          <div class="insights-new-card-body">
+            <div class="insights-new-meta"><b>EXPANSIÓN</b><span>16 oct, 2026</span><span class="insights-meta-author">Felipe Quiroz</span><span>4 min</span></div>
+            <h3>lowsignal se expande: tres industrias, un solo sistema</h3>
+            <p>Concentramos nuestro crecimiento en Educación, B2B y B2C, con soluciones especializadas para cada industria.</p>
+            <div class="insights-new-read">Leer artículo<svg class="insights-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 15.5L15.5 8.5M15.5 8.5H10.5M15.5 8.5V13.5"/></svg></div>
+          </div>
+        </a>'''
+          anchor = '        <a class="insights-new-card" href="https://lowsignal.cl/recursos/insights/sae-2027-como-hacer-visible-proyecto-educativo">'
+          if expansion not in s and anchor in s:
+              i = s.find(anchor)
+              s = s[:i] + expansion + '\n' + s[i:]
+
+          p.write_text(s, encoding='utf-8')
+
+          # ----- Home -----
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
-          # Give every San Jorge item its own stable class.
-          s = re.sub(
-              r'<div class="lsr-trust-logo(?:\s+lsr-trust-wide)?">\s*<img([^>]*csjo-white-trim\.png[^>]*)>\s*</div>',
-              r'<div class="lsr-trust-logo lsr-logo-san-jorge"><img\1></div>',
-              s,
-              flags=re.I
-          )
+          old1 = '''        <a class="home26-insight-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
+          <figure><img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="lazy"></figure>
+          <div class="home26-insight-meta"><span>EXPANSIÓN</span><b>16 OCT, 2026</b></div>
+          <h3>lowsignal se expande: tres industrias, un solo sistema</h3>
+          <p>Concentramos nuestro crecimiento en Educación, B2B y B2C, con soluciones especializadas para cada industria.</p>
+          <strong>Leer insight →</strong>
+        </a>'''
 
-          # Remove older San Jorge-specific patches if present.
-          s = re.sub(r'\s*<style id="home-san-jorge-[^"]+">.*?</style>', '', s, flags=re.S|re.I)
+          new1 = '''        <a class="home26-insight-card" href="https://lowsignal.cl/recursos/insights/low-workspace-operating-system">
+          <figure><img src="https://lowsignal.cl/assets/panel-demo.png" alt="Vista referencial de Low Workspace" loading="lazy"></figure>
+          <div class="home26-insight-meta"><span>PRODUCT</span><b>25 OCT, 2026</b></div>
+          <h3>Construimos Low Workspace para operar lowsignal desde un solo lugar</h3>
+          <p>De herramientas desconectadas a una plataforma interna para clientes, pipeline, revenue, finanzas, tareas y equipo.</p>
+          <strong>Leer insight →</strong>
+        </a>'''
+          if old1 in s:
+              s = s.replace(old1, new1, 1)
 
-          fix = '''
-<style id="home-san-jorge-final-v16">
-.lsr-trust-logo.lsr-logo-san-jorge{
-  width:132px !important;
-  height:58px !important;
-  min-width:132px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:visible !important;
-}
-.lsr-trust-logo.lsr-logo-san-jorge img{
-  width:auto !important;
-  height:auto !important;
-  max-width:112px !important;
-  max-height:42px !important;
-  object-fit:contain !important;
-  transform:none !important;
-  filter:brightness(0) invert(1) !important;
-  opacity:.88 !important;
-}
-@media(max-width:760px){
-  .lsr-trust-logo.lsr-logo-san-jorge{
-    width:116px !important;
-    min-width:116px !important;
-    height:52px !important;
-  }
-  .lsr-trust-logo.lsr-logo-san-jorge img{
-    max-width:98px !important;
-    max-height:36px !important;
-  }
-}
-</style>
-'''
-          s = s.replace('</head>', fix + '\n</head>', 1)
+          old3 = '''        <a class="home26-insight-card" href="https://lowsignal.cl/recursos/insights/platanus-ai-native-startups-4">
+          <figure><img src="https://lowsignal.cl/assets/platanus-ai-native-startups-4.jpg" alt="Platanus AI Native Startups #4 en Santiago" loading="lazy"></figure>
+          <div class="home26-insight-meta"><span>EVENTO</span><b>1 OCT, 2026</b></div>
+          <h3>Platanus AI Native Startups #4</h3>
+          <p>Founders de Fintoc, Fintual y Osiris Experience comparten cómo están replanteando sus empresas alrededor de los LLMs.</p>
+          <strong>Leer insight →</strong>
+        </a>'''
+
+          new3 = '''        <a class="home26-insight-card" href="https://lowsignal.cl/recursos/insights/lowsignal-se-expande-tres-industrias-un-sistema">
+          <figure><img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="lazy"></figure>
+          <div class="home26-insight-meta"><span>EXPANSIÓN</span><b>16 OCT, 2026</b></div>
+          <h3>lowsignal se expande: tres industrias, un solo sistema</h3>
+          <p>Concentramos nuestro crecimiento en Educación, B2B y B2C, con soluciones especializadas para cada industria.</p>
+          <strong>Leer insight →</strong>
+        </a>'''
+          if old3 in s:
+              s = s.replace(old3, new3, 1)
+
           p.write_text(s, encoding='utf-8')
           PY
-      - name: Commit home fix
+
+      - name: Commit publication
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          git add index.html recursos/insights.html
           git diff --cached --quiet && exit 0
-          git commit -m "Normalize San Jorge logo on home"
+          git commit -m "Publish Low Workspace on Home and Insights"
           git push
