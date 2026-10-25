@@ -1,0 +1,44 @@
+name: Fix Education casing all pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-education-casing-all-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update navbar label across HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          changed = []
+          old = 'lowsignal for education'
+          new = 'lowsignal for Education'
+          for p in Path('.').rglob('*.html'):
+              text = p.read_text(encoding='utf-8')
+              if old in text:
+                  updated = text.replace(old, new)
+                  if updated != text:
+                      p.write_text(updated, encoding='utf-8')
+                      changed.append(str(p))
+          print('Changed files:', *changed, sep='\n- ')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo 'No changes needed'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html' '**/*.html'
+          git commit -m 'Fix Education casing across navbars'
+          git push
