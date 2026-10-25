@@ -38,3 +38,5 @@ jobs:
           git add casos/gets.html
           git commit -m 'Improve GETS Instagram post framing'
           git push
+
+# trigger
