@@ -1,0 +1,40 @@
+name: Fix GETS Instagram framing
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-gets-instagram-framing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Improve GETS Instagram image framing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('casos/gets.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '<style id="gets-instagram-framing-v1">'
+          if marker in s:
+              raise SystemExit('GETS Instagram framing already applied')
+          css = '''\n<style id="gets-instagram-framing-v1">\n/* GETS-specific: show the Instagram grid without cropping posts. */\n.case-editorial img[src$="/gets-ig.jpg"]{\n  display:block !important;\n  width:100% !important;\n  height:auto !important;\n  max-height:none !important;\n  object-fit:contain !important;\n  object-position:center top !important;\n  background:#fff !important;\n}\n.case-editorial-media:has(img[src$="/gets-ig.jpg"]),\n.case-editorial-pair figure:has(img[src$="/gets-ig.jpg"]){\n  background:#fff !important;\n}\n.case-editorial-pair figure:has(img[src$="/gets-ig.jpg"]){\n  align-self:start;\n}\n@media(max-width:760px){\n  .case-editorial img[src$="/gets-ig.jpg"]{\n    height:auto !important;\n  }\n}\n</style>\n'''
+          if '</head>' not in s:
+              raise SystemExit('Closing head not found')
+          s = s.replace('</head>', css + '</head>', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add casos/gets.html
+          git commit -m 'Improve GETS Instagram post framing'
+          git push
