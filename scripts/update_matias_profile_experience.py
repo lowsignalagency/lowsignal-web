@@ -16,19 +16,25 @@ s = s.replace(
     '<p class="tp-summary">Construye agentes, automatizaciones e integraciones que conectan datos, procesos comerciales y tecnología para acelerar adquisición, conversión y eficiencia.</p>'
 )
 
-# Restore Matias personal LinkedIn under the profile summary.
+# Restore Matias personal LinkedIn with the same divider pattern used in Felipe's profile.
+s = re.sub(r'\n\s*<div class="tp-profile-links".*?</div>', '', s, flags=re.S)
 s = re.sub(r'\n\s*<a class="tp-linkedin-personal".*?</a>', '', s)
 summary = '<p class="tp-summary">Construye agentes, automatizaciones e integraciones que conectan datos, procesos comerciales y tecnología para acelerar adquisición, conversión y eficiencia.</p>'
-linkedin = '        <a class="tp-linkedin-personal" href="https://www.linkedin.com/in/matias-bussinger-3872b4380/" target="_blank" rel="noopener">LinkedIn ↗</a>'
-s = s.replace(summary, summary + '\n' + linkedin, 1)
+linkedin = '''        <div class="tp-profile-links" aria-label="Enlaces de Matías">
+          <a href="https://www.linkedin.com/in/matias-bussinger-3872b4380/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>'''
+s = s.replace(summary, summary + '\n\n' + linkedin, 1)
 
-# Remove generated experience section/style if this script runs again.
-s = re.sub(r'\n?<style id="matias-experience-v1">.*?</style>\s*', '\n', s, flags=re.S)
-s = re.sub(r'\n?<style id="matias-profile-links-v2">.*?</style>\s*', '\n', s, flags=re.S)
+# Remove generated experience/link styles and section if this script runs again.
+for style_id in ['matias-experience-v1', 'matias-profile-links-v2', 'matias-linkedin-consilium-v2', 'matias-experience-v2']:
+    s = re.sub(rf'\n?<style id="{style_id}">.*?</style>\s*', '\n', s, flags=re.S)
 s = re.sub(r'\n?<section class="tp-experience"[^>]*>.*?</section>\s*', '\n', s, count=1, flags=re.S)
 
 css = r'''
-<style id="matias-experience-v1">
+<style id="matias-experience-v2">
+.tp-profile-links{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(138,164,255,.14)}
+.tp-profile-links a{color:#C2CBE0;font-size:11px;font-weight:600;transition:color .18s ease}
+.tp-profile-links a:hover{color:#fff}
 .tp-experience{padding:112px 0 120px;background:#fff;color:#0D1420}
 .tp-experience-head{max-width:760px}
 .tp-experience-head h2{margin:18px 0 0;font-size:clamp(40px,4.3vw,58px);line-height:1.05;letter-spacing:-.05em;font-weight:300}
@@ -37,27 +43,21 @@ css = r'''
 .tp-timeline{margin-top:58px;border-top:1px solid #DDE4F0}
 .tp-role{display:grid;grid-template-columns:70px 260px minmax(0,1fr);gap:34px;padding:32px 0;border-bottom:1px solid #DDE4F0}
 .tp-role-index{color:#8393B1;font-size:11px;padding-top:4px}
-.tp-role-brand{display:flex;align-items:center;gap:10px;margin-bottom:5px}
-.tp-role-brand img{width:30px;height:30px;object-fit:contain;flex:0 0 30px}
-.tp-role-meta b{display:block;color:#101827;font-size:19px}
+.tp-role-brand{display:flex;align-items:center;min-height:58px;margin-bottom:10px}
+.tp-role-brand img{width:138px;max-width:100%;height:52px;object-fit:contain;object-position:left center}
 .tp-role-meta span{display:block;margin-top:6px;color:#53617A;font-size:12px}
 .tp-role-meta small{display:block;margin-top:10px;color:#8490A7;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
 .tp-role-body h3{margin:0;color:#111A2B;font-size:24px;line-height:1.22;letter-spacing:-.035em;font-weight:400}
 .tp-role-body p{max-width:720px;margin:12px 0 0;color:#647087;font-size:13px;line-height:1.72}
 @media(max-width:760px){
+  .tp-profile-links{margin-top:24px;padding-top:20px;gap:10px 18px}
   .tp-experience{padding:76px 0}
   .tp-experience-head h2{font-size:39px}
   .tp-role{grid-template-columns:1fr;gap:8px;padding:26px 0}
   .tp-role-index{padding-top:0}
-  .tp-role-brand{gap:8px}
-  .tp-role-brand img{width:26px;height:26px;flex-basis:26px}
+  .tp-role-brand{min-height:50px;margin:4px 0 8px}
+  .tp-role-brand img{width:126px;height:46px}
 }
-</style>
-
-<style id="matias-profile-links-v2">
-.tp-linkedin-personal{display:inline-flex;margin-top:22px;color:#AAB7FF;font-size:12px;font-weight:600;transition:color .18s ease,transform .18s ease}
-.tp-linkedin-personal:hover{color:#fff;transform:translateY(-1px)}
-@media(max-width:760px){.tp-linkedin-personal{margin-top:18px}}
 </style>
 '''
 
@@ -75,14 +75,13 @@ experience = r'''
         <div class="tp-role-meta">
           <div class="tp-role-brand">
             <img src="https://lowsignal.cl/assets/consiliumbots-logo.svg" alt="ConsiliumBots">
-            <b>ConsiliumBots</b>
           </div>
           <span>Embajador de Innovación Educativa</span>
           <small>ONG · US / LATAM</small>
         </div>
         <div class="tp-role-body">
-          <h3>Acercar innovación digital a comunidades educativas.</h3>
-          <p>Representó y promovió la misión de la organización de fortalecer a los colegios mediante habilidades digitales e innovación. Trabajó con comunidades educativas, apoyó la implementación de herramientas de diagnóstico y fortaleció la presencia digital a través de creación de contenido y acciones de outreach, actuando como puente entre instituciones y la organización para impulsar colaboración e impacto en educación y tecnología.</p>
+          <h3>Acercar tecnología y datos públicos a comunidades.</h3>
+          <p>En ConsiliumBots trabajó conectando innovación tecnológica con comunidades educativas y sociales, apoyando iniciativas orientadas a transformar datos del gobierno en información más accesible y útil para las personas. Contribuyó a acciones de outreach, contenidos y vínculo con instituciones para ampliar el acceso a educación, vivienda y otros beneficios públicos, reforzando la misión de la organización de generar impacto social y económico mediante tecnología.</p>
         </div>
       </article>
     </div>
