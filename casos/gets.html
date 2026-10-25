@@ -2063,6 +2063,31 @@ html{scroll-behavior:smooth!important}
 @media(max-width:760px){.case-new-hero{padding-top:94px!important;padding-bottom:58px!important}.case-new-hero-grid{gap:26px!important;margin-top:26px!important}.case-new-hero h1{font-size:45px!important}.case-new-hero-grid>div:first-child>p{font-size:15px!important}.case-new-cover{height:330px!important;margin-top:36px!important;border-radius:19px!important}.case-new-story,.case-new-work,.case-new-system,.case-new-next{padding:74px 0!important}.case-new-story-head,.case-new-work-head,.case-new-system-grid{grid-template-columns:1fr!important;gap:22px!important}.case-new-story h2,.case-new-work h2,.case-new-system h2{font-size:34px!important}.case-new-steps{grid-template-columns:1fr!important;gap:12px!important;margin-top:34px!important}.case-new-steps article{min-height:0!important;padding:22px!important}.case-new-gallery{grid-template-columns:1fr!important;grid-template-rows:auto!important;gap:12px!important;margin-top:34px!important}.case-new-gallery figure{height:310px!important;border-radius:17px!important}.case-new-testimonial,.case-dali-testimonial{padding:66px 0!important}.case-new-testimonial-inner,.case-dali-testimonial-inner{padding:28px 24px!important;border-radius:19px!important}.case-new-testimonial blockquote,.case-dali-testimonial blockquote{font-size:25px!important}.case-new-final{padding:66px 0!important}}
 </style>
 
+
+<style id="gets-instagram-framing-v1">
+/* GETS-specific: show the Instagram grid without cropping posts. */
+.case-editorial img[src$="/gets-ig.jpg"]{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+  background:#fff !important;
+}
+.case-editorial-media:has(img[src$="/gets-ig.jpg"]),
+.case-editorial-pair figure:has(img[src$="/gets-ig.jpg"]){
+  background:#fff !important;
+}
+.case-editorial-pair figure:has(img[src$="/gets-ig.jpg"]){
+  align-self:start;
+}
+@media(max-width:760px){
+  .case-editorial img[src$="/gets-ig.jpg"]{
+    height:auto !important;
+  }
+}
+</style>
 </head>
 <body>
 
