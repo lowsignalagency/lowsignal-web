@@ -1,0 +1,49 @@
+name: Fix Education casing in Industries navbar
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-home-nav-education-case.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-navbar-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update Industries dropdown copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          desktop_old = '<a href="https://lowsignal.cl/industrias/educacion"><b>lowsignal for education</b><small>Para colegios, redes, fundaciones e instituciones.</small></a>'
+          desktop_new = '<a href="https://lowsignal.cl/industrias/educacion"><b>lowsignal for Education</b><small>Para colegios, redes, fundaciones e instituciones.</small></a>'
+
+          mobile_old = '<a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for education</strong><small>Colegios, redes y fundaciones</small></a>'
+          mobile_new = '<a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a>'
+
+          if text.count(desktop_old) != 1:
+              raise SystemExit(f'Expected 1 desktop match, found {text.count(desktop_old)}')
+          if text.count(mobile_old) != 1:
+              raise SystemExit(f'Expected 1 mobile match, found {text.count(mobile_old)}')
+
+          text = text.replace(desktop_old, desktop_new).replace(mobile_old, mobile_new)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix Education casing in navbar"
+          git push
