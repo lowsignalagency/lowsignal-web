@@ -1,5 +1,6 @@
 name: Publish Low Workspace insight
 
+# Trigger publication after workflow already exists on main.
 on:
   push:
     paths:
@@ -21,7 +22,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
-          # Insights index
           p = Path('recursos/insights.html')
           s = p.read_text(encoding='utf-8')
 
@@ -73,7 +73,6 @@ jobs:
 
           p.write_text(s, encoding='utf-8')
 
-          # Home
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
 
