@@ -1,4 +1,4 @@
-name: B2B cache bust
+name: B2B cache bust v7
 on:
   push:
     paths:
@@ -16,21 +16,17 @@ jobs:
           from pathlib import Path
           p = Path('industrias/b2b.html')
           s = p.read_text()
-          versions = [
-              '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js"></script>',
-              '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=4"></script>'
-          ]
-          new = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=5"></script>'
-          for old in versions:
-              s = s.replace(old, new)
-          if new not in s:
-              s = s.replace('</body>', new + '\n</body>')
-          p.write_text(s)
+          old = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=6"></script>'
+          new = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=7"></script>'
+          if old not in s:
+              raise SystemExit('Expected B2B v6 reference not found')
+          p.write_text(s.replace(old, new))
           PY
       - name: Commit cache bust
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add industrias/b2b.html
-          git diff --cached --quiet || git commit -m "Bust B2B pricing enhancer cache v5"
+          git commit -m "Bump B2B enhancer to v7"
           git push
+# trigger-v7
