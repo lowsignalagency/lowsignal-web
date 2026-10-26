@@ -1,4 +1,4 @@
-name: B2C pricing enhancer v3
+name: B2C pricing enhancer v4
 on:
   push:
     paths:
@@ -14,19 +14,15 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          js=Path('assets/b2c-pricing-enhance.js')
-          s=js.read_text()
-          s=s.replace('b2c-pricing-enhance.css?v=2','b2c-pricing-enhance.css?v=3')
-          js.write_text(s)
           html=Path('industrias/marcas-b2c.html')
           h=html.read_text()
-          h=h.replace('b2c-pricing-enhance.js?v=2','b2c-pricing-enhance.js?v=3')
+          h=h.replace('b2c-pricing-enhance.js?v=3','b2c-pricing-enhance.js?v=4')
           html.write_text(h)
           PY
       - name: Commit change
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/b2c-pricing-enhance.js industrias/marcas-b2c.html
-          git commit -m "Bump B2C pricing enhancer to v3"
+          git add industrias/marcas-b2c.html
+          git diff --cached --quiet || git commit -m "Bump B2C pricing enhancer to v4"
           git push
