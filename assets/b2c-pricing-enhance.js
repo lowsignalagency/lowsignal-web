@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const style=document.createElement('link');
   style.rel='stylesheet';
-  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=2';
+  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=3';
   document.head.appendChild(style);
 
   const pricing=document.querySelector('#planes-b2c');
