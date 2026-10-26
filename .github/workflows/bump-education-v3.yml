@@ -1,4 +1,4 @@
-name: Bump Education enhancer v5
+name: Bump Education enhancer v6
 on:
   push:
     paths:
@@ -16,10 +16,10 @@ jobs:
           from pathlib import Path
           p=Path('industrias/educacion.html')
           s=p.read_text()
-          old='https://lowsignal.cl/assets/education-pricing-enhance.js?v=4'
-          new='https://lowsignal.cl/assets/education-pricing-enhance.js?v=5'
+          old='https://lowsignal.cl/assets/education-pricing-enhance.js?v=5'
+          new='https://lowsignal.cl/assets/education-pricing-enhance.js?v=6'
           if old not in s:
-              raise SystemExit('Expected Education v4 reference not found')
+              raise SystemExit('Expected Education v5 reference not found')
           p.write_text(s.replace(old,new))
           PY
       - name: Commit change
@@ -27,5 +27,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add industrias/educacion.html
-          git commit -m "Bump Education enhancer to v5"
+          git commit -m "Bump Education enhancer to v6"
           git push
+# trigger-v6
