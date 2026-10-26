@@ -1,0 +1,40 @@
+name: Refresh industry enhancers v2
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-industry-enhancers-v2.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump B2B and Education enhancer versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          replacements = {
+            'industrias/b2b.html': (
+              'https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=5',
+              'https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=6'
+            ),
+            'industrias/educacion.html': (
+              'https://lowsignal.cl/assets/education-pricing-enhance.js?v=1',
+              'https://lowsignal.cl/assets/education-pricing-enhance.js?v=2'
+            )
+          }
+          for path,(old,new) in replacements.items():
+              p=Path(path)
+              s=p.read_text()
+              if old not in s:
+                  raise SystemExit(f'Expected version not found in {path}: {old}')
+              p.write_text(s.replace(old,new))
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/b2b.html industrias/educacion.html
+          git diff --cached --quiet || git commit -m "Refresh B2B and Education enhancers"
+          git push
