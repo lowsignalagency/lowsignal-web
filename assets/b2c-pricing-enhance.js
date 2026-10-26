@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const style=document.createElement('link');
   style.rel='stylesheet';
-  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=3';
+  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=4';
   document.head.appendChild(style);
+
+  const scrollStyle=document.createElement('style');
+  scrollStyle.textContent=`html{scroll-behavior:smooth}body{overflow-x:hidden}#planes-b2c,[id]{scroll-margin-top:118px}@media(max-width:760px){#planes-b2c,[id]{scroll-margin-top:96px}}`;
+  document.head.appendChild(scrollStyle);
 
   const pricing=document.querySelector('#planes-b2c');
   if(!pricing)return;
@@ -100,4 +104,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
     mobile.appendChild(card);
   });
+
+  const dynamic=[...document.querySelectorAll('.b2c-growth-intro,.b2c-growth-step,#planes-b2c .b2cr-plan,#planes-b2c .b2c-compare,#planes-b2c .b2cr-custom')];
+  dynamic.forEach(el=>el.classList.add('b2cr-reveal'));
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    }),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+    dynamic.forEach(el=>io.observe(el));
+  }else{
+    dynamic.forEach(el=>el.classList.add('is-visible'));
+  }
 });
