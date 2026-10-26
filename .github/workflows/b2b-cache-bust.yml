@@ -1,0 +1,33 @@
+name: B2B cache bust
+on:
+  push:
+    paths:
+      - '.github/workflows/b2b-cache-bust.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Version B2B pricing enhancer asset
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('industrias/b2b.html')
+          s = p.read_text()
+          old = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js"></script>'
+          new = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=4"></script>'
+          if old in s:
+              s = s.replace(old, new)
+          elif new not in s:
+              s = s.replace('</body>', new + '\n</body>')
+          p.write_text(s)
+          PY
+      - name: Commit cache bust
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add industrias/b2b.html
+          git diff --cached --quiet || git commit -m "Bust B2B pricing enhancer cache"
+          git push
