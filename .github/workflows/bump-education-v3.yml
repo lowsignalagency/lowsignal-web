@@ -29,4 +29,4 @@ jobs:
           git add industrias/educacion.html
           git commit -m "Bump Education enhancer to v6"
           git push
-# trigger-v6
+# retry-v6
