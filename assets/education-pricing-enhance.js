@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const style=document.createElement('link');style.rel='stylesheet';style.href='https://lowsignal.cl/assets/education-pricing-enhance.css?v=5';document.head.appendChild(style);
+  const mobileStyle=document.createElement('link');mobileStyle.rel='stylesheet';mobileStyle.href='https://lowsignal.cl/assets/education-mobile-compare-v6.css?v=1';document.head.appendChild(mobileStyle);
   const pricing=document.querySelector('#planes-education');if(!pricing)return;
 
   if(!document.querySelector('.education-method')){
