@@ -16,11 +16,14 @@ jobs:
           from pathlib import Path
           p = Path('industrias/b2b.html')
           s = p.read_text()
-          old = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js"></script>'
-          new = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=4"></script>'
-          if old in s:
+          versions = [
+              '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js"></script>',
+              '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=4"></script>'
+          ]
+          new = '<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=5"></script>'
+          for old in versions:
               s = s.replace(old, new)
-          elif new not in s:
+          if new not in s:
               s = s.replace('</body>', new + '\n</body>')
           p.write_text(s)
           PY
@@ -29,6 +32,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add industrias/b2b.html
-          git diff --cached --quiet || git commit -m "Bust B2B pricing enhancer cache"
+          git diff --cached --quiet || git commit -m "Bust B2B pricing enhancer cache v5"
           git push
-# trigger 2
