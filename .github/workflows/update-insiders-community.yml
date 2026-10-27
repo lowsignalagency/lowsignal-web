@@ -1,0 +1,106 @@
+name: Update Insiders community
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-insiders-community.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-insiders:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Insiders people section
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('recursos/insiders.html')
+          text = path.read_text(encoding='utf-8')
+
+          old_people = '''        <div class="insr-people">
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/joaquin.png" alt="Joaquín, miembro de lowsignal Insiders" loading="lazy"></div><b>Joaquín</b><span>INSIDER</span></article>
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/samu.png" alt="Samuel, miembro de lowsignal Insiders" loading="lazy"></div><b>Samuel</b><span>INSIDER</span></article>
+          <article><div class="insr-person-photo insr-pablo-photo"><img src="https://lowsignal.cl/assets/pablo-embajador.png" alt="Pablo, miembro de lowsignal Insiders" loading="lazy"></div><b>Pablo</b><span>INSIDER</span></article>
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/martin-insiders.png" alt="Martín, miembro de lowsignal Insiders" loading="lazy"></div><b>Martín</b><span>INSIDER</span></article>
+        </div>'''
+
+          new_people = '''        <div class="insr-people" aria-label="Comunidad lowsignal Insiders">
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/joaquin.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/samu.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>
+          <article><div class="insr-person-photo insr-pablo-photo"><img src="https://lowsignal.cl/assets/pablo-embajador.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>
+          <article><div class="insr-person-photo"><img src="https://lowsignal.cl/assets/martin-insiders.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>
+          <article><div class="insr-person-photo insr-ferfeli-photo"><img src="https://lowsignal.cl/assets/ferfeli.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>
+        </div>'''
+
+          if old_people not in text:
+              raise SystemExit('Expected Insiders people block not found')
+          text = text.replace(old_people, new_people, 1)
+
+          text = text.replace(
+              'Joaquín, Samuel, Pablo y Martín ya son parte de la red. Buscamos a las próximas personas que quieran abrir camino con nosotros.',
+              'La red ya está creciendo. Buscamos a las próximas personas que quieran abrir camino con nosotros.',
+              1
+          )
+
+          overrides = '''
+<style id="insiders-v8-circular-community">
+/* Insiders — scalable community faces */
+.insr-people{
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:14px!important;
+  align-items:center!important;
+}
+.insr-people article{
+  min-width:0!important;
+  margin:0!important;
+}
+.insr-person-photo{
+  width:100%!important;
+  aspect-ratio:1 / 1!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+  border:1px solid #E1E6F1!important;
+  background:#E9EDF5!important;
+  box-shadow:0 10px 26px rgba(7,15,34,.08)!important;
+}
+.insr-person-photo img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 20%!important;
+}
+.insr-pablo-photo img{object-position:center 17%!important}
+.insr-ferfeli-photo img{object-position:center 20%!important}
+.insr-people article>b,
+.insr-people article>span{display:none!important}
+@media(max-width:700px){
+  .insr-people{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  .insr-person-photo{border-radius:50%!important}
+}
+</style>
+'''
+
+          if 'id="insiders-v8-circular-community"' not in text:
+              text = text.replace('</head>', overrides + '\n</head>', 1)
+
+          path.write_text(text, encoding='utf-8')
+
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/insiders.html
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: refresh Insiders community faces"
+          git push
