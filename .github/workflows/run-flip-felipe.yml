@@ -1,5 +1,9 @@
 name: Update Felipe profile layout
-on: workflow_dispatch
+on:
+  push:
+    paths:
+      - '.github/workflows/run-flip-felipe.yml'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
