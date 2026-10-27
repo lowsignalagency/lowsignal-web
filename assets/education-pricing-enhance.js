@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 
   const custom=pricing.querySelector('.custom');
-  if(custom){const label=custom.querySelector('span'),h=custom.querySelector('h3'),p=custom.querySelector('p'),a=custom.querySelector('a');if(label)label.textContent='PLAN A MEDIDA';if(h)h.textContent='¿Tu institución necesita algo distinto?';if(p)p.textContent='Armamos un alcance a tu medida según tus objetivos de admisión, comunicación, comunidad y crecimiento.';if(a)a.textContent='Diseñemos tu plan →'}
+  if(custom){const label=custom.querySelector('span'),h=custom.querySelector('h3'),p=custom.querySelector('p'),a=custom.querySelector('a');if(label)label.textContent='PLAN A MEDIDA';if(h)h.textContent='¿Necesitas algo distinto?';if(p)p.textContent='Si gestionas una red de colegios o necesitas un alcance diferente, adaptamos el plan a tus objetivos, servicios y número de establecimientos.';if(a)a.textContent='Diseñemos tu plan →'}
 
   pricing.querySelector('.education-compare')?.remove();
   const cmp=document.createElement('section');cmp.className='education-compare';
