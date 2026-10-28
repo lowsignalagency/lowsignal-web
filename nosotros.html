@@ -1551,18 +1551,8 @@
 </style>
 
 
-<style id="team-profile-exit-transition-v1">
-@media (prefers-reduced-motion:no-preference){
-  body{transition:opacity .22s ease,transform .28s cubic-bezier(.2,.75,.2,1)}
-  body.team-profile-leaving{opacity:.72;transform:translateY(-4px)}
-}
-</style>
 
 
-<style id="team-profile-link-transition-v1">
-html.team-profile-leaving body{opacity:.72;transition:opacity .22s ease}
-@media(prefers-reduced-motion:reduce){html.team-profile-leaving body{opacity:1;transition:none}}
-</style>
 
 </head>
 <body>
@@ -8991,91 +8981,41 @@ footer{
 </style>
 
 
-<script id="team-profile-exit-transition-js-v1">
+
+
+
+
+
+
+
+
+<script id="team-profile-native-navigation-v1">
 (function(){
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('a[href*="/equipo/"]');
-    if(!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target==='_blank') return;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    e.preventDefault();
-    document.body.classList.add('team-profile-leaving');
-    setTimeout(function(){window.location.href=a.href;},220);
-  });
-})();
-</script>
-
-
-
-
-<script id="team-profile-return-scroll-v1">
-(function(){
-  var KEY='lowsignal-nosotros-team-scroll';
+  var KEY = 'lowsignal:nosotros-team-scroll';
 
   document.addEventListener('click', function(e){
-    var link=e.target.closest('a.profile-link[href*="/equipo/"]');
+    var link = e.target.closest('a.profile-link[href*="/equipo/"]');
     if(!link) return;
-    try{
-      sessionStorage.setItem(KEY, String(window.scrollY));
-    }catch(err){}
+    try { sessionStorage.setItem(KEY, String(window.scrollY)); } catch(err) {}
   }, true);
 
-  window.addEventListener('pageshow', function(){
-    var nav=performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-    var isBackForward=nav && nav.type==='back_forward';
+  window.addEventListener('pageshow', function(e){
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    var isBackForward = e.persisted || (nav && nav.type === 'back_forward');
     if(!isBackForward) return;
 
-    var saved=null;
-    try{ saved=sessionStorage.getItem(KEY); }catch(err){}
-    if(saved===null) return;
+    var raw = null;
+    try { raw = sessionStorage.getItem(KEY); } catch(err) {}
+    if(raw === null) return;
 
-    var y=parseFloat(saved);
+    var y = Number(raw);
     if(!Number.isFinite(y)) return;
 
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
-        window.scrollTo({top:y,left:0,behavior:'auto'});
-        try{ sessionStorage.removeItem(KEY); }catch(err){}
+        window.scrollTo(0, y);
       });
     });
-  });
-})();
-</script>
-
-
-<script id="team-profile-navigation-v2">
-(function(){
-  var KEY = 'lowsignal:nosotros-team-scroll';
-
-  function restoreTeamScroll(){
-    var raw = sessionStorage.getItem(KEY);
-    if(raw === null) return;
-    var y = Number(raw);
-    if(!Number.isFinite(y)) return;
-    requestAnimationFrame(function(){ window.scrollTo(0, y); });
-  }
-
-  window.addEventListener('pageshow', function(e){
-    if(e.persisted || performance.getEntriesByType('navigation')[0]?.type === 'back_forward'){
-      restoreTeamScroll();
-    }
-    document.documentElement.classList.remove('team-profile-leaving');
-    document.body.classList.remove('team-profile-leaving');
-  });
-
-  document.addEventListener('click', function(e){
-    var link = e.target.closest('a.profile-link[href*="/equipo/"]');
-    if(!link || e.defaultPrevented || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-
-    sessionStorage.setItem(KEY, String(window.scrollY));
-
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    e.preventDefault();
-    document.documentElement.classList.add('team-profile-leaving');
-    window.setTimeout(function(){
-      // Exactly one navigation => exactly one history entry.
-      window.location.assign(link.href);
-    }, 180);
   });
 })();
 </script>
