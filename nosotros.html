@@ -9005,20 +9005,6 @@ footer{
 </script>
 
 
-<script id="team-profile-link-transition-script">
-(function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.addEventListener('click', function(e){
-    var link = e.target.closest('a[href*="/equipo/"]');
-    if(!link || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    var href = link.href;
-    if(!href) return;
-    e.preventDefault();
-    document.documentElement.classList.add('team-profile-leaving');
-    window.setTimeout(function(){ window.location.href = href; }, 180);
-  });
-})();
-</script>
 
 
 <script id="team-profile-return-scroll-v1">
@@ -9051,6 +9037,45 @@ footer{
         try{ sessionStorage.removeItem(KEY); }catch(err){}
       });
     });
+  });
+})();
+</script>
+
+
+<script id="team-profile-navigation-v2">
+(function(){
+  var KEY = 'lowsignal:nosotros-team-scroll';
+
+  function restoreTeamScroll(){
+    var raw = sessionStorage.getItem(KEY);
+    if(raw === null) return;
+    var y = Number(raw);
+    if(!Number.isFinite(y)) return;
+    requestAnimationFrame(function(){ window.scrollTo(0, y); });
+  }
+
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted || performance.getEntriesByType('navigation')[0]?.type === 'back_forward'){
+      restoreTeamScroll();
+    }
+    document.documentElement.classList.remove('team-profile-leaving');
+    document.body.classList.remove('team-profile-leaving');
+  });
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a.profile-link[href*="/equipo/"]');
+    if(!link || e.defaultPrevented || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    sessionStorage.setItem(KEY, String(window.scrollY));
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    e.preventDefault();
+    document.documentElement.classList.add('team-profile-leaving');
+    window.setTimeout(function(){
+      // Exactly one navigation => exactly one history entry.
+      window.location.assign(link.href);
+    }, 180);
   });
 })();
 </script>
