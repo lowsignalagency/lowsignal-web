@@ -30,8 +30,6 @@ STYLE = r'''<style id="team-editorial-profile-v1">
 @media(max-width:1100px) and (min-width:761px){.team-editorial-shell{width:calc(100% - 48px)}}
 @media(max-width:900px){.team-editorial-profile{padding:124px 0 68px}.team-editorial-shell{width:calc(100% - 48px)}.team-editorial-grid{grid-template-columns:1fr;gap:38px}.team-editorial-copy{max-width:720px}.team-editorial-photo{width:min(100%,460px);aspect-ratio:4/5}}
 @media(max-width:560px){.team-editorial-shell{width:calc(100% - 40px)}.team-editorial-profile{padding:112px 0 54px}.team-editorial-photo{width:100%;aspect-ratio:4/5;border-radius:18px}.team-editorial-copy h1{font-size:46px}.team-editorial-role{font-size:15px}.team-editorial-bio{margin-top:26px;font-size:15px;line-height:1.72}.team-editorial-links{gap:18px}}
-
-/* Same subtle entrance used on Felipe */
 html:not(.team-editorial-motion-ready) .team-editorial-photo{opacity:0;transform:translateY(18px) scale(.992)}
 html:not(.team-editorial-motion-ready) .team-editorial-copy{opacity:0;transform:translateY(14px)}
 .team-editorial-photo{transition:opacity .48s ease,transform .58s cubic-bezier(.2,.75,.25,1)}
@@ -53,80 +51,66 @@ SCRIPT = r'''<script id="team-editorial-motion-v1">
 </script>'''
 
 
-def clean_inner(value: str) -> str:
+def clean(value: str) -> str:
     value = re.sub(r'\s+', ' ', value or '').strip()
     return value
 
 
-def find_class_inner(section: str, class_name: str):
-    # common block tags used by the existing profile pages
-    m = re.search(rf'<(?:div|p|span)[^>]*class=["\'][^"\']*\b{re.escape(class_name)}\b[^"\']*["\'][^>]*>(.*?)</(?:div|p|span)>', section, re.S | re.I)
-    return clean_inner(m.group(1)) if m else ''
-
-
-def strip_block_markup(value: str) -> str:
-    value = re.sub(r'</?(?:div|section|article|ul|li)[^>]*>', ' ', value, flags=re.I)
-    value = re.sub(r'<br\s*/?>', ' ', value, flags=re.I)
-    return clean_inner(value)
+def text_only(value: str) -> str:
+    value = re.sub(r'<br\s*/?>', ' ', value or '', flags=re.I)
+    value = re.sub(r'<[^>]+>', ' ', value)
+    return clean(value)
 
 
 for filename in FILES:
     path = Path(filename)
     s = path.read_text(encoding='utf-8')
 
-    section_match = re.search(r'<section[^>]*class=["\'][^"\']*\bprofile-hero\b[^"\']*["\'][^>]*>.*?</section>', s, re.S | re.I)
+    section_match = re.search(r'<section[^>]*class=["\'][^"\']*\btp-profile\b[^"\']*["\'][^>]*>.*?</section>', s, re.S | re.I)
     if not section_match:
-        raise SystemExit(f'profile-hero section not found in {filename}')
+        raise SystemExit(f'tp-profile section not found in {filename}')
     section = section_match.group(0)
 
+    title_m = re.search(r'<title>(.*?)\|\s*(.*?)\|\s*lowsignal</title>', s, re.S | re.I)
+    if not title_m:
+        raise SystemExit(f'title/role not found in {filename}')
+    name_from_title = clean(title_m.group(1))
+    role = clean(title_m.group(2)) + ', lowsignal'
+
     name_m = re.search(r'<h1[^>]*>(.*?)</h1>', section, re.S | re.I)
-    if not name_m:
-        raise SystemExit(f'name not found in {filename}')
-    name = strip_block_markup(name_m.group(1))
+    name = text_only(name_m.group(1)) if name_m else name_from_title
+    if not name:
+        name = name_from_title
 
-    role = find_class_inner(section, 'role')
-    if not role:
-        raise SystemExit(f'role not found in {filename}')
-
-    photo_block = re.search(r'<(?:figure|div)[^>]*class=["\'][^"\']*\bprofile-photo\b[^"\']*["\'][^>]*>(.*?)</(?:figure|div)>', section, re.S | re.I)
-    if not photo_block:
-        raise SystemExit(f'profile photo block not found in {filename}')
-    img_m = re.search(r'<img\b[^>]*>', photo_block.group(1), re.S | re.I)
+    img_m = re.search(r'<img[^>]*class=["\'][^"\']*\btp-photo\b[^"\']*["\'][^>]*>', section, re.S | re.I)
     if not img_m:
-        raise SystemExit(f'profile image not found in {filename}')
+        raise SystemExit(f'tp-photo image not found in {filename}')
     img_tag = img_m.group(0)
+    img_tag = re.sub(r'\sclass=["\'][^"\']*\btp-photo\b[^"\']*["\']', '', img_tag, count=1, flags=re.I)
 
-    intro = find_class_inner(section, 'intro')
+    positioning_m = re.search(r'<p[^>]*class=["\'][^"\']*\btp-positioning\b[^"\']*["\'][^>]*>(.*?)</p>', section, re.S | re.I)
+    summary_m = re.search(r'<p[^>]*class=["\'][^"\']*\btp-summary\b[^"\']*["\'][^>]*>(.*?)</p>', section, re.S | re.I)
+    parts = []
+    if positioning_m:
+        parts.append(text_only(positioning_m.group(1)))
+    if summary_m:
+        parts.append(text_only(summary_m.group(1)))
+    parts = [p for i, p in enumerate(parts) if p and p not in parts[:i]]
+    if not parts:
+        raise SystemExit(f'positioning/summary not found in {filename}')
+    bio = ' '.join(parts)
 
-    bio_m = re.search(r'<div[^>]*class=["\'][^"\']*\bbio\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S | re.I)
-    bio_parts = []
-    if intro:
-        bio_parts.append(intro)
-    if bio_m:
-        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', bio_m.group(1), re.S | re.I)
-        if paragraphs:
-            bio_parts.extend(strip_block_markup(p) for p in paragraphs if clean_inner(p))
-        else:
-            raw = strip_block_markup(bio_m.group(1))
-            if raw:
-                bio_parts.append(raw)
-    if not bio_parts:
-        raise SystemExit(f'bio/intro not found in {filename}')
+    links_m = re.search(r'<div[^>]*class=["\'][^"\']*\btp-profile-links\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S | re.I)
+    links = clean(links_m.group(1)) if links_m else ''
 
-    # De-duplicate exact repeated snippets and turn them into one editorial paragraph.
-    deduped = []
-    for part in bio_parts:
-        part = clean_inner(part)
-        if part and part not in deduped:
-            deduped.append(part)
-    bio = ' '.join(deduped)
-
-    links_m = re.search(r'<div[^>]*class=["\'][^"\']*\bprofile-links\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S | re.I)
-    links = clean_inner(links_m.group(1)) if links_m else ''
-
-    new_section = f'''<main class="team-editorial-page">\n  <section class="team-editorial-profile">\n    <div class="team-editorial-shell">\n      <div class="team-editorial-grid">\n        <figure class="team-editorial-photo">\n          {img_tag}\n        </figure>\n        <div class="team-editorial-copy">\n          <p class="team-editorial-kicker">TEAM</p>\n          <h1>{name}</h1>\n          <p class="team-editorial-role">{role}</p>\n          <p class="team-editorial-bio">{bio}</p>\n          {f'<div class="team-editorial-links">{links}</div>' if links else ''}\n        </div>\n      </div>\n    </div>\n  </section>\n</main>'''
+    new_section = f'''<section class="team-editorial-profile">\n  <div class="team-editorial-shell">\n    <div class="team-editorial-grid">\n      <figure class="team-editorial-photo">\n        {img_tag}\n      </figure>\n      <div class="team-editorial-copy">\n        <p class="team-editorial-kicker">TEAM</p>\n        <h1>{name}</h1>\n        <p class="team-editorial-role">{role}</p>\n        <p class="team-editorial-bio">{bio}</p>\n        {f'<div class="team-editorial-links">{links}</div>' if links else ''}\n      </div>\n    </div>\n  </div>\n</section>'''
 
     s = s[:section_match.start()] + new_section + s[section_match.end():]
+
+    # Felipe's new profile is intentionally a single editorial block before the CTA/footer.
+    # Remove the old CV-like sections from the remaining team profiles as well.
+    for cls in ('tp-about', 'tp-expertise', 'tp-selected'):
+        s = re.sub(rf'<section[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>.*?</section>', '', s, count=1, flags=re.S | re.I)
 
     if 'id="team-editorial-profile-v1"' not in s:
         s = s.replace('</head>', STYLE + '\n</head>', 1)
