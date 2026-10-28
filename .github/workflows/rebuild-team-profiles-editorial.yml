@@ -17,4 +17,4 @@ jobs:
           git add equipo/damian-aldunate.html equipo/jorge-munoz.html equipo/lia-morice.html equipo/marco-kroeger.html equipo/martin-alvarado.html equipo/matias-bussinger.html
           git diff --cached --quiet || git commit -m 'Rebuild team profiles in editorial structure'
           git push
-# retry current tp-profile structure
+# retry with support for current profile variants
