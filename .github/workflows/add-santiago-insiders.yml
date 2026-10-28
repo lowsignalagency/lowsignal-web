@@ -1,4 +1,4 @@
-name: Restore Nosotros team scroll
+name: Fix team profile browser history
 on:
   push:
     paths:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python .github/scripts/restore_nosotros_team_scroll.py
+      - run: python .github/scripts/fix_team_profile_history.py
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add nosotros.html
-          git diff --cached --quiet || git commit -m 'Restore team scroll when returning from profiles'
+          git diff --cached --quiet || git commit -m 'Fix team profile back navigation history'
           git push
