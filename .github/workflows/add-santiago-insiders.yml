@@ -15,5 +15,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add recursos/insiders.html
-          git diff --cached --quiet || git commit -m 'Add Santiago to Insiders community'
+          git diff --cached --quiet || git commit -m 'Tune Santiago Insider portrait framing'
           git push
