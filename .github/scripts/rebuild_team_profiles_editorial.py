@@ -50,72 +50,90 @@ SCRIPT = r'''<script id="team-editorial-motion-v1">
 })();
 </script>'''
 
+def clean(v):
+    return re.sub(r'\s+', ' ', v or '').strip()
 
-def clean(value: str) -> str:
-    value = re.sub(r'\s+', ' ', value or '').strip()
-    return value
+def text_only(v):
+    v = re.sub(r'<br\s*/?>', ' ', v or '', flags=re.I)
+    v = re.sub(r'<[^>]+>', ' ', v)
+    return clean(v)
 
+def section_by_class(s, cls):
+    return re.search(rf'<section[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>.*?</section>', s, re.S|re.I)
 
-def text_only(value: str) -> str:
-    value = re.sub(r'<br\s*/?>', ' ', value or '', flags=re.I)
-    value = re.sub(r'<[^>]+>', ' ', value)
-    return clean(value)
+def div_inner(section, cls):
+    m = re.search(rf'<div[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S|re.I)
+    return m.group(1) if m else ''
 
+def p_inner(section, cls):
+    m = re.search(rf'<p[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>(.*?)</p>', section, re.S|re.I)
+    return m.group(1) if m else ''
+
+def build_section(name, role, img_tag, bio, links):
+    links_html = f'<div class="team-editorial-links">{links}</div>' if links else ''
+    return f'''<section class="team-editorial-profile">\n  <div class="team-editorial-shell">\n    <div class="team-editorial-grid">\n      <figure class="team-editorial-photo">\n        {img_tag}\n      </figure>\n      <div class="team-editorial-copy">\n        <p class="team-editorial-kicker">TEAM</p>\n        <h1>{name}</h1>\n        <p class="team-editorial-role">{role}</p>\n        <p class="team-editorial-bio">{bio}</p>\n        {links_html}\n      </div>\n    </div>\n  </div>\n</section>'''
 
 for filename in FILES:
     path = Path(filename)
     s = path.read_text(encoding='utf-8')
-
-    section_match = re.search(r'<section[^>]*class=["\'][^"\']*\btp-profile\b[^"\']*["\'][^>]*>.*?</section>', s, re.S | re.I)
-    if not section_match:
-        raise SystemExit(f'tp-profile section not found in {filename}')
-    section = section_match.group(0)
-
-    title_m = re.search(r'<title>(.*?)\|\s*(.*?)\|\s*lowsignal</title>', s, re.S | re.I)
+    title_m = re.search(r'<title>(.*?)\|\s*(.*?)\|\s*lowsignal</title>', s, re.S|re.I)
     if not title_m:
         raise SystemExit(f'title/role not found in {filename}')
-    name_from_title = clean(title_m.group(1))
-    role = clean(title_m.group(2)) + ', lowsignal'
+    name_title = clean(title_m.group(1))
+    role_title = clean(title_m.group(2))
 
-    name_m = re.search(r'<h1[^>]*>(.*?)</h1>', section, re.S | re.I)
-    name = text_only(name_m.group(1)) if name_m else name_from_title
-    if not name:
-        name = name_from_title
+    section_match = section_by_class(s, 'tp-profile')
+    mode = 'tp'
+    if not section_match:
+        section_match = section_by_class(s, 'profile-hero')
+        mode = 'profile'
+    if not section_match:
+        raise SystemExit(f'profile section not found in {filename}')
+    section = section_match.group(0)
 
-    img_m = re.search(r'<img[^>]*class=["\'][^"\']*\btp-photo\b[^"\']*["\'][^>]*>', section, re.S | re.I)
-    if not img_m:
-        raise SystemExit(f'tp-photo image not found in {filename}')
-    img_tag = img_m.group(0)
-    img_tag = re.sub(r'\sclass=["\'][^"\']*\btp-photo\b[^"\']*["\']', '', img_tag, count=1, flags=re.I)
+    if mode == 'tp':
+        name_m = re.search(r'<h1[^>]*>(.*?)</h1>', section, re.S|re.I)
+        name = text_only(name_m.group(1)) if name_m else name_title
+        img_m = re.search(r'<img[^>]*class=["\'][^"\']*\btp-photo\b[^"\']*["\'][^>]*>', section, re.S|re.I)
+        if not img_m:
+            raise SystemExit(f'tp-photo image not found in {filename}')
+        img_tag = re.sub(r'\sclass=["\'][^"\']*\btp-photo\b[^"\']*["\']', '', img_m.group(0), count=1, flags=re.I)
+        parts = [text_only(p_inner(section,'tp-positioning')), text_only(p_inner(section,'tp-summary'))]
+        parts = [p for i,p in enumerate(parts) if p and p not in parts[:i]]
+        bio = ' '.join(parts)
+        links = clean(div_inner(section,'tp-profile-links'))
+    else:
+        name_m = re.search(r'<h1[^>]*>(.*?)</h1>', section, re.S|re.I)
+        name = text_only(name_m.group(1)) if name_m else name_title
+        role_m = re.search(r'<div[^>]*class=["\'][^"\']*\brole\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S|re.I)
+        role_title = text_only(role_m.group(1)) if role_m else role_title
+        photo_block = re.search(r'<div[^>]*class=["\'][^"\']*\bprofile-photo\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S|re.I)
+        if not photo_block:
+            raise SystemExit(f'profile-photo not found in {filename}')
+        img_m = re.search(r'<img\b[^>]*>', photo_block.group(1), re.S|re.I)
+        if not img_m:
+            raise SystemExit(f'profile image not found in {filename}')
+        img_tag = img_m.group(0)
+        parts = [text_only(p_inner(section,'intro'))]
+        bio_block = div_inner(section,'bio')
+        parts += [text_only(x) for x in re.findall(r'<p[^>]*>(.*?)</p>', bio_block, re.S|re.I)]
+        parts = [p for i,p in enumerate(parts) if p and p not in parts[:i]]
+        bio = ' '.join(parts)
+        links = clean(div_inner(section,'profile-links'))
 
-    positioning_m = re.search(r'<p[^>]*class=["\'][^"\']*\btp-positioning\b[^"\']*["\'][^>]*>(.*?)</p>', section, re.S | re.I)
-    summary_m = re.search(r'<p[^>]*class=["\'][^"\']*\btp-summary\b[^"\']*["\'][^>]*>(.*?)</p>', section, re.S | re.I)
-    parts = []
-    if positioning_m:
-        parts.append(text_only(positioning_m.group(1)))
-    if summary_m:
-        parts.append(text_only(summary_m.group(1)))
-    parts = [p for i, p in enumerate(parts) if p and p not in parts[:i]]
-    if not parts:
-        raise SystemExit(f'positioning/summary not found in {filename}')
-    bio = ' '.join(parts)
-
-    links_m = re.search(r'<div[^>]*class=["\'][^"\']*\btp-profile-links\b[^"\']*["\'][^>]*>(.*?)</div>', section, re.S | re.I)
-    links = clean(links_m.group(1)) if links_m else ''
-
-    new_section = f'''<section class="team-editorial-profile">\n  <div class="team-editorial-shell">\n    <div class="team-editorial-grid">\n      <figure class="team-editorial-photo">\n        {img_tag}\n      </figure>\n      <div class="team-editorial-copy">\n        <p class="team-editorial-kicker">TEAM</p>\n        <h1>{name}</h1>\n        <p class="team-editorial-role">{role}</p>\n        <p class="team-editorial-bio">{bio}</p>\n        {f'<div class="team-editorial-links">{links}</div>' if links else ''}\n      </div>\n    </div>\n  </div>\n</section>'''
-
+    if not bio:
+        raise SystemExit(f'bio not found in {filename}')
+    role = role_title + ', lowsignal'
+    new_section = build_section(name, role, img_tag, bio, links)
     s = s[:section_match.start()] + new_section + s[section_match.end():]
 
-    # Felipe's new profile is intentionally a single editorial block before the CTA/footer.
-    # Remove the old CV-like sections from the remaining team profiles as well.
-    for cls in ('tp-about', 'tp-expertise', 'tp-selected'):
-        s = re.sub(rf'<section[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>.*?</section>', '', s, count=1, flags=re.S | re.I)
+    for cls in ('tp-about','tp-expertise','tp-selected'):
+        s = re.sub(rf'<section[^>]*class=["\'][^"\']*\b{cls}\b[^"\']*["\'][^>]*>.*?</section>', '', s, count=1, flags=re.S|re.I)
 
     if 'id="team-editorial-profile-v1"' not in s:
-        s = s.replace('</head>', STYLE + '\n</head>', 1)
+        s = s.replace('</head>', STYLE+'\n</head>', 1)
     if 'id="team-editorial-motion-v1"' not in s:
-        s = s.replace('</body>', SCRIPT + '\n</body>', 1)
+        s = s.replace('</body>', SCRIPT+'\n</body>', 1)
 
     path.write_text(s, encoding='utf-8')
-    print('rebuilt', filename)
+    print('rebuilt', filename, mode)
