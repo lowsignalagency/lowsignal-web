@@ -1,4 +1,4 @@
-name: Native team profile navigation
+name: Update Damián bio
 on:
   push:
     paths:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python .github/scripts/fix_team_profile_history.py
+      - run: python .github/scripts/update_damian_bio.py
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add nosotros.html
-          git diff --cached --quiet || git commit -m 'Use native team profile navigation'
+          git add equipo/damian-aldunate.html
+          git diff --cached --quiet || git commit -m 'Update Damián profile bio'
           git push
