@@ -14,6 +14,6 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add equipo/felipe-quiroz.html
-          git diff --cached --quiet || git commit -m 'Improve Felipe mobile CTA spacing'
+          git add equipo/felipe-quiroz.html nosotros.html
+          git diff --cached --quiet || git commit -m 'Add smooth team profile transitions'
           git push
