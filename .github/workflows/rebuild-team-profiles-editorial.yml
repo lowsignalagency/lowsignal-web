@@ -14,7 +14,7 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add equipo/damian-aldunate.html equipo/jorge-munoz.html equipo/lia-morice.html equipo/marco-kroeger.html equipo/martin-alvarado.html equipo/matias-bussinger.html
-          git diff --cached --quiet || git commit -m 'Rebuild team profiles in editorial structure'
+          git add equipo/damian-aldunate.html equipo/matias-bussinger.html
+          git diff --cached --quiet || git commit -m 'Integrate Consilium into team bios'
           git push
-# retry with support for current profile variants
+# run Consilium bio integration
