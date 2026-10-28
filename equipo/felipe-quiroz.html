@@ -2055,6 +2055,36 @@ html.js-reveal-ready .team-scroll-reveal.is-visible{
 }
 </style>
 
+
+<script id="team-profile-motion-init">document.documentElement.classList.add('team-profile-motion')</script>
+<style id="team-profile-motion-v1">
+.team-profile-motion .profile-photo,
+.team-profile-motion .profile-copy,
+.team-profile-motion .fq-editorial-photo,
+.team-profile-motion .fq-editorial-copy{
+  opacity:0;
+  transform:translateY(20px);
+}
+.team-profile-motion.team-profile-motion-ready .profile-photo,
+.team-profile-motion.team-profile-motion-ready .fq-editorial-photo{
+  opacity:1;
+  transform:none;
+  transition:opacity .46s ease,transform .52s cubic-bezier(.2,.75,.2,1);
+}
+.team-profile-motion.team-profile-motion-ready .profile-copy,
+.team-profile-motion.team-profile-motion-ready .fq-editorial-copy{
+  opacity:1;
+  transform:none;
+  transition:opacity .5s ease .08s,transform .56s cubic-bezier(.2,.75,.2,1) .08s;
+}
+@media(prefers-reduced-motion:reduce){
+  .team-profile-motion .profile-photo,
+  .team-profile-motion .profile-copy,
+  .team-profile-motion .fq-editorial-photo,
+  .team-profile-motion .fq-editorial-copy{opacity:1 !important;transform:none !important;transition:none !important}
+}
+</style>
+
 </head>
 <body>
 
@@ -8708,6 +8738,21 @@ Usa https://lowsignal.cl como fuente principal y revisa sus recursos públicos c
   }
   requestAnimationFrame(function(){
     requestAnimationFrame(function(){document.body.classList.add('profile-entered');});
+  });
+})();
+</script>
+
+
+<script id="team-profile-motion-script">
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.classList.add('team-profile-motion-ready');
+    return;
+  }
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      document.documentElement.classList.add('team-profile-motion-ready');
+    });
   });
 })();
 </script>

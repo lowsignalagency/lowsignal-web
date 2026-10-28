@@ -1558,6 +1558,12 @@
 }
 </style>
 
+
+<style id="team-profile-link-transition-v1">
+html.team-profile-leaving body{opacity:.72;transition:opacity .22s ease}
+@media(prefers-reduced-motion:reduce){html.team-profile-leaving body{opacity:1;transition:none}}
+</style>
+
 </head>
 <body>
 
@@ -8994,6 +9000,22 @@ footer{
     e.preventDefault();
     document.body.classList.add('team-profile-leaving');
     setTimeout(function(){window.location.href=a.href;},220);
+  });
+})();
+</script>
+
+
+<script id="team-profile-link-transition-script">
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="/equipo/"]');
+    if(!link || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var href = link.href;
+    if(!href) return;
+    e.preventDefault();
+    document.documentElement.classList.add('team-profile-leaving');
+    window.setTimeout(function(){ window.location.href = href; }, 180);
   });
 })();
 </script>
