@@ -1550,6 +1550,14 @@
 }
 </style>
 
+
+<style id="team-profile-exit-transition-v1">
+@media (prefers-reduced-motion:no-preference){
+  body{transition:opacity .22s ease,transform .28s cubic-bezier(.2,.75,.2,1)}
+  body.team-profile-leaving{opacity:.72;transform:translateY(-4px)}
+}
+</style>
+
 </head>
 <body>
 
@@ -8975,6 +8983,20 @@ footer{
   .hero-sub-break{display:none}
 }
 </style>
+
+
+<script id="team-profile-exit-transition-js-v1">
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href*="/equipo/"]');
+    if(!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target==='_blank') return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    e.preventDefault();
+    document.body.classList.add('team-profile-leaving');
+    setTimeout(function(){window.location.href=a.href;},220);
+  });
+})();
+</script>
 
 </body>
 </html>
