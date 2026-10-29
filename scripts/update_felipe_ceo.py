@@ -29,10 +29,16 @@ jobs = jobs_path.read_text(encoding="utf-8")
 jobs = jobs.replace("Co-Founder & COO", "Co-Founder & CEO")
 jobs_path.write_text(jobs, encoding="utf-8")
 
-# Growth Ambassador page: JS profile data
+# Growth Ambassador page: JS profile data + publish marker to force a real page commit
 growth_ambassador_path = Path("recursos/jobs/growth-ambassador.html")
 growth_ambassador = growth_ambassador_path.read_text(encoding="utf-8")
 growth_ambassador = growth_ambassador.replace("Co-Founder & COO", "Co-Founder & CEO")
+old_marker = "<!-- felipe-role-publish-marker: 2026-10-29-1 -->"
+new_marker = "<!-- felipe-role-publish-marker: 2026-10-29-2 -->"
+if old_marker in growth_ambassador:
+    growth_ambassador = growth_ambassador.replace(old_marker, new_marker, 1)
+elif new_marker not in growth_ambassador:
+    growth_ambassador = growth_ambassador.replace("</body>", f"  {new_marker}\n</body>", 1)
 growth_ambassador_path.write_text(growth_ambassador, encoding="utf-8")
 
-print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador")
+print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador; republish marker updated")
