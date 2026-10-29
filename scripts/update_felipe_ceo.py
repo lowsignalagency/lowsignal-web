@@ -44,4 +44,11 @@ elif new_marker not in growth_ambassador:
     growth_ambassador = growth_ambassador.replace("</body>", f"  {new_marker}\n</body>", 1)
 growth_ambassador_path.write_text(growth_ambassador, encoding="utf-8")
 
-print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador, including HTML-escaped visible copy")
+# Insiders page: founder quote attribution
+insiders_path = Path("recursos/insiders.html")
+insiders = insiders_path.read_text(encoding="utf-8")
+insiders = insiders.replace("Co-Founder & COO", "Co-Founder & CEO")
+insiders = insiders.replace("Co-Founder &amp; COO", "Co-Founder &amp; CEO")
+insiders_path.write_text(insiders, encoding="utf-8")
+
+print("Felipe CEO role is consistent across profile, Nosotros, Jobs, Growth Ambassador and Insiders, including HTML-escaped visible copy")
