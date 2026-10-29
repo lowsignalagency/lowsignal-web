@@ -23,4 +23,10 @@ about = about_path.read_text(encoding="utf-8")
 about = about.replace("Co-Founder & COO", "Co-Founder & CEO")
 about_path.write_text(about, encoding="utf-8")
 
-print("Felipe CEO role is consistent across profile and Nosotros")
+# Jobs page: JS profile data
+jobs_path = Path("recursos/jobs.html")
+jobs = jobs_path.read_text(encoding="utf-8")
+jobs = jobs.replace("Co-Founder & COO", "Co-Founder & CEO")
+jobs_path.write_text(jobs, encoding="utf-8")
+
+print("Felipe CEO role is consistent across profile, Nosotros and Jobs")
