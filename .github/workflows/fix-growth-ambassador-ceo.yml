@@ -1,0 +1,34 @@
+name: Fix Growth Ambassador CEO role
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-growth-ambassador-ceo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Felipe role
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('recursos/jobs/growth-ambassador.html')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('Co-Founder & COO', 'Co-Founder & CEO')
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/jobs/growth-ambassador.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Felipe to CEO on Growth Ambassador page"
+          git push
