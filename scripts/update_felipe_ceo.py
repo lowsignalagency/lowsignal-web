@@ -29,4 +29,10 @@ jobs = jobs_path.read_text(encoding="utf-8")
 jobs = jobs.replace("Co-Founder & COO", "Co-Founder & CEO")
 jobs_path.write_text(jobs, encoding="utf-8")
 
-print("Felipe CEO role is consistent across profile, Nosotros and Jobs")
+# Growth Ambassador page: JS profile data
+growth_ambassador_path = Path("recursos/jobs/growth-ambassador.html")
+growth_ambassador = growth_ambassador_path.read_text(encoding="utf-8")
+growth_ambassador = growth_ambassador.replace("Co-Founder & COO", "Co-Founder & CEO")
+growth_ambassador_path.write_text(growth_ambassador, encoding="utf-8")
+
+print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador")
