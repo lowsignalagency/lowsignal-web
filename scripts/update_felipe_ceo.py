@@ -21,24 +21,27 @@ profile_path.write_text(profile, encoding="utf-8")
 about_path = Path("nosotros.html")
 about = about_path.read_text(encoding="utf-8")
 about = about.replace("Co-Founder & COO", "Co-Founder & CEO")
+about = about.replace("Co-Founder &amp; COO", "Co-Founder &amp; CEO")
 about_path.write_text(about, encoding="utf-8")
 
 # Jobs page: JS profile data
 jobs_path = Path("recursos/jobs.html")
 jobs = jobs_path.read_text(encoding="utf-8")
 jobs = jobs.replace("Co-Founder & COO", "Co-Founder & CEO")
+jobs = jobs.replace("Co-Founder &amp; COO", "Co-Founder &amp; CEO")
 jobs_path.write_text(jobs, encoding="utf-8")
 
-# Growth Ambassador page: JS profile data + publish marker to force a real page commit
+# Growth Ambassador page: visible selection copy + JS profile data
 growth_ambassador_path = Path("recursos/jobs/growth-ambassador.html")
 growth_ambassador = growth_ambassador_path.read_text(encoding="utf-8")
 growth_ambassador = growth_ambassador.replace("Co-Founder & COO", "Co-Founder & CEO")
-old_marker = "<!-- felipe-role-publish-marker: 2026-10-29-1 -->"
-new_marker = "<!-- felipe-role-publish-marker: 2026-10-29-2 -->"
+growth_ambassador = growth_ambassador.replace("Co-Founder &amp; COO", "Co-Founder &amp; CEO")
+old_marker = "<!-- felipe-role-publish-marker: 2026-10-29-2 -->"
+new_marker = "<!-- felipe-role-publish-marker: 2026-10-29-3 -->"
 if old_marker in growth_ambassador:
     growth_ambassador = growth_ambassador.replace(old_marker, new_marker, 1)
 elif new_marker not in growth_ambassador:
     growth_ambassador = growth_ambassador.replace("</body>", f"  {new_marker}\n</body>", 1)
 growth_ambassador_path.write_text(growth_ambassador, encoding="utf-8")
 
-print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador; republish marker updated")
+print("Felipe CEO role is consistent across profile, Nosotros, Jobs and Growth Ambassador, including HTML-escaped visible copy")
