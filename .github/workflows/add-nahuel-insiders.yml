@@ -1,0 +1,55 @@
+name: Add Nahuel to Insiders
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-nahuel-insiders.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-insiders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add Nahuel to Insiders community
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('recursos/insiders.html')
+          s = p.read_text(encoding='utf-8')
+
+          nahuel = '<article><div class="insr-person-photo insr-nahuel-photo"><img src="https://lowsignal.cl/assets/nahuel.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>'
+          anchor = '<article><div class="insr-person-photo insr-santiago-photo"><img src="https://lowsignal.cl/assets/santiago.png" alt="Miembro de lowsignal Insiders" loading="lazy"></div></article>'
+
+          if 'assets/nahuel.png' not in s:
+              if anchor not in s:
+                  raise SystemExit('Could not find Santiago card anchor')
+              s = s.replace(anchor, anchor + '\n          ' + nahuel, 1)
+
+          # Keep all seven portraits on one row on desktop.
+          s = s.replace('.insr-people{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:14px!important;align-items:center!important}',
+                        '.insr-people{grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:14px!important;align-items:center!important}', 1)
+
+          # Preserve the compact circular layout on mobile.
+          s = s.replace('@media(max-width:700px){.insr-people{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important}.insr-person-photo{border-radius:50%!important}}',
+                        '@media(max-width:700px){.insr-people{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;justify-content:center!important}.insr-person-photo{border-radius:50%!important}}', 1)
+
+          p.write_text(s, encoding='utf-8')
+          print('Nahuel added to Insiders')
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recursos/insiders.html
+          git commit -m "Add Nahuel to Insiders"
+          git push
