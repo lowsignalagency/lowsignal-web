@@ -53,3 +53,5 @@ jobs:
           git add recursos/insiders.html
           git commit -m "Add Nahuel to Insiders"
           git push
+
+# Triggered after workflow creation so this push runs the update.
