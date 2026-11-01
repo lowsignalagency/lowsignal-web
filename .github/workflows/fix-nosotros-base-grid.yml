@@ -1,0 +1,35 @@
+name: Fix Nosotros base grid
+
+on:
+  push:
+    paths:
+      - .github/workflows/fix-nosotros-base-grid.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Change base team grid to four columns
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('nosotros.html')
+          h=p.read_text(encoding='utf-8')
+          old='.team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:58px 30px}'
+          new='.team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 30px}'
+          if old not in h:
+              raise SystemExit('base 3-column rule not found')
+          h=h.replace(old,new,1)
+          p.write_text(h,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nosotros.html
+          git commit -m "Fix Nosotros base grid to four columns"
+          git push
