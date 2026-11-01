@@ -23,12 +23,7 @@ jobs:
           path = Path('nosotros.html')
           html = path.read_text(encoding='utf-8')
 
-          # Desktop: 4 columns. Existing responsive breakpoints stay intact.
-          old_css = '''<style id="nosotros-team-editorial-v1">
-/* Team directory refinement — balanced 3x2 editorial grid */'''
-          new_css = '''<style id="nosotros-team-editorial-v1">
-/* Team directory refinement — editorial 4 + 2 grid */'''
-          html = html.replace(old_css, new_css, 1)
+          html = html.replace('Team directory refinement — balanced 3x2 editorial grid', 'Team directory refinement — editorial 4 + 2 grid', 1)
 
           style_start = html.index('<style id="nosotros-team-editorial-v1">')
           style_end = html.index('</style>', style_start)
@@ -36,7 +31,6 @@ jobs:
           style = style.replace('grid-template-columns:repeat(3,minmax(0,1fr))!important;', 'grid-template-columns:repeat(4,minmax(0,1fr))!important;', 1)
           html = html[:style_start] + style + html[style_end:]
 
-          # Reorder cards: Felipe, Damián, Matías, Lía / Jorge, Martín.
           grid_start = html.index('<div class="team-grid">')
           grid_end = html.index('        </div>\n      </div>\n    </section>', grid_start)
           grid = html[grid_start:grid_end]
@@ -62,7 +56,6 @@ jobs:
 
           new_grid = '<div class="team-grid">\n' + ''.join(ordered)
           html = html[:grid_start] + new_grid + html[grid_end:]
-
           path.write_text(html, encoding='utf-8')
           PY
 
