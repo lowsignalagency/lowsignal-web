@@ -1,0 +1,26 @@
+name: Publish Nosotros clean route
+
+on:
+  push:
+    paths:
+      - .github/workflows/publish-nosotros-clean-route.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish clean /nosotros route
+        run: |
+          mkdir -p nosotros
+          cp nosotros.html nosotros/index.html
+      - name: Commit clean route
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nosotros/index.html
+          git commit -m "Publish clean Nosotros route with 4-column grid"
+          git push
