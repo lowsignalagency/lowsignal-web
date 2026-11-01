@@ -942,7 +942,7 @@
     }
 
     @media(max-width:1100px){
-      .team-grid{grid-template-columns:repeat(3,1fr)}
+      .team-grid{grid-template-columns:repeat(4,1fr)}
       .philosophy-grid{grid-template-columns:1fr;gap:54px}
       .stats-grid{grid-template-columns:repeat(2,1fr);gap:42px 24px}
       .cta-inner{display:block}
@@ -1555,6 +1555,12 @@
 
 
 <!-- nosotros-layout-live-v1 -->
+
+<style id="team-grid-final-authority">
+.team-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+@media(max-width:760px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+@media(max-width:560px){.team-grid{grid-template-columns:1fr!important;}}
+</style>
 </head>
 <body>
 
@@ -3648,7 +3654,7 @@ footer .container,
     .section-head h2{max-width:900px;margin:20px 0 0;font-size:clamp(38px,4.2vw,56px);line-height:1.08;letter-spacing:-.04em;font-weight:300}
     .section-head h2 strong{color:var(--blue);font-weight:700}
     .section-note{max-width:330px;margin:0;color:#72809A;font-size:14px;line-height:1.6}
-    .team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:58px 30px}
+    .team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 30px}
     .person-photo{
       aspect-ratio:1/1.16;overflow:hidden;border-radius:20px;background:#E9EDF5;position:relative;
       box-shadow:0 16px 42px rgba(7,15,34,.07);
@@ -4157,7 +4163,7 @@ footer .container,
     }
 
     @media(max-width:1100px){
-      .team-grid{grid-template-columns:repeat(3,1fr)}
+      .team-grid{grid-template-columns:repeat(4,1fr)}
       .philosophy-grid{grid-template-columns:1fr;gap:54px}
       .stats-grid{grid-template-columns:repeat(2,1fr);gap:46px 28px}
       .cta-inner{display:block}
@@ -4331,7 +4337,7 @@ footer .container,
 .solution-includes h2,.solution-cases h2{margin:17px 0 0;color:#fff;font-size:clamp(38px,4vw,54px);line-height:1.08;letter-spacing:-.045em;font-weight:300}
 .solution-includes h2 strong,.solution-cases h2 strong{color:#8AA4FF;font-weight:700}
 .solution-section-head>p{margin:0;color:#8B92A8;font-size:15px;line-height:1.7}
-.solution-includes-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:48px}
+.solution-includes-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:48px}
 .solution-includes-grid article{min-height:210px;padding:24px;border:1px solid rgba(138,164,255,.18);border-radius:16px;background:rgba(255,255,255,.02);display:flex;flex-direction:column}
 .solution-includes-grid article>span{color:#5B7BF0;font-size:10px;font-weight:700;letter-spacing:.12em}
 .solution-includes-grid h3{margin:38px 0 0;color:#fff;font-size:21px}
@@ -4343,7 +4349,7 @@ footer .container,
 .solution-cases .solution-eyebrow-dark{color:#1419E0}
 .solution-cases h2{color:#071022}
 .solution-cases h2 strong{color:#1419E0}
-.solution-cases-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
+.solution-cases-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px}
 .solution-case-card{position:relative;height:430px;overflow:hidden;border-radius:20px}
 .solution-case-card>img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:.4s ease}
 .solution-case-card:hover>img{transform:scale(1.02)}
@@ -6513,7 +6519,7 @@ footer .container,
 
   /* INDUSTRIES */
   .home26-industries-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
     gap:10px !important;
   }
 
@@ -8033,7 +8039,7 @@ footer .container,
   width:min(1220px,calc(100% - 128px));
   margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:68px;
 }
 .lnav-col{min-width:0}
@@ -8469,7 +8475,7 @@ footer .container,
 .team-grid{
   margin-top:0 !important;
   display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
   gap:58px 30px !important;
   max-width:none !important;
 }
@@ -8562,7 +8568,7 @@ footer .container,
   }
 
   .team-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
     gap:38px 20px !important;
   }
 }
