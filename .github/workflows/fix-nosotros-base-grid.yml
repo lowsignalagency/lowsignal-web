@@ -13,24 +13,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Change base team grid to four columns
+      - name: Remove every 3-column team override
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          p=Path('nosotros.html')
-          h=p.read_text(encoding='utf-8')
-          old='.team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:58px 30px}'
-          new='.team-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 30px}'
-          if old not in h:
-              raise SystemExit('base 3-column rule not found')
-          h=h.replace(old,new,1)
-          p.write_text(h,encoding='utf-8')
+          p = Path('nosotros.html')
+          h = p.read_text(encoding='utf-8')
+          replacements = {
+              '.team-grid{grid-template-columns:repeat(3,1fr)}': '.team-grid{grid-template-columns:repeat(4,1fr)}',
+              'grid-template-columns:repeat(3,minmax(0,1fr)) !important;': 'grid-template-columns:repeat(4,minmax(0,1fr)) !important;',
+              'grid-template-columns:repeat(3,minmax(0,1fr))!important;': 'grid-template-columns:repeat(4,minmax(0,1fr))!important;',
+              'grid-template-columns:repeat(3,minmax(0,1fr));': 'grid-template-columns:repeat(4,minmax(0,1fr));',
+          }
+          for old, new in replacements.items():
+              h = h.replace(old, new)
+          # final authoritative rule: desktop 4, tablet 2, mobile 1
+          marker = '</head>'
+          css = '''\n<style id="team-grid-final-authority">\n.team-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;}\n@media(max-width:760px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}\n@media(max-width:560px){.team-grid{grid-template-columns:1fr!important;}}\n</style>\n'''
+          if 'id="team-grid-final-authority"' not in h:
+              h = h.replace(marker, css + marker, 1)
+          p.write_text(h, encoding='utf-8')
+          Path('nosotros').mkdir(exist_ok=True)
+          Path('nosotros/index.html').write_text(h, encoding='utf-8')
           PY
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add nosotros.html
-          git commit -m "Fix Nosotros base grid to four columns"
+          git add nosotros.html nosotros/index.html
+          git commit -m "Fix Nosotros team grid to 4 columns everywhere"
           git push
-# trigger
+# trigger-final
