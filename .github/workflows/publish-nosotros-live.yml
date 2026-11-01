@@ -1,0 +1,35 @@
+name: Publish Nosotros live
+
+on:
+  push:
+    paths:
+      - .github/workflows/publish-nosotros-live.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Touch Nosotros page content
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('nosotros.html')
+          h=p.read_text(encoding='utf-8')
+          marker='<!-- nosotros-layout-live-v1 -->'
+          if marker not in h:
+              h=h.replace('</head>', marker+'\n</head>', 1)
+          else:
+              h=h.replace(marker, marker+' ')
+          p.write_text(h, encoding='utf-8')
+          PY
+      - name: Commit page change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nosotros.html
+          git commit -m "Publish Nosotros 4-column layout"
+          git push
