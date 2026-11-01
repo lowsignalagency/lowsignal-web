@@ -1,0 +1,46 @@
+name: Remove malformed Nosotros override
+
+on:
+  push:
+    paths:
+      - .github/workflows/remove-nosotros-force.yml
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove forced grid positioning
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('nosotros.html')
+          h = p.read_text(encoding='utf-8')
+          block = '''<style id="nosotros-team-force-4-2-v2">
+@media (min-width: 901px){
+  .team-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .team-grid>.person:nth-child(1){grid-column:1!important;grid-row:1!important}
+  .team-grid>.person:nth-child(2){grid-column:2!important;grid-row:1!important}
+  .team-grid>.person:nth-child(3){grid-column:3!important;grid-row:1!important}
+  .team-grid>.person:nth-child(4){grid-column:4!important;grid-row:1!important}
+  .team-grid>.person:nth-child(5){grid-column:1!important;grid-row:2!important}
+  .team-grid>.person:nth-child(6){grid-column:2!important;grid-row:2!important}
+}
+</style>
+'''
+          if block not in h:
+              raise SystemExit('forced block not found')
+          p.write_text(h.replace(block, '', 1), encoding='utf-8')
+          PY
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add nosotros.html
+          git commit -m "Remove malformed Nosotros layout override"
+          git push
