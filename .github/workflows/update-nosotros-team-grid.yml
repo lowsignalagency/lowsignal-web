@@ -1,0 +1,79 @@
+name: Update Nosotros team grid
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-nosotros-team-grid.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-team:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update team order and grid
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('nosotros.html')
+          html = path.read_text(encoding='utf-8')
+
+          # Desktop: 4 columns. Existing responsive breakpoints stay intact.
+          old_css = '''<style id="nosotros-team-editorial-v1">
+/* Team directory refinement — balanced 3x2 editorial grid */'''
+          new_css = '''<style id="nosotros-team-editorial-v1">
+/* Team directory refinement — editorial 4 + 2 grid */'''
+          html = html.replace(old_css, new_css, 1)
+
+          style_start = html.index('<style id="nosotros-team-editorial-v1">')
+          style_end = html.index('</style>', style_start)
+          style = html[style_start:style_end]
+          style = style.replace('grid-template-columns:repeat(3,minmax(0,1fr))!important;', 'grid-template-columns:repeat(4,minmax(0,1fr))!important;', 1)
+          html = html[:style_start] + style + html[style_end:]
+
+          # Reorder cards: Felipe, Damián, Matías, Lía / Jorge, Martín.
+          grid_start = html.index('<div class="team-grid">')
+          grid_end = html.index('        </div>\n      </div>\n    </section>', grid_start)
+          grid = html[grid_start:grid_end]
+
+          cards = re.findall(r'          <article class="person">.*?          </article>\n', grid, flags=re.S)
+          if len(cards) != 6:
+              raise RuntimeError(f'Expected 6 team cards, found {len(cards)}')
+
+          def find_card(name):
+              for card in cards:
+                  if f'alt="{name}"' in card:
+                      return card
+              raise RuntimeError(f'Card not found: {name}')
+
+          ordered = [
+              find_card('Felipe Quiroz'),
+              find_card('Damián Aldunate'),
+              find_card('Matías Bussinger'),
+              find_card('Lía Morice'),
+              find_card('Jorge Muñoz'),
+              find_card('Martín Alvarado'),
+          ]
+
+          new_grid = '<div class="team-grid">\n' + ''.join(ordered)
+          html = html[:grid_start] + new_grid + html[grid_end:]
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nosotros.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Refine Nosotros team grid"
+          git push
