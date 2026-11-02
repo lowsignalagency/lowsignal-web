@@ -57,3 +57,5 @@ jobs:
           git add nosotros.html nosotros/index.html
           git commit -m 'Fix Nosotros navbar style conflicts'
           git push
+
+# Trigger cleanup after workflow registration.
