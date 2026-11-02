@@ -1,0 +1,53 @@
+name: Fix Nosotros dropdown columns
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-nosotros-dropdown-columns.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Match Nosotros mega menu columns to Home
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          files = [Path('nosotros.html'), Path('nosotros/index.html')]
+          pattern = re.compile(r'(\.lnav-mega-inner\{.*?grid-template-columns:)repeat\(4,minmax\(0,1fr\)\)', re.S)
+
+          changed = False
+          for path in files:
+              text = path.read_text(encoding='utf-8')
+              new_text, count = pattern.subn(r'\1repeat(3,minmax(0,1fr))', text)
+              if count:
+                  path.write_text(new_text, encoding='utf-8')
+                  changed = True
+                  print(f'{path}: changed {count} navbar grid declaration(s) from 4 to 3 columns')
+              else:
+                  print(f'{path}: already aligned or no matching declaration found')
+
+          if not changed:
+              print('No changes needed')
+          PY
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- nosotros.html nosotros/index.html; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git config user.name 'lowsignal-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add nosotros.html nosotros/index.html
+          git commit -m 'Match Nosotros dropdown layout to Home'
+          git push
