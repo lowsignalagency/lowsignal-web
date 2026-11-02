@@ -2,8 +2,6 @@ name: Fix Nosotros team grid
 
 on:
   push:
-    paths:
-      - '.github/workflows/fix-nosotros-team-grid.yml'
 
 permissions:
   contents: write
