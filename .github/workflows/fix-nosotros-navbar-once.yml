@@ -3,8 +3,6 @@ name: Fix Nosotros navbar once
 on:
   workflow_dispatch:
   push:
-    paths:
-      - '.github/workflows/fix-nosotros-navbar-once.yml'
 
 permissions:
   contents: write
