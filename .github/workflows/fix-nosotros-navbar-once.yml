@@ -1,0 +1,57 @@
+name: Fix Nosotros navbar once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-nosotros-navbar-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove conflicting copied Home styles from Nosotros
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('nosotros.html')
+          text = path.read_text(encoding='utf-8')
+          start_marker = '<!-- Current Home navbar/footer styles -->'
+          end_marker = '<style id="video-accurate-navbar-v21">'
+
+          removed = 0
+          while True:
+              start = text.find(start_marker)
+              if start == -1:
+                  break
+              end = text.find(end_marker, start)
+              if end == -1:
+                  raise SystemExit('Found copied Home styles but could not find video-accurate-navbar-v21 boundary')
+              text = text[:start] + text[end:]
+              removed += 1
+
+          if removed == 0:
+              raise SystemExit('No copied Home navbar/footer style block found; refusing to change file')
+
+          path.write_text(text, encoding='utf-8')
+          print(f'Removed {removed} conflicting copied style block(s)')
+          PY
+
+      - name: Commit cleanup
+        run: |
+          if git diff --quiet -- nosotros.html; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git config user.name 'lowsignal-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add nosotros.html
+          git commit -m 'Fix Nosotros navbar style conflicts'
+          git push
