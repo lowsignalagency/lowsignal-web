@@ -1,0 +1,53 @@
+name: Fix Nosotros team grid
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-nosotros-team-grid.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore 4-column team grid only
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          old = '''.team-grid{\n  margin-top:0 !important;\n  display:grid !important;\n  grid-template-columns:repeat(3,minmax(0,1fr)) !important;\n  gap:58px 30px !important;\n  max-width:none !important;\n}'''
+          new = '''.team-grid{\n  margin-top:0 !important;\n  display:grid !important;\n  grid-template-columns:repeat(4,minmax(0,1fr)) !important;\n  gap:58px 30px !important;\n  max-width:none !important;\n}'''
+
+          changed = False
+          for filename in ('nosotros.html', 'nosotros/index.html'):
+              path = Path(filename)
+              text = path.read_text(encoding='utf-8')
+              if old in text:
+                  text = text.replace(old, new, 1)
+                  path.write_text(text, encoding='utf-8')
+                  changed = True
+                  print(f'{filename}: team restored to 4 columns')
+              else:
+                  print(f'{filename}: target late team override not found or already fixed')
+
+          if not changed:
+              print('No changes needed')
+          PY
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- nosotros.html nosotros/index.html; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git config user.name 'lowsignal-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add nosotros.html nosotros/index.html
+          git commit -m 'Restore Nosotros team to four columns'
+          git push
