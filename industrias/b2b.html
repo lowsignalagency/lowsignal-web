@@ -516,6 +516,50 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 }
 @media(prefers-reduced-motion:reduce){.lnav28-mega *, .lnav28-mega *::before{transition:none!important}}
 </style>
+<style id="b2b-compare-no-horizontal-swipe-2026">
+/* Same behavior as Education: fixed comparison on desktop, stacked plan cards on mobile. */
+#planes-b2b .compare-plans{min-width:0;max-width:100%}
+@media(min-width:761px){
+ #planes-b2b .compare-scroll{
+  overflow:hidden!important;overflow-x:hidden!important;overflow-y:hidden!important;
+  max-width:100%!important;overscroll-behavior-x:none!important;
+  touch-action:pan-y!important;
+ }
+ #planes-b2b .compare-table{
+  min-width:0!important;width:100%!important;max-width:100%!important;
+  table-layout:fixed!important;
+ }
+ #planes-b2b .compare-table th,
+ #planes-b2b .compare-table td{overflow-wrap:break-word!important;word-break:normal!important}
+ #planes-b2b .compare-mobile{display:none!important}
+}
+@media(max-width:760px){
+ #planes-b2b .compare-scroll{display:none!important}
+ #planes-b2b .compare-mobile{
+  display:flex!important;flex-direction:column!important;gap:13px!important;
+  width:100%!important;max-width:100%!important;margin-top:22px!important;
+ }
+ #planes-b2b .compare-mobile-plan{
+  width:100%!important;min-width:0!important;overflow:hidden!important;
+  border:1px solid #DCE3F2!important;border-radius:16px!important;
+  background:#fff!important;padding:20px!important;
+ }
+ #planes-b2b .compare-mobile-plan.featured-mobile{
+  border-color:#BAC8FF!important;background:#F5F7FF!important;
+ }
+ #planes-b2b .compare-mobile-head{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:12px!important;flex-wrap:wrap!important}
+ #planes-b2b .compare-mobile-head strong{display:block!important;font-size:17px!important;color:#162245!important}
+ #planes-b2b .compare-mobile-head span{font-size:12px!important;color:#6C7C9F!important}
+ #planes-b2b .compare-mobile-badge{padding:6px 8px!important;border-radius:999px!important;background:#1D28E2!important;color:#fff!important;font-size:9px!important}
+ #planes-b2b .compare-mobile-group{margin-top:19px!important;min-width:0!important}
+ #planes-b2b .compare-mobile-group>b{display:block!important;padding:0 0 9px!important;font-size:10px!important;letter-spacing:.1em!important;color:#4160CF!important}
+ #planes-b2b .compare-mobile-row{display:flex!important;justify-content:space-between!important;gap:14px!important;padding:9px 0!important;border-top:1px solid #E5EAF4!important}
+ #planes-b2b .compare-mobile-row span{min-width:0!important;font-size:12px!important;line-height:1.5!important;overflow-wrap:break-word!important}
+ #planes-b2b .compare-mobile-row span:first-child{flex:1!important;color:#65748F!important}
+ #planes-b2b .compare-mobile-row span:last-child{text-align:right!important;color:#14213C!important;font-weight:600!important;max-width:40%!important}
+}
+@media(prefers-reduced-motion:reduce){#planes-b2b .compare-mobile-plan{opacity:1!important;transform:none!important}}
+</style>
 </head>
 <body>
 <header class="lnav" aria-label="Navegación principal"><div class="lnav-row"><a class="lnav-logo" href="https://lowsignal.cl" aria-label="lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="lnav-menu" aria-label="Principal"><div class="lnav-item"><button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega lnav28-mega"><div class="lnav-mega-inner lnav28-inner">
