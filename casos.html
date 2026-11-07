@@ -2959,7 +2959,7 @@ body .stories-new-list .container .stories-new-grid{
 .cs26-hero .container,
 .cs26-logo-band .container,
 .cs26-spotlight .container{
-  width:min(1440px,calc(100% - 96px))!important;
+  width:min(1220px,calc(100% - 128px))!important;
   margin-inline:auto!important;
 }
 .cs26-hero{padding:118px 0 64px!important}
@@ -2983,16 +2983,17 @@ body .stories-new-list .container .stories-new-grid{
 /* Continuous, restrained vertical movement; retain clickable stories */
 .cs26-mosaic{height:615px!important;overflow:hidden!important;isolation:isolate}
 .cs26-mosaic-col{will-change:transform;animation:cs26ColumnFloat 11s ease-in-out infinite alternate}
-.cs26-mosaic-col-a{--shift-start:-36px;--shift-end:-9px;animation-duration:11s}
-.cs26-mosaic-col-b{--shift-start:18px;--shift-end:-20px;animation-duration:13s;animation-direction:alternate-reverse}
-.cs26-mosaic-col-c{--shift-start:-22px;--shift-end:10px;animation-duration:12s}
+/* Alternating directions: down / up / down, with no reverse on the middle column. */
+.cs26-mosaic-col-a{--shift-start:-36px;--shift-end:0px;animation-duration:12s;animation-direction:alternate}
+.cs26-mosaic-col-b{--shift-start:20px;--shift-end:-25px;animation-duration:12s;animation-direction:alternate}
+.cs26-mosaic-col-c{--shift-start:-24px;--shift-end:10px;animation-duration:12s;animation-direction:alternate}
 @keyframes cs26ColumnFloat{from{transform:translateY(var(--shift-start))}to{transform:translateY(var(--shift-end))}}
 .cs26-mosaic:hover .cs26-mosaic-col,
 .cs26-mosaic:focus-within .cs26-mosaic-col{animation-play-state:paused}
 .cs26-showcase-photo img{transition:transform .55s ease!important}
 .cs26-showcase-photo:hover img{transform:scale(1.055)}
 @media(max-width:1100px){
-.cs26-hero .container,.cs26-logo-band .container,.cs26-spotlight .container{width:calc(100% - 64px)!important}
+.cs26-hero .container,.cs26-logo-band .container,.cs26-spotlight .container{width:calc(100% - 48px)!important}
 .cs26-hero-layout{grid-template-columns:1fr!important;gap:32px!important}
 .cs26-mosaic{height:500px!important}
 }
