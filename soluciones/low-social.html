@@ -3470,7 +3470,35 @@ body .ls-social-faq{
 @media(max-width:760px){.ls-social-channels-group-title{flex-direction:column;gap:5px}.ls-social-platform-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ls-social-platform{min-height:105px;gap:9px}.ls-social-platform:nth-child(4){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(5){border-top:1px solid rgba(255,255,255,.12)}.ls-social-format-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ls-social-format-grid>span:nth-last-child(3){border-bottom:1px solid rgba(255,255,255,.08)}.ls-social-format-grid>span:nth-last-child(-n+2){border-bottom:0}}
 @media(max-width:420px){.ls-social-platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ls-social-platform:nth-child(odd){border-left:0}.ls-social-platform:nth-child(3){border-top:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(4){border-left:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(5){border-left:0}.ls-social-platform-logo{width:48px;height:48px;border-radius:13px}.ls-social-channels-intro h2{font-size:33px}.ls-social-format-grid>span{font-size:11px;gap:8px}}
 </style>
-</head>
+<style id="ls-social-hero-editorial-v1">
+/* Editorial hero: lean, product-like presentation while retaining Low's type and navy/blue identity. */
+.ls-social-hero.ls-social-hero-editorial{padding:clamp(148px,12vw,196px) 0 clamp(80px,8vw,120px) !important;background:radial-gradient(ellipse at 84% 45%,rgba(20,25,224,.15),transparent 47%),#070F22 !important}
+.ls-social-hero-editorial .ls-social-hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(48px,6vw,100px) !important;align-items:center}
+.ls-social-hero-editorial .ls-social-hero-copy{max-width:590px}
+.ls-social-hero-editorial .ls-social-kicker{color:#8EA4FF;letter-spacing:.17em;font-size:11px}
+.ls-social-hero-editorial h1{margin:24px 0 0 !important;max-width:600px !important;font-weight:400 !important;font-size:clamp(39px,4vw,56px) !important;line-height:1.13 !important;letter-spacing:-.047em !important}
+.ls-social-hero-editorial h1 strong{font-weight:400 !important;color:#A9B9FF !important}
+.ls-social-hero-editorial .ls-social-lead{margin-top:25px !important;font-size:15px !important;line-height:1.8 !important;color:#A0ABC5 !important;max-width:510px !important}
+.ls-social-hero-editorial .ls-social-actions{margin-top:28px !important}
+.ls-social-hero-editorial .ls-social-primary{background:#fff;color:#17235D;border-radius:10px;min-height:48px;padding:0 22px;display:inline-flex;gap:18px;font-size:13px;transition:transform .2s,box-shadow .2s}
+.ls-social-hero-editorial .ls-social-primary:hover{box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.ls-social-hero-demo{min-width:0;display:grid;gap:12px}
+.ls-social-demo-heading{display:flex;align-items:center;justify-content:space-between;color:#8EA0C5;font-size:10px;font-weight:700;letter-spacing:.12em;padding:0 1px 9px}
+.ls-social-demo-live{display:flex;align-items:center;gap:7px;font-size:10px;color:#9FAEDD;letter-spacing:0;font-weight:500}
+.ls-social-demo-live i{width:6px;height:6px;border-radius:50%;background:#7E98FF;box-shadow:0 0 0 4px rgba(126,152,255,.12)}
+.ls-social-demo-row{display:flex;align-items:center;gap:17px;min-height:103px;background:#F9FAFE;border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:13px 17px;color:#17213A;box-shadow:0 12px 35px rgba(0,0,0,.10)}
+.ls-social-demo-thumb{width:76px;height:76px;flex:0 0 76px;border-radius:8px;overflow:hidden;background:#EEF2FC}
+.ls-social-demo-thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.ls-social-demo-details{display:grid;gap:7px;flex:1;min-width:0}
+.ls-social-demo-details strong{font-size:14px;font-weight:600;line-height:1.35;color:#17213A}
+.ls-social-demo-details>span{font-size:11px;color:#6B7893;line-height:1.5}
+.ls-social-demo-arrow{font-size:21px;color:#3347D6;margin-left:auto;align-self:center}
+.ls-social-demo-row-last{background:#E9EDFF}
+.ls-social-demo-system-icon{display:grid;place-items:center;width:76px;height:76px;flex:0 0 76px;background:#DCE4FF;color:#293BC4;border-radius:8px;font-size:38px}
+@media(max-width:1100px){.ls-social-hero-editorial .ls-social-hero-grid{grid-template-columns:1fr;gap:48px !important}.ls-social-hero-editorial .ls-social-hero-copy{max-width:680px}.ls-social-hero-demo{max-width:650px;width:100%}}
+@media(max-width:760px){.ls-social-hero.ls-social-hero-editorial{padding:114px 0 70px !important}.ls-social-hero-editorial h1{font-size:clamp(33px,8vw,42px) !important}.ls-social-hero-editorial .ls-social-lead{font-size:14px !important}.ls-social-hero-editorial .ls-social-actions{flex-direction:row}.ls-social-hero-editorial .ls-social-primary{width:auto;min-width:155px}.ls-social-hero-editorial .ls-social-hero-grid{gap:38px !important}.ls-social-demo-row{min-height:89px;gap:12px;padding:11px}.ls-social-demo-thumb,.ls-social-demo-system-icon{width:62px;height:62px;flex-basis:62px}.ls-social-demo-details strong{font-size:12px}.ls-social-demo-details>span{font-size:10px}.ls-social-demo-arrow{font-size:17px}}
+@media(max-width:390px){.ls-social-demo-heading{font-size:9px}.ls-social-demo-row{gap:9px}.ls-social-demo-thumb,.ls-social-demo-system-icon{width:52px;height:52px;flex-basis:52px}}
+</style></head>
 <body>
 
   <header class="lnav" aria-label="Navegación principal">
@@ -3781,47 +3809,33 @@ body .ls-social-faq{
       </div>
 
   <main id="top">
-  <section class="ls-social-hero">
+  <section class="ls-social-hero ls-social-hero-editorial">
     <div class="ls-social-shell ls-social-hero-grid">
       <div class="ls-social-hero-copy">
         <p class="ls-social-kicker">LOW SOCIAL</p>
-        <h1>Contenido que construye marca,<br><strong>comunidad y demanda.</strong></h1>
-        <p class="ls-social-lead">
-          Diseñamos sistemas de Social Media que conectan estrategia, identidad, contenido y distribución
-          para transformar presencia digital en crecimiento.
-        </p>
-
+        <h1>Contenido que construye marca <strong>y genera conexiones.</strong></h1>
+        <p class="ls-social-lead">Estrategia, creatividad y gestión de redes sociales conectadas en un sistema que hace crecer tu presencia digital.</p>
         <div class="ls-social-actions">
-          <a class="ls-social-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
-          <a class="ls-social-secondary" href="#casos">Ver casos</a>
-        </div>
-
-        <div class="ls-social-metrics" aria-label="Métricas Low Social">
-          <div><strong>+400</strong><span>piezas de contenido creadas</span></div>
-          <div><strong>+100K</strong><span>personas alcanzadas</span></div>
+          <a class="ls-social-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-
-      <div class="ls-social-visual" aria-label="Ejemplos de contenido Low Social">
-        <div class="ls-social-browser">
-          <div class="ls-social-browser-bar">
-            <i></i><i></i><i></i>
-            <span>Social Content System</span>
-          </div>
-          <img src="https://lowsignal.cl/assets/hub-ig.jpg" alt="Contenido para redes sociales desarrollado por lowsignal para hUB">
+      <div class="ls-social-hero-demo" aria-label="Ejemplos de contenido desarrollado por lowsignal">
+        <div class="ls-social-demo-heading"><span>CONTENT, BY LOWSIGNAL</span><span class="ls-social-demo-live"><i></i> En movimiento</span></div>
+        <div class="ls-social-demo-row">
+          <div class="ls-social-demo-thumb"><img src="https://lowsignal.cl/assets/hub-ig.jpg" alt="Contenido de hUB Providencia" fetchpriority="high"></div>
+          <div class="ls-social-demo-details"><strong>Contenido con identidad</strong><span>Diseño, fotografía y storytelling</span></div>
+          <span class="ls-social-demo-arrow" aria-hidden="true">↗</span>
         </div>
-
-        <div class="ls-social-floating-card ls-social-floating-card-top">
-          <span>ESTRATEGIA</span>
-          <strong>Contenido con una línea editorial clara.</strong>
+        <div class="ls-social-demo-row">
+          <div class="ls-social-demo-thumb"><img src="https://lowsignal.cl/assets/dali-ig.jpg" alt="Contenido del Colegio Salvador Dalí" loading="lazy"></div>
+          <div class="ls-social-demo-details"><strong>Marcas que conectan</strong><span>Mensajes relevantes para cada audiencia</span></div>
+          <span class="ls-social-demo-arrow" aria-hidden="true">↗</span>
         </div>
-
-        <div class="ls-social-phone">
-          <img src="https://lowsignal.cl/assets/dali-ig.jpg" alt="Contenido para redes sociales desarrollado por lowsignal para Colegio Salvador Dalí">
+        <div class="ls-social-demo-row ls-social-demo-row-last">
+          <span class="ls-social-demo-system-icon" aria-hidden="true">✳</span>
+          <div class="ls-social-demo-details"><strong>Un sistema, no posts aislados</strong><span>Estrategia · Contenido · Gestión · Data</span></div>
+          <span class="ls-social-demo-arrow" aria-hidden="true">↗</span>
         </div>
-
-        <div class="ls-social-orbit ls-social-orbit-one"></div>
-        <div class="ls-social-orbit ls-social-orbit-two"></div>
       </div>
     </div>
   </section>
