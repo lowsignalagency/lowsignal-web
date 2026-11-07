@@ -11017,95 +11017,44 @@ body footer .footer-bottom{
 <script src="https://lowsignal.cl/assets/b2c-pricing-enhance.js?v=7"></script>
 <script id="b2c-refresh-reveals-2026">(function(){const sels=['.i28-cta-copy','.i28-cta-inner>a','.i28-trust-grid','.b2cr-segments-grid>article','.b2cr-why-grid>article','.b2cr-pricing-grid>article','footer .footer-main','footer .footer-meta','footer .footer-bottom','.b2c-compare-head','.b2c-compare-desktop'];function init(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))return;const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');o.unobserve(x.target)}}),{threshold:.08});const seen=new WeakSet();function scan(){sels.forEach(q=>document.querySelectorAll(q).forEach(el=>{if(seen.has(el))return;seen.add(el);el.classList.add('b2cr-reveal');if(el.getBoundingClientRect().top<innerHeight*.93)el.classList.add('is-visible');else o.observe(el)}))}scan();const price=document.getElementById('planes-b2c');if(price){let mo=new MutationObserver(scan);mo.observe(price,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),2000)}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();</script>
 <style id="b2c-testimonials-match-education-20261107">
-/* B2C: restore Education's contained testimonial carousel layout. */
-.b2cr-testimonials{
-  padding:94px 0 102px!important;
-  background:#EEF3FF!important;
-}
-.b2cr-testimonials>.b2cr-shell{
-  width:min(1220px,calc(100% - 128px))!important;
-  max-width:1220px!important;
-  margin:0 auto!important;
-}
-.b2cr-testimonials .b2cr-stage{
-  width:100%!important;
-  max-width:none!important;
-  height:auto!important;
-  min-height:540px!important;
-  margin:0!important;
-  border-radius:22px!important;
-  overflow:hidden!important;
-}
-.b2cr-testimonials .b2cr-slide{
-  background-size:cover!important;
-  background-position:center!important;
-  background-repeat:no-repeat!important;
-}
-.b2cr-testimonials .b2cr-panel{
-  position:absolute!important;
-  left:42px!important;
-  right:auto!important;
-  top:50%!important;
-  bottom:auto!important;
-  transform:translateY(-50%)!important;
-  width:min(520px,calc(100% - 84px))!important;
-  max-width:none!important;
-  min-height:392px!important;
-  max-height:none!important;
-  padding:34px!important;
-  overflow:visible!important;
-  border-radius:0!important;
-  background:rgba(5,10,24,.90)!important;
-  backdrop-filter:none!important;
-}
-.b2cr-testimonials .b2cr-panel blockquote{
-  font-size:17px!important;
-  line-height:1.52!important;
-  max-width:430px!important;
-}
-.b2cr-testimonials .b2cr-controls{
-  left:76px!important;
-  right:auto!important;
-  bottom:54px!important;
-  top:auto!important;
-}
-@media(max-width:1100px){
-  .b2cr-testimonials>.b2cr-shell{width:calc(100% - 48px)!important}
-  .b2cr-testimonials .b2cr-stage{min-height:500px!important}
-  .b2cr-testimonials .b2cr-panel{left:28px!important;width:min(500px,calc(100% - 56px))!important}
-  .b2cr-testimonials .b2cr-controls{left:60px!important;bottom:42px!important}
+/* Education parity: edge-to-edge photographic carousel on desktop. */
+.b2cr-testimonials{padding:0!important;background:#071022!important;overflow:hidden!important}
+.b2cr-testimonials>.b2cr-shell{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+.b2cr-testimonials .b2cr-stage{position:relative!important;width:100%!important;max-width:none!important;height:auto!important;min-height:650px!important;margin:0!important;border-radius:0!important;overflow:hidden!important;background:#071022!important}
+.b2cr-testimonials .b2cr-slide{position:absolute!important;inset:0!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important}
+.b2cr-testimonials .b2cr-slide:before{background:linear-gradient(90deg,rgba(5,10,24,.28) 0%,rgba(5,10,24,.03) 70%)!important}
+.b2cr-testimonials .b2cr-panel{box-sizing:border-box!important;position:absolute!important;left:max(32px,calc((100vw - 1220px)/2))!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:min(510px,calc(100% - 64px))!important;max-width:none!important;min-height:440px!important;max-height:none!important;padding:40px 42px 100px!important;overflow:visible!important;border-radius:0!important;background:rgba(7,15,34,.77)!important;border:1px solid rgba(255,255,255,.14)!important;backdrop-filter:blur(10px)!important;box-shadow:none!important;display:flex!important;flex-direction:column!important}
+.b2cr-testimonials .b2cr-panel blockquote{font-size:clamp(17px,1.4vw,20px)!important;line-height:1.58!important;font-weight:300!important;max-width:430px!important}
+.b2cr-testimonials .b2cr-client-logo{height:34px!important;max-width:150px!important;margin-bottom:28px!important}
+.b2cr-testimonials .b2cr-person{display:flex!important;align-items:center!important;flex-wrap:wrap!important;margin-top:auto!important;padding-top:28px!important;padding-bottom:10px!important}
+.b2cr-testimonials .b2cr-controls{position:absolute!important;left:max(72px,calc((100vw - 1220px)/2 + 42px))!important;right:auto!important;top:auto!important;bottom:77px!important;display:flex!important;gap:10px!important;z-index:5!important}
+.b2cr-testimonials .b2cr-control{width:40px!important;height:40px!important}
+@media(max-width:900px){
+ .b2cr-testimonials .b2cr-stage{min-height:580px!important}
+ .b2cr-testimonials .b2cr-panel{left:32px!important}
+ .b2cr-testimonials .b2cr-controls{left:72px!important;bottom:60px!important}
 }
 @media(max-width:760px){
-  .b2cr-testimonials{padding:70px 0!important}
-  .b2cr-testimonials>.b2cr-shell{width:calc(100% - 40px)!important}
-  .b2cr-testimonials .b2cr-stage{height:auto!important;min-height:600px!important;border-radius:18px!important}
-  .b2cr-testimonials .b2cr-slide{
-    background-size:cover!important;
-    background-position:center!important;
-  }
-  .b2cr-testimonials .b2cr-panel{
-    left:16px!important;
-    right:16px!important;
-    top:auto!important;
-    bottom:16px!important;
-    transform:none!important;
-    width:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    padding:24px!important;
-    overflow:visible!important;
-    border-radius:0!important;
-  }
-  .b2cr-testimonials .b2cr-panel blockquote{font-size:15px!important}
-  .b2cr-testimonials .b2cr-controls{
-    left:auto!important;right:24px!important;
-    top:24px!important;bottom:auto!important;
-  }
+ /* Match Education's mobile pattern: photographic top and separate readable quote card. */
+ .b2cr-testimonials .b2cr-stage{width:100%!important;height:745px!important;min-height:745px!important;margin:0!important;border-radius:0!important}
+ .b2cr-testimonials .b2cr-slide{background-color:#071022!important;background-size:100% 280px!important;background-position:center top!important;background-repeat:no-repeat!important}
+ .b2cr-testimonials .b2cr-slide:before{background:linear-gradient(180deg,transparent 0%,rgba(7,16,34,.06) 210px,#071022 280px,#071022 100%)!important}
+ .b2cr-testimonials .b2cr-panel{box-sizing:border-box!important;top:252px!important;bottom:20px!important;left:16px!important;right:16px!important;transform:none!important;width:auto!important;max-width:none!important;min-height:0!important;max-height:none!important;overflow-y:auto!important;overscroll-behavior:contain!important;padding:25px 22px 84px!important;background:rgba(10,20,43,.97)!important;border:1px solid rgba(160,181,239,.18)!important;border-radius:14px!important;box-shadow:0 12px 32px rgba(0,0,0,.15)!important;backdrop-filter:none!important}
+ .b2cr-testimonials .b2cr-client-logo{height:28px!important;max-width:148px!important;margin:0 0 20px!important}
+ .b2cr-testimonials .b2cr-panel blockquote{font-size:clamp(15px,4vw,17px)!important;font-weight:400!important;line-height:1.55!important;margin:0!important;max-width:100%!important}
+ .b2cr-testimonials .b2cr-person{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:10px!important;padding:20px 0 0!important;margin-top:auto!important;margin-bottom:0!important}
+ .b2cr-testimonials .b2cr-person>img{width:40px!important;height:40px!important;flex:0 0 40px!important}
+ .b2cr-testimonials .b2cr-person>div{flex:1 1 145px!important;min-width:0!important}
+ .b2cr-testimonials .b2cr-person b{font-size:11px!important}
+ .b2cr-testimonials .b2cr-person span{font-size:10px!important}
+ .b2cr-testimonials .b2cr-person .testimonial-case{display:inline-flex!important;align-items:center!important;margin:5px 0 0!important;min-height:35px!important;font-size:10px!important}
+ .b2cr-testimonials .b2cr-controls{position:absolute!important;left:22px!important;right:auto!important;bottom:19px!important;top:auto!important;gap:10px!important;z-index:5!important}
+ .b2cr-testimonials .b2cr-control{width:40px!important;height:40px!important}
 }
-@media(max-width:430px){
-  .b2cr-testimonials .b2cr-stage{min-height:650px!important}
-  .b2cr-testimonials .b2cr-panel{padding:22px!important}
-  .b2cr-testimonials .b2cr-person{gap:9px!important}
+@media(max-width:420px){
+ .b2cr-testimonials .b2cr-stage{height:790px!important;min-height:790px!important}
+ .b2cr-testimonials .b2cr-slide{background-size:100% 250px!important}
+ .b2cr-testimonials .b2cr-panel{top:225px!important}
 }
 </style>
 <style id="b2c-editorial-footer-20261107">
