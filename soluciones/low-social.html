@@ -3373,6 +3373,69 @@ body .ls-social-faq{
 }
 </style>
 
+<style id="ls-social-showcase-v1">
+/* Four visual editorial panels: preserves the original Low Social palette and shell. */
+.ls-social-showcase{padding-bottom:clamp(58px,7vw,108px)}
+.ls-social-showcase-intro{margin-bottom:clamp(30px,4vw,56px)}
+.ls-social-showcase-stack{display:grid;gap:26px}
+.ls-social-showcase-card{display:grid;grid-template-columns:1fr 1fr;min-height:420px;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.ls-social-showcase-card.is-reversed .ls-social-showcase-copy{order:2}
+.ls-social-showcase-card.is-reversed .ls-social-showcase-art{order:1}
+.ls-social-showcase-copy{padding:clamp(32px,5vw,76px);display:flex;align-items:flex-start;justify-content:center;flex-direction:column}
+.ls-social-showcase-eyebrow{color:var(--blue);letter-spacing:.13em;font-size:11px;font-weight:700;margin-bottom:28px}
+.ls-social-showcase-copy h3{font-size:clamp(26px,2.6vw,38px);line-height:1.23;letter-spacing:-.045em;font-weight:500;margin:0 0 20px;max-width:520px;color:var(--ink)}
+.ls-social-showcase-copy h3 em{font-style:normal;color:#748099}
+.ls-social-showcase-copy p{font-size:14px;line-height:1.85;color:var(--muted);margin:0;max-width:450px}
+.ls-social-showcase-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:30px}
+.ls-social-showcase-tags span{font-size:10px;font-weight:600;color:#3D4C70;border:1px solid #E2E7F3;border-radius:100px;padding:8px 11px;white-space:nowrap}
+.ls-social-showcase-art{min-height:420px;display:flex;align-items:center;justify-content:center;padding:36px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 95%,rgba(20,74,224,.20),transparent 60%),linear-gradient(135deg,#f7f9ff 0%,#edf2ff 100%)}
+.ls-social-showcase-art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#475ac2 0.55px,transparent 0.55px);background-size:5px 5px;opacity:.065;pointer-events:none}
+.ls-social-art-calendar,.ls-social-art-dashboard,.ls-social-art-inbox{position:relative;width:min(100%,490px);background:#fff;border:1px solid #DFE5F3;border-radius:16px;box-shadow:0 32px 90px rgba(18,35,95,.10);padding:25px}
+.ls-social-art-top,.ls-social-art-dash-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #EDF0F7;padding-bottom:22px}
+.ls-social-art-top>span,.ls-social-art-dash-head>span{font-size:10px;color:#8491a8;letter-spacing:.09em;font-weight:700}
+.ls-social-art-top strong,.ls-social-art-dash-head strong{font-size:16px;font-weight:600;color:#17213A}
+.ls-social-art-top strong span,.ls-social-art-dash-head strong span{color:var(--blue)}
+.ls-social-art-days,.ls-social-art-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.ls-social-art-days{padding:20px 0 10px;color:#9CA7BB;text-align:center;font-size:11px;font-weight:600}
+.ls-social-art-slots>div{height:110px;background:#f6f8fd;border:1px solid #e8ecf5;border-radius:9px;padding:10px 7px;display:flex;flex-direction:column;gap:11px}
+.ls-social-art-slots small{color:#7b87a0;font-size:10px}
+.ls-social-art-slots b{font-size:10px;line-height:1.4;font-weight:600;color:#26365D}
+.ls-social-art-slots i{display:block;width:80%;height:5px;background:#b5c4ff;border-radius:5px;margin-top:auto}
+.ls-social-art-slots>div:nth-child(2) i,.ls-social-art-slots>div:nth-child(5) i{background:#232dda}
+.ls-social-art-footer{border-top:1px solid #edf0f7;margin-top:20px;padding-top:17px;color:#7786a0;font-size:10px;display:flex;align-items:center;gap:7px}
+.ls-social-art-footer strong{margin-left:auto;color:#26365d;font-size:10px}
+.ls-social-art-dot{width:7px;height:7px;background:var(--blue);border-radius:50%}
+.art-content{background:radial-gradient(ellipse at 45% 85%,rgba(20,74,224,.24),transparent 65%),#F0F4FF}
+.ls-social-art-post{position:absolute;width:min(48%,235px);border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 28px 55px rgba(18,35,95,.15);border:1px solid #e3e8f3}
+.ls-social-art-post img{height:260px;width:100%;object-fit:cover}
+.ls-social-art-post-back{transform:translate(-90px,-24px) rotate(-10deg)}
+.ls-social-art-post-front{transform:translate(85px,20px) rotate(5deg);z-index:1}
+.ls-social-art-post-head{display:flex;align-items:center;gap:8px;padding:11px 12px;font-size:11px;color:#15213b}
+.ls-social-art-post-head>span:last-child{margin-left:auto}
+.ls-social-art-avatar{width:24px;height:24px;background:#1419e0;color:white;border-radius:50%;display:grid;place-items:center;font-size:9px}
+.ls-social-art-post-foot{padding:12px;font-size:20px;line-height:1;color:#1b2440}
+.ls-social-art-post-foot span{float:right}
+.art-community{background:radial-gradient(ellipse at 20% 10%,rgba(20,74,224,.16),transparent 65%),#f6f8ff}
+.ls-social-art-inbox{max-width:475px;padding:0}
+.ls-social-art-inbox-head{padding:23px 25px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ebeff7;gap:8px}
+.ls-social-art-inbox-head strong{font-size:20px;color:#17213a}
+.ls-social-art-inbox-head span{font-size:10px;color:#4b65b5}
+.ls-social-art-inbox-row{padding:24px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #edf0f7}
+.ls-social-art-chat-icon{flex:none;width:40px;height:40px;background:#E9EDFF;color:#1419E0;border-radius:12px;display:grid;place-items:center;font-size:19px;font-weight:600}
+.ls-social-art-chat-icon.second{background:#e8f2f1;color:#167a66}
+.ls-social-art-inbox-row>div:nth-child(2){flex:1;min-width:0;display:grid;gap:6px}
+.ls-social-art-inbox-row strong{font-size:12px;font-weight:600}
+.ls-social-art-inbox-row small{font-size:10px;line-height:1.5;color:#8390a5}
+.ls-social-art-inbox-row>span{font-size:10px;color:#95a0b3}
+.ls-social-art-inbox-status{padding:20px 25px;font-size:11px;color:#63718d}
+.ls-social-art-inbox-status span{color:#1419e0}
+.ls-social-art-dash-label{color:#5f6f8e;font-size:12px;margin-top:25px}
+.ls-social-art-dashboard svg{display:block;width:100%;height:165px;margin-top:10px}
+.ls-social-art-dash-bottom{display:flex;justify-content:space-between;font-size:10px;color:#8b97ad;border-top:1px solid #EDF0F7;padding-top:18px}
+.ls-social-art-dash-bottom span:last-child{color:var(--blue);font-weight:700}
+@media(max-width:850px){.ls-social-showcase-card{grid-template-columns:1fr}.ls-social-showcase-card.is-reversed .ls-social-showcase-copy{order:1}.ls-social-showcase-card.is-reversed .ls-social-showcase-art{order:2}.ls-social-showcase-copy{padding:34px 28px}.ls-social-showcase-art{min-height:320px;padding:24px}.ls-social-showcase-stack{gap:18px}.ls-social-showcase-copy h3{font-size:28px}.ls-social-art-post img{height:200px}}
+@media(max-width:440px){.ls-social-showcase-copy{padding:30px 24px}.ls-social-showcase-art{min-height:265px;padding:16px}.ls-social-art-calendar,.ls-social-art-inbox,.ls-social-art-dashboard{padding:16px}.ls-social-art-slots>div{height:80px;padding:6px 4px}.ls-social-art-slots b{font-size:8px}.ls-social-art-post{width:49%}.ls-social-art-post img{height:155px}.ls-social-art-post-back{transform:translate(-53px,-16px) rotate(-9deg)}.ls-social-art-post-front{transform:translate(54px,18px) rotate(5deg)}.ls-social-art-inbox{padding:0}.ls-social-art-inbox-head,.ls-social-art-inbox-row{padding:15px}.ls-social-art-inbox-row>span{display:none}.ls-social-art-dash-head strong{font-size:12px}}
+</style>
 </head>
 <body>
 
@@ -3729,44 +3792,79 @@ body .ls-social-faq{
     </div>
   </section>
 
-  <section class="ls-social-features">
+  <section class="ls-social-features ls-social-showcase" aria-labelledby="ls-social-showcase-title">
     <div class="ls-social-shell">
       <p class="ls-social-section-kicker">QUÉ HACEMOS</p>
-      <div class="ls-social-section-head">
-        <h2>Un sistema de contenido,<br><strong>no una parrilla de posts.</strong></h2>
-        <p>Trabajamos cada canal como parte de un sistema conectado: qué decir, cómo se ve, dónde aparece y qué aprendemos de su desempeño.</p>
+      <div class="ls-social-section-head ls-social-showcase-intro">
+        <h2 id="ls-social-showcase-title">Un sistema de contenido,<br><strong>no una parrilla de posts.</strong></h2>
+        <p>De la estrategia a la publicación y la optimización. Así construimos una presencia digital coherente, relevante y conectada con el negocio.</p>
       </div>
 
-      <div class="ls-social-feature-grid">
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">01</div>
-          <h3>Dirección editorial</h3>
-          <p>Definimos qué historias debe contar la marca, para quién y con qué intención.</p>
+      <div class="ls-social-showcase-stack">
+        <article class="ls-social-showcase-card">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">01 / ESTRATEGIA</span>
+            <h3>Primero definimos <em>qué vale la pena contar.</em></h3>
+            <p>Conectamos objetivos de negocio, audiencias y pilares editoriales en un plan claro. Cada publicación tiene una razón para existir.</p>
+            <div class="ls-social-showcase-tags"><span>Estrategia editorial</span><span>Planificación</span><span>Calendario</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-planning" aria-label="Ejemplo ilustrativo de planificación de contenido">
+            <div class="ls-social-art-calendar">
+              <div class="ls-social-art-top"><span>CONTENT PLANNER</span><strong>Noviembre <span aria-hidden="true">↗</span></strong></div>
+              <div class="ls-social-art-days"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span></div>
+              <div class="ls-social-art-slots">
+                <div><small>03</small><b>Brand story</b><i></i></div><div><small>04</small><b>Reel</b><i></i></div><div><small>05</small><b>Comunidad</b><i></i></div><div><small>06</small><b>Educación</b><i></i></div><div><small>07</small><b>Campaña</b><i></i></div>
+              </div>
+              <div class="ls-social-art-footer"><span class="ls-social-art-dot"></span> Planificación editorial <strong>Contenido conectado</strong></div>
+            </div>
+          </div>
         </article>
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">02</div>
-          <h3>Presencia consistente</h3>
-          <p>Construimos un ritmo de contenido reconocible y sostenible en el tiempo.</p>
+
+        <article class="ls-social-showcase-card is-reversed">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">02 / CONTENIDO</span>
+            <h3>Ideas que se convierten en <em>contenido de verdad.</em></h3>
+            <p>Diseñamos piezas, producimos fotografía y video, y adaptamos cada historia al lenguaje de sus plataformas. Con identidad, no con plantillas genéricas.</p>
+            <div class="ls-social-showcase-tags"><span>Diseño</span><span>Reels & video</span><span>Fotografía</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-content" aria-label="Ejemplos reales de contenido desarrollado por lowsignal">
+            <div class="ls-social-art-post ls-social-art-post-back"><img loading="lazy" src="https://lowsignal.cl/assets/dali-ig.jpg" alt="Contenido realizado para Colegio Salvador Dalí"></div>
+            <div class="ls-social-art-post ls-social-art-post-front"><div class="ls-social-art-post-head"><span class="ls-social-art-avatar">low.</span><strong>lowsignal</strong><span>•••</span></div><img loading="lazy" src="https://lowsignal.cl/assets/hub-ig.jpg" alt="Contenido desarrollado para hUB Providencia"><div class="ls-social-art-post-foot">♡ &nbsp; ◯ &nbsp; ↗ <span>▢</span></div></div>
+          </div>
         </article>
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">03</div>
-          <h3>Identidad en movimiento</h3>
-          <p>Traducimos la marca a piezas gráficas, fotografía y video que se sienten propias.</p>
+
+        <article class="ls-social-showcase-card">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">03 / GESTIÓN</span>
+            <h3>Tu marca activa. <em>No solo publicando.</em></h3>
+            <p>Coordinamos el calendario, la publicación y las conversaciones con la comunidad para construir una presencia consistente, cercana y bien gestionada.</p>
+            <div class="ls-social-showcase-tags"><span>Publicación</span><span>Community management</span><span>Gestión de canales</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-community" aria-label="Interfaz ilustrativa de gestión de comunidad">
+            <div class="ls-social-art-inbox">
+              <div class="ls-social-art-inbox-head"><strong>Comunidad</strong><span>● &nbsp; En seguimiento</span></div>
+              <div class="ls-social-art-inbox-row"><div class="ls-social-art-chat-icon">↗</div><div><strong>Mensajes y comentarios</strong><small>Una conversación también construye marca.</small></div><span>Ahora</span></div>
+              <div class="ls-social-art-inbox-row"><div class="ls-social-art-chat-icon second">✓</div><div><strong>Calendario coordinado</strong><small>Contenido publicado en cada canal.</small></div><span>Hoy</span></div>
+              <div class="ls-social-art-inbox-status"><span>●</span> Presencia activa, todos los días</div>
+            </div>
+          </div>
         </article>
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">04</div>
-          <h3>Mensajes que conectan</h3>
-          <p>Convertimos ideas complejas en mensajes simples, claros y fáciles de recordar.</p>
-        </article>
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">05</div>
-          <h3>Comunidad & relación</h3>
-          <p>Diseñamos una presencia que no solo publica: escucha, responde y construye vínculo.</p>
-        </article>
-        <article class="ls-social-feature-card">
-          <div class="ls-social-feature-icon">06</div>
-          <h3>Aprendizaje continuo</h3>
-          <p>Leemos señales del contenido para entender qué funciona y mejorar cada ciclo.</p>
+
+        <article class="ls-social-showcase-card is-reversed">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">04 / OPTIMIZACIÓN</span>
+            <h3>Medimos, aprendemos <em>y mejoramos cada ciclo.</em></h3>
+            <p>Analizamos las señales de cada canal para entender qué genera atención, conversación y oportunidades. Esos aprendizajes alimentan el siguiente mes.</p>
+            <div class="ls-social-showcase-tags"><span>Insights</span><span>Performance</span><span>Mejora continua</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-insights" aria-label="Panel ilustrativo de análisis de desempeño, sin cifras reales">
+            <div class="ls-social-art-dashboard">
+              <div class="ls-social-art-dash-head"><span>CONTENT INSIGHTS</span><strong>Performance <span aria-hidden="true">↗</span></strong></div>
+              <div class="ls-social-art-dash-label">Evolución del contenido</div>
+              <svg viewBox="0 0 510 178" preserveAspectRatio="none" role="img" aria-label="Gráfico ilustrativo de evolución creciente"><defs><linearGradient id="ls-social-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#333cda" stop-opacity=".20"/><stop offset="100%" stop-color="#333cda" stop-opacity="0"/></linearGradient></defs><path d="M0 160 H510 M0 106 H510 M0 53 H510" stroke="#e5e9f4" stroke-width="1"/><path d="M0 150 C38 145 64 156 96 126 S157 135 196 106 S251 120 290 82 S355 91 393 52 S448 55 510 16 L510 178 L0 178 Z" fill="url(#ls-social-area)"/><path d="M0 150 C38 145 64 156 96 126 S157 135 196 106 S251 120 290 82 S355 91 393 52 S448 55 510 16" stroke="#3038cd" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+              <div class="ls-social-art-dash-bottom"><span>Observar</span><span>Entender</span><span>Optimizar ↗</span></div>
+            </div>
+          </div>
         </article>
       </div>
     </div>
