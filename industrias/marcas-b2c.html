@@ -11015,5 +11015,98 @@ body footer .footer-bottom{
 
 <script id="b2c-refresh-2026-js">(function(){const e=[...document.querySelectorAll('.b2cr-reveal')];if('IntersectionObserver'in window){const i=new IntersectionObserver(a=>a.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');i.unobserve(x.target)}}),{threshold:.12});e.forEach(x=>i.observe(x))}else e.forEach(x=>x.classList.add('is-visible'));const s=[...document.querySelectorAll('.b2cr-slide')];let n=0;const show=x=>{n=(x+s.length)%s.length;s.forEach((z,j)=>z.classList.toggle('is-active',j===n))};document.querySelector('.b2cr-prev')?.addEventListener('click',()=>show(n-1));document.querySelector('.b2cr-next')?.addEventListener('click',()=>show(n+1));})();</script>
 <script src="https://lowsignal.cl/assets/b2c-pricing-enhance.js?v=6"></script>
-<script id="b2c-refresh-reveals-2026">(function(){const sels=['.i28-cta-copy','.i28-cta-inner>a','.i28-trust-grid','.b2cr-segments-grid>article','.b2cr-why-grid>article','.b2cr-pricing-grid>article','footer .footer-main','footer .footer-meta','footer .footer-bottom','.b2c-compare-head','.b2c-compare-desktop'];function init(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))return;const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');o.unobserve(x.target)}}),{threshold:.08});const seen=new WeakSet();function scan(){sels.forEach(q=>document.querySelectorAll(q).forEach(el=>{if(seen.has(el))return;seen.add(el);el.classList.add('b2cr-reveal');if(el.getBoundingClientRect().top<innerHeight*.93)el.classList.add('is-visible');else o.observe(el)}))}scan();const price=document.getElementById('planes-b2c');if(price){let mo=new MutationObserver(scan);mo.observe(price,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),2000)}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();</script></body>
+<script id="b2c-refresh-reveals-2026">(function(){const sels=['.i28-cta-copy','.i28-cta-inner>a','.i28-trust-grid','.b2cr-segments-grid>article','.b2cr-why-grid>article','.b2cr-pricing-grid>article','footer .footer-main','footer .footer-meta','footer .footer-bottom','.b2c-compare-head','.b2c-compare-desktop'];function init(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))return;const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');o.unobserve(x.target)}}),{threshold:.08});const seen=new WeakSet();function scan(){sels.forEach(q=>document.querySelectorAll(q).forEach(el=>{if(seen.has(el))return;seen.add(el);el.classList.add('b2cr-reveal');if(el.getBoundingClientRect().top<innerHeight*.93)el.classList.add('is-visible');else o.observe(el)}))}scan();const price=document.getElementById('planes-b2c');if(price){let mo=new MutationObserver(scan);mo.observe(price,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),2000)}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();</script>
+<style id="b2c-testimonials-match-education-20261107">
+/* B2C: restore Education's contained testimonial carousel layout. */
+.b2cr-testimonials{
+  padding:94px 0 102px!important;
+  background:#EEF3FF!important;
+}
+.b2cr-testimonials>.b2cr-shell{
+  width:min(1220px,calc(100% - 128px))!important;
+  max-width:1220px!important;
+  margin:0 auto!important;
+}
+.b2cr-testimonials .b2cr-stage{
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:540px!important;
+  margin:0!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+}
+.b2cr-testimonials .b2cr-slide{
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+.b2cr-testimonials .b2cr-panel{
+  position:absolute!important;
+  left:42px!important;
+  right:auto!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  width:min(520px,calc(100% - 84px))!important;
+  max-width:none!important;
+  min-height:392px!important;
+  max-height:none!important;
+  padding:34px!important;
+  overflow:visible!important;
+  border-radius:0!important;
+  background:rgba(5,10,24,.90)!important;
+  backdrop-filter:none!important;
+}
+.b2cr-testimonials .b2cr-panel blockquote{
+  font-size:17px!important;
+  line-height:1.52!important;
+  max-width:430px!important;
+}
+.b2cr-testimonials .b2cr-controls{
+  left:76px!important;
+  right:auto!important;
+  bottom:54px!important;
+  top:auto!important;
+}
+@media(max-width:1100px){
+  .b2cr-testimonials>.b2cr-shell{width:calc(100% - 48px)!important}
+  .b2cr-testimonials .b2cr-stage{min-height:500px!important}
+  .b2cr-testimonials .b2cr-panel{left:28px!important;width:min(500px,calc(100% - 56px))!important}
+  .b2cr-testimonials .b2cr-controls{left:60px!important;bottom:42px!important}
+}
+@media(max-width:760px){
+  .b2cr-testimonials{padding:70px 0!important}
+  .b2cr-testimonials>.b2cr-shell{width:calc(100% - 40px)!important}
+  .b2cr-testimonials .b2cr-stage{height:auto!important;min-height:600px!important;border-radius:18px!important}
+  .b2cr-testimonials .b2cr-slide{
+    background-size:cover!important;
+    background-position:center!important;
+  }
+  .b2cr-testimonials .b2cr-panel{
+    left:16px!important;
+    right:16px!important;
+    top:auto!important;
+    bottom:16px!important;
+    transform:none!important;
+    width:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:24px!important;
+    overflow:visible!important;
+    border-radius:0!important;
+  }
+  .b2cr-testimonials .b2cr-panel blockquote{font-size:15px!important}
+  .b2cr-testimonials .b2cr-controls{
+    left:auto!important;right:24px!important;
+    top:24px!important;bottom:auto!important;
+  }
+}
+@media(max-width:430px){
+  .b2cr-testimonials .b2cr-stage{min-height:650px!important}
+  .b2cr-testimonials .b2cr-panel{padding:22px!important}
+  .b2cr-testimonials .b2cr-person{gap:9px!important}
+}
+</style>
+</body>
 </html>
