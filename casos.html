@@ -2875,6 +2875,85 @@ body .stories-new-list .container .stories-new-grid{
 @media(max-width:600px){.cs26-hero{padding:92px 0 45px}.cs26-intro h1{font-size:38px}.cs26-intro>p{font-size:13px}.cs26-mosaic{gap:9px;grid-template-rows:repeat(2,165px)}.cs26-tile{padding:13px}.cs26-tile-bottom strong{font-size:14px}.cs26-tile-bottom small{font-size:10px}.cs26-logo-band-inner{padding:20px 0}.cs26-logo-names{gap:13px 24px}.cs26-spotlight{padding:65px 0}.cs26-story-image{height:290px}.cs26-story-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.cs26-story-tab{padding:14px 9px}.cs26-story-facts{gap:12px}}
 @media(prefers-reduced-motion:reduce){.cs26-tile,.cs26-story-image img,.cs26-hero-actions a{transition:none!important}}
 </style>
+<style id="cs26-refined-reference-layout-v2">
+/* Faithful split editorial hero, staggered stories, blue brand accents and clear alignment. */
+@media(min-width:901px){
+.cs26-hero{padding:124px 0 62px!important}
+.cs26-hero-layout{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;gap:clamp(32px,4.2vw,72px)!important;align-items:center!important}
+.cs26-intro{padding:0 0 10px!important}
+.cs26-intro h1{font-size:clamp(37px,3.55vw,55px)!important;line-height:1.15!important;letter-spacing:-.053em!important;font-weight:500!important}
+.cs26-mosaic{height:590px!important;overflow:hidden!important;position:relative!important}
+.cs26-mosaic:after{content:"";position:absolute;bottom:0;left:0;right:0;height:95px;pointer-events:none;background:linear-gradient(transparent,#fff)}
+}
+.cs26-hero{background:#fff!important}
+.cs26-intro .cs26-kicker{padding:7px 11px;border-radius:6px;background:#edf2ff;color:#172c9d;font-size:10px!important;letter-spacing:.13em}
+.cs26-intro h1 span{color:#1419e0}
+.cs26-mosaic{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important;gap:12px!important;align-items:start!important}
+.cs26-mosaic-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.cs26-mosaic-col-a{transform:translateY(-40px)}
+.cs26-mosaic-col-b{transform:translateY(30px)}
+.cs26-mosaic-col-c{transform:translateY(-24px)}
+.cs26-showcase-photo,.cs26-showcase-stat{position:relative;display:flex;flex-direction:column;min-height:0;height:228px;border-radius:12px;overflow:hidden;text-decoration:none!important;transition:transform .2s ease,box-shadow .2s ease}
+.cs26-showcase-photo:hover,.cs26-showcase-stat:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(9,24,69,.16)}
+.cs26-showcase-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.02)}
+.cs26-showcase-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,27,0) 20%,rgba(3,8,25,.78) 100%)}
+.cs26-showcase-overlay{position:absolute;z-index:1;bottom:16px;left:15px;right:12px;display:flex;flex-direction:column;gap:9px;color:white}
+.cs26-showcase-overlay b{font-size:16px;letter-spacing:-.04em;font-weight:650;line-height:1.25}
+.cs26-showcase-overlay small{font-size:10px;font-weight:500}
+.cs26-showcase-stat{padding:19px 16px;background:#f2f4f8;border:1px solid #dfe3ee;justify-content:flex-start;color:#101828!important}
+.cs26-stat-name{font-size:12px;font-weight:700;letter-spacing:-.035em;margin-bottom:auto}
+.cs26-showcase-stat strong{font-size:clamp(15px,1.35vw,21px);font-weight:600;line-height:1.23;letter-spacing:-.052em;margin:20px 0 10px}
+.cs26-showcase-stat>span:not(.cs26-stat-name){font-size:10px;line-height:1.5;color:#576375}
+.cs26-showcase-stat i{font-size:10px;font-weight:600;font-style:normal;margin-top:10px}
+.cs26-showcase-stat-blue{background:#1419e0!important;border-color:#1419e0!important;color:#fff!important}
+.cs26-showcase-stat-blue>span:not(.cs26-stat-name){color:#dae1ff!important}
+.cs26-showcase-stat-pale{background:#e8efff!important;border-color:#d2defd!important}
+.cs26-logo-band{background:#fff!important;border-top:1px solid #e4e8f0!important;border-bottom:1px solid #e4e8f0!important}
+.cs26-logo-band-inner{padding:28px 0!important}
+.cs26-logo-names{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:clamp(15px,2vw,40px)!important;align-items:center!important}
+.cs26-logo-names img{width:100%;max-width:125px;height:33px;object-fit:contain;filter:grayscale(1) brightness(0) opacity(.48);margin:auto}
+.cs26-logo-label{color:#69788f!important}
+.cs26-spotlight{background:radial-gradient(ellipse at 5% 5%,#e4efff 0%,transparent 40%),linear-gradient(120deg,#f2f7ff,#f7faff)!important}
+.cs26-spotlight-head{max-width:790px!important}
+.cs26-spotlight-head h2{font-size:clamp(33px,3.3vw,49px)!important}
+.cs26-story-panel{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr)!important;gap:clamp(34px,4.5vw,76px)!important}
+.cs26-story-image{height:475px!important;border-radius:16px!important;box-shadow:0 14px 40px rgba(24,49,96,.07)}
+.cs26-story-image img{object-fit:cover!important}
+.cs26-story-copy h4{font-size:clamp(28px,2.45vw,38px)!important}
+.cs26-story-tab{border-bottom:1px solid transparent!important}
+.cs26-story-tab.is-active{color:#1419e0!important}
+.cs26-story-cta{background:#fff!important}
+.cs26-story-cta:hover{background:#1419e0!important;color:#fff!important}
+@media(max-width:900px){
+.cs26-hero-layout{grid-template-columns:1fr!important}
+.cs26-mosaic{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important;height:430px;overflow:hidden;position:relative}
+.cs26-mosaic:after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,#fff);pointer-events:none}
+.cs26-mosaic-col-a{transform:translateY(-15px)}.cs26-mosaic-col-b{transform:translateY(15px)}.cs26-mosaic-col-c{transform:translateY(-5px)}
+.cs26-showcase-photo,.cs26-showcase-stat{height:190px}
+.cs26-story-panel{grid-template-columns:1fr!important}
+.cs26-logo-names{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+.cs26-hero{padding:95px 0 35px!important}
+.cs26-intro h1{font-size:clamp(32px,8vw,42px)!important}
+.cs26-mosaic{height:310px;gap:7px!important}
+.cs26-mosaic-col{gap:7px}
+.cs26-showcase-photo,.cs26-showcase-stat{height:148px;border-radius:8px}
+.cs26-showcase-stat{padding:11px 9px}
+.cs26-showcase-stat strong{font-size:12px;margin:7px 0}
+.cs26-showcase-stat>span:not(.cs26-stat-name){font-size:8px;line-height:1.3}
+.cs26-stat-name{font-size:9px}
+.cs26-showcase-stat i{font-size:8px}
+.cs26-showcase-overlay{bottom:9px;left:9px}
+.cs26-showcase-overlay b{font-size:12px}
+.cs26-showcase-overlay small{font-size:8px}
+.cs26-logo-band-inner{gap:16px!important}
+.cs26-logo-names{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important}
+.cs26-logo-names img{height:25px}
+.cs26-story-image{height:300px!important}
+.cs26-story-copy h4{font-size:28px!important}
+}
+</style>
 </head>
 <body>
 
@@ -3149,12 +3228,35 @@ body .stories-new-list .container .stories-new-grid{
         <p>Detrás de cada proyecto hay un desafío diferente. Conoce cómo conectamos estrategia, creatividad y tecnología para hacer que las marcas avancen.</p>
         <div class="cs26-hero-actions"><a class="cs26-btn-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <span aria-hidden="true">↗</span></a><a class="cs26-btn-outline" href="#casos-explorar">Explorar casos</a></div>
       </div>
-      <div class="cs26-mosaic" aria-label="Historias de clientes de lowsignal"><a class="cs26-tile cs26-tile-photo" href="/casos/rech"><img class="cs26-tile-bg" src="/assets/comunidad-rech.jpg" alt="" loading="eager"><span class="cs26-tile-category">EDUCACIÓN</span><span class="cs26-tile-bottom"><strong>Red Educacional Camilo Henríquez</strong><small>Ver historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></small></span></a><a class="cs26-tile cs26-tile-metric" href="/casos/fcct"><span class="cs26-tile-category">EDUCACIÓN</span><span class="cs26-tile-bottom"><strong>Fundación Crecer con Todos</strong><small>Conocer el proyecto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></small></span></a><a class="cs26-tile cs26-tile-metric" href="/casos/dimor"><span class="cs26-tile-category">EMPRESAS B2B</span><span class="cs26-tile-bottom"><strong>Dimor</strong><small>Conocer el proyecto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></small></span></a><a class="cs26-tile cs26-tile-metric" href="/casos/hub"><img class="cs26-tile-bg" src="/assets/hub-bg.jpg" alt="" loading="lazy"><span class="cs26-tile-category">MARCAS B2C</span><span class="cs26-tile-bottom"><strong>hUB</strong><small>Ver historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></small></span></a></div>
+      <div class="cs26-mosaic" aria-label="Casos reales de clientes">
+  <div class="cs26-mosaic-col cs26-mosaic-col-a">
+    <a class="cs26-showcase-photo" href="/casos/rech"><img src="/assets/comunidad-rech.jpg" alt="Comunidad de la Red Educacional Camilo Henríquez"><span class="cs26-showcase-overlay"><b>RECH</b><small>Leer historia <span aria-hidden="true">→</span></small></span></a>
+    <a class="cs26-showcase-stat" href="/casos/fcct"><span class="cs26-stat-name">Primero LEE</span><strong>Más lectores.<br>Más futuro.</strong><span>Una experiencia digital al servicio de la educación.</span><i>Ver proyecto →</i></a>
+    <a class="cs26-showcase-photo" href="/casos/san-jorge"><img src="/assets/sanjorge-ninos.png" alt="Colegio San Jorge"><span class="cs26-showcase-overlay"><b>San Jorge</b><small>Leer historia →</small></span></a>
+  </div>
+  <div class="cs26-mosaic-col cs26-mosaic-col-b">
+    <a class="cs26-showcase-stat cs26-showcase-stat-blue" href="/casos/rikdom"><span class="cs26-stat-name">Rikdom Chile</span><strong>Negocios que se muestran mejor.</strong><span>Una web para conectar servicios, productos y proyectos.</span><i>Ver proyecto →</i></a>
+    <a class="cs26-showcase-photo" href="/casos/hub"><img src="/assets/hub-bg.jpg" alt="hUB Providencia"><span class="cs26-showcase-overlay"><b>hUB</b><small>Leer historia →</small></span></a>
+    <a class="cs26-showcase-photo" href="/casos/dulce-reino"><img src="/assets/dulce-reino-pasteleria.jpg" alt="DulceReino"><span class="cs26-showcase-overlay"><b>DulceReino</b><small>Leer historia →</small></span></a>
+  </div>
+  <div class="cs26-mosaic-col cs26-mosaic-col-c">
+    <a class="cs26-showcase-photo" href="/casos/dimor"><img src="/assets/dimor-concesionario.png" alt="Dimor"><span class="cs26-showcase-overlay"><b>Dimor</b><small>Leer historia →</small></span></a>
+    <a class="cs26-showcase-stat cs26-showcase-stat-pale" href="/casos/gets"><span class="cs26-stat-name">GETS</span><strong>Lo complejo, mucho más claro.</strong><span>Contenido que comunica soluciones técnicas.</span><i>Ver proyecto →</i></a>
+    <a class="cs26-showcase-photo" href="/casos/salvador-dali"><img src="/assets/dali-patio-nueva.jpg" alt="Colegio Salvador Dalí"><span class="cs26-showcase-overlay"><b>Salvador Dalí</b><small>Leer historia →</small></span></a>
+  </div>
+</div>
     </div>
   </section>
   <section class="cs26-logo-band" aria-label="Organizaciones con las que hemos trabajado"><div class="container cs26-logo-band-inner">
     <span class="cs26-logo-label">TRABAJAMOS CON</span>
-    <div class="cs26-logo-names"><span>RECH</span><span>Primero LEE</span><span>San Jorge</span><span>GETS</span><span>Dimor</span><span>hUB</span></div>
+    <div class="cs26-logo-names">
+<img src="/assets/rech-logo-full-white-trim.png" alt="RECH" class="cs26-logo-rech" loading="lazy">
+<img src="/assets/crecer-primerolee-white.png" alt="Primero LEE" loading="lazy">
+<img src="/assets/csjo-white-trim.png" alt="Colegio San Jorge" loading="lazy">
+<img src="/assets/gets-logo-white.svg" alt="GETS" loading="lazy">
+<img src="/assets/dimor-logo.png" alt="Dimor" loading="lazy">
+<img src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy">
+</div>
   </div></section>
   <section class="cs26-spotlight" aria-labelledby="cs26-spotlight-title">
     <div class="container">
