@@ -3436,6 +3436,40 @@ body .ls-social-faq{
 @media(max-width:850px){.ls-social-showcase-card{grid-template-columns:1fr}.ls-social-showcase-card.is-reversed .ls-social-showcase-copy{order:1}.ls-social-showcase-card.is-reversed .ls-social-showcase-art{order:2}.ls-social-showcase-copy{padding:34px 28px}.ls-social-showcase-art{min-height:320px;padding:24px}.ls-social-showcase-stack{gap:18px}.ls-social-showcase-copy h3{font-size:28px}.ls-social-art-post img{height:200px}}
 @media(max-width:440px){.ls-social-showcase-copy{padding:30px 24px}.ls-social-showcase-art{min-height:265px;padding:16px}.ls-social-art-calendar,.ls-social-art-inbox,.ls-social-art-dashboard{padding:16px}.ls-social-art-slots>div{height:80px;padding:6px 4px}.ls-social-art-slots b{font-size:8px}.ls-social-art-post{width:49%}.ls-social-art-post img{height:155px}.ls-social-art-post-back{transform:translate(-53px,-16px) rotate(-9deg)}.ls-social-art-post-front{transform:translate(54px,18px) rotate(5deg)}.ls-social-art-inbox{padding:0}.ls-social-art-inbox-head,.ls-social-art-inbox-row{padding:15px}.ls-social-art-inbox-row>span{display:none}.ls-social-art-dash-head strong{font-size:12px}}
 </style>
+<style id="ls-social-channels-v1">
+/* Low Social: editorial channels strip using the current lowsignal navy/blue palette. */
+.ls-social-channels{background:var(--navy,#070F22);color:#fff;position:relative;isolation:isolate;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.ls-social-channels:before{content:"";position:absolute;right:-20%;top:-40%;width:75%;height:110%;background:radial-gradient(ellipse,rgba(20,74,224,.15),transparent 68%);z-index:-1;pointer-events:none}
+.ls-social-channels-shell{padding-top:clamp(70px,8vw,118px);padding-bottom:clamp(64px,7vw,105px)}
+.ls-social-channels-intro{max-width:680px;padding-bottom:clamp(46px,6vw,86px)}
+.ls-social-channels-kicker{font-size:11px;letter-spacing:.15em;font-weight:700;color:#859FFF;margin:0 0 20px}
+.ls-social-channels-intro h2{color:#fff;font-size:clamp(34px,4vw,57px);line-height:1.15;letter-spacing:-.05em;font-weight:500;max-width:650px;margin:0}
+.ls-social-channels-intro h2 span{color:#8C9ABD}
+.ls-social-channels-intro>p:last-child{color:#A8B2CB;font-size:14px;line-height:1.85;margin:25px 0 0;max-width:555px}
+.ls-social-channels-group{border-top:1px solid rgba(255,255,255,.17);border-bottom:1px solid rgba(255,255,255,.17)}
+.ls-social-channels-group-title{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:26px 0}
+.ls-social-channels-group-title span{font-size:11px;letter-spacing:.14em;color:#C3CCE2;font-weight:650}
+.ls-social-channels-group-title small{font-size:12px;color:#7887A7;line-height:1.6}
+.ls-social-platform-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.12)}
+.ls-social-platform{min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:19px;min-height:156px;padding:26px 12px;color:#E3E9F8;font-size:13px;font-weight:500;transition:background .2s}
+.ls-social-platform+.ls-social-platform{border-left:1px solid rgba(255,255,255,.12)}
+.ls-social-platform:hover{background:rgba(255,255,255,.035)}
+.ls-social-platform-logo{display:grid;place-items:center;width:57px;height:57px;border-radius:16px;background:#151F38;border:1px solid rgba(255,255,255,.10)}
+.ls-social-platform-logo img{display:block;width:27px;height:27px;filter:invert(1)}
+.ls-social-platform-logo.ig{background:linear-gradient(140deg,#4930B7,#A3329A 55%,#DD793E)}
+.ls-social-platform-logo.fb{background:#1877F2}
+.ls-social-platform-logo.tk{background:#131419;border-color:#384054}
+.ls-social-platform-logo.li{background:#0A66C2}
+.ls-social-platform-logo.yt{background:#EF2525}
+.ls-social-channels-bottom{border-bottom:1px solid rgba(255,255,255,.17)}
+.ls-social-format-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.12)}
+.ls-social-format-grid>span{display:flex;align-items:center;gap:12px;padding:23px 20px 23px 0;font-size:13px;color:#D1D9EC;border-bottom:1px solid rgba(255,255,255,.08)}
+.ls-social-format-grid>span:nth-last-child(-n+3){border-bottom:0}
+.ls-social-format-indicator{width:7px;height:7px;flex:none;background:#557EFF;border-radius:50%;box-shadow:0 0 0 4px rgba(67,93,228,.13)}
+.ls-social-channels-note{color:#7C8AA8;font-size:11px;line-height:1.7;margin:22px 0 0}
+@media(max-width:760px){.ls-social-channels-group-title{flex-direction:column;gap:5px}.ls-social-platform-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ls-social-platform{min-height:125px;gap:12px}.ls-social-platform:nth-child(4){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(5){border-top:1px solid rgba(255,255,255,.12)}.ls-social-format-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ls-social-format-grid>span:nth-last-child(3){border-bottom:1px solid rgba(255,255,255,.08)}.ls-social-format-grid>span:nth-last-child(-n+2){border-bottom:0}}
+@media(max-width:420px){.ls-social-platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ls-social-platform:nth-child(odd){border-left:0}.ls-social-platform:nth-child(3){border-top:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(4){border-left:1px solid rgba(255,255,255,.12)}.ls-social-platform:nth-child(5){border-left:0}.ls-social-platform-logo{width:48px;height:48px;border-radius:13px}.ls-social-channels-intro h2{font-size:33px}.ls-social-format-grid>span{font-size:11px;gap:8px}}
+</style>
 </head>
 <body>
 
@@ -3869,61 +3903,39 @@ body .ls-social-faq{
       </div>
     </div>
   </section>
-<section class="ls-social-includes" aria-labelledby="ls-social-includes-title">
-    <div class="ls-social-shell">
-      <p class="ls-social-section-kicker">LOW SOCIAL</p>
-      <h2 id="ls-social-includes-title">Todo lo que incluye <strong>Low Social.</strong></h2>
-      <div class="ls-social-includes-grid">
-        <div class="ls-social-includes-col">
-          <h3>Estrategia</h3>
-          <ul>
-            <li>Estrategia de contenido</li><li>Pilares editoriales</li><li>Planificación mensual</li><li>Definición de formatos</li><li>Calendario de publicaciones</li>
-          </ul>
-        </div>
-        <div class="ls-social-includes-col">
-          <h3>Contenido</h3>
-          <ul>
-            <li>Reels y videos</li><li>Posts y carruseles</li><li>Stories</li><li>Copywriting</li><li>Diseño gráfico</li>
-          </ul>
-        </div>
-        <div class="ls-social-includes-col">
-          <h3>Producción</h3>
-          <ul>
-            <li>Jornadas de contenido</li><li>Dirección creativa</li><li>Fotografía y video</li><li>Edición</li><li>Adaptación por plataforma</li>
-          </ul>
-        </div>
-        <div class="ls-social-includes-col">
-          <h3>Gestión & optimización</h3>
-          <ul>
-            <li>Publicación</li><li>Community management</li><li>Análisis de desempeño</li><li>Aprendizajes mensuales</li><li>Optimización continua</li>
-          </ul>
-        </div>
+<section class="ls-social-channels" aria-labelledby="ls-social-channels-title">
+  <div class="ls-social-shell ls-social-channels-shell">
+    <div class="ls-social-channels-intro">
+      <p class="ls-social-channels-kicker">CANALES & FORMATOS</p>
+      <h2 id="ls-social-channels-title">Tu marca, en los canales <span>donde importa.</span></h2>
+      <p>Una estrategia conectada, con contenido pensado para cada plataforma. No se trata de estar en todas partes, sino de estar donde tiene sentido.</p>
+    </div>
+
+    <div class="ls-social-channels-group" aria-label="Plataformas sociales">
+      <div class="ls-social-channels-group-title"><span>01 / PLATAFORMAS</span><small>Elegimos los canales según tu audiencia y tus objetivos.</small></div>
+      <div class="ls-social-platform-grid">
+        <div class="ls-social-platform"><span class="ls-social-platform-logo ig"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" loading="lazy" width="28" height="28"></span><span>Instagram</span></div>
+        <div class="ls-social-platform"><span class="ls-social-platform-logo fb"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="" loading="lazy" width="28" height="28"></span><span>Facebook</span></div>
+        <div class="ls-social-platform"><span class="ls-social-platform-logo tk"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" loading="lazy" width="28" height="28"></span><span>TikTok</span></div>
+        <div class="ls-social-platform"><span class="ls-social-platform-logo li"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" loading="lazy" width="28" height="28"></span><span>LinkedIn</span></div>
+        <div class="ls-social-platform"><span class="ls-social-platform-logo yt"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" loading="lazy" width="28" height="28"></span><span>YouTube</span></div>
       </div>
     </div>
-  </section>
 
-  <section class="ls-social-smart">
-    <div class="ls-social-shell ls-social-smart-inner">
-      <p class="ls-social-section-kicker">CONTENT SYSTEM</p>
-      <h2>Una presencia digital que aprende, evoluciona y <strong>trabaja para la marca.</strong></h2>
-      <p>
-        Cada mes conectamos estrategia, producción y datos. Lo que funciona se refuerza, lo que no funciona se ajusta,
-        y cada pieza alimenta un sistema de contenido cada vez más claro y consistente.
-      </p>
-
-      <div class="ls-social-smart-flow" aria-label="Flujo Low Social">
-        <span>Estrategia</span>
-        <b>→</b>
-        <span>Contenido</span>
-        <b>→</b>
-        <span>Distribución</span>
-        <b>→</b>
-        <span>Data</span>
-        <b>→</b>
-        <span>Optimización</span>
+    <div class="ls-social-channels-bottom">
+      <div class="ls-social-channels-group-title"><span>02 / FORMATOS</span><small>Una idea, distintas formas de conectar.</small></div>
+      <div class="ls-social-format-grid">
+        <span><i class="ls-social-format-indicator"></i> Reels & video</span>
+        <span><i class="ls-social-format-indicator"></i> Carruseles</span>
+        <span><i class="ls-social-format-indicator"></i> Stories</span>
+        <span><i class="ls-social-format-indicator"></i> Fotografía</span>
+        <span><i class="ls-social-format-indicator"></i> Posts</span>
+        <span><i class="ls-social-format-indicator"></i> Contenido editorial</span>
       </div>
     </div>
-  </section>
+    <p class="ls-social-channels-note">Los canales, formatos y entregables se definen según los objetivos y el alcance de cada proyecto.</p>
+  </div>
+</section>
   <section class="ls-social-faq" aria-labelledby="ls-social-faq-title">
     <div class="ls-social-shell ls-social-faq-grid">
       <div class="ls-social-faq-heading">
