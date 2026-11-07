@@ -3100,6 +3100,22 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 @media(max-width:760px){.cs26-story-tab{min-height:82px;padding:13px 9px!important}.cs26-story-tab-logo{max-width:100%;max-height:27px}.cs26-story-brand img{max-width:165px;max-height:40px}.cs26-showcase-photo .cs26-client-brand{max-width:72px!important;max-height:26px!important}.cs26-showcase-stat .cs26-client-brand{max-width:72px;max-height:25px}}
 @media(prefers-reduced-motion:reduce){.cs26-story-tab-logo,.cs26-story-cta{transition:none!important}}
 </style>
+<style id="cs26-logo-tiles-parity-education-v1">
+/* Boxed logos, same structural pattern as Education's six-cell trust grid. */
+.cs26-logo-band{padding:0!important;background:#0a142a!important;border-top:1px solid rgba(148,169,224,.2)!important;border-bottom:1px solid rgba(148,169,224,.2)!important}
+.cs26-logo-band .cs26-partner-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:0!important;grid-auto-flow:row;width:100%;margin:0;padding:0;background:#0a142a}
+.cs26-logo-band .cs26-partner-cell{display:flex;align-items:center;justify-content:center;min-width:0;min-height:105px;padding:18px 14px;box-sizing:border-box;border:0;border-right:1px solid rgba(148,169,224,.2);background:#0a142a}
+.cs26-logo-band .cs26-partner-cell:last-child{border-right:0}
+.cs26-logo-band .cs26-partner-cell img{display:block;width:auto;height:auto;max-width:min(100%,135px);max-height:42px;object-fit:contain;object-position:center;filter:grayscale(1) brightness(0) invert(1);opacity:.8;transition:opacity .2s ease,transform .2s ease}
+.cs26-logo-band .cs26-partner-cell:hover img{opacity:1;transform:translateY(-2px)}
+.cs26-logo-band .cs26-partner-cell:nth-child(5) img{max-width:120px;max-height:40px}
+@media(max-width:760px){
+.cs26-logo-band .cs26-partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:1px!important;padding:1px!important;background:rgba(154,175,237,.22)!important}
+.cs26-logo-band .cs26-partner-cell{height:90px;min-height:90px;padding:14px 12px;border:0!important;background:#0a142a}
+.cs26-logo-band .cs26-partner-cell img{max-width:min(100%,128px);max-height:38px}
+}
+@media(prefers-reduced-motion:reduce){.cs26-logo-band .cs26-partner-cell img{transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -3393,17 +3409,16 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 </div>
     </div>
   </section>
-  <section class="cs26-logo-band" aria-label="Organizaciones con las que hemos trabajado"><div class="container cs26-logo-band-inner">
-    <span class="cs26-logo-label">TRABAJAMOS CON</span>
-    <div class="cs26-logo-names">
-<img src="/assets/rech-logo-full-white-trim.png" alt="RECH" class="cs26-logo-rech" loading="lazy">
-<img src="/assets/crecer-primerolee-white.png" alt="Primero LEE" loading="lazy">
-<img src="/assets/csjo-white-trim.png" alt="Colegio San Jorge" loading="lazy">
-<img src="/assets/gets-logo-white.svg" alt="GETS" loading="lazy">
-<img src="/assets/dimor-logo.png" alt="Dimor" loading="lazy">
-<img src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy">
-</div>
-  </div></section>
+  <section class="cs26-logo-band" aria-label="Clientes de lowsignal">
+  <div class="cs26-partner-grid">
+    <div class="cs26-partner-cell"><img src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez" loading="lazy"></div>
+    <div class="cs26-partner-cell"><img src="/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos / Primero LEE" loading="lazy"></div>
+    <div class="cs26-partner-cell"><img src="/assets/csjo-white-trim.png" alt="Colegio San Jorge" loading="lazy"></div>
+    <div class="cs26-partner-cell"><img src="/assets/gets-logo-white.svg" alt="GETS" loading="lazy"></div>
+    <div class="cs26-partner-cell"><img src="/assets/dimor-logo-white-cutout.svg" alt="Dimor" loading="lazy"></div>
+    <div class="cs26-partner-cell"><img src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy"></div>
+  </div>
+</section>
   <section class="cs26-spotlight" aria-labelledby="cs26-spotlight-title">
     <div class="container">
       <div class="cs26-spotlight-head"><p class="cs26-kicker">HISTORIAS DESTACADAS</p><h2 id="cs26-spotlight-title">Cada desafío cuenta <span>una historia.</span></h2><p>Proyectos y aprendizajes reales de marcas, instituciones y empresas.</p></div>
