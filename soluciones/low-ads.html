@@ -3880,7 +3880,7 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
     <div class="ls-social-shell">
       <div class="ads26-channels-head"><div><p class="ads26-eyebrow">CANALES · LOW ADS</p><h2 id="ads26-channels-title">La plataforma correcta.<br><span>El objetivo primero.</span></h2></div><p>Seleccionamos dónde invertir según el negocio, la audiencia y la oportunidad. No todas las marcas necesitan estar en todas partes.</p></div>
       <div class="ads26-channels-rail">
-        <div><span class="ads26-logo meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 14.7c0-4.8 2.4-8.5 5.2-8.5 2 0 3.1 1.7 4.6 4l1.3 2.1c1.1 1.8 1.7 2.5 2.5 2.5.9 0 1.5-.9 1.5-2.2 0-1.8-.9-3.7-2.1-3.7-.9 0-1.7.9-2.8 2.6l-2 3.1c-1.9 3-3 4.2-4.8 4.2C4.5 20.4 3 18.1 3 14.7Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span><span>Meta Ads</span></div>
+        <div><span class="ads26-logo meta"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/meta.svg" alt="" width="25" height="25" loading="lazy"></span><span>Meta Ads</span></div>
         <div><span class="ads26-logo google"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googleads.svg" alt="" width="25" height="25" loading="lazy"></span><span>Google Ads</span></div>
         <div><span class="ads26-logo linkedin"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" width="25" height="25" loading="lazy"></span><span>LinkedIn Ads</span></div>
         <div><span class="ads26-logo tiktok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" width="25" height="25" loading="lazy"></span><span>TikTok Ads</span></div>
@@ -9819,5 +9819,27 @@ body footer .footer-bottom{
 <style id="ads26-scroll-style">.ads26-reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .75s cubic-bezier(.2,.75,.2,1)}.ads26-reveal.ads26-visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.ads26-reveal{opacity:1;transform:none;transition:none}}</style>
 <script id="ads26-scroll">
 (function(){function init(){var els=Array.from(document.querySelectorAll('.ads26-work-heading,.ads26-panel,.ads26-channels-head,.ads26-channels-rail,.ads26-channels-foot,.ls-social-faq-grid'));els.forEach(function(e){e.classList.add('ads26-reveal')});if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('ads26-visible')});return}var obs=new IntersectionObserver(function(entries){entries.forEach(function(ent){if(ent.isIntersecting){ent.target.classList.add('ads26-visible');obs.unobserve(ent.target)}})},{threshold:.07,rootMargin:'0px 0px -5% 0px'});els.forEach(function(e){if(e.getBoundingClientRect().top<window.innerHeight*.95)e.classList.add('ads26-visible');else obs.observe(e)})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();
-</script></body>
+</script><style id="ads26-final-quality-pass">
+/* Final harmonization: the CTA text cannot inherit legacy banner paragraph sizing. */
+.lsr-band.ads26-final-cta .ads26-final-cta-inner{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:48px !important;min-height:235px !important;width:min(1220px,calc(100% - 128px)) !important;padding:46px 0 !important}
+.lsr-band.ads26-final-cta .ads26-final-copy{display:block !important;flex:1 1 auto;min-width:0;max-width:740px}
+.lsr-band.ads26-final-cta .ads26-final-copy .ads26-final-eyebrow{display:block !important;margin:0 0 15px !important;padding:0 !important;color:#C5D0FF !important;font-size:10px !important;font-weight:600 !important;line-height:1.5 !important;letter-spacing:.15em !important;text-transform:none !important}
+.lsr-band.ads26-final-cta .ads26-final-copy h2{display:block !important;max-width:710px;margin:0 !important;color:#FFF !important;font-size:clamp(27px,2.65vw,36px) !important;font-weight:400 !important;line-height:1.2 !important;letter-spacing:-.04em !important}
+.lsr-band.ads26-final-cta .ads26-final-copy h2 span{color:#D3DDFF !important}
+.lsr-band.ads26-final-cta .ads26-final-copy > p:last-child{display:block !important;font-size:13px !important;font-weight:400 !important;line-height:1.7 !important;letter-spacing:normal !important;color:#CED6FF !important;margin:13px 0 0 !important;text-align:left !important}
+.lsr-band.ads26-final-cta .ads26-final-cta-inner > a{flex:0 0 auto !important;background:#FFF !important;color:#17235D !important;border:1px solid #FFF !important;border-radius:999px !important;font-size:13px !important;font-weight:500 !important;letter-spacing:0 !important;padding:0 27px !important;min-height:51px !important;box-shadow:none !important}
+.ads26-channels{padding:clamp(56px,5.8vw,81px) 0 !important}
+.ads26-channels-head{margin-bottom:29px !important}
+.ads26-channels-rail{max-width:1020px !important;margin:0 auto !important;gap:12px !important}
+.ads26-channels-rail > div{padding:15px 14px !important;min-height:77px !important;gap:12px !important;border-radius:12px !important}
+.ads26-logo.meta img{filter:invert(1) !important}
+.ads26-channels-foot{margin-top:22px !important}
+.ads26-work-heading h2{font-weight:400 !important}
+.ads26-panel h3{font-weight:400 !important}
+.ads26-panel h3 em{font-weight:400 !important}
+.ads26-editorial-hero .ls-social-hero-grid{align-items:center !important}
+@media(max-width:1100px){.lsr-band.ads26-final-cta .ads26-final-cta-inner{width:calc(100% - 48px) !important}}
+@media(max-width:760px){.lsr-band.ads26-final-cta .ads26-final-cta-inner{width:calc(100% - 40px) !important;flex-direction:column !important;align-items:flex-start !important;min-height:0 !important;gap:25px !important;padding:52px 0 !important}.lsr-band.ads26-final-cta .ads26-final-copy h2{font-size:30px !important}.lsr-band.ads26-final-cta .ads26-final-copy .ads26-final-eyebrow{font-size:10px !important}.ads26-channels-rail{gap:9px !important}.ads26-channels-rail > div{min-height:66px !important;padding:11px !important}}
+</style>
+</body>
 </html>
