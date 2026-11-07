@@ -9849,5 +9849,41 @@ body footer .footer-bottom{
 .ads26-channels .ads26-channels-rail{max-width:1020px !important;width:100% !important;margin:0 !important;justify-content:start !important;gap:12px !important}
 .ads26-channels .ads26-channels-foot{margin-top:23px !important}
 @media(max-width:760px){.ads26-channels .ads26-channels-head{margin-bottom:24px !important}.ads26-channels .ads26-channels-description{font-size:12px !important;margin-top:17px !important}.ads26-channels .ads26-channels-rail{gap:9px !important}}
-</style></body>
+</style><style id="ads26-hero-scroll-reveal-v1">
+/* Hero only: stagger cards, preserve readability when JS is unavailable. */
+@media(prefers-reduced-motion:no-preference){
+  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line{
+    opacity:0;transform:translateY(19px);
+    transition:opacity .65s ease,transform .72s cubic-bezier(.2,.75,.2,1);
+  }
+  .ads26-hero-visual.ads26-hero-motion-ready.ads26-hero-motion-visible .ads26-hero-line{
+    opacity:1;transform:translateY(0);
+  }
+  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(2){transition-delay:.07s}
+  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(3){transition-delay:.18s}
+  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(4){transition-delay:.29s}
+}
+</style>
+<script id="ads26-hero-scroll-reveal-v1">
+(function(){
+ function init(){
+   var hero=document.querySelector('.ads26-hero-visual');
+   if(!hero)return;
+   if(!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+   if(!('IntersectionObserver' in window))return;
+   hero.classList.add('ads26-hero-motion-ready');
+   var io=new IntersectionObserver(function(entries){
+     entries.forEach(function(entry){
+       if(entry.isIntersecting){
+         hero.classList.add('ads26-hero-motion-visible');
+         io.disconnect();
+       }
+     });
+   },{threshold:.12,rootMargin:'0px 0px -3% 0px'});
+   io.observe(hero);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+</body>
 </html>
