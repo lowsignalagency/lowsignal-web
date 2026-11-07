@@ -3513,6 +3513,31 @@ body .lnav,body .lnav .lnav-mega,body footer{background:#020712!important;backgr
 @media(max-width:760px){.apps27-hero{padding:135px 0 75px}.apps27-hero-copy h1{font-size:clamp(36px,8.7vw,49px)}.apps27-hero-visual{min-height:330px;transform:none}.apps27-product{height:295px;grid-template-columns:45px 1fr}.apps27-product-main{padding:20px}.apps27-product-main h3{font-size:22px}.apps27-section-heading,.apps27-cap-head{display:block;padding-top:65px;padding-bottom:25px}.apps27-section-heading .apps27-kicker,.apps27-cap-head .apps27-kicker{margin-bottom:20px}.apps27-story-row{grid-template-columns:1fr;min-height:0;padding:35px 20px 50px;gap:28px}.apps27-story-row.apps27-reverse .apps27-story-copy{order:1}.apps27-story-row.apps27-reverse .apps27-story-art{order:2}.apps27-story-copy h3{font-size:34px}.apps27-story-copy p{font-size:13px}.apps27-demo{min-height:300px}.apps27-dashboard-grid{grid-template-columns:80px 1fr}.apps27-ux-browser{width:90%}.apps27-phone{right:1%;width:103px;height:211px}.apps27-capabilities{padding:55px 0 70px}.apps27-cap-grid{grid-template-columns:1fr}.apps27-cap:nth-child(even){padding-left:0;border-left:0}.apps27-cap{min-height:0;padding:24px 0}.apps27-pillars{padding:70px 0}.apps27-pillars-title{align-items:flex-start;flex-direction:column}.apps27-pillar-grid{grid-template-columns:1fr}.apps27-pillar-grid article{min-height:230px}.apps27-pillar-grid h3{margin-top:30px}.apps27-release-grid{gap:6px}.apps27-release-grid div{padding:11px 7px}.apps27-release-grid small{font-size:8px}.apps27-release-grid b{font-size:11px}.apps27-release-grid span{font-size:9px}}
 @media(prefers-reduced-motion:no-preference){.apps27-floating-status{animation:apps27Float 4.5s ease-in-out infinite}.apps27-release-progress span{animation:apps27Shine 4.5s ease-in-out infinite}}@keyframes apps27Float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes apps27Shine{0%,100%{opacity:.7}50%{opacity:1}}
 </style>
+<style id="low-apps-cta-hover-faq-refresh-v2">
+/* Consistent, accessible interaction feedback across Low Apps contact CTAs. */
+.apps27-pillars-link,
+.apps27-primary{
+  transition:background-color .22s ease,color .22s ease,box-shadow .22s ease,transform .22s ease !important;
+}
+.apps27-pillars-link:hover,
+.apps27-primary:hover{
+  background:#DCE5FF !important;
+  color:#1834C8 !important;
+  box-shadow:0 8px 30px rgba(76,112,246,.25) !important;
+  transform:translateY(-2px);
+}
+.apps27-pillars-link:active,
+.apps27-primary:active{transform:translateY(0)}
+.apps27-pillars-link:focus-visible,
+.apps27-primary:focus-visible{
+  outline:2px solid #96B8FF !important;
+  outline-offset:4px !important;
+}
+@media(prefers-reduced-motion:reduce){
+  .apps27-pillars-link,.apps27-primary{transition:none !important}
+  .apps27-pillars-link:hover,.apps27-primary:hover{transform:none !important}
+}
+</style>
 </head>
 <body>
 
@@ -3836,11 +3861,11 @@ body .lnav,body .lnav .lnav-mega,body footer{background:#020712!important;backgr
         <p>Todo lo que necesitas saber sobre Low Apps.</p>
       </div>
       <div class="ls-social-faq-list">
-        <details class="ls-social-faq-item"><summary>¿Puedo partir solo con una idea?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Empezamos por entender el problema, quién lo vive y qué resultado buscas. Con ese discovery definimos una primera dirección y el alcance más útil para validar.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Qué es un MVP y cuándo conviene construirlo?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Es una primera versión funcional con lo esencial para probar una hipótesis con usuarios. Conviene cuando necesitas aprender antes de invertir en una solución más completa.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Desarrollan aplicaciones web y móviles?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Desarrollamos apps web, mobile, plataformas y portales a medida. Definimos el tipo de producto según los usuarios, el problema y el contexto de uso.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿Pueden integrar IA y otras herramientas?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Sí. Podemos conectar servicios y sumar capacidades de IA cuando resuelven una necesidad real del producto. Las integraciones se definen durante el discovery y el diseño técnico.</p></div></details>
-        <details class="ls-social-faq-item"><summary>¿El trabajo termina cuando se lanza la app?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>No necesariamente. Podemos seguir midiendo el uso, priorizando mejoras y evolucionando el producto a partir de datos y comentarios de sus usuarios.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Qué tipo de aplicaciones podemos construir?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Desarrollamos plataformas internas, aplicaciones web y móviles, portales para clientes y herramientas digitales a medida. La solución depende de los usuarios, los procesos y los objetivos del negocio.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Necesito tener todo definido antes de empezar?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>No. Podemos comenzar desde una idea o un problema concreto. Primero entendemos a los usuarios, identificamos necesidades y definimos juntos un alcance realista para el proyecto.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Cómo decidimos qué desarrollar primero?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Priorizamos según el valor para el usuario, el impacto en el negocio y la complejidad técnica. Cuando tiene sentido, partimos con un MVP: una primera versión funcional para validar antes de ampliar el producto.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Podemos conectar la app con nuestros sistemas e incorporar IA?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>Evaluamos integraciones con CRM, bases de datos, APIs y otras herramientas existentes. También podemos incorporar funciones de IA cuando aporten valor real, considerando la viabilidad técnica, los permisos y el manejo de datos.</p></div></details>
+        <details class="ls-social-faq-item"><summary>¿Qué pasa después de lanzar la aplicación?<span class="ls-social-faq-icon" aria-hidden="true"></span></summary><div class="ls-social-faq-answer"><p>El lanzamiento es una etapa, no necesariamente el final. Podemos definir soporte, mantenimiento, monitoreo y mejoras evolutivas según las necesidades del producto y el alcance del servicio contratado.</p></div></details>
       </div>
     </div>
   </section>
