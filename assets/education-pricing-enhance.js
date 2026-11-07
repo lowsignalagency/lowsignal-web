@@ -3,12 +3,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   const mobileStyle=document.createElement('link');mobileStyle.rel='stylesheet';mobileStyle.href='https://lowsignal.cl/assets/education-mobile-compare-v6.css?v=1';document.head.appendChild(mobileStyle);
   const pricing=document.querySelector('#planes-education');if(!pricing)return;
 
-  if(!document.querySelector('.education-method')){
-    const method=document.createElement('section');method.className='education-method';
-    method.innerHTML=`<div class="education-method-shell"><div class="education-method-intro"><p class="education-kicker">CÓMO TRABAJAMOS</p><h2>Una estrategia que acompaña <strong>todo el ciclo de decisión.</strong></h2><p>Partimos por entender el objetivo real de la institución y construimos alrededor de admisión, comunicación, comunidad y experiencia digital.</p></div><div class="education-method-flow"><div class="education-method-step"><span>01</span><div><h3>Entendemos el objetivo</h3><p>Admisión, posicionamiento, comunidad, campaña o transformación digital.</p></div></div><div class="education-method-step"><span>02</span><div><h3>Diseñamos el sistema</h3><p>Definimos mensajes, canales, activos, calendario y puntos de conversión.</p></div></div><div class="education-method-step"><span>03</span><div><h3>Ejecutamos</h3><p>Contenido, campañas, web y seguimiento trabajando de forma coordinada.</p></div></div><div class="education-method-step"><span>04</span><div><h3>Medimos y ajustamos</h3><p>Revisamos señales reales y reforzamos lo que mueve la decisión.</p></div></div></div></div>`;
-    pricing.insertAdjacentElement('beforebegin',method);
-  }
-
   const title=pricing.querySelector('.section-title'),copy=pricing.querySelector('.section-copy');
   if(title)title.innerHTML='Tres niveles. <strong>Un mismo enfoque.</strong>';
   if(copy)copy.textContent='Desde mantener una presencia educativa sólida hasta conectar admisión, contenido, campañas y automatización en un sistema más completo.';
