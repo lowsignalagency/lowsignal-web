@@ -3436,39 +3436,31 @@ body .ls-social-faq{
 @media(max-width:850px){.ls-social-showcase-card{grid-template-columns:1fr}.ls-social-showcase-card.is-reversed .ls-social-showcase-copy{order:1}.ls-social-showcase-card.is-reversed .ls-social-showcase-art{order:2}.ls-social-showcase-copy{padding:34px 28px}.ls-social-showcase-art{min-height:320px;padding:24px}.ls-social-showcase-stack{gap:18px}.ls-social-showcase-copy h3{font-size:28px}.ls-social-art-post img{height:200px}}
 @media(max-width:440px){.ls-social-showcase-copy{padding:30px 24px}.ls-social-showcase-art{min-height:265px;padding:16px}.ls-social-art-calendar,.ls-social-art-inbox,.ls-social-art-dashboard{padding:16px}.ls-social-art-slots>div{height:80px;padding:6px 4px}.ls-social-art-slots b{font-size:8px}.ls-social-art-post{width:49%}.ls-social-art-post img{height:155px}.ls-social-art-post-back{transform:translate(-53px,-16px) rotate(-9deg)}.ls-social-art-post-front{transform:translate(54px,18px) rotate(5deg)}.ls-social-art-inbox{padding:0}.ls-social-art-inbox-head,.ls-social-art-inbox-row{padding:15px}.ls-social-art-inbox-row>span{display:none}.ls-social-art-dash-head strong{font-size:12px}}
 </style>
-<style id="ls-social-channels-v2">
-/* Social channels: a single crisp studio panel, not a table. Scoped to Low Social. */
-.low-platform-v2{background:radial-gradient(ellipse at 88% 3%,rgba(32,48,162,.22),transparent 48%),#070F22;color:#fff;overflow:hidden}
-.low-platform-v2 .low-platform-shell{padding-top:clamp(60px,6.6vw,92px);padding-bottom:clamp(56px,6vw,84px)}
-.low-platform-header{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:36px}
-.low-platform-heading{flex:1;min-width:0}
-.low-platform-kicker{margin:0 0 19px;color:#8EA4FF;font-weight:600;font-size:10px;letter-spacing:.17em}
-.low-platform-header h2{margin:0;color:#fff;font-size:clamp(31px,3vw,43px);font-weight:400;letter-spacing:-.045em;line-height:1.18}
-.low-platform-header h2 span{color:#9EADD4;font-weight:400}
-.low-platform-description{flex:0 0 305px;margin:0 0 3px;color:#A2AEC7;font-size:13px;line-height:1.85}
-.low-platform-surface{background:#F7F9FE;color:#15203B;border:1px solid #E0E6F5;border-radius:18px;padding:25px 34px 0;box-shadow:0 25px 65px rgba(0,0,0,.12)}
-.low-platform-surface-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.low-platform-surface-label{font-size:10px;color:#3852B8;font-weight:600;letter-spacing:.13em}
-.low-platform-surface-hint{font-size:11px;color:#8D99AF}
-.low-platform-logos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;width:100%;max-width:840px;margin:0 auto;padding:27px 0 30px}
-.low-platform-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:0;color:#25304A;font-weight:500;font-size:12px}
-.low-platform-icon{display:grid;place-items:center;width:57px;height:57px;border-radius:17px;background:#15213c;transition:transform .2s ease,box-shadow .2s ease}
-.low-platform-item:hover .low-platform-icon{transform:translateY(-3px);box-shadow:0 9px 22px rgba(25,42,91,.13)}
-.low-platform-icon img{display:block;width:27px;height:27px;filter:invert(1)}
-.low-platform-icon.ig{background:linear-gradient(140deg,#4E31BE,#B83A9B 55%,#EE8D48)}
-.low-platform-icon.fb{background:#1877F2}
-.low-platform-icon.tk{background:#17181E}
-.low-platform-icon.li{background:#0A66C2}
-.low-platform-icon.yt{background:#F12727}
-.low-platform-formats{display:flex;align-items:center;gap:28px;border-top:1px solid #DEE5F2;padding:22px 0 24px}
-.low-platform-formats-label{flex:none;color:#647597;font-size:10px;font-weight:600;letter-spacing:.12em}
-.low-platform-format-items{display:flex;flex-wrap:wrap;gap:7px}
-.low-platform-format-items span{border-radius:999px;border:1px solid #DDE4F2;color:#52617E;background:#fff;padding:7px 12px;font-size:10px;line-height:1.3;font-weight:400;white-space:nowrap}
-.low-platform-footnote{color:#7785A7;font-size:10px;line-height:1.6;margin:17px 0 0}
-@media(max-width:960px){.low-platform-header{gap:30px}.low-platform-description{flex-basis:240px}.low-platform-formats{align-items:start;flex-direction:column;gap:12px}}
-@media(max-width:760px){.low-platform-v2 .low-platform-shell{padding-top:60px;padding-bottom:60px}.low-platform-header{align-items:start;flex-direction:column;gap:15px;margin-bottom:27px}.low-platform-header h2{font-size:clamp(29px,6.6vw,37px)}.low-platform-description{flex:initial;max-width:520px}.low-platform-surface{padding:22px 18px 0;border-radius:15px}.low-platform-logos{grid-template-columns:repeat(3,minmax(0,1fr));max-width:440px;gap:18px 12px;padding:25px 0}.low-platform-icon{width:51px;height:51px;border-radius:15px}.low-platform-item{font-size:11px}.low-platform-surface-hint{font-size:10px}}
-@media(max-width:400px){.low-platform-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 6px}.low-platform-surface-hint{display:none}.low-platform-format-items span{font-size:10px;padding:7px 10px}}
-@media(prefers-reduced-motion:reduce){.low-platform-icon{transition:none}}
+<style id="ls-social-channels-v3">
+/* Channel rail: a concise dark editorial treatment in the real Low palette. */
+.low-platform-v3{position:relative;background:radial-gradient(ellipse at 80% 10%,rgba(30,45,135,.25),transparent 55%),#070F22;color:#fff;overflow:hidden}
+.low-platform-v3-shell{padding-top:clamp(65px,7vw,96px);padding-bottom:clamp(59px,6vw,86px)}
+.low-platform-v3-head{display:grid;grid-template-columns:1.35fr .65fr;gap:50px;align-items:end;margin-bottom:36px}
+.low-platform-v3-kicker{margin:0 0 19px;font-size:10px;letter-spacing:.16em;color:#8EA4FF;font-weight:600}
+.low-platform-v3-head h2{max-width:650px;margin:0;font-size:clamp(30px,3vw,42px);line-height:1.18;letter-spacing:-.045em;font-weight:400;color:#fff}
+.low-platform-v3-head h2 span{color:#A3B2D7;font-weight:400}
+.low-platform-v3-head>p{max-width:360px;margin:0 0 5px;font-size:13px;line-height:1.85;color:#A2AEC7}
+.low-platform-v3-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;max-width:1020px;margin:0 auto}
+.low-platform-v3-item{min-width:0;display:flex;align-items:center;gap:13px;padding:17px 16px;background:rgba(255,255,255,.045);border:1px solid rgba(167,187,255,.15);border-radius:13px;color:#E2E8F8;font-size:12px;font-weight:400;transition:background .2s,border-color .2s}
+.low-platform-v3-item:hover{background:rgba(255,255,255,.075);border-color:rgba(167,187,255,.27)}
+.low-platform-v3-logo{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#18213E}
+.low-platform-v3-logo img{width:22px;height:22px;display:block;filter:invert(1)}
+.low-platform-v3-logo.ig{background:linear-gradient(140deg,#4E31BE,#B83A9B 55%,#EE8D48)}
+.low-platform-v3-logo.fb{background:#1877F2}.low-platform-v3-logo.tk{background:#17181E}.low-platform-v3-logo.li{background:#0A66C2}.low-platform-v3-logo.yt{background:#F12727}
+.low-platform-v3-bottom{display:flex;align-items:baseline;justify-content:space-between;gap:26px;border-top:1px solid rgba(165,180,225,.16);padding-top:25px;margin-top:35px}
+.low-platform-v3-label{flex:none;letter-spacing:.13em;color:#8296CE;font-weight:600;font-size:10px}
+.low-platform-v3-bottom p{margin:0;font-size:12px;line-height:1.8;color:#C4CDE1}
+.low-platform-v3-bottom i{font-style:normal;margin:0 10px;color:#6681E8}
+.low-platform-v3-note{margin:17px 0 0;color:#7B89A9;font-size:10px}
+@media(max-width:1100px){.low-platform-v3-rail{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px;margin:0}.low-platform-v3-head{grid-template-columns:1fr;gap:16px}.low-platform-v3-head>p{max-width:600px}}
+@media(max-width:760px){.low-platform-v3-shell{padding-top:62px;padding-bottom:62px}.low-platform-v3-head{margin-bottom:28px}.low-platform-v3-head h2{font-size:clamp(29px,7vw,37px)}.low-platform-v3-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.low-platform-v3-item{padding:12px 10px;gap:8px;font-size:11px}.low-platform-v3-logo{width:35px;height:35px;border-radius:9px}.low-platform-v3-logo img{width:20px;height:20px}.low-platform-v3-bottom{flex-direction:column;gap:11px;margin-top:28px}.low-platform-v3-bottom i{margin:0 5px}}
+@media(max-width:390px){.low-platform-v3-item{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.low-platform-v3-item{transition:none}}
 </style>
 <style id="ls-social-hero-editorial-v1">
 /* Editorial hero: lean, product-like presentation while retaining Low's type and navy/blue identity. */
@@ -3917,34 +3909,25 @@ body .ls-social-faq{
       </div>
     </div>
   </section>
-<section class="ls-social-channels low-platform-v2" aria-labelledby="ls-social-channels-title">
-  <div class="ls-social-shell low-platform-shell">
-    <div class="low-platform-header">
-      <div class="low-platform-heading">
-        <p class="low-platform-kicker">LOW SOCIAL / CANALES</p>
-        <h2 id="ls-social-channels-title">Cada canal tiene su lenguaje.<br><span>Tu marca, una sola voz.</span></h2>
-      </div>
-      <p class="low-platform-description">Elegimos las plataformas que tienen sentido para tu negocio y creamos contenido pensado para cada una.</p>
+<section class="ls-social-channels low-platform-v3" aria-labelledby="ls-social-channels-title">
+  <div class="ls-social-shell low-platform-v3-shell">
+    <div class="low-platform-v3-head">
+      <div><p class="low-platform-v3-kicker">CANALES · LOW SOCIAL</p>
+        <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2></div>
+      <p>Seleccionamos los canales adecuados y adaptamos cada historia a su audiencia, sin perder la identidad de tu marca.</p>
     </div>
-
-    <div class="low-platform-surface">
-      <div class="low-platform-surface-top">
-        <span class="low-platform-surface-label">DONDE CONECTAMOS</span>
-        <span class="low-platform-surface-hint">Social media, con estrategia.</span>
-      </div>
-      <div class="low-platform-logos" aria-label="Plataformas de redes sociales">
-        <div class="low-platform-item"><span class="low-platform-icon ig"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" loading="lazy" width="27" height="27"></span><span>Instagram</span></div>
-        <div class="low-platform-item"><span class="low-platform-icon fb"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="" loading="lazy" width="27" height="27"></span><span>Facebook</span></div>
-        <div class="low-platform-item"><span class="low-platform-icon tk"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" loading="lazy" width="27" height="27"></span><span>TikTok</span></div>
-        <div class="low-platform-item"><span class="low-platform-icon li"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" loading="lazy" width="27" height="27"></span><span>LinkedIn</span></div>
-        <div class="low-platform-item"><span class="low-platform-icon yt"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" loading="lazy" width="27" height="27"></span><span>YouTube</span></div>
-      </div>
-      <div class="low-platform-formats">
-        <span class="low-platform-formats-label">LO QUE CREAMOS</span>
-        <div class="low-platform-format-items"><span>Reels & video</span><span>Carruseles</span><span>Stories</span><span>Fotografía</span><span>Posts</span><span>Contenido editorial</span></div>
-      </div>
+    <div class="low-platform-v3-rail" aria-label="Plataformas digitales">
+      <div class="low-platform-v3-item"><span class="low-platform-v3-logo ig"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" width="24" height="24" loading="lazy"></span><span>Instagram</span></div>
+      <div class="low-platform-v3-item"><span class="low-platform-v3-logo fb"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="" width="24" height="24" loading="lazy"></span><span>Facebook</span></div>
+      <div class="low-platform-v3-item"><span class="low-platform-v3-logo tk"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" width="24" height="24" loading="lazy"></span><span>TikTok</span></div>
+      <div class="low-platform-v3-item"><span class="low-platform-v3-logo li"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" width="24" height="24" loading="lazy"></span><span>LinkedIn</span></div>
+      <div class="low-platform-v3-item"><span class="low-platform-v3-logo yt"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" width="24" height="24" loading="lazy"></span><span>YouTube</span></div>
     </div>
-    <p class="low-platform-footnote">Canales y entregables definidos según la estrategia y el alcance de cada proyecto.</p>
+    <div class="low-platform-v3-bottom">
+      <span class="low-platform-v3-label">FORMATOS QUE TRABAJAMOS</span>
+      <p>Reels y video <i>·</i> Carruseles <i>·</i> Stories <i>·</i> Fotografía <i>·</i> Posts <i>·</i> Contenido editorial</p>
+    </div>
+    <p class="low-platform-v3-note">Canales y entregables definidos según los objetivos de cada proyecto.</p>
   </div>
 </section>
   <section class="ls-social-faq" aria-labelledby="ls-social-faq-title">
@@ -4045,7 +4028,7 @@ body .ls-social-faq{
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
-            <a href="#contacto">Contacto</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
@@ -9891,9 +9874,9 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
       ['.ls-social-showcase .ls-social-section-kicker','ls-scroll-reveal'],
       ['.ls-social-showcase .ls-social-section-head','ls-scroll-reveal'],
       ['.ls-social-showcase-card','ls-scroll-reveal'],
-      ['.low-platform-header','ls-scroll-reveal'],
-      ['.low-platform-surface','ls-scroll-reveal'],
-      ['.low-platform-footnote','ls-scroll-reveal'],
+      ['.low-platform-v3-head','ls-scroll-reveal'],
+      ['.low-platform-v3-rail','ls-scroll-reveal'],
+      ['.low-platform-v3-bottom','ls-scroll-reveal'],
       ['.ls-social-faq-heading','ls-scroll-reveal'],
       ['.ls-social-faq-list','ls-scroll-reveal'],
       ['.ls-social-final-cta-inner','ls-scroll-reveal'],
