@@ -2163,6 +2163,53 @@ main#top .container{
 }
 @media(prefers-reduced-motion:reduce){.lnav-ind-mega *, .lnav-ind-mega *::before{transition:none!important}}
 </style>
+<style id="lnav-ind-compact-20261107">
+/* Compact Industries dropdown; intentionally lighter and shorter than Solutions. */
+@media(min-width:761px){
+ .lnav-mega.lnav-ind-mega{padding:19px 0 21px!important}
+ .lnav-ind-mega .lnav-ind-inner{width:min(990px,calc(100% - 128px))!important;max-width:990px!important}
+ .lnav-ind-mega .lnav-ind-head{margin:0 0 13px!important;padding:0 3px 12px!important;gap:14px!important}
+ .lnav-ind-mega .lnav-ind-head>span{font-size:9px!important}
+ .lnav-ind-mega .lnav-ind-head>p{font-size:12px!important}
+ .lnav-ind-mega .lnav-ind-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}
+ .lnav-ind-mega .lnav-ind-card{
+  min-height:0!important;display:grid!important;
+  grid-template-columns:37px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;align-content:center!important;
+  column-gap:12px!important;row-gap:4px!important;
+  padding:13px 12px!important;border:1px solid transparent!important;
+  border-radius:12px!important;background:transparent!important;
+  box-shadow:none!important;transform:none!important;
+ }
+ .lnav-ind-mega .lnav-ind-card:hover,.lnav-ind-mega .lnav-ind-card:focus-visible{
+  background:#141E35!important;border-color:#2A3A60!important;transform:none!important;
+ }
+ .lnav-ind-mega .lnav-ind-number,.lnav-ind-mega .lnav-ind-audience{display:none!important}
+ .lnav-ind-mega .lnav-ind-icon{
+  grid-column:1!important;grid-row:1 / 3!important;
+  width:36px!important;height:36px!important;
+  margin:0!important;border-radius:10px!important;
+  background:#182747!important;border:1px solid #2D4376!important;
+ }
+ .lnav-ind-mega .lnav-ind-icon svg{width:19px!important;height:19px!important}
+ .lnav-ind-mega .lnav-ind-title{
+  grid-column:2!important;grid-row:1!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  font-size:13px!important;line-height:1.3!important;font-weight:600!important;
+ }
+ .lnav-ind-mega .lnav-ind-title svg{width:12px!important;height:12px!important;margin-left:2px!important}
+ .lnav-ind-mega .lnav-ind-desc{
+  grid-column:2!important;grid-row:2!important;
+  margin:0!important;font-size:10px!important;line-height:1.5!important;
+ }
+}
+@media(min-width:761px) and (max-width:1100px){
+ .lnav-ind-mega .lnav-ind-inner{width:calc(100% - 48px)!important}
+ .lnav-ind-mega .lnav-ind-card{padding:10px 8px!important;column-gap:8px!important}
+ .lnav-ind-mega .lnav-ind-title{font-size:12px!important}
+ .lnav-ind-mega .lnav-ind-desc{font-size:9px!important}
+}
+</style>
 </head>
 <body>
 
