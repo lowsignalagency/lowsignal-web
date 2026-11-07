@@ -3373,10 +3373,10 @@ body footer .footer-bottom-editorial .footer-bottom-links{justify-content:flex-e
     border:0!important;
   }
   .cs26-logo-band .cs26-partner-cell{min-height:90px!important}
-  .cs26-logo-band .cs26-partner-cell:last-child{
-    grid-column:1/-1;
-    width:100%;
-  }
+  /* Four client logos only on mobile, balanced 2 x 2. Desktop retains all five. */
+  .cs26-logo-band .cs26-partner-cell:nth-child(n+5){display:none!important}
+  .cs26-logo-band .cs26-partner-cell:nth-child(2n){border-right:0!important}
+  .cs26-logo-band .cs26-partner-cell:last-child{grid-column:auto!important;width:auto!important}
 }
 </style>
 <style id="cs26-story-logos-only-20261107">
