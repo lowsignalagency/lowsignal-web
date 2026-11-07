@@ -3966,7 +3966,7 @@ body .ls-social-faq{
   <script id="low-social-faq-controller-v1">
   (function(){document.querySelectorAll('.ls-social-faq').forEach(function(section){var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});});})();
   </script>
-  <section class="lsr-band ls-social-final-cta" aria-labelledby="ls-social-final-cta-title">
+  <section id="contacto" class="lsr-band ls-social-final-cta" aria-labelledby="ls-social-final-cta-title">
   <div class="lsr-wrap lsr-band-inner ls-social-final-cta-inner">
     <div class="ls-social-final-cta-copy">
       <p class="ls-social-final-cta-eyebrow">LOW SOCIAL · LESS NOISE. MORE GROWTH.</p>
@@ -4045,7 +4045,7 @@ body .ls-social-faq{
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
-            <a href="mailto:contacto@lowsignal.cl">Contacto</a>
+            <a href="#contacto">Contacto</a>
           </div>
         </div>
       </div>
@@ -9925,5 +9925,6 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
   else init();
 })();
 </script>
+<style id="ls-social-contact-anchor-v1">#contacto{scroll-margin-top:85px}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
 </body>
 </html>
