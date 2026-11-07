@@ -3379,6 +3379,12 @@ body footer .footer-bottom-editorial .footer-bottom-links{justify-content:flex-e
   }
 }
 </style>
+<style id="cs26-story-logos-only-20261107">
+.cs26-story-brand{margin-top:0!important}
+.cs26-story-tab{justify-content:center!important;align-items:flex-start!important;min-height:82px!important;gap:0!important}
+.cs26-story-tab-logo{margin:0!important}
+@media(max-width:760px){.cs26-story-tab{min-height:66px!important}}
+</style>
 </head>
 <body>
 
@@ -3686,10 +3692,10 @@ body footer .footer-bottom-editorial .footer-bottom-links{justify-content:flex-e
     <div class="container">
       <div class="cs26-spotlight-head"><p class="cs26-kicker">HISTORIAS DESTACADAS</p><h2 id="cs26-spotlight-title">Cada desafío cuenta <span>una historia.</span></h2><p>Proyectos y aprendizajes reales de marcas, instituciones y empresas.</p></div>
       <div class="cs26-story-panel" id="cs26-story-panel">
-        <div class="cs26-story-copy"><span class="cs26-story-category" id="cs26-story-category">EDUCACIÓN</span><div class="cs26-story-brand"><img id="cs26-story-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez"></div><h4 id="cs26-story-title">Una infraestructura digital para conectar comunidades educativas.</h4><p id="cs26-story-result">Web, contenidos y canales digitales conectados con las familias de la red.</p><div class="cs26-story-facts"><div><small>DESAFÍO</small><strong id="cs26-story-goal">Conectar a las comunidades</strong></div><div><small>SOLUCIÓN</small><strong id="cs26-story-service">Ecosistema digital</strong></div></div><a class="cs26-story-cta" id="cs26-story-cta" href="/casos/rech">Leer la historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        <div class="cs26-story-copy"><div class="cs26-story-brand"><img id="cs26-story-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez"></div><h4 id="cs26-story-title">Una infraestructura digital para conectar comunidades educativas.</h4><p id="cs26-story-result">Web, contenidos y canales digitales conectados con las familias de la red.</p><div class="cs26-story-facts"><div><small>DESAFÍO</small><strong id="cs26-story-goal">Conectar a las comunidades</strong></div><div><small>SOLUCIÓN</small><strong id="cs26-story-service">Ecosistema digital</strong></div></div><a class="cs26-story-cta" id="cs26-story-cta" href="/casos/rech">Leer la historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
         <div class="cs26-story-image"><img id="cs26-story-image" src="/assets/comunidad-rech.jpg" alt="Red Educacional Camilo Henríquez" loading="lazy"></div>
       </div>
-      <div class="cs26-story-tabs" role="group" aria-label="Elegir historia"><button class="cs26-story-tab is-active" type="button" data-story="0" aria-pressed="true"><img class="cs26-story-tab-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez" loading="lazy"><span class="cs26-story-tab-category">EDUCACIÓN</span></button><button class="cs26-story-tab" type="button" data-story="1" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos" loading="lazy"><span class="cs26-story-tab-category">EDUCACIÓN</span></button><button class="cs26-story-tab" type="button" data-story="2" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/dimor-logo.png" alt="Dimor" loading="lazy"><span class="cs26-story-tab-category">EMPRESAS B2B</span></button><button class="cs26-story-tab" type="button" data-story="3" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy"><span class="cs26-story-tab-category">MARCAS B2C</span></button></div>
+      <div class="cs26-story-tabs" role="group" aria-label="Elegir historia"><button class="cs26-story-tab is-active" type="button" data-story="0" aria-pressed="true"><img class="cs26-story-tab-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="1" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="2" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/dimor-logo.png" alt="Dimor" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="3" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy"></button></div>
     </div>
   </section>
   <section class="cs26-final-cta" id="contacto" aria-labelledby="cs26-final-cta-title">
@@ -14962,7 +14968,7 @@ body .stories-new-list .container .stories-new-grid{grid-template-columns:repeat
 const tabs=document.querySelectorAll('.cs26-story-tab');
 tabs.forEach(tab=>tab.addEventListener('click',()=>{const i=Number(tab.dataset.story),d=stories[i];if(!d)return;
 const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
-set('cs26-story-category',d.label);const storyLogo=document.getElementById('cs26-story-logo');if(storyLogo){storyLogo.src=d.logo;storyLogo.alt=d.name}set('cs26-story-title',d.title);set('cs26-story-result',d.result);set('cs26-story-goal',d.goal);set('cs26-story-service',d.service);
+const storyLogo=document.getElementById('cs26-story-logo');if(storyLogo){storyLogo.src=d.logo;storyLogo.alt=d.name}set('cs26-story-title',d.title);set('cs26-story-result',d.result);set('cs26-story-goal',d.goal);set('cs26-story-service',d.service);
 const img=document.getElementById('cs26-story-image');img.src=d.img;img.alt=d.name;
 document.getElementById('cs26-story-cta').href='/casos/'+d.slug;
 tabs.forEach(t=>{const selected=t===tab;t.classList.toggle('is-active',selected);t.setAttribute('aria-pressed',String(selected))});
