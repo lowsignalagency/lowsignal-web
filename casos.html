@@ -3410,62 +3410,53 @@ body footer .footer-bottom-editorial .footer-bottom-links{display:flex!important
 @media(max-width:900px){body footer .footer-bottom.footer-bottom-editorial{grid-template-columns:1fr!important;justify-items:start!important;gap:14px!important}body footer .footer-bottom-editorial .footer-bottom-links{justify-content:flex-start!important}}
 @media(max-width:760px){body footer{padding-top:53px!important}body footer .footer-container{width:calc(100% - 40px)!important}body footer .footer-main.footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 24px!important}body footer .footer-main-editorial .footer-brand{grid-column:1/-1!important}body footer .footer-title{margin-bottom:13px!important}body footer .footer-meta.footer-meta-editorial{margin-top:38px!important;padding:21px 0!important;grid-template-columns:1fr!important;gap:18px!important}body footer .footer-meta-editorial .footer-meta-social{justify-content:flex-start!important}body footer .footer-bottom.footer-bottom-editorial{grid-template-columns:1fr!important;gap:18px!important;justify-items:start!important}body footer .footer-bottom-editorial .footer-made-latam{white-space:normal!important}}
 @media(max-width:420px){body footer .footer-main.footer-main-editorial{gap:28px 16px!important}body footer .footer-links a{font-size:11px!important}}
-/* Dimor's square original image has a black circular ground. Invert + multiply makes that ground visually disappear on the light tabs. */
-.cs26-dimor-logo-window{display:block!important;position:relative;overflow:hidden;width:170px;height:49px;max-width:100%;flex:none}
-.cs26-dimor-logo-window .cs26-dimor-logo{position:absolute!important;display:block!important;max-width:none!important;max-height:none!important;width:170px!important;height:49px!important;object-fit:cover!important;object-position:center 72%!important;filter:grayscale(1) invert(1)!important;mix-blend-mode:multiply!important;opacity:.54!important}
-.cs26-story-tab.is-active .cs26-dimor-logo{opacity:1!important;filter:grayscale(1) invert(1)!important}
-.cs26-story-tab:hover .cs26-dimor-logo{opacity:.8!important}
-.cs26-story-brand-image.is-dimor{display:block;position:relative;overflow:hidden;width:180px;height:60px}
-.cs26-story-brand-image.is-dimor #cs26-story-logo{width:180px!important;height:60px!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center 72%!important;filter:grayscale(1) invert(1)!important;mix-blend-mode:multiply!important}
-@media(max-width:760px){.cs26-dimor-logo-window{width:110px;height:36px}.cs26-dimor-logo-window .cs26-dimor-logo{width:110px!important;height:36px!important}}
 </style>
-<style id="cs26-dimor-natural-size-blue-mobile-fix-v2">
-/* Dimor: display the full wordmark at the same visual scale as the other logos, never crop/cover. */
+<style id="cs26-dimor-clean-wordmark-v3">
+/* A real horizontal transparent wordmark asset; no image zoom, manual cropping or blending. */
 .cs26-story-tab .cs26-dimor-logo-window{
-  width:148px!important;height:46px!important;max-width:100%!important;
-  position:relative!important;display:block!important;overflow:hidden!important;
-  flex:none!important;
+  width:150px!important;height:48px!important;max-width:100%!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  overflow:visible!important;position:static!important;
 }
 .cs26-story-tab .cs26-dimor-logo-window img.cs26-dimor-logo{
-  display:block!important;position:absolute!important;
-  width:148px!important;height:148px!important;max-width:none!important;max-height:none!important;
-  left:0!important;top:-49px!important;object-fit:contain!important;object-position:center!important;
-  transform:none!important;mix-blend-mode:multiply!important;
-  filter:grayscale(1) invert(1)!important;opacity:.48!important;
-}
-.cs26-story-tab.is-active .cs26-dimor-logo-window img.cs26-dimor-logo{opacity:1!important}
-.cs26-story-tab:hover .cs26-dimor-logo-window img.cs26-dimor-logo{opacity:.75!important}
-.cs26-story-brand-image.is-dimor{width:165px!important;height:54px!important;display:block!important;position:relative!important;overflow:hidden!important}
-.cs26-story-brand-image.is-dimor #cs26-story-logo{
-  position:absolute!important;display:block!important;
-  top:-55px!important;left:0!important;
-  width:165px!important;height:165px!important;max-width:none!important;max-height:none!important;
+  display:block!important;position:static!important;inset:auto!important;
+  width:150px!important;height:auto!important;
+  max-width:100%!important;max-height:45px!important;
   object-fit:contain!important;object-position:center!important;
-  transform:none!important;mix-blend-mode:multiply!important;filter:grayscale(1) invert(1)!important;
+  transform:none!important;filter:none!important;mix-blend-mode:normal!important;
+  opacity:.45!important;animation:none!important;
 }
-/* Selection color is always brand blue, not a browser accent or visited-link purple. */
+.cs26-story-tab.is-active .cs26-dimor-logo-window img.cs26-dimor-logo,
+.cs26-story-tab[aria-pressed="true"] .cs26-dimor-logo-window img.cs26-dimor-logo{
+  opacity:1!important;filter:none!important;
+}
+.cs26-story-tab:hover .cs26-dimor-logo-window img.cs26-dimor-logo{opacity:.75!important}
+.cs26-story-brand-image.is-dimor{display:flex!important;align-items:center!important;justify-content:flex-start!important;position:static!important;width:190px!important;height:60px!important;overflow:visible!important}
+.cs26-story-brand-image.is-dimor img#cs26-story-logo{
+  display:block!important;position:static!important;inset:auto!important;
+  width:190px!important;height:auto!important;max-width:100%!important;max-height:60px!important;
+  object-fit:contain!important;object-position:left center!important;
+  transform:none!important;filter:none!important;mix-blend-mode:normal!important;
+}
 .cs26-story-tabs .cs26-story-tab{
-  appearance:none!important;-webkit-appearance:none!important;
-  background:transparent!important;color:#9ba5b5!important;
-  border-top:2px solid transparent!important;
-  accent-color:#1419E0!important;
-  -webkit-tap-highlight-color:transparent!important;
+  appearance:none!important;-webkit-appearance:none!important;background:transparent!important;
+  color:#9ba5b5!important;border-top:2px solid transparent!important;
+  accent-color:#1419E0!important;-webkit-tap-highlight-color:transparent!important;
 }
 .cs26-story-tabs .cs26-story-tab.is-active,
 .cs26-story-tabs .cs26-story-tab[aria-pressed="true"]{
   border-top-color:#1419E0!important;color:#1419E0!important;
 }
 .cs26-story-tabs .cs26-story-tab:focus-visible{outline:2px solid #1419E0!important;outline-offset:3px}
-.cs26-story-tab.is-active .cs26-story-tab-logo:not(.cs26-dimor-logo){opacity:1!important;filter:brightness(0) saturate(100%) invert(13%) sepia(100%) saturate(6000%) hue-rotate(242deg) brightness(89%) contrast(119%)!important}
+.cs26-story-tab.is-active .cs26-story-tab-logo:not(.cs26-dimor-logo){
+  opacity:1!important;
+  filter:brightness(0) saturate(100%) invert(13%) sepia(100%) saturate(6000%) hue-rotate(242deg) brightness(89%) contrast(119%)!important;
+}
 @media(max-width:760px){
-.cs26-story-tab .cs26-dimor-logo-window{width:112px!important;height:35px!important}
-.cs26-story-tab .cs26-dimor-logo-window img.cs26-dimor-logo{
- width:112px!important;height:112px!important;top:-37px!important;
-}
-.cs26-story-tabs .cs26-story-tab.is-active,
-.cs26-story-tabs .cs26-story-tab[aria-pressed="true"]{
-  border-top-color:#1419E0!important;color:#1419E0!important;
-}
+  .cs26-story-tab .cs26-dimor-logo-window{width:115px!important;height:38px!important}
+  .cs26-story-tab .cs26-dimor-logo-window img.cs26-dimor-logo{width:115px!important;max-height:38px!important}
+  .cs26-story-brand-image.is-dimor{width:160px!important;height:48px!important}
+  .cs26-story-brand-image.is-dimor img#cs26-story-logo{width:160px!important;max-height:48px!important}
 }
 </style>
 <style id="cs26-hero-kicker-spacing-v1">
@@ -3787,7 +3778,7 @@ body footer .footer-bottom-editorial .footer-bottom-links{display:flex!important
         <div class="cs26-story-copy"><div class="cs26-story-brand"><span class="cs26-story-brand-image"><img id="cs26-story-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez"></span></div><h4 id="cs26-story-title">Una infraestructura digital para conectar comunidades educativas.</h4><p id="cs26-story-result">Web, contenidos y canales digitales conectados con las familias de la red.</p><div class="cs26-story-facts"><div><small>DESAFÍO</small><strong id="cs26-story-goal">Conectar a las comunidades</strong></div><div><small>SOLUCIÓN</small><strong id="cs26-story-service">Ecosistema digital</strong></div></div><a class="cs26-story-cta" id="cs26-story-cta" href="/casos/rech">Leer la historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
         <div class="cs26-story-image"><img id="cs26-story-image" src="/assets/comunidad-rech.jpg" alt="Red Educacional Camilo Henríquez" loading="lazy"></div>
       </div>
-      <div class="cs26-story-tabs" role="group" aria-label="Elegir historia"><button class="cs26-story-tab is-active" type="button" data-story="0" aria-pressed="true"><img class="cs26-story-tab-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="1" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="2" aria-pressed="false"><span class="cs26-dimor-logo-window"><img class="cs26-story-tab-logo cs26-dimor-logo" src="/assets/dimor-logo.png" alt="Dimor" loading="lazy"></span></button><button class="cs26-story-tab" type="button" data-story="3" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy"></button></div>
+      <div class="cs26-story-tabs" role="group" aria-label="Elegir historia"><button class="cs26-story-tab is-active" type="button" data-story="0" aria-pressed="true"><img class="cs26-story-tab-logo" src="/assets/rech-logo-full-white-trim.png" alt="Red Educacional Camilo Henríquez" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="1" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos" loading="lazy"></button><button class="cs26-story-tab" type="button" data-story="2" aria-pressed="false"><span class="cs26-dimor-logo-window"><img class="cs26-story-tab-logo cs26-dimor-logo" src="/assets/dimor-wordmark-horizontal-clean.svg" alt="Dimor" loading="lazy"></span></button><button class="cs26-story-tab" type="button" data-story="3" aria-pressed="false"><img class="cs26-story-tab-logo" src="/assets/hub-logo-white-new-trim.png" alt="hUB" loading="lazy"></button></div>
     </div>
   </section>
   <section class="cs26-final-cta" id="contacto" aria-labelledby="cs26-final-cta-title">
@@ -15056,7 +15047,7 @@ body .stories-new-list .container .stories-new-grid{grid-template-columns:repeat
 }
 </style>
 <script id="cs26-story-tabs-js">
-(()=>{const stories=[{"slug":"rech","name":"Red Educacional Camilo Henríquez","label":"EDUCACIÓN","title":"Una infraestructura digital para conectar comunidades educativas.","result":"Web, contenidos y canales digitales conectados con las familias de la red.","goal":"Conectar a las comunidades","service":"Ecosistema digital","img":"/assets/comunidad-rech.jpg","logo":"/assets/rech-logo-full-white-trim.png"},{"slug":"fcct","name":"Fundación Crecer con Todos","label":"EDUCACIÓN","title":"Una experiencia digital al servicio de la lectura y el aprendizaje.","result":"Una plataforma que visibiliza la misión, los programas y el trabajo de la fundación.","goal":"Visibilizar programas","service":"Low Web","img":"/assets/crecer-ninos.png","logo":"/assets/crecer-primerolee-white.png"},{"slug":"dimor","name":"Dimor","label":"EMPRESAS B2B","title":"Del trabajo en terreno a una marca que se reconoce.","result":"Una presencia digital que refleja su operación, servicios y proyectos.","goal":"Mostrar su propuesta de valor","service":"Contenido y marca","img":"/assets/dimor-concesionario.png","logo":"/assets/dimor-logo.png"},{"slug":"hub","name":"hUB","label":"MARCAS B2C","title":"Una experiencia de marca que conecta contenido con reservas.","result":"Comunicación digital alineada con la experiencia y las campañas de hUB.","goal":"Conectar experiencia y reservas","service":"Contenido y campañas","img":"/assets/hub-bg.jpg","logo":"/assets/hub-logo-white-new-trim.png"}];const root=document.getElementById('cs26-story-panel');if(!root)return;
+(()=>{const stories=[{"slug":"rech","name":"Red Educacional Camilo Henríquez","label":"EDUCACIÓN","title":"Una infraestructura digital para conectar comunidades educativas.","result":"Web, contenidos y canales digitales conectados con las familias de la red.","goal":"Conectar a las comunidades","service":"Ecosistema digital","img":"/assets/comunidad-rech.jpg","logo":"/assets/rech-logo-full-white-trim.png"},{"slug":"fcct","name":"Fundación Crecer con Todos","label":"EDUCACIÓN","title":"Una experiencia digital al servicio de la lectura y el aprendizaje.","result":"Una plataforma que visibiliza la misión, los programas y el trabajo de la fundación.","goal":"Visibilizar programas","service":"Low Web","img":"/assets/crecer-ninos.png","logo":"/assets/crecer-primerolee-white.png"},{"slug":"dimor","name":"Dimor","label":"EMPRESAS B2B","title":"Del trabajo en terreno a una marca que se reconoce.","result":"Una presencia digital que refleja su operación, servicios y proyectos.","goal":"Mostrar su propuesta de valor","service":"Contenido y marca","img":"/assets/dimor-concesionario.png","logo":"/assets/dimor-wordmark-horizontal-clean.svg"},{"slug":"hub","name":"hUB","label":"MARCAS B2C","title":"Una experiencia de marca que conecta contenido con reservas.","result":"Comunicación digital alineada con la experiencia y las campañas de hUB.","goal":"Conectar experiencia y reservas","service":"Contenido y campañas","img":"/assets/hub-bg.jpg","logo":"/assets/hub-logo-white-new-trim.png"}];const root=document.getElementById('cs26-story-panel');if(!root)return;
 const tabs=document.querySelectorAll('.cs26-story-tab');
 tabs.forEach(tab=>tab.addEventListener('click',()=>{const i=Number(tab.dataset.story),d=stories[i];if(!d)return;
 const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
