@@ -3969,10 +3969,12 @@ body .ls-social-faq{
   <script id="low-social-faq-controller-v1">
   (function(){document.querySelectorAll('.ls-social-faq').forEach(function(section){var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});});})();
   </script>
-  <section class="lsr-band">
-  <div class="lsr-wrap lsr-band-inner">
-    <p class="lsr-reveal">¿Construimos lo que viene?</p>
-    <a class="lsr-reveal" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
+  <section class="lsr-band ls-social-final-cta" aria-labelledby="ls-social-final-cta-title">
+  <div class="lsr-wrap lsr-band-inner ls-social-final-cta-inner">
+    <p class="ls-social-final-cta-eyebrow">LESS NOISE. MORE GROWTH.</p>
+    <h2 id="ls-social-final-cta-title">Hagamos que tu marca<br><span>se haga notar.</span></h2>
+    <p class="ls-social-final-cta-description">Conversemos sobre cómo transformar tus redes sociales en una presencia que conecta, destaca y crece.</p>
+    <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <span aria-hidden="true">↗</span></a>
   </div>
 </section>
 </main>
@@ -9957,5 +9959,21 @@ body footer .footer-bottom{
 })();
 </script>
 
+<style id="ls-social-final-cta-v2">
+/* An airy, Fintoc-inspired spotlight for Low Social; only this CTA changes. */
+.lsr-band.ls-social-final-cta{position:relative;isolation:isolate;overflow:hidden;background:#FCFDFF !important;color:#0B1430 !important;border-top:1px solid #E8ECF7;min-height:470px}
+.lsr-band.ls-social-final-cta::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(1000px,110vw);height:600px;left:50%;top:24px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse at center,rgba(39,68,239,.35) 0%,rgba(65,102,252,.24) 30%,rgba(143,172,255,.15) 54%,rgba(237,243,255,0) 75%);filter:blur(26px)}
+.lsr-band.ls-social-final-cta::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(0deg,#FCFDFF 0%,rgba(252,253,255,0) 35%)}
+.lsr-band.ls-social-final-cta .ls-social-final-cta-inner{min-height:470px !important;max-width:660px !important;display:flex !important;flex-direction:column !important;justify-content:center !important;align-items:center !important;gap:0 !important;padding:75px 20px 90px !important;text-align:center !important}
+.lsr-band.ls-social-final-cta .ls-social-final-cta-eyebrow{font-size:10px !important;letter-spacing:.19em !important;font-weight:700 !important;color:#405BE0 !important;margin:0 0 20px !important}
+.lsr-band.ls-social-final-cta h2{margin:0 !important;color:#0B1430 !important;font-size:clamp(35px,4vw,52px) !important;font-weight:500 !important;line-height:1.16 !important;letter-spacing:-.048em !important}
+.lsr-band.ls-social-final-cta h2 span{color:#2A3DCB}
+.lsr-band.ls-social-final-cta .ls-social-final-cta-description{font-size:14px !important;line-height:1.75 !important;font-weight:400 !important;color:#53617D !important;margin:19px 0 27px !important;max-width:490px !important}
+.lsr-band.ls-social-final-cta a{display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:13px !important;min-height:47px !important;padding:0 24px !important;border:1px solid #1419E0 !important;border-radius:9px !important;background:#1419E0 !important;color:#FFFFFF !important;font-size:13px !important;font-weight:600 !important;text-decoration:none !important;transition:transform .2s ease,background .2s ease,box-shadow .2s ease !important}
+.lsr-band.ls-social-final-cta a:hover{background:#2447F5 !important;border-color:#2447F5 !important;transform:translateY(-2px) !important;box-shadow:0 12px 28px rgba(20,25,224,.18) !important}
+.lsr-band.ls-social-final-cta a:focus-visible{outline:3px solid #8FA3FF;outline-offset:4px}
+@media(max-width:760px){.lsr-band.ls-social-final-cta{min-height:400px}.lsr-band.ls-social-final-cta::before{width:110vw;height:440px;top:38px;filter:blur(24px)}.lsr-band.ls-social-final-cta .ls-social-final-cta-inner{min-height:400px !important;padding:65px 24px 78px !important}.lsr-band.ls-social-final-cta h2{font-size:clamp(31px,7.5vw,40px) !important}.lsr-band.ls-social-final-cta .ls-social-final-cta-description{font-size:13px !important}}
+@media(prefers-reduced-motion:reduce){.lsr-band.ls-social-final-cta a{transition:none !important}}
+</style>
 </body>
 </html>
