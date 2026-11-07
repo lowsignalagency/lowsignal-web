@@ -3015,6 +3015,27 @@ body .stories-new-list .container .stories-new-grid{
 .cs26-showcase-photo img{transition:none!important}
 }
 </style>
+<style id="cs26-clean-ending-and-footer-v1">
+/* The customer-stories landing page ends after the editorial showcase. */
+.cs26-final-cta{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(112deg,#1419e0 0%,#1b28e8 56%,#2447f5 100%);color:#fff}
+.cs26-final-cta:before{content:"";pointer-events:none;position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 82% 90%,rgba(164,189,255,.22),transparent 55%)}
+.cs26-final-cta .cs26-final-cta-inner{width:min(1220px,calc(100% - 128px))!important;margin:0 auto!important;padding:64px 0!important;min-height:235px;display:flex;align-items:center;justify-content:space-between;gap:50px}
+.cs26-final-cta-copy{max-width:700px;min-width:0}
+.cs26-final-cta-eyebrow{margin:0 0 15px;color:#c7d2ff;font-size:10px;font-weight:700;letter-spacing:.15em}
+.cs26-final-cta h2{margin:0;color:#fff;font-size:clamp(29px,2.9vw,40px);line-height:1.19;letter-spacing:-.043em;font-weight:400}
+.cs26-final-cta h2 span{color:#d5ddff}
+.cs26-final-cta-description{margin:13px 0 0;color:#e3e9ff;font-size:12px;line-height:1.7}
+.cs26-final-cta-button{display:inline-flex;align-items:center;justify-content:center;gap:16px;flex-shrink:0;min-height:50px;padding:0 26px;border-radius:999px;background:white;color:#1419e0!important;text-decoration:none!important;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.9);transition:background .2s,transform .2s}
+.cs26-final-cta-button svg{width:17px;height:17px;display:block;flex:none;transition:transform .2s}
+.cs26-final-cta-button:hover{background:#eef2ff;transform:translateY(-2px)}
+.cs26-final-cta-button:hover svg{transform:translateX(3px)}
+/* Footer uses the same editorial structure as current Low Social. */
+footer .footer-main-editorial{align-items:start}
+footer .footer-bottom-editorial{display:flex}
+@media(max-width:1100px){.cs26-final-cta .cs26-final-cta-inner{width:calc(100% - 48px)!important}}
+@media(max-width:760px){.cs26-final-cta .cs26-final-cta-inner{width:calc(100% - 40px)!important;min-height:0;padding:54px 0!important;flex-direction:column;align-items:flex-start;gap:25px}.cs26-final-cta h2{font-size:clamp(29px,7.5vw,38px)}.cs26-final-cta-button{min-height:49px}}
+@media(prefers-reduced-motion:reduce){.cs26-final-cta-button,.cs26-final-cta-button svg{transition:none}}
+</style>
 </head>
 <body>
 
@@ -3329,166 +3350,22 @@ body .stories-new-list .container .stories-new-grid{
       <div class="cs26-story-tabs" role="group" aria-label="Elegir historia"><button class="cs26-story-tab is-active" type="button" data-story="0" aria-pressed="true"><span class="cs26-story-tab-name">Red Educacional Camilo Henríquez</span><span class="cs26-story-tab-category">EDUCACIÓN</span></button><button class="cs26-story-tab" type="button" data-story="1" aria-pressed="false"><span class="cs26-story-tab-name">Fundación Crecer con Todos</span><span class="cs26-story-tab-category">EDUCACIÓN</span></button><button class="cs26-story-tab" type="button" data-story="2" aria-pressed="false"><span class="cs26-story-tab-name">Dimor</span><span class="cs26-story-tab-category">EMPRESAS B2B</span></button><button class="cs26-story-tab" type="button" data-story="3" aria-pressed="false"><span class="cs26-story-tab-name">hUB</span><span class="cs26-story-tab-category">MARCAS B2C</span></button></div>
     </div>
   </section>
-  <section class="stories-new-list" id="casos-explorar">
-    <div class="container">
-      <div class="stories-new-list-head">
-        <div>
-          <p class="stories-new-eyebrow">TODOS LOS CASOS</p>
-          <h2>Crecimiento en <strong>distintas industrias.</strong></h2>
-        </div>
-        <div class="stories-new-filters" aria-label="Filtrar casos">
-          <button class="stories-new-filter is-active" data-filter="all" type="button">Todos</button>
-          <button class="stories-new-filter" data-filter="educacion" type="button">Educación</button>
-          <button class="stories-new-filter" data-filter="b2b" type="button">Empresas B2B</button>
-          <button class="stories-new-filter" data-filter="b2c" type="button">Marcas B2C</button>
-        </div>
-      </div>
-
-      <div class="stories-new-grid">
-      <a class="stories-new-card case-item" data-category="educacion" href="https://lowsignal.cl/casos/salvador-dali">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/dali-patio-nueva.jpg" alt="Colegio Salvador Dalí" style="object-position:center 40%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/logo-dali-darkbg.png" alt="Colegio Salvador Dalí">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>EDUCACIÓN</b><span>Colegio Salvador Dalí</span></div>
-          <h3>De las redes a la postulación: un recorrido digital para nuevas familias.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Contenido, campañas y web acompañan a las familias desde el primer contacto hasta la postulación.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="educacion" href="https://lowsignal.cl/casos/fcct">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/crecer-ninos.png" alt="Fundación Crecer con Todos" style="object-position:center 35%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>EDUCACIÓN</b><span>Fundación Crecer con Todos</span></div>
-          <h3>Una plataforma para poner al frente la misión y los programas de la fundación.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Una presencia digital que ordena la misión y visibiliza sus programas.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="educacion" href="https://lowsignal.cl/casos/san-jorge">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/sanjorge-ninos.png" alt="Colegio San Jorge" style="object-position:center 35%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>EDUCACIÓN</b><span>Colegio San Jorge</span></div>
-          <h3>Una nueva web para conocer el proyecto educativo; sus redes muestran el día a día.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Una web clara para entender el proyecto educativo y redes que muestran a su comunidad.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="b2b" href="https://lowsignal.cl/casos/gets">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/gets-ninos.png" alt="GETS" style="object-position:center 40%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/gets-logo-white.svg" alt="GETS">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>B2B</b><span>GETS</span></div>
-          <h3>Un servicio técnico complejo convertido en contenido claro para quienes deciden.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Proyectos reales traducidos en una propuesta técnica más clara para quienes deciden.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="b2b" href="https://lowsignal.cl/casos/dimor">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/dimor-concesionario.png" alt="Dimor" style="object-position:center 50%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/dimor-logo.png" alt="Dimor">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>B2B</b><span>Dimor</span></div>
-          <h3>De la operación en terreno a una presencia digital que muestra el trabajo de Dimor.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>La operación diaria se convierte en contenido reconocible y consistente.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="b2b" href="https://lowsignal.cl/casos/rikdom">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/galpon-merk.jpg" alt="Galpón de Rikdom" style="object-position:center 44%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/rikdom.png" alt="Rikdom Chile">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>B2B</b><span>Rikdom</span></div>
-          <h3>Una web clara para mostrar todo lo que mueve Rikdom.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Servicios, proyectos y productos reunidos en una experiencia digital fácil de recorrer.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="b2c" href="https://lowsignal.cl/casos/hub">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/hub-bg.jpg" alt="HUB" style="object-position:center 45%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="HUB">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>B2C</b><span>HUB</span></div>
-          <h3>Contenido y campañas que conectan la experiencia de hUB con las reservas.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Una presencia digital conectada con la experiencia de hUB y el objetivo de generar reservas.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-      <a class="stories-new-card case-item" data-category="b2c" href="https://lowsignal.cl/casos/dulce-reino">
-        <div class="stories-new-card-media">
-          <img class="stories-new-photo" src="https://lowsignal.cl/assets/dulce-reino-pasteleria.jpg" alt="DulceReino" style="object-position:center 45%;">
-          <div class="stories-new-card-shade"></div>
-          <img class="stories-new-logo" src="https://lowsignal.cl/assets/dulcereino-logo-trim.png" alt="DulceReino">
-        </div>
-        <div class="stories-new-card-body">
-          <div class="stories-new-meta"><b>B2C</b><span>DulceReino</span></div>
-          <h3>Producto, local y campañas: una vitrina digital que despierta visitas.</h3>
-          <div class="stories-new-outcome"><span>CAMBIO CLAVE</span><p>Producto, local y campañas unidos en una vitrina digital que invita a visitar.</p></div>
-          <div class="stories-new-link">Ver caso <span>↗</span></div>
-        </div>
-      </a>
-        <a class="stories-new-cta-card" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">
-          <span>TU EMPRESA</span>
-          <div>
-            <h3>¿Construimos <strong>tu próximo caso?</strong></h3>
-            <b>Agendar reunión ↗</b>
-          </div>
-        </a>
-      </div>
+  <section class="cs26-final-cta" id="contacto" aria-labelledby="cs26-final-cta-title">
+  <div class="container cs26-final-cta-inner">
+    <div class="cs26-final-cta-copy">
+      <p class="cs26-final-cta-eyebrow">CUSTOMER STORIES · LESS NOISE. MORE GROWTH.</p>
+      <h2 id="cs26-final-cta-title">Tu próxima gran historia <span>empieza aquí.</span></h2>
+      <p class="cs26-final-cta-description">Conversemos sobre lo que podemos construir para tu marca.</p>
     </div>
-  </section>
-
-  <section class="stories-new-proof">
-    <div class="container stories-new-proof-grid">
-      <div class="stories-new-proof-head">
-        <div>
-          <p class="stories-new-eyebrow stories-new-eyebrow-dark">CÓMO TRABAJAMOS</p>
-          <h2>Estrategia que se ejecuta.</h2>
-          <p class="stories-new-proof-intro-v3">Conectamos estrategia, ejecución, aprendizaje y mejora continua para construir crecimiento que se sostiene en el tiempo.</p>
-        </div>
-        </div>
-      <div class="stories-new-proof-list">
-        <article><span>/ 01</span><div><h3>Estrategia</h3><p>Partimos por el desafío de negocio.</p></div></article>
-        <article><span>/ 02</span><div><h3>Ejecución</h3><p>Conectamos contenido, pauta, web y tecnología.</p></div></article>
-        <article><span>/ 03</span><div><h3>Optimización</h3><p>Medimos, aprendemos y mejoramos.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="stories-new-final">
-    <div class="container stories-new-final-inner">
-      <h2>¿Construimos lo que viene?</h2>
-      <a href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos</a>
-    </div>
-  </section>
+    <a class="cs26-final-cta-button" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  </div>
+</section>
 </main>
 
 
   <footer>
     <div class="container footer-container">
-      <div class="footer-main">
+      <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
           <p class="footer-brand-copy">
@@ -3538,19 +3415,26 @@ body .stories-new-list .container .stories-new-grid{
         </div>
 
 
-        <div>
+        <div class="footer-group footer-resources">
+          <div class="footer-title">RECURSOS</div>
+          <div class="footer-links">
+            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
+            <a href="https://lowsignal.cl/casos">Customer Stories</a>
+            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
+          </div>
+        </div>
+
+        <div class="footer-group footer-company">
           <div class="footer-title">EMPRESA</div>
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
-            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-            <a href="https://lowsignal.cl/casos">Casos</a>
-            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-meta">
+      <div class="footer-meta footer-meta-editorial">
         <div class="footer-location"><svg class="location-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path d="M12 21s6-5.25 6-11a6 6 0 1 0-12 0c0 5.75 6 11 6 11Z"
         fill="none" stroke="currentColor" stroke-width="1.7"
@@ -3587,7 +3471,7 @@ body .stories-new-list .container .stories-new-grid{
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom footer-bottom-editorial">
         <div>© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
