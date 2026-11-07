@@ -3468,6 +3468,36 @@ body footer .footer-bottom-editorial .footer-bottom-links{display:flex!important
   .cs26-hero .cs26-intro > .cs26-kicker{margin-bottom:32px!important}
 }
 </style>
+<style id="cs26-story-selected-true-blue-logo-v1">
+/* Active logo in the story selector uses a true solid brand-blue mask.
+   This avoids unpredictable pink/purple tones from compound CSS filters on iOS. */
+.cs26-story-tabs .cs26-story-tab[data-story="0"]{--story-logo-mask:url("/assets/rech-logo-full-white-trim.png")}
+.cs26-story-tabs .cs26-story-tab[data-story="1"]{--story-logo-mask:url("/assets/crecer-primerolee-white.png")}
+.cs26-story-tabs .cs26-story-tab[data-story="2"]{--story-logo-mask:url("/assets/dimor-wordmark-horizontal-clean.svg")}
+.cs26-story-tabs .cs26-story-tab[data-story="3"]{--story-logo-mask:url("/assets/hub-logo-white-new-trim.png")}
+@supports ((mask-image:url("")) or (-webkit-mask-image:url(""))){
+  .cs26-story-tabs .cs26-story-tab:is(.is-active,[aria-pressed="true"]){position:relative!important}
+  .cs26-story-tabs .cs26-story-tab:is(.is-active,[aria-pressed="true"]) .cs26-story-tab-logo{
+    visibility:hidden!important;
+  }
+  .cs26-story-tabs .cs26-story-tab:is(.is-active,[aria-pressed="true"])::after{
+    content:"";position:absolute;pointer-events:none;
+    left:14px;top:50%;transform:translateY(-50%);
+    width:min(160px,calc(100% - 28px));height:36px;
+    background-color:#1419E0!important;
+    -webkit-mask-image:var(--story-logo-mask);
+    mask-image:var(--story-logo-mask);
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-position:left center;mask-position:left center;
+    -webkit-mask-size:contain;mask-size:contain;
+  }
+  @media(max-width:760px){
+    .cs26-story-tabs .cs26-story-tab:is(.is-active,[aria-pressed="true"])::after{
+      left:9px;width:min(115px,calc(100% - 18px));height:29px;
+    }
+  }
+}
+</style>
 </head>
 <body>
 
