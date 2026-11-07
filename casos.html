@@ -3517,6 +3517,23 @@ body footer .footer-bottom-editorial .footer-bottom-links{display:flex!important
  }
 }
 </style>
+<style id="cs26-real-scroll-reveal-v1">
+/* Current Customer Stories sections: reveal as they enter the viewport.
+   Progressive enhancement: content stays visible without JS or with reduced motion. */
+@media(prefers-reduced-motion:no-preference){
+  html.cs26-scroll-ready .cs26-reveal:not(.cs26-in-view){
+    opacity:0;
+    transform:translate3d(0,26px,0);
+  }
+  html.cs26-scroll-ready .cs26-reveal{
+    transition:opacity .65s ease,transform .76s cubic-bezier(.22,.7,.25,1);
+  }
+  html.cs26-scroll-ready .cs26-reveal.cs26-in-view{
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+}
+</style>
 </head>
 <body>
 
@@ -15307,5 +15324,37 @@ tabs.forEach(t=>{const selected=t===tab;t.classList.toggle('is-active',selected)
  body .mobile-nav-panel.is-open{pointer-events:auto!important;visibility:visible!important}
 }
 </style>
+<script id="cs26-real-scroll-reveal-js">
+(function(){
+  const selectors=[
+    '.cs26-logo-band .cs26-partner-grid',
+    '.cs26-spotlight-head',
+    '.cs26-story-panel',
+    '.cs26-story-tabs',
+    '.cs26-final-cta-inner'
+  ];
+  const targets=Array.from(document.querySelectorAll(selectors.join(',')));
+  if(!targets.length || !('IntersectionObserver' in window) ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const observer=new IntersectionObserver((entries, obs)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      entry.target.classList.add('cs26-in-view');
+      obs.unobserve(entry.target);
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+  targets.forEach(el=>el.classList.add('cs26-reveal'));
+  document.documentElement.classList.add('cs26-scroll-ready');
+  targets.forEach(el=>observer.observe(el));
+  // Avoid leaving elements invisible when returning to a browser-restored position.
+  requestAnimationFrame(()=>targets.forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight*.91 && rect.bottom>0){
+      el.classList.add('cs26-in-view');
+      observer.unobserve(el);
+    }
+  }));
+})();
+</script>
 </body>
 </html>
