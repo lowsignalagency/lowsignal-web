@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const mobileStyle=document.createElement('link');mobileStyle.rel='stylesheet';mobileStyle.href='https://lowsignal.cl/assets/education-mobile-compare-v6.css?v=1';document.head.appendChild(mobileStyle);
   const pricing=document.querySelector('#planes-education');if(!pricing)return;
 
-  const title=pricing.querySelector('.section-title'),copy=pricing.querySelector('.section-copy');
-  if(title)title.innerHTML='Tres niveles. <strong>Un mismo enfoque.</strong>';
-  if(copy)copy.textContent='Desde mantener una presencia educativa sólida hasta conectar admisión, contenido, campañas y automatización en un sistema más completo.';
+  // Pricing heading is authored in the HTML; do not overwrite it at load.
 
   const plans=[...pricing.querySelectorAll('.pricing-grid .plan')];
   const names=['Presence','Growth','Scale'];
