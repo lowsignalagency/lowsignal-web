@@ -2954,6 +2954,66 @@ body .stories-new-list .container .stories-new-grid{
 .cs26-story-copy h4{font-size:28px!important}
 }
 </style>
+<style id="cs26-hero-alignment-and-motion-v3">
+/* Consistent editorial gutters and low's button geometry */
+.cs26-hero .container,
+.cs26-logo-band .container,
+.cs26-spotlight .container{
+  width:min(1440px,calc(100% - 96px))!important;
+  margin-inline:auto!important;
+}
+.cs26-hero{padding:118px 0 64px!important}
+.cs26-hero-layout{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;gap:clamp(38px,4vw,68px)!important;align-items:center!important}
+.cs26-intro{padding:0!important}
+.cs26-intro h1{font-size:clamp(38px,3.45vw,60px)!important;line-height:1.14!important;letter-spacing:-.053em!important}
+.cs26-intro>p{max-width:560px!important}
+.cs26-hero-actions{margin-top:32px!important}
+.cs26-hero-actions .cs26-btn-primary{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  gap:12px!important;min-height:48px!important;padding:0 22px!important;
+  border-radius:10px!important;background:#1419e0!important;color:#fff!important;
+  border:1px solid #1419e0!important;box-shadow:none!important;
+  font-size:13px!important;font-weight:650!important;text-decoration:none!important;
+  transition:background .2s ease,transform .2s ease!important;
+}
+.cs26-hero-actions .cs26-btn-primary svg{width:17px;height:17px;display:block;flex:none;transition:transform .2s ease}
+.cs26-hero-actions .cs26-btn-primary:hover{background:#1015ba!important;transform:translateY(-2px)!important}
+.cs26-hero-actions .cs26-btn-primary:hover svg{transform:translateX(3px)}
+.cs26-hero-actions .cs26-btn-outline{display:none!important}
+/* Continuous, restrained vertical movement; retain clickable stories */
+.cs26-mosaic{height:615px!important;overflow:hidden!important;isolation:isolate}
+.cs26-mosaic-col{will-change:transform;animation:cs26ColumnFloat 11s ease-in-out infinite alternate}
+.cs26-mosaic-col-a{--shift-start:-36px;--shift-end:-9px;animation-duration:11s}
+.cs26-mosaic-col-b{--shift-start:18px;--shift-end:-20px;animation-duration:13s;animation-direction:alternate-reverse}
+.cs26-mosaic-col-c{--shift-start:-22px;--shift-end:10px;animation-duration:12s}
+@keyframes cs26ColumnFloat{from{transform:translateY(var(--shift-start))}to{transform:translateY(var(--shift-end))}}
+.cs26-mosaic:hover .cs26-mosaic-col,
+.cs26-mosaic:focus-within .cs26-mosaic-col{animation-play-state:paused}
+.cs26-showcase-photo img{transition:transform .55s ease!important}
+.cs26-showcase-photo:hover img{transform:scale(1.055)}
+@media(max-width:1100px){
+.cs26-hero .container,.cs26-logo-band .container,.cs26-spotlight .container{width:calc(100% - 64px)!important}
+.cs26-hero-layout{grid-template-columns:1fr!important;gap:32px!important}
+.cs26-mosaic{height:500px!important}
+}
+@media(max-width:760px){
+.cs26-hero .container,.cs26-logo-band .container,.cs26-spotlight .container{width:calc(100% - 40px)!important}
+.cs26-hero{padding:96px 0 40px!important}
+.cs26-intro h1{font-size:clamp(34px,8vw,43px)!important}
+.cs26-mosaic{height:325px!important}
+.cs26-mosaic-col{animation:none!important;will-change:auto}
+.cs26-mosaic-col-a{transform:translateY(-12px)!important}
+.cs26-mosaic-col-b{transform:translateY(12px)!important}
+.cs26-mosaic-col-c{transform:translateY(-5px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+.cs26-mosaic-col{animation:none!important;will-change:auto}
+.cs26-mosaic-col-a{transform:translateY(-18px)!important}
+.cs26-mosaic-col-b{transform:translateY(14px)!important}
+.cs26-mosaic-col-c{transform:translateY(-8px)!important}
+.cs26-showcase-photo img{transition:none!important}
+}
+</style>
 </head>
 <body>
 
@@ -3226,7 +3286,7 @@ body .stories-new-list .container .stories-new-grid{
         <p class="cs26-kicker">CUSTOMER STORIES</p>
         <h1 id="cs26-hero-title">Historias reales.<br><span>Growth en movimiento.</span></h1>
         <p>Detrás de cada proyecto hay un desafío diferente. Conoce cómo conectamos estrategia, creatividad y tecnología para hacer que las marcas avancen.</p>
-        <div class="cs26-hero-actions"><a class="cs26-btn-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <span aria-hidden="true">↗</span></a><a class="cs26-btn-outline" href="#casos-explorar">Explorar casos</a></div>
+        <div class="cs26-hero-actions"><a class="cs26-btn-primary" href="https://calendly.com/felipe-lowsignal/30min" target="_blank" rel="noopener noreferrer">Hablemos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
       </div>
       <div class="cs26-mosaic" aria-label="Casos reales de clientes">
   <div class="cs26-mosaic-col cs26-mosaic-col-a">
