@@ -3649,6 +3649,21 @@ body .ls-social-faq .ls-social-faq-item summary:focus-visible{outline-color:#A5B
   border-top:0 !important;
 }
 </style>
+<style id="low-flow-scene-intro-v1">
+/* Short cinematic transition into the four Low Flow motion scenes. */
+.flow27-universe .flow31-intro{position:relative;text-align:center;max-width:1000px;padding-top:clamp(72px,8vw,115px);padding-bottom:clamp(66px,7vw,98px);isolation:isolate}
+.flow31-intro:before{content:"";position:absolute;inset:4% -12%;z-index:-1;pointer-events:none;opacity:.6;background-image:radial-gradient(circle,#6DA8FF 0 1px,transparent 1.6px),radial-gradient(circle,#B6D6FF 0 .7px,transparent 1.4px);background-size:119px 97px,173px 151px;background-position:12px 8px,61px 39px;mask-image:radial-gradient(ellipse at 50% 48%,#000 5%,transparent 72%)}
+.flow31-kicker{display:inline-block;margin:0 0 24px;color:#95AEF5;font-size:10px;font-weight:600;letter-spacing:.16em;line-height:1.5}
+.flow31-intro h2{font-weight:400!important;font-size:clamp(35px,4.15vw,59px)!important;letter-spacing:-.05em!important;line-height:1.19!important;margin:0!important;color:#F7F9FF!important}
+.flow31-intro h2 span{color:#A9B9DB}
+.flow31-subtext{margin:25px auto 0!important;max-width:630px;font-size:13px!important;line-height:1.9!important;color:#9EACC6!important}
+.flow31-scroll-cue{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:52px;color:#7487A9;font-size:9px;letter-spacing:.17em}
+.flow31-scroll-cue i{display:block;width:1px;height:47px;background:linear-gradient(#4B9EFC,rgba(91,140,223,.08));transform-origin:top}
+@media(prefers-reduced-motion:no-preference){.flow31-scroll-cue i{animation:flow31-scroll-line 2.7s ease-in-out infinite}}
+@keyframes flow31-scroll-line{0%,100%{transform:scaleY(.65);opacity:.45}50%{transform:scaleY(1);opacity:1}}
+@media(max-width:760px){.flow27-universe .flow31-intro{padding-top:68px;padding-bottom:51px}.flow31-intro h2{font-size:clamp(31px,7.8vw,40px)!important}.flow31-subtext{font-size:12px!important}.flow31-scroll-cue{margin-top:36px}}
+@media(prefers-reduced-motion:reduce){.flow31-scroll-cue i{animation:none!important}}
+</style>
 </head>
 <body>
 
@@ -3995,6 +4010,12 @@ body .ls-social-faq .ls-social-faq-item summary:focus-visible{outline-color:#A5B
 
   <section class="flow27-universe" aria-labelledby="flow27-title">
 
+ <div class="flow31-intro ls-social-shell" aria-labelledby="flow31-intro-title">
+   <p class="flow31-kicker">DE LA SEÑAL A LA ACCIÓN</p>
+   <h2 id="flow31-intro-title">Tu negocio genera señales.<br><span>Low Flow las convierte en acciones.</span></h2>
+   <p class="flow31-subtext">Conectamos tus herramientas, automatizamos procesos e incorporamos IA para que tu operación avance con menos trabajo manual.</p>
+   <div class="flow31-scroll-cue" aria-hidden="true"><span>EXPLORA CÓMO FUNCIONA</span><i></i></div>
+ </div>
  <div class="flow27-scenes">
  <article class="flow27-scene ">
   <div class="flow27-art" aria-hidden="false"><svg viewBox="0 0 600 480" class="flow27-visual" role="img" aria-label="Órbitas interconectadas que representan herramientas y datos">
@@ -9817,7 +9838,7 @@ body footer .footer-bottom{
 
 
 <script id="lf26-unified-reveal">
-(function(){function init(){var select=['.flow27-hero-content','.flow27-story','.flow28-heading','.flow28-experience','.ls-social-faq-heading','.ls-social-faq-list','.lf26-cta-inner','footer .footer-main'];var els=[];select.forEach(function(q){document.querySelectorAll(q).forEach(function(el){if(els.indexOf(el)!==-1)return;els.push(el);el.classList.add(q.indexOf('lf26-hero')>=0?'ls-scroll-hero':'ls-scroll-reveal')})});function show(e){e.classList.add('is-visible')}if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){els.forEach(show);return}var io=new IntersectionObserver(function(entries){entries.forEach(function(x){if(x.isIntersecting){show(x.target);io.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});els.forEach(function(e){if(e.getBoundingClientRect().top<window.innerHeight*.94)show(e);else io.observe(e)})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();
+(function(){function init(){var select=['.flow27-hero-content','.flow31-intro','.flow27-story','.flow28-heading','.flow28-experience','.ls-social-faq-heading','.ls-social-faq-list','.lf26-cta-inner','footer .footer-main'];var els=[];select.forEach(function(q){document.querySelectorAll(q).forEach(function(el){if(els.indexOf(el)!==-1)return;els.push(el);el.classList.add(q.indexOf('lf26-hero')>=0?'ls-scroll-hero':'ls-scroll-reveal')})});function show(e){e.classList.add('is-visible')}if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){els.forEach(show);return}var io=new IntersectionObserver(function(entries){entries.forEach(function(x){if(x.isIntersecting){show(x.target);io.unobserve(x.target)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});els.forEach(function(e){if(e.getBoundingClientRect().top<window.innerHeight*.94)show(e);else io.observe(e)})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();
 </script>
 <script id="low-flow-animation-visibility-v1">
 (function(){
