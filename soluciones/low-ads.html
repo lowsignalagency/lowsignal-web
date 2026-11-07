@@ -8560,49 +8560,7 @@ footer .container,
 }
 </style>
 
-<script id="low-social-scroll-current-v7">
-document.addEventListener('DOMContentLoaded', () => {
-  const selectors = [
-    '.solution-hero-grid',
-    '.solution-context-grid',
-    '.solution-section-head',
-    '.solution-includes-grid',
-    '.solution-channels-head',
-    '.solution-channels-grid',
-    '.solution-cases > .container > .solution-eyebrow',
-    '.solution-cases > .container > h2',
-    '.solution-cases-grid',
-    '.solution-testimonial-grid',
-    '.solution-system-grid',
-    '.solution-flow',
-    '.solution-final-inner'
-  ];
 
-  const targets = [...new Set(
-    selectors.flatMap(selector => [...document.querySelectorAll(selector)])
-  )];
-
-  targets.forEach(el => el.classList.add('ls-scroll-reveal'));
-
-  if (!('IntersectionObserver' in window)){
-    targets.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      obs.unobserve(entry.target);
-    });
-  }, {
-    threshold:.12,
-    rootMargin:'0px 0px -8% 0px'
-  });
-
-  targets.forEach(el => observer.observe(el));
-});
-</script>
 
 
 <style id="low-social-hero-mockups-v8">
@@ -9566,93 +9524,7 @@ body footer .footer-bottom{
 </style>
 
 
-<script id="lowsignal-solutions-scroll-reveal-controller-v1">
-(function(){
-  function initSolutionReveal(){
-    const selectors = [
-      '.ls-social-hero-copy',
-      '.ads-new-visual',
-      '.web-new-visual',
-      '.scale-new-visual',
-      '.ls-social-section-kicker',
-      '.ls-social-section-head',
-      '.ls-social-feature-grid',
-      '.ads-new-process-head',
-      '.ads-new-process-grid',
-      '.ads-new-platform-strip',
-      '.web-new-process-head',
-      '.web-new-process-grid',
-      '.web-new-tech-strip',
-      '.scale-new-process-head',
-      '.scale-new-process-grid',
-      '.scale-new-connect-strip',
-      '.solution-cases .solution-eyebrow',
-      '.solution-cases h2',
-      '.solution-cases-grid',
-      '.solution-testimonial-grid',
-      '.ls-social-smart-inner',
-      '.lsr-band-inner'
-    ];
 
-    const staggerSelectors = new Set([
-      '.ls-social-feature-grid',
-      '.ads-new-process-grid',
-      '.web-new-process-grid',
-      '.scale-new-process-grid',
-      '.solution-cases-grid'
-    ]);
-
-    const heroSelectors = new Set([
-      '.ls-social-hero-copy',
-      '.ads-new-visual',
-      '.web-new-visual',
-      '.scale-new-visual'
-    ]);
-
-    const targets = [];
-
-    selectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        if (targets.includes(el)) return;
-
-        if (staggerSelectors.has(selector)){
-          el.classList.add('ls-scroll-stagger');
-        } else if (heroSelectors.has(selector)){
-          el.classList.add('ls-scroll-hero');
-        } else {
-          el.classList.add('ls-scroll-reveal');
-        }
-
-        targets.push(el);
-      });
-    });
-
-    if (!('IntersectionObserver' in window)){
-      targets.forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      });
-    }, {
-      threshold:.12,
-      rootMargin:'0px 0px -7% 0px'
-    });
-
-    targets.forEach((el) => observer.observe(el));
-  }
-
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initSolutionReveal, {once:true});
-  } else {
-    initSolutionReveal();
-  }
-})();
-</script>
 
 
 
@@ -9801,25 +9673,10 @@ body footer .footer-bottom{
 }
 </style>
 
-<script id="solution-family-scroll-v2">
-(function(){
- function init(){
-  const targets=[];
-  document.querySelectorAll('.solution-family-includes .ls-social-section-kicker,.solution-family-includes h2').forEach(function(el){el.classList.add('ls-scroll-reveal');targets.push(el)});
-  document.querySelectorAll('.solution-family-includes-grid').forEach(function(el){el.classList.add('ls-scroll-stagger');targets.push(el)});
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){targets.forEach(function(el){el.classList.add('is-visible')});return}
-  if(!('IntersectionObserver' in window)){targets.forEach(function(el){el.classList.add('is-visible')});return}
-  const io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  targets.forEach(function(el){if(!el.classList.contains('is-visible'))io.observe(el)});
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-</script>
 
-<style id="ads26-scroll-style">.ads26-reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .75s cubic-bezier(.2,.75,.2,1)}.ads26-reveal.ads26-visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.ads26-reveal{opacity:1;transform:none;transition:none}}</style>
-<script id="ads26-scroll">
-(function(){function init(){var els=Array.from(document.querySelectorAll('.ads26-work-heading,.ads26-panel,.ads26-channels-head,.ads26-channels-rail,.ads26-channels-foot,.ls-social-faq-grid'));els.forEach(function(e){e.classList.add('ads26-reveal')});if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('ads26-visible')});return}var obs=new IntersectionObserver(function(entries){entries.forEach(function(ent){if(ent.isIntersecting){ent.target.classList.add('ads26-visible');obs.unobserve(ent.target)}})},{threshold:.07,rootMargin:'0px 0px -5% 0px'});els.forEach(function(e){if(e.getBoundingClientRect().top<window.innerHeight*.95)e.classList.add('ads26-visible');else obs.observe(e)})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();
-</script><style id="ads26-final-quality-pass">
+
+
+<style id="ads26-final-quality-pass">
 /* Final harmonization: the CTA text cannot inherit legacy banner paragraph sizing. */
 .lsr-band.ads26-final-cta .ads26-final-cta-inner{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:48px !important;min-height:235px !important;width:min(1220px,calc(100% - 128px)) !important;padding:46px 0 !important}
 .lsr-band.ads26-final-cta .ads26-final-copy{display:block !important;flex:1 1 auto;min-width:0;max-width:740px}
@@ -9849,40 +9706,50 @@ body footer .footer-bottom{
 .ads26-channels .ads26-channels-rail{max-width:1020px !important;width:100% !important;margin:0 !important;justify-content:start !important;gap:12px !important}
 .ads26-channels .ads26-channels-foot{margin-top:23px !important}
 @media(max-width:760px){.ads26-channels .ads26-channels-head{margin-bottom:24px !important}.ads26-channels .ads26-channels-description{font-size:12px !important;margin-top:17px !important}.ads26-channels .ads26-channels-rail{gap:9px !important}}
-</style><style id="ads26-hero-scroll-reveal-v1">
-/* Hero only: stagger cards, preserve readability when JS is unavailable. */
-@media(prefers-reduced-motion:no-preference){
-  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line{
-    opacity:0;transform:translateY(19px);
-    transition:opacity .65s ease,transform .72s cubic-bezier(.2,.75,.2,1);
-  }
-  .ads26-hero-visual.ads26-hero-motion-ready.ads26-hero-motion-visible .ads26-hero-line{
-    opacity:1;transform:translateY(0);
-  }
-  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(2){transition-delay:.07s}
-  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(3){transition-delay:.18s}
-  .ads26-hero-visual.ads26-hero-motion-ready .ads26-hero-line:nth-child(4){transition-delay:.29s}
-}
 </style>
-<script id="ads26-hero-scroll-reveal-v1">
+
+<script id="low-ads-unified-scroll-reveal-v2">
+/* The same hero and section reveal logic used on Low Social. */
 (function(){
- function init(){
-   var hero=document.querySelector('.ads26-hero-visual');
-   if(!hero)return;
-   if(!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-   if(!('IntersectionObserver' in window))return;
-   hero.classList.add('ads26-hero-motion-ready');
-   var io=new IntersectionObserver(function(entries){
-     entries.forEach(function(entry){
-       if(entry.isIntersecting){
-         hero.classList.add('ads26-hero-motion-visible');
-         io.disconnect();
-       }
-     });
-   },{threshold:.12,rootMargin:'0px 0px -3% 0px'});
-   io.observe(hero);
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+  function init(){
+    var targets=[
+      ['.ls-social-hero-copy','ls-scroll-hero'],
+      ['.ads26-hero-visual','ls-scroll-hero'],
+      ['.ads26-work .ads26-eyebrow','ls-scroll-reveal'],
+      ['.ads26-work-heading','ls-scroll-reveal'],
+      ['.ads26-panel','ls-scroll-reveal'],
+      ['.ads26-channels-head','ls-scroll-reveal'],
+      ['.ads26-channels-rail','ls-scroll-reveal'],
+      ['.ads26-channels-foot','ls-scroll-reveal'],
+      ['.ls-social-faq-heading','ls-scroll-reveal'],
+      ['.ls-social-faq-list','ls-scroll-reveal'],
+      ['.ads26-final-cta-inner','ls-scroll-reveal'],
+      ['footer .footer-main','ls-scroll-reveal']
+    ];
+    var els=[];
+    targets.forEach(function(entry){
+      document.querySelectorAll(entry[0]).forEach(function(el){
+        if(els.indexOf(el)!==-1)return;
+        els.push(el);
+        el.classList.add(entry[1]);
+      });
+    });
+    function show(el){el.classList.add('is-visible');}
+    if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+      els.forEach(show);return;
+    }
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){show(entry.target);observer.unobserve(entry.target);}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+    els.forEach(function(el){
+      if(el.getBoundingClientRect().top<window.innerHeight*.94){show(el);}
+      else observer.observe(el);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
 </script>
 </body>
