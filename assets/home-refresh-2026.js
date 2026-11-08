@@ -50,8 +50,8 @@
     const panel=card.querySelector('.home-story-v2-panel');
     const person=card.querySelector('.home-story-v2-person');
     if(panel && person && !panel.querySelector('.low26-story-controls')){
-      const nav=document.createElement('div');nav.className='low26-story-controls';
-      nav.innerHTML='<button type="button" class="low26-prev" aria-label="Testimonio anterior">←</button><span class="low26-story-count">'+(i+1)+' / '+cards.length+'</span><button type="button" class="low26-next" aria-label="Siguiente testimonio">→</button>';
+      const nav=document.createElement('div');nav.className='low26-story-controls testimonial-controls';
+      nav.innerHTML='<button class="testimonial-control testimonial-prev low26-prev" type="button" aria-label="Testimonio anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5 5 12l7 7"/><path d="M5 12h14"/></svg></button><button class="testimonial-control testimonial-next low26-next" type="button" aria-label="Siguiente testimonio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 5 7 7-7 7"/><path d="M5 12h14"/></svg></button>';
       panel.append(nav);
     }
    });
