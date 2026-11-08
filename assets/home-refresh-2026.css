@@ -950,3 +950,83 @@ section.lsr-tech-partners.low27-home-partners .lsr-tech-head{
 @media(prefers-reduced-motion:reduce){
   .low-home-motion-pending{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* 2026-11-08: mobile-only Low AI orbit refinement. Desktop remains unchanged. */
+@media(max-width:760px){
+  .low26-new .low26-ai .low26-ai-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:20px!important;
+    min-height:0!important;
+  }
+  .low26-new .low26-ai .low26-ai-art{
+    width:min(100%,350px)!important;
+    height:clamp(225px,61vw,290px)!important;
+    min-height:0!important;
+    margin-inline:auto!important;
+    overflow:visible!important;
+    order:2!important;
+    transform:none;
+  }
+  .low26-new .low26-ai .low26-ai-core{
+    z-index:3;
+    font-size:clamp(21px,6.5vw,27px)!important;
+    white-space:nowrap;
+    line-height:1.2;
+    text-align:center;
+    letter-spacing:-.055em;
+  }
+  .low26-new .low26-ai .low26-ai-core b{
+    font-size:clamp(10px,2.6vw,12px)!important;
+    margin-left:5px!important;
+  }
+  .low26-new .low26-ai .low26-orbit{
+    box-sizing:border-box!important;
+    left:50%!important;
+    top:50%!important;
+    width:min(68%,240px)!important;
+    height:55%!important;
+    margin:0!important;
+    border-width:1.5px!important;
+    border-radius:38%!important;
+    transform-origin:center!important;
+    background:linear-gradient(#090f23,#090f23) padding-box,linear-gradient(130deg,#a5b7ff,#376eff,#09143d) border-box!important;
+    opacity:.83;
+    box-shadow:0 0 22px rgba(47,94,240,.08)!important;
+  }
+  .low26-new .low26-ai .low26-orbit-one{
+    animation:low26-mobile-orbit-a 28s ease-in-out infinite alternate!important;
+  }
+  .low26-new .low26-ai .low26-orbit-two{
+    width:min(72%,250px)!important;
+    height:49%!important;
+    opacity:.54;
+    animation:low26-mobile-orbit-b 32s ease-in-out infinite alternate!important;
+  }
+  .low26-new .low26-ai .low26-ai-glow{
+    inset:22% 18%!important;
+    filter:blur(55px)!important;
+    opacity:.11!important;
+  }
+  /* Touch devices should not trigger desktop hover-speed changes. */
+  .low26-new .low26-ai .low26-ai-art:hover .low26-orbit-one{animation-duration:28s!important}
+  .low26-new .low26-ai .low26-ai-art:hover .low26-orbit-two{animation-duration:32s!important}
+  .low26-new .low26-ai .low26-ai-art:hover .low26-ai-core{transform:none!important;text-shadow:none!important}
+}
+@keyframes low26-mobile-orbit-a{
+  from{transform:translate(-50%,-50%) rotate(27deg)}
+  to{transform:translate(-50%,-50%) rotate(38deg)}
+}
+@keyframes low26-mobile-orbit-b{
+  from{transform:translate(-50%,-50%) rotate(-29deg)}
+  to{transform:translate(-50%,-50%) rotate(-39deg)}
+}
+@media(max-width:390px){
+  .low26-new .low26-ai .low26-ai-art{height:230px!important}
+  .low26-new .low26-ai .low26-orbit{width:67%!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .low26-new .low26-ai .low26-orbit-one,
+  .low26-new .low26-ai .low26-orbit-two{animation:none!important}
+  .low26-new .low26-ai .low26-orbit-one{transform:translate(-50%,-50%) rotate(32deg)!important}
+  .low26-new .low26-ai .low26-orbit-two{transform:translate(-50%,-50%) rotate(-32deg)!important}
+}
