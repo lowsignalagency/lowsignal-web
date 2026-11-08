@@ -288,3 +288,77 @@
  .low26-new .ls26-more-links{width:100%;flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){.low26-new .ls26-featured-copy>a{transition:none}}
+
+
+/* Low AI hero: Low Flow dark palette, restrained kinetic logo, real button interactions */
+.low26-new section.low26-ai{
+ background:radial-gradient(ellipse at 82% 45%,rgba(26,39,191,.17),transparent 51%),#070F22!important;
+}
+.low26-new .low26-ai-art{isolation:isolate;perspective:900px}
+.low26-new .low26-orbit{
+ will-change:transform;
+ border-radius:22%;
+ border-width:2px;
+ box-shadow:0 0 22px rgba(34,103,251,.09);
+}
+.low26-new .low26-orbit-one{animation:low26-orbit-one 23s ease-in-out infinite alternate}
+.low26-new .low26-orbit-two{animation:low26-orbit-two 27s ease-in-out infinite alternate}
+.low26-new .low26-ai-glow{
+ opacity:.13;
+ animation:low26-soft-glow 7s ease-in-out infinite alternate;
+ pointer-events:none;
+}
+.low26-new .low26-ai-core{z-index:2;transition:transform .45s ease,text-shadow .45s ease}
+.low26-new .low26-ai-art:hover .low26-ai-core{transform:scale(1.035);text-shadow:0 0 30px rgba(118,172,255,.27)}
+.low26-new .low26-ai-art:hover .low26-orbit-one{animation-duration:14s}
+.low26-new .low26-ai-art:hover .low26-orbit-two{animation-duration:17s}
+.low26-new .low26-actions .low26-button,
+.low26-new .low26-actions .low26-link{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ text-decoration:none;
+ transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease!important;
+}
+.low26-new .low26-actions .low26-button{border:1px solid #fff}
+.low26-new .low26-actions .low26-button:hover{
+ background:#dde7ff!important;
+ color:#1419e0!important;
+ border-color:#dde7ff!important;
+ transform:translateY(-2px);
+ box-shadow:0 12px 28px rgba(14,43,109,.35);
+}
+.low26-new .low26-actions .low26-link{
+ border-bottom:1px solid transparent;
+ padding:11px 0;
+}
+.low26-new .low26-actions .low26-link:hover{
+ color:#fff!important;
+ border-color:#b1beff;
+ transform:translateY(-2px);
+}
+.low26-new .low26-actions a:focus-visible{
+ outline:2px solid #a9b9ff;
+ outline-offset:5px;
+}
+.low26-new .low26-actions a span{display:inline-block;transition:transform .25s ease}
+.low26-new .low26-actions a:hover span{transform:translate(2px,-2px)}
+@keyframes low26-orbit-one{
+ 0%{transform:rotate(32deg) scale(1)}
+ 50%{transform:rotate(41deg) scale(1.025)}
+ 100%{transform:rotate(53deg) scale(.99)}
+}
+@keyframes low26-orbit-two{
+ 0%{transform:rotate(-28deg) scale(1)}
+ 50%{transform:rotate(-36deg) scale(1.02)}
+ 100%{transform:rotate(-49deg) scale(1)}
+}
+@keyframes low26-soft-glow{
+ from{opacity:.1;transform:scale(.94)}
+ to{opacity:.18;transform:scale(1.07)}
+}
+@media(prefers-reduced-motion:reduce){
+ .low26-new .low26-orbit-one,.low26-new .low26-orbit-two,.low26-new .low26-ai-glow{animation:none!important;will-change:auto}
+ .low26-new .low26-ai-core,.low26-new .low26-actions a,.low26-new .low26-actions a span{transition:none!important}
+}
