@@ -87,3 +87,21 @@
  .low26-final-cta.lf26-cta .lf26-cta-inner{width:calc(100% - 48px)!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;min-height:0!important;padding:62px 0!important}
  .low26-final-cta.lf26-cta .lf26-cta-copy h2{font-size:30px!important}
 }
+
+/* Customer story: Education stage, no redundant heading */
+.low26-testimonials{padding:0!important;background:#071022!important;margin:0!important}
+.low26-testimonials>.lsr-wrap{width:100%!important;max-width:none!important}
+.low26-testimonials .home-stories-v2-head{display:none!important}
+.low26-testimonials .home-stories-v2-grid.low26-story-stage{margin:0!important;min-height:540px!important;border-radius:0!important}
+.low26-testimonials .low26-story-stage .home-story-v2{min-height:540px!important}
+.low26-testimonials .low26-story-stage .home-story-v2-panel{min-height:392px!important;padding:34px!important;max-width:520px!important;background:rgba(5,10,24,.90)!important;box-shadow:0 24px 70px rgba(0,0,0,.18)!important}
+.low26-testimonials .low26-story-stage .home-story-v2-logo{margin-bottom:28px!important;height:34px!important}
+.low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{margin:0!important;font-size:17px!important;line-height:1.52!important;font-weight:300!important;max-width:430px!important}
+.low26-testimonials .low26-story-stage .home-story-v2-person{margin-top:auto!important;padding-top:28px!important}
+.low26-testimonials .home-stories-v2-footer{display:none!important}
+@media(max-width:760px){
+ .low26-testimonials{padding:0!important}
+ .low26-testimonials .home-stories-v2-grid.low26-story-stage,.low26-testimonials .low26-story-stage .home-story-v2{min-height:530px!important}
+ .low26-testimonials .low26-story-stage .home-story-v2-panel{min-height:0!important;width:calc(100% - 36px)!important;padding:25px!important}
+ .low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{font-size:15px!important}
+}
