@@ -79,3 +79,61 @@
  if(industryAnchor)industryAnchor.id='industrias';
 
 })();
+/* home-motion-unified-20261108: applied after the DOM reshuffle above. */
+(function(){
+  function init(){
+    var home=document.querySelector('.lsr-home');
+    if(!home)return;
+    var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var selectors=[
+      '.low26-ai .low26-ai-art',
+      '.low26-ai .low26-ai-copy',
+      '.home26-insights .home26-insights-head',
+      '.home26-insights .home26-insight-card figure',
+      '.home26-insights .home26-insight-card h3',
+      '.lsr-tech-partners .lsr-tech-head',
+      '.lsr-tech-partners .lsr-tech-grid',
+      '.low26-final-cta .lf26-cta-copy',
+      '.low26-final-cta .lf26-cta-inner > a'
+    ];
+    var items=[];
+    selectors.forEach(function(selector){
+      document.querySelectorAll(selector).forEach(function(el){
+        if(!items.includes(el))items.push(el);
+      });
+    });
+    if(reduced || !('IntersectionObserver' in window))return;
+    var observer=new IntersectionObserver(function(entries,obs){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        entry.target.classList.add('low-home-motion-visible');
+        obs.unobserve(entry.target);
+      });
+    },{threshold:.04,rootMargin:'0px 0px -2% 0px'});
+    items.forEach(function(el){
+      var rect=el.getBoundingClientRect();
+      // Skip content already in the viewport: never flash or hide the opening screen.
+      if(rect.top<window.innerHeight&&rect.bottom>0)return;
+      el.classList.add('low-home-motion-pending');
+      observer.observe(el);
+    });
+    function revealOnScreen(){
+      document.querySelectorAll('.low-home-motion-pending:not(.low-home-motion-visible)').forEach(function(el){
+        var rect=el.getBoundingClientRect();
+        if(rect.top<window.innerHeight*.99 && rect.bottom>0)el.classList.add('low-home-motion-visible');
+      });
+      // Safety for prior-generation scroll effects, but never touch inactive carousel slides.
+      home.querySelectorAll('.lsr-reveal:not(.lsr-visible)').forEach(function(el){
+        if(el.closest('.home-story-v2:not(.is-active)'))return;
+        var rect=el.getBoundingClientRect();
+        if(rect.top<window.innerHeight*.99&&rect.bottom>0)el.classList.add('lsr-visible');
+      });
+    }
+    window.addEventListener('scroll',revealOnScreen,{passive:true});
+    window.addEventListener('resize',revealOnScreen,{passive:true});
+    window.addEventListener('pageshow',revealOnScreen);
+    requestAnimationFrame(revealOnScreen);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
