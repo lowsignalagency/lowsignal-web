@@ -2081,7 +2081,7 @@ main#top .container{
     </div>
   </section>
 
-  <section class="lsr-band"><div class="lsr-wrap lsr-band-inner"><p class="lsr-reveal">¿Te interesa el rol?</p><a class="lsr-reveal" href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular</a></div></section>
+  <section class="lsr-band lf26-cta ga28-cta"><div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">GROWTH AMBASSADOR · BUILD WHAT’S NEXT</p><h2>¿Te interesa el rol? <span>Construyamos lo que viene.</span></h2><p>Da el siguiente paso y postula para ser parte de lowsignal.</p></div><a href="mailto:contacto@lowsignal.cl?subject=Postulaci%C3%B3n%20Growth%20Ambassador">Postular <span aria-hidden="true">↗</span></a></div></section>
 </main>
 
 
@@ -2093,7 +2093,7 @@ main#top .container{
 
   <footer>
     <div class="container footer-container">
-      <div class="footer-main">
+      <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
           <p class="footer-brand-copy">
@@ -2143,19 +2143,26 @@ main#top .container{
         </div>
 
 
-        <div>
+        <div class="footer-group footer-resources">
+          <div class="footer-title">RECURSOS</div>
+          <div class="footer-links">
+            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
+            <a href="https://lowsignal.cl/casos">Customer Stories</a>
+            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
+          </div>
+        </div>
+
+        <div class="footer-group footer-company">
           <div class="footer-title">EMPRESA</div>
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
-            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-            <a href="https://lowsignal.cl/casos">Casos</a>
-            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-meta">
+      <div class="footer-meta footer-meta-editorial">
         <div class="footer-location"><svg class="location-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path d="M12 21s6-5.25 6-11a6 6 0 1 0-12 0c0 5.75 6 11 6 11Z"
         fill="none" stroke="currentColor" stroke-width="1.7"
@@ -2192,7 +2199,7 @@ main#top .container{
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom footer-bottom-editorial">
         <div>© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
@@ -9207,6 +9214,73 @@ main#top .lsr-band{background:#050A18!important}
  body>.mobile-nav-panel{background:#050A18!important;background-image:none!important}
 }
 @media(prefers-reduced-motion:reduce){main#top .ga26-side-apply,main#top .ga26-benefits-card>a{transition:none!important}}
+</style>
+<style id="ga28-low-web-footer-editorial">
+/* Low Social footer refinement: Fintoc-inspired breathing room, lowsignal dark identity.
+   Deliberately scoped to this page; all prior social, legal and LATAM elements remain. */
+footer{padding-top:76px !important;padding-bottom:30px !important;background:#050A18 !important}
+footer .footer-main-editorial{display:grid !important;grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr)) !important;gap:clamp(24px,3vw,48px) !important;align-items:start !important}
+footer .footer-brand-copy{max-width:310px !important;font-size:12px !important;line-height:1.85 !important;color:#919CB6 !important;margin-top:22px !important}
+footer .footer-brand img{height:25px !important}
+footer .footer-claim{font-size:16px !important;margin-top:24px !important}
+footer .footer-title{font-size:10px !important;font-weight:600 !important;letter-spacing:.15em !important;color:#879AFF !important;margin:5px 0 23px !important}
+footer .footer-links{gap:14px !important}
+footer .footer-links a{font-size:12px !important;font-weight:400 !important;color:#BBC4D6 !important;line-height:1.6 !important}
+footer .footer-links a:hover{color:#FFFFFF !important}
+footer .footer-ai{margin-top:25px !important}
+footer .footer-ai-label{font-size:11px !important;color:#94A0BA !important}
+footer .footer-ai-buttons{gap:9px !important}
+footer .footer-meta-editorial{margin-top:52px !important;padding:22px 0 !important;border-top:1px solid rgba(150,175,255,.17) !important;border-bottom:1px solid rgba(150,175,255,.17) !important}
+footer .footer-meta-editorial .footer-mail{font-size:12px !important}
+footer .footer-meta-editorial .footer-location{font-size:12px !important}
+footer .footer-bottom-editorial{padding-top:25px !important;gap:20px !important}
+footer .footer-bottom-editorial .footer-made-latam{white-space:nowrap}
+footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
+@media(max-width:1100px){
+  footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:36px 25px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important;max-width:470px}
+  footer .footer-meta-editorial{margin-top:40px !important}
+}
+@media(max-width:760px){
+  footer{padding-top:53px !important}
+  footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:32px 24px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important}
+  footer .footer-title{margin-bottom:13px !important}
+  footer .footer-meta-editorial{margin-top:38px !important;padding:21px 0 !important;grid-template-columns:1fr !important;gap:18px !important}
+  footer .footer-meta-editorial .footer-meta-social{justify-content:flex-start !important}
+  footer .footer-bottom-editorial{grid-template-columns:1fr !important;gap:18px !important;justify-items:start !important}
+  footer .footer-bottom-editorial .footer-made-latam{white-space:normal}
+}
+@media(max-width:420px){
+  footer .footer-main-editorial{gap:28px 16px !important}
+  footer .footer-links a{font-size:11px !important}
+  footer .footer-bottom-editorial .footer-bottom-links{flex-wrap:wrap !important;gap:12px !important}
+}
+</style>
+<style id="ga28-low-web-cta-exact">
+/* Same CTA composition, color and button language as Low Web. */
+main#top .ga28-cta{background:linear-gradient(112deg,#1419E0,#1B28E8 56%,#2447F5)!important;color:#fff!important;border:0!important}
+main#top .ga28-cta .lf26-cta-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:45px!important;min-height:235px!important;width:min(1220px,calc(100% - 128px))!important;max-width:1220px!important;margin-inline:auto!important;padding:46px 0!important}
+main#top .ga28-cta .lf26-cta-copy{max-width:750px;min-width:0}
+main#top .ga28-cta .lf26-cta-kicker{font-size:10px!important;line-height:1.5!important;font-weight:600!important;letter-spacing:.14em!important;color:#CBD5FF!important;margin:0 0 15px!important}
+main#top .ga28-cta h2{font-size:clamp(27px,2.65vw,36px)!important;font-weight:400!important;letter-spacing:-.04em!important;line-height:1.22!important;margin:0!important;color:#fff!important}
+main#top .ga28-cta h2 span{color:#D4DEFF!important}
+main#top .ga28-cta .lf26-cta-copy>p:last-child{font-size:13px!important;letter-spacing:normal!important;font-weight:400!important;line-height:1.7!important;color:#D1D9FF!important;margin:13px 0 0!important}
+main#top .ga28-cta .lf26-cta-inner>a{flex:none;display:inline-flex!important;align-items:center;justify-content:center;gap:18px!important;min-height:51px!important;width:auto!important;padding:0 26px!important;border-radius:999px!important;background:#fff!important;color:#17235D!important;border:1px solid #fff!important;text-decoration:none!important;font-weight:500!important;font-size:13px!important;box-shadow:none!important;transition:transform .2s ease,background-color .2s ease!important}
+main#top .ga28-cta .lf26-cta-inner>a:hover{transform:translateY(-2px)!important;background:#EFF2FF!important}
+main#top .ga28-cta .lf26-cta-inner>a span{transition:transform .2s ease!important}
+main#top .ga28-cta .lf26-cta-inner>a:hover span{transform:translate(2px,-2px)}
+footer .footer-main-editorial{grid-template-columns:minmax(260px,1.65fr) repeat(3,minmax(0,1fr))!important}
+@media(max-width:1100px){
+main#top .ga28-cta .lf26-cta-inner{width:calc(100% - 48px)!important}
+footer .footer-main-editorial{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+main#top .ga28-cta .lf26-cta-inner{width:calc(100% - 40px)!important;min-height:0!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:52px 0!important}
+main#top .ga28-cta h2{font-size:30px!important}
+footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(prefers-reduced-motion:reduce){main#top .ga28-cta .lf26-cta-inner>a,main#top .ga28-cta .lf26-cta-inner>a span{transition:none!important}}
 </style>
   <!-- felipe-role-publish-marker: 2026-10-29-3 -->
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-nav-audit4"></script>
