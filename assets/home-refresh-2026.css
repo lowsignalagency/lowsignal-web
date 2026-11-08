@@ -1030,3 +1030,62 @@ section.lsr-tech-partners.low27-home-partners .lsr-tech-head{
   .low26-new .low26-ai .low26-orbit-one{transform:translate(-50%,-50%) rotate(32deg)!important}
   .low26-new .low26-ai .low26-orbit-two{transform:translate(-50%,-50%) rotate(-32deg)!important}
 }
+
+/* Low AI mobile v3: visible continuous orbit instead of nearly static rounded rectangles. */
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+ .low26-new .low26-ai .low26-ai-art{
+   width:min(100%,340px)!important;
+   height:clamp(255px,72vw,310px)!important;
+   overflow:hidden!important;
+   isolation:isolate;
+ }
+ .low26-new .low26-ai .low26-ai-core{
+   z-index:5!important;
+   padding:9px 12px;
+   background:radial-gradient(ellipse,rgba(7,15,34,.96) 44%,rgba(7,15,34,0) 75%);
+ }
+ .low26-new .low26-ai .low26-orbit{
+   position:absolute!important;
+   left:50%!important;
+   top:50%!important;
+   width:min(78%,260px)!important;
+   height:48%!important;
+   border-radius:50%!important;
+   border:2px solid rgba(117,167,255,.7)!important;
+   background:transparent!important;
+   box-shadow:0 0 16px rgba(82,135,245,.15),inset 0 0 12px rgba(93,144,253,.08)!important;
+   transform-origin:center center!important;
+   backface-visibility:hidden;
+   will-change:transform;
+ }
+ .low26-new .low26-ai .low26-orbit-one{
+   opacity:.91!important;
+   animation:low26-mobile-spin-a 13s linear infinite!important;
+ }
+ .low26-new .low26-ai .low26-orbit-two{
+   width:min(79%,265px)!important;
+   height:47%!important;
+   opacity:.57!important;
+   border-color:rgba(178,198,255,.62)!important;
+   animation:low26-mobile-spin-b 18s linear infinite!important;
+ }
+ .low26-new .low26-ai .low26-ai-glow{
+   opacity:.16!important;
+   filter:blur(42px)!important;
+   animation:low26-soft-glow 6s ease-in-out infinite alternate!important;
+ }
+ .low26-new .low26-ai .low26-ai-art:hover .low26-orbit-one{animation-duration:13s!important}
+ .low26-new .low26-ai .low26-ai-art:hover .low26-orbit-two{animation-duration:18s!important}
+}
+@keyframes low26-mobile-spin-a{
+ from{transform:translate(-50%,-50%) rotate(0deg)}
+ to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+@keyframes low26-mobile-spin-b{
+ from{transform:translate(-50%,-50%) rotate(82deg)}
+ to{transform:translate(-50%,-50%) rotate(-278deg)}
+}
+@media(max-width:390px) and (prefers-reduced-motion:no-preference){
+ .low26-new .low26-ai .low26-ai-art{height:260px!important}
+ .low26-new .low26-ai .low26-orbit{width:75%!important}
+}
