@@ -63,7 +63,7 @@
  // Use the same CTA composition, copy scale, button and destination as Low Web.
  if(cta){
   cta.classList.add('lf26-cta');
-  cta.innerHTML='<div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">LOWSIGNAL · LESS NOISE. MORE GROWTH.</p><h2>Construyamos lo que viene. <span>Hagámoslo crecer juntos.</span></h2><p>Conversemos sobre los desafíos y oportunidades de tu negocio.</p></div><a href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div>';
+  cta.innerHTML='<div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">LOWSIGNAL · LESS NOISE. MORE GROWTH.</p><h2>¿Construimos lo que viene?</h2><p>Conversemos sobre cómo podemos construir juntos tu próximo proyecto.</p></div><a href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div>';
  }
  // Keep pre-existing visitor anchors stable.
  const industryAnchor=document.getElementById('industrias');
