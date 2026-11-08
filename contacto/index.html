@@ -4864,5 +4864,63 @@ footer{
 </script>
 
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+
+<style id="contact27-scroll-reveal-20261108">
+/* Contacto: discreet entrance on scroll, without changing the two-column layout. */
+.contact27-enter{
+  opacity:0;
+  transform:translate3d(0,20px,0);
+  transition:opacity .68s ease,transform .72s cubic-bezier(.2,.72,.2,1);
+  transition-delay:var(--contact27-delay,0ms);
+}
+.contact27-enter.contact27-inview{opacity:1;transform:translate3d(0,0,0)}
+@media(prefers-reduced-motion:reduce){.contact27-enter{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+<script id="contact27-scroll-reveal-script-20261108">
+(function(){
+ function init(){
+  var selectors=[
+    '.contact27-left h1',
+    '.contact27-lead',
+    '.contact27-help',
+    '.contact27-client-proof',
+    '.contact27-calendar-shell',
+    '.contact27-calendar-alternative'
+  ];
+  var items=[];
+  selectors.forEach(function(q){document.querySelectorAll(q).forEach(function(el){items.push(el)})});
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window))return;
+  items.forEach(function(el,i){
+    var rect=el.getBoundingClientRect();
+    // Do not hide items already on screen (especially the Calendly embed).
+    if(rect.top<window.innerHeight && rect.bottom>0)return;
+    el.style.setProperty('--contact27-delay',Math.min(i%3,2)*70+'ms');
+    el.classList.add('contact27-enter');
+  });
+  var io=new IntersectionObserver(function(entries,obs){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      entry.target.classList.add('contact27-inview');
+      obs.unobserve(entry.target);
+    });
+  },{threshold:.04,rootMargin:'0px 0px -3% 0px'});
+  items.filter(function(el){return el.classList.contains('contact27-enter')}).forEach(function(el){io.observe(el)});
+  // Page restoration and embeds must never leave invisible content behind.
+  function restoreVisible(){
+    items.forEach(function(el){
+      if(!el.classList.contains('contact27-enter')||el.classList.contains('contact27-inview'))return;
+      var rect=el.getBoundingClientRect();
+      if(rect.top<window.innerHeight*.98&&rect.bottom>0)el.classList.add('contact27-inview');
+    });
+  }
+  window.addEventListener('scroll',restoreVisible,{passive:true});
+  window.addEventListener('resize',restoreVisible,{passive:true});
+  window.addEventListener('pageshow',restoreVisible);
+  requestAnimationFrame(restoreVisible);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
 </body>
 </html>
