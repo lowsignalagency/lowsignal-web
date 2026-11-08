@@ -6,7 +6,7 @@
  <section class="low26-ai" id="lowsignal-ai">
   <div class="lsr-wrap low26-ai-grid">
    <div class="low26-ai-art" aria-hidden="true"><span class="low26-orbit low26-orbit-one"></span><span class="low26-orbit low26-orbit-two"></span><div class="low26-ai-core">low<span>signal</span><b>AI</b></div><span class="low26-ai-glow"></span></div>
-   <div class="low26-ai-copy"><span class="low26-kicker">INTRODUCING · LOWSIGNAL AI</span><h2>El siguiente paso del crecimiento es <em>inteligente.</em></h2><p>Conectamos agentes de IA, automatizaciones y productos digitales para que tus sistemas trabajen mejor, todos los días.</p><div class="low26-actions"><a class="low26-button" href="/soluciones/low-flow">Descubre Low AI <span aria-hidden="true">↗</span></a><a class="low26-link" href="/soluciones/low-apps">Explora Low Apps <span aria-hidden="true">↗</span></a></div></div>
+   <div class="low26-ai-copy"><span class="low26-kicker">INTRODUCING · LOWSIGNAL AI</span><h2>El siguiente paso del crecimiento es <em>inteligente.</em></h2><p>Conectamos agentes de IA, automatizaciones y productos digitales para que tus sistemas trabajen mejor, todos los días.</p><div class="low26-actions"><a class="low26-button" href="/soluciones/low-flow">Descubre Low Flow <span aria-hidden="true">↗</span></a><a class="low26-link" href="/soluciones/low-apps">Explora Low Apps <span aria-hidden="true">↗</span></a></div></div>
   </div>
  </section>
  `;
