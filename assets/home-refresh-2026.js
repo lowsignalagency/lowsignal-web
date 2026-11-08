@@ -1,0 +1,37 @@
+(()=> {
+ const home=document.querySelector('.lsr-home'),trust=document.querySelector('.lsr-trust');
+ if(!home||!trust||document.querySelector('.low26-ai'))return;
+ const block=document.createElement('div');block.className='low26-new';
+ block.innerHTML=`
+ <section class="low26-ai" id="lowsignal-ai">
+  <div class="lsr-wrap low26-ai-grid">
+   <div class="low26-ai-art" aria-hidden="true"><span class="low26-orbit low26-orbit-one"></span><span class="low26-orbit low26-orbit-two"></span><div class="low26-ai-core">low<span>signal</span><b>AI</b></div><span class="low26-ai-glow"></span></div>
+   <div class="low26-ai-copy"><span class="low26-kicker">INTRODUCING · LOWSIGNAL AI</span><h2>El siguiente paso del crecimiento es <em>inteligente.</em></h2><p>Conectamos agentes de IA, automatizaciones y productos digitales para que tus sistemas trabajen mejor, todos los días.</p><div class="low26-actions"><a class="low26-button" href="/soluciones/low-flow">Descubre Low AI <span aria-hidden="true">↗</span></a><a class="low26-link" href="/soluciones/low-apps">Explora Low Apps <span aria-hidden="true">↗</span></a></div></div>
+  </div>
+ </section>
+ <section class="low26-system" id="ecosistema"><div class="lsr-wrap"><div class="low26-sectionhead"><span class="low26-kicker">UN SOLO ECOSISTEMA</span><h2>Una forma más inteligente de <em>hacer crecer tu negocio.</em></h2><p>Menos herramientas desconectadas. Más estrategia, creatividad, tecnología y datos trabajando juntos.</p></div><div class="low26-system-panel"><div class="low26-system-copy"><span class="low26-label">GROWTH SYSTEMS</span><h3>Todo conectado. Todo con un propósito.</h3><p>Desde la primera interacción hasta la conversión y la fidelización, diseñamos sistemas para que cada acción aporte al crecimiento.</p><a href="/soluciones/low-scale">Conoce Low Scale <span aria-hidden="true">↗</span></a></div><div class="low26-system-visual" aria-label="Estrategia conectada a contenido, tecnología y resultados"><div class="low26-node low26-node-center">Growth<span>System</span></div><div class="low26-node low26-node-a">Estrategia</div><div class="low26-node low26-node-b">Creatividad</div><div class="low26-node low26-node-c">Tecnología + IA</div><div class="low26-node low26-node-d">Datos</div></div></div></div></section>
+ <section class="low26-solutions" id="soluciones-home"><div class="lsr-wrap"><div class="low26-sectionhead"><span class="low26-kicker">SOLUCIONES</span><h2>Tecnología y creatividad para <em>hacer que las cosas pasen.</em></h2><p>Seis soluciones, un mismo objetivo: construir sistemas de crecimiento.</p></div><div class="low26-solution-grid">
+ <a class="low26-solution-card" href="/soluciones/low-social"><div class="low26-solution-visual low26-visual-social"><span class="low26-mock-post"><i></i><i></i><i></i></span><span class="low26-mock-bubble">↗ + engagement</span></div><div class="low26-solution-info"><span>SOCIAL + CONTENIDO</span><h3>Low Social</h3><p>Contenido y comunidades que conectan con las personas.</p><b aria-hidden="true">↗</b></div></a>
+ <a class="low26-solution-card" href="/soluciones/low-ads"><div class="low26-solution-visual low26-visual-ads"><div class="low26-bars"><i></i><i></i><i></i><i></i><i></i></div><span class="low26-chart-chip">Performance ↗</span></div><div class="low26-solution-info"><span>CAMPAÑAS + PERFORMANCE</span><h3>Low Ads</h3><p>Campañas que convierten inversión en oportunidades.</p><b aria-hidden="true">↗</b></div></a>
+ <a class="low26-solution-card" href="/soluciones/low-web"><div class="low26-solution-visual low26-visual-web"><div class="low26-browser"><div><i></i><i></i><i></i></div><strong>Build what’s next.</strong><span></span><span></span></div></div><div class="low26-solution-info"><span>DISEÑO + DESARROLLO</span><h3>Low Web</h3><p>Experiencias digitales pensadas para crecer.</p><b aria-hidden="true">↗</b></div></a>
+ <a class="low26-solution-card" href="/soluciones/low-scale"><div class="low26-solution-visual low26-visual-scale"><div class="low26-scale-rings"><i></i><i></i><i></i><strong>GROWTH</strong></div></div><div class="low26-solution-info"><span>CRECIMIENTO INTEGRADO</span><h3>Low Scale</h3><p>Un sistema que integra canales, equipos y resultados.</p><b aria-hidden="true">↗</b></div></a>
+ <a class="low26-solution-card" href="/soluciones/low-flow"><div class="low26-solution-visual low26-visual-flow"><div class="low26-flow-nodes"><span>Trigger</span><i></i><span>AI Agent</span><i></i><span>Action</span></div></div><div class="low26-solution-info"><span>AI + AUTOMATIZACIÓN</span><h3>Low Flow</h3><p>Agentes y flujos que eliminan tareas repetitivas.</p><b aria-hidden="true">↗</b></div></a>
+ <a class="low26-solution-card" href="/soluciones/low-apps"><div class="low26-solution-visual low26-visual-apps"><div class="low26-app-window"><span>lowsignal / workspace</span><div><i></i><i></i><i></i></div></div></div><div class="low26-solution-info"><span>PRODUCTOS DIGITALES</span><h3>Low Apps</h3><p>Herramientas y aplicaciones hechas para tu operación.</p><b aria-hidden="true">↗</b></div></a>
+ </div></div></section>
+ <section class="low26-industries" id="industrias"><div class="lsr-wrap"><div class="low26-sectionhead"><span class="low26-kicker">INDUSTRIAS</span><h2>Cada industria tiene sus desafíos. <em>Nosotros construimos soluciones.</em></h2><p>Experiencia y sistemas de growth adaptados a cada modelo de negocio.</p></div><div class="low26-industries-grid">
+ <a href="/industrias/educacion" class="low26-industry-card low26-edu"><div class="low26-industry-art"><img src="/assets/comunidad-rech.jpg" alt="Comunidad educativa" loading="lazy"></div><div class="low26-industry-text"><span>01 / EDUCATION</span><h3>Educación</h3><p>Admisión, posicionamiento y comunidades educativas.</p><b>Explorar industria ↗</b></div></a>
+ <a href="/industrias/b2b" class="low26-industry-card low26-b2b"><div class="low26-industry-art"><img src="/assets/galpon-merk.jpg" alt="Proyecto empresarial Rikdom" loading="lazy"></div><div class="low26-industry-text"><span>02 / B2B</span><h3>Empresas</h3><p>Generación de demanda, pipeline y crecimiento comercial.</p><b>Explorar industria ↗</b></div></a>
+ <a href="/industrias/marcas-b2c" class="low26-industry-card low26-b2c"><div class="low26-industry-art"><img src="/assets/dulce-reino-pasteleria.jpg" alt="Marca de consumo Dulce Reino" loading="lazy"></div><div class="low26-industry-text"><span>03 / B2C</span><h3>Marcas</h3><p>Contenido, performance y experiencias que convierten.</p><b>Explorar industria ↗</b></div></a>
+ </div></div></section>`;
+ trust.after(block);
+ for(const el of home.querySelectorAll('.lsr-strip,.low-industry-section,.lsr-mission'))el.remove();
+ for(const el of home.querySelectorAll('.lsr-band'))if(!el.querySelector('a[href*="calendly"]'))el.remove();
+ const stories=home.querySelector('.lsr-testimonials');if(stories)stories.classList.add('low26-testimonials');
+ const partners=home.querySelector('.lsr-tech-partners');
+ const insights=document.querySelector('.home26-insights');
+ const cta=[...home.querySelectorAll('.lsr-band')].find(el=>el.querySelector('a[href*="calendly"]'));
+ if(partners&&insights)insights.before(partners);
+ if(cta&&insights)insights.after(cta);
+ if(cta)cta.classList.add('low26-final-cta');
+ if(insights){const eyebrow=insights.querySelector('.home26-eyebrow');if(eyebrow)eyebrow.textContent='BLOG / INSIGHTS';}
+})();
