@@ -40,7 +40,7 @@
  if(testimonial){
   const cards=Array.from(testimonial.querySelectorAll('.home-story-v2'));
   const heading=testimonial.querySelector('.home-stories-v2-head');
-  if(heading){heading.querySelector('h2').innerHTML='Historias reales. <strong>Relaciones que crecen.</strong>';}
+  if(heading)heading.remove();
   const grid=testimonial.querySelector('.home-stories-v2-grid');
   if(grid){
    grid.classList.add('low26-story-stage');
