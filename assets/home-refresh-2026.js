@@ -21,10 +21,12 @@
      section.classList.add('low27-industry-showcase');
      const labels=['EDUCATION','B2B','B2C'];
      section.setAttribute('aria-label','Soluciones para '+labels[i]);
-     if(i===0){
-       section.classList.add('low28-education-preview');
+     if(i<=2){
+       const classes=['low28-education-preview','low28-b2b-preview','low28-b2c-preview'];
+       const titles=['01 / EDUCACIÓN','02 / B2B','03 / B2C'];
+       section.classList.add(classes[i]);
        const eyebrow=section.querySelector('.low-industry-copy>small');
-       if(eyebrow)eyebrow.textContent='01 / EDUCACIÓN';
+       if(eyebrow)eyebrow.textContent=titles[i];
        const mainAction=section.querySelector('.low-btn-secondary');
        if(mainAction)mainAction.textContent='Explorar industria';
      }
