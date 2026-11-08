@@ -15,6 +15,16 @@ function init(){
  if(!panel||!inner||!nav||!toggle)return;
  // Keep the mobile Low Scale label clean across every page.
  inner.querySelectorAll('a.lnav28-mobile-scale strong').forEach(function(label){label.textContent='Low Scale';});
+ // Override legacy centered industry labels across all page variants.
+ inner.querySelectorAll('.mobile-nav-submenu a').forEach(function(link){
+  link.style.setProperty('width','100%','important');
+  link.style.setProperty('justify-content','flex-start','important');
+  link.style.setProperty('text-align','left','important');
+  link.style.setProperty('margin-left','0','important');
+  link.style.setProperty('margin-right','0','important');
+  var label=link.querySelector('strong');
+  if(label){label.style.setProperty('text-align','left','important');label.style.setProperty('margin','0','important');}
+ });
  if(!panel.querySelector('.low-mobile-header')){
   var head=document.createElement('div');head.className='low-mobile-header';
   var home=document.createElement('a');home.href='https://lowsignal.cl';home.setAttribute('aria-label','Ir al inicio');
