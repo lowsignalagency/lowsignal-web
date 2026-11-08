@@ -13726,6 +13726,16 @@ body #top.rechx > .rech26-hero > .rech26-hero-content.container {
 body .rechx .case-editorial-client img{width:auto!important;max-width:min(245px,100%)!important;max-height:110px!important;object-fit:contain!important;object-position:left center!important}
 @media(max-width:760px){body .rechx .case-editorial-client img{max-width:210px!important;max-height:90px!important}}
 </style>
+<style id="san-jorge-website-and-portrait-polish">
+/* Give the website screenshot the entire editorial width. */
+body .rechx .case-editorial-pair.sanjorge-web-showcase{display:block!important;width:100%!important;grid-template-columns:none!important}
+body .rechx .case-editorial-pair.sanjorge-web-showcase figure{display:block!important;width:100%!important;margin:0!important}
+body .rechx .case-editorial-pair.sanjorge-web-showcase img{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center!important}
+/* Frame Jorge tightly inside the round avatar, without enlarging the entire card. */
+body .rechx .rech26-inline-person .sanjorge-portrait{display:block;position:relative;flex:0 0 58px;width:58px;height:58px;min-width:58px;overflow:hidden;border-radius:50%;border:2px solid rgba(210,220,255,.55)}
+body .rechx .rech26-inline-person .sanjorge-portrait img{display:block!important;width:100%!important;height:100%!important;min-width:0!important;border:0!important;border-radius:0!important;object-fit:cover!important;object-position:center 28%!important;transform:scale(1.6);transform-origin:50% 28%}
+@media(max-width:760px){body .rechx .rech26-inline-person .sanjorge-portrait{flex-basis:48px;width:48px;height:48px;min-width:48px}}
+</style>
 </head>
 <body>
 
@@ -14050,9 +14060,8 @@ body .rechx .case-editorial-client img{width:auto!important;max-width:min(245px,
           <div class="case-editorial-number">02</div>
           <h3>Una experiencia más clara entre web y redes.</h3>
           <p class="case-editorial-copy">Ordenamos la arquitectura del sitio, renovamos la experiencia web y conectamos la comunicación en redes para que ambos canales contaran una historia más coherente del colegio.</p>
-          <div class="case-editorial-pair">
-            <figure><img src="https://lowsignal.cl/assets/csjo-web.jpg" alt="Colegio San Jorge de Las Condes"></figure>
-            <figure><img src="https://lowsignal.cl/assets/sanjorge-ninos.png" alt="Colegio San Jorge de Las Condes"></figure>
+          <div class="case-editorial-pair sanjorge-web-showcase">
+            <figure><img src="https://lowsignal.cl/assets/csjo-web.jpg" alt="Sitio web del Colegio San Jorge de Las Condes" loading="lazy"></figure>
           </div>
           <div class="case-editorial-callout"><span>Web · Social · Contenido</span><h4>Dos canales trabajando para contar mejor una misma comunidad.</h4><p>La nueva experiencia organiza la información, hace más visible la vida del colegio y permite que web y redes acompañen mejor a familias actuales y futuras.</p></div>
         </section>
@@ -14060,7 +14069,7 @@ body .rechx .case-editorial-client img{width:auto!important;max-width:min(245px,
         <aside class="rech26-inline-testimonial" aria-label="Testimonio del cliente">
   <span class="rech26-inline-quotation" aria-hidden="true">“</span>
   <blockquote>lowsignal ha sido un aporte muy importante para nosotros. Nos ayudó a ordenar nuestras redes y nuestra web, llegar mejor a nuestro público y contar lo que hacemos. Es un equipo muy responsable.</blockquote>
-  <div class="rech26-inline-person"><img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay" loading="lazy"><div><strong>Jorge Menay</strong><span>Director Ejecutivo, Colegio San Jorge de Las Condes</span></div></div>
+  <div class="rech26-inline-person"><span class="sanjorge-portrait"><img src="https://lowsignal.cl/assets/csjo_jorge.jpg" alt="Jorge Menay" loading="lazy"></span><div><strong>Jorge Menay</strong><span>Director Ejecutivo, Colegio San Jorge de Las Condes</span></div></div>
 </aside>
 
         <section class="case-editorial-block" id="case-result">
