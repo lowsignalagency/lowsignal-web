@@ -15,6 +15,35 @@ function init(){
  if(!panel||!inner||!nav||!toggle)return;
  // Keep the mobile Low Scale label clean across every page.
  inner.querySelectorAll('a.lnav28-mobile-scale strong').forEach(function(label){label.textContent='Low Scale';});
+ // Normalize every submenu across legacy page variants, including rules injected after DOM ready.
+ function normalizeLinks(){
+  inner.querySelectorAll('.mobile-nav-submenu').forEach(function(menu){
+   menu.style.setProperty('align-items','stretch','important');
+   menu.style.setProperty('text-align','left','important');
+   menu.querySelectorAll('a').forEach(function(link){
+    link.style.setProperty('display','flex','important');
+    link.style.setProperty('flex-direction','column','important');
+    link.style.setProperty('align-items','flex-start','important');
+    link.style.setProperty('justify-content','center','important');
+    link.style.setProperty('align-self','stretch','important');
+    link.style.setProperty('width','100%','important');
+    link.style.setProperty('margin-left','0','important');
+    link.style.setProperty('margin-right','0','important');
+    link.style.setProperty('padding-left','29px','important');
+    link.style.setProperty('text-align','left','important');
+    link.querySelectorAll('strong,small').forEach(function(label){
+     label.style.setProperty('text-align','left','important');
+     label.style.setProperty('align-self','flex-start','important');
+     label.style.setProperty('margin-left','0','important');
+    });
+   });
+  });
+ }
+ normalizeLinks();
+ panel.addEventListener('click',function(event){
+  if(event.target.closest('.mobile-nav-summary'))requestAnimationFrame(normalizeLinks);
+ },true);
+ window.addEventListener('pageshow',normalizeLinks);
  // Override legacy centered industry labels across all page variants.
  inner.querySelectorAll('.mobile-nav-submenu a').forEach(function(link){
   link.style.setProperty('width','100%','important');
