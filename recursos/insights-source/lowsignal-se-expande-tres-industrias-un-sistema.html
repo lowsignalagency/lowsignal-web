@@ -3737,6 +3737,14 @@
             <b>Leer más ↗</b>
           </div>
         </a>
+        <a href="https://lowsignal.cl/recursos/insights/main-character-fintual-sans">
+          <img src="https://lowsignal.cl/assets/foto2_fintual.jpg" alt="Main Character, presentación de Fintual Sans">
+          <div>
+            <span>EVENTO · 4 NOV, 2026</span>
+            <h3>Fuimos parte de Main Character, el lanzamiento de Fintual Sans</h3>
+            <b>Leer artículo ↗</b>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -3752,7 +3760,7 @@
 
   <footer>
     <div class="container footer-container">
-      <div class="footer-main">
+      <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
           <p class="footer-brand-copy">
@@ -3802,19 +3810,26 @@
         </div>
 
 
-        <div>
+        <div class="footer-group footer-resources">
+          <div class="footer-title">RECURSOS</div>
+          <div class="footer-links">
+            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
+            <a href="https://lowsignal.cl/casos">Customer Stories</a>
+            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
+          </div>
+        </div>
+
+        <div class="footer-group footer-company">
           <div class="footer-title">EMPRESA</div>
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
-            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-            <a href="https://lowsignal.cl/casos">Casos</a>
-            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-meta">
+      <div class="footer-meta footer-meta-editorial">
         <div class="footer-location"><svg class="location-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path d="M12 21s6-5.25 6-11a6 6 0 1 0-12 0c0 5.75 6 11 6 11Z"
         fill="none" stroke="currentColor" stroke-width="1.7"
@@ -3851,7 +3866,7 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom footer-bottom-editorial">
         <div>© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
@@ -10944,6 +10959,75 @@ body{background:#fff!important}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
 })();
 </script>
+<style id="expansion-article-editorial-footer">
+/* Low Social footer refinement: Fintoc-inspired breathing room, lowsignal dark identity.
+   Deliberately scoped to this page; all prior social, legal and LATAM elements remain. */
+footer{padding-top:76px !important;padding-bottom:30px !important;background:#050A18 !important}
+footer .footer-main-editorial{display:grid !important;grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr)) !important;gap:clamp(24px,3vw,48px) !important;align-items:start !important}
+footer .footer-brand-copy{max-width:310px !important;font-size:12px !important;line-height:1.85 !important;color:#919CB6 !important;margin-top:22px !important}
+footer .footer-brand img{height:25px !important}
+footer .footer-claim{font-size:16px !important;margin-top:24px !important}
+footer .footer-title{font-size:10px !important;font-weight:600 !important;letter-spacing:.15em !important;color:#879AFF !important;margin:5px 0 23px !important}
+footer .footer-links{gap:14px !important}
+footer .footer-links a{font-size:12px !important;font-weight:400 !important;color:#BBC4D6 !important;line-height:1.6 !important}
+footer .footer-links a:hover{color:#FFFFFF !important}
+footer .footer-ai{margin-top:25px !important}
+footer .footer-ai-label{font-size:11px !important;color:#94A0BA !important}
+footer .footer-ai-buttons{gap:9px !important}
+footer .footer-meta-editorial{margin-top:52px !important;padding:22px 0 !important;border-top:1px solid rgba(150,175,255,.17) !important;border-bottom:1px solid rgba(150,175,255,.17) !important}
+footer .footer-meta-editorial .footer-mail{font-size:12px !important}
+footer .footer-meta-editorial .footer-location{font-size:12px !important}
+footer .footer-bottom-editorial{padding-top:25px !important;gap:20px !important}
+footer .footer-bottom-editorial .footer-made-latam{white-space:nowrap}
+footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
+@media(max-width:1100px){
+  footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:36px 25px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important;max-width:470px}
+  footer .footer-meta-editorial{margin-top:40px !important}
+}
+@media(max-width:760px){
+  footer{padding-top:53px !important}
+  footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:32px 24px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important}
+  footer .footer-title{margin-bottom:13px !important}
+  footer .footer-meta-editorial{margin-top:38px !important;padding:21px 0 !important;grid-template-columns:1fr !important;gap:18px !important}
+  footer .footer-meta-editorial .footer-meta-social{justify-content:flex-start !important}
+  footer .footer-bottom-editorial{grid-template-columns:1fr !important;gap:18px !important;justify-items:start !important}
+  footer .footer-bottom-editorial .footer-made-latam{white-space:normal}
+}
+@media(max-width:420px){
+  footer .footer-main-editorial{gap:28px 16px !important}
+  footer .footer-links a{font-size:11px !important}
+  footer .footer-bottom-editorial .footer-bottom-links{flex-wrap:wrap !important;gap:12px !important}
+}
+</style>
+<style id="expansion-related-three-avatar-fix">
+/* True circular author image, irrespective of inherited flex sizing. */
+.article-new-hero .article-editorial-byline .article-author img{
+  display:block!important;width:48px!important;height:48px!important;min-width:48px!important;max-width:48px!important;min-height:48px!important;max-height:48px!important;
+  flex:0 0 48px!important;aspect-ratio:1 / 1!important;border-radius:50%!important;
+  object-fit:cover!important;object-position:center 28%!important;overflow:hidden!important;
+}
+.article-new-hero .article-editorial-byline .article-author{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;}
+/* Three editorial recommendations, sized for the existing article page wrapper. */
+.article-related-unified .aru-grid{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:24px!important;align-items:start!important;
+}
+.article-related-unified .aru-card{min-width:0!important;}
+.article-related-unified .aru-card figure{width:100%!important;overflow:hidden!important;aspect-ratio:16/9!important;margin:0!important;}
+.article-related-unified .aru-card figure img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;}
+.article-related-unified .aru-card h3{font-size:clamp(17px,1.65vw,22px)!important;line-height:1.35!important;}
+footer .footer-main-editorial{grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr))!important;}
+@media(max-width:1100px){
+ .article-related-unified .aru-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important;}
+ footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+}
+@media(max-width:760px){
+ .article-related-unified .aru-grid{grid-template-columns:1fr!important;gap:28px!important;}
+ footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+</style>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
 </body>
 </html>
