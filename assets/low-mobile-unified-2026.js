@@ -13,7 +13,9 @@ function init(){
  var nav=document.querySelector('.nav-wrap .nav');
  var toggle=document.querySelector('.nav-wrap .mobile-nav-toggle');
  if(!panel||!inner||!nav||!toggle)return;
- // Keep the mobile Low Scale label clean across every page.\n inner.querySelectorAll('a.lnav28-mobile-scale strong').forEach(function(label){label.textContent='Low Scale';});\n if(!panel.querySelector('.low-mobile-header')){
+ // Keep the mobile Low Scale label clean across every page.
+ inner.querySelectorAll('a.lnav28-mobile-scale strong').forEach(function(label){label.textContent='Low Scale';});
+ if(!panel.querySelector('.low-mobile-header')){
   var head=document.createElement('div');head.className='low-mobile-header';
   var home=document.createElement('a');home.href='https://lowsignal.cl';home.setAttribute('aria-label','Ir al inicio');
   var logo=document.createElement('img');logo.src='https://lowsignal.cl/assets/logo-horizontal-white.png';logo.alt='lowsignal';
