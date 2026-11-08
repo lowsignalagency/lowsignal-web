@@ -2454,23 +2454,7 @@ body .rechx .case-editorial .case-editorial-callout h4{
  body .rechx .case-editorial .case-editorial-callout{margin-top:26px!important}
 }
 </style>
-<style id="rech26-mobile-navbar-actual-current">
-/* One mobile navigation system, matching the current Low Web layout. */
-@media(max-width:760px){
- body>.lnav{display:none!important}
- body>.nav-wrap{display:block!important;position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;margin:0!important;padding:0!important;z-index:1200!important}
- body>.nav-wrap>.nav{display:flex!important;align-items:center!important;min-height:72px!important;height:72px!important;width:100%!important;max-width:none!important;margin:0!important;padding:0 20px!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;border-radius:0!important;background:#070F22!important;box-shadow:none!important}
- body>.nav-wrap .brand{flex:0 1 auto!important;max-width:52%!important;margin:0 auto 0 0!important;min-width:0!important}
- body>.nav-wrap .brand img{width:auto!important;max-width:100%!important;height:25px!important;object-fit:contain!important}
- body>.nav-wrap .low-mobile-top-talk{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;border-radius:999px!important;min-height:40px!important;padding:0 17px!important;background:#1419E0!important;color:#fff!important;font-weight:600!important;font-size:12px!important;white-space:nowrap!important}
- body>.nav-wrap .mobile-nav-toggle{display:flex!important;flex:0 0 40px!important;width:40px!important;height:40px!important;align-items:center!important;justify-content:center!important;margin:0!important;border:0!important;background:transparent!important}
- body>.mobile-nav-panel{max-width:100vw!important;overflow-x:hidden!important}
- body>.mobile-nav-panel .lnav28-mobile-heading{display:block!important;color:#92A7FF!important;font-size:10px!important;font-weight:700!important;letter-spacing:.14em!important}
- body>.mobile-nav-panel .mobile-nav-submenu[hidden]{display:none!important}
- body>.mobile-nav-panel .mobile-nav-submenu:not([hidden]){display:flex!important;flex-direction:column!important}
- body>.mobile-nav-panel .mobile-nav-summary{cursor:pointer!important;pointer-events:auto!important}
-}
-</style>
+
 </head>
 <body>
 
@@ -2718,7 +2702,11 @@ body .rechx .case-editorial .case-editorial-callout h4{
               <span>Industrias</span>
               <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg>
             </button>
-            <div class="mobile-nav-submenu lnav-ind-mobile" id="mobile-submenu-1" hidden><span class="lnav-ind-mobile-kicker">CRECIMIENTO POR INDUSTRIA</span><a href="/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a><a href="/industrias/b2b"><strong>lowsignal for B2B</strong><small>SaaS, tecnología y servicios</small></a><a href="/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Retail, consumo y experiencias</small></a></div>
+            <div class="mobile-nav-submenu" id="mobile-submenu-1" hidden>
+              <a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a>
+              <a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a>
+              <a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a>
+            </div>
           </div>
 
           <div class="mobile-nav-group">
@@ -14077,7 +14065,7 @@ footer .footer-container{
 })();
 </script>
 
-<script defer src="/assets/low-mobile-unified-2026.js?v=20261108-rech-mobile-refresh-v7"></script>
+<script defer src="/assets/low-mobile-unified-2026.js?v=20261108-home-exact-rech-v8"></script>
 <style id="rech26-hero-nav-exact-left-edge">
 /* Highest-priority, page-scoped fix: hero content follows navbar's 1220px guide. */
 body #top.rechx > .rech26-hero > .rech26-hero-content.container {
@@ -14100,6 +14088,210 @@ body #top.rechx > .rech26-hero > .rech26-hero-content.container {
  body #top.rechx > .rech26-hero > .rech26-hero-content.container {
  width:calc(100% - 40px) !important;max-width:none !important;
  }
+}
+</style>
+<style id="v66-mobile-nav-tether-style">
+/* V66 — mobile navigation inspired by the provided TetherEd reference */
+
+@media(max-width:760px){
+
+  body.mobile-menu-open{
+    overflow:hidden !important;
+  }
+
+  .nav-wrap{
+    top:0 !important;
+    padding:0 !important;
+    z-index:500 !important;
+  }
+
+  .nav{
+    width:100% !important;
+    height:74px !important;
+    min-height:74px !important;
+    padding:0 20px !important;
+    border-radius:0 !important;
+    background:#071022 !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+  }
+
+  .brand{
+    position:relative !important;
+    z-index:520 !important;
+  }
+
+  .brand img{
+    height:25px !important;
+  }
+
+  .mobile-nav-toggle{
+    display:flex !important;
+    position:relative !important;
+    z-index:520 !important;
+    width:44px !important;
+    height:44px !important;
+    margin-left:auto !important;
+    border:0 !important;
+    background:transparent !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:0 !important;
+  }
+
+  .mobile-nav-toggle span{
+    position:absolute !important;
+    width:26px !important;
+    height:2px !important;
+    border-radius:999px !important;
+    background:#FFFFFF !important;
+    transition:transform .22s ease, opacity .18s ease !important;
+  }
+
+  .mobile-nav-toggle span:first-child{
+    transform:translateY(-5px);
+  }
+
+  .mobile-nav-toggle span:last-child{
+    transform:translateY(5px);
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] span:first-child{
+    transform:rotate(45deg) !important;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] span:last-child{
+    transform:rotate(-45deg) !important;
+  }
+
+  .mobile-nav-panel{
+    display:block !important;
+    position:fixed !important;
+    inset:0 !important;
+    z-index:510 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    padding:94px 20px 28px !important;
+    background:#070B3A !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+    transition:opacity .2s ease, visibility .2s ease !important;
+  }
+
+  .mobile-nav-panel.is-open{
+    visibility:visible !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+
+  .mobile-nav-inner{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding-bottom:18px !important;
+  }
+
+  .mobile-nav-group{
+    border-bottom:1px solid rgba(255,255,255,.13) !important;
+  }
+
+  .mobile-nav-summary{
+    min-height:66px !important;
+    padding:0 !important;
+    font-size:20px !important;
+    font-weight:400 !important;
+    color:#FFFFFF !important;
+  }
+
+  .mobile-nav-summary svg{
+    width:16px !important;
+    height:10px !important;
+    stroke-width:2.2 !important;
+    color:#B8C4E7 !important;
+  }
+
+  .mobile-nav-summary[aria-expanded="true"]{
+    color:#50E7DD !important;
+  }
+
+  .mobile-nav-submenu{
+    gap:0 !important;
+    padding:0 0 18px !important;
+  }
+
+  .mobile-nav-submenu a{
+    display:block !important;
+    padding:14px 0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    transform:none !important;
+  }
+
+  .mobile-nav-submenu a + a{
+    margin-top:0 !important;
+  }
+
+  .mobile-nav-submenu strong{
+    color:#F5F7FF !important;
+    font-size:17px !important;
+    line-height:1.35 !important;
+    font-weight:400 !important;
+  }
+
+  .mobile-nav-submenu small{
+    margin-top:4px !important;
+    color:#7884A9 !important;
+    font-size:12px !important;
+    line-height:1.45 !important;
+  }
+
+  .mobile-nav-submenu a:hover,
+  .mobile-nav-submenu a:focus-visible{
+    background:transparent !important;
+    border-color:transparent !important;
+    transform:none !important;
+  }
+
+  .mobile-nav-submenu a:hover strong,
+  .mobile-nav-submenu a:focus-visible strong{
+    color:#50E7DD !important;
+  }
+
+  .mobile-nav-direct{
+    min-height:66px !important;
+    border-bottom:1px solid rgba(255,255,255,.13) !important;
+    color:#F5F7FF !important;
+    font-size:20px !important;
+    font-weight:400 !important;
+  }
+
+  .mobile-nav-talk{
+    min-height:56px !important;
+    margin-top:26px !important;
+    border-radius:999px !important;
+    background:#50E7DD !important;
+    color:#071022 !important;
+    font-size:16px !important;
+    font-weight:650 !important;
+    box-shadow:none !important;
+  }
+
+  .mobile-nav-talk:hover,
+  .mobile-nav-talk:focus-visible{
+    background:#6FECE3 !important;
+    transform:none !important;
+  }
+
+  /* small bottom breathing room like reference */
+  .mobile-nav-inner::after{
+    content:"";
+    display:block;
+    height:12px;
+  }
 }
 </style>
 <style id="v68-mobile-nav-low-clean">
