@@ -665,3 +665,19 @@
  .low26-new .low27-industry-showcase .low-industry-stats>div:last-child{grid-column:1/-1}
  .low26-new .low27-industry-showcase .low-industry-stats strong{font-size:25px!important}
 }
+
+/* Correct actual DOM position: partners is moved after the home main. */
+section.lsr-tech-partners.low27-home-partners{
+  padding-top:118px!important;
+  margin-top:0!important;
+  background:#070F22!important;
+}
+section.lsr-tech-partners.low27-home-partners .lsr-tech-head{
+  border-top:0!important;
+  padding-top:0!important;
+}
+@media(max-width:760px){
+  section.lsr-tech-partners.low27-home-partners{
+    padding-top:80px!important;
+  }
+}
