@@ -74,6 +74,21 @@
   cta.classList.add('lf26-cta');
   cta.innerHTML='<div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">LOWSIGNAL · LESS NOISE. MORE GROWTH.</p><h2>¿Construimos lo que viene?</h2><p>Conversemos sobre cómo podemos construir juntos tu próximo proyecto.</p></div><a href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div>';
  }
+ // A single global #planes target must land at the start of Education.
+ // The original placeholder was left behind when the industry sections moved.
+ const educationSection=home.querySelector('.low-industry-education');
+ const plansAnchor=document.querySelector('.home-plans-anchor');
+ if(educationSection&&plansAnchor){
+   educationSection.before(plansAnchor);
+   plansAnchor.id='planes';
+   plansAnchor.style.scrollMarginTop='110px';
+ }
+ // Fix restored/external hash navigation after the home DOM is reorganized.
+ if(window.location.hash==='#planes'&&plansAnchor){
+   requestAnimationFrame(function(){requestAnimationFrame(function(){
+     plansAnchor.scrollIntoView({block:'start',behavior:'instant'});
+   })});
+ }
  // Keep pre-existing visitor anchors stable.
  const industryAnchor=document.getElementById('industrias');
  if(industryAnchor)industryAnchor.id='industrias';
