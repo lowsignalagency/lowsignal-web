@@ -105,3 +105,107 @@
  .low26-testimonials .low26-story-stage .home-story-v2-panel{min-height:0!important;width:calc(100% - 36px)!important;padding:25px!important}
  .low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{font-size:15px!important}
 }
+
+/* Match Education carousel exactly; override legacy home section !important rules */
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials{
+ padding:0!important;
+ margin:0!important;
+ border:0!important;
+ background:#071022!important;
+ display:block!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials>.lsr-wrap{
+ width:100%!important;
+ max-width:none!important;
+ margin:0!important;
+ padding:0!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-head,
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-footer{display:none!important}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-grid.low26-story-stage{
+ margin:0!important;
+ padding:0!important;
+ gap:0!important;
+ width:100%!important;
+ max-width:none!important;
+ height:540px!important;
+ min-height:540px!important;
+ border-radius:0!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{
+ transform:none!important;
+ box-shadow:none!important;
+ border-radius:0!important;
+ min-height:540px!important;
+ height:540px!important;
+ background-image:var(--story-bg)!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{
+ left:max(42px,calc((100vw - 1200px)/2))!important;
+ right:auto!important;
+ bottom:auto!important;
+ top:50%!important;
+ transform:translateY(-50%)!important;
+ width:min(520px,calc(100% - 84px))!important;
+ max-width:520px!important;
+ min-height:392px!important;
+ padding:34px!important;
+ background:rgba(5,10,24,.90)!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-logo{margin:0 0 28px!important}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person{margin-top:auto!important;padding-top:28px!important}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .low26-story-controls.testimonial-controls{
+ position:absolute!important;
+ left:76px!important;
+ bottom:54px!important;
+ right:auto!important;
+ z-index:5!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:flex-start!important;
+ gap:10px!important;
+ margin:0!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-controls.testimonial-controls .testimonial-control{
+ display:grid!important;
+ place-items:center!important;
+ flex:0 0 46px!important;
+ width:46px!important;
+ height:46px!important;
+ padding:0!important;
+ border:1px solid rgba(255,255,255,.28)!important;
+ border-radius:50%!important;
+ background:rgba(5,10,24,.30)!important;
+ color:#fff!important;
+ cursor:pointer!important;
+ transition:background .2s ease,border-color .2s ease,transform .2s ease!important;
+ font-size:initial!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-controls.testimonial-controls .testimonial-control:hover{
+ background:rgba(255,255,255,.10)!important;
+ border-color:rgba(255,255,255,.55)!important;
+ transform:translateY(-1px)!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .testimonial-control svg{
+ display:block!important;
+ width:18px!important;
+ height:18px!important;
+ fill:none!important;
+ stroke:currentColor!important;
+ stroke-width:1.8!important;
+ stroke-linecap:round!important;
+ stroke-linejoin:round!important;
+}
+@media(max-width:760px){
+ .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-grid.low26-story-stage,
+ .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{height:530px!important;min-height:530px!important}
+ .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{
+ left:18px!important;
+ width:calc(100% - 36px)!important;
+ min-height:390px!important;
+ padding:24px!important;
+ }
+ .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .low26-story-controls.testimonial-controls{
+ left:30px!important;bottom:24px!important;
+ }
+}
