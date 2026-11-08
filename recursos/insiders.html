@@ -4014,6 +4014,42 @@ footer .footer-container{
 }
 @media(min-width:761px) and (max-width:1100px){.lnav-resources-mega .lnav28-inner{width:calc(100% - 48px)!important;gap:12px!important}}
 </style>
+
+<style id="insiders-network-visual-20261108">
+/* Insiders hero: a human opportunity network rather than a geographical route. */
+.insr-network-card{isolation:isolate}
+.insr-network-stage{overflow:hidden;min-width:0;background:radial-gradient(ellipse at 50% 48%,rgba(78,91,210,.12),transparent 54%)}
+.insr-network-aura{position:absolute;inset:0;background:radial-gradient(circle at 50% 49%,rgba(90,107,255,.12),transparent 43%);pointer-events:none}
+.insr-network-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.insr-network-links path{fill:none;stroke:url(#insr-network-line);stroke-width:1.6}
+.insr-network-links .insr-network-secondary{stroke:#96A7FF;stroke-opacity:.19;stroke-width:1;stroke-dasharray:3 8}
+.insr-network-signals path{fill:none;stroke:#B4C0FF;stroke-width:1.8;stroke-linecap:round;stroke-dasharray:5 18;animation:insr-network-flow 11s linear infinite}
+.insr-network-satellites circle{fill:rgba(93,111,255,.09);stroke:#9BAAFF;stroke-opacity:.2;stroke-width:1}
+.insr-network-points circle{fill:#CDD6FF;stroke:#7588FF;stroke-width:2;filter:drop-shadow(0 0 6px rgba(123,149,255,.85))}
+.insr-network-points circle:nth-child(2n){fill:#98FFE2;stroke:#8DDCCF}
+.insr-network-core-outer{fill:rgba(48,63,155,.24);stroke:#8FA1FF;stroke-opacity:.6;stroke-width:1}
+.insr-network-core{fill:#17234D;stroke:#9EAEFF;stroke-width:1.3;filter:drop-shadow(0 0 22px rgba(84,106,255,.44))}
+.insr-network-core-title{fill:#FFF;font-family:inherit;font-size:30px;font-weight:700;letter-spacing:-2px}
+.insr-network-core-sub{fill:#AEBEFF;font-family:inherit;font-size:8px;font-weight:700;letter-spacing:3px}
+.insr-network-tag{position:absolute;z-index:1;padding:8px 11px;border:1px solid rgba(168,183,255,.27);border-radius:999px;background:rgba(11,20,46,.9);box-shadow:0 8px 24px rgba(0,0,0,.13);color:#D5DDFF;font-size:9px;font-weight:700;letter-spacing:.11em;white-space:nowrap}
+.insr-network-tag-people{left:3%;top:13%}
+.insr-network-tag-company{right:1%;top:19%}
+.insr-network-tag-opportunity{right:3%;bottom:12%}
+.insr-network-corner{position:absolute;left:3%;bottom:8%;display:flex;align-items:center;gap:8px;color:#8090C3;font-size:9px;letter-spacing:.13em;font-weight:700}
+.insr-network-corner i{width:16px;height:1px;background:#8397FF}
+@keyframes insr-network-flow{to{stroke-dashoffset:-184}}
+@media(max-width:700px){
+  .insr-network-tag{font-size:7px;padding:7px 8px}
+  .insr-network-tag-people{left:0;top:12%}
+  .insr-network-tag-company{right:0;top:17%}
+  .insr-network-tag-opportunity{right:0;bottom:11%}
+  .insr-network-corner{left:0;bottom:7%;font-size:8px}
+  .insr-network-card .insr-map-top{font-size:8px}
+  .insr-network-card .insr-map-top b{font-size:8px}
+  .insr-network-card .insr-map-foot b{white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){.insr-network-signals path{animation:none}}
+</style>
 </head>
 <body>
 
@@ -4297,37 +4333,44 @@ footer .footer-container{
         </div>
       </div>
 
-      <div class="insr-map-card" aria-label="Ilustración de una red de oportunidades de Arica a Punta Arenas">
-        <div class="insr-map-top"><span>MAPA DE EXPANSIÓN</span><b><i></i> Chile · 2026</b></div>
-        <div class="insr-map-stage">
-          <div class="insr-map-grid"></div>
-          <svg class="insr-map-svg" viewBox="0 0 520 430" role="img" aria-label="Conexiones que recorren Chile">
+      <div class="insr-map-card insr-network-card" aria-label="Visualización de la red de personas, empresas y oportunidades de lowsignal Insiders">
+        <div class="insr-map-top"><span>LA RED INSIDERS</span><b><i></i> Conectando oportunidades</b></div>
+        <div class="insr-map-stage insr-network-stage">
+          <div class="insr-network-aura" aria-hidden="true"></div>
+          <svg class="insr-network-svg" viewBox="0 0 520 430" role="img" aria-label="Lowsignal en el centro de una red de personas, empresas y oportunidades conectadas">
             <defs>
-              <linearGradient id="insr-route-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#879AFF"/>
-                <stop offset="55%" stop-color="#4258FF"/>
-                <stop offset="100%" stop-color="#A9B7FF"/>
-              </linearGradient>
-              <filter id="insr-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <radialGradient id="insr-node-halo"><stop offset="0%" stop-color="#7889FF" stop-opacity=".29"/><stop offset="100%" stop-color="#7889FF" stop-opacity="0"/></radialGradient>
+              <linearGradient id="insr-network-line" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A6B5FF" stop-opacity=".12"/><stop offset=".5" stop-color="#8CA0FF" stop-opacity=".82"/><stop offset="1" stop-color="#A6B5FF" stop-opacity=".18"/></linearGradient>
+              <filter id="insr-network-glow"><feGaussianBlur stdDeviation="6"/></filter>
             </defs>
-            <path class="insr-map-haze" d="M261 27 C192 52 298 88 230 122 C160 156 288 188 232 223 C179 256 273 283 205 321 C166 343 239 366 184 403"/>
-            <path class="insr-map-route" d="M261 27 C192 52 298 88 230 122 C160 156 288 188 232 223 C179 256 273 283 205 321 C166 343 239 366 184 403"/>
-            <path class="insr-map-branch" d="M230 122 C314 107 335 91 375 74M232 223 C316 232 350 254 399 273M205 321 C121 304 99 286 70 266"/>
-            <g class="insr-map-pins">
-              <circle cx="261" cy="27" r="6"/><circle cx="230" cy="122" r="7"/><circle cx="232" cy="223" r="7"/><circle cx="205" cy="321" r="7"/><circle cx="184" cy="403" r="6"/>
-              <circle cx="375" cy="74" r="5"/><circle cx="399" cy="273" r="5"/><circle cx="70" cy="266" r="5"/>
+            <circle cx="260" cy="211" r="174" fill="none" stroke="#A0AEFF" stroke-opacity=".09" stroke-dasharray="2 10"/>
+            <circle cx="260" cy="211" r="125" fill="none" stroke="#A0AEFF" stroke-opacity=".11"/>
+            <circle cx="260" cy="211" r="78" fill="none" stroke="#B7C2FF" stroke-opacity=".14" stroke-dasharray="3 9"/>
+            <g class="insr-network-links">
+              <path d="M260 211L103 91 M260 211L258 43 M260 211L415 93 M260 211L465 224 M260 211L379 347 M260 211L194 385 M260 211L64 292 M260 211L129 208"/>
+              <path class="insr-network-secondary" d="M103 91L258 43L415 93L465 224L379 347L194 385L64 292L129 208L103 91 M103 91L129 208 M415 93L379 347 M64 292L194 385"/>
             </g>
+            <g class="insr-network-signals">
+              <path d="M260 211L103 91 M260 211L415 93 M260 211L465 224 M260 211L194 385"/>
+            </g>
+            <g class="insr-network-satellites">
+              <circle cx="103" cy="91" r="19"/><circle cx="258" cy="43" r="14"/><circle cx="415" cy="93" r="19"/><circle cx="465" cy="224" r="14"/><circle cx="379" cy="347" r="19"/><circle cx="194" cy="385" r="15"/><circle cx="64" cy="292" r="18"/><circle cx="129" cy="208" r="12"/>
+            </g>
+            <g class="insr-network-points">
+              <circle cx="103" cy="91" r="5"/><circle cx="258" cy="43" r="4"/><circle cx="415" cy="93" r="5"/><circle cx="465" cy="224" r="4"/><circle cx="379" cy="347" r="5"/><circle cx="194" cy="385" r="4"/><circle cx="64" cy="292" r="5"/><circle cx="129" cy="208" r="4"/>
+            </g>
+            <circle cx="260" cy="211" r="73" fill="url(#insr-node-halo)"/>
+            <circle class="insr-network-core-outer" cx="260" cy="211" r="53"/>
+            <circle class="insr-network-core" cx="260" cy="211" r="43"/>
+            <text class="insr-network-core-title" x="260" y="208" text-anchor="middle">low</text>
+            <text class="insr-network-core-sub" x="260" y="227" text-anchor="middle">SIGNAL</text>
           </svg>
-          <span class="insr-map-label insr-label-north">NORTE</span>
-          <span class="insr-map-label insr-label-center">SANTIAGO</span>
-          <span class="insr-map-label insr-label-south">SUR</span>
-          <span class="insr-map-label insr-label-austral">AUSTRAL</span>
-          <span class="insr-map-chip insr-chip-edu">EDUCACIÓN</span>
-          <span class="insr-map-chip insr-chip-b2b">B2B</span>
-          <span class="insr-map-chip insr-chip-b2c">B2C</span>
-          <span class="insr-map-stamp">01<br><small>PAÍS</small></span>
+          <span class="insr-network-tag insr-network-tag-people">PERSONAS</span>
+          <span class="insr-network-tag insr-network-tag-company">EMPRESAS</span>
+          <span class="insr-network-tag insr-network-tag-opportunity">OPORTUNIDADES</span>
+          <span class="insr-network-corner">CHILE <i></i> LATAM</span>
         </div>
-        <div class="insr-map-foot"><span>Una red que conecta talento y oportunidades.</span><b>ARICA <i>→</i> PUNTA ARENAS</b></div>
+        <div class="insr-map-foot"><span>Las mejores oportunidades empiezan con una conexión.</span><b>LESS NOISE. <i>MORE GROWTH.</i></b></div>
       </div>
     </div>
   </section>
