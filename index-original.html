@@ -8753,9 +8753,51 @@ footer .footer-container{
     </div>
   </section>
 
-  <footer>
+  <style id="home-editorial-footer-low-web-2026">
+/* Low Social footer refinement: Fintoc-inspired breathing room, lowsignal dark identity.
+   Deliberately scoped to this page; all prior social, legal and LATAM elements remain. */
+footer{padding-top:76px !important;padding-bottom:30px !important;background:#050A18 !important}
+footer .footer-main-editorial{display:grid !important;grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr)) !important;gap:clamp(24px,3vw,48px) !important;align-items:start !important}
+footer .footer-brand-copy{max-width:310px !important;font-size:12px !important;line-height:1.85 !important;color:#919CB6 !important;margin-top:22px !important}
+footer .footer-brand img{height:25px !important}
+footer .footer-claim{font-size:16px !important;margin-top:24px !important}
+footer .footer-title{font-size:10px !important;font-weight:600 !important;letter-spacing:.15em !important;color:#879AFF !important;margin:5px 0 23px !important}
+footer .footer-links{gap:14px !important}
+footer .footer-links a{font-size:12px !important;font-weight:400 !important;color:#BBC4D6 !important;line-height:1.6 !important}
+footer .footer-links a:hover{color:#FFFFFF !important}
+footer .footer-ai{margin-top:25px !important}
+footer .footer-ai-label{font-size:11px !important;color:#94A0BA !important}
+footer .footer-ai-buttons{gap:9px !important}
+footer .footer-meta-editorial{margin-top:52px !important;padding:22px 0 !important;border-top:1px solid rgba(150,175,255,.17) !important;border-bottom:1px solid rgba(150,175,255,.17) !important}
+footer .footer-meta-editorial .footer-mail{font-size:12px !important}
+footer .footer-meta-editorial .footer-location{font-size:12px !important}
+footer .footer-bottom-editorial{padding-top:25px !important;gap:20px !important}
+footer .footer-bottom-editorial .footer-made-latam{white-space:nowrap}
+footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
+@media(max-width:1100px){
+  footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:36px 25px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important;max-width:470px}
+  footer .footer-meta-editorial{margin-top:40px !important}
+}
+@media(max-width:760px){
+  footer{padding-top:53px !important}
+  footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:32px 24px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important}
+  footer .footer-title{margin-bottom:13px !important}
+  footer .footer-meta-editorial{margin-top:38px !important;padding:21px 0 !important;grid-template-columns:1fr !important;gap:18px !important}
+  footer .footer-meta-editorial .footer-meta-social{justify-content:flex-start !important}
+  footer .footer-bottom-editorial{grid-template-columns:1fr !important;gap:18px !important;justify-items:start !important}
+  footer .footer-bottom-editorial .footer-made-latam{white-space:normal}
+}
+@media(max-width:420px){
+  footer .footer-main-editorial{gap:28px 16px !important}
+  footer .footer-links a{font-size:11px !important}
+  footer .footer-bottom-editorial .footer-bottom-links{flex-wrap:wrap !important;gap:12px !important}
+}
+</style>
+<footer>
     <div class="container footer-container">
-      <div class="footer-main">
+      <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
           <p class="footer-brand-copy">
@@ -8805,19 +8847,26 @@ footer .footer-container{
         </div>
 
 
-        <div>
+        <div class="footer-group footer-resources">
+          <div class="footer-title">RECURSOS</div>
+          <div class="footer-links">
+            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
+            <a href="https://lowsignal.cl/casos">Customer Stories</a>
+            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
+          </div>
+        </div>
+
+        <div class="footer-group footer-company">
           <div class="footer-title">EMPRESA</div>
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
-            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-            <a href="https://lowsignal.cl/casos">Casos</a>
-            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-meta">
+      <div class="footer-meta footer-meta-editorial">
         <div class="footer-location"><svg class="location-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path d="M12 21s6-5.25 6-11a6 6 0 1 0-12 0c0 5.75 6 11 6 11Z"
         fill="none" stroke="currentColor" stroke-width="1.7"
@@ -8854,7 +8903,7 @@ footer .footer-container{
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom footer-bottom-editorial">
         <div>© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
