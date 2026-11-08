@@ -9,16 +9,14 @@
    <div class="low26-ai-copy"><span class="low26-kicker">INTRODUCING · LOWSIGNAL AI</span><h2>El siguiente paso del crecimiento es <em>inteligente.</em></h2><p>Conectamos agentes de IA, automatizaciones y productos digitales para que tus sistemas trabajen mejor, todos los días.</p><div class="low26-actions"><a class="low26-button" href="/soluciones/low-flow">Descubre Low AI <span aria-hidden="true">↗</span></a><a class="low26-link" href="/soluciones/low-apps">Explora Low Apps <span aria-hidden="true">↗</span></a></div></div>
   </div>
  </section>
- <section class="low26-system" id="ecosistema"><div class="lsr-wrap"><div class="low26-sectionhead"><span class="low26-kicker">UN SOLO ECOSISTEMA</span><h2>Una forma más inteligente de <em>hacer crecer tu negocio.</em></h2><p>Menos herramientas desconectadas. Más estrategia, creatividad, tecnología y datos trabajando juntos.</p></div><div class="low26-system-panel"><div class="low26-system-copy"><span class="low26-label">GROWTH SYSTEMS</span><h3>Todo conectado. Todo con un propósito.</h3><p>Desde la primera interacción hasta la conversión y la fidelización, diseñamos sistemas para que cada acción aporte al crecimiento.</p><a href="/soluciones/low-scale">Conoce Low Scale <span aria-hidden="true">↗</span></a></div><div class="low26-system-visual" aria-label="Estrategia conectada a contenido, tecnología y resultados"><div class="low26-node low26-node-center">Growth<span>System</span></div><div class="low26-node low26-node-a">Estrategia</div><div class="low26-node low26-node-b">Creatividad</div><div class="low26-node low26-node-c">Tecnología + IA</div><div class="low26-node low26-node-d">Datos</div></div></div></div></section>
-`;
+ `;
 
  trust.after(block);
  // Restore the three original industry showcases (including their proven
  // content, features, plan links and figures) instead of duplicating solutions.
  const originalIndustries=Array.from(home.querySelectorAll('.low-industry-section'));
- const ecosystem=block.querySelector('.low26-system');
- if(ecosystem && originalIndustries.length===3){
-   ecosystem.after(...originalIndustries);
+ if(originalIndustries.length===3){
+   block.after(...originalIndustries);
    originalIndustries.forEach((section,i)=>{
      section.classList.add('low27-industry-showcase');
      const labels=['EDUCATION','B2B','B2C'];
