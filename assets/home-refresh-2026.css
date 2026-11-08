@@ -3,3 +3,87 @@
 @media(max-width:980px){.low26-ai-grid{gap:4%}.low26-solution-grid,.low26-industries-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.low26-ai-art{height:380px}.low26-system-panel{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.low26-new .lsr-wrap{width:calc(100% - 36px)}.low26-new section{padding:72px 0}.low26-ai-grid{grid-template-columns:1fr;gap:20px}.low26-ai-art{height:260px;order:2}.low26-ai-copy{order:1}.low26-ai-copy h2{font-size:38px}.low26-ai-copy p{font-size:14px}.low26-orbit{border-width:3px}.low26-sectionhead{margin-bottom:30px}.low26-new h2{font-size:33px}.low26-system-panel{grid-template-columns:1fr}.low26-system-copy{padding:30px 26px}.low26-system-visual{min-height:300px}.low26-node{padding:10px;font-size:10px}.low26-node-center{padding:20px;font-size:18px}.low26-solution-grid,.low26-industries-grid{grid-template-columns:1fr;gap:14px}.low26-solution-visual{height:220px}.low26-industry-art{height:220px}.low26-industry-text p{min-height:0}.low26-testimonials .home-stories-v2-grid{grid-template-columns:1fr!important}.low26-testimonials .home-story-v2:first-child{grid-column:auto;min-height:450px}.low26-final-cta{padding:65px 0!important}}
 @media(prefers-reduced-motion:reduce){.low26-solution-card,.low26-industry-card,.low26-industry-art img{transition:none!important}}
+
+/* 2026-11-08: editorial alignment with Low Web / Education */
+.low26-new .low26-ai{background:#070f22;padding:94px 0}
+.low26-new .low26-ai-grid{min-height:350px;gap:5%;grid-template-columns:.88fr 1.12fr}
+.low26-new .low26-ai-art{height:340px}
+.low26-new .low26-orbit{border-width:2px;border-radius:18%;width:57%;height:52%;box-shadow:none}
+.low26-new .low26-ai-glow{opacity:.12}
+.low26-new .low26-ai-copy h2{font-size:clamp(30px,3.3vw,46px)!important;line-height:1.18;letter-spacing:-.045em;font-weight:400}
+.low26-new .low26-ai-copy p{font-size:14px;margin:22px 0 26px;line-height:1.7}
+.low26-new .low26-kicker{letter-spacing:.13em;font-size:10px}
+.low26-new .low26-button{border-radius:999px;background:#fff;color:#17235d;padding:13px 24px;font-size:13px;font-weight:500}
+.low26-new .low26-link{font-size:12px;color:#d4deff}
+.low26-new .low26-system{padding:85px 0;background:#f6f8fc}
+.low26-new .low26-solutions{padding:86px 0;background:#f6f8fc;color:#0d1420}
+.low26-new .low26-solutions .low26-kicker{color:#1419e0}
+.low26-new .low26-solutions h2 em{color:#1419e0}
+.low26-new .low26-sectionhead{max-width:780px;margin-bottom:34px}
+.low26-new .low26-sectionhead h2{font-size:clamp(29px,2.8vw,39px)!important;line-height:1.2;letter-spacing:-.04em;font-weight:400;margin-top:13px}
+.low26-new .low26-sectionhead p{font-size:13px;margin-top:14px}
+.low26-new .low26-system-panel{min-height:320px;border-radius:12px}
+.low26-new .low26-system-copy{padding:35px 45px}
+.low26-new .low26-system-copy h3{font-size:clamp(24px,2.2vw,31px);font-weight:400}
+.low26-new .low26-system-visual{min-height:300px}
+.low26-new .low26-solution-grid{gap:12px}
+.low26-new .low26-solution-card{background:#fff;color:#0d1420;border:1px solid #dfe5ef;border-radius:11px;box-shadow:none}
+.low26-new .low26-solution-visual{height:175px}
+.low26-new .low26-solution-info{padding:20px 21px 23px}
+.low26-new .low26-solution-info span{color:#2953a3;font-size:10px}
+.low26-new .low26-solution-info h3{font-size:21px;font-weight:500;margin:8px 0}
+.low26-new .low26-solution-info p{color:#66748b;font-size:12px}
+.low26-new .low26-solution-info b{color:#1419e0}
+.low26-new .low26-industries{padding:85px 0;background:#fff}
+.low26-new .low26-industries-grid{gap:12px}
+.low26-new .low26-industry-card{border-radius:11px}
+.low26-new .low26-industry-art{height:205px}
+.low26-new .low26-industry-text{padding:21px}
+.low26-new .low26-industry-text h3{font-size:22px}
+.low26-new .low26-industry-text p{font-size:12px}
+.low26-testimonials{padding:88px 0 70px!important;background:#eef3ff!important}
+.low26-testimonials>.lsr-wrap{width:100%!important;max-width:none!important}
+.low26-testimonials .home-stories-v2-head{width:min(1200px,calc(100% - 64px));margin:0 auto 28px!important}
+.low26-testimonials .home-stories-v2-head h2{font-size:clamp(29px,2.8vw,39px)!important;letter-spacing:-.04em!important}
+.low26-testimonials .home-stories-v2-grid.low26-story-stage{display:block!important;position:relative!important;width:100%!important;min-height:540px;margin:0!important;overflow:hidden!important;border-radius:0!important;background:#071022!important}
+.low26-testimonials .low26-story-stage .home-story-v2{position:absolute!important;inset:0!important;margin:0!important;min-width:0!important;width:100%!important;height:100%!important;min-height:540px!important;max-width:none!important;border:0!important;border-radius:0!important;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease;background-image:var(--story-bg)!important;background-size:cover!important;background-position:center!important}
+.low26-testimonials .low26-story-stage .home-story-v2.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:1}
+.low26-testimonials .low26-story-stage .home-story-v2::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,10,24,.62),rgba(5,10,24,.14) 73%)!important;z-index:0}
+.low26-testimonials .low26-story-stage .home-story-v2-panel{position:absolute!important;left:max(42px,calc((100vw - 1200px)/2))!important;top:50%!important;transform:translateY(-50%)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;max-width:530px!important;min-height:375px!important;width:calc(100% - 84px)!important;padding:34px!important;background:rgba(5,10,24,.9)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 20px 50px #0003!important;border-radius:0!important;z-index:1}
+.low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{font-size:17px!important;line-height:1.55!important;font-weight:300!important}
+.low26-testimonials .low26-story-stage .home-story-v2-logo{height:33px!important;max-width:150px!important;object-fit:contain!important;object-position:left center!important}
+.low26-testimonials .low26-story-stage .home-story-v2-person{margin-top:26px!important}
+.low26-testimonials .low26-story-stage .home-story-v2-tag{display:none!important}
+.low26-story-controls{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:23px}
+.low26-story-controls button{width:36px;height:36px;border-radius:50%;border:1px solid #ffffff65;background:transparent;color:#fff;cursor:pointer;font-size:18px}
+.low26-story-controls button:hover{background:#ffffff25}
+.low26-story-count{color:#b7c2d6;font-size:11px}
+.low26-testimonials .home-stories-v2-footer{max-width:1200px;width:calc(100% - 64px);margin:30px auto 0!important}
+.low26-final-cta.lf26-cta{background:linear-gradient(112deg,#1419e0,#1b28e8 56%,#2447f5)!important;color:#fff!important;padding:0!important}
+.low26-final-cta.lf26-cta .lf26-cta-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:45px!important;min-height:235px!important;width:min(1220px,calc(100% - 128px))!important;padding:46px 0!important}
+.low26-final-cta.lf26-cta .lf26-cta-copy{max-width:750px}
+.low26-final-cta.lf26-cta .lf26-cta-kicker{font-size:10px!important;line-height:1.5!important;font-weight:600!important;letter-spacing:.14em!important;color:#cbd5ff!important;margin:0 0 15px!important}
+.low26-final-cta.lf26-cta .lf26-cta-copy h2{font-size:clamp(27px,2.65vw,36px)!important;font-weight:400!important;letter-spacing:-.04em!important;line-height:1.22!important;margin:0!important;color:#fff!important}
+.low26-final-cta.lf26-cta .lf26-cta-copy h2 span{color:#d4deff}
+.low26-final-cta.lf26-cta .lf26-cta-copy>p:last-child{font-size:13px!important;letter-spacing:normal!important;font-weight:400!important;line-height:1.7!important;color:#d1d9ff!important;margin:13px 0 0!important}
+.low26-final-cta.lf26-cta .lf26-cta-inner>a{flex:none;display:inline-flex!important;align-items:center;gap:18px;min-height:51px;padding:0 26px!important;border-radius:999px!important;background:#fff!important;color:#17235d!important;border:1px solid #fff!important;text-decoration:none!important;font-weight:500!important;font-size:13px!important}
+@media(max-width:760px){
+ .low26-new .low26-ai-grid{grid-template-columns:1fr!important;gap:0!important}
+ .low26-new .low26-ai-art{height:240px;order:2}
+ .low26-new .low26-ai-copy{order:1}
+ .low26-new .low26-ai-copy h2{font-size:clamp(30px,8vw,39px)!important}
+ .low26-new .low26-system,.low26-new .low26-solutions,.low26-new .low26-industries{padding:68px 0}
+ .low26-new .low26-system-panel{grid-template-columns:1fr}
+ .low26-new .low26-system-copy{padding:30px 25px}
+ .low26-new .low26-sectionhead h2{font-size:30px!important}
+ .low26-new .low26-solution-grid,.low26-new .low26-industries-grid{grid-template-columns:1fr}
+ .low26-new .low26-solution-visual{height:175px}
+ .low26-testimonials{padding:65px 0 45px!important}
+ .low26-testimonials .home-stories-v2-head,.low26-testimonials .home-stories-v2-footer{width:calc(100% - 36px)}
+ .low26-testimonials .home-stories-v2-grid.low26-story-stage{min-height:565px}
+ .low26-testimonials .low26-story-stage .home-story-v2{min-height:565px!important}
+ .low26-testimonials .low26-story-stage .home-story-v2-panel{left:18px!important;width:calc(100% - 36px)!important;max-width:none!important;padding:23px!important;min-height:0!important}
+ .low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{font-size:15px!important}
+ .low26-final-cta.lf26-cta .lf26-cta-inner{width:calc(100% - 48px)!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;min-height:0!important;padding:62px 0!important}
+ .low26-final-cta.lf26-cta .lf26-cta-copy h2{font-size:30px!important}
+}
