@@ -934,19 +934,19 @@ section.lsr-tech-partners.low27-home-partners .lsr-tech-head{
 .lsr-home .low28-b2c-preview .low-industry-stats>div{border-left-color:#aeb9f4!important}
 
 /* home-motion-unified-20261108: compact scroll reveals on added home sections. */
-.lsr-home .low-home-motion-pending{
+.low-home-motion-pending{
   opacity:0;
   transform:translate3d(0,19px,0);
   transition:opacity .7s ease,transform .76s cubic-bezier(.2,.73,.2,1);
 }
-.lsr-home .low-home-motion-pending.low-home-motion-visible{
+.low-home-motion-pending.low-home-motion-visible{
   opacity:1;
   transform:translate3d(0,0,0);
 }
-.lsr-home .home26-insight-card figure.low-home-motion-pending,
-.lsr-home .home26-insight-card h3.low-home-motion-pending{
+.home26-insight-card figure.low-home-motion-pending,
+.home26-insight-card h3.low-home-motion-pending{
   transition:opacity .65s ease,transform .72s cubic-bezier(.2,.73,.2,1)!important;
 }
 @media(prefers-reduced-motion:reduce){
-  .lsr-home .low-home-motion-pending{opacity:1!important;transform:none!important;transition:none!important}
+  .low-home-motion-pending{opacity:1!important;transform:none!important;transition:none!important}
 }
