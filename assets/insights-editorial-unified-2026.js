@@ -38,10 +38,32 @@
       },{rootMargin:"-12% 0px -65% 0px",threshold:0});
       sections.forEach(function(x){tocObserver.observe(x)});
     }
-    document.querySelectorAll(".article-editorial-share .article-copy-link").forEach(function(btn){
-      if(btn.hasAttribute("onclick")||btn.dataset.copyLink||btn.dataset.copyUrl)return;
-      btn.addEventListener("click",function(){if(navigator.clipboard)navigator.clipboard.writeText(location.href).then(function(){btn.textContent="Enlace copiado"})});
-    });
+    /* Capture all article copy controls, including data-copy-url and legacy handlers. */
+    document.addEventListener("click",function(ev){
+      var btn=ev.target.closest(".article-copy-link, .article-editorial-share button[data-copy-url], #copyLink");
+      if(!btn)return;
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      var value=btn.getAttribute("data-copy-url")||window.location.href;
+      var previous=btn.getAttribute("data-original-label")||btn.textContent.trim();
+      btn.setAttribute("data-original-label",previous);
+      function feedback(ok){
+        btn.textContent=ok?"Enlace copiado ✓":"No se pudo copiar";
+        btn.setAttribute("aria-live","polite");
+        setTimeout(function(){btn.textContent=previous},2200);
+      }
+      function fallback(){
+        var input=document.createElement("textarea");input.value=value;
+        input.setAttribute("readonly","");
+        input.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";
+        document.body.appendChild(input);input.select();input.setSelectionRange(0,input.value.length);
+        var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+        input.remove();feedback(ok);
+      }
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(value).then(function(){feedback(true)}).catch(fallback);
+      }else fallback();
+    },true);
     if(!("IntersectionObserver" in window)||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
     var targets=[],selectors=[".article-new-content>h2",".article-new-content>.article-new-process",".article-new-content>figure",".article-related-unified .aru-head",".article-related-unified .aru-card"];
     selectors.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){if(targets.indexOf(el)<0)targets.push(el)})});
