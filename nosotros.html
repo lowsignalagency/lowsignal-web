@@ -4543,5 +4543,49 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 }
 </style>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+<style id="nosotros-compact-hero-team-20261108">
+/* Compact the transition into the team without changing 4-column portraits. */
+@media(min-width:761px){
+  .hero{padding-top:174px!important;padding-bottom:78px!important}
+  .hero-sub{margin-top:28px!important}
+  .team{padding-top:58px!important}
+  .team-grid{row-gap:36px!important}
+}
+@media(min-width:761px) and (max-width:1100px){
+  .hero{padding-top:155px!important;padding-bottom:68px!important}
+  .team-grid{row-gap:32px!important}
+}
+@media(max-width:760px){
+  .hero{padding-top:122px!important;padding-bottom:55px!important}
+  .hero-sub{margin-top:23px!important}
+  .team{padding-top:40px!important}
+  .team-grid{row-gap:28px!important}
+}
+.person{cursor:pointer}
+.person:focus-visible{outline:2px solid #1419e0;outline-offset:6px;border-radius:12px}
+.person-meta{padding-top:12px!important}
+.person-role{margin-top:3px!important}
+.profile-link{margin-top:8px!important}
+@media(prefers-reduced-motion:reduce){.person,.person-photo img{transition:none!important}}
+</style>
+<script id="nosotros-team-card-navigation-20261108">
+(function(){
+  document.querySelectorAll('.team-grid .person').forEach(function(card){
+    var link=card.querySelector('a.profile-link[href]');
+    if(!link)return;
+    card.tabIndex=0;
+    card.setAttribute('role','link');
+    card.setAttribute('aria-label','Ver perfil de '+(card.querySelector('.person-name')?.textContent.trim()||'integrante'));
+    card.addEventListener('click',function(event){
+      if(event.target.closest('a,button'))return;
+      link.click();
+    });
+    card.addEventListener('keydown',function(event){
+      if(event.target!==card)return;
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();link.click();}
+    });
+  });
+})();
+</script>
 </body>
 </html>
