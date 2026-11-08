@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="theme-color" content="#070F22" media="(max-width: 760px)">
+  <meta name="theme-color" content="#050A18" media="(max-width: 760px)">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png">
   <link rel="shortcut icon" href="https://lowsignal.cl/assets/profile.png">
@@ -4406,15 +4406,22 @@ footer .footer-container{
     </div>
   </section>
 
-  <section class="insr-final">
-    <div class="insr-shell insr-final-inner"><p class="insr-eyebrow insr-eyebrow-light">CHILE ES EL COMIENZO</p><h2>Lo que viene lo construimos<br><strong>con los mejores.</strong></h2><p>¿Conoces un equipo con potencial? ¿Quieres ser parte de la red que lo conecta con su próximo paso?</p><a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Hablemos de Insiders <span aria-hidden="true">↗</span></a></div>
+  <section class="lsr-band lf26-cta insr-new-cta" aria-labelledby="insr-new-cta-title">
+    <div class="lsr-wrap lsr-band-inner lf26-cta-inner">
+      <div class="lf26-cta-copy">
+        <p class="lf26-cta-kicker">LOWSIGNAL INSIDERS · BUILD WHAT'S NEXT</p>
+        <h2 id="insr-new-cta-title">Una conexión puede abrir <span>lo que viene.</span></h2>
+        <p>¿Conoces una organización con potencial? Conversemos y construyamos nuevas oportunidades juntos.</p>
+      </div>
+      <a href="mailto:contacto@lowsignal.cl?subject=Quiero%20ser%20Insider">Quiero sumarme <span aria-hidden="true">↗</span></a>
+    </div>
   </section>
 </main>
 
 
   <footer>
     <div class="container footer-container">
-      <div class="footer-main">
+      <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
           <p class="footer-brand-copy">
@@ -4464,19 +4471,26 @@ footer .footer-container{
         </div>
 
 
-        <div>
+        <div class="footer-group footer-resources">
+          <div class="footer-title">RECURSOS</div>
+          <div class="footer-links">
+            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
+            <a href="https://lowsignal.cl/casos">Customer Stories</a>
+            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
+          </div>
+        </div>
+
+        <div class="footer-group footer-company">
           <div class="footer-title">EMPRESA</div>
           <div class="footer-links">
             <a href="https://lowsignal.cl/nosotros">Nosotros</a>
-            <a href="https://lowsignal.cl/recursos/insights">Insights</a>
-            <a href="https://lowsignal.cl/casos">Casos</a>
-            <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
+            <a href="https://lowsignal.cl/contacto">Contacto</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-meta">
+      <div class="footer-meta footer-meta-editorial">
         <div class="footer-location"><svg class="location-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path d="M12 21s6-5.25 6-11a6 6 0 1 0-12 0c0 5.75 6 11 6 11Z"
         fill="none" stroke="currentColor" stroke-width="1.7"
@@ -4513,7 +4527,7 @@ footer .footer-container{
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom footer-bottom-editorial">
         <div>© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
@@ -10591,6 +10605,125 @@ body footer .footer-bottom{
     if(el.matches('.insr-hero-copy,.insr-map-card')){requestAnimationFrame(function(){el.classList.add('insr-is-visible')})}
     else observer.observe(el);
   });
+})();
+</script>
+
+<style id="insiders-2026-editorial-footer">
+/* Low Social footer refinement: Fintoc-inspired breathing room, lowsignal dark identity.
+   Deliberately scoped to this page; all prior social, legal and LATAM elements remain. */
+footer{padding-top:76px !important;padding-bottom:30px !important;background:#050A18 !important}
+footer .footer-main-editorial{display:grid !important;grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr)) !important;gap:clamp(24px,3vw,48px) !important;align-items:start !important}
+footer .footer-brand-copy{max-width:310px !important;font-size:12px !important;line-height:1.85 !important;color:#919CB6 !important;margin-top:22px !important}
+footer .footer-brand img{height:25px !important}
+footer .footer-claim{font-size:16px !important;margin-top:24px !important}
+footer .footer-title{font-size:10px !important;font-weight:600 !important;letter-spacing:.15em !important;color:#879AFF !important;margin:5px 0 23px !important}
+footer .footer-links{gap:14px !important}
+footer .footer-links a{font-size:12px !important;font-weight:400 !important;color:#BBC4D6 !important;line-height:1.6 !important}
+footer .footer-links a:hover{color:#FFFFFF !important}
+footer .footer-ai{margin-top:25px !important}
+footer .footer-ai-label{font-size:11px !important;color:#94A0BA !important}
+footer .footer-ai-buttons{gap:9px !important}
+footer .footer-meta-editorial{margin-top:52px !important;padding:22px 0 !important;border-top:1px solid rgba(150,175,255,.17) !important;border-bottom:1px solid rgba(150,175,255,.17) !important}
+footer .footer-meta-editorial .footer-mail{font-size:12px !important}
+footer .footer-meta-editorial .footer-location{font-size:12px !important}
+footer .footer-bottom-editorial{padding-top:25px !important;gap:20px !important}
+footer .footer-bottom-editorial .footer-made-latam{white-space:nowrap}
+footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
+@media(max-width:1100px){
+  footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:36px 25px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important;max-width:470px}
+  footer .footer-meta-editorial{margin-top:40px !important}
+}
+@media(max-width:760px){
+  footer{padding-top:53px !important}
+  footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:32px 24px !important}
+  footer .footer-main-editorial .footer-brand{grid-column:1/-1 !important}
+  footer .footer-title{margin-bottom:13px !important}
+  footer .footer-meta-editorial{margin-top:38px !important;padding:21px 0 !important;grid-template-columns:1fr !important;gap:18px !important}
+  footer .footer-meta-editorial .footer-meta-social{justify-content:flex-start !important}
+  footer .footer-bottom-editorial{grid-template-columns:1fr !important;gap:18px !important;justify-items:start !important}
+  footer .footer-bottom-editorial .footer-made-latam{white-space:normal}
+}
+@media(max-width:420px){
+  footer .footer-main-editorial{gap:28px 16px !important}
+  footer .footer-links a{font-size:11px !important}
+  footer .footer-bottom-editorial .footer-bottom-links{flex-wrap:wrap !important;gap:12px !important}
+}
+</style>
+<style id="insiders-2026-editorial-relaunch">
+/* Editorial refresh — deep low navy, clearer hierarchy, shared solution CTA. */
+:root{--insiders-night:#050A18;--insiders-ink:#111827;--insiders-grey:#8793AD}
+html{scroll-behavior:smooth}
+body .lnav{background:var(--insiders-night)!important;background-image:none!important;border-bottom:1px solid rgba(184,204,255,.09)!important;box-shadow:none!important}
+@media(min-width:761px){
+body .lnav .lnav-mega,body .lnav .lnav-mega.lnav28-mega{background:var(--insiders-night)!important;background-image:none!important}
+}
+body .insr-hero{background:var(--insiders-night)!important;background-image:none!important;padding:clamp(154px,12vw,184px) 0 100px!important}
+body .insr-hero h1{font-size:clamp(43px,4.45vw,62px)!important;line-height:1.08!important;font-weight:400!important;letter-spacing:-.052em!important}
+body .insr-hero h1 strong{color:#A9B9FF!important;font-weight:400!important}
+body .insr-hero .insr-lead{color:#A0ABC4!important;font-size:14px!important;line-height:1.85!important;max-width:600px!important}
+body .insr-map-card{background:#0A1226!important;border:1px solid rgba(184,204,255,.15)!important;box-shadow:none!important}
+body .insr-community{background:#F7F9FD!important;padding:100px 0!important}
+body .insr-community-head h2,body .insr-section-intro h2,body .insr-industries-head h2,body .insr-faq-heading h2{font-size:clamp(33px,3.4vw,46px)!important;font-weight:400!important;line-height:1.12!important;letter-spacing:-.046em!important}
+body .insr-community-head h2 strong,body .insr-section-intro h2 strong,body .insr-industries-head h2 strong{font-weight:400!important}
+body .insr-community-panel{gap:clamp(25px,4.5vw,68px)!important}
+body .insr-community-copy h3{font-size:clamp(30px,3vw,41px)!important;font-weight:400!important}
+body .insr-process{background:#FFFFFF!important;padding:100px 0!important}
+body .insr-process-grid article{background:transparent!important;box-shadow:none!important}
+body .insr-process-grid article h3{font-weight:500!important}
+body .insr-industries{background:#F6F8FC!important;padding:100px 0!important}
+body .insr-industry-card{box-shadow:none!important;transition:transform .22s ease,border-color .22s ease!important}
+body .insr-industry-card:hover{transform:translateY(-4px)!important}
+body .insr-manifesto{background:var(--insiders-night)!important;background-image:none!important;padding:90px 0!important}
+body .insr-manifesto h2{font-size:clamp(35px,3.8vw,51px)!important;font-weight:400!important}
+body .insr-manifesto h2 strong{font-weight:400!important;color:#A9B9FF!important}
+body .insr-faq{background:#F7F9FD!important;padding:100px 0!important}
+body .insr-faq-list details{border-bottom-color:#DDE3EE!important}
+body .insr-faq-list summary{transition:color .2s ease!important}
+body .insr-faq-list summary:hover{color:#3145C9!important}
+body .insr-new-cta{background:linear-gradient(112deg,#1419E0,#1B28E8 56%,#2447F5)!important;color:#fff!important;padding:0!important}
+body .insr-new-cta .lf26-cta-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:45px!important;min-height:235px!important;width:min(1220px,calc(100% - 128px))!important;max-width:1220px!important;margin-inline:auto!important;padding:46px 0!important}
+body .insr-new-cta .lf26-cta-copy{max-width:750px}
+body .insr-new-cta .lf26-cta-kicker{font-size:10px!important;font-weight:600!important;letter-spacing:.14em!important;color:#CBD5FF!important;margin:0 0 15px!important}
+body .insr-new-cta h2{font-size:clamp(27px,2.65vw,36px)!important;font-weight:400!important;letter-spacing:-.04em!important;line-height:1.22!important;color:#fff!important;margin:0!important}
+body .insr-new-cta h2 span{color:#D4DEFF!important}
+body .insr-new-cta .lf26-cta-copy>p:last-child{font-size:13px!important;line-height:1.7!important;color:#D1D9FF!important;margin:13px 0 0!important}
+body .insr-new-cta .lf26-cta-inner>a{flex:none;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:18px!important;min-height:51px!important;padding:0 26px!important;border-radius:999px!important;border:1px solid #fff!important;background:#fff!important;color:#17235D!important;font-size:13px!important;font-weight:500!important;text-decoration:none!important;transition:transform .2s ease,background .2s ease!important}
+body .insr-new-cta .lf26-cta-inner>a:hover{background:#F0F3FF!important;transform:translateY(-2px)!important}
+body .insr-new-cta .lf26-cta-inner>a span{transition:transform .2s ease}
+body .insr-new-cta .lf26-cta-inner>a:hover span{transform:translate(2px,-2px)}
+footer .footer-main-editorial{grid-template-columns:minmax(270px,1.65fr) repeat(4,minmax(0,1fr))!important}
+@media(max-width:1100px){
+body .insr-new-cta .lf26-cta-inner{width:calc(100% - 48px)!important}
+footer .footer-main-editorial{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+body .insr-hero{padding:128px 0 70px!important}
+body .insr-hero h1{font-size:clamp(36px,8.8vw,45px)!important}
+body .insr-community,body .insr-process,body .insr-industries,body .insr-faq{padding:72px 0!important}
+body .insr-manifesto{padding:68px 0!important}
+body .insr-new-cta .lf26-cta-inner{width:calc(100% - 40px)!important;min-height:0!important;flex-direction:column!important;align-items:flex-start!important;gap:24px!important;padding:52px 0!important}
+body .insr-new-cta h2{font-size:30px!important}
+footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+body>.nav-wrap>.nav,body .nav-wrap .nav,body>.mobile-nav-panel{background:var(--insiders-night)!important;background-image:none!important}
+}
+@media(prefers-reduced-motion:reduce){body .insr-new-cta .lf26-cta-inner>a,body .insr-industry-card{transition:none!important}}
+</style>
+<style id="insiders-2026-scroll-reveal">
+.insr-scroll-pending{opacity:0;transform:translate3d(0,20px,0);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.insr-scroll-pending.insr-scroll-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.insr-scroll-pending{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+<script id="insiders-2026-scroll-reveal-controller">
+(function(){
+ function init(){
+  var items=[],selectors=['.insr-community-head','.insr-community-panel','.insr-founder-quote','.insr-section-intro','.insr-process-grid article','.insr-industries-head','.insr-industry-card','.insr-manifesto-top','.insr-manifesto h2','.insr-manifesto-bottom','.insr-faq-heading','.insr-faq-list','.insr-new-cta .lf26-cta-copy','.insr-new-cta .lf26-cta-inner>a'];
+  selectors.forEach(function(q){document.querySelectorAll(q).forEach(function(el){if(items.indexOf(el)<0)items.push(el)})});
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var io=new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('insr-scroll-visible');obs.unobserve(e.target)})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+  items.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)return;el.classList.add('insr-scroll-pending');io.observe(el)});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
 
