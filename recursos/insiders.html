@@ -4050,6 +4050,48 @@ footer .footer-container{
 }
 @media(prefers-reduced-motion:reduce){.insr-network-signals path{animation:none}}
 </style>
+
+<style id="insiders-floating-orb-20261108">
+/* Unboxed floating 3D globe; stays in the hero's existing right column. */
+.insr-orb-visual{--orb-size:clamp(240px,26vw,405px);position:relative;width:100%;height:clamp(410px,36vw,540px);min-width:0;isolation:isolate;display:grid;place-items:center;overflow:visible;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.insr-orb-ambient{position:absolute;width:90%;height:90%;left:5%;top:5%;border-radius:50%;background:radial-gradient(circle,rgba(61,85,227,.20) 0%,rgba(44,65,174,.08) 37%,transparent 70%);filter:blur(18px);pointer-events:none}
+.insr-orb-body{position:relative;width:var(--orb-size);height:var(--orb-size);perspective:1050px;animation:insr-orb-hover 9s ease-in-out infinite;z-index:2}
+.insr-orb-sphere{position:absolute;inset:0;border-radius:50%;transform-style:preserve-3d;transform:rotateX(-15deg) rotateY(0deg);animation:insr-orb-spin 32s linear infinite}
+.insr-orb-shell{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 26% 24%,rgba(154,172,255,.19) 0%,rgba(48,72,190,.16) 37%,rgba(24,37,98,.36) 66%,rgba(9,15,39,.6) 100%);border:1px solid rgba(149,171,255,.36);box-shadow:inset 14px 9px 38px rgba(139,159,255,.08),inset -25px -18px 56px rgba(0,0,0,.3),0 0 60px rgba(80,100,240,.20),0 0 120px rgba(49,70,180,.12);transform:translateZ(-1px)}
+.insr-orb-geometry{position:absolute;inset:0;border-radius:50%;transform-style:preserve-3d}
+.insr-orb-meridian{position:absolute;inset:0;border:1px solid rgba(170,189,255,.37);border-radius:50%;transform-style:preserve-3d;box-shadow:0 0 9px rgba(90,112,255,.12)}
+.insr-orb-meridian-0{transform:rotateY(0deg)}
+.insr-orb-meridian-1{transform:rotateY(30deg)}
+.insr-orb-meridian-2{transform:rotateY(60deg)}
+.insr-orb-meridian-3{transform:rotateY(90deg)}
+.insr-orb-meridian-4{transform:rotateY(120deg)}
+.insr-orb-latitude{position:absolute;left:0;top:0;width:100%;height:100%;border:1px solid rgba(143,165,255,.30);border-radius:50%;transform-style:preserve-3d}
+.insr-orb-latitude-0{transform:rotateX(90deg)}
+.insr-orb-latitude-1{transform:translateY(-28%) rotateX(90deg) scale(.83)}
+.insr-orb-latitude-2{transform:translateY(28%) rotateX(90deg) scale(.83)}
+.insr-orb-latitude-3{transform:translateY(-43%) rotateX(90deg) scale(.51)}
+.insr-orb-latitude-4{transform:translateY(43%) rotateX(90deg) scale(.51)}
+.insr-orb-shine{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 27% 24%,rgba(194,207,255,.15),transparent 36%),linear-gradient(115deg,rgba(5,10,24,.02) 35%,rgba(5,10,24,.43) 100%);transform:translateZ(calc(var(--orb-size) * .15));pointer-events:none}
+.insr-orb-orbit{position:absolute;top:50%;left:50%;width:calc(var(--orb-size) * 1.38);height:calc(var(--orb-size) * .43);margin-left:calc(var(--orb-size) * -.69);margin-top:calc(var(--orb-size) * -.215);border:1px solid rgba(144,162,255,.16);border-radius:50%;pointer-events:none}
+.insr-orb-orbit-a{transform:rotate(-26deg)}
+.insr-orb-orbit-b{transform:rotate(54deg);border-style:dashed;border-color:rgba(148,167,255,.12)}
+.insr-orb-orbit-c{transform:rotate(115deg);border-color:rgba(148,167,255,.1)}
+.insr-orb-dot{position:absolute;z-index:3;width:7px;height:7px;border-radius:50%;background:#A6B6FF;box-shadow:0 0 0 5px rgba(123,147,255,.09),0 0 20px rgba(132,155,255,.8);animation:insr-orb-twinkle 4s ease-in-out infinite}
+.insr-orb-dot-1{top:19%;left:19%}
+.insr-orb-dot-2{top:26%;right:14%;width:5px;height:5px;animation-delay:-1s}
+.insr-orb-dot-3{top:67%;left:12%;width:5px;height:5px;animation-delay:-2s}
+.insr-orb-dot-4{top:77%;right:18%;background:#92F9DC;animation-delay:-3s}
+.insr-orb-dot-5{top:11%;left:53%;width:4px;height:4px;animation-delay:-.8s}
+.insr-orb-dot-6{top:84%;left:49%;width:4px;height:4px;animation-delay:-2.7s}
+.insr-orb-caption{position:absolute;z-index:3;bottom:5%;left:50%;transform:translateX(-50%);color:#8999CD;font-size:10px;font-weight:700;letter-spacing:.22em;white-space:nowrap}
+.insr-orb-caption span{color:#B5C2FF;padding:0 7px}
+@keyframes insr-orb-spin{from{transform:rotateX(-15deg) rotateY(0deg)}to{transform:rotateX(-15deg) rotateY(360deg)}}
+@keyframes insr-orb-hover{0%,100%{transform:translateY(8px)}50%{transform:translateY(-10px)}}
+@keyframes insr-orb-twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.25)}}
+@media(max-width:900px){.insr-orb-visual{--orb-size:clamp(240px,35vw,330px);height:430px}}
+@media(max-width:700px){.insr-orb-visual{--orb-size:min(69vw,310px);height:350px;overflow:hidden}.insr-orb-orbit{width:calc(var(--orb-size) * 1.25);margin-left:calc(var(--orb-size) * -.625)}.insr-orb-caption{bottom:3%;font-size:8px}.insr-orb-dot-1{left:13%}.insr-orb-dot-2{right:12%}}
+@media(prefers-reduced-motion:reduce){.insr-orb-body,.insr-orb-sphere,.insr-orb-dot{animation:none!important}}
+</style>
 </head>
 <body>
 
@@ -4333,44 +4375,36 @@ footer .footer-container{
         </div>
       </div>
 
-      <div class="insr-map-card insr-network-card" aria-label="Visualización de la red de personas, empresas y oportunidades de lowsignal Insiders">
-        <div class="insr-map-top"><span>LA RED INSIDERS</span><b><i></i> Conectando oportunidades</b></div>
-        <div class="insr-map-stage insr-network-stage">
-          <div class="insr-network-aura" aria-hidden="true"></div>
-          <svg class="insr-network-svg" viewBox="0 0 520 430" role="img" aria-label="Lowsignal en el centro de una red de personas, empresas y oportunidades conectadas">
-            <defs>
-              <radialGradient id="insr-node-halo"><stop offset="0%" stop-color="#7889FF" stop-opacity=".29"/><stop offset="100%" stop-color="#7889FF" stop-opacity="0"/></radialGradient>
-              <linearGradient id="insr-network-line" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A6B5FF" stop-opacity=".12"/><stop offset=".5" stop-color="#8CA0FF" stop-opacity=".82"/><stop offset="1" stop-color="#A6B5FF" stop-opacity=".18"/></linearGradient>
-              <filter id="insr-network-glow"><feGaussianBlur stdDeviation="6"/></filter>
-            </defs>
-            <circle cx="260" cy="211" r="174" fill="none" stroke="#A0AEFF" stroke-opacity=".09" stroke-dasharray="2 10"/>
-            <circle cx="260" cy="211" r="125" fill="none" stroke="#A0AEFF" stroke-opacity=".11"/>
-            <circle cx="260" cy="211" r="78" fill="none" stroke="#B7C2FF" stroke-opacity=".14" stroke-dasharray="3 9"/>
-            <g class="insr-network-links">
-              <path d="M260 211L103 91 M260 211L258 43 M260 211L415 93 M260 211L465 224 M260 211L379 347 M260 211L194 385 M260 211L64 292 M260 211L129 208"/>
-              <path class="insr-network-secondary" d="M103 91L258 43L415 93L465 224L379 347L194 385L64 292L129 208L103 91 M103 91L129 208 M415 93L379 347 M64 292L194 385"/>
-            </g>
-            <g class="insr-network-signals">
-              <path d="M260 211L103 91 M260 211L415 93 M260 211L465 224 M260 211L194 385"/>
-            </g>
-            <g class="insr-network-satellites">
-              <circle cx="103" cy="91" r="19"/><circle cx="258" cy="43" r="14"/><circle cx="415" cy="93" r="19"/><circle cx="465" cy="224" r="14"/><circle cx="379" cy="347" r="19"/><circle cx="194" cy="385" r="15"/><circle cx="64" cy="292" r="18"/><circle cx="129" cy="208" r="12"/>
-            </g>
-            <g class="insr-network-points">
-              <circle cx="103" cy="91" r="5"/><circle cx="258" cy="43" r="4"/><circle cx="415" cy="93" r="5"/><circle cx="465" cy="224" r="4"/><circle cx="379" cy="347" r="5"/><circle cx="194" cy="385" r="4"/><circle cx="64" cy="292" r="5"/><circle cx="129" cy="208" r="4"/>
-            </g>
-            <circle cx="260" cy="211" r="73" fill="url(#insr-node-halo)"/>
-            <circle class="insr-network-core-outer" cx="260" cy="211" r="53"/>
-            <circle class="insr-network-core" cx="260" cy="211" r="43"/>
-            <text class="insr-network-core-title" x="260" y="208" text-anchor="middle">low</text>
-            <text class="insr-network-core-sub" x="260" y="227" text-anchor="middle">SIGNAL</text>
-          </svg>
-          <span class="insr-network-tag insr-network-tag-people">PERSONAS</span>
-          <span class="insr-network-tag insr-network-tag-company">EMPRESAS</span>
-          <span class="insr-network-tag insr-network-tag-opportunity">OPORTUNIDADES</span>
-          <span class="insr-network-corner">CHILE <i></i> LATAM</span>
+      <div class="insr-orb-visual" role="img" aria-label="Esfera luminosa en movimiento que representa las conexiones de lowsignal desde Chile hacia Latinoamérica">
+        <div class="insr-orb-ambient"></div>
+        <div class="insr-orb-orbit insr-orb-orbit-a"></div>
+        <div class="insr-orb-orbit insr-orb-orbit-b"></div>
+        <div class="insr-orb-orbit insr-orb-orbit-c"></div>
+        <div class="insr-orb-body">
+          <div class="insr-orb-sphere">
+            <div class="insr-orb-shell"></div>
+            <div class="insr-orb-geometry">
+              <div class="insr-orb-meridian insr-orb-meridian-0"></div>
+              <div class="insr-orb-meridian insr-orb-meridian-1"></div>
+              <div class="insr-orb-meridian insr-orb-meridian-2"></div>
+              <div class="insr-orb-meridian insr-orb-meridian-3"></div>
+              <div class="insr-orb-meridian insr-orb-meridian-4"></div>
+              <div class="insr-orb-latitude insr-orb-latitude-0"></div>
+              <div class="insr-orb-latitude insr-orb-latitude-1"></div>
+              <div class="insr-orb-latitude insr-orb-latitude-2"></div>
+              <div class="insr-orb-latitude insr-orb-latitude-3"></div>
+              <div class="insr-orb-latitude insr-orb-latitude-4"></div>
+            </div>
+            <div class="insr-orb-shine"></div>
+          </div>
         </div>
-        <div class="insr-map-foot"><span>Las mejores oportunidades empiezan con una conexión.</span><b>LESS NOISE. <i>MORE GROWTH.</i></b></div>
+        <div class="insr-orb-dot insr-orb-dot-1"></div>
+        <div class="insr-orb-dot insr-orb-dot-2"></div>
+        <div class="insr-orb-dot insr-orb-dot-3"></div>
+        <div class="insr-orb-dot insr-orb-dot-4"></div>
+        <div class="insr-orb-dot insr-orb-dot-5"></div>
+        <div class="insr-orb-dot insr-orb-dot-6"></div>
+        <span class="insr-orb-caption">CHILE <span aria-hidden="true">—</span> LATAM</span>
       </div>
     </div>
   </section>
