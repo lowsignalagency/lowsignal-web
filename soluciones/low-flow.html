@@ -3853,6 +3853,76 @@ body .lnav .lnav-col>a:focus-visible b{color:#A5BAFF !important;}
 }
 @media(min-width:761px) and (max-width:1100px){.lnav-resources-mega .lnav28-inner{width:calc(100% - 48px)!important;gap:12px!important}}
 </style>
+
+<style id="low-flow-mobile-scene-art-spacing-20261108">
+/* Keep SVG scenes from overlapping the 01–04 captions at narrow widths. */
+@media(max-width:760px){
+  .flow27-universe .flow27-scene,
+  .flow27-universe .flow27-scene.flow27-flipped{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    align-items:start!important;
+    row-gap:clamp(20px,5.5vw,30px)!important;
+    min-height:0!important;
+    padding:20px 22px 70px!important;
+  }
+  .flow27-universe .flow27-scene .flow27-art,
+  .flow27-universe .flow27-scene.flow27-flipped .flow27-art{
+    grid-column:1!important;
+    grid-row:1!important;
+    order:1!important;
+    display:grid!important;
+    place-items:center!important;
+    box-sizing:border-box!important;
+    min-width:0!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:5 / 4!important;
+    overflow:hidden!important;
+  }
+  .flow27-universe .flow27-scene .flow27-visual{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:100%!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+    object-fit:contain!important;
+  }
+  .flow27-universe .flow27-scene .flow27-story,
+  .flow27-universe .flow27-scene.flow27-flipped .flow27-story{
+    grid-column:1!important;
+    grid-row:2!important;
+    order:2!important;
+    position:relative!important;
+    z-index:2!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+  }
+  .flow27-universe .flow27-scene .flow27-step{
+    display:inline-block!important;
+    position:relative!important;
+    margin:0 0 20px!important;
+    max-width:100%!important;
+    white-space:normal!important;
+  }
+}
+@media(max-width:390px){
+  .flow27-universe .flow27-scene,
+  .flow27-universe .flow27-scene.flow27-flipped{
+    padding-inline:18px!important;
+    row-gap:22px!important;
+  }
+}
+</style>
 </head>
 <body>
 
