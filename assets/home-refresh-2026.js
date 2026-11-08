@@ -21,6 +21,13 @@
      section.classList.add('low27-industry-showcase');
      const labels=['EDUCATION','B2B','B2C'];
      section.setAttribute('aria-label','Soluciones para '+labels[i]);
+     if(i===0){
+       section.classList.add('low28-education-preview');
+       const eyebrow=section.querySelector('.low-industry-copy>small');
+       if(eyebrow)eyebrow.textContent='01 / EDUCACIÓN';
+       const mainAction=section.querySelector('.low-btn-secondary');
+       if(mainAction)mainAction.textContent='Explorar industria';
+     }
    });
  }
  for(const el of home.querySelectorAll('.lsr-strip,.lsr-mission'))el.remove();
