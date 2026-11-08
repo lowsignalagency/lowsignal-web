@@ -9321,6 +9321,56 @@ footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!impo
   }
 }
 </style>
+<style id="ga28-scroll-reveal-v1">
+/* Progressive on-scroll reveal. Content stays visible when JavaScript is unavailable. */
+main#top .ga28-scroll-pending{
+  opacity:0;
+  transform:translate3d(0,20px,0);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);
+}
+main#top .ga28-scroll-pending.ga28-scroll-visible{
+  opacity:1;
+  transform:none;
+}
+@media(prefers-reduced-motion:reduce){
+  main#top .ga28-scroll-pending{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script id="ga28-scroll-reveal-controller">
+(function(){
+  function init(){
+    var selectors=[
+      '.ga28-role-intro > *',
+      '.ga26-body > section',
+      '.ga26-side-card',
+      '.ga28-cta .lf26-cta-copy',
+      '.ga28-cta .lf26-cta-inner > a'
+    ];
+    var nodes=[];
+    selectors.forEach(function(selector){
+      document.querySelectorAll('main#top '+selector).forEach(function(el){
+        if(nodes.indexOf(el)<0)nodes.push(el);
+      });
+    });
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var observer=new IntersectionObserver(function(entries,obs){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        entry.target.classList.add('ga28-scroll-visible');
+        obs.unobserve(entry.target);
+      });
+    },{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+    nodes.forEach(function(el){
+      var rect=el.getBoundingClientRect();
+      /* Keep content above or already visible in the initial viewport fully visible. */
+      if(rect.top<window.innerHeight)return;
+      el.classList.add('ga28-scroll-pending');
+      observer.observe(el);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
   <!-- felipe-role-publish-marker: 2026-10-29-3 -->
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
 </body>
