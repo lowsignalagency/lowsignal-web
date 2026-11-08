@@ -27,6 +27,7 @@
  for(const el of home.querySelectorAll('.lsr-band'))if(!el.querySelector('a[href*="calendly"]'))el.remove();
  const stories=home.querySelector('.lsr-testimonials');if(stories)stories.classList.add('low26-testimonials');
  const partners=home.querySelector('.lsr-tech-partners');
+ if(partners)partners.classList.add('low27-home-partners');
  const insights=document.querySelector('.home26-insights');
  const cta=[...home.querySelectorAll('.lsr-band')].find(el=>el.querySelector('a[href*="calendly"]'));
  if(partners&&insights)insights.before(partners);
