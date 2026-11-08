@@ -435,3 +435,125 @@
  .low26-new .ls27-flow-connector{flex-basis:7px}
  .low26-new .ls27-flow-log small{display:none}
 }
+
+
+/* Customer Stories parity with /industrias/educacion: stage proportions, panel, controls and mobile */
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-grid.low26-story-stage{
+  height:650px!important;min-height:650px!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{
+  height:650px!important;min-height:650px!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2::before{
+  background:linear-gradient(90deg,rgba(5,10,24,.28) 0%,rgba(5,10,24,.03) 70%)!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{
+  box-sizing:border-box!important;
+  left:max(32px,calc((100vw - 1220px)/2))!important;
+  top:50%!important;bottom:auto!important;right:auto!important;
+  transform:translateY(-50%)!important;
+  width:min(510px,calc(100% - 64px))!important;max-width:510px!important;
+  min-height:440px!important;
+  padding:40px 42px 100px!important;
+  background:rgba(7,15,34,.77)!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  backdrop-filter:blur(10px)!important;
+  box-shadow:none!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{
+  font-size:clamp(17px,1.4vw,20px)!important;line-height:1.58!important;
+  max-width:430px!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person{
+  display:flex!important;align-items:center!important;gap:12px!important;
+  flex-wrap:wrap!important;margin-top:auto!important;
+  padding:25px 0 0!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>img{
+  width:48px!important;height:48px!important;flex:0 0 48px!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>div{
+  flex:1 1 135px!important;min-width:0!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:none!important;min-height:38px!important;
+  margin-left:auto!important;padding:0 15px!important;
+  border:1px solid rgba(181,199,255,.34)!important;
+  border-radius:999px!important;background:rgba(122,155,255,.12)!important;
+  color:#edf1ff!important;font-size:11px!important;font-weight:600!important;
+  transition:background .2s,border-color .2s,transform .2s!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>a:hover{
+  background:#fff!important;border-color:#fff!important;color:#101b45!important;transform:translateY(-2px);
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .low26-story-controls.testimonial-controls{
+  left:42px!important;right:auto!important;top:auto!important;bottom:27px!important;
+  gap:10px!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-controls.testimonial-controls .testimonial-control{
+  width:43px!important;height:43px!important;flex-basis:43px!important;
+  background:rgba(255,255,255,.06)!important;
+  border-color:rgba(255,255,255,.30)!important;
+}
+.lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-controls.testimonial-controls .testimonial-control:hover{
+  background:rgba(255,255,255,.20)!important;border-color:#fff!important;
+}
+@media(max-width:760px){
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-grid.low26-story-stage,
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{
+    height:745px!important;min-height:745px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{
+    background-color:#071022!important;
+    background-size:100% 280px!important;
+    background-position:center top!important;
+    background-repeat:no-repeat!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2::before{
+    background:linear-gradient(180deg,transparent 0%,rgba(7,16,34,.06) 210px,#071022 280px,#071022 100%)!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{
+    position:absolute!important;top:252px!important;bottom:20px!important;left:16px!important;right:16px!important;
+    transform:none!important;width:auto!important;max-width:none!important;
+    min-height:0!important;max-height:none!important;
+    overflow-y:auto!important;overscroll-behavior:contain!important;
+    padding:25px 22px 84px!important;
+    background:rgba(10,20,43,.97)!important;
+    border:1px solid rgba(160,181,239,.18)!important;
+    border-radius:14px!important;backdrop-filter:none!important;
+    box-shadow:0 12px 32px rgba(0,0,0,.15)!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-logo{
+    height:28px!important;max-width:148px!important;margin:0 0 20px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel blockquote{
+    font-size:clamp(15px,4vw,17px)!important;font-weight:400!important;
+    line-height:1.55!important;max-width:100%!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person{
+    gap:10px!important;padding:20px 0 0!important;margin-top:auto!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>img{
+    width:40px!important;height:40px!important;flex-basis:40px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>div{
+    flex:1 1 160px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-person>a{
+    margin:5px 0 0!important;min-height:35px!important;font-size:10px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .low26-story-controls.testimonial-controls{
+    left:22px!important;bottom:19px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-controls.testimonial-controls .testimonial-control{
+    width:40px!important;height:40px!important;flex-basis:40px!important;
+  }
+}
+@media(max-width:420px){
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .home-stories-v2-grid.low26-story-stage,
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2{
+    height:790px!important;min-height:790px!important;background-size:100% 250px!important;
+  }
+  .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{top:225px!important}
+}
