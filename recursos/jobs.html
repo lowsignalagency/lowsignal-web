@@ -10528,6 +10528,57 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
   body>.mobile-nav-panel{background:#050A18!important;background-image:none!important}
 }
 </style>
+<style id="jobs28-scroll-reveal-and-mobile-swipe">
+/* Apply reveal only after JS opts in, keeping content visible if JS is disabled. */
+.jobs28 [data-jobs28-reveal].jobs28-pending{
+  opacity:0;transform:translate3d(0,22px,0);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);
+}
+.jobs28 [data-jobs28-reveal].jobs28-pending.jobs28-in-view{opacity:1;transform:none}
+@media(max-width:760px){
+  .jobs28-gallery-viewport{overflow-x:auto!important;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none}
+  .jobs28-gallery-viewport::-webkit-scrollbar{display:none}
+  .jobs28-gallery-track{animation:none!important}
+  .jobs28-gallery-set figure{scroll-snap-align:start}
+}
+@media(prefers-reduced-motion:reduce){
+  .jobs28 [data-jobs28-reveal].jobs28-pending{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script id="jobs28-scroll-reveal-controller">
+(function(){
+  function init(){
+    var selectors=[
+      '.jobs28-hero-content > .jobs28-label',
+      '.jobs28-hero-content > h1',
+      '.jobs28-hero-content > p',
+      '.jobs28-hero-buttons',
+      '.jobs28-intro-grid > *',
+      '.jobs28-story-row > *',
+      '.jobs28-principles-heading',
+      '.jobs28-principles-list article',
+      '.jobs28-openings-head > *',
+      '.jobs28-job-group',
+      '.jobs28-open-application',
+      '.jobs28-faq-grid > *'
+    ];
+    var elements=[];
+    selectors.forEach(function(selector){document.querySelectorAll(selector).forEach(function(el){
+      if(elements.indexOf(el)===-1){elements.push(el);el.setAttribute('data-jobs28-reveal','')}
+    })});
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var observer=new IntersectionObserver(function(entries,obs){
+      entries.forEach(function(entry){if(!entry.isIntersecting)return;
+        entry.target.classList.add('jobs28-in-view');obs.unobserve(entry.target);
+      });
+    },{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+    elements.forEach(function(el){if(el.getBoundingClientRect().bottom<=0)return;
+      el.classList.add('jobs28-pending');observer.observe(el);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
 </body>
 </html>
