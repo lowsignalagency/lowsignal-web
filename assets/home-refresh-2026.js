@@ -34,4 +34,39 @@
  if(cta&&insights)insights.after(cta);
  if(cta)cta.classList.add('low26-final-cta');
  if(insights){const eyebrow=insights.querySelector('.home26-eyebrow');if(eyebrow)eyebrow.textContent='BLOG / INSIGHTS';}
+
+ // Match existing Education testimonial treatment: full-bleed stage, one quote at a time.
+ const testimonial=home.querySelector('.low26-testimonials');
+ if(testimonial){
+  const cards=Array.from(testimonial.querySelectorAll('.home-story-v2'));
+  const heading=testimonial.querySelector('.home-stories-v2-head');
+  if(heading){heading.querySelector('h2').innerHTML='Historias reales. <strong>Relaciones que crecen.</strong>';}
+  const grid=testimonial.querySelector('.home-stories-v2-grid');
+  if(grid){
+   grid.classList.add('low26-story-stage');
+   cards.forEach((card,i)=>{
+    card.classList.toggle('is-active',i===0);
+    card.setAttribute('aria-hidden',i===0?'false':'true');
+    const panel=card.querySelector('.home-story-v2-panel');
+    const person=card.querySelector('.home-story-v2-person');
+    if(panel && person && !panel.querySelector('.low26-story-controls')){
+      const nav=document.createElement('div');nav.className='low26-story-controls';
+      nav.innerHTML='<button type="button" class="low26-prev" aria-label="Testimonio anterior">←</button><span class="low26-story-count">'+(i+1)+' / '+cards.length+'</span><button type="button" class="low26-next" aria-label="Siguiente testimonio">→</button>';
+      panel.append(nav);
+    }
+   });
+   let active=0;
+   const advance=(dir)=>{active=(active+dir+cards.length)%cards.length;cards.forEach((card,i)=>{card.classList.toggle('is-active',i===active);card.setAttribute('aria-hidden',i===active?'false':'true')});};
+   grid.addEventListener('click',(ev)=>{if(ev.target.closest('.low26-prev'))advance(-1);else if(ev.target.closest('.low26-next'))advance(1);});
+  }
+ }
+ // Use the same CTA composition, copy scale, button and destination as Low Web.
+ if(cta){
+  cta.classList.add('lf26-cta');
+  cta.innerHTML='<div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">LOWSIGNAL · LESS NOISE. MORE GROWTH.</p><h2>Construyamos lo que viene. <span>Hagámoslo crecer juntos.</span></h2><p>Conversemos sobre los desafíos y oportunidades de tu negocio.</p></div><a href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div>';
+ }
+ // Keep pre-existing visitor anchors stable.
+ const industryAnchor=document.getElementById('industrias');
+ if(industryAnchor)industryAnchor.id='industrias';
+
 })();
