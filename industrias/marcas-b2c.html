@@ -11799,5 +11799,25 @@ body footer .footer-bottom-editorial .footer-bottom-links{gap:22px!important}
 }
 </style>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+
+<style id="b2c-active-trust-mobile-exactly-four-20261108">
+/* The active B2C trust strip uses i28-trust-cell, not the legacy marquee. */
+@media(max-width:760px){
+  body .b2cr-trust.i28-trust .i28-trust-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    gap:1px!important;
+  }
+  body .b2cr-trust.i28-trust .i28-trust-grid>.i28-trust-cell:nth-child(n+5){
+    display:none!important;
+  }
+  body .b2cr-trust.i28-trust .i28-trust-grid>.i28-trust-cell:nth-child(-n+4){
+    display:flex!important;
+    grid-column:auto!important;
+    min-width:0!important;
+  }
+}
+</style>
 </body>
 </html>
