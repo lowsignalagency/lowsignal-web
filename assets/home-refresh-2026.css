@@ -557,3 +557,16 @@
   }
   .lsr-home section.lsr-testimonials.home-stories-v2.low26-testimonials .low26-story-stage .home-story-v2-panel{top:225px!important}
 }
+
+
+/* Home: breathing room between full-bleed testimonial and technology partners */
+.lsr-home .lsr-tech-partners{
+  padding-top:86px!important;
+}
+.lsr-home .lsr-tech-partners .lsr-tech-head{
+  border-top:0!important;
+  padding-top:0!important;
+}
+@media(max-width:760px){
+  .lsr-home .lsr-tech-partners{padding-top:64px!important}
+}
