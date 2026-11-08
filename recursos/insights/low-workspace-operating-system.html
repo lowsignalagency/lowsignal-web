@@ -11030,8 +11030,38 @@ footer .footer-main-editorial{grid-template-columns:minmax(270px,1.65fr) repeat(
 .article-new-content.article-content .article-callout{padding:21px!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/insight-related-unified.css?v=20261108b">
 <link rel="stylesheet" href="/assets/insights-editorial-unified-2026.css?v=20261108a">
 <script defer src="/assets/insights-editorial-unified-2026.js?v=20261108b"></script>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+<style id="low-workspace-image-related-alignment-v3">
+/* Use the same related insights layout and spacing as the other editorial articles. */
+body section.article-related-unified{display:block!important;background:#F5F7FB!important;color:#071022!important;padding:92px 0 96px!important}
+body .article-related-unified .aru-container{width:min(1220px,calc(100% - 128px))!important;max-width:1220px!important;margin:0 auto!important;padding:0!important}
+body .article-related-unified .aru-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:32px!important;margin:0 0 38px!important}
+body .article-related-unified .aru-head h2{margin:0!important;font-weight:500!important;font-size:clamp(30px,3vw,40px)!important;color:#071022!important;letter-spacing:-.04em!important}
+body .article-related-unified .aru-head>a{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;color:#1419E0!important;text-decoration:none!important;font-size:12px!important;font-weight:600!important}
+body .article-related-unified .aru-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:32px!important}
+body .article-related-unified .aru-card figure{height:auto!important;aspect-ratio:16/10!important;overflow:hidden!important;border-radius:14px!important;margin:0 0 20px!important}
+body .article-related-unified .aru-card figure img{width:100%!important;height:100%!important;object-fit:cover!important}
+/* The cover is cropped edge-to-edge, not letterboxed in a dark frame. */
+body .article-new-hero figure.article-new-cover{background:transparent!important;aspect-ratio:16/9!important;overflow:hidden!important}
+body .article-new-hero figure.article-new-cover img{
+  display:block!important;width:100%!important;height:100%!important;
+  aspect-ratio:16/9!important;object-fit:cover!important;
+  object-position:center center!important;background:transparent!important
+}
+@media(max-width:1100px){
+ body .article-related-unified .aru-container{width:calc(100% - 48px)!important;max-width:none!important}
+ body .article-related-unified .aru-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important}
+}
+@media(max-width:760px){
+ body section.article-related-unified{padding:64px 0!important}
+ body .article-related-unified .aru-container{width:calc(100% - 40px)!important}
+ body .article-related-unified .aru-head{flex-direction:column!important;align-items:flex-start!important;gap:14px!important;margin-bottom:28px!important}
+ body .article-related-unified .aru-grid{grid-template-columns:1fr!important;gap:30px!important}
+ body .article-new-hero figure.article-new-cover,body .article-new-hero figure.article-new-cover img{aspect-ratio:16/10!important}
+}
+</style>
 </body>
 </html>
