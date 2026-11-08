@@ -11088,5 +11088,40 @@ body .insights-topic-nav .insights-filter-heading{text-align:left!important}
   body .insights-topic-nav .insights-topic-search{max-width:100%!important}
 }
 </style>
+<style id="insights-shared-left-axis-v2">
+/* One consistent container for headline, intro, search, category tabs and articles. */
+body .insights-new-hero > .container.insights-new-hero-grid,
+body .insights-topic-nav > .container{
+  width:min(1440px,calc(100% - 96px))!important;
+  max-width:1440px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  box-sizing:border-box!important;
+}
+body .insights-new-hero .insights-new-copy{
+  width:100%!important;max-width:none!important;
+  margin:0!important;text-align:left!important;
+}
+body .insights-new-hero .insights-new-copy h1{
+  margin-left:0!important;margin-right:0!important;
+  max-width:1100px!important;text-align:left!important;
+}
+body .insights-new-hero .insights-new-copy>p:last-child{
+  margin-left:0!important;margin-right:0!important;
+}
+body .insights-topic-nav .insights-topic-search{
+  margin-left:0!important;margin-right:0!important;
+}
+@media(max-width:760px){
+ body .insights-new-hero > .container.insights-new-hero-grid,
+ body .insights-topic-nav > .container{
+   width:calc(100% - 40px)!important;max-width:none!important;
+   padding-left:0!important;padding-right:0!important;
+ }
+ body .insights-new-hero .insights-new-copy h1{max-width:100%!important}
+}
+</style>
 </body>
 </html>
