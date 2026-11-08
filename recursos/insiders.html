@@ -10801,18 +10801,78 @@ body>.nav-wrap>.nav,body .nav-wrap .nav,body>.mobile-nav-panel{background:var(--
 @media(prefers-reduced-motion:reduce){body .insr-new-cta .lf26-cta-inner>a,body .insr-industry-card{transition:none!important}}
 </style>
 <style id="insiders-2026-scroll-reveal">
-.insr-scroll-pending{opacity:0;transform:translate3d(0,20px,0);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
-.insr-scroll-pending.insr-scroll-visible{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.insr-scroll-pending{opacity:1!important;transform:none!important;transition:none!important}}
+/* One consistent reveal for every Insiders section and each individual ambassador. */
+.insr-scroll-pending{
+  opacity:0;
+  transform:translate3d(0,22px,0);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);
+  transition-delay:var(--insr-reveal-delay,0ms);
+}
+.insr-scroll-pending.insr-scroll-visible{opacity:1;transform:translate3d(0,0,0)}
+/* The existing stagger system transforms grid children; keep its selector in sync. */
+.insr-motion-ready .insr-people[data-insr-stagger] > article.insr-scroll-pending{
+  opacity:0!important;
+  transform:translate3d(0,22px,0)!important;
+}
+.insr-motion-ready .insr-people[data-insr-stagger] > article.insr-scroll-pending.insr-scroll-visible{
+  opacity:1!important;
+  transform:translate3d(0,0,0)!important;
+}
+/* Santiago has a permanent framing zoom; it must not cancel the reveal of its circle. */
+.insr-people article .insr-santiago-photo img{transform:scale(1.09)!important}
+.insr-people article:hover .insr-santiago-photo img{transform:scale(1.115)!important}
+@media(prefers-reduced-motion:reduce){
+ .insr-scroll-pending,.insr-motion-ready .insr-people[data-insr-stagger] > article.insr-scroll-pending{
+   opacity:1!important;transform:none!important;transition:none!important;
+ }
+}
 </style>
 <script id="insiders-2026-scroll-reveal-controller">
 (function(){
  function init(){
-  var items=[],selectors=['.insr-community-head','.insr-community-panel','.insr-founder-quote','.insr-section-intro','.insr-process-grid article','.insr-industries-head','.insr-industry-card','.insr-manifesto-top','.insr-manifesto h2','.insr-manifesto-bottom','.insr-faq-heading','.insr-faq-list','.insr-new-cta .lf26-cta-copy','.insr-new-cta .lf26-cta-inner>a'];
-  selectors.forEach(function(q){document.querySelectorAll(q).forEach(function(el){if(items.indexOf(el)<0)items.push(el)})});
-  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var io=new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('insr-scroll-visible');obs.unobserve(e.target)})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
-  items.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)return;el.classList.add('insr-scroll-pending');io.observe(el)});
+  var selectors=[
+    '.insr-community-head','.insr-founder-quote',
+    '.insr-section-intro','.insr-process-grid article',
+    '.insr-industries-head','.insr-industry-card',
+    '.insr-manifesto-top','.insr-manifesto h2','.insr-manifesto-bottom',
+    '.insr-faq-heading','.insr-faq-list details',
+    '.insr-new-cta .lf26-cta-copy','.insr-new-cta .lf26-cta-inner>a',
+    '.insr-people article'
+  ];
+  var items=[];
+  selectors.forEach(function(query){
+    document.querySelectorAll(query).forEach(function(el){if(items.indexOf(el)===-1)items.push(el)});
+  });
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window))return;
+  var portraits=document.querySelectorAll('.insr-people article');
+  portraits.forEach(function(el,i){el.style.setProperty('--insr-reveal-delay',Math.min(i%4,3)*85+'ms')});
+  var observer=new IntersectionObserver(function(entries,obs){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      entry.target.classList.add('insr-scroll-visible');
+      obs.unobserve(entry.target);
+    });
+  },{threshold:.035,rootMargin:'0px 0px 0px 0px'});
+  items.forEach(function(el){
+    var box=el.getBoundingClientRect();
+    // Elements already inside the viewport should not flash or get hidden.
+    if(box.top<window.innerHeight && box.bottom>=0)return;
+    el.classList.add('insr-scroll-pending');
+    observer.observe(el);
+  });
+  // Catch cases in which a resize, scroll-restoration, or another reveal system
+  // causes an element to be missed: never leave content hidden permanently.
+  var revealVisible=function(){
+    document.querySelectorAll('.insr-scroll-pending:not(.insr-scroll-visible)').forEach(function(el){
+      var box=el.getBoundingClientRect();
+      if(box.top<window.innerHeight*.98&&box.bottom>0)el.classList.add('insr-scroll-visible');
+    });
+  };
+  window.addEventListener('scroll',revealVisible,{passive:true});
+  window.addEventListener('resize',revealVisible,{passive:true});
+  window.addEventListener('pageshow',revealVisible);
+  requestAnimationFrame(revealVisible);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
