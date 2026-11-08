@@ -11062,5 +11062,31 @@ footer .footer-main-editorial{grid-template-columns:repeat(2,minmax(0,1fr))!impo
 }
 @media(prefers-reduced-motion:reduce){body .insights-editorial-cta .lf26-cta-inner>a{transition:none!important}}
 </style>
+
+<style id="insights-editorial-hero-left-aligned-v1">
+/* Align the entire Insights introduction and search to the same editorial left edge. */
+body .insights-new-hero .insights-new-hero-grid{display:block!important}
+body .insights-new-hero .insights-new-copy{
+  width:100%!important;max-width:none!important;
+  margin:0!important;text-align:left!important;
+}
+body .insights-new-hero .insights-new-copy h1{
+  max-width:1000px!important;margin:0!important;
+  text-align:left!important;text-wrap:balance!important;
+}
+body .insights-new-hero .insights-new-copy>p:last-child{
+  max-width:760px!important;margin:22px 0 0!important;
+  text-align:left!important;
+}
+body .insights-topic-nav .insights-topic-search{
+  margin-left:0!important;margin-right:0!important;
+  max-width:650px!important;
+}
+body .insights-topic-nav .insights-filter-heading{text-align:left!important}
+@media(max-width:760px){
+  body .insights-new-hero .insights-new-copy h1{max-width:100%!important}
+  body .insights-topic-nav .insights-topic-search{max-width:100%!important}
+}
+</style>
 </body>
 </html>
