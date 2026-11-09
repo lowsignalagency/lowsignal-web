@@ -1041,7 +1041,47 @@ html.edu-motion-ready .edu-scroll-in.edu-scroll-delay-2{transition-delay:.13s}
 #planes-education .pricing-grid .plan :is(.plan-summary,.plan-highlight,.plan-benefit,.plan-value,.plan-subtitle,.plan-tagline,.plan-intro,.plan-feature-title,.plan-overview,.plan-lead,.plan-label) *{
  color:inherit!important;
 }
-</style></head>
+</style><style id="industry-mobile-dropdown-contrast-fix-2026">
+/* Shared mobile navbar has a WHITE panel: override obsolete industry dark-menu labels.
+   Scope to mobile only and keep the standardized white header and layout. */
+@media(max-width:760px){
+ body>.mobile-nav-panel .mobile-nav-summary,
+ body>.mobile-nav-panel .mobile-nav-direct,
+ body>.mobile-nav-panel .mobile-nav-summary span{
+   color:#151B25!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-summary[aria-expanded="true"],
+ body>.mobile-nav-panel .mobile-nav-summary[aria-expanded="true"] span,
+ body>.mobile-nav-panel .mobile-nav-summary.is-active,
+ body>.mobile-nav-panel .mobile-nav-direct[aria-current="page"]{
+   color:#1419E0!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-submenu a strong,
+ body>.mobile-nav-panel .mobile-nav-submenu a:link strong,
+ body>.mobile-nav-panel .mobile-nav-submenu a:visited strong{
+   color:#566171!important;font-weight:500!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-submenu a:hover strong,
+ body>.mobile-nav-panel .mobile-nav-submenu a:focus-visible strong,
+ body>.mobile-nav-panel .mobile-nav-submenu a[aria-current="page"] strong{
+   color:#1419E0!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-submenu a,
+ body>.mobile-nav-panel .mobile-nav-submenu a:link,
+ body>.mobile-nav-panel .mobile-nav-submenu a:visited{
+   background:transparent!important;
+   border-color:transparent!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-submenu a:hover,
+ body>.mobile-nav-panel .mobile-nav-submenu a:focus-visible{
+   background:#F5F7FB!important;
+ }
+ body>.mobile-nav-panel .mobile-nav-submenu small{
+   color:#6C7585!important;
+ }
+}
+</style>
+</head>
 <body>
 <header class="lnav" aria-label="Navegación principal"><div class="lnav-row"><a class="lnav-logo" href="https://lowsignal.cl" aria-label="lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="lnav-menu" aria-label="Principal"><div class="lnav-item"><button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega lnav28-mega"><div class="lnav-mega-inner lnav28-inner">
  <div class="lnav28-group"><p class="lnav28-kicker">GROWTH &amp; BRAND</p><a class="lnav28-link" href="/soluciones/low-social"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6M17 8h4m-2-2v4"/></svg></span><span class="lnav28-link-copy"><b>Low Social</b><small>Contenido, marca y comunidad.</small></span></a><a class="lnav28-link" href="/soluciones/low-ads"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg></span><span class="lnav28-link-copy"><b>Low Ads</b><small>Performance y adquisición.</small></span></a><a class="lnav28-link" href="/soluciones/low-web"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg></span><span class="lnav28-link-copy"><b>Low Web</b><small>Experiencias que convierten.</small></span></a></div>
