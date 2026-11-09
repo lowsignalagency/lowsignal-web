@@ -10151,7 +10151,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
               <div class="mega-links">
                 <a href="https://lowsignal.cl/industrias/educacion">Para colegios / Proveedores de educación</a>
                 <a href="https://lowsignal.cl/industrias/b2b">Para B2B / Empresas</a>
-                <a href="https://lowsignal.cl/industrias/marcas-b2c">Para B2C / Marcas</a>
+                <a href="https://lowsignal.cl/industrias/b2c">Para B2C / Marcas</a>
               </div>
             </div>
 
@@ -11142,25 +11142,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <style id="insiders-low-palette-unified-20261109">
-/* Exact dark background used by the Low Apps hero and main sections: #020712. */
+/* Insiders visual reconciliation: match Low Apps without introducing extra boxes. */
 :root{--insiders-night:#020712;--insr-deep:#020712}
 html,body{background-color:#020712!important}
 body .lnav{background:#020712!important;background-color:#020712!important;background-image:none!important}
 @media(min-width:761px){
-  body .lnav .lnav-mega,body .lnav .lnav-mega.lnav28-mega{
-    background:#020712!important;background-color:#020712!important;background-image:none!important;
-    border-top-color:rgba(168,184,255,.13)!important
-  }
+ body .lnav .lnav-mega,body .lnav .lnav-mega.lnav28-mega{
+   background:#020712!important;background-color:#020712!important;background-image:none!important;
+   border-top-color:rgba(168,184,255,.13)!important;
+ }
 }
 body .insr-hero,body .insr-community,body .insr-process,
 body .insr-industries,body .insr-manifesto{
-  background:#020712!important;background-color:#020712!important;background-image:none!important;
+ background:#020712!important;background-color:#020712!important;background-image:none!important;
 }
-body .insr-map-card,body .insr-community-panel{background-color:#0A1226!important}
+/* The portraits and invitation are an editorial grid, not a card. */
+body .insr-community .insr-community-panel{
+ background:transparent!important;background-color:transparent!important;
+ border:0!important;box-shadow:none!important;
+}
+body .insr-community .insr-person-photo{background:#151E36!important}
+body .insr-community .insr-people article{background:transparent!important;box-shadow:none!important;border:0!important}
+/* Restore the minimal dark product cards; exclude earlier light-card skins. */
+body .insr-industries .insr-industry-card{
+ background:linear-gradient(160deg,#101A31,#0E1629)!important;
+ background-color:#101A31!important;
+ border:1px solid rgba(157,174,239,.23)!important;
+ box-shadow:none!important;
+ color:#F8F9FF!important;
+}
+body .insr-industries .insr-industry-card:hover{
+ border-color:rgba(173,185,255,.52)!important;box-shadow:none!important;
+}
+body .insr-industries .insr-system-art{
+ background:radial-gradient(circle at 50% 50%,rgba(102,109,206,.14),transparent 65%)!important;
+ border:0!important;box-shadow:none!important;
+}
+body .insr-process .insr-process-grid article{
+ background:transparent!important;box-shadow:none!important;
+}
+/* Contrast is intentional: a light FAQ, then the shared dark footer. */
 body .insr-faq{background:#EEF3FF!important;background-color:#EEF3FF!important}
 html body footer{background:#020712!important;background-color:#020712!important}
 @media(max-width:760px){
-  body .nav-wrap .nav{background:#020712!important;background-color:#020712!important}
+ body .nav-wrap .nav{background:#020712!important;background-color:#020712!important}
 }
 </style>
 </body>
