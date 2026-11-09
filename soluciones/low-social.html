@@ -3744,20 +3744,18 @@ body .ls-social-faq{
 </style>
 
 <style id="low-social-hero-network-toggles-20261109">
-/* Decorative sequential social-channel activation; switches are not interactive. */
-.ls-social-hero-editorial .ls-social-network-demo{box-sizing:border-box;width:100%;max-width:650px;display:block;min-width:0}
-.ls-social-network-demo .ls-social-demo-heading{margin:0 0 12px;padding:0 1px 7px}
-.ls-social-network-list{display:grid;gap:12px}
-.ls-social-network-row{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;min-width:0;min-height:91px;padding:13px 17px;background:#F8FAFF;border:1px solid #DFE6F6;border-radius:15px;color:#15213B;box-shadow:0 9px 26px rgba(0,0,0,.09)}
-.ls-social-network-brand{display:flex;align-items:center;gap:17px;min-width:0}
-.ls-social-network-logo{display:grid;place-items:center;flex:0 0 59px;width:59px;height:59px;border-radius:13px;background:#E9EEFF}
-.ls-social-network-logo img{width:27px;height:27px;object-fit:contain;filter:invert(16%) sepia(88%) saturate(4189%) hue-rotate(234deg) brightness(87%)}
-.ls-social-network-copy{display:flex;flex-direction:column;min-width:0;gap:4px}
-.ls-social-network-copy strong{color:#15213B;font-size:16px;font-weight:600;line-height:1.3}
-.ls-social-network-copy small{color:#7382A0;font-size:11px;line-height:1.5}
-.ls-social-network-toggle{position:relative;display:block;flex:0 0 46px;width:46px;height:26px;border-radius:50px;background:#9AA5B5;box-shadow:inset 0 1px 2px rgba(0,0,0,.1)}
-.ls-social-network-toggle-knob{position:absolute;top:4px;left:4px;width:18px;height:18px;background:white;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-/* All switches use the same 7-second clock: sequential on, collective off. */
+/* Editorial payment-row-inspired treatment: white bars and blue switches outside. */
+.ls-social-hero-editorial .ls-social-network-demo{box-sizing:border-box;display:block;min-width:0;width:100%;max-width:650px}
+.ls-social-network-demo .ls-social-demo-heading{margin:0 0 13px;padding:0 0 7px}
+.ls-social-network-list{display:grid;gap:13px}
+.ls-social-network-demo .ls-social-network-row{display:grid;grid-template-columns:minmax(0,1fr) 51px;gap:19px;align-items:center;min-width:0;width:100%;margin:0;padding:0;background:transparent;border:0;box-shadow:none}
+.ls-social-network-demo .ls-social-network-bar{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-width:0;min-height:76px;padding:13px 22px;background:#FFF;border:0;border-radius:16px;color:#141824;box-shadow:none}
+.ls-social-network-demo .ls-social-network-name{font-size:17px;font-weight:400;line-height:1.3;color:#151925}
+.ls-social-network-demo .ls-social-network-logo{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;background:#F4F5F8;border:1px solid #E5E9F0;border-radius:10px}
+.ls-social-network-demo .ls-social-network-logo img{width:25px;height:25px;object-fit:contain;filter:none}
+.ls-social-network-demo .ls-social-network-toggle{box-sizing:border-box;position:relative;display:block;flex:0 0 51px;width:51px;height:29px;border-radius:50px;background:#7C8797;box-shadow:none}
+.ls-social-network-demo .ls-social-network-toggle-knob{position:absolute;top:4px;left:4px;width:21px;height:21px;border-radius:50%;background:#FFF;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+/* Shared seven-second timeline: activate 1,2,3,4; all turn off together. */
 .ls-social-network-row-1 .ls-social-network-toggle{animation:lsSocialToggle1 7s linear infinite}
 .ls-social-network-row-2 .ls-social-network-toggle{animation:lsSocialToggle2 7s linear infinite}
 .ls-social-network-row-3 .ls-social-network-toggle{animation:lsSocialToggle3 7s linear infinite}
@@ -3766,32 +3764,31 @@ body .ls-social-faq{
 .ls-social-network-row-2 .ls-social-network-toggle-knob{animation:lsSocialKnob2 7s ease-in-out infinite}
 .ls-social-network-row-3 .ls-social-network-toggle-knob{animation:lsSocialKnob3 7s ease-in-out infinite}
 .ls-social-network-row-4 .ls-social-network-toggle-knob{animation:lsSocialKnob4 7s ease-in-out infinite}
-@keyframes lsSocialToggle1{0%,7%{background:#9AA5B5}11%,78%{background:#147CF5}83%,100%{background:#9AA5B5}}
-@keyframes lsSocialToggle2{0%,22%{background:#9AA5B5}26%,78%{background:#147CF5}83%,100%{background:#9AA5B5}}
-@keyframes lsSocialToggle3{0%,37%{background:#9AA5B5}41%,78%{background:#147CF5}83%,100%{background:#9AA5B5}}
-@keyframes lsSocialToggle4{0%,52%{background:#9AA5B5}56%,78%{background:#147CF5}83%,100%{background:#9AA5B5}}
-@keyframes lsSocialKnob1{0%,7%{transform:translateX(0)}11%,78%{transform:translateX(20px)}83%,100%{transform:translateX(0)}}
-@keyframes lsSocialKnob2{0%,22%{transform:translateX(0)}26%,78%{transform:translateX(20px)}83%,100%{transform:translateX(0)}}
-@keyframes lsSocialKnob3{0%,37%{transform:translateX(0)}41%,78%{transform:translateX(20px)}83%,100%{transform:translateX(0)}}
-@keyframes lsSocialKnob4{0%,52%{transform:translateX(0)}56%,78%{transform:translateX(20px)}83%,100%{transform:translateX(0)}}
+@keyframes lsSocialToggle1{0%,7%{background:#7C8797}11%,78%{background:#147CF5}83%,100%{background:#7C8797}}
+@keyframes lsSocialToggle2{0%,22%{background:#7C8797}26%,78%{background:#147CF5}83%,100%{background:#7C8797}}
+@keyframes lsSocialToggle3{0%,37%{background:#7C8797}41%,78%{background:#147CF5}83%,100%{background:#7C8797}}
+@keyframes lsSocialToggle4{0%,52%{background:#7C8797}56%,78%{background:#147CF5}83%,100%{background:#7C8797}}
+@keyframes lsSocialKnob1{0%,7%{transform:translateX(0)}11%,78%{transform:translateX(22px)}83%,100%{transform:translateX(0)}}
+@keyframes lsSocialKnob2{0%,22%{transform:translateX(0)}26%,78%{transform:translateX(22px)}83%,100%{transform:translateX(0)}}
+@keyframes lsSocialKnob3{0%,37%{transform:translateX(0)}41%,78%{transform:translateX(22px)}83%,100%{transform:translateX(0)}}
+@keyframes lsSocialKnob4{0%,52%{transform:translateX(0)}56%,78%{transform:translateX(22px)}83%,100%{transform:translateX(0)}}
 @media(max-width:760px){
 .ls-social-network-list{gap:10px}
-.ls-social-network-row{min-height:73px;padding:10px 12px;border-radius:13px;gap:10px}
-.ls-social-network-brand{gap:12px}
-.ls-social-network-logo{width:48px;height:48px;flex-basis:48px;border-radius:11px}
-.ls-social-network-logo img{width:23px;height:23px}
-.ls-social-network-copy strong{font-size:14px}
-.ls-social-network-copy small{font-size:10px}
-.ls-social-network-toggle{width:42px;flex-basis:42px;height:24px}
-.ls-social-network-toggle-knob{top:4px;left:4px;width:16px;height:16px}
+.ls-social-network-demo .ls-social-network-row{grid-template-columns:minmax(0,1fr) 44px;gap:10px}
+.ls-social-network-demo .ls-social-network-bar{min-height:65px;padding:10px 15px;border-radius:13px}
+.ls-social-network-demo .ls-social-network-name{font-size:15px}
+.ls-social-network-demo .ls-social-network-logo{flex-basis:35px;width:35px;height:35px}
+.ls-social-network-demo .ls-social-network-logo img{width:22px;height:22px}
+.ls-social-network-demo .ls-social-network-toggle{width:44px;height:26px;flex-basis:44px}
+.ls-social-network-demo .ls-social-network-toggle-knob{top:4px;left:4px;width:18px;height:18px}
 @keyframes lsSocialKnob1{0%,7%{transform:translateX(0)}11%,78%{transform:translateX(18px)}83%,100%{transform:translateX(0)}}
 @keyframes lsSocialKnob2{0%,22%{transform:translateX(0)}26%,78%{transform:translateX(18px)}83%,100%{transform:translateX(0)}}
 @keyframes lsSocialKnob3{0%,37%{transform:translateX(0)}41%,78%{transform:translateX(18px)}83%,100%{transform:translateX(0)}}
 @keyframes lsSocialKnob4{0%,52%{transform:translateX(0)}56%,78%{transform:translateX(18px)}83%,100%{transform:translateX(0)}}
 }
 @media(prefers-reduced-motion:reduce){
-.ls-social-network-toggle{animation:none!important;background:#147CF5!important}
-.ls-social-network-toggle-knob{animation:none!important;transform:translateX(20px)!important}
+.ls-social-network-demo .ls-social-network-toggle{animation:none!important;background:#147CF5!important}
+.ls-social-network-demo .ls-social-network-toggle-knob{animation:none!important;transform:translateX(22px)!important}
 }
 </style>
 </head>
@@ -4074,23 +4071,23 @@ body .ls-social-faq{
           <a class="ls-social-primary" href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="ls-social-hero-demo ls-social-network-demo" role="img" aria-label="Ilustración animada: Instagram, TikTok, LinkedIn y YouTube se activan uno a uno, se apagan juntos y vuelven a empezar">
+      <div class="ls-social-hero-demo ls-social-network-demo" role="img" aria-label="Ilustración animada de cuatro redes sociales que se activan en secuencia y se desactivan juntas">
         <div class="ls-social-demo-heading"><span>CONTENT, BY LOWSIGNAL</span><span class="ls-social-demo-live"><i></i> En movimiento</span></div>
         <div class="ls-social-network-list">
           <div class="ls-social-network-row ls-social-network-row-1">
-            <span class="ls-social-network-brand"><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" width="25" height="25" loading="lazy"></span><span class="ls-social-network-copy"><strong>Instagram</strong><small>Contenido y comunidad</small></span></span>
+            <div class="ls-social-network-bar"><span class="ls-social-network-name">Instagram</span><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="Instagram" width="26" height="26" loading="lazy"></span></div>
             <span class="ls-social-network-toggle" aria-hidden="true"><span class="ls-social-network-toggle-knob"></span></span>
           </div>
           <div class="ls-social-network-row ls-social-network-row-2">
-            <span class="ls-social-network-brand"><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" width="25" height="25" loading="lazy"></span><span class="ls-social-network-copy"><strong>TikTok</strong><small>Videos que conectan</small></span></span>
+            <div class="ls-social-network-bar"><span class="ls-social-network-name">TikTok</span><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="TikTok" width="26" height="26" loading="lazy"></span></div>
             <span class="ls-social-network-toggle" aria-hidden="true"><span class="ls-social-network-toggle-knob"></span></span>
           </div>
           <div class="ls-social-network-row ls-social-network-row-3">
-            <span class="ls-social-network-brand"><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" width="25" height="25" loading="lazy"></span><span class="ls-social-network-copy"><strong>LinkedIn</strong><small>Marca y conversación</small></span></span>
+            <div class="ls-social-network-bar"><span class="ls-social-network-name">LinkedIn</span><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn" width="26" height="26" loading="lazy"></span></div>
             <span class="ls-social-network-toggle" aria-hidden="true"><span class="ls-social-network-toggle-knob"></span></span>
           </div>
           <div class="ls-social-network-row ls-social-network-row-4">
-            <span class="ls-social-network-brand"><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" width="25" height="25" loading="lazy"></span><span class="ls-social-network-copy"><strong>YouTube</strong><small>Historias en movimiento</small></span></span>
+            <div class="ls-social-network-bar"><span class="ls-social-network-name">YouTube</span><span class="ls-social-network-logo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="YouTube" width="26" height="26" loading="lazy"></span></div>
             <span class="ls-social-network-toggle" aria-hidden="true"><span class="ls-social-network-toggle-knob"></span></span>
           </div>
         </div>
