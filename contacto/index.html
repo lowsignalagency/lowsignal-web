@@ -2143,14 +2143,7 @@ body footer .footer-bottom{
 @media(min-width:761px) and (max-width:1100px){.lnav-resources-mega .lnav28-inner{width:calc(100% - 48px)!important;gap:12px!important}}
 </style>
 
-<style id="contacto-low-apps-colors-20261109">
-/* Keep the Calendly/right column exactly as-is; align only left and navbar with Low Apps. */
-.contact27-left{background:radial-gradient(circle at 0 0,rgba(37,58,157,.14),transparent 48%),#070F22!important}
-.contact27-left h1 span{color:#A8B9FF!important}
-.contact27-check{color:#A8B9FF!important}
-body>.nav-wrap>.nav{background:#070F22!important}
-@media(max-width:760px){.nav-wrap .nav,body>.nav-wrap .nav{background:#070F22!important}}
-</style>
+
 </head>
 <body>
 
@@ -4935,6 +4928,27 @@ footer{
 <style id="low-global-footer-color-20261109">
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
+</style>
+
+<style id="contacto-low-apps-exact-theme-20261109">
+/* Match the actual Low Apps dark section (#020712), without styling the right column or Calendly. */
+.contact27-hero,.contact27-left{background:#020712!important;background-image:none!important}
+.contact27-left h1 span{color:#A8B9FF!important}
+.contact27-check{color:#95AFFF!important}
+/* Real visible desktop navbar and all three mega menus. */
+body .lnav,body .lnav .lnav-mega,body .lnav .lnav28-mega,body .lnav .lnav-industries-mega,body .lnav .lnav-resources-mega{
+  background:#020712!important;
+  background-color:#020712!important;
+  background-image:none!important;
+}
+/* Mobile uses a separate navigation implementation. */
+@media(max-width:760px){
+ body>.nav-wrap>.nav,body>.mobile-nav-panel,body>.mobile-nav-panel .mobile-nav-inner,body>.mobile-nav-panel .mobile-nav-submenu{
+  background:#020712!important;
+  background-color:#020712!important;
+  background-image:none!important;
+ }
+}
 </style>
 </body>
 </html>
