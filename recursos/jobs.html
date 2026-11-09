@@ -10048,30 +10048,18 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
     </div>
   </section>
 
-  <section class="jobs28-intro" aria-labelledby="jobs28-intro-title">
-    <div class="container">
-      <span class="jobs28-light-chip">QUIÉNES SOMOS</span>
-      <div class="jobs28-intro-grid">
-        <h2 id="jobs28-intro-title"><span class="jobs28-intro-line">Un equipo que</span><span class="jobs28-intro-line">convierte ideas en</span><span class="jobs28-intro-line jobs28-intro-accent">crecimiento real.</span></h2>
-        <div class="jobs28-intro-side">
-          <p>Empezamos en Chile con una idea simple: ayudar a las organizaciones a crecer conectando lo que muchas veces funciona por separado.</p>
-          <p>Hoy trabajamos con marcas, empresas e instituciones a través de seis soluciones que unen estrategia, contenido, producto, automatización e IA.</p>
-          
-        </div>
+  <section class="jobs28-intro jobs28-manifesto" aria-labelledby="jobs28-intro-title">
+    <div class="container jobs28-intro-grid">
+      <div class="jobs28-manifesto-heading">
+        <h2 id="jobs28-intro-title">En busca de<br>hacerlo mejor.</h2>
       </div>
-      <div class="jobs28-intro-divider"></div>
-      <div class="jobs28-story-row">
-        <div>
-          <span class="jobs28-mini-label">NUESTRA HISTORIA</span>
-          <h3>Todo empezó con una conversación.</h3>
-          <p>Una mesa en Birra Bar, Los Trapenses. Dos founders, una idea y muchas ganas de construir una compañía distinta. Desde entonces, seguimos aprendiendo con cada proyecto.</p>
-        </div>
-        <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="lazy">
+      <div class="jobs28-manifesto-copy">
+        <p class="jobs28-manifesto-lead">Creemos que las grandes ideas merecen una ejecución igual de extraordinaria. No se trata de hacer más, sino de construir algo que realmente importe.</p>
+        <p>Nos obsesiona el detalle: una estrategia bien pensada, una experiencia que se siente simple, un producto que funciona y un resultado que genera impacto. Porque la calidad se nota, incluso en las cosas que nadie ve.</p>
+        <p>Por eso reunimos personas curiosas, exigentes y con ganas de aprender. Personas que cuestionan lo establecido, trabajan en equipo y se hacen responsables de lo que construyen. Así es como queremos crecer en lowsignal.</p>
       </div>
     </div>
   </section>
-
-  
 
   <section class="jobs28-principles" id="como-trabajamos" aria-labelledby="jobs28-principles-title">
     <div class="container jobs28-principles-grid">
@@ -10643,6 +10631,28 @@ document.addEventListener('DOMContentLoaded', () => {
 <style id="low-global-footer-color-20261109">
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
+</style>
+
+<style id="jobs28-editorial-manifesto-20261109">
+/* Jobs manifesto: restrained two-column editorial treatment, inspired by Linear's layout. */
+.jobs28 .jobs28-intro.jobs28-manifesto{background:#020712!important;background-image:none!important;color:#F7F8FC!important;padding:clamp(105px,10vw,165px) 0 clamp(110px,11vw,175px)!important}
+.jobs28 .jobs28-manifesto .jobs28-intro-grid{display:grid!important;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;align-items:start!important;gap:clamp(70px,11vw,190px)!important;margin:0!important}
+.jobs28 .jobs28-manifesto #jobs28-intro-title{font-size:clamp(42px,4.3vw,68px)!important;line-height:1.08!important;letter-spacing:-.058em!important;font-weight:400!important;margin:0!important;color:#F7F8FC!important}
+.jobs28 .jobs28-manifesto-copy{min-width:0;max-width:715px!important;margin:0!important}
+.jobs28 .jobs28-manifesto-copy p{margin:0 0 31px!important;font-size:clamp(15px,1.16vw,18px)!important;line-height:1.76!important;letter-spacing:-.015em!important;color:#89919F!important}
+.jobs28 .jobs28-manifesto-copy p:last-child{margin-bottom:0!important}
+.jobs28 .jobs28-manifesto-copy .jobs28-manifesto-lead{font-size:clamp(21px,2vw,31px)!important;line-height:1.48!important;letter-spacing:-.028em!important;color:#CDD1D9!important;font-weight:400!important;margin-bottom:37px!important}
+@media(max-width:900px){
+ .jobs28 .jobs28-manifesto .jobs28-intro-grid{grid-template-columns:1fr!important;gap:45px!important}
+ .jobs28 .jobs28-manifesto-copy{max-width:690px!important}
+}
+@media(max-width:760px){
+ .jobs28 .jobs28-intro.jobs28-manifesto{padding:83px 0 92px!important}
+ .jobs28 .jobs28-manifesto #jobs28-intro-title{font-size:clamp(36px,9vw,48px)!important}
+ .jobs28 .jobs28-manifesto .jobs28-intro-grid{gap:33px!important}
+ .jobs28 .jobs28-manifesto-copy .jobs28-manifesto-lead{font-size:21px!important;line-height:1.52!important;margin-bottom:26px!important}
+ .jobs28 .jobs28-manifesto-copy p{font-size:14px!important;line-height:1.8!important;margin-bottom:24px!important}
+}
 </style>
 </body>
 </html>
