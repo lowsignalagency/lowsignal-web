@@ -1082,6 +1082,80 @@ html.edu-motion-ready .edu-scroll-in.edu-scroll-delay-2{transition-delay:.13s}
  }
 }
 </style>
+<style id="education-low-apps-dark-surface-20261109">
+/* Shared Low Apps background on existing dark surfaces, without changing content or cards. */
+body > .lnav,
+body > .lnav .lnav-mega,
+body > .lnav .lnav-mega.lnav28-mega,
+body > .lnav .lnav-mega.lnav-ind-mega,
+body > .lnav .lnav-mega.lnav-resources-mega,
+.hero.edu27-hero,
+.trust.edu30-trust,
+.proof-band,
+.testimonials {
+  background:#020712 !important;
+  background-color:#020712 !important;
+  background-image:none !important;
+}
+body > .lnav .lnav-mega-inner{background:transparent !important}
+@media(max-width:760px){
+  body > .nav-wrap .nav,
+  body > .mobile-nav-panel,
+  body > .mobile-nav-panel.is-open{
+    background:#020712 !important;
+    background-color:#020712 !important;
+    background-image:none !important;
+  }
+}
+</style>
+<style id="education-partner-cards-dark-refinement-20261109">
+/* Softer Low Apps-toned partner tiles, no blue slabs against #020712. */
+.edu30-trust .edu31-partner-grid{
+  background:#070D19 !important;
+  border-top-color:rgba(160,177,217,.15) !important;
+  border-bottom-color:rgba(160,177,217,.15) !important;
+}
+.edu30-trust .edu31-partner-cell{
+  background:#070D19 !important;
+  border-right-color:rgba(160,177,217,.15) !important;
+  transition:background-color .2s ease !important;
+}
+.edu30-trust .edu31-partner-cell:hover{background:#0D1525 !important}
+@media(max-width:760px){
+  .edu30-trust .edu31-partner-grid{background:rgba(160,177,217,.15) !important}
+  .edu30-trust .edu31-partner-cell,
+  .edu30-trust .edu31-partner-cell:nth-child(n){background:#070D19 !important}
+  .edu30-trust .edu31-partner-cell:hover{background:#0D1525 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .edu30-trust .edu31-partner-cell{transition:none !important}
+}
+</style>
+<style id="education-mobile-nonemoji-icons-20261109">
+/* SVG arrows avoid color emoji substitution on mobile browsers. */
+.edu-arrow-wrap, .edu30-note-arrow{display:inline-flex;align-items:center;justify-content:center;flex:none;vertical-align:middle;line-height:0}
+.edu-arrow-wrap svg,.edu30-note-arrow svg{display:block;width:16px;height:16px;stroke:currentColor;fill:none}
+.edu28-panel-link .edu-arrow-wrap{margin-left:5px}
+.testimonial-case .edu-arrow-wrap,.plan-cta .edu-arrow-wrap{margin-left:5px}
+.hero-actions .edu-arrow-wrap,.edu28-cta-inner>a .edu-arrow-wrap{margin-left:4px}
+.edu29-art,.edu30-hero-visual{font-variant-emoji:text}
+</style>
+<style id="education-demo-graphics-svg-icons-20261109">
+/* Demo-only icons: stay vector-shaped on iOS and Android, never emoji glyphs. */
+.edu29-social-actions{display:inline-flex!important;align-items:center;gap:11px;font-size:inherit!important}
+.edu29-social-actions svg{width:16px;height:16px;display:block;flex:none}
+.edu29-ui-arrow,.edu29-ui-check{width:1em;height:1em;display:inline-block;vertical-align:-.13em;stroke:currentColor;fill:none}
+.edu29-ads-stats b{display:flex!important;align-items:center;min-height:27px}
+.edu29-ads-stats b svg{width:20px;height:20px}
+.edu29-ads-hero em svg,.edu29-web-hero em svg{width:11px;height:11px;margin-left:3px}
+.edu29-flow-step i{display:inline-flex;align-items:center;justify-content:center}
+.edu29-flow-step i svg{width:14px;height:14px}
+.edu30-note-check svg{width:14px;height:14px}
+</style>
+<style id="low-global-footer-color-20261109">
+/* Unified dark footer surface. */
+html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
+</style>
 </head>
 <body>
 <header class="lnav" aria-label="Navegación principal"><div class="lnav-row"><a class="lnav-logo" href="https://lowsignal.cl" aria-label="lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="lnav-menu" aria-label="Principal"><div class="lnav-item"><button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega lnav28-mega"><div class="lnav-mega-inner lnav28-inner">
@@ -1340,79 +1414,10 @@ html.edu-motion-ready .edu-scroll-in.edu-scroll-delay-2{transition-delay:.13s}
 
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261109-ios-theme-v1"></script>
 
-<style id="education-low-apps-dark-surface-20261109">
-/* Shared Low Apps background on existing dark surfaces, without changing content or cards. */
-body > .lnav,
-body > .lnav .lnav-mega,
-body > .lnav .lnav-mega.lnav28-mega,
-body > .lnav .lnav-mega.lnav-ind-mega,
-body > .lnav .lnav-mega.lnav-resources-mega,
-.hero.edu27-hero,
-.trust.edu30-trust,
-.proof-band,
-.testimonials {
-  background:#020712 !important;
-  background-color:#020712 !important;
-  background-image:none !important;
-}
-body > .lnav .lnav-mega-inner{background:transparent !important}
-@media(max-width:760px){
-  body > .nav-wrap .nav,
-  body > .mobile-nav-panel,
-  body > .mobile-nav-panel.is-open{
-    background:#020712 !important;
-    background-color:#020712 !important;
-    background-image:none !important;
-  }
-}
-</style>
-<style id="education-partner-cards-dark-refinement-20261109">
-/* Softer Low Apps-toned partner tiles, no blue slabs against #020712. */
-.edu30-trust .edu31-partner-grid{
-  background:#070D19 !important;
-  border-top-color:rgba(160,177,217,.15) !important;
-  border-bottom-color:rgba(160,177,217,.15) !important;
-}
-.edu30-trust .edu31-partner-cell{
-  background:#070D19 !important;
-  border-right-color:rgba(160,177,217,.15) !important;
-  transition:background-color .2s ease !important;
-}
-.edu30-trust .edu31-partner-cell:hover{background:#0D1525 !important}
-@media(max-width:760px){
-  .edu30-trust .edu31-partner-grid{background:rgba(160,177,217,.15) !important}
-  .edu30-trust .edu31-partner-cell,
-  .edu30-trust .edu31-partner-cell:nth-child(n){background:#070D19 !important}
-  .edu30-trust .edu31-partner-cell:hover{background:#0D1525 !important}
-}
-@media(prefers-reduced-motion:reduce){
-  .edu30-trust .edu31-partner-cell{transition:none !important}
-}
-</style>
-<style id="education-mobile-nonemoji-icons-20261109">
-/* SVG arrows avoid color emoji substitution on mobile browsers. */
-.edu-arrow-wrap, .edu30-note-arrow{display:inline-flex;align-items:center;justify-content:center;flex:none;vertical-align:middle;line-height:0}
-.edu-arrow-wrap svg,.edu30-note-arrow svg{display:block;width:16px;height:16px;stroke:currentColor;fill:none}
-.edu28-panel-link .edu-arrow-wrap{margin-left:5px}
-.testimonial-case .edu-arrow-wrap,.plan-cta .edu-arrow-wrap{margin-left:5px}
-.hero-actions .edu-arrow-wrap,.edu28-cta-inner>a .edu-arrow-wrap{margin-left:4px}
-.edu29-art,.edu30-hero-visual{font-variant-emoji:text}
-</style>
-<style id="education-demo-graphics-svg-icons-20261109">
-/* Demo-only icons: stay vector-shaped on iOS and Android, never emoji glyphs. */
-.edu29-social-actions{display:inline-flex!important;align-items:center;gap:11px;font-size:inherit!important}
-.edu29-social-actions svg{width:16px;height:16px;display:block;flex:none}
-.edu29-ui-arrow,.edu29-ui-check{width:1em;height:1em;display:inline-block;vertical-align:-.13em;stroke:currentColor;fill:none}
-.edu29-ads-stats b{display:flex!important;align-items:center;min-height:27px}
-.edu29-ads-stats b svg{width:20px;height:20px}
-.edu29-ads-hero em svg,.edu29-web-hero em svg{width:11px;height:11px;margin-left:3px}
-.edu29-flow-step i{display:inline-flex;align-items:center;justify-content:center}
-.edu29-flow-step i svg{width:14px;height:14px}
-.edu30-note-check svg{width:14px;height:14px}
-</style>
 
-<style id="low-global-footer-color-20261109">
-/* Unified dark footer surface. */
-html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
-</style>
+
+
+
+
+
 </body></html>
