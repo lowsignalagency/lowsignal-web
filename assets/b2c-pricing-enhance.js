@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const style=document.createElement('link');
   style.rel='stylesheet';
-  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=8';
+  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=9';
   document.head.appendChild(style);
 
   const scrollStyle=document.createElement('style');
