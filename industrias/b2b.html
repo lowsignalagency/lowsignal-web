@@ -1005,5 +1005,50 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 }
 </style>
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+<style id="b2b-low-apps-dark-surfaces-20261109">
+/* Match Education and Low Apps: dark surfaces and restrained partner cards. */
+body > .lnav,
+body > .lnav .lnav-mega,
+body > .lnav .lnav-mega.lnav28-mega,
+body > .lnav .lnav-mega.lnav-ind-mega,
+body > .lnav .lnav-mega.lnav-resources-mega,
+.hero.i28-hero,
+.trust.i28-trust,
+.proof-band,
+.testimonials {
+  background:#020712 !important;
+  background-color:#020712 !important;
+  background-image:none !important;
+}
+body > .lnav .lnav-mega-inner {background:transparent !important}
+.i28-trust .i28-trust-grid{
+  background:#070D19 !important;
+  border-top-color:rgba(160,177,217,.15) !important;
+  border-bottom-color:rgba(160,177,217,.15) !important;
+}
+.i28-trust .i28-trust-cell,
+.i28-trust .i28-trust-cell:nth-child(n){
+  background:#070D19 !important;
+  border-right-color:rgba(160,177,217,.15) !important;
+  border-bottom-color:rgba(160,177,217,.15) !important;
+  transition:background-color .2s ease !important;
+}
+.i28-trust .i28-trust-cell:hover{background:#0D1525 !important}
+@media(max-width:760px){
+  body > .nav-wrap .nav,
+  body > .mobile-nav-panel,
+  body > .mobile-nav-panel.is-open{
+    background:#020712 !important;
+    background-color:#020712 !important;
+    background-image:none !important;
+  }
+  .i28-trust .i28-trust-grid{background:rgba(160,177,217,.15) !important}
+  .i28-trust .i28-trust-cell:nth-child(-n+4){background:#070D19 !important}
+  .i28-trust .i28-trust-cell:nth-child(-n+4):hover{background:#0D1525 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .i28-trust .i28-trust-cell{transition:none !important}
+}
+</style>
 </body>
 </html>
