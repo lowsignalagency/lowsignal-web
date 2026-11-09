@@ -4722,5 +4722,42 @@ main#top{background:#020712!important}
   main#top>.low-about-photo-linear img{height:260px!important;border-radius:6px!important}
 }
 </style>
+<style id="low-about-navbar-hero-alignment-20261109">
+/* Align About to the visible desktop navbar: same color, same 1220px content gutters. */
+@media(min-width:761px){
+  body>.lnav{
+    background:#020712!important;
+    background-image:none!important;
+    border-bottom:1px solid rgba(255,255,255,.065)!important;
+  }
+  body>.lnav .lnav-row{
+    width:min(1220px,calc(100% - 128px))!important;
+    max-width:1220px!important;
+  }
+  main#top>.hero.low-about-hero{
+    padding-top:clamp(225px,16vw,265px)!important;
+    padding-bottom:clamp(66px,6vw,88px)!important;
+  }
+  main#top>.hero.low-about-hero>.container{
+    width:min(1220px,calc(100% - 128px))!important;
+    max-width:1220px!important;
+  }
+  main#top>.low-about-photo-linear{
+    width:min(1220px,calc(100% - 128px))!important;
+    max-width:1220px!important;
+  }
+}
+@media(min-width:761px) and (max-width:1100px){
+  body>.lnav .lnav-row,
+  main#top>.hero.low-about-hero>.container,
+  main#top>.low-about-photo-linear{width:calc(100% - 48px)!important}
+}
+@media(max-width:760px){
+  body>.nav-wrap .nav{background:#020712!important;background-image:none!important}
+  main#top>.hero.low-about-hero{padding-top:170px!important;padding-bottom:56px!important}
+  main#top>.hero.low-about-hero>.container,
+  main#top>.low-about-photo-linear{width:calc(100% - 40px)!important}
+}
+</style>
 </body>
 </html>
