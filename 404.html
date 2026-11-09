@@ -1969,17 +1969,27 @@
         </div>
       </div>
 
-<main id="top">
-  <section class="error404">
-    <div class="error404-inner">
-      <p class="error404-kicker">404 · Página no encontrada</p>
-      <h1>Te perdiste.<strong>Volvamos a la señal.</strong></h1>
-      <p>La página que buscas no existe, cambió de dirección o ya no está disponible.</p>
-      <div class="error404-actions">
-        <a class="error404-primary" href="https://lowsignal.cl/">Volver al inicio</a>
-        <a class="error404-secondary" href="https://lowsignal.cl/contacto">Hablemos</a>
+<main id="top" class="low404-page">
+  <section class="low404-hero" aria-labelledby="low404-title">
+    <div class="low404-shell">
+      <div class="low404-copy">
+        <p class="low404-kicker"><span class="low404-status-dot" aria-hidden="true"></span> ERROR 404 · PÁGINA NO ENCONTRADA</p>
+        <h1 id="low404-title">Parece que aquí<br><span>no hay señal.</span></h1>
+        <p class="low404-description">La página que buscas no está disponible. Puede que haya cambiado de dirección o que el enlace ya no exista. Sigamos desde un lugar conocido.</p>
+        <div class="low404-actions">
+          <a class="low404-primary" href="https://lowsignal.cl/">Volver al inicio <span aria-hidden="true">↗</span></a>
+          <a class="low404-secondary" href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="low404-art" aria-hidden="true">
+        <div class="low404-orbit orbit-one"></div>
+        <div class="low404-orbit orbit-two"></div>
+        <div class="low404-orbit orbit-three"></div>
+        <div class="low404-number">404</div>
+        <div class="low404-art-caption"><span class="low404-art-light"></span> SIGNAL NOT FOUND</div>
       </div>
     </div>
+    <div class="low404-bottom-rule" aria-hidden="true"></div>
   </section>
 </main>
 
@@ -9040,5 +9050,57 @@ footer{
 </style>
 
 <script defer src="/assets/low-mobile-unified-2026.js?v=20261107-unified-mobile-v6"></script>
+<style id="low404-refreshed-editorial-20261109">
+/* Standalone 404 treatment consistent with Low Apps and About. */
+html{background:#020712}
+body:has(.low404-page){background:#020712!important}
+body:has(.low404-page)>.lnav{background:#020712!important;background-image:none!important;border-bottom:1px solid rgba(177,194,227,.11)!important}
+body:has(.low404-page)>.lnav .lnav-row{width:min(1220px,calc(100% - 128px))!important}
+.low404-page{background:#020712!important;overflow:hidden}
+.low404-hero{position:relative;display:flex;min-height:min(790px,100vh);padding:clamp(190px,16vw,245px) 0 clamp(115px,9vw,155px);background:#020712;color:#f7f8fc}
+.low404-shell{width:min(1220px,calc(100% - 128px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(45px,5vw,95px);align-items:center}
+.low404-copy{position:relative;z-index:2;min-width:0}
+.low404-kicker{display:flex;align-items:center;gap:10px;margin:0 0 32px!important;color:#99aff5!important;font-size:10px!important;line-height:1.5!important;font-weight:600;letter-spacing:.16em}
+.low404-status-dot{display:block;width:7px;height:7px;flex:none;border-radius:50%;background:#8fa8ff;box-shadow:0 0 0 4px rgba(143,168,255,.11)}
+.low404-copy h1{margin:0!important;max-width:740px;color:#f8faff!important;font-size:clamp(44px,4.75vw,68px)!important;letter-spacing:-.052em!important;line-height:1.12!important;font-weight:400!important}
+.low404-copy h1 span{color:#a9b9ff!important}
+.low404-description{margin:27px 0 0!important;max-width:535px!important;color:#a3aec1!important;font-size:15px!important;line-height:1.8!important}
+.low404-actions{margin-top:36px;display:flex;gap:13px;flex-wrap:wrap}
+.low404-actions a{display:inline-flex;align-items:center;justify-content:center;gap:22px;min-height:48px;border-radius:999px;padding:0 23px;text-decoration:none!important;font-size:13px;font-weight:600;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.low404-actions a:hover{transform:translateY(-2px)}
+.low404-primary{color:#fff!important;background:#1419e0!important;border:1px solid #1419e0!important}
+.low404-primary:hover{background:#2f3bf5!important}
+.low404-secondary{color:#f2f4fb!important;background:transparent!important;border:1px solid rgba(177,194,227,.32)!important}
+.low404-secondary:hover{border-color:#a9b9ff!important;background:rgba(169,185,255,.07)!important}
+.low404-actions a span{font-weight:400;font-size:16px;line-height:1}
+.low404-art{height:380px;position:relative;min-width:0;display:flex;justify-content:center;align-items:center;isolation:isolate}
+.low404-art::before{content:"";position:absolute;width:470px;height:470px;border-radius:50%;background:radial-gradient(circle,rgba(74,98,225,.12),transparent 65%);filter:blur(12px);z-index:-1}
+.low404-number{position:relative;color:transparent;-webkit-text-stroke:1.25px rgba(143,164,247,.38);font-size:clamp(140px,15vw,225px);font-weight:300;letter-spacing:-.1em;line-height:1;user-select:none}
+.low404-orbit{position:absolute;border:1px solid rgba(141,163,231,.13);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-24deg);pointer-events:none}
+.low404-orbit.orbit-one{width:330px;height:330px}
+.low404-orbit.orbit-two{width:440px;height:440px;border-color:rgba(141,163,231,.095)}
+.low404-orbit.orbit-three{width:545px;height:545px;border-color:rgba(141,163,231,.055)}
+.low404-art-caption{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);color:#8190ad;font-size:9px;letter-spacing:.19em;white-space:nowrap;display:flex;align-items:center;gap:9px}
+.low404-art-light{height:5px;width:5px;border-radius:50%;background:#8fa8ff;opacity:.75}
+.low404-bottom-rule{position:absolute;bottom:0;left:0;right:0;border-bottom:1px solid rgba(177,194,227,.11)}
+@media(max-width:1100px){body:has(.low404-page)>.lnav .lnav-row,.low404-shell{width:calc(100% - 48px)!important}.low404-art{height:340px}.low404-orbit.orbit-three{width:470px;height:470px}}
+@media(max-width:760px){
+body:has(.low404-page)>.nav-wrap>.nav{background:#020712!important;background-image:none!important}
+.low404-hero{min-height:calc(100svh - 30px);padding:160px 0 85px;align-items:center}
+.low404-shell{width:calc(100% - 40px)!important;grid-template-columns:minmax(0,1fr);gap:40px}
+.low404-kicker{font-size:9px!important;margin-bottom:24px!important}
+.low404-copy h1{font-size:clamp(38px,9vw,52px)!important}
+.low404-description{font-size:14px!important;max-width:470px!important;margin-top:21px!important}
+.low404-actions{margin-top:28px}
+.low404-art{height:190px;max-width:400px;width:100%;margin:0 auto;overflow:hidden}
+.low404-number{font-size:135px}
+.low404-orbit.orbit-one{width:245px;height:245px}
+.low404-orbit.orbit-two{width:310px;height:310px}
+.low404-orbit.orbit-three{width:390px;height:390px}
+.low404-art-caption{bottom:3px}
+}
+@media(max-width:420px){.low404-actions a{min-height:44px;padding:0 16px;font-size:12px;gap:12px}.low404-art{height:160px}.low404-number{font-size:113px}}
+@media(prefers-reduced-motion:reduce){.low404-actions a{transition:none!important}}
+</style>
 </body>
 </html>
