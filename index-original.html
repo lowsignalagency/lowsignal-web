@@ -15542,9 +15542,26 @@ footer .footer-container{
    Preserve CTA/pill treatments, typography, borders and motion. */
 .lsr-home > .lsr-hero,
 .lsr-home > .lsr-trust,
-.lsr-home .low26-new > section.low26-ai {
+.lsr-home .low26-new > section.low26-ai,
+body > .lnav,
+body > .lnav .lnav-mega,
+body > .lnav .lnav-mega.lnav28-mega,
+body > .lnav .lnav-mega.lnav-ind-mega,
+body > .lnav .lnav-mega.lnav-resources-mega {
   background:#020712 !important;
   background-image:none !important;
   background-color:#020712 !important;
+}
+/* The desktop dropdown keeps its existing content styling and structure. */
+body > .lnav .lnav-mega-inner {background:transparent !important}
+@media(max-width:760px){
+  body > .nav-wrap .nav,
+  body > .mobile-nav-panel,
+  body > .mobile-nav-panel.is-open,
+  body > .mobile-nav-panel .mobile-nav-panel-inner {
+    background:#020712 !important;
+    background-image:none !important;
+    background-color:#020712 !important;
+  }
 }
 </style>
