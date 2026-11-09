@@ -3742,6 +3742,49 @@ body .ls-social-faq{
   .low-social-platforms-detail p{font-size:12px}
 }
 </style>
+<style id="low-social-live-visual-20261109">
+/* Compact, decorative CSS-only content system illustration. No interactive fake controls. */
+.low-social-platforms-top{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(290px,.72fr);gap:clamp(32px,5vw,75px);align-items:center;margin-bottom:26px}
+.low-social-platforms-top .low-social-platforms-head{margin:0;max-width:720px;min-width:0}
+.low-social-platforms-top .low-social-platforms-head h2{max-width:650px}
+.low-social-live{box-sizing:border-box;width:100%;max-width:405px;justify-self:end;border:1px solid #243652;border-radius:17px;background:linear-gradient(145deg,#12213C 0%,#0D182D 100%);padding:16px;box-shadow:0 16px 35px rgba(0,0,0,.13);overflow:hidden}
+.low-social-live-heading{display:flex;align-items:center;gap:7px;margin:0 0 12px;color:#A8BBE8;font-size:9px;font-weight:600;letter-spacing:.105em}
+.low-social-live-pulse{width:6px;height:6px;background:#70B2FF;border-radius:50%;box-shadow:0 0 0 3px rgba(112,178,255,.12)}
+.low-social-live-status{margin-left:auto;font-size:9px;color:#B5C8F8}
+.low-social-live-list{display:grid;gap:7px}
+.low-social-live-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px;padding:7px 11px;border-radius:9px;background:#E9EDF6;color:#17243B}
+.low-social-live-brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500}
+.low-social-live-brand img{width:17px;height:17px;object-fit:contain}
+.low-social-live-switch{position:relative;display:block;flex:0 0 31px;width:31px;height:18px;border-radius:99px;background:#9AA7BC;animation:lowSocialSwitchOn 7s ease-in-out infinite}
+.low-social-live-switch-knob{position:absolute;top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:#FFF;box-shadow:0 1px 2px rgba(0,0,0,.15);animation:lowSocialKnobOn 7s ease-in-out infinite}
+.low-social-live-row:nth-child(1) .low-social-live-switch,.low-social-live-row:nth-child(1) .low-social-live-switch-knob{animation-delay:0s}
+.low-social-live-row:nth-child(2) .low-social-live-switch,.low-social-live-row:nth-child(2) .low-social-live-switch-knob{animation-delay:.6s}
+.low-social-live-row:nth-child(3) .low-social-live-switch,.low-social-live-row:nth-child(3) .low-social-live-switch-knob{animation-delay:1.2s}
+.low-social-live-row:nth-child(4) .low-social-live-switch,.low-social-live-row:nth-child(4) .low-social-live-switch-knob{animation-delay:1.8s}
+@keyframes lowSocialSwitchOn{0%,7%{background:#9AA7BC}15%,86%{background:#286EEA}96%,100%{background:#9AA7BC}}
+@keyframes lowSocialKnobOn{0%,7%{transform:translateX(0)}15%,86%{transform:translateX(13px)}96%,100%{transform:translateX(0)}}
+@media(max-width:900px){
+.low-social-platforms-top{grid-template-columns:minmax(0,1fr) minmax(255px,.85fr);gap:24px}
+.low-social-live{max-width:340px;padding:13px}
+}
+@media(max-width:760px){
+.low-social-platforms-top{grid-template-columns:minmax(0,1fr);gap:24px;margin-bottom:24px}
+.low-social-platforms-top .low-social-platforms-head{max-width:100%}
+.low-social-live{justify-self:start;width:100%;max-width:440px;padding:13px 14px}
+.low-social-live-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.low-social-live-row{padding:8px;min-height:37px;gap:5px}
+.low-social-live-brand{gap:6px;font-size:11px}
+.low-social-live-brand img{width:15px;height:15px}
+.low-social-live-switch{flex-basis:28px;width:28px;height:17px}
+.low-social-live-switch-knob{width:11px;height:11px}
+@keyframes lowSocialKnobOn{0%,7%{transform:translateX(0)}15%,86%{transform:translateX(11px)}96%,100%{transform:translateX(0)}}
+}
+@media(max-width:370px){.low-social-live-list{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){
+.low-social-live-switch{animation:none!important;background:#286EEA}
+.low-social-live-switch-knob{animation:none!important;transform:translateX(13px)}
+}
+</style>
 </head>
 <body>
 
@@ -4121,10 +4164,33 @@ body .ls-social-faq{
   </section>
 <section class="ls-social-channels low-social-platforms-dark" aria-labelledby="ls-social-channels-title">
   <div class="ls-social-shell low-social-platforms-shell">
-    <div class="low-social-platforms-head">
-      <p class="low-social-platforms-kicker">CANALES · LOW SOCIAL</p>
-      <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2>
-      <p>Creamos contenido para cada plataforma, manteniendo una misma identidad.</p>
+    <div class="low-social-platforms-top">
+      <div class="low-social-platforms-head">
+        <p class="low-social-platforms-kicker">CANALES · LOW SOCIAL</p>
+        <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2>
+        <p>Creamos contenido para cada plataforma, manteniendo una misma identidad.</p>
+      </div>
+      <div class="low-social-live" role="img" aria-label="Ilustración animada de un sistema de contenido conectado a Instagram, TikTok, LinkedIn y YouTube">
+        <div class="low-social-live-heading"><span class="low-social-live-pulse"></span> CONTENT SYSTEM <span class="low-social-live-status">LIVE</span></div>
+        <div class="low-social-live-list">
+        <div class="low-social-live-row" style="--activation-index:0" aria-label="Instagram">
+          <span class="low-social-live-brand"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" width="17" height="17" loading="lazy">Instagram</span>
+          <span class="low-social-live-switch" aria-hidden="true"><span class="low-social-live-switch-knob"></span></span>
+        </div>
+        <div class="low-social-live-row" style="--activation-index:1" aria-label="TikTok">
+          <span class="low-social-live-brand"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" width="17" height="17" loading="lazy">TikTok</span>
+          <span class="low-social-live-switch" aria-hidden="true"><span class="low-social-live-switch-knob"></span></span>
+        </div>
+        <div class="low-social-live-row" style="--activation-index:2" aria-label="LinkedIn">
+          <span class="low-social-live-brand"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" width="17" height="17" loading="lazy">LinkedIn</span>
+          <span class="low-social-live-switch" aria-hidden="true"><span class="low-social-live-switch-knob"></span></span>
+        </div>
+        <div class="low-social-live-row" style="--activation-index:3" aria-label="YouTube">
+          <span class="low-social-live-brand"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" width="17" height="17" loading="lazy">YouTube</span>
+          <span class="low-social-live-switch" aria-hidden="true"><span class="low-social-live-switch-knob"></span></span>
+        </div>
+        </div>
+      </div>
     </div>
     <div class="low-social-platforms-section">
       <h3>REDES SOCIALES</h3>
