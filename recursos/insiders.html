@@ -11142,8 +11142,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <style id="insiders-low-palette-unified-20261109">
-/* Keep the Insiders layout, but align dark surfaces with Low Apps. */
+/* Unify the complete Insiders canvas with Low Apps' current dark palette. */
 :root{--insiders-night:#070F22;--insr-deep:#070F22}
+html,body{background-color:#070F22!important}
+body .insr-hero,body .insr-community,body .insr-process,
+body .insr-industries,body .insr-manifesto{
+ background-image:none!important;
+}
+/* Keep the FAQ intentionally light and the footer in the site's shared darker tone. */
+body .insr-faq{background:#EEF3FF!important;background-color:#EEF3FF!important}
+html body footer{background:#020712!important;background-color:#020712!important}
 body .lnav{background:#070F22!important;background-image:none!important}
 @media(min-width:761px){
  body .lnav .lnav-mega,body .lnav .lnav-mega.lnav28-mega{
