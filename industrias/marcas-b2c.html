@@ -11917,5 +11917,50 @@ body footer .footer-bottom-editorial .footer-bottom-links{gap:22px!important}
   }
 }
 </style>
+<style id="b2c-low-apps-dark-surfaces-20261109">
+/* Match Education and B2B dark palette without affecting light content sections. */
+body > .lnav,
+body > .lnav .lnav-mega,
+body > .lnav .lnav-mega.lnav28-mega,
+body > .lnav .lnav-mega.lnav-ind-mega,
+body > .lnav .lnav-mega.lnav-resources-mega,
+.b2cr-hero.i28-hero,
+.b2cr-trust.i28-trust,
+.b2cr-why,
+.b2cr-testimonials {
+  background:#020712 !important;
+  background-color:#020712 !important;
+  background-image:none !important;
+}
+body > .lnav .lnav-mega-inner{background:transparent !important}
+.b2cr-trust.i28-trust .i28-trust-grid{
+  background:#070D19 !important;
+  border-top-color:rgba(160,177,217,.15) !important;
+  border-bottom-color:rgba(160,177,217,.15) !important;
+}
+.b2cr-trust.i28-trust .i28-trust-cell,
+.b2cr-trust.i28-trust .i28-trust-grid > .i28-trust-cell:nth-child(n){
+  background:#070D19 !important;
+  border-right-color:rgba(160,177,217,.15) !important;
+  border-bottom-color:rgba(160,177,217,.15) !important;
+  transition:background-color .2s ease !important;
+}
+.b2cr-trust.i28-trust .i28-trust-cell:hover{background:#0D1525 !important}
+@media(max-width:760px){
+  body > .nav-wrap .nav,
+  body > .mobile-nav-panel,
+  body > .mobile-nav-panel.is-open{
+    background:#020712 !important;
+    background-color:#020712 !important;
+    background-image:none !important;
+  }
+  .b2cr-trust.i28-trust .i28-trust-grid{background:rgba(160,177,217,.15) !important}
+  .b2cr-trust.i28-trust .i28-trust-grid > .i28-trust-cell:nth-child(n){background:#070D19 !important}
+  .b2cr-trust.i28-trust .i28-trust-grid > .i28-trust-cell:nth-child(n):hover{background:#0D1525 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .b2cr-trust.i28-trust .i28-trust-cell{transition:none !important}
+}
+</style>
 </body>
 </html>
