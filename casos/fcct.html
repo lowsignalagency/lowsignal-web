@@ -13774,12 +13774,19 @@ body .rechx .case-editorial{
   background:#020712!important;
   background-image:none!important;
 }
+/* Editorial text blocks must remain unboxed on the continuous dark canvas. */
 body .rechx .case-editorial .case-editorial-callout,
 body .rechx .case-editorial .case-editorial-result{
-  background:#0A1226!important;
-  background-color:#0A1226!important;
-  border-color:rgba(179,195,244,.17)!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:0!important;
 }
+body .rechx .case-editorial .case-editorial-callout{margin-top:32px!important}
+body .rechx .case-editorial .case-editorial-result{margin:0!important}
 body .rechx .case-editorial .case-editorial-nav a.is-active{background:#111D36!important}
 body .rechx .case-editorial .case-editorial-nav a:hover{background:#0D192F!important}
 </style>
