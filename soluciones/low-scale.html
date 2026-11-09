@@ -9168,6 +9168,88 @@ body footer .footer-bottom{
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
 </style>
+<style id="low-scale-connected-network-20261109">
+/* Exact Low Apps dark surface; animated system, not floating service cards. */
+body .lnav,body .lnav .lnav-mega,body .lnav .lnav-mega.lnav28-mega,
+body .lnav .lnav-mega.lnav-ind-mega,body .lnav .lnav-mega.lnav-resources-mega{
+  background:#020712!important;background-color:#020712!important;background-image:none!important;
+}
+body .scale-new-hero.lf26-hero{
+  background:#020712!important;background-color:#020712!important;background-image:none!important;
+}
+body .scale-new-hero .ls-social-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;gap:clamp(28px,4vw,72px)!important}
+.scale-network{min-width:0;width:100%;color:#F8FAFF}
+.scale-network-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#98A7CA;font-size:9px;letter-spacing:.13em;font-weight:600;white-space:nowrap}
+.scale-network-status{display:flex;align-items:center;gap:8px;color:#B2BEDE;font-size:9px}
+.scale-network-status i{width:6px;height:6px;flex:none;border-radius:50%;background:#9EACFF;box-shadow:0 0 14px #8093FF;animation:scale-status-glow 3s ease-in-out infinite}
+.scale-network-stage{position:relative;width:100%;height:clamp(380px,34vw,492px);margin-top:14px;isolation:isolate}
+.scale-network-halo{position:absolute;left:50%;top:49%;width:72%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(57,75,199,.14) 0%,rgba(60,78,177,.065) 38%,transparent 72%);filter:blur(16px);pointer-events:none}
+.scale-network-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+.scale-network-paths{opacity:.31}
+.scale-network-flow path{stroke-dasharray:3 280;stroke-dashoffset:290;filter:drop-shadow(0 0 4px rgba(151,170,255,.8));animation:scale-signal 6.5s linear infinite}
+.scale-network-flow path:nth-child(2){animation-delay:-1.25s}
+.scale-network-flow path:nth-child(3){animation-delay:-2.5s}
+.scale-network-flow path:nth-child(4){animation-delay:-3.75s}
+.scale-network-flow path:nth-child(5){animation-delay:-5s}
+.scale-network-ring{position:absolute;left:50%;top:49.6%;border:1px solid rgba(138,164,255,.16);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%)}
+.scale-network-ring-one{width:215px;height:215px;border-style:dashed;animation:scale-orbit 35s linear infinite}
+.scale-network-ring-two{width:305px;height:305px;border-color:rgba(138,164,255,.085);animation:scale-orbit-reverse 58s linear infinite}
+.scale-network-ring-two:before,.scale-network-ring-one:after{content:"";position:absolute;left:50%;top:-3px;width:6px;height:6px;background:#8EA3FF;border-radius:50%;box-shadow:0 0 16px rgba(142,163,255,.7)}
+.scale-network-core{position:absolute;left:50%;top:49.6%;transform:translate(-50%,-50%);width:172px;height:172px;z-index:3;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 35% 18%,#24376C 0%,#101C3A 45%,#080F20 100%);border:1px solid rgba(175,193,255,.4);box-shadow:0 0 0 13px rgba(99,120,255,.035),0 14px 55px rgba(0,0,0,.35),inset 0 0 38px rgba(116,136,255,.09)}
+.scale-network-core>span{font-size:9px;letter-spacing:.2em;color:#93A9FF;margin-bottom:10px}
+.scale-network-core strong{font-size:26px;letter-spacing:-.065em;font-weight:500;line-height:1;color:#fff}
+.scale-network-core strong span{color:#A9B9FF}
+.scale-network-core small{font-size:7px;letter-spacing:.1em;color:#8D9BBF;margin-top:12px}
+.scale-network-core-pulse{position:absolute;inset:-11px;border:1px solid rgba(149,165,255,.16);border-radius:50%;animation:scale-pulse 5s ease-in-out infinite;pointer-events:none}
+.scale-network-node{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;min-height:39px;padding:8px 12px;border:1px solid rgba(151,170,242,.24);border-radius:999px;background:#101A30;box-shadow:0 8px 24px rgba(0,0,0,.17);white-space:nowrap;transform:translate(-50%,-50%);animation:scale-node-float 6s ease-in-out infinite}
+.scale-network-node i{flex:none;width:6px;height:6px;border-radius:50%;background:#A9B9FF;box-shadow:0 0 11px rgba(169,185,255,.65)}
+.scale-network-node span{font-size:9px;color:#879DD6}
+.scale-network-node b{font-size:12px;color:#E9EDFF;font-weight:500}
+.scale-network-node-brand{left:16.67%;top:27.5%}
+.scale-network-node-acquisition{left:74.67%;top:18.75%;animation-delay:-1s}
+.scale-network-node-conversion{left:85.5%;top:62.9%;animation-delay:-2s}
+.scale-network-node-operations{left:21.33%;top:82.3%;animation-delay:-3s}
+.scale-network-node-data{left:59%;top:85.4%;animation-delay:-4s}
+.scale-network-orbit-label{position:absolute;bottom:0;right:0;color:#65769D;font-size:9px;letter-spacing:.18em}
+@keyframes scale-signal{0%{stroke-dashoffset:290;opacity:0}12%{opacity:1}86%{opacity:1}100%{stroke-dashoffset:-280;opacity:0}}
+@keyframes scale-orbit{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes scale-orbit-reverse{from{transform:translate(-50%,-50%) rotate(360deg)}to{transform:translate(-50%,-50%) rotate(0)}}
+@keyframes scale-node-float{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes scale-pulse{0%,100%{opacity:.36;scale:1}50%{opacity:.85;scale:1.025}}
+@keyframes scale-status-glow{0%,100%{opacity:.55}50%{opacity:1}}
+@media(max-width:1100px){
+ body .scale-new-hero .ls-social-hero-grid{grid-template-columns:1fr!important}
+ .scale-network{max-width:630px;margin:18px auto 0}
+ .scale-network-stage{height:450px}
+}
+@media(max-width:760px){
+ body .nav-wrap .nav,body .mobile-nav-panel{background:#020712!important;background-color:#020712!important}
+ body .scale-new-hero.lf26-hero{padding-bottom:58px!important}
+ .scale-network{margin-top:18px}
+ .scale-network-heading{font-size:8px;letter-spacing:.07em}
+ .scale-network-status{font-size:8px;gap:5px}
+ .scale-network-stage{height:345px;margin-top:9px}
+ .scale-network-ring-one{width:147px;height:147px}
+ .scale-network-ring-two{width:212px;height:212px}
+ .scale-network-core{width:120px;height:120px}
+ .scale-network-core>span{font-size:7px;margin-bottom:6px}
+ .scale-network-core strong{font-size:21px}
+ .scale-network-core small{font-size:5.5px;margin-top:8px}
+ .scale-network-node{min-height:31px;gap:5px;padding:6px 8px}
+ .scale-network-node b{font-size:9px}
+ .scale-network-node span{font-size:7px}
+ .scale-network-node i{width:5px;height:5px}
+ .scale-network-node-brand{left:17%;top:28%}
+ .scale-network-node-acquisition{left:74%;top:19%}
+ .scale-network-node-conversion{left:84%;top:64%}
+ .scale-network-node-operations{left:22%;top:82%}
+ .scale-network-node-data{left:59%;top:85%}
+ .scale-network-orbit-label{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .scale-network *{animation:none!important;transition:none!important}
+}
+</style>
 </head>
 <body>
 
@@ -9438,7 +9520,33 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
       </div>
 
   <main id="top">
-  <section class="ls-social-hero scale-new-hero lf26-hero"><div class="ls-social-shell ls-social-hero-grid"><div class="ls-social-hero-copy"><p class="ls-social-kicker">LOW SCALE</p><h1>El crecimiento funciona <strong>mejor conectado.</strong></h1><p class="ls-social-lead">Unimos marca, adquisición, conversión, operación y datos para que todo avance en una misma dirección.</p><div class="ls-social-actions"><a class="ls-social-primary" href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div></div><div class="lf26-hero-side" aria-label="El enfoque de Low Scale"><div class="lf26-hero-side-header"><span>GROWTH OPERATING SYSTEM / LOWSIGNAL</span><span>En movimiento</span></div><div class="lf26-side-card"><span class="lf26-side-icon">01</span><div><strong>Estrategia</strong><small>Claridad antes de ejecutar.</small></div><span class="lf26-side-arrow">↗</span></div><div class="lf26-side-card"><span class="lf26-side-icon">02</span><div><strong>Adquisición</strong><small>Canales coordinados para generar demanda.</small></div><span class="lf26-side-arrow">↗</span></div><div class="lf26-side-card"><span class="lf26-side-icon">03</span><div><strong>Operación</strong><small>Procesos que acompañan el crecimiento.</small></div><span class="lf26-side-arrow">↗</span></div></div></div></section>
+  <section class="ls-social-hero scale-new-hero lf26-hero"><div class="ls-social-shell ls-social-hero-grid"><div class="ls-social-hero-copy"><p class="ls-social-kicker">LOW SCALE</p><h1>El crecimiento funciona <strong>mejor conectado.</strong></h1><p class="ls-social-lead">Unimos marca, adquisición, conversión, operación y datos para que todo avance en una misma dirección.</p><div class="ls-social-actions"><a class="ls-social-primary" href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div></div><div class="scale-network" role="img" aria-label="Sistema Low Scale en movimiento: Marca, Adquisición, Conversión, Operación y Datos conectados a un mismo núcleo">
+  <div class="scale-network-heading" aria-hidden="true"><span>GROWTH OPERATING SYSTEM / LOWSIGNAL</span><span class="scale-network-status"><i></i> EN MOVIMIENTO</span></div>
+  <div class="scale-network-stage" aria-hidden="true">
+    <div class="scale-network-halo"></div>
+    <svg class="scale-network-lines" viewBox="0 0 600 480" preserveAspectRatio="none" fill="none">
+      <g class="scale-network-paths" stroke="#8AA4FF" stroke-width="1.3">
+        <path d="M300 238 L100 132"/><path d="M300 238 L448 90"/>
+        <path d="M300 238 L513 302"/><path d="M300 238 L128 395"/>
+        <path d="M300 238 L354 410"/>
+      </g>
+      <g class="scale-network-flow" stroke="#BFC9FF" stroke-width="2.1" stroke-linecap="round">
+        <path d="M300 238 L100 132"/><path d="M300 238 L448 90"/>
+        <path d="M300 238 L513 302"/><path d="M300 238 L128 395"/>
+        <path d="M300 238 L354 410"/>
+      </g>
+    </svg>
+    <div class="scale-network-ring scale-network-ring-one"></div>
+    <div class="scale-network-ring scale-network-ring-two"></div>
+    <div class="scale-network-core"><span>THE SYSTEM</span><strong>low<span>scale</span></strong><small>ONE CONNECTED GROWTH ENGINE</small><i class="scale-network-core-pulse"></i></div>
+    <div class="scale-network-node scale-network-node-brand"><i></i><span>01</span><b>Marca</b></div>
+    <div class="scale-network-node scale-network-node-acquisition"><i></i><span>02</span><b>Adquisición</b></div>
+    <div class="scale-network-node scale-network-node-conversion"><i></i><span>03</span><b>Conversión</b></div>
+    <div class="scale-network-node scale-network-node-operations"><i></i><span>04</span><b>Operación</b></div>
+    <div class="scale-network-node scale-network-node-data"><i></i><span>05</span><b>Datos</b></div>
+    <span class="scale-network-orbit-label">LESS NOISE. MORE GROWTH.</span>
+  </div>
+</div></div></section>
 
   <section class="scale27-why" aria-labelledby="scale27-why-heading">
     <div class="ls-social-shell">
