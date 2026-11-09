@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <meta name="theme-color" content="#020712" media="(max-width: 760px)">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png">
   <link rel="shortcut icon" href="https://lowsignal.cl/assets/profile.png">
@@ -10724,7 +10725,7 @@ footer{
   .article-new-more-grid>a>div{padding:18px!important}
 }
 </style>
-<script defer src="/assets/low-mobile-unified-2026.js?v=20261107-nav-audit4"></script>
+<script defer src="/assets/low-mobile-unified-2026.js?v=20261109-ios-theme-v1"></script>
 <link rel="stylesheet" href="/assets/insights-editorial-unified-2026.css?v=20261108a">
 <script defer src="/assets/insights-editorial-unified-2026.js?v=20261108b"></script>
 <script>(()=>{const old=document.querySelector('.article-new-more');if(!old)return;const cards=[...old.querySelectorAll('.article-new-more-grid>a')].map(a=>{const meta=(a.querySelector('span')?.textContent||'INSIGHT').trim();const parts=meta.split('·').map(x=>x.trim());return{href:a.href,img:a.querySelector('img')?.src||'',alt:a.querySelector('img')?.alt||'',category:parts[0]||'INSIGHT',date:parts.slice(1).join(' · '),title:(a.querySelector('h3')?.textContent||'Seguir leyendo').trim()}});const section=document.createElement('section');section.className='article-related-unified';section.innerHTML='<div class="aru-container"><div class="aru-head"><h2>Más insights de lowsignal</h2><a href="https://lowsignal.cl/recursos/insights">Ver todos los insights →</a></div><div class="aru-grid">'+cards.map(c=>'<a class="aru-card" href="'+c.href+'"><figure><img src="'+c.img+'" alt="'+c.alt.replace(/"/g,'&quot;')+'"></figure><div class="aru-meta"><span>'+c.category+'</span><b>'+c.date+'</b></div><h3>'+c.title+'</h3><strong>Leer insight →</strong></a>').join('')+'</div></div>';old.replaceWith(section)})();</script>
