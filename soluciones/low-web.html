@@ -9284,7 +9284,53 @@ body .web-new-hero .ls-social-hero-grid{grid-template-columns:minmax(0,1fr) minm
  .web-dev-footer{height:24px;font-size:7px;gap:12px;padding:0 9px}
 }
 @media(prefers-reduced-motion:reduce){.web-dev-typed.is-typing:after{animation:none}}
-</style></head>
+</style><style id="low-web-editor-compact-layout-20261109">
+/* Compact editorial code animation; build state gets a dedicated strip, never overlays code. */
+body .web-new-hero .ls-social-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.88fr)!important;gap:clamp(45px,6vw,100px)!important}
+.web-dev-visual{height:408px}
+.web-dev-editor{max-width:500px;border-radius:13px}
+.web-dev-topbar{height:41px;padding:0 13px;gap:14px}
+.web-dev-topbar-label{font-size:7px}
+.web-dev-file{font-size:10px}
+.web-dev-workspace{height:305px}
+.web-dev-rail{width:37px;gap:18px;padding-top:20px;font-size:17px}
+.web-dev-code{padding:12px 12px 8px}
+.web-dev-path{font-size:8px;margin-bottom:8px}
+.web-dev-line{height:22px;line-height:22px}
+.web-dev-line-num{width:22px;margin-right:12px;font-size:9px;line-height:22px}
+.web-dev-typed{font-size:10.4px;line-height:22px}
+.web-dev-typed.is-typing:after{height:12px}
+.web-dev-build{position:static;min-height:28px;display:flex;align-items:center;gap:7px;padding:0 13px 0 48px;border-top:1px solid rgba(143,160,210,.11);background:#0E192C;transform:none;opacity:0;transition:opacity .45s ease}
+.web-dev-editor.is-complete .web-dev-build{opacity:1;transform:none}
+.web-dev-build-mark{width:14px;height:14px;font-size:9px}
+.web-dev-build span:not(.web-dev-build-mark){font-size:9px}
+.web-dev-build small{font-size:8px}
+.web-dev-footer{height:26px;padding:0 12px;font-size:8px;gap:15px}
+@media(max-width:1100px){
+ body .web-new-hero .ls-social-hero-grid{grid-template-columns:1fr!important}
+ .web-dev-visual{max-width:520px;height:406px}
+}
+@media(max-width:760px){
+ .web-dev-visual{height:330px;margin-top:8px}
+ .web-dev-editor{max-width:100%}
+ .web-dev-topbar{height:35px;padding:0 9px}
+ .web-dev-workspace{height:245px}
+ .web-dev-rail{width:27px;gap:16px;padding-top:17px;font-size:14px}
+ .web-dev-code{padding:9px 6px 5px}
+ .web-dev-path{margin-bottom:6px;font-size:7px}
+ .web-dev-line{height:18px;line-height:18px}
+ .web-dev-line-num{width:16px;margin-right:7px;font-size:8px;line-height:18px}
+ .web-dev-typed{font-size:clamp(7px,2.15vw,9px);line-height:18px}
+ .web-dev-build{min-height:26px;padding:0 7px 0 33px;gap:6px}
+ .web-dev-build small{font-size:7px}
+ .web-dev-footer{height:23px;font-size:7px;gap:10px}
+}
+@media(max-width:375px){
+ .web-dev-typed{font-size:7px}
+ .web-dev-build small{display:none}
+}
+</style>
+</head>
 <body>
 
   <header class="lnav" aria-label="Navegación principal">
@@ -9572,9 +9618,10 @@ body .web-new-hero .ls-social-hero-grid{grid-template-columns:minmax(0,1fr) minm
         <div class="web-dev-line"><span class="web-dev-line-num">09</span><code class="web-dev-typed" data-code=""></code></div>
         <div class="web-dev-line"><span class="web-dev-line-num">10</span><code class="web-dev-typed web-dev-function" data-code="website.build();">website.build();</code></div>
         <div class="web-dev-line"><span class="web-dev-line-num">11</span><code class="web-dev-typed web-dev-comment" data-code="// Less noise. More growth.">// Less noise. More growth.</code></div>
-        <div class="web-dev-build"><span class="web-dev-build-mark">✓</span><span>Build successful</span><small>Experience ready to launch</small></div>
+        
       </div>
     </div>
+    <div class="web-dev-build"><span class="web-dev-build-mark">✓</span><span>Build successful</span><small>Experience ready to launch</small></div>
     <div class="web-dev-footer" aria-hidden="true"><span><i></i> LOW WEB</span><span>TypeScript / React</span><span>UTF-8</span><span class="web-dev-footer-ready">● LIVE</span></div>
   </div>
   <div class="web-dev-ambient" aria-hidden="true"></div>
