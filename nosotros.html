@@ -4686,5 +4686,41 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
   });
 })();
 </script>
+<style id="low-about-hero-photo-final-20261109">
+/* Final page-level overrides after legacy About styles: exact Low Apps deep black. */
+main#top>.hero.low-about-hero{
+  background:#020712!important;
+  background-image:none!important;
+  color:#f7f8fb!important;
+  border-bottom:0!important;
+}
+main#top>.hero.low-about-hero::before,
+main#top>.hero.low-about-hero::after{display:none!important;content:none!important}
+main#top>.low-about-photo-linear{
+  box-sizing:border-box!important;
+  width:min(1180px,calc(100% - 96px))!important;
+  max-width:1180px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  background:#020712!important;
+  overflow:hidden!important;
+}
+main#top>.low-about-photo-linear img{
+  display:block!important;
+  width:100%!important;
+  height:clamp(330px,36vw,520px)!important;
+  object-fit:cover!important;
+  object-position:center 42%!important;
+  border-radius:8px!important;
+}
+main#top{background:#020712!important}
+@media(max-width:900px){
+  main#top>.low-about-photo-linear{width:calc(100% - 56px)!important}
+}
+@media(max-width:760px){
+  main#top>.low-about-photo-linear{width:calc(100% - 40px)!important}
+  main#top>.low-about-photo-linear img{height:260px!important;border-radius:6px!important}
+}
+</style>
 </body>
 </html>
