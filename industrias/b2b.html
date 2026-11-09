@@ -521,9 +521,9 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
 #planes-b2b .compare-plans{min-width:0;max-width:100%}
 @media(min-width:761px){
  #planes-b2b .compare-scroll{
-  overflow:hidden!important;overflow-x:hidden!important;overflow-y:hidden!important;
-  max-width:100%!important;overscroll-behavior-x:none!important;
-  touch-action:pan-y!important;
+  overflow:clip!important;overflow-x:clip!important;overflow-y:clip!important;
+  max-width:100%!important;overscroll-behavior:auto!important;
+  touch-action:auto!important;
  }
  #planes-b2b .compare-table{
   min-width:0!important;width:100%!important;max-width:100%!important;
@@ -718,6 +718,24 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
  }
  body>.mobile-nav-panel .mobile-nav-submenu small{
    color:#6C7585!important;
+ }
+}
+</style>
+<style id="b2b-comparison-desktop-scroll-release-20261109">
+/* Prevent an overflow:hidden comparison wrapper from becoming a nested scroll container. */
+@media(min-width:761px){
+ #planes-b2b .compare-plans,
+ #planes-b2b .compare-scroll{
+   overflow:clip!important;
+   overflow-x:clip!important;
+   overflow-y:clip!important;
+   overscroll-behavior:auto!important;
+   touch-action:auto!important;
+   max-height:none!important;
+ }
+ #planes-b2b .compare-scroll{max-width:100%!important}
+ #planes-b2b .compare-table{
+   min-width:0!important;width:100%!important;table-layout:fixed!important;
  }
 }
 </style>
