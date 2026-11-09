@@ -33,3 +33,32 @@
  #planes-b2c .b2cr-pricing-grid{display:flex!important;flex-direction:column!important;gap:18px!important}
  #planes-b2c .b2cr-custom{margin-top:28px!important;padding:26px 23px!important}
 }
+
+
+/* Unified Low pricing cards — same structure as Education; site-specific plan content stays intact. */
+#planes-b2c .b2cr-pricing-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:1fr!important;align-items:stretch!important;gap:18px!important;margin-top:0!important}
+#planes-b2c .b2cr-plan,#planes-b2c .b2cr-plan.featured{box-sizing:border-box!important;position:relative!important;display:flex!important;flex-direction:column!important;align-self:stretch!important;min-width:0!important;width:100%!important;height:100%!important;min-height:0!important;padding:32px 28px 26px!important;background:#071022!important;color:#F5F7FC!important;border:1px solid #243354!important;border-radius:22px!important;box-shadow:none!important;transform:none!important;opacity:1!important;visibility:visible!important}
+#planes-b2c .b2cr-plan.featured{background:#0D1940!important;border-color:#647CD0!important;box-shadow:inset 0 0 0 1px rgba(133,156,232,.18)!important}
+#planes-b2c .b2cr-plan:hover{transform:none!important;border-color:#8EA3FF!important;box-shadow:none!important}
+#planes-b2c .b2cr-plan .badge{position:absolute!important;top:22px!important;right:21px!important;background:#354FC8!important;color:#FFF!important;border-radius:99px!important;padding:8px 11px!important;font-size:10px!important;letter-spacing:.025em!important;font-weight:600!important}
+#planes-b2c .b2cr-plan .k{color:#A9BBEF!important;font-size:10px!important;font-weight:600!important;letter-spacing:.12em!important;margin:0!important;padding-right:100px!important}
+#planes-b2c .b2cr-plan h3{font-size:clamp(20px,1.9vw,25px)!important;line-height:1.2!important;letter-spacing:-.025em!important;font-weight:500!important;margin:16px 0 0!important;color:#F5F7FF!important}
+#planes-b2c .b2cr-plan.featured h3{color:#B7C8FF!important}
+#planes-b2c .b2cr-plan .d{color:#C9D2E6!important;line-height:1.65!important;font-size:12px!important;margin:12px 0 0!important;min-height:84px!important}
+#planes-b2c .b2cr-plan .price{display:flex!important;flex-wrap:wrap!important;align-items:baseline!important;gap:7px!important;border-bottom:1px solid #344366!important;margin-top:18px!important;padding-bottom:18px!important}
+#planes-b2c .b2cr-plan .price strong{font-size:39px!important;font-weight:500!important;color:#FFF!important}
+#planes-b2c .b2cr-plan.featured .price strong{color:#B7C8FF!important}
+#planes-b2c .b2cr-plan .price span{color:#CCD5E8!important;font-size:11px!important}
+#planes-b2c .b2cr-plan ul{list-style:none!important;margin:19px 0 25px!important;padding:0!important}
+#planes-b2c .b2cr-plan ul>li{display:flex!important;align-items:center!important;gap:12px!important;position:relative!important;color:#DFE5F3!important;font-size:12px!important;line-height:1.45!important;padding:10px 0!important;margin:0!important;min-height:0!important;border-bottom:1px solid #263656!important}
+#planes-b2c .b2cr-plan ul>li:last-child{border-bottom:0!important}
+#planes-b2c .b2cr-plan ul>li::before{display:none!important;content:none!important}
+#planes-b2c .b2cr-plan ul>li span{color:inherit!important;min-width:0!important;display:block!important}
+#planes-b2c .b2cr-plan ul>li .low-benefit-icon{display:block!important;flex:0 0 18px!important;width:18px!important;height:18px!important;color:#AEBFEA!important;opacity:1!important;visibility:visible!important}
+#planes-b2c .b2cr-plan>a.b2c-choose-plan,#planes-b2c .b2cr-plan>a.b2c-choose-plan:link,#planes-b2c .b2cr-plan>a.b2c-choose-plan:visited{box-sizing:border-box!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;order:10!important;width:100%!important;min-height:51px!important;height:auto!important;margin:auto 0 0!important;padding:12px 16px!important;background:#1419E0!important;color:#FFF!important;border:0!important;border-radius:11px!important;font-size:12px!important;font-weight:600!important;text-align:center!important;line-height:1.4!important;text-decoration:none!important;transform:none!important;opacity:1!important;visibility:visible!important}
+#planes-b2c .b2cr-plan>a.b2c-choose-plan:hover{background:#3540F1!important;color:#FFF!important}
+#planes-b2c .b2cr-plan.featured>a.b2c-choose-plan,#planes-b2c .b2cr-plan.featured>a.b2c-choose-plan:link,#planes-b2c .b2cr-plan.featured>a.b2c-choose-plan:visited{background:#F3F5FF!important;color:#14255D!important}
+#planes-b2c .b2cr-plan.featured>a.b2c-choose-plan:hover{background:#DCE4FF!important;color:#14255D!important}
+#planes-b2c .b2cr-plan .plan-value,#planes-b2c .b2cr-plan .plan-includes,#planes-b2c .b2cr-plan .b2c-plan-value,#planes-b2c .b2cr-plan .b2c-includes{display:none!important}
+@media(max-width:1100px){#planes-b2c .b2cr-pricing-grid{grid-template-columns:1fr!important;grid-auto-rows:1fr!important;max-width:640px!important;margin-left:auto!important;margin-right:auto!important}#planes-b2c .b2cr-plan,#planes-b2c .b2cr-plan.featured{height:100%!important;min-height:0!important;padding:27px 25px 23px!important;order:initial!important}#planes-b2c .b2cr-plan .d{min-height:0!important}}
+@media(max-width:760px){#planes-b2c .b2cr-pricing-grid{max-width:none!important;gap:15px!important}#planes-b2c .b2cr-plan,#planes-b2c .b2cr-plan.featured{padding:26px 23px 22px!important;border-radius:21px!important}#planes-b2c .b2cr-plan h3{font-size:23px!important}#planes-b2c .b2cr-plan .price strong{font-size:38px!important}}
