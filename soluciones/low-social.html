@@ -3697,6 +3697,51 @@ body .ls-social-faq{
 @media(max-width:1000px){.ls-capabilities-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:45px}}
 @media(max-width:760px){.ls-social-capabilities{padding:72px 0 76px}.ls-social-capabilities .ls-social-shell{width:calc(100% - 40px)}.ls-social-capabilities h2{font-size:clamp(30px,7.7vw,38px)}.ls-capabilities-intro{font-size:13px}.ls-capabilities-grid{grid-template-columns:minmax(0,1fr);margin-top:42px;gap:40px}.ls-capabilities-group h3{margin-bottom:19px}.ls-capabilities-group ul{gap:16px}.ls-capabilities-group li{font-size:13px}.ls-capabilities-note{margin-top:42px}}
 </style>
+<style id="low-social-platforms-dark-editorial-20261109">
+/* Low Social: editorial channel list, not cards or horizontal sliders. */
+.ls-social-channels.low-social-platforms-dark{
+  box-sizing:border-box;background:#071022!important;color:#F5F7FC!important;
+  padding:clamp(79px,7.8vw,110px) 0 clamp(75px,7.5vw,104px)!important;
+  overflow:visible!important;
+}
+.low-social-platforms-dark .low-social-platforms-shell{width:min(1220px,calc(100% - 128px));margin:0 auto;max-width:1220px}
+.low-social-platforms-head{max-width:820px;margin:0 0 60px}
+.low-social-platforms-kicker{font-size:10px!important;font-weight:600!important;letter-spacing:.15em!important;color:#9BAFFA!important;margin:0 0 20px!important}
+.low-social-platforms-head h2{font-size:clamp(32px,3.5vw,47px)!important;font-weight:400!important;line-height:1.18!important;letter-spacing:-.044em!important;color:#F5F7FC!important;margin:0!important;max-width:800px}
+.low-social-platforms-head h2 span{color:#A8BEFF!important}
+.low-social-platforms-head>p:last-child{font-size:14px!important;line-height:1.75!important;color:#B0BCD2!important;margin:19px 0 0!important;max-width:650px}
+.low-social-platforms-section{padding:36px 0 39px;border-top:1px solid #29354D}
+.low-social-platforms-section h3,.low-social-platforms-detail h3{margin:0 0 28px;color:#A7B1C4;font:500 11px/1.5 inherit;letter-spacing:.105em}
+.low-social-platforms-row{display:flex;flex-wrap:wrap;align-items:center;gap:19px 29px;min-width:0}
+.low-social-platform{display:flex;align-items:center;gap:11px;color:#E6EBF5;font-size:13px;line-height:1.5;white-space:nowrap}
+.low-social-platform-icon{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;border:1px solid #33425D;border-radius:12px;background:#121D35}
+.low-social-platform-icon img{display:block;width:23px;height:23px;object-fit:contain;filter:brightness(0) invert(1)}
+.low-social-platforms-bottom{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #29354D;border-bottom:1px solid #29354D}
+.low-social-platforms-detail{min-width:0;padding:35px 36px 38px 0}
+.low-social-platforms-detail+.low-social-platforms-detail{padding-left:36px;border-left:1px solid #29354D}
+.low-social-platforms-detail h3{margin-bottom:21px}
+.low-social-platforms-detail p{margin:0;color:#E6EBF5;font-size:13px;line-height:1.85}
+.low-social-platforms-detail p span{padding:0 4px;color:#7487B5}
+.low-social-platforms-note{margin:20px 0 0;color:#A2AEC4;font-size:11px;line-height:1.75}
+@media(max-width:1100px){.low-social-platforms-dark .low-social-platforms-shell{width:calc(100% - 48px)}}
+@media(max-width:760px){
+  .ls-social-channels.low-social-platforms-dark{padding:72px 0 74px!important}
+  .low-social-platforms-dark .low-social-platforms-shell{width:calc(100% - 40px)}
+  .low-social-platforms-head{margin-bottom:38px}
+  .low-social-platforms-head h2{font-size:clamp(30px,7.7vw,38px)!important}
+  .low-social-platforms-head>p:last-child{font-size:13px!important;margin-top:16px!important}
+  .low-social-platforms-section{padding:29px 0 34px}
+  .low-social-platforms-section h3,.low-social-platforms-detail h3{margin-bottom:19px}
+  .low-social-platforms-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:19px}
+  .low-social-platform{font-size:12px;gap:9px;min-width:0}
+  .low-social-platform-icon{width:39px;height:39px;flex-basis:39px}
+  .low-social-platform-icon img{width:21px;height:21px}
+  .low-social-platforms-bottom{grid-template-columns:minmax(0,1fr)}
+  .low-social-platforms-detail{padding:28px 0!important;border-left:0!important}
+  .low-social-platforms-detail+.low-social-platforms-detail{border-top:1px solid #29354D}
+  .low-social-platforms-detail p{font-size:12px}
+}
+</style>
 </head>
 <body>
 
@@ -4074,25 +4119,34 @@ body .ls-social-faq{
       </div>
     </div>
   </section>
-<section class="ls-social-channels low-platform-v3" aria-labelledby="ls-social-channels-title">
-  <div class="ls-social-shell low-platform-v3-shell">
-    <div class="low-platform-v3-head">
-      <div><p class="low-platform-v3-kicker">CANALES · LOW SOCIAL</p>
-        <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2>
-        <p class="low-platform-v3-description">Elegimos dónde estar y qué contar, siempre con una misma identidad.</p></div>
+<section class="ls-social-channels low-social-platforms-dark" aria-labelledby="ls-social-channels-title">
+  <div class="ls-social-shell low-social-platforms-shell">
+    <div class="low-social-platforms-head">
+      <p class="low-social-platforms-kicker">CANALES · LOW SOCIAL</p>
+      <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2>
+      <p>Creamos contenido para cada plataforma, manteniendo una misma identidad.</p>
     </div>
-    <div class="low-platform-v3-rail" aria-label="Plataformas digitales">
-      <div class="low-platform-v3-item"><span class="low-platform-v3-logo ig"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" width="24" height="24" loading="lazy"></span><span>Instagram</span></div>
-      <div class="low-platform-v3-item"><span class="low-platform-v3-logo fb"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="" width="24" height="24" loading="lazy"></span><span>Facebook</span></div>
-      <div class="low-platform-v3-item"><span class="low-platform-v3-logo tk"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" width="24" height="24" loading="lazy"></span><span>TikTok</span></div>
-      <div class="low-platform-v3-item"><span class="low-platform-v3-logo li"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" width="24" height="24" loading="lazy"></span><span>LinkedIn</span></div>
-      <div class="low-platform-v3-item"><span class="low-platform-v3-logo yt"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" width="24" height="24" loading="lazy"></span><span>YouTube</span></div>
+    <div class="low-social-platforms-section">
+      <h3>REDES SOCIALES</h3>
+      <div class="low-social-platforms-row" aria-label="Redes sociales con las que trabajamos">
+        <div class="low-social-platform" title="Instagram"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="Instagram" width="28" height="28" loading="lazy"></span><span>Instagram</span></div>
+<div class="low-social-platform" title="Facebook"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="Facebook" width="28" height="28" loading="lazy"></span><span>Facebook</span></div>
+<div class="low-social-platform" title="TikTok"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="TikTok" width="28" height="28" loading="lazy"></span><span>TikTok</span></div>
+<div class="low-social-platform" title="LinkedIn"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn" width="28" height="28" loading="lazy"></span><span>LinkedIn</span></div>
+<div class="low-social-platform" title="YouTube"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="YouTube" width="28" height="28" loading="lazy"></span><span>YouTube</span></div>
+      </div>
     </div>
-    <div class="low-platform-v3-bottom">
-      <span class="low-platform-v3-label">FORMATOS QUE TRABAJAMOS</span>
-      <p>Reels y video <i>·</i> Carruseles <i>·</i> Stories <i>·</i> Fotografía <i>·</i> Posts <i>·</i> Contenido editorial</p>
+    <div class="low-social-platforms-bottom">
+      <div class="low-social-platforms-detail">
+        <h3>FORMATOS</h3>
+        <p>Reels <span>·</span> Stories <span>·</span> Carruseles <span>·</span> Posts <span>·</span> Videos</p>
+      </div>
+      <div class="low-social-platforms-detail">
+        <h3>CONTENIDO</h3>
+        <p>Fotografía <span>·</span> Eventos <span>·</span> Entrevistas <span>·</span> Producción audiovisual</p>
+      </div>
     </div>
-    <p class="low-platform-v3-note">Canales y entregables definidos según los objetivos de cada proyecto.</p>
+    <p class="low-social-platforms-note">Los canales y formatos se definen según los objetivos y el alcance de cada proyecto.</p>
   </div>
 </section>
   <section class="ls-social-capabilities" id="ls-social-capabilities" aria-labelledby="ls-social-capabilities-title">
