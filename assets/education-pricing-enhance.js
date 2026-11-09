@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
-  const style=document.createElement('link');style.rel='stylesheet';style.href='https://lowsignal.cl/assets/education-pricing-enhance.css?v=5';document.head.appendChild(style);
+  const style=document.createElement('link');style.rel='stylesheet';style.href='https://lowsignal.cl/assets/education-pricing-enhance.css?v=6';document.head.appendChild(style);
   const mobileStyle=document.createElement('link');mobileStyle.rel='stylesheet';mobileStyle.href='https://lowsignal.cl/assets/education-mobile-compare-v6.css?v=1';document.head.appendChild(mobileStyle);
   const pricing=document.querySelector('#planes-education');if(!pricing)return;
 
@@ -7,14 +7,21 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const plans=[...pricing.querySelectorAll('.pricing-grid .plan')];
   const names=['Presence','Growth','Scale'];
-  const includeText=['Base de presencia educativa','Incluye todo lo de Presence','Incluye todo lo de Growth'];
-  const valueText=['Presencia y comunicación institucional consistente','Captación + contenido + campañas de admisión','Sistema conectado de admisión, marketing y seguimiento'];
+  // Keep cards minimal: only title, description, price, button and the icon-led benefits.
+  // No duplicate value statements or 'includes everything' bars.
   plans.forEach((plan,i)=>{
     plan.querySelector('.plan-cta')?.remove();
-    const price=plan.querySelector('.price'),list=plan.querySelector('ul');
-    if(price&&!plan.querySelector('.education-plan-value')){const v=document.createElement('div');v.className='education-plan-value';v.textContent=valueText[i];price.insertAdjacentElement('beforebegin',v)}
-    if(price&&!plan.querySelector('.education-choose-plan')){const a=document.createElement('a');a.className='education-choose-plan';a.href='https://calendly.com/felipe-lowsignal/30min';a.target='_blank';a.rel='noopener noreferrer';a.textContent=`Elegir ${names[i]} →`;price.insertAdjacentElement('afterend',a)}
-    if(list&&!plan.querySelector('.education-includes')){const b=document.createElement('div');b.className='education-includes';b.innerHTML=`<span>✓</span>${includeText[i]}`;list.insertAdjacentElement('beforebegin',b)}
+    plan.querySelector('.education-plan-value')?.remove();
+    plan.querySelector('.education-includes')?.remove();
+    const price=plan.querySelector('.price');
+    if(price&&!plan.querySelector('.education-choose-plan')){
+      const a=document.createElement('a');
+      a.className='education-choose-plan';
+      a.href='https://calendly.com/felipe-lowsignal/30min';
+      a.target='_blank';a.rel='noopener noreferrer';
+      a.textContent=`Elegir ${names[i]} →`;
+      price.insertAdjacentElement('afterend',a);
+    }
   });
 
   const custom=pricing.querySelector('.custom');
