@@ -54,3 +54,25 @@
  #planes-education .pricing-grid{max-width:none!important;gap:15px!important}
  #planes-education .pricing-grid>.plan,#planes-education .pricing-grid>.plan.featured{padding:26px 23px 22px!important}
 }
+
+
+/* Mobile scroll continuity for industry pricing: avoid nested scrolling regions. */
+@media(max-width:760px){
+ html,body{overflow-y:auto!important;overscroll-behavior-y:auto!important}
+ #planes-education,#planes-education{
+   overflow-x:clip!important;overflow-y:visible!important;
+   touch-action:pan-y!important;overscroll-behavior-y:auto!important;
+ }
+ #planes-education > .shell,#planes-education > .b2cr-shell,
+ #planes-education .pricing-grid,#planes-education .plan,
+ #planes-education .education-compare,#planes-education .education-compare-mobile,
+ #planes-education .education-mobile-plan{
+   overflow-x:clip!important;overflow-y:visible!important;
+   touch-action:pan-y!important;overscroll-behavior-y:auto!important;
+   max-height:none!important;
+ }
+ #planes-education .education-compare table,#planes-education .education-compare .compare-scroll{
+   touch-action:pan-y!important;
+ }
+ #planes-education .education-mobile-plan{height:auto!important;min-height:0!important;scroll-snap-align:none!important}
+}
