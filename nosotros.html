@@ -4843,5 +4843,63 @@ main#top .team#team .low-about-team-intro h2 span{
   body>.lnav .lnav-mega-inner{background:transparent!important}
 }
 </style>
+<style id="low-about-scroll-reveal-20261109">
+/* Reveal the current About sections, without hiding content if JavaScript is unavailable. */
+@media(prefers-reduced-motion:no-preference){
+  .low-about-scroll-ready .low-about-scroll-item{
+    opacity:0;
+    transform:translate3d(0,22px,0);
+    transition:opacity .66s ease,transform .72s cubic-bezier(.2,.75,.2,1);
+  }
+  .low-about-scroll-ready .low-about-scroll-item.low-about-scroll-visible{
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+  .low-about-scroll-ready .team-grid .person:nth-child(2){transition-delay:.055s}
+  .low-about-scroll-ready .team-grid .person:nth-child(3){transition-delay:.11s}
+  .low-about-scroll-ready .team-grid .person:nth-child(4){transition-delay:.165s}
+}
+@media(prefers-reduced-motion:reduce){
+  .low-about-scroll-item{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script id="low-about-scroll-reveal-init-20261109">
+(() => {
+  const init = () => {
+    const root = document.querySelector('main#top');
+    if (!root) return;
+    const selectors = [
+      '.low-about-hero .eyebrow',
+      '.low-about-hero h1',
+      '.low-about-hero .hero-sub',
+      '.low-about-photo-linear',
+      '.low-about-history-heading',
+      '.low-about-history-copy',
+      '.low-about-team-intro',
+      '.team-grid .person',
+      '.lsr-band-inner'
+    ];
+    const items = [...new Set(selectors.flatMap(s => [...root.querySelectorAll(s)]))];
+    if (!items.length) return;
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    items.forEach(el => {
+      el.classList.add('low-about-scroll-item');
+      /* Old reveal classes must not leave a section invisible. */
+      el.classList.remove('nosotros-reveal');
+    });
+    document.documentElement.classList.add('low-about-scroll-ready');
+    const observer = new IntersectionObserver((entries, obs) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('low-about-scroll-visible');
+        obs.unobserve(entry.target);
+      }
+    }, {threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+    items.forEach(el => observer.observe(el));
+  };
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
+  else init();
+})();
+</script>
 </body>
 </html>
