@@ -84,3 +84,29 @@
  }
  #planes-b2c .b2c-mobile-plan{height:auto!important;min-height:0!important;scroll-snap-align:none!important}
 }
+
+
+/* B2C price comparison visual parity and touch scroll reliability. */
+#planes-b2c .b2c-compare-desktop{display:block!important;width:100%!important;overflow:clip!important;border:1px solid #DCE3F2!important;border-radius:18px!important;background:#FFF!important}
+#planes-b2c .b2c-compare-desktop table{width:100%!important;table-layout:fixed!important;border-collapse:collapse!important}
+#planes-b2c .b2c-compare-desktop thead th{padding:20px 12px!important;vertical-align:top!important}
+#planes-b2c .b2c-compare-desktop th:first-child,#planes-b2c .b2c-compare-desktop td:first-child{width:40%!important;text-align:left!important}
+#planes-b2c .b2c-compare-desktop th:not(:first-child),#planes-b2c .b2c-compare-desktop td:not(:first-child){width:20%!important;overflow-wrap:break-word!important}
+#planes-b2c .b2c-compare-desktop tbody tr.group td{font-weight:700!important;text-align:left!important;padding:11px 15px!important}
+@media(max-width:760px){
+ #planes-b2c .b2c-compare-desktop{display:none!important}
+ #planes-b2c .b2c-compare-mobile{display:flex!important;flex-direction:column!important;gap:14px!important;overflow:visible!important;touch-action:pan-y!important}
+ #planes-b2c .b2c-compare-mobile .b2c-mobile-plan{box-sizing:border-box!important;display:block!important;position:relative!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important;background:#FFF!important;border:1px solid #DCE3F2!important;border-radius:16px!important;padding:20px!important;touch-action:pan-y!important}
+ #planes-b2c .b2c-compare-mobile .b2c-mobile-plan.featured{background:#F6F8FF!important;border-color:#BFCBFF!important}
+ #planes-b2c .b2c-mobile-head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:12px!important;padding:0 0 15px!important;border-bottom:1px solid #E6EAF3!important}
+ #planes-b2c .b2c-mobile-head h4{margin:0!important;color:#111A3B!important;font-size:17px!important}
+ #planes-b2c .b2c-mobile-head span{display:block!important;margin-top:5px!important;color:#68758E!important;font-size:10px!important}
+ #planes-b2c .b2c-mobile-head em{position:static!important;flex:none!important;font-size:9px!important;color:#FFF!important}
+ #planes-b2c .b2c-mobile-group{display:block!important;padding-top:15px!important;border:0!important;overflow:visible!important}
+ #planes-b2c .b2c-mobile-group+.b2c-mobile-group{border-top:1px solid #E6EAF3!important;margin-top:12px!important}
+ #planes-b2c .b2c-mobile-group>b{display:block!important;margin:0 0 8px!important;padding:0!important;background:transparent!important;color:#5365D9!important;font-size:10px!important}
+ #planes-b2c .b2c-mobile-row{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:14px!important;padding:9px 0!important;border:0!important;border-bottom:1px solid #F0F2F7!important;background:transparent!important;min-width:0!important;touch-action:pan-y!important}
+ #planes-b2c .b2c-mobile-row span:first-child{flex:1 1 62%!important;min-width:0!important;max-width:62%!important;color:#4E5B7D!important;font-weight:400!important;font-size:12px!important;line-height:1.5!important}
+ #planes-b2c .b2c-mobile-row span:last-child{flex:0 1 38%!important;min-width:0!important;max-width:38%!important;text-align:right!important;color:#111A3B!important;font-weight:600!important;font-size:12px!important;line-height:1.5!important;overflow-wrap:anywhere!important}
+ #planes-b2c .b2c-compare-mobile .b2c-mobile-plan.featured .b2c-mobile-row span:last-child{color:#1419E0!important}
+}
