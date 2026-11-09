@@ -14723,10 +14723,10 @@ footer .footer-container{
 </style>
 
 <style id="v62-industry-pills-color">
-/* Match Low Apps (#020712) for the three audience pills; keep Hablemos blue. */
+/* V62 — subtle color treatment for industry pills */
 .lsr-pills .lsr-pill:not(.lsr-primary){
-  background:#020712 !important;
-  border-color:rgba(138,164,255,.22) !important;
+  background:rgba(86,105,255,.06) !important;
+  border-color:rgba(138,164,255,.26) !important;
   color:#F3F5FF !important;
   transition:
     background-color .2s ease,
@@ -14737,15 +14737,15 @@ footer .footer-container{
 }
 
 .lsr-pills .lsr-pill:not(.lsr-primary):hover{
-  background:#0B1330 !important;
-  border-color:rgba(138,164,255,.38) !important;
+  background:rgba(86,105,255,.14) !important;
+  border-color:rgba(138,164,255,.46) !important;
   color:#FFFFFF !important;
   transform:translateY(-2px) !important;
   box-shadow:0 10px 24px rgba(10,20,60,.16) !important;
 }
 
 .lsr-pills .lsr-pill:not(.lsr-primary):active{
-  background:#101B36 !important;
+  background:rgba(86,105,255,.22) !important;
   border-color:rgba(138,164,255,.58) !important;
   transform:translateY(0) scale(.995) !important;
 }
@@ -15534,5 +15534,17 @@ footer .footer-container{
     max-width:122px !important;
     max-height:24px !important;
   }
+}
+</style>
+
+<style id="home-low-apps-dark-three-sections-20261109">
+/* Low Apps surface across the first three Home sections.
+   Preserve CTA/pill treatments, typography, borders and motion. */
+.lsr-home > .lsr-hero,
+.lsr-home > .lsr-trust,
+.lsr-home .low26-new > section.low26-ai {
+  background:#020712 !important;
+  background-image:none !important;
+  background-color:#020712 !important;
 }
 </style>
