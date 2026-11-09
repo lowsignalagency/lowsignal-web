@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const style=document.createElement('link');
   style.rel='stylesheet';
-  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=7';
+  style.href='https://lowsignal.cl/assets/b2c-pricing-enhance.css?v=8';
   document.head.appendChild(style);
 
   const scrollStyle=document.createElement('style');
@@ -18,35 +18,51 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const plans=[...pricing.querySelectorAll('.b2cr-pricing-grid .b2cr-plan')];
   const names=['Presence','Growth','Scale'];
-  const values=['Presencia y contenido para mantener tu marca activa','Contenido + performance para mover tráfico y conversión','Sistema conectado de marketing, web y automatización'];
-  const includes=['Base de presencia B2C','Incluye todo lo de Presence','Incluye todo lo de Growth'];
+
+  const benefitIcons={"camera":"<rect x=\"3\" y=\"6\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M8 6l1.5-2h5L16 6\"/><circle cx=\"12\" cy=\"13\" r=\"3\"/>","video":"<rect x=\"3\" y=\"5\" width=\"13\" height=\"14\" rx=\"2\"/><path d=\"m16 10 5-3v10l-5-3\"/>","layers":"<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><path d=\"M4 9h16M9 4v16\"/>","story":"<rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"2\"/><path d=\"M10 17h4M9 7h6\"/>","social":"<circle cx=\"6\" cy=\"12\" r=\"2\"/><circle cx=\"18\" cy=\"6\" r=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/><path d=\"m8 11 8-4m-8 6 8 4\"/>","ads":"<path d=\"m3 11 11-5v12L3 14z\"/><path d=\"M7 15l2 5h3l-2-4M17 9a4 4 0 0 1 0 6\"/>","target":"<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"1\"/>","calendar":"<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 3v4m10-4v4M3 10h18\"/>","chart":"<path d=\"M4 20V4m0 16h16M8 15l4-4 3 2 5-7\"/>","web":"<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18\"/>","workflow":"<rect x=\"2\" y=\"3\" width=\"7\" height=\"6\" rx=\"1\"/><rect x=\"15\" y=\"15\" width=\"7\" height=\"6\" rx=\"1\"/><path d=\"M5.5 9v6h13\"/>","users":"<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 4a5 5 0 0 1 4 5\"/>","spark":"<path d=\"m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z\"/>"};
+  const iconName=(text)=>{
+    const t=text.toLowerCase();
+    if(t.includes('jornadas'))return 'camera';
+    if(t.includes('reel')||t.includes('video'))return 'video';
+    if(t.includes('posts')||t.includes('carrusel'))return 'layers';
+    if(t.includes('stories'))return 'story';
+    if(t.includes('linkedin')||t.includes('lead generation')||t.includes('prospect'))return 'users';
+    if(t.includes('redes sociales'))return 'social';
+    if(t.includes('ads'))return 'ads';
+    if(t.includes('campaña')||t.includes('admisión'))return 'target';
+    if(t.includes('planificación'))return 'calendar';
+    if(t.includes('reporte')||t.includes('insight')||t.includes('dashboard')||t.includes('estratégic'))return 'chart';
+    if(t.includes('automatiza')||t.includes('seguimiento')||t.includes('crm'))return 'workflow';
+    if(t.includes('web')||t.includes('landing'))return 'web';
+    return 'spark';
+  };
+  const decorateBenefits=(plan)=>{
+    plan.querySelectorAll('ul > li').forEach(li=>{
+      if(li.querySelector('.low-benefit-icon'))return;
+      const text=li.textContent.trim();
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('class','low-benefit-icon');
+      svg.setAttribute('viewBox','0 0 24 24');
+      svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');
+      svg.setAttribute('stroke-width','1.65');svg.setAttribute('stroke-linecap','round');
+      svg.setAttribute('stroke-linejoin','round');svg.setAttribute('aria-hidden','true');
+      svg.innerHTML=benefitIcons[iconName(text)];
+      const span=document.createElement('span');
+      span.textContent=text;
+      li.replaceChildren(svg,span);
+    });
+  };
 
   plans.forEach((plan,i)=>{
-    const old=plan.querySelector(':scope > a');
-    if(old)old.remove();
-    const price=plan.querySelector('.price');
-    const list=plan.querySelector('ul');
-    if(price&&!plan.querySelector('.b2c-plan-value')){
-      const value=document.createElement('div');
-      value.className='b2c-plan-value';
-      value.textContent=values[i];
-      price.insertAdjacentElement('beforebegin',value);
-    }
-    if(price&&!plan.querySelector('.b2c-choose-plan')){
-      const a=document.createElement('a');
-      a.className='b2c-choose-plan';
-      a.href='https://calendly.com/felipe-lowsignal/30min';
-      a.target='_blank';
-      a.rel='noopener noreferrer';
-      a.textContent=`Elegir ${names[i]} →`;
-      price.insertAdjacentElement('afterend',a);
-    }
-    if(list&&!plan.querySelector('.b2c-includes')){
-      const band=document.createElement('div');
-      band.className='b2c-includes';
-      band.innerHTML=`<span>✓</span>${includes[i]}`;
-      list.insertAdjacentElement('beforebegin',band);
-    }
+    plan.querySelector(':scope > a:not(.b2c-choose-plan)')?.remove();
+    plan.querySelector('.b2c-plan-value')?.remove();
+    plan.querySelector('.b2c-includes')?.remove();
+    if(!plan.querySelector('.b2c-choose-plan')){
+      const a=document.createElement('a');a.className='b2c-choose-plan';
+      a.href='https://calendly.com/felipe-lowsignal/30min';a.target='_blank';a.rel='noopener noreferrer';
+      a.textContent=`Elegir ${names[i]} →`;plan.appendChild(a);
+    }else plan.appendChild(plan.querySelector('.b2c-choose-plan'));
+    decorateBenefits(plan);
   });
 
   const custom=pricing.querySelector('.b2cr-custom');
