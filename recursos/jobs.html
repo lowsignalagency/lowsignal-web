@@ -10079,11 +10079,11 @@ footer .footer-bottom-editorial .footer-bottom-links{gap:22px !important}
       </div>
       <p class="jobs28-principles-intro">En lowsignal creemos en las ideas bien ejecutadas, el trabajo colaborativo y la mejora constante. Estos principios nos ayudan a mantener el foco en lo importante y construir soluciones que generan impacto.</p>
       <div class="jobs28-principles-list">
-        <article><span>01</span><div><h3>Ownership de verdad</h3><p>Cada persona tiene espacio para proponer, decidir y hacerse cargo de lo que construye.</p></div></article>
-        <article><span>02</span><div><h3>Systems over noise</h3><p>Pensamos en soluciones conectadas y sostenibles, no en acciones aisladas.</p></div></article>
-        <article><span>03</span><div><h3>Velocidad con criterio</h3><p>Preferimos poner ideas a prueba, aprender rápido y mejorar con evidencia.</p></div></article>
-        <article><span>04</span><div><h3>IA como herramienta real</h3><p>Usamos tecnología y automatización para liberar tiempo y ampliar lo que podemos crear.</p></div></article>
-        <article><span>05</span><div><h3>Construimos en equipo</h3><p>La estrategia, el diseño, el contenido y la tecnología trabajan juntos desde el inicio.</p></div></article>
+        <article class="jobs28-rule-row"><div class="jobs28-rule-left"><span>01</span><h3>Ownership de verdad</h3></div><p>Cada persona tiene espacio para proponer, decidir y hacerse cargo de lo que construye.</p></article>
+        <article class="jobs28-rule-row"><div class="jobs28-rule-left"><span>02</span><h3>Systems over noise</h3></div><p>Pensamos en soluciones conectadas y sostenibles, no en acciones aisladas.</p></article>
+        <article class="jobs28-rule-row"><div class="jobs28-rule-left"><span>03</span><h3>Velocidad con criterio</h3></div><p>Preferimos poner ideas a prueba, aprender rápido y mejorar con evidencia.</p></article>
+        <article class="jobs28-rule-row"><div class="jobs28-rule-left"><span>04</span><h3>IA como herramienta real</h3></div><p>Usamos tecnología y automatización para liberar tiempo y ampliar lo que podemos crear.</p></article>
+        <article class="jobs28-rule-row"><div class="jobs28-rule-left"><span>05</span><h3>Construimos en equipo</h3></div><p>La estrategia, el diseño, el contenido y la tecnología trabajan juntos desde el inicio.</p></article>
       </div>
     </div>
   </section>
@@ -10701,68 +10701,86 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
 </style>
 
 <style id="jobs28-principles-clean-layout-20261109">
-/* Linear-inspired principle rows: number and title together, description at the midpoint. */
+/* Linear-like principles: a fixed two-column layout for every row. */
 .jobs28 .jobs28-principles-list{
   grid-column:1/-1!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:0!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
   margin-top:-18px!important;
   border:0!important;
 }
-.jobs28 .jobs28-principles-list article{
+.jobs28 .jobs28-principles-list article.jobs28-rule-row{
+  box-sizing:border-box!important;
   display:grid!important;
-  grid-template-columns:42px minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  column-gap:clamp(24px,4vw,72px)!important;
   align-items:start!important;
-  column-gap:16px!important;
-  padding:22px 0!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:25px 0!important;
   border:0!important;
   border-bottom:1px solid rgba(184,204,255,.075)!important;
-  background:transparent!important;
+  background:none!important;
 }
-.jobs28 .jobs28-principles-list article:first-child{
+.jobs28 .jobs28-principles-list article.jobs28-rule-row:first-child{
   border-top:1px solid rgba(184,204,255,.075)!important;
 }
-.jobs28 .jobs28-principles-list article>div{display:contents!important}
-.jobs28 .jobs28-principles-list article>span{
+.jobs28 .jobs28-principles-list article.jobs28-rule-row>div.jobs28-rule-left{
+  display:grid!important;
+  grid-template-columns:44px minmax(0,1fr)!important;
+  gap:14px!important;
+  align-items:start!important;
+  min-width:0!important;
   grid-column:1!important;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace!important;
-  font-size:13px!important;
-  color:#7A8292!important;
-  font-weight:400!important;
-  padding-top:2px!important;
 }
-.jobs28 .jobs28-principles-list h3{
-  grid-column:2!important;
+.jobs28 .jobs28-principles-list article.jobs28-rule-row .jobs28-rule-left>span{
+  display:block!important;
+  font:400 13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace!important;
+  color:#7A8292!important;
+  padding:0!important;
+}
+.jobs28 .jobs28-principles-list article.jobs28-rule-row h3{
+  display:block!important;
   font-size:16px!important;
   line-height:1.55!important;
-  margin:0!important;
   font-weight:500!important;
   color:#D7DCE6!important;
+  margin:0!important;
 }
-.jobs28 .jobs28-principles-list p{
-  grid-column:3!important;
+.jobs28 .jobs28-principles-list article.jobs28-rule-row>p{
+  display:block!important;
+  grid-column:2!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
   font-size:14px!important;
   line-height:1.65!important;
-  margin:0!important;
-  max-width:none!important;
   color:#9099A9!important;
+  margin:0!important;
+  padding:0!important;
 }
 .jobs28 .jobs28-manifesto #jobs28-intro-title .jobs28-soft-accent,
 .jobs28 .jobs28-principles #jobs28-principles-title .jobs28-soft-accent{color:#A8B9FF!important}
 .jobs28 .jobs28-principles,.jobs28 .jobs28-openings,.jobs28 .jobs28-gallery-section{border-top:0!important}
-.jobs28 .jobs28-principles-list article::before,.jobs28 .jobs28-principles-list article::after{display:none!important}
 @media(max-width:760px){
  .jobs28 .jobs28-principles-list{margin-top:14px!important}
- .jobs28 .jobs28-principles-list article{
-   grid-template-columns:36px minmax(0,1fr)!important;
-   column-gap:12px!important;
-   row-gap:5px!important;
-   padding:21px 0!important;
+ .jobs28 .jobs28-principles-list article.jobs28-rule-row{
+   display:block!important;
+   padding:20px 0!important;
  }
- .jobs28 .jobs28-principles-list article>span{grid-column:1!important;grid-row:1 / span 2!important;font-size:12px!important}
- .jobs28 .jobs28-principles-list h3{grid-column:2!important;grid-row:1!important;font-size:15px!important}
- .jobs28 .jobs28-principles-list p{grid-column:2!important;grid-row:2!important;font-size:13px!important;line-height:1.7!important}
+ .jobs28 .jobs28-principles-list article.jobs28-rule-row>div.jobs28-rule-left{
+   grid-template-columns:36px minmax(0,1fr)!important;
+   gap:11px!important;
+ }
+ .jobs28 .jobs28-principles-list article.jobs28-rule-row h3{font-size:15px!important}
+ .jobs28 .jobs28-principles-list article.jobs28-rule-row>p{
+   width:auto!important;
+   margin:5px 0 0 47px!important;
+   font-size:13px!important;
+   line-height:1.7!important;
+ }
 }
 </style>
 
