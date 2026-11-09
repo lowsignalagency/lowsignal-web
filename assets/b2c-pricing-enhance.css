@@ -62,3 +62,25 @@
 #planes-b2c .b2cr-plan .plan-value,#planes-b2c .b2cr-plan .plan-includes,#planes-b2c .b2cr-plan .b2c-plan-value,#planes-b2c .b2cr-plan .b2c-includes{display:none!important}
 @media(max-width:1100px){#planes-b2c .b2cr-pricing-grid{grid-template-columns:1fr!important;grid-auto-rows:1fr!important;max-width:640px!important;margin-left:auto!important;margin-right:auto!important}#planes-b2c .b2cr-plan,#planes-b2c .b2cr-plan.featured{height:100%!important;min-height:0!important;padding:27px 25px 23px!important;order:initial!important}#planes-b2c .b2cr-plan .d{min-height:0!important}}
 @media(max-width:760px){#planes-b2c .b2cr-pricing-grid{max-width:none!important;gap:15px!important}#planes-b2c .b2cr-plan,#planes-b2c .b2cr-plan.featured{padding:26px 23px 22px!important;border-radius:21px!important}#planes-b2c .b2cr-plan h3{font-size:23px!important}#planes-b2c .b2cr-plan .price strong{font-size:38px!important}}
+
+
+/* Mobile scroll continuity for industry pricing: avoid nested scrolling regions. */
+@media(max-width:760px){
+ html,body{overflow-y:auto!important;overscroll-behavior-y:auto!important}
+ #planes-b2c,#planes-b2c.b2cr-pricing{
+   overflow-x:clip!important;overflow-y:visible!important;
+   touch-action:pan-y!important;overscroll-behavior-y:auto!important;
+ }
+ #planes-b2c > .shell,#planes-b2c > .b2cr-shell,
+ #planes-b2c .b2cr-pricing-grid,#planes-b2c .b2cr-plan,
+ #planes-b2c .b2c-compare,#planes-b2c .b2c-compare-mobile,
+ #planes-b2c .b2c-mobile-plan{
+   overflow-x:clip!important;overflow-y:visible!important;
+   touch-action:pan-y!important;overscroll-behavior-y:auto!important;
+   max-height:none!important;
+ }
+ #planes-b2c .b2c-compare table,#planes-b2c .b2c-compare .compare-scroll{
+   touch-action:pan-y!important;
+ }
+ #planes-b2c .b2c-mobile-plan{height:auto!important;min-height:0!important;scroll-snap-align:none!important}
+}
