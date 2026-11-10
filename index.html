@@ -14039,6 +14039,25 @@ body > .lnav .lnav-mega-inner {background:transparent !important}
   }
 }
 </style>
+<style id="home-mobile-hero-two-lines-20261110">
+/* Keep the existing desktop headline untouched; simplify only mobile. */
+@media (max-width:760px){
+  .lsr-hero h1 .lsr-hero-desktop-claim{display:none !important}
+  .lsr-hero h1 strong{
+    margin-top:0 !important;
+    color:#A9B5FF;
+    font-size:clamp(27px,8.5vw,40px) !important;
+    line-height:1.13 !important;
+    letter-spacing:-.045em;
+    font-weight:400;
+  }
+  .lsr-hero h1 strong .lsr-hero-line{
+    display:block;
+    white-space:nowrap;
+  }
+  .lsr-hero{padding-bottom:64px !important}
+}
+</style>
 </head>
 <body>
 
@@ -14323,8 +14342,8 @@ body > .lnav .lnav-mega-inner {background:transparent !important}
   <section class="lsr-hero">
     <div class="lsr-wrap lsr-hero-inner lsr-reveal">
       <h1>
-        Less noise. More growth.
-        <strong>Growth Systems for Companies.</strong>
+        <span class="lsr-hero-desktop-claim">Less noise. More growth.</span>
+        <strong><span class="lsr-hero-line">Growth Systems</span> <span class="lsr-hero-line">for Companies.</span></strong>
       </h1>
       <p class="lsr-hero-copy">
         Conectamos estrategia, marketing, producto, tecnología e IA para construir sistemas que ayuden a las compañías a crecer con más claridad, velocidad y consistencia.
