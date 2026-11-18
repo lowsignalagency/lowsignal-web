@@ -68,6 +68,27 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 /* Navbar: clean hover-trigger labels, chevrons retained for touch navigation */
 @media (hover:hover) and (min-width:851px){.desktop-links .menu-trigger .chev{display:none!important}.desktop-links .menu-trigger{cursor:pointer;padding:15px 0}.desktop-links .menu-group.open .menu-trigger{opacity:1}}
 @media (hover:none), (max-width:850px){.menu-trigger .chev{display:inline-block}}
+
+/* Hover navigation V4 — pill trigger + bright editorial panel */
+@media (hover:hover) and (min-width:851px){
+ .desktop-links{gap:7px}
+ .desktop-links .menu-group{height:100%;position:static}
+ .desktop-links .menu-trigger,.desktop-links .simple-nav{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 18px;font-size:13px;line-height:1.2;transition:background-color .18s ease,opacity .18s ease,color .18s ease;opacity:1}
+ .desktop-links .menu-trigger .chev{display:none!important}
+ .desktop-links .menu-trigger:hover,.desktop-links .menu-group.open>.menu-trigger,.desktop-links .menu-trigger:focus-visible,.desktop-links .simple-nav:hover{background:rgba(255,255,255,.19);color:#fff}
+ .desktop-links .menu-trigger:focus-visible{outline:2px solid #fff;outline-offset:3px}
+ .desktop-links .mega-menu,.desktop-links .mega-menu.mega-compact{top:calc(100% - 1px);width:min(1040px,calc(100vw - 10%));padding:36px 42px 30px;border-radius:18px;border:1px solid rgba(0,0,0,.06);background:#fbfbfa;color:#191c22;box-shadow:0 24px 75px #0003;backdrop-filter:none;animation:navMenuReveal .18s ease both}
+ .desktop-links .mega-menu.mega-compact{width:min(710px,calc(100vw - 10%))}
+ .desktop-links .mega-kicker,.desktop-links .menu-label{color:#747c88}
+ .desktop-links .mega-cols b,.desktop-links .mega-item b{color:#171b23}
+ .desktop-links .mega-cols small,.desktop-links .mega-item small{color:#6c7582}
+ .desktop-links .mega-cols a:hover,.desktop-links .mega-item:hover{background:#eef0f5;transform:none}
+ .desktop-links .mega-end{border-color:#e4e6e9;color:#4c5360}
+ .desktop-links .mega-menu.mega-compact .mega-item+.mega-item{border-color:#e9eaee}
+ .desktop-links .mega-end .ui-arrow{color:#355df1}
+}
+@keyframes navMenuReveal{from{opacity:0;transform:translate(-50%,-7px)}to{opacity:1;transform:translate(-50%,0)}}
+@media(prefers-reduced-motion:reduce){.desktop-links .mega-menu{animation:none!important}}
 </style><meta name="robots" content="noindex,nofollow"></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="LowSignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-kicker">GROWTH SYSTEMS / 01</div><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
