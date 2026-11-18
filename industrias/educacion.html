@@ -314,7 +314,7 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 .eduPriceCard.recommended .eduPriceAction{background:#fff;color:#14218a}
 .eduPriceCard.recommended .eduPriceAction:hover{background:#e8edff;color:#14218a}
 .eduPriceCard.recommended .eduPriceAction svg{stroke:currentColor}
-.eduComparisonScroll thead th:nth-child(3){color:#1b32db}
+.eduComparisonScroll thead th:nth-child(3){color:#fff}
 .eduPricing .eduEyebrow,.eduStoriesHeader .eduEyebrow{color:#2948e8}
 .low-footer{background:#070c1b}
 .low-footer .footer-head h2 em{color:#a2b4ff}
@@ -657,6 +657,18 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .eduComparisonScroll td:nth-child(3){background:transparent!important}
 }
 @media(max-width:370px){.eduCompareTabs{grid-template-columns:1fr!important}}
+
+/* Clear contrast for highlighted Growth plan in comparison table */
+.eduComparisonScroll thead th.eduCompareGrowth:nth-child(3){
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ background:linear-gradient(115deg,#253fed 0%,#516ff1 100%)!important;
+ text-shadow:0 1px 1px rgba(8,20,73,.12);
+}
+.eduComparisonScroll tbody td:nth-child(3){
+ color:#303949!important;
+ background:#f5f7ff!important;
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
