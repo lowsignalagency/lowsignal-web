@@ -327,6 +327,15 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   .has-scroll-reveal .scroll-enter[data-reveal-delay="2"]{transition-delay:140ms}
 }
 @media (prefers-reduced-motion: reduce){.scroll-enter{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Persistent, readable navigation and lowsignal mini-orb CTA */
+.site-nav{position:fixed!important;top:0;left:0;right:0;z-index:1000;background:transparent;transition:background-color .25s ease,box-shadow .25s ease,backdrop-filter .25s ease}
+.site-nav.nav-scrolled{background:rgba(7,12,27,.96);box-shadow:0 8px 30px rgba(4,9,26,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-nav.nav-scrolled .site-nav-inner{border-bottom-color:rgba(255,255,255,.1)}
+.site-nav.mobile-open{background:#080e19}
+.floatingMark>span:first-child{display:block!important;flex:0 0 24px;width:24px!important;height:24px!important;margin:0 4px 0 0!important;border-radius:50%;background:radial-gradient(circle at 30% 24%,#d6deff 0%,#a5b8ff 19%,#718bff 38%,#3953f5 57%,#1a22cb 77%,#0b1151 100%)!important;box-shadow:inset -3px -4px 6px rgba(6,14,77,.35),inset 2px 2px 4px rgba(255,255,255,.25),0 3px 12px rgba(37,60,226,.24)}
+@media(max-width:850px){.site-nav{position:fixed!important}}
+@media(prefers-reduced-motion:reduce){.site-nav{transition:none}}
 </style><meta name="robots" content="noindex,nofollow"></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -419,5 +428,16 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
   observer.observe(el);
  });
  document.documentElement.classList.add('has-scroll-reveal');
+})();
+
+/* Keep the main navigation visible at all scroll positions */
+(()=>{
+ const nav=document.getElementById('siteNav');
+ if(!nav)return;
+ let ticking=false;
+ const update=()=>{nav.classList.toggle('nav-scrolled',window.scrollY>24);ticking=false};
+ const onScroll=()=>{if(!ticking){ticking=true;window.requestAnimationFrame(update)}};
+ update();
+ window.addEventListener('scroll',onScroll,{passive:true});
 })();
 </script></body></html>
