@@ -263,6 +263,12 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .eduUseServices .eduUseService:nth-last-child(2){border-bottom:1px solid #e5e5e5!important}
  .eduUseServices .eduUseService:last-child{border-bottom:0!important}
 }
+
+/* Contextual outline icons for each education audience */
+.eduUseIcon{display:flex;align-items:flex-start;justify-content:center;padding-top:1px;color:#636b78;width:24px;height:24px}
+.eduUseIcon svg{display:block;width:22px;height:22px;flex:none}
+.eduUseService{grid-template-columns:25px minmax(0,1fr)}
+@media(max-width:560px){.eduUseIcon svg{width:20px;height:20px}}
 </style><meta name="robots" content="noindex,nofollow"></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-kicker">GROWTH SYSTEMS / 01</div><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -296,13 +302,33 @@ const educationTabs={"colegios":{"label":"PARA COLEGIOS","title":"Una presencia 
 let activeEducationTab='colegios';
 const tabButtons=[...document.querySelectorAll('[data-tab]')];
 const eduUseServices=document.getElementById('eduUseServices');
+const educationIcons={
+ colegios:[
+ '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2"/>',
+ '<path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 3v-7.5A7.5 7.5 0 0 1 10.5 7h2A7.5 7.5 0 0 1 20 11.5Z"/><path d="M8 12h8m-8 3h5"/>',
+ '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M11 6.5h.01M8 14h8m-3-3 3 3-3 3"/>',
+ '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 12 2 2 4-4"/>'
+ ],
+ redes:[
+ '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v2h11v-2M12 12v2"/>',
+ '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4m8-4v4M3 10h18M8 14h3m3 0h3M8 18h3"/>',
+ '<path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7M6 11h.01M18 11h.01"/><path d="M2 21h20"/>',
+ '<path d="M3 3v18h18M7 16l4-5 4 2 5-7"/><path d="M17 6h3v3"/>'
+ ],
+ fundaciones:[
+ '<path d="M12 21s-8-4.5-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 11c0 5.5-8 10-8 10Z"/>',
+ '<circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="m7 11 10-4m-10 6 10 4"/>',
+ '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 13 3 3 5-6"/><path d="M3 9h18"/>',
+ '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8h5m-2.5-2.5v5"/>'
+ ]
+};
 function renderEducationTab(){
  const d=educationTabs[activeEducationTab];
  document.getElementById('tabLabel').textContent=d.label;
  document.getElementById('tabTitle').innerHTML=d.title;
  document.getElementById('tabDescription').textContent=d.description;
  tabButtons.forEach(b=>{const on=b.dataset.tab===activeEducationTab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on))});
- eduUseServices.replaceChildren(...d.items.map((item,i)=>{const article=document.createElement('article');article.className='eduUseService';const n=document.createElement('span');n.className='eduUseNumber';n.textContent=['↗','◇','✳','○'][i];const body=document.createElement('div');const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[1];body.append(h,p);const ico=document.createElement('span');ico.className='eduUseArrow';ico.textContent='↗';article.append(n,body,ico);return article}));
+ eduUseServices.replaceChildren(...d.items.map((item,i)=>{const article=document.createElement('article');article.className='eduUseService';const n=document.createElement('span');n.className='eduUseNumber eduUseIcon';n.setAttribute('aria-hidden','true');n.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">'+educationIcons[activeEducationTab][i]+'</svg>';const body=document.createElement('div');const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[1];body.append(h,p);const ico=document.createElement('span');ico.className='eduUseArrow';ico.textContent='↗';article.append(n,body,ico);return article}));
 }
 tabButtons.forEach(b=>b.addEventListener('click',()=>{activeEducationTab=b.dataset.tab;renderEducationTab()}));
 renderEducationTab();
