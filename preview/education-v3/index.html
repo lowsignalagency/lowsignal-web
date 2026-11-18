@@ -318,6 +318,15 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 .footer-bottom-new{justify-content:space-between;align-items:center}
 .footer-bottom-new>span:last-child{margin-left:auto;text-align:right}
 @media(max-width:640px){.footer-bottom-new>span:last-child{margin-left:auto;text-align:right}}
+
+/* Delicate scroll reveal; content remains visible without JS */
+@media (prefers-reduced-motion: no-preference) {
+  .has-scroll-reveal .scroll-enter{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+  .has-scroll-reveal .scroll-enter.is-visible{opacity:1;transform:none;will-change:auto}
+  .has-scroll-reveal .scroll-enter[data-reveal-delay="1"]{transition-delay:75ms}
+  .has-scroll-reveal .scroll-enter[data-reveal-delay="2"]{transition-delay:140ms}
+}
+@media (prefers-reduced-motion: reduce){.scroll-enter{opacity:1!important;transform:none!important;transition:none!important}}
 </style><meta name="robots" content="noindex,nofollow"></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -387,4 +396,28 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
 
 /* Real education case stories: horizontal carousel */
 (()=>{const track=document.getElementById('eduStoriesTrack');const next=document.getElementById('eduStoryNext');const prev=document.getElementById('eduStoryPrev');if(!track||!next||!prev)return;const move=dir=>{const card=track.querySelector('.eduStoryCard');if(!card)return;const gap=parseFloat(getComputedStyle(track).gap)||15;track.scrollBy({left:dir*(card.getBoundingClientRect().width+gap),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};next.addEventListener('click',()=>move(1));prev.addEventListener('click',()=>move(-1))})();
+
+/* Subtle reveal as sections enter the viewport */
+(()=>{
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(reduced || !('IntersectionObserver' in window))return;
+ const selector=[
+  '.splitIntro > *','.eduStoriesHeader > *','.eduStoryCard',
+  '.useSection .centerTitle','.eduSegmentTabs','.eduUseIntro',
+  '.eduUseService','.eduPricingHead','.eduPriceCard',
+  '.eduComparisonHeader > *','.eduComparisonScroll','.eduCustom',
+  '.faqGrid > *','.footer-head > *'
+ ].join(',');
+ const elements=[...document.querySelectorAll(selector)];
+ const observer=new IntersectionObserver((entries,obs)=>{
+  for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target)}}
+ },{threshold:0.08,rootMargin:'0px 0px -35px 0px'});
+ elements.forEach((el,i)=>{
+  if(el.getBoundingClientRect().top < window.innerHeight * .95)return;
+  el.classList.add('scroll-enter');
+  if(el.classList.contains('eduPriceCard'))el.dataset.revealDelay=String(i%3);
+  observer.observe(el);
+ });
+ document.documentElement.classList.add('has-scroll-reveal');
+})();
 </script></body></html>
