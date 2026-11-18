@@ -231,6 +231,28 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 @keyframes eduServiceFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:800px){.useSection{padding:72px 0 86px}.eduSegmentTabs{margin-bottom:40px}.eduUseEditorial{grid-template-columns:1fr;gap:35px}.eduUseIntro{position:static;max-width:none}.eduUseService{gap:12px;grid-template-columns:27px minmax(0,1fr) 19px;padding:22px 0}.eduUseIntro h3{font-size:34px}}
 @media(prefers-reduced-motion:reduce){.eduUseService{animation:none}}
+
+/* Education solutions V5: true three-column editorial reference layout */
+.useSection .centerTitle{margin-bottom:48px}
+.useSection .centerTitle p{display:none}
+.eduSegmentTabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:none!important;margin:0 0 75px!important;border:1px solid #dedede;border-radius:100px;padding:3px;gap:0!important;background:#fff;overflow:hidden}
+.eduSegmentTabs button{background:transparent!important;color:#737373!important;border:0!important;border-radius:100px!important;box-shadow:none!important;padding:16px 20px!important;font-size:14px!important;min-width:0;white-space:nowrap;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.eduSegmentTabs button.active{background:#fff!important;color:#111!important;box-shadow:0 1px 5px #00000018,0 0 0 1px #dedede!important}
+.eduSegmentTabs button:hover:not(.active){color:#111!important;background:#f5f5f5!important}
+.eduUseEditorial{grid-template-columns:minmax(220px,.8fr) minmax(0,2fr);gap:clamp(48px,5vw,110px)!important;align-items:start}
+.eduUseIntro{position:static;max-width:360px}
+.eduUseIntro .tinyLabel{display:none}
+.eduUseIntro h3{font-size:clamp(25px,2.1vw,34px);line-height:1.24;letter-spacing:-.038em}
+.eduUseIntro>p{font-size:15px;color:#696969;line-height:1.65;margin-bottom:24px}
+.eduUseServices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:none;gap:0 42px}
+.eduUseService{display:grid;grid-template-columns:23px minmax(0,1fr);gap:11px;min-height:164px;padding:19px 0 23px;border-bottom:1px solid #e5e5e5;align-items:start}
+.eduUseService h4{font-size:17px;line-height:1.35;letter-spacing:-.02em;font-weight:500;margin:0 0 8px}
+.eduUseService p{font-size:14px;line-height:1.6;max-width:340px}
+.eduUseNumber{font-size:18px;color:#929292;padding-top:1px;font-variant-numeric:normal}
+.eduUseArrow{display:none}
+.eduUseContact{margin-top:7px}
+@media(max-width:850px){.eduUseEditorial{grid-template-columns:1fr;gap:30px!important}.eduUseIntro{max-width:700px}.eduUseServices{gap:0 24px}.eduSegmentTabs{margin-bottom:45px!important}}
+@media(max-width:560px){.eduSegmentTabs{border-radius:14px;grid-template-columns:repeat(3,minmax(0,1fr))}.eduSegmentTabs button{font-size:11px!important;padding:13px 5px!important;white-space:normal}.eduUseServices{grid-template-columns:1fr}.eduUseService{min-height:0;padding:19px 0 20px}.useSection .centerTitle{margin-bottom:30px}}
 </style><meta name="robots" content="noindex,nofollow"></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-kicker">GROWTH SYSTEMS / 01</div><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -270,7 +292,7 @@ function renderEducationTab(){
  document.getElementById('tabTitle').innerHTML=d.title;
  document.getElementById('tabDescription').textContent=d.description;
  tabButtons.forEach(b=>{const on=b.dataset.tab===activeEducationTab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on))});
- eduUseServices.replaceChildren(...d.items.map((item,i)=>{const article=document.createElement('article');article.className='eduUseService';const n=document.createElement('span');n.className='eduUseNumber';n.textContent=String(i+1).padStart(2,'0');const body=document.createElement('div');const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[1];body.append(h,p);const ico=document.createElement('span');ico.className='eduUseArrow';ico.textContent='↗';article.append(n,body,ico);return article}));
+ eduUseServices.replaceChildren(...d.items.map((item,i)=>{const article=document.createElement('article');article.className='eduUseService';const n=document.createElement('span');n.className='eduUseNumber';n.textContent=['↗','◇','✳','○'][i];const body=document.createElement('div');const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[1];body.append(h,p);const ico=document.createElement('span');ico.className='eduUseArrow';ico.textContent='↗';article.append(n,body,ico);return article}));
 }
 tabButtons.forEach(b=>b.addEventListener('click',()=>{activeEducationTab=b.dataset.tab;renderEducationTab()}));
 renderEducationTab();
