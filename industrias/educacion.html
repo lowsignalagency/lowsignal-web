@@ -949,6 +949,21 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 @media(prefers-reduced-motion:no-preference){
  html.low-motion-ready body .logoBar .logoItem.low-motion-item{transition-duration:.6s!important}
 }
+
+/* Intro has genuine scroll-linked parallax instead of a one-off entrance. */
+.splitIntro > h2.low-scroll-parallax,
+.splitIntro > div.low-scroll-parallax{
+ opacity:1!important;
+ transition:none!important;
+ will-change:transform;
+}
+.splitIntro .linkline .ui-arrow{transition:transform .22s ease!important}
+.splitIntro .linkline:hover .ui-arrow{transform:translate(3px,-3px)!important}
+@media(prefers-reduced-motion:reduce){
+ .splitIntro > h2.low-scroll-parallax,
+ .splitIntro > div.low-scroll-parallax,
+ .logoBar{transform:none!important;will-change:auto}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1033,7 +1048,7 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(reduced || !('IntersectionObserver' in window))return;
  const selector=[
-  '.splitIntro > *','.eduStoriesHeader > *',
+  '.eduStoriesHeader > *',
   '.useSection .centerTitle','.eduSegmentTabs','.eduUseIntro',
   '.eduUseService','.eduPricingHead','.eduPriceCard',
   '.eduComparisonHeader > *','.eduComparisonScroll','.eduCustom',
@@ -1112,61 +1127,53 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
 
 </script>
 <script>
-/* Independent, once-only scroll reveal for Education */
+/* Continuous scroll-linked motion for institution logos and opening editorial statement.
+   Uses section geometry instead of one-shot IntersectionObserver, so it stays visible
+   and moves gently whenever the user scrolls, without capturing wheel/touch events. */
 (()=>{
- const reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(reduced)return;
- const targets=[
-  '.logoBar .logoItem',
-  '.splitIntro > h2','.splitIntro > div',
-  '.eduStoriesHeader > *','.eduStoriesFoot',
-  '.useSection .centerTitle','.eduSegmentTabs','.eduUseIntro',
-  '.eduPricingHead','.eduPriceCard',
-  '.eduComparisonHeader > *','.eduCompareTabs',
-  '.eduComparisonScroll','.eduCustom',
-  '#faq .sectionHeading > *','#faq .faqGrid',
-  '.footer-head > *'
- ];
- const elements=[...document.querySelectorAll(targets.join(','))];
- if(!elements.length)return;
- if(window.scrollY<80)document.body.classList.add('hero-intro');
- // Keep already-passed content visible, but animate anything currently on screen
- // or still below it. This also handles Safari's restored scroll position.
- const candidates=elements.filter(el=>el.getBoundingClientRect().bottom>0);
- if(!candidates.length)return;
- candidates.forEach((el,i)=>{
-  el.classList.remove('scroll-enter');
-  el.classList.add('low-motion-item');
-  if(el.matches('.logoBar .logoItem'))el.dataset.motionOrder=String(i%3);
-  if(el.matches('.eduPriceCard'))el.dataset.motionOrder=String(i%3);
- });
- document.documentElement.classList.add('low-motion-ready');
- let ready=false;
- const show=el=>{el.classList.add('low-motion-visible');el.classList.remove('scroll-enter')};
- const revealInView=()=>{
-  candidates.forEach(el=>{
-   if(el.classList.contains('low-motion-visible'))return;
-   const rect=el.getBoundingClientRect();
-   if(rect.top<window.innerHeight-30 && rect.bottom>0)show(el);
-  });
- };
- // Wait for the initial hidden style to paint, then reveal initial viewport.
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  ready=true;
-  revealInView();
-  if(!('IntersectionObserver' in window)){
-   window.addEventListener('scroll',revealInView,{passive:true});
+ const intro=document.querySelector('.splitIntro');
+ const heading=intro?.querySelector('h2');
+ const copy=intro?.querySelector('div');
+ const logoBar=document.querySelector('.logoBar');
+ if(!intro||!heading||!copy)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const elements=[heading,copy];
+ let raf=0;
+ const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ const draw=()=>{
+  raf=0;
+  if(reduce.matches){
+   for(const el of elements){el.style.removeProperty('transform');el.style.removeProperty('opacity')}
+   if(logoBar)logoBar.style.removeProperty('transform');
    return;
   }
-  const observer=new IntersectionObserver(entries=>{
-   entries.forEach(entry=>{
-    if(entry.isIntersecting){show(entry.target);observer.unobserve(entry.target)}
-   });
-  },{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
-  candidates.filter(el=>!el.classList.contains('low-motion-visible')).forEach(el=>observer.observe(el));
- }));
- // If a restored page is already visible and the browser throttles animation frames,
- // never leave text hidden indefinitely.
- window.addEventListener('pageshow',()=>{if(ready)revealInView()});
+  const vh=window.innerHeight||700;
+  const rect=intro.getBoundingClientRect();
+  // Progress is continuous through the visible travel of the whole section.
+  // 0: section enters bottom of viewport; 1: section leaves the top.
+  const progress=clamp((vh-rect.top)/(vh+rect.height),0,1);
+  const offsetA=(.5-progress)*66;
+  const offsetB=(.5-progress)*42;
+  heading.style.setProperty('transform',`translate3d(0,${offsetA.toFixed(1)}px,0)`,'important');
+  copy.style.setProperty('transform',`translate3d(0,${offsetB.toFixed(1)}px,0)`,'important');
+  heading.style.setProperty('opacity','1','important');
+  copy.style.setProperty('opacity','1','important');
+  if(logoBar){
+   const lr=logoBar.getBoundingClientRect();
+   const lp=clamp((vh-lr.top)/(vh+lr.height),0,1);
+   logoBar.style.setProperty('transform',`translate3d(0,${((.5-lp)*14).toFixed(1)}px,0)`,'important');
+  }
+ };
+ const schedule=()=>{if(!raf)raf=requestAnimationFrame(draw)};
+ // Keep all editorial content visible even before JS paints.
+ for(const el of elements){
+  el.classList.remove('scroll-enter','low-motion-item');
+  el.classList.add('low-scroll-parallax');
+ }
+ window.addEventListener('scroll',schedule,{passive:true});
+ window.addEventListener('resize',schedule,{passive:true});
+ window.addEventListener('pageshow',schedule);
+ if(reduce.addEventListener)reduce.addEventListener('change',schedule);
+ schedule();
 })();
 </script></body></html>
