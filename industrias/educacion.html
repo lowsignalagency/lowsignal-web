@@ -354,6 +354,94 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   margin-left:auto;
   margin-right:auto;
 }
+
+/* Mobile polish — restore previous lowsignal floating capsule navigation */
+@media(max-width:850px){
+ html,body{width:100%;max-width:100%;overflow-x:clip}
+ body.mobile-menu-open{overflow:hidden}
+ .site-nav,.site-nav.nav-scrolled,.site-nav.mobile-open{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:1400!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;pointer-events:none}
+ .site-nav .site-nav-inner{position:relative!important;z-index:3!important;width:auto!important;max-width:none!important;box-sizing:border-box!important;height:64px!important;margin:12px 12px 0!important;padding:0 16px!important;gap:12px!important;background:rgba(24,40,105,.97)!important;border:0!important;border-radius:16px!important;box-shadow:0 16px 40px rgba(5,12,41,.20)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;pointer-events:auto!important}
+ .site-nav .site-logo{min-width:0;max-width:68%}
+ .site-nav .site-logo img{width:auto!important;max-width:100%!important;height:23px!important;max-height:26px!important;object-fit:contain}
+ .site-nav .desktop-links,.site-nav .nav-contact,.site-nav .nav-cta{display:none!important}
+ .site-nav .nav-actions{margin-left:auto!important;gap:0!important}
+ .site-nav .hamburger{display:flex!important;width:42px!important;height:42px!important;padding:0!important;align-items:center!important;justify-content:center!important;gap:7px!important;pointer-events:auto!important}
+ .site-nav .hamburger span{width:22px!important;height:1.5px!important;border-radius:5px!important;background:#fff!important}
+ .site-nav .mobile-panel{display:block!important;position:fixed!important;inset:0!important;z-index:2!important;width:100vw!important;height:100dvh!important;max-height:none!important;box-sizing:border-box!important;padding:94px 20px 30px!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;background:#101b4f!important;box-shadow:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .18s ease,visibility .18s ease!important}
+ .site-nav.mobile-open .mobile-panel{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+ .mobile-panel>details,.mobile-panel>a{max-width:560px;margin:0 auto;border-bottom:1px solid rgba(255,255,255,.14)!important}
+ .mobile-panel summary,.mobile-panel>a{min-height:60px;box-sizing:border-box;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:13px 0!important;color:#fff!important;font-size:18px!important;font-weight:500!important}
+ .mobile-panel summary span{font-size:20px;font-weight:300;line-height:1;transition:transform .2s}
+ .mobile-panel details[open] summary span{transform:rotate(45deg);color:#a2b4ff}
+ .mobile-panel details>a{padding:14px 16px!important;border-radius:9px;margin:5px 0;background:rgba(255,255,255,.045);font-size:14px!important;line-height:1.4;color:#e1e7fb!important}
+ .mobile-panel details>a:last-child{margin-bottom:18px}
+ .mobile-panel details>a:hover{background:rgba(255,255,255,.12)}
+ .mobile-panel>a .ui-arrow{height:16px;width:16px}
+ .site-nav.mobile-open .mobile-panel a,.site-nav.mobile-open .mobile-panel summary{pointer-events:auto}
+ /* Mobile hero: controlled type and consistent page rail */
+ .shell{box-sizing:border-box;width:100%!important;max-width:100%!important;padding-left:20px!important;padding-right:20px!important}
+ .hero{height:auto!important;min-height:690px!important;min-height:max(690px,90svh)!important}
+ .hero:before{background-position:center center!important}
+ .heroInner{min-height:690px!important;min-height:max(690px,90svh)!important;height:auto!important;box-sizing:border-box;padding-top:130px!important;padding-bottom:45px!important;gap:60px}
+ .heroTitle{display:block!important;font-size:clamp(40px,10.5vw,66px)!important;line-height:1.02!important;letter-spacing:-.065em!important;overflow-wrap:normal!important;word-break:normal!important;margin-top:20px!important}
+ .heroTitle span{display:block!important}
+ .heroTitle span:last-child{margin-top:9px}
+ .heroTitle span:last-child::after{left:0;right:auto;bottom:-9px}
+ .heroBottom{flex-direction:column;align-items:flex-start!important;gap:24px}
+ .heroBottom p{max-width:490px;font-size:14px;line-height:1.65}
+ .heroBottom .pill{padding:15px 23px;font-size:12px}
+ .eyebrow{font-size:10px}
+ /* Prevent grids, stories and pricing from creating page-wide horizontal scroll */
+ .splitIntro,.sectionHeading,.faqGrid{grid-template-columns:minmax(0,1fr)!important;gap:25px!important}
+ .section{padding:74px 0}
+ .section h2{font-size:clamp(30px,8vw,43px)}
+ .splitIntro>div,.sectionHeading>*,.eduUseEditorial>*,.footer-grid-new>*{min-width:0}
+ .logoBar{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 22px!important;padding:20px!important}
+ .logoBar .logoItem,.logoBar .logoItem:first-child,.logoBar .logoItem:last-child{height:65px!important;justify-content:center!important}
+ .logoBar .logoItem img{max-width:100%!important;max-height:43px!important}
+ .logoBar .logoItem:last-child:nth-child(odd){grid-column:1/-1}
+ .eduStoriesSection{padding:70px 0!important}
+ .eduStoriesHeader{display:block!important;margin-bottom:26px!important}
+ .eduStoriesHeader h2{font-size:clamp(31px,8vw,43px)!important}
+ .eduStoriesAll{margin-top:22px}
+ .eduStoriesViewport{margin-left:20px!important;width:calc(100% - 20px)!important;max-width:calc(100% - 20px)!important}
+ .eduStoriesTrack{padding-right:20px!important;touch-action:pan-x pan-y!important}
+ .eduStoryCard{flex:0 0 min(83vw,410px)!important;height:390px!important}
+ .eduStoryBody{padding:22px!important}
+ .eduStoryBottom{padding:0 0 57px!important}
+ .eduStoryBottom h3{font-size:23px!important}
+ .eduStoryBottom p{font-size:12px}
+ .eduStoryBottom a{left:0;right:auto}
+ .useSection{padding:70px 0 82px!important}
+ .eduSegmentTabs{grid-template-columns:repeat(3,minmax(0,1fr))!important;width:100%!important;max-width:100%!important;overflow:hidden;border-radius:14px!important;margin-bottom:39px!important}
+ .eduSegmentTabs button{white-space:normal!important;font-size:12px!important;padding:13px 5px!important;line-height:1.25}
+ .eduUseEditorial{grid-template-columns:1fr!important;gap:30px!important}
+ .eduUseServices{grid-template-columns:1fr!important}
+ .eduUseService{min-height:auto!important;padding:19px 0!important}
+ .eduPricing{padding:75px 0!important}
+ .eduPrices{grid-template-columns:1fr!important}
+ .eduComparison{margin-top:76px!important}
+ .eduComparisonScroll{max-width:100%;-webkit-overflow-scrolling:touch}
+ .eduComparisonScroll table{min-width:660px}
+ .low-footer{padding-top:70px!important}
+ .footer-head{display:block!important}
+ .footer-head h2{font-size:clamp(43px,11vw,73px)!important;overflow-wrap:anywhere}
+ .footer-start{width:100%;box-sizing:border-box;margin-top:30px;justify-content:space-between}
+ .footer-grid-new{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:33px 19px!important;padding-top:47px!important}
+ .footer-identity{grid-column:1/-1!important}
+ .footer-bottom-new{gap:14px;align-items:flex-start}
+ .footer-bottom-new>span:last-child{margin:0!important;text-align:left!important}
+ .floatingMark{display:none!important}
+ /* Section headings can animate on desktop; never interfere with natural mobile scrolling */
+ .has-scroll-reveal .scroll-enter{opacity:1!important;transform:none!important;transition:none!important}
+}
+@media(max-width:390px){
+ .heroTitle{font-size:clamp(36px,10vw,43px)!important}
+ .eduStoryCard{height:405px!important}
+ .eduPriceCard{padding:23px!important}
+ .footer-head h2{font-size:43px!important}
+}
+@media(prefers-reduced-motion:reduce){.site-nav .mobile-panel{transition:none!important}}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -419,7 +507,7 @@ tabButtons.forEach(b=>b.addEventListener('click',()=>{activeEducationTab=b.datas
 renderEducationTab();
 document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',()=>{const open=b.parentElement.classList.toggle('open');b.setAttribute('aria-expanded',String(open))}));
 /* Accessible navigation and working AI entrypoints */
-(()=>{const nav=document.getElementById('siteNav');const groups=[...document.querySelectorAll('.menu-group')];const close=()=>groups.forEach(g=>{g.classList.remove('open');g.querySelector('button').setAttribute('aria-expanded','false')});groups.forEach(g=>{const b=g.querySelector('button');b.addEventListener('click',e=>{e.stopPropagation();const was=g.classList.contains('open');close();if(!was){g.classList.add('open');b.setAttribute('aria-expanded','true')}});g.addEventListener('mouseenter',()=>{if(matchMedia('(hover:hover) and (min-width:851px)').matches){close();g.classList.add('open');b.setAttribute('aria-expanded','true')}});g.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover) and (min-width:851px)').matches){g.classList.remove('open');b.setAttribute('aria-expanded','false')}})});document.addEventListener('click',e=>{if(!e.target.closest('.menu-group'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();nav.classList.remove('mobile-open');document.getElementById('mobileToggle').setAttribute('aria-expanded','false')}});const mob=document.getElementById('mobileToggle');mob.addEventListener('click',()=>{const open=nav.classList.toggle('mobile-open');mob.setAttribute('aria-expanded',String(open));mob.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')});document.querySelectorAll('.mobile-panel a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('mobile-open');mob.setAttribute('aria-expanded','false')}));const prompt='Cuéntame sobre lowsignal (lowsignal.cl), sus servicios de crecimiento, marketing, sitios web, inteligencia artificial y automatización, especialmente para instituciones educativas. ¿Cómo podría ayudarnos?';const q=encodeURIComponent(prompt);const urls={chatgpt:'https://chatgpt.com/?q='+q,gemini:'https://gemini.google.com/app',perplexity:'https://www.perplexity.ai/search?q='+q,claude:'https://claude.ai/new'};document.querySelectorAll('[data-ai]').forEach(a=>{a.href=urls[a.dataset.ai];if(a.dataset.ai==='gemini'||a.dataset.ai==='claude'){a.title+=' (abre la plataforma; copia tu consulta allí)';a.addEventListener('click',()=>{if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(prompt).catch(()=>{})})}});})();
+(()=>{const nav=document.getElementById('siteNav');const groups=[...document.querySelectorAll('.menu-group')];const close=()=>groups.forEach(g=>{g.classList.remove('open');g.querySelector('button').setAttribute('aria-expanded','false')});groups.forEach(g=>{const b=g.querySelector('button');b.addEventListener('click',e=>{e.stopPropagation();const was=g.classList.contains('open');close();if(!was){g.classList.add('open');b.setAttribute('aria-expanded','true')}});g.addEventListener('mouseenter',()=>{if(matchMedia('(hover:hover) and (min-width:851px)').matches){close();g.classList.add('open');b.setAttribute('aria-expanded','true')}});g.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover) and (min-width:851px)').matches){g.classList.remove('open');b.setAttribute('aria-expanded','false')}})});document.addEventListener('click',e=>{if(!e.target.closest('.menu-group'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();nav.classList.remove('mobile-open');document.getElementById('mobileToggle').setAttribute('aria-expanded','false')}});const mob=document.getElementById('mobileToggle');const setMobileOpen=(open)=>{nav.classList.toggle('mobile-open',open);document.body.classList.toggle('mobile-menu-open',open);mob.setAttribute('aria-expanded',String(open));mob.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')};mob.addEventListener('click',()=>setMobileOpen(!nav.classList.contains('mobile-open')));document.querySelectorAll('.mobile-panel a').forEach(a=>a.addEventListener('click',()=>setMobileOpen(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')setMobileOpen(false)});const prompt='Cuéntame sobre lowsignal (lowsignal.cl), sus servicios de crecimiento, marketing, sitios web, inteligencia artificial y automatización, especialmente para instituciones educativas. ¿Cómo podría ayudarnos?';const q=encodeURIComponent(prompt);const urls={chatgpt:'https://chatgpt.com/?q='+q,gemini:'https://gemini.google.com/app',perplexity:'https://www.perplexity.ai/search?q='+q,claude:'https://claude.ai/new'};document.querySelectorAll('[data-ai]').forEach(a=>{a.href=urls[a.dataset.ai];if(a.dataset.ai==='gemini'||a.dataset.ai==='claude'){a.title+=' (abre la plataforma; copia tu consulta allí)';a.addEventListener('click',()=>{if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(prompt).catch(()=>{})})}});})();
 
 /* Real education case stories: horizontal carousel */
 (()=>{const track=document.getElementById('eduStoriesTrack');const next=document.getElementById('eduStoryNext');const prev=document.getElementById('eduStoryPrev');if(!track||!next||!prev)return;const move=dir=>{const card=track.querySelector('.eduStoryCard');if(!card)return;const gap=parseFloat(getComputedStyle(track).gap)||15;track.scrollBy({left:dir*(card.getBoundingClientRect().width+gap),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};next.addEventListener('click',()=>move(1));prev.addEventListener('click',()=>move(-1))})();
