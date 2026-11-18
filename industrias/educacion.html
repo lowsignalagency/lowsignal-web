@@ -918,6 +918,32 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   touch-action:pan-y!important;
  }
 }
+
+/* Entrance motion: hero on load, editorial sections as they enter view */
+@media(prefers-reduced-motion:no-preference){
+ body.hero-intro .hero .eyebrow{animation:lowHeroRise .65s cubic-bezier(.22,1,.36,1) both}
+ body.hero-intro .hero .heroTitle{animation:lowHeroRise .85s cubic-bezier(.22,1,.36,1) .08s both}
+ body.hero-intro .hero .heroBottom{animation:lowHeroRise .78s cubic-bezier(.22,1,.36,1) .24s both}
+ @keyframes lowHeroRise{
+  from{opacity:0;transform:translate3d(0,24px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+ }
+ html.low-motion-ready body .low-motion-item{
+  opacity:0!important;
+  transform:translate3d(0,20px,0)!important;
+  transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1)!important;
+ }
+ html.low-motion-ready body .low-motion-item.low-motion-visible{
+  opacity:1!important;
+  transform:none!important;
+ }
+ html.low-motion-ready body .low-motion-item[data-motion-order="1"]{transition-delay:75ms!important}
+ html.low-motion-ready body .low-motion-item[data-motion-order="2"]{transition-delay:125ms!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body .low-motion-item{opacity:1!important;transform:none!important;transition:none!important}
+ body.hero-intro .hero .eyebrow,body.hero-intro .hero .heroTitle,body.hero-intro .hero .heroBottom{animation:none!important}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1077,5 +1103,42 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
  },{passive:true});
  window.addEventListener('pageshow',sync);
  sync();
+})();
+
+/* Animate page entry + natural vertical-scroll reveals without capturing gestures */
+(()=>{
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ if(window.scrollY<80){
+  document.body.classList.add('hero-intro');
+  document.querySelector('.hero')?.addEventListener('animationend',()=>{}, {once:true});
+ }
+ if(!('IntersectionObserver' in window))return;
+ const selector=[
+  '.splitIntro > h2','.splitIntro > div',
+  '.eduStoriesHeader > *','.eduStoriesFoot',
+  '.useSection .centerTitle','.eduSegmentTabs','.eduUseIntro',
+  '.eduPricingHead','.eduPriceCard',
+  '.eduComparisonHeader > *','.eduCompareTabs',
+  '.eduComparisonScroll','.eduCustom',
+  '#faq .sectionHeading > *','#faq .faqGrid',
+  '.footer-head > *'
+ ].join(',');
+ const candidates=[...document.querySelectorAll(selector)];
+ const observer=new IntersectionObserver((entries,obs)=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add('low-motion-visible');
+    obs.unobserve(entry.target);
+   }
+  });
+ },{rootMargin:'0px 0px -24px 0px',threshold:0.06});
+ candidates.forEach((el,i)=>{
+  // Never hide already-visible content, including the next section in the first viewport.
+  if(el.getBoundingClientRect().top < innerHeight*0.92)return;
+  el.classList.add('low-motion-item');
+  if(el.classList.contains('eduPriceCard'))el.dataset.motionOrder=String(i%3);
+  observer.observe(el);
+ });
+ document.documentElement.classList.add('low-motion-ready');
 })();
 </script></body></html>
