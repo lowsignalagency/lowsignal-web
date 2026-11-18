@@ -771,6 +771,41 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .eduPriceCard .eduPlanIncludes ul li{gap:11px!important;padding:12px 0!important}
  .eduPlanCheck{width:16px!important;height:16px!important;min-width:16px!important;flex-basis:16px!important}
 }
+
+/* Mobile nav: transparent over Education hero, solid on scroll and when menu opens */
+@media(max-width:760px){
+ html body>.nav-wrap{
+   background:transparent!important;background-color:transparent!important;
+   box-shadow:0 1px 0 rgba(255,255,255,.26)!important;
+   transition:background-color .24s ease,box-shadow .24s ease!important;
+ }
+ html body>.nav-wrap>.nav{
+   background:transparent!important;background-color:transparent!important;
+   background-image:none!important;box-shadow:none!important;
+   transition:background-color .24s ease!important;
+ }
+ html body>.nav-wrap.is-scrolled,
+ html body.mobile-menu-open>.nav-wrap{
+   background:#020712!important;background-color:#020712!important;
+   box-shadow:0 1px 0 rgba(152,168,218,.18)!important;
+ }
+ html body>.nav-wrap.is-scrolled>.nav,
+ html body.mobile-menu-open>.nav-wrap>.nav{
+   background:#020712!important;background-color:#020712!important;
+ }
+ html body>.nav-wrap .mobile-nav-cta{
+   background:#fff!important;color:#141414!important;
+   font-weight:700!important;
+   box-shadow:0 4px 16px rgba(0,0,0,.09)!important;
+ }
+ html body>.nav-wrap .mobile-nav-cta:hover,
+ html body>.nav-wrap .mobile-nav-cta:focus-visible{
+   background:#f1f3ff!important;color:#141414!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html body>.nav-wrap,html body>.nav-wrap>.nav{transition:none!important}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -924,5 +959,21 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
   t.addEventListener('keydown',ev=>{if(ev.key!=='ArrowRight'&&ev.key!=='ArrowLeft')return;ev.preventDefault();const n=(i+(ev.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[n].focus();select(tabs[n].dataset.category)});
  });
  select('contenido');
+})();
+
+/* Mobile home-style header switches from transparent to dark after scrolling */
+(()=>{
+ const bar=document.querySelector('body > .nav-wrap');
+ if(!bar)return;
+ let queued=false;
+ const sync=()=>{
+  bar.classList.toggle('is-scrolled',window.scrollY>32);
+  queued=false;
+ };
+ window.addEventListener('scroll',()=>{
+  if(!queued){queued=true;window.requestAnimationFrame(sync)}
+ },{passive:true});
+ window.addEventListener('pageshow',sync);
+ sync();
 })();
 </script></body></html>
