@@ -964,6 +964,19 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .splitIntro > div.low-scroll-parallax,
  .logoBar{transform:none!important;will-change:auto}
 }
+
+/* Introduction motion fallback: stay visible if JS or motion is unavailable. */
+.splitIntro > .low-animated,
+.logoBar .logoItem.low-animated{
+ opacity:1!important;
+ transform:none!important;
+}
+@media(hover:hover){
+ .logoBar .logoItem:hover img{transform:translateY(-5px) scale(1.035);transition:transform .3s ease,filter .3s ease}
+}
+@media(prefers-reduced-motion:reduce){
+ .logoBar .logoItem:hover img{transform:none}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1127,53 +1140,53 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
 
 </script>
 <script>
-/* Continuous scroll-linked motion for institution logos and opening editorial statement.
-   Uses section geometry instead of one-shot IntersectionObserver, so it stays visible
-   and moves gently whenever the user scrolls, without capturing wheel/touch events. */
+/* One reliable entrance animation for the education introduction and logos.
+   It changes only opacity/transform, never layout or scroll gestures. */
 (()=>{
- const intro=document.querySelector('.splitIntro');
- const heading=intro?.querySelector('h2');
- const copy=intro?.querySelector('div');
- const logoBar=document.querySelector('.logoBar');
- if(!intro||!heading||!copy)return;
- const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
- const elements=[heading,copy];
- let raf=0;
- const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
- const draw=()=>{
-  raf=0;
-  if(reduce.matches){
-   for(const el of elements){el.style.removeProperty('transform');el.style.removeProperty('opacity')}
-   if(logoBar)logoBar.style.removeProperty('transform');
-   return;
-  }
-  const vh=window.innerHeight||700;
-  const rect=intro.getBoundingClientRect();
-  // Progress is continuous through the visible travel of the whole section.
-  // 0: section enters bottom of viewport; 1: section leaves the top.
-  const progress=clamp((vh-rect.top)/(vh+rect.height),0,1);
-  const offsetA=(.5-progress)*66;
-  const offsetB=(.5-progress)*42;
-  heading.style.setProperty('transform',`translate3d(0,${offsetA.toFixed(1)}px,0)`,'important');
-  copy.style.setProperty('transform',`translate3d(0,${offsetB.toFixed(1)}px,0)`,'important');
-  heading.style.setProperty('opacity','1','important');
-  copy.style.setProperty('opacity','1','important');
-  if(logoBar){
-   const lr=logoBar.getBoundingClientRect();
-   const lp=clamp((vh-lr.top)/(vh+lr.height),0,1);
-   logoBar.style.setProperty('transform',`translate3d(0,${((.5-lp)*14).toFixed(1)}px,0)`,'important');
+ const section=document.querySelector('.splitIntro');
+ const logos=document.querySelector('.logoBar');
+ if(!section)return;
+ const nodes=[...section.children];
+ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const animate=(el,delay=0)=>{
+  if(!el || el.dataset.lowAnimated==='yes')return;
+  el.dataset.lowAnimated='yes';
+  el.classList.remove('scroll-enter','low-motion-item','low-scroll-parallax');
+  el.classList.add('low-animated');
+  // The Web Animations API applies directly to the target, avoiding old
+  // cascading CSS overrides and a dependency on CSS reveal classes.
+  if(!motionReduced && typeof el.animate==='function'){
+   el.animate([
+    {opacity:0.18,transform:'translate3d(0,64px,0)'},
+    {opacity:1,transform:'translate3d(0,0,0)'}
+   ],{duration:950,delay,easing:'cubic-bezier(.16,1,.3,1)',fill:'none'});
   }
  };
- const schedule=()=>{if(!raf)raf=requestAnimationFrame(draw)};
- // Keep all editorial content visible even before JS paints.
- for(const el of elements){
-  el.classList.remove('scroll-enter','low-motion-item');
-  el.classList.add('low-scroll-parallax');
- }
- window.addEventListener('scroll',schedule,{passive:true});
- window.addEventListener('resize',schedule,{passive:true});
- window.addEventListener('pageshow',schedule);
- if(reduce.addEventListener)reduce.addEventListener('change',schedule);
- schedule();
+ let sectionSeen=false,logosSeen=false;
+ const check=()=>{
+  const vh=window.innerHeight||700;
+  if(!logosSeen && logos){
+   const rect=logos.getBoundingClientRect();
+   if(rect.top<vh*.95 && rect.bottom>0){
+    logosSeen=true;
+    [...logos.querySelectorAll('.logoItem')].forEach((el,i)=>animate(el,i*85));
+   }
+  }
+  if(!sectionSeen){
+   const rect=section.getBoundingClientRect();
+   if(rect.top<vh*.88 && rect.bottom>0){
+    sectionSeen=true;
+    nodes.forEach((el,i)=>animate(el,i*140));
+   }
+  }
+  if(sectionSeen && (logosSeen||!logos)){
+   window.removeEventListener('scroll',check);
+   window.removeEventListener('resize',check);
+  }
+ };
+ window.addEventListener('scroll',check,{passive:true});
+ window.addEventListener('resize',check,{passive:true});
+ window.addEventListener('pageshow',check);
+ requestAnimationFrame(check);
 })();
 </script></body></html>
