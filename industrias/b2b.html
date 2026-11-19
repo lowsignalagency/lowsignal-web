@@ -1231,42 +1231,86 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .desktop-links #menu-ind .mega-item b,.desktop-links #menu-rec .mega-item b{color:#171b23!important}
 }
 
-/* B2B hero imagery and logo strip aligned to the editorial content grid. */
+/* B2B: real corporate architecture instead of a SaaS dashboard.
+   Hero follows exactly the same editorial structure as Education. */
 .hero{
- background:#121b30!important;
+ background:#081124!important;
  background-image:none!important;
 }
 .hero:before{
- background:
-  linear-gradient(90deg,rgba(5,11,25,.81) 0%,rgba(5,11,25,.53) 48%,rgba(5,11,25,.40) 100%),
-  linear-gradient(0deg,rgba(3,9,23,.38),transparent 65%),
-  url("https://lowsignal.cl/assets/industry-b2b.png") center center/cover no-repeat!important;
+ content:"";
+ position:absolute;
+ inset:0;
+ background-image:
+  linear-gradient(90deg,rgba(5,11,26,.80) 0%,rgba(5,11,26,.57) 46%,rgba(5,11,26,.49) 100%),
+  linear-gradient(0deg,rgba(4,10,24,.34),transparent 62%),
+  url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=85")!important;
+ background-size:cover!important;
+ background-position:center 46%!important;
+ background-repeat:no-repeat!important;
 }
+/* Identical logo-strip grid, shell margins and visual heights to Education. */
 .logoBar{
- width:90%!important;
- max-width:1450px!important;
- margin:0 auto!important;
- padding:28px 0!important;
+ width:100%!important;
+ max-width:none!important;
+ margin:0!important;
+ padding:26px 5%!important;
  display:grid!important;
  grid-template-columns:repeat(5,minmax(0,1fr))!important;
- gap:clamp(16px,2.5vw,40px)!important;
+ column-gap:clamp(20px,3vw,55px)!important;
+ row-gap:0!important;
+ min-height:0!important;
+ align-items:center!important;
+ justify-content:initial!important;
  box-sizing:border-box!important;
- overflow:visible!important;
+ overflow:hidden!important;
+ background:#fff!important;
 }
-.logoBar .logoItem{width:100%!important;min-width:0!important;justify-content:center!important;box-sizing:border-box!important}
-.logoBar .logoItem:first-child{justify-content:flex-start!important}
-.logoBar .logoItem:last-child{justify-content:flex-end!important}
-.logoBar .logoItem img{width:auto!important;max-width:100%!important;max-height:50px!important;object-fit:contain!important}
+.logoBar .logoItem,
+.logoBar .logoItem:first-child,
+.logoBar .logoItem:last-child{
+ display:flex!important;
+ grid-column:auto!important;
+ width:100%!important;
+ min-width:0!important;
+ height:62px!important;
+ margin:0!important;
+ padding:4px 0!important;
+ align-items:center!important;
+ justify-content:center!important;
+ box-sizing:border-box!important;
+}
+.logoBar .logoItem img{
+ display:block!important;
+ width:auto!important;
+ height:auto!important;
+ max-width:100%!important;
+ max-height:39px!important;
+ object-fit:contain!important;
+}
+.logoBar .logoB2B:nth-child(1) img{max-width:154px!important;max-height:44px!important}
+.logoBar .logoB2B:nth-child(2) img{max-width:173px!important;max-height:40px!important}
+.logoBar .logoB2B:nth-child(3) img{max-width:165px!important;max-height:38px!important}
+.logoBar .logoB2B:nth-child(4) img{max-width:150px!important;max-height:39px!important}
+.logoBar .logoB2B:nth-child(5) img{max-width:80px!important;max-height:47px!important}
 @media(max-width:760px){
  .hero:before{
-  background:
-   linear-gradient(180deg,rgba(5,11,25,.57),rgba(5,11,25,.69)),
-   url("https://lowsignal.cl/assets/industry-b2b.png") center center/cover no-repeat!important;
+  background-image:
+   linear-gradient(180deg,rgba(5,11,26,.64),rgba(5,11,26,.70)),
+   url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85")!important;
+  background-size:cover!important;
+  background-position:51% center!important;
  }
- .logoBar{width:calc(100% - 40px)!important;max-width:none!important;margin:0 auto!important;padding:21px 0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:17px 20px!important}
- .logoBar .logoItem,.logoBar .logoItem:first-child,.logoBar .logoItem:last-child{justify-content:center!important}
+ .logoBar{
+  width:100%!important;
+  max-width:none!important;
+  padding:21px 20px!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px 18px!important;
+  overflow:visible!important;
+ }
  .logoBar .logoB2BLast{display:none!important}
- .logoBar .logoItem img{max-height:52px!important}
+ .logoBar .logoItem img{max-width:100%!important}
 }
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
