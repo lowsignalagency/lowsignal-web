@@ -5137,7 +5137,7 @@ html body [data-screen-label="Education Web v1"]>section:first-of-type>a{left:5%
 </style><style id="edu-home-exact-layout-20261119">html,body{margin:0!important;overflow-x:clip!important;background:#fafafa}html body>.site-nav{z-index:1800!important}html body>.low-footer{position:relative;z-index:1}html body>.low-footer>.shell{max-width:1440px!important;margin-inline:auto!important;padding-inline:100px!important}html body [data-screen-label="Education Web v1"]{max-width:none!important;width:100%!important;margin:0!important;overflow:clip!important}html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{box-sizing:border-box!important;max-width:1440px!important;width:100%!important;margin-inline:auto!important;padding-inline:100px!important}html body [data-screen-label="Education Web v1"]>section[style*="padding:110px"]{padding-top:90px!important;padding-bottom:90px!important}html body [data-screen-label="Education Web v1"]>section[style*="padding:46px 136px"]{padding-inline:max(100px,calc((100vw - 1440px)/2 + 100px))!important}html body [data-screen-label="Education Web v1"]>section:first-of-type h1{left:max(100px,calc((100vw - 1440px)/2 + 100px))!important;right:max(100px,calc((100vw - 1440px)/2 + 100px))!important;font-size:clamp(38px,4.6vw,72px)!important}html body [data-screen-label="Education Web v1"]>section:first-of-type>div[style*="left:5vw"],html body [data-screen-label="Education Web v1"]>section:first-of-type>p{left:max(100px,calc((100vw - 1440px)/2 + 100px))!important}html body [data-screen-label="Education Web v1"]>section:first-of-type>a{right:max(100px,calc((100vw - 1440px)/2 + 100px))!important}html body [data-screen-label="Education Web v1"]>section h2{font-size:clamp(28px,3vw,45px)!important}html body [data-screen-label="Education Web v1"]>section h3{font-size:clamp(18px,1.5vw,24px)!important}html body [data-screen-label="Education Web v1"]>section p{font-size:clamp(12px,1vw,15px)!important}html body [data-screen-label="Education Web v1"]>section a[style*="border-radius:999px"]{font-size:12px!important;padding:12px 20px!important;min-height:42px!important}@media(max-width:760px){html body>.low-footer>.shell{padding-inline:22px!important}html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{padding-inline:22px!important;margin-inline:0!important}html body [data-screen-label="Education Web v1"]>section[style*="padding:110px"]{padding-block:65px!important}html body [data-screen-label="Education Web v1"]>section[style*="padding:46px 136px"]{padding-inline:22px!important}html body [data-screen-label="Education Web v1"]>section:first-of-type h1{left:22px!important;right:22px!important;font-size:clamp(35px,9vw,46px)!important}html body [data-screen-label="Education Web v1"]>section:first-of-type>div[style*="left:5vw"],html body [data-screen-label="Education Web v1"]>section:first-of-type>p{left:22px!important;right:22px!important}html body [data-screen-label="Education Web v1"]>section:first-of-type>a{right:22px!important}html body [data-screen-label="Education Web v1"]>section h2{font-size:clamp(27px,7vw,34px)!important}html body [data-screen-label="Education Web v1"]>section h3{font-size:20px!important}html body [data-screen-label="Education Web v1"]>section p{font-size:14px!important}}</style><style id="education-section-flow-repair-20261119">
 /* Preserve Home navigation and footer; isolate Education page content. */
 html body>main.education-page{display:block!important;position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;clear:both;isolation:isolate}
-html body>main.education-page>[data-screen-label="Education Web v1"]{display:flow-root!important;position:relative!important;width:100%!important;max-width:1440px!important;margin:0 auto!important;padding:0!important;overflow:clip!important;background:#fafafa}
+html body>main.education-page>[data-screen-label="Education Web v1"]{display:flow-root!important;position:relative!important;width:100%!important;max-width:1440px!important;margin:0 auto!important;padding:0!important;overflow:visible!important;background:#fafafa}
 html body>main.education-page [data-screen-label="Education Web v1"]>section{box-sizing:border-box!important;position:relative!important;float:none!important;clear:both!important;width:100%!important;margin:0!important;min-width:0!important}
 html body>main.education-page [data-screen-label="Education Web v1"]>section:not(:first-of-type){height:auto!important;min-height:0}
 html body>main.education-page [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],
@@ -5988,6 +5988,34 @@ render();
  html body>main.education-page>[data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{
    margin:0 20px!important;padding:0!important;width:auto!important;
    max-width:calc(100% - 40px)!important;
+ }
+}
+</style>
+<style id="education-true-full-bleed-hero-20261119">
+/* Allow the hero to span the actual viewport while editorial rails stay
+   in the same centered 1440px container used by Home. */
+html body>main.education-page{overflow:visible!important}
+html body>main.education-page>[data-screen-label="Education Web v1"]{
+ overflow:visible!important;
+}
+html body>main.education-page>[data-screen-label="Education Web v1"]>section:first-of-type{
+ position:relative!important;
+ left:50%!important;
+ transform:translateX(-50%)!important;
+ width:100vw!important;
+ max-width:none!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+html body>main.education-page>[data-screen-label="Education Web v1"]>section:first-of-type>img{
+ position:absolute!important;inset:0!important;
+ width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center 58%!important;
+}
+@media(max-width:760px){
+ html body>main.education-page>[data-screen-label="Education Web v1"]>section:first-of-type{
+   left:auto!important;transform:none!important;width:100%!important;
  }
 }
 </style></body></html>
