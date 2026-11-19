@@ -1833,7 +1833,8 @@ body{background:#f7f7f5;color:#171b24}
 .about-v3 .v3-tile.big .v3-kicker{color:#b5c5ff}
 .about-v3 .v3-chip-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:27px}
 .about-v3 .v3-chip-row a{color:#fff;border:1px solid rgba(255,255,255,.85);border-radius:999px;padding:10px 17px;font-size:clamp(13px,1.3vw,18px)}
-.about-v3 .v3-tile.big p{position:absolute;bottom:28px;left:38px;color:#dbe4ff;font-size:13px}
+.about-v3 .v3-tile.big > p:last-child{position:absolute;bottom:28px;left:38px;color:#dbe4ff;font-size:13px}
+.about-v3 .v3-tile.big > p.v3-kicker{position:static;bottom:auto;left:auto;margin:0;color:#b5c5ff;font-size:11px}
 .about-v3 .v3-number{display:flex;flex-direction:column;justify-content:space-between;padding:27px 30px;background:white;border:1px solid #e2e6f0}
 .about-v3 .v3-number strong{font-size:clamp(45px,5.1vw,76px);font-weight:300;letter-spacing:-.06em;color:#111a3a}
 .about-v3 .v3-number span{font-size:13px;color:#67738d}
@@ -1874,7 +1875,7 @@ body{background:#f7f7f5;color:#171b24}
 .about-v3 .v3-mosaic{padding-bottom:85px}
 .about-v3 .v3-bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:190px;gap:10px}
 .about-v3 .v3-tile.big{grid-column:span 2;padding:25px 22px}
-.about-v3 .v3-tile.big p{left:22px;bottom:20px}
+.about-v3 .v3-tile.big > p:last-child{left:22px;bottom:20px}
 .about-v3 .v3-number{padding:20px}
 .about-v3 .v3-number strong{font-size:52px}
 .about-v3 .v3-services{grid-column:span 2;padding:22px}
