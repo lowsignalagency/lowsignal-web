@@ -1011,6 +1011,54 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
     linear-gradient(155deg,#0b1435,#070c1b 49%,#0c1850)!important;
  }
 }
+
+/* Navbar and footer: one lowsignal blue atmosphere.
+   Transparent on hero; brand-gradient when scrolling or menu is open. */
+@media(min-width:851px){
+  html body .site-nav.nav-scrolled{
+    background-color:#070c1b!important;
+    background-image:
+      radial-gradient(ellipse 48% 250% at 101% 0%,rgba(23,39,216,.83),transparent 87%),
+      radial-gradient(ellipse 47% 250% at -5% 0%,rgba(82,118,223,.57),transparent 90%),
+      linear-gradient(115deg,#091126 4%,#080d21 47%,#0c1552 100%)!important;
+    background-repeat:no-repeat!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  html body .site-nav:not(.nav-scrolled):not(.mobile-open){
+    background-image:none!important;
+    background-color:transparent!important;
+  }
+}
+@media(max-width:760px){
+  html body>.nav-wrap.is-scrolled,
+  html body.mobile-menu-open>.nav-wrap{
+    background-color:#070c1b!important;
+    background-image:
+      radial-gradient(ellipse 77% 260% at 108% 0%,rgba(23,39,216,.73),transparent 90%),
+      radial-gradient(ellipse 80% 270% at -21% 0%,rgba(82,118,223,.44),transparent 95%),
+      linear-gradient(115deg,#091126,#080d21 50%,#0c1552)!important;
+    background-repeat:no-repeat!important;
+  }
+  html body>.nav-wrap.is-scrolled>.nav,
+  html body.mobile-menu-open>.nav-wrap>.nav{
+    background:transparent!important;
+    background-image:none!important;
+  }
+  html body>.nav-wrap:not(.is-scrolled):not(.is-menu-preview){
+    background:transparent!important;
+    background-image:none!important;
+  }
+  html body.mobile-menu-open>.mobile-nav-panel,
+  html body>.mobile-nav-panel.is-open{
+    background-color:#070c1b!important;
+    background-image:
+      radial-gradient(ellipse 87% 48% at 108% 0%,rgba(23,39,216,.45),transparent 90%),
+      radial-gradient(ellipse 80% 48% at -24% 1%,rgba(82,118,223,.25),transparent 92%),
+      linear-gradient(150deg,#091126,#070c1b 58%,#0c1552)!important;
+    background-repeat:no-repeat!important;
+  }
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
