@@ -2147,6 +2147,77 @@ html body .about-main.about-v3 .v3-mosaic::after{
 /* Show the actual LowSignal favicon in the round history marker. */
 .about-v3 .v3-history-note .v3-mark{overflow:hidden;padding:0!important;background:#344bd0}
 .about-v3 .v3-history-note .v3-mark img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important}
+</style><style id="about-v3-social-blue-mobile-repair-20261119">
+/* Same brand accent as Low Social, including headings, accents and active elements. */
+.about-v3 .v3-history h2 span,.about-v3 .v3-team h2 span,
+.about-v3 .v3-kicker,.about-v3 .v3-tile .v3-kicker{color:#1419E0!important}
+.about-v3 .v3-tile.big .v3-kicker{color:#B5C5FF!important}
+.about-v3 .v3-history-note .v3-mark{background:#1419E0!important}
+.about-v3 .v3-history-note .v3-mark img{object-fit:contain!important}
+/* Prevent narrow viewport overflow and avoid clipping content around photos. */
+.about-v3 .v3-history-grid>*,.about-v3 .v3-team-head>*,.about-v3 .v3-bento>*{min-width:0}
+.about-v3 .v3-history h2,.about-v3 .v3-team h2{overflow-wrap:break-word}
+@media(max-width:960px){
+ .about-v3 .v3-hero>.v3-shell{width:calc(100% - 44px)!important;max-width:100%!important;margin-inline:22px!important}
+ .about-v3 .v3-hero,.about-v3 .v3-hero-inner{min-height:0!important}
+ .about-v3 .v3-hero-inner{padding-top:clamp(125px,16vw,165px)!important;padding-bottom:62px!important}
+ .about-v3 .v3-hero-title{position:relative!important}
+ .about-v3 .v3-hero h1{max-width:100%!important;overflow-wrap:normal}
+ .about-v3 .v3-polaroid,.about-v3 .v3-chat,.about-v3 .v3-hero-bottom{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important}
+ .about-v3 .v3-polaroid{width:min(60%,320px)!important;max-width:320px!important;margin:55px 0 0 8px!important;transform:rotate(-4deg)!important}
+ .about-v3 .v3-polaroid img{width:100%!important;height:auto!important;aspect-ratio:4 / 3;object-fit:cover!important}
+ .about-v3 .v3-chat{width:min(74%,390px)!important;margin:-45px 0 0 auto!important;z-index:2}
+ .about-v3 .v3-hero-bottom{justify-content:flex-start!important;gap:14px!important;margin:52px 0 0!important}
+ .about-v3 .v3-history-grid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important}
+ .about-v3 .v3-history-visual{padding-left:0!important}
+ .about-v3 .v3-history-visual img{width:100%!important;height:auto!important;aspect-ratio:4 / 3;object-fit:cover!important}
+ .about-v3 .v3-history-note{max-width:calc(100% - 20px)}
+}
+@media(max-width:700px){
+ .about-main.about-v3{overflow-x:clip!important}
+ .about-v3 .v3-hero-inner{padding-top:125px!important;padding-bottom:48px!important}
+ .about-v3 .v3-hero h1{font-size:clamp(38px,9.3vw,60px)!important;line-height:1.1!important;letter-spacing:-.055em!important}
+ .about-v3 .v3-hero-title .v3-pill{padding:.02em .29em .10em!important}
+ .about-v3 .v3-polaroid{width:min(64%,265px)!important;margin-top:50px!important}
+ .about-v3 .v3-polaroid img{height:auto!important}
+ .about-v3 .v3-chat{width:min(78%,310px)!important;margin-top:-32px!important}
+ .about-v3 .v3-bubble{padding:11px 13px!important;font-size:11px!important}
+ .about-v3 .v3-hero-bottom{margin-top:45px!important;flex-wrap:wrap}
+ .about-v3 .v3-history>.v3-shell,.about-v3 .v3-mosaic>.v3-shell,.about-v3 .v3-team>.v3-shell{
+  box-sizing:border-box!important;width:calc(100% - 40px)!important;max-width:none!important;
+  margin-inline:20px!important;padding:0!important;
+ }
+ .about-v3 .v3-history h2,.about-v3 .v3-team h2{font-size:clamp(28px,7vw,36px)!important;line-height:1.18!important}
+ .about-v3 .v3-history-note{position:relative!important;left:auto!important;bottom:auto!important;top:auto!important;margin:-27px 10px 0!important;max-width:calc(100% - 20px)!important;padding:12px!important;gap:10px!important}
+ .about-v3 .v3-history-note strong{font-size:12px!important}
+ .about-v3 .v3-history-note small{font-size:10px!important}
+ .about-v3 .v3-mosaic .v3-bento{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-rows:auto!important;align-items:stretch!important;gap:10px!important;
+ }
+ .about-v3 .v3-mosaic .v3-tile{min-width:0!important;min-height:160px!important}
+ .about-v3 .v3-mosaic .v3-tile.big{grid-column:1/-1!important;min-height:235px!important;padding:24px 21px!important}
+ .about-v3 .v3-mosaic .v3-tile.big>p:last-child{position:static!important;margin:27px 0 0!important;font-size:12px!important;line-height:1.55!important}
+ .about-v3 .v3-mosaic .v3-chip-row{margin-top:25px!important;gap:7px!important}
+ .about-v3 .v3-mosaic .v3-chip-row a{font-size:11px!important;padding:9px 12px!important}
+ .about-v3 .v3-mosaic .v3-tile.v3-number{padding:20px!important;min-height:175px!important}
+ .about-v3 .v3-mosaic .v3-photo{min-height:175px!important}
+ .about-v3 .v3-mosaic .v3-photo img{width:100%!important;height:100%!important;min-height:175px!important;object-fit:cover!important}
+ .about-v3 .v3-mosaic .v3-services{grid-column:1/-1!important;min-height:230px!important;padding:22px!important}
+ .about-v3 .v3-team .v3-team-head{display:block!important}
+ .about-v3 .v3-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important}
+ .about-v3 .v3-person{min-width:0!important}
+ .about-v3 .v3-person-photo img{height:auto!important;aspect-ratio:1 / 1.05!important;object-fit:cover!important}
+ .about-v3 .v3-person strong{overflow-wrap:break-word}
+}
+@media(max-width:380px){
+ .about-v3 .v3-hero h1{font-size:clamp(35px,9vw,39px)!important}
+ .about-v3 .v3-mosaic .v3-bento{gap:8px!important}
+ .about-v3 .v3-mosaic .v3-tile.v3-number{padding:14px!important}
+ .about-v3 .v3-mosaic .v3-number span{font-size:11px!important}
+ .about-v3 .v3-mosaic .v3-services{padding:17px!important}
+ .about-v3 .v3-mosaic .v3-service-links a{font-size:10px!important;padding:8px 10px!important}
+}
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
