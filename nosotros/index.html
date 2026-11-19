@@ -1529,14 +1529,66 @@ body{background:#f7f7f5;color:#171b24}
 }
 @media(max-width:370px){.about-team .team-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.about-team .person-photo img,.about-industries-links a{transition:none}}
+
+/* About atmosphere — luminous blue brand identity, without flat-color sections. */
+.about-main .about-hero{
+ isolation:isolate;
+ background-color:#070d2b!important;
+ background-image:
+   radial-gradient(ellipse 68% 110% at 102% 36%,rgba(76,104,255,.92) 0%,rgba(32,51,207,.54) 38%,transparent 75%),
+   radial-gradient(ellipse 44% 72% at 60% 110%,rgba(82,110,248,.47) 0%,transparent 78%),
+   radial-gradient(ellipse 48% 85% at -18% 58%,rgba(42,69,201,.64) 0%,transparent 78%),
+   linear-gradient(112deg,#060c25 0%,#080e32 45%,#1119a6 100%)!important;
+ background-size:cover!important;
+ overflow:hidden;
+}
+.about-main .about-hero::before{
+ content:"";position:absolute;z-index:0;pointer-events:none;
+ width:min(70vw,1040px);height:min(70vw,1040px);
+ right:-24%;top:-55%;border-radius:50%;
+ background:radial-gradient(circle,rgba(142,164,255,.32),rgba(88,101,255,.11) 42%,transparent 70%);
+ filter:blur(55px);
+}
+.about-main .about-hero::after{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:
+  linear-gradient(180deg,rgba(5,10,35,.12) 0%,transparent 35%,rgba(5,10,29,.35) 100%),
+  radial-gradient(ellipse 45% 75% at 35% 0%,rgba(9,20,65,.72),transparent 85%)!important;
+}
+.about-main .about-hero .about-shell{position:relative;z-index:2}
+.about-main .about-hero h1{text-shadow:0 2px 32px rgba(8,13,45,.12)}
+.about-main .about-hero h1 span{color:#e0e6ff!important}
+.about-main .about-hero-bottom{border-color:rgba(233,237,255,.32)}
+.about-main .about-photo{
+ background:
+ radial-gradient(ellipse 85% 115% at 75% 0%,#253dd5 0%,#101e79 37%,transparent 76%),
+ linear-gradient(120deg,#090e2d,#090e22 72%)!important;
+}
+.about-main .about-photo img{box-shadow:0 22px 75px rgba(2,6,27,.27)}
+.about-main .about-team{
+ background:
+  radial-gradient(ellipse 80% 60% at 97% 1%,rgba(48,64,193,.38),transparent 72%),
+  radial-gradient(ellipse 65% 75% at -22% 104%,rgba(24,47,133,.37),transparent 75%),
+  linear-gradient(130deg,#070c1b 5%,#0a1030 60%,#101c5a 100%)!important;
+}
+@media(max-width:760px){
+ .about-main .about-hero{
+  background-image:
+   radial-gradient(ellipse 115% 72% at 110% 49%,rgba(52,72,232,.7),transparent 78%),
+   radial-gradient(ellipse 90% 70% at -30% 88%,rgba(44,72,197,.5),transparent 80%),
+   linear-gradient(135deg,#060b26,#101b76 100%)!important;
+ }
+ .about-main .about-hero::before{width:115vw;height:115vw;right:-52%;top:-18%;filter:blur(30px)}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-rec">Recursos <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-rec"><div class="mega-kicker">EXPLORE LOWSIGNAL</div><a class="mega-item" href="https://lowsignal.cl/recursos/insights"><b>Insights</b><small>Ideas y perspectivas</small></a><a class="mega-item" href="https://lowsignal.cl/recursos/insiders"><b>Insiders</b><small>Comunidad y oportunidades</small></a><a class="mega-item" href="https://lowsignal.cl/recursos/jobs"><b>Jobs</b><small>Construye lo que viene</small></a></div></div>
-<a class="simple-nav" href="#enfoque">Planes</a><a class="simple-nav" href="https://lowsignal.cl/casos">Customer Stories</a><a class="simple-nav" href="https://lowsignal.cl/nosotros">Nosotros</a></nav><div class="nav-actions"><a class="nav-cta" href="https://lowsignal.cl/contacto">Hablemos <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a><button class="hamburger" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button></div></div>
+<a class="simple-nav" href="#team">Planes</a><a class="simple-nav" href="https://lowsignal.cl/casos">Customer Stories</a><a class="simple-nav" href="https://lowsignal.cl/nosotros">Nosotros</a></nav><div class="nav-actions"><a class="nav-cta" href="https://lowsignal.cl/contacto">Hablemos <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a><button class="hamburger" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button></div></div>
 <div class="mobile-panel" id="mobilePanel"><details><summary>Soluciones <span>+</span></summary><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a></details><details><summary>Industrias <span>+</span></summary><a href="https://lowsignal.cl/industrias/educacion">Education</a><a href="https://lowsignal.cl/industrias/b2b">B2B</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C</a></details><details><summary>Recursos <span>+</span></summary><a href="https://lowsignal.cl/recursos/insights">Insights</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a></details><a href="https://lowsignal.cl/casos">Customer Stories <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a><a href="https://lowsignal.cl/nosotros">Nosotros <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a><a href="https://lowsignal.cl/contacto">Contacto <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a></div></header>
 <div class="nav-wrap"><nav class="nav"><a class="brand" href="https://lowsignal.cl" aria-label="Ir al inicio de lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><a class="mobile-nav-cta" href="https://lowsignal.cl/contacto">Hablemos</a><button class="mobile-nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button></nav></div>
-<div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner"><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-0"><span>Soluciones</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-0" hidden><span class="mobile-menu-label">MARKETING &amp; CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Diseño y desarrollo web</small></a><span class="mobile-menu-label">TECNOLOGÍA &amp; IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Sistemas para escalar</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-1"><span>Industrias</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-1" hidden><span class="mobile-menu-label">BUILT FOR YOUR INDUSTRY</span><a href="https://lowsignal.cl/industrias/educacion"><strong>Education</strong><small>Para instituciones que transforman el futuro</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>B2B</strong><small>Para empresas y equipos comerciales</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>B2C</strong><small>Para marcas que conectan con personas</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-2"><span>Recursos</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-2" hidden><span class="mobile-menu-label">EXPLORE LOWSIGNAL</span><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y perspectivas</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Comunidad y oportunidades</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Construye lo que viene</small></a></div></div><a class="mobile-nav-direct" href="#enfoque">Planes</a><a class="mobile-nav-direct" href="https://lowsignal.cl/casos">Customer Stories</a><a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a><a class="mobile-nav-talk" href="https://lowsignal.cl/contacto">Hablemos</a></div></div>
+<div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner"><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-0"><span>Soluciones</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-0" hidden><span class="mobile-menu-label">MARKETING &amp; CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Diseño y desarrollo web</small></a><span class="mobile-menu-label">TECNOLOGÍA &amp; IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Sistemas para escalar</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-1"><span>Industrias</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-1" hidden><span class="mobile-menu-label">BUILT FOR YOUR INDUSTRY</span><a href="https://lowsignal.cl/industrias/educacion"><strong>Education</strong><small>Para instituciones que transforman el futuro</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>B2B</strong><small>Para empresas y equipos comerciales</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>B2C</strong><small>Para marcas que conectan con personas</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-2"><span>Recursos</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-2" hidden><span class="mobile-menu-label">EXPLORE LOWSIGNAL</span><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y perspectivas</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Comunidad y oportunidades</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Construye lo que viene</small></a></div></div><a class="mobile-nav-direct" href="#team">Planes</a><a class="mobile-nav-direct" href="https://lowsignal.cl/casos">Customer Stories</a><a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a><a class="mobile-nav-talk" href="https://lowsignal.cl/contacto">Hablemos</a></div></div>
 
 <main class="about-main" id="top">
 <section class="about-hero">
@@ -1550,22 +1602,6 @@ body{background:#f7f7f5;color:#171b24}
 <section class="about-story" id="historia"><div class="about-shell about-story-grid">
  <div><span class="about-overline">NUESTRA HISTORIA</span><h2>Less noise.<br><span>More growth.</span></h2></div>
  <div class="about-story-copy"><p class="lead">El crecimiento de un negocio se ha vuelto cada vez más complejo. Las marcas necesitan conectar estrategia, creatividad, tecnología y datos, pero muchas veces estas disciplinas trabajan por separado.</p><p>Creemos que crecer no debería significar hacer más de todo. Significa tomar mejores decisiones, construir procesos inteligentes y conectar cada acción con un propósito claro.</p><p>Fundada en 2025, lowsignal nació para reunir distintas capacidades en un mismo lugar. Desde estrategia y contenido hasta desarrollo, automatización e inteligencia artificial, construimos soluciones que ayudan a las organizaciones a avanzar con mayor claridad y consistencia.</p><p>Hoy seguimos construyendo esa visión junto a marcas y organizaciones de distintas industrias. El verdadero crecimiento no está en hacer más ruido, sino en crear algo que funcione mejor.</p></div>
-</div></section>
-<section class="about-method" id="enfoque"><div class="about-shell">
- <div class="about-method-head"><div><span class="about-overline">NUESTRA FORMA DE TRABAJAR</span><h2>No hacemos acciones aisladas.<br><span>Construimos sistemas.</span></h2></div><p>Unimos capacidades que suelen trabajar separadas. Una marca, una campaña o un producto digital crean más valor cuando son parte de una estrategia conectada.</p></div>
- <div class="about-method-list">
-  <div class="about-method-row"><span>01 /</span><h3>Pensar antes de ejecutar.</h3><p>Entendemos el negocio, las personas y el desafío antes de definir qué construir.</p></div>
-  <div class="about-method-row"><span>02 /</span><h3>Conectar cada pieza.</h3><p>Contenido, adquisición, producto, datos e IA trabajando hacia el mismo objetivo.</p></div>
-  <div class="about-method-row"><span>03 /</span><h3>Diseñar para evolucionar.</h3><p>Creamos soluciones que pueden medirse, mejorarse y crecer junto a cada organización.</p></div>
- </div>
-</div></section>
-<section class="about-industries"><div class="about-shell about-industries-grid">
- <div><span class="about-overline">BUILT FOR YOUR INDUSTRY</span><h2>Distintos desafíos.<br>Una misma forma de construir.</h2></div>
- <div class="about-industries-links">
-  <a href="https://lowsignal.cl/industrias/educacion"><strong>Education</strong><small>Instituciones y comunidades educativas</small><b aria-hidden="true">↗</b></a>
-  <a href="https://lowsignal.cl/industrias/b2b"><strong>B2B</strong><small>Empresas, servicios y tecnología</small><b aria-hidden="true">↗</b></a>
-  <a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>B2C</strong><small>Marcas, experiencias y consumidores</small><b aria-hidden="true">↗</b></a>
- </div>
 </div></section>
 <section class="about-team" id="team"><div class="about-shell">
  <div class="about-team-intro"><div><span class="about-overline">NUESTRO EQUIPO</span><h2>Conoce al equipo<br><span>detrás de lowsignal.</span></h2></div><p>Somos ingenieros, creativos, diseñadores y desarrolladores. Distintas disciplinas, una misma curiosidad: resolver problemas y construir cosas que funcionen.</p></div>
