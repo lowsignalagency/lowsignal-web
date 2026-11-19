@@ -5197,45 +5197,6 @@ html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80
 html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="left:80px"],html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="right:80px"]{display:none!important}
 html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{margin:0!important;max-width:100%!important;width:100%!important;padding:0 22px!important}
 }
-</style><style id="education-home-alignment-fix">
-/* Education alignment and visibility repair — match Home editorial rails.
-   The education canvas is max-width:1440px, so rail offsets must be
-   relative to that canvas, not recalculated from the viewport. */
-html body [data-screen-label="Education Web v1"]{width:100%!important;max-width:1440px!important;margin-inline:auto!important;overflow:visible}
-html body [data-screen-label="Education Web v1"]>section{min-width:0;isolation:isolate}
-@media(min-width:761px){
- html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="left:80px"]{
-   left:80px!important;right:auto!important;display:block!important;visibility:visible!important;
-   width:1px!important;max-width:1px!important;opacity:1!important;background:#ececec!important;pointer-events:none!important;
- }
- html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="right:80px"]{
-   right:80px!important;left:auto!important;display:block!important;visibility:visible!important;
-   width:1px!important;max-width:1px!important;opacity:1!important;background:#ececec!important;pointer-events:none!important;
- }
- html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],
- html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{
-   width:auto!important;max-width:none!important;margin:0 80px!important;padding:0 56px!important;
-   min-width:0!important;box-sizing:border-box!important;position:relative;
- }
- html body [data-screen-label="Education Web v1"]>section[style*="padding:46px 136px"]{padding-inline:136px!important}
-}
-@media(max-width:760px){
- html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="left:80px"],
- html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="right:80px"]{display:none!important}
- html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],
- html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{
-   width:auto!important;max-width:none!important;margin:0 20px!important;
-   padding:0!important;min-width:0!important;
- }
- html body [data-screen-label="Education Web v1"]>section :is(h1,h2,h3,p){max-width:100%;overflow-wrap:break-word}
-}
-/* Ensure content remains readable even if an old scroll-reveal script fails. */
-html body [data-screen-label="Education Web v1"] .ls-motion-target:not(.ls-motion-visible){
- opacity:1!important;transform:none!important;
-}
-html body [data-screen-label="Education Web v1"]>section:not(:first-of-type) :is(h2,h3,p){
- visibility:visible;
-}
 </style></head>
 <body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
@@ -5832,4 +5793,43 @@ class Component extends DCLogic {
  addEventListener('scroll',()=>{nav?.classList.toggle('nav-scrolled',scrollY>20);document.querySelector('body>.nav-wrap')?.classList.toggle('is-scrolled',scrollY>20)},{passive:true});
  document.querySelectorAll('[data-ai]').forEach(a=>a.addEventListener('click',()=>{const q=encodeURIComponent('¿Cómo puede lowsignal ayudar a mi empresa?');const m={chatgpt:'https://chatgpt.com/?q='+q,gemini:'https://gemini.google.com/app',perplexity:'https://www.perplexity.ai/search?q='+q,claude:'https://claude.ai/new'};if(m[a.dataset.ai]){a.href=m[a.dataset.ai];a.target='_blank';a.rel='noopener noreferrer'}}));
 })();
-</script></body></html>
+</script><style id="education-home-alignment-fix">
+/* Education alignment and visibility repair — match Home editorial rails.
+   The education canvas is max-width:1440px, so rail offsets must be
+   relative to that canvas, not recalculated from the viewport. */
+html body [data-screen-label="Education Web v1"]{width:100%!important;max-width:1440px!important;margin-inline:auto!important;overflow:visible}
+html body [data-screen-label="Education Web v1"]>section{min-width:0;isolation:isolate}
+@media(min-width:761px){
+ html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="left:80px"]{
+   left:80px!important;right:auto!important;display:block!important;visibility:visible!important;
+   width:1px!important;max-width:1px!important;opacity:1!important;background:#ececec!important;pointer-events:none!important;
+ }
+ html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="right:80px"]{
+   right:80px!important;left:auto!important;display:block!important;visibility:visible!important;
+   width:1px!important;max-width:1px!important;opacity:1!important;background:#ececec!important;pointer-events:none!important;
+ }
+ html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],
+ html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{
+   width:auto!important;max-width:none!important;margin:0 80px!important;padding:0 56px!important;
+   min-width:0!important;box-sizing:border-box!important;position:relative;
+ }
+ html body [data-screen-label="Education Web v1"]>section[style*="padding:46px 136px"]{padding-inline:136px!important}
+}
+@media(max-width:760px){
+ html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="left:80px"],
+ html body [data-screen-label="Education Web v1"]>section>div[style*="width:1px"][style*="right:80px"]{display:none!important}
+ html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 80px"],
+ html body [data-screen-label="Education Web v1"]>section>div[style*="margin:0 104px"]{
+   width:auto!important;max-width:none!important;margin:0 20px!important;
+   padding:0!important;min-width:0!important;
+ }
+ html body [data-screen-label="Education Web v1"]>section :is(h1,h2,h3,p){max-width:100%;overflow-wrap:break-word}
+}
+/* Ensure content remains readable even if an old scroll-reveal script fails. */
+html body [data-screen-label="Education Web v1"] .ls-motion-target:not(.ls-motion-visible){
+ opacity:1!important;transform:none!important;
+}
+html body [data-screen-label="Education Web v1"]>section:not(:first-of-type) :is(h2,h3,p){
+ visibility:visible;
+}
+</style></body></html>
