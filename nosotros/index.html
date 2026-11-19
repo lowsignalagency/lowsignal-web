@@ -1674,6 +1674,51 @@ body{background:#f7f7f5;color:#171b24}
  .about-main .about-team .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
 
+
+/* Founders photo: remove browser-default figure margins and blue side gutters. */
+.about-main figure.about-photo{
+ display:block!important;
+ width:100%!important;
+ max-width:none!important;
+ margin:0!important;
+ padding:40px 0 0!important;
+ background:#f7f7f5!important;
+ background-image:none!important;
+ box-sizing:border-box!important;
+}
+.about-main figure.about-photo .about-shell{
+ width:90%!important;
+ max-width:1450px!important;
+ margin:0 auto!important;
+ padding:0!important;
+ background:transparent!important;
+}
+.about-main figure.about-photo img{
+ display:block!important;
+ width:100%!important;
+ max-width:100%!important;
+ height:clamp(320px,38vw,570px)!important;
+ object-fit:cover!important;
+ object-position:center 43%!important;
+ border-radius:4px!important;
+ filter:none!important;
+ box-shadow:none!important;
+}
+.about-main figure.about-photo figcaption{
+ color:#747e8f!important;
+ padding-top:13px!important;
+}
+.about-main .about-story{padding-top:clamp(72px,8vw,112px)!important}
+@media(max-width:760px){
+ .about-main figure.about-photo{padding-top:22px!important}
+ .about-main figure.about-photo .about-shell{width:calc(100% - 40px)!important}
+ .about-main figure.about-photo img{
+  height:clamp(245px,62vw,360px)!important;
+  object-position:center 44%!important;
+ }
+ .about-main .about-story{padding-top:70px!important}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
