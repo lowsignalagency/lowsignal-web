@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="theme-color" content="#020712" media="(max-width: 760px)">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070c1b"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="lowsignal for B2B: growth, posicionamiento, demanda, web y automatización para empresas con ventas consultivas y ciclos comerciales complejos.">
   <link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png">
   <link rel="apple-touch-icon" href="https://lowsignal.cl/assets/profile.png">
@@ -795,7 +795,141 @@ body > .lnav .lnav-mega-inner {background:transparent !important}
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
 </style>
-</head>
+<style id="low-b2b-education-parity">
+/* Education-aligned B2B design system: editorial pricing, brand navbar/footer */
+@media(min-width:761px){
+ html body>.nav-wrap,html body>.mobile-nav-panel{display:none!important}
+ .lnav{background:rgba(7,12,27,.94)!important;transition:background-color .25s ease}
+ .lnav.low-scrolled{background-color:#070c1b!important;background-image:
+ radial-gradient(ellipse 45% 260% at 102% 0%,rgba(23,39,216,.80),transparent 88%),
+ radial-gradient(ellipse 50% 260% at -4% 0%,rgba(82,118,223,.55),transparent 91%),
+ linear-gradient(115deg,#091126,#080d21 52%,#0c1552)!important}
+ .lnav28-link:hover,.lnav28-link:focus-visible{background:rgba(255,255,255,.07)!important;transform:none!important}
+ .lnav28-link:hover b,.lnav28-link:focus-visible b{color:#fff!important}
+}
+/* Fixed iOS-safe mobile header from the current Education navigation */
+@media(max-width:760px){
+ html,body{max-width:100%!important;overflow-x:clip!important}
+ html{background:#070c1b!important}
+ body:not(.mobile-menu-open){overflow-y:auto!important;height:auto!important;touch-action:pan-y!important}
+ .lnav{display:none!important}
+ body>.nav-wrap{display:block!important;position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;height:calc(74px + env(safe-area-inset-top,0px))!important;min-height:calc(74px + env(safe-area-inset-top,0px))!important;padding:env(safe-area-inset-top,0px) 0 0!important;background:#070c1b!important;background-image:none!important;box-shadow:0 1px 0 rgba(255,255,255,.12)!important;border:0!important;border-radius:0!important;z-index:1600!important;pointer-events:auto!important;box-sizing:border-box!important;visibility:visible!important}
+ body>.nav-wrap>.nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;height:74px!important;min-height:74px!important;width:100%!important;max-width:100%!important;padding:0 max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px))!important;margin:0!important;background:#070c1b!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;pointer-events:auto!important}
+ body>.nav-wrap .brand{display:flex!important;flex:0 1 auto!important;max-width:45%!important;margin-right:auto!important;min-width:0!important;align-items:center!important}
+ body>.nav-wrap .brand img{display:block!important;max-height:32px!important;height:auto!important;width:clamp(116px,33vw,166px)!important;object-fit:contain!important}
+ body>.nav-wrap .mobile-nav-cta{display:inline-flex!important;min-height:43px!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;border-radius:100px!important;padding:0 19px!important;background:#fff!important;color:#151515!important;font-size:14px!important;font-weight:700!important;text-decoration:none!important;white-space:nowrap!important}
+ body>.nav-wrap .mobile-nav-toggle{display:flex!important;position:relative!important;flex:0 0 39px!important;width:39px!important;height:44px!important;margin:0!important;padding:0!important;align-items:center!important;justify-content:center!important;border:0!important;background:transparent!important}
+ body>.nav-wrap .mobile-nav-toggle span{display:block!important;position:absolute!important;width:23px!important;height:2px!important;background:#e9edff!important;border-radius:10px!important}
+ body>.nav-wrap .mobile-nav-toggle span:first-child{transform:translateY(-4px)!important}
+ body>.nav-wrap .mobile-nav-toggle span:last-child{transform:translateY(4px)!important}
+ body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:first-child{transform:rotate(45deg)!important}
+ body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:last-child{transform:rotate(-45deg)!important}
+ body>.mobile-nav-panel{display:block!important;position:fixed!important;top:calc(74px + env(safe-area-inset-top,0px))!important;inset:auto 0 0!important;width:100%!important;max-width:100%!important;height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;max-height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;padding:18px 20px max(25px,env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;background:#070c1b!important;background-image:none!important;z-index:1590!important;overflow-y:auto!important;overflow-x:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .2s ease,visibility .2s ease!important}
+ body>.mobile-nav-panel.is-open{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+ body>.mobile-nav-panel .mobile-nav-inner{width:100%!important;max-width:560px!important;margin:0 auto!important}
+ body>.mobile-nav-panel .mobile-nav-group{border-bottom:1px solid rgba(255,255,255,.12)!important}
+ body>.mobile-nav-panel .mobile-nav-summary,body>.mobile-nav-panel .mobile-nav-direct{width:100%!important;min-height:60px!important;padding:0!important;color:#f7f8fb!important;font-size:17px!important;font-weight:550!important;background:transparent!important;border:0!important;text-align:left!important}
+ body>.mobile-nav-panel .mobile-nav-summary{display:flex!important;justify-content:space-between!important;align-items:center!important}
+ body>.mobile-nav-panel .mobile-nav-summary svg{width:13px!important;height:9px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+ body>.mobile-nav-panel .mobile-nav-summary[aria-expanded=true]{color:#aab8ff!important}
+ body>.mobile-nav-panel .mobile-nav-submenu[hidden]{display:none!important}
+ body>.mobile-nav-panel .mobile-nav-submenu:not([hidden]){display:flex!important;flex-direction:column!important;padding:2px 0 17px!important;gap:0!important}
+ body>.mobile-nav-panel .mobile-menu-label{display:block!important;margin:16px 0 8px!important;font-size:10px!important;font-weight:650!important;letter-spacing:.12em!important;color:#a2afc5!important}
+ body>.mobile-nav-panel .mobile-nav-submenu a{display:flex!important;flex-direction:column!important;gap:4px!important;padding:12px 0!important;margin:0!important;background:transparent!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.08)!important;text-decoration:none!important;border-radius:0!important;transform:none!important}
+ body>.mobile-nav-panel .mobile-nav-submenu a strong{font-size:15px!important;color:#fff!important;font-weight:550!important}
+ body>.mobile-nav-panel .mobile-nav-submenu a small{font-size:12px!important;line-height:1.5!important;color:#9ba6b6!important;font-weight:400!important}
+ body>.mobile-nav-panel .mobile-nav-direct{display:flex!important;align-items:center!important;border-bottom:1px solid rgba(255,255,255,.12)!important;text-decoration:none!important}
+ body>.mobile-nav-panel .mobile-nav-talk{display:flex!important;justify-content:center!important;align-items:center!important;background:#fff!important;color:#151515!important;border-radius:100px!important;min-height:48px!important;margin-top:18px!important;text-decoration:none!important}
+ .i28-hero{padding-top:calc(88px + env(safe-area-inset-top,0px))!important}
+ .i28-trust-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}
+ .i28-trust-cell:nth-child(n+5){display:none!important}
+ .pricing,.segments,.i28-solutions,.proof-band,.testimonials,.faq,.i28-cta{max-width:100%!important;box-sizing:border-box!important}
+}
+@media(max-width:360px){body>.nav-wrap .brand img{width:112px!important}body>.nav-wrap .mobile-nav-cta{font-size:12px!important;padding:0 12px!important}}
+/* Pricing: clean three-tier system, same proportions and hierarchy as Education. */
+.pricing{border-top:1px solid #e2e4e9!important;background:#fcfcfc!important}
+.pricing-head{text-align:left!important;margin-bottom:36px!important}
+.pricing .section-title{font-size:clamp(36px,4.6vw,65px)!important;line-height:1.08!important;letter-spacing:-.055em!important}
+.pricing-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:13px!important;align-items:stretch!important}
+.pricing-grid .plan{position:relative!important;display:flex!important;flex-direction:column!important;min-width:0!important;min-height:0!important;padding:0 0 22px!important;border:1px solid #e1e4ea!important;border-radius:14px!important;background:#fff!important;color:#151515!important;overflow:hidden!important;box-shadow:none!important;transform:none!important}
+.pricing-grid .plan.featured{border-color:#b8c3fa!important}
+.pricing-grid .plan>.plan-top{padding:26px 24px 20px!important;min-height:255px!important;background:#f3f3f2!important;display:flex!important;flex-direction:column!important}
+.pricing-grid .plan.featured>.plan-top{background:radial-gradient(ellipse at 27% 8%,#8da3ff,transparent 52%),linear-gradient(130deg,#1823df,#334de8 56%,#111a62)!important;color:#fff!important}
+.pricing-grid .plan-top .plan-kicker{margin:0!important;font-weight:700!important;letter-spacing:.06em!important;color:inherit!important}
+.pricing-grid .plan-top h3{font-size:23px!important;line-height:1.16!important;letter-spacing:-.035em!important;margin:18px 0 12px!important;color:inherit!important}
+.pricing-grid .plan-top .plan-desc{font-size:13px!important;line-height:1.55!important;color:inherit!important;opacity:.78!important;margin:0 0 auto!important}
+.pricing-grid .plan-top .price{margin:20px 0 0!important;padding:0!important;color:inherit!important;border:0!important}
+.pricing-grid .plan-top .price strong,.pricing-grid .plan-top .price span{color:inherit!important}
+.pricing-grid .plan .badge{top:18px!important;right:17px!important;z-index:2!important;background:rgba(255,255,255,.2)!important;color:#fff!important;border-color:rgba(255,255,255,.6)!important}
+.pricing-grid .plan .plan-cta{margin:15px 18px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:100px!important;padding:14px!important;background:#101426!important;color:#fff!important;text-decoration:none!important;font-size:13px!important}
+.pricing-grid .plan.featured .plan-cta{background:#121c58!important;color:#fff!important}
+.pricing-grid .plan .plan-includes-label{display:block!important;margin:4px 22px 0!important;padding-bottom:12px!important;border-bottom:1px solid #e8eaf0!important;color:#7b8493!important;font-size:10px!important;font-weight:650!important;letter-spacing:.08em!important}
+.pricing-grid .plan ul{padding:0 23px!important;margin:0!important;list-style:none!important;flex:1!important}
+.pricing-grid .plan ul li{display:flex!important;align-items:flex-start!important;gap:11px!important;padding:12px 0!important;margin:0!important;border-bottom:1px dotted #e8e9ef!important;color:#424951!important;font-size:12px!important;line-height:1.5!important}
+.pricing-grid .plan ul li::before{display:none!important;content:none!important}
+.pricing-grid .plan ul li svg{display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin-top:1px!important;color:#3952ee!important}
+.pricing-grid .plan ul li:last-child{border-bottom:0!important}
+.pricing-grid .plan ul li span{min-width:0!important;overflow-wrap:break-word!important}
+.compare-plans{margin-top:88px!important}
+.compare-head{margin-bottom:26px!important}
+.compare-head h3{font-size:clamp(31px,3.5vw,48px)!important}
+.b2b-compare-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.b2b-compare-tab{appearance:none;border:1px solid #e0e4ed;background:#fff;color:#5b6474;border-radius:100px;padding:12px 16px;font-size:12px;cursor:pointer;transition:background .18s,border-color .18s}
+.b2b-compare-tab.active{background:#e9edff;border-color:#c4d0ff;color:#171b29;font-weight:650}
+.b2b-compare-tab:hover{border-color:#8399ff}
+.compare-scroll{display:block!important;width:100%!important;max-width:100%!important;margin:0!important;border:1px solid #e7e9f0!important;border-radius:12px!important;background:#fff!important;overflow:hidden!important}
+.compare-table{width:100%!important;max-width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important}
+.compare-table thead{background:#f4f5f8!important}
+.compare-table thead th{color:#171b23!important;font-size:12px!important}
+.compare-table thead th.recommended-col{background:linear-gradient(115deg,#253fed,#516ff1)!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+.compare-table thead th.recommended-col *{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.compare-table tbody td.recommended-col{background:#f5f7ff!important;color:#303949!important}
+.compare-table tbody tr[hidden]{display:none!important}
+.compare-table tbody tr.compare-category{display:none!important}
+.compare-mobile{display:none!important}
+.b2b-mobile-comparison{display:none}
+@media(max-width:760px){
+ .pricing{padding:62px 0!important}
+ .pricing-grid{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+ .pricing-grid .plan>.plan-top{min-height:0!important;padding:24px 23px!important}
+ .pricing-grid .plan .plan-cta{margin:14px 17px!important}
+ .compare-plans{margin-top:62px!important}
+ .b2b-compare-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .b2b-compare-tab{padding:11px 9px!important;font-size:11px!important}
+ .compare-scroll{display:none!important}
+ .b2b-mobile-comparison{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:11px!important;width:100%!important}
+ .b2b-feature-card{border:1px solid #e2e5ee;background:#fff;border-radius:12px;padding:17px;min-width:0}
+ .b2b-feature-card h4{font-size:14px;line-height:1.4;margin:0 0 10px;color:#171b23}
+ .b2b-feature-row{display:flex;gap:14px;justify-content:space-between;align-items:center;border-top:1px solid #edf0f4;padding:10px 0;font-size:12px}
+ .b2b-feature-row strong{color:#737e93;font-weight:600;flex:0 0 76px}
+ .b2b-feature-row span{color:#303949;text-align:right;min-width:0;overflow-wrap:anywhere}
+ .b2b-feature-row:last-child{padding-bottom:0}
+ .i28-trust-grid{overflow:visible!important;scroll-snap-type:none!important}
+ .segments-grid,.i28-stack,.pricing-grid,.b2b-mobile-comparison{touch-action:pan-y!important}
+}
+@media(max-width:420px){.b2b-compare-tabs{grid-template-columns:1fr!important}}
+/* Branded footer glow — same navy/blue atmosphere approved for Education. */
+html body footer,html body:has(footer) footer{
+ background-color:#070c1b!important;
+ background-image:
+ radial-gradient(ellipse 52% 53% at 101% 0%,rgba(23,39,216,.87) 0%,rgba(18,31,151,.46) 44%,transparent 82%),
+ radial-gradient(ellipse 49% 47% at -8% 1%,rgba(82,118,223,.68) 0%,rgba(55,83,155,.33) 54%,transparent 93%),
+ radial-gradient(ellipse 41% 50% at 50% 99%,rgba(50,77,189,.60) 0%,rgba(38,60,145,.28) 47%,transparent 88%),
+ linear-gradient(118deg,#091126 6%,#080d21 45%,#0c1552 100%)!important;
+ background-repeat:no-repeat!important;background-size:cover!important;color:#fff!important;
+}
+footer .footer-title{color:#fff!important}
+footer .footer-links a,footer .footer-brand-copy,footer .footer-meta,footer .footer-bottom{color:#c6cde1!important}
+@media(max-width:760px){
+ html body footer,html body:has(footer) footer{
+  background-image:
+  radial-gradient(ellipse 85% 34% at 112% 1%,rgba(29,48,224,.71),transparent 95%),
+  radial-gradient(ellipse 89% 37% at -28% 8%,rgba(76,110,206,.57),transparent 96%),
+  radial-gradient(ellipse 94% 45% at 47% 95%,rgba(43,67,173,.47),transparent 94%),
+  linear-gradient(155deg,#0b1435,#070c1b 49%,#0c1850)!important;
+ }
+}
+</style></head>
 <body>
 <header class="lnav" aria-label="Navegación principal"><div class="lnav-row"><a class="lnav-logo" href="https://lowsignal.cl" aria-label="lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="lnav-menu" aria-label="Principal"><div class="lnav-item"><button type="button" class="lnav-trigger">Soluciones <svg class="lnav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="lnav-mega lnav28-mega"><div class="lnav-mega-inner lnav28-inner">
  <div class="lnav28-group"><p class="lnav28-kicker">GROWTH &amp; BRAND</p><a class="lnav28-link" href="/soluciones/low-social"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6M17 8h4m-2-2v4"/></svg></span><span class="lnav28-link-copy"><b>Low Social</b><small>Contenido, marca y comunidad.</small></span></a><a class="lnav28-link" href="/soluciones/low-ads"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg></span><span class="lnav28-link-copy"><b>Low Ads</b><small>Performance y adquisición.</small></span></a><a class="lnav28-link" href="/soluciones/low-web"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg></span><span class="lnav28-link-copy"><b>Low Web</b><small>Experiencias que convierten.</small></span></a></div>
@@ -828,18 +962,8 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           </div>
         </div></div>
       </div><a class="lnav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a></nav><div class="lnav-actions"><a class="lnav-plans" href="#planes-b2b">Ver planes</a><a class="lnav-contact" href="https://lowsignal.cl/contacto">Hablemos</a></div></div></header>
-<div class="nav-wrap"><nav class="nav"><a class="brand" href="https://lowsignal.cl" aria-label="Ir al inicio de lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><button class="mobile-nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button></nav></div>
-<div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner"><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-0"><span>Soluciones</span><svg viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu lnav28-mobile" id="mobile-submenu-0" hidden>
- <span class="lnav28-mobile-heading">GROWTH &amp; BRAND</span>
- <a href="/soluciones/low-social"><strong>Low Social</strong><small>Contenido, marca y comunidad</small></a>
- <a href="/soluciones/low-ads"><strong>Low Ads</strong><small>Performance y adquisición</small></a>
- <a href="/soluciones/low-web"><strong>Low Web</strong><small>Experiencias que convierten</small></a>
- <span class="lnav28-mobile-heading">LOWSIGNAL AI</span>
- <a href="/soluciones/low-flow"><strong>Low Flow</strong><small>Agentes, IA y automatización</small></a>
- <a href="/soluciones/low-apps"><strong>Low Apps</strong><small>Software y productos digitales</small></a>
- <span class="lnav28-mobile-heading">SISTEMA INTEGRADO</span>
- <a class="lnav28-mobile-scale" href="/soluciones/low-scale"><strong>Low Scale</strong><small>El sistema que conecta todo</small></a>
- </div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-1"><span>Industrias</span><svg viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu lnav-ind-mobile" id="mobile-submenu-1" hidden><span class="lnav-ind-mobile-kicker">CRECIMIENTO POR INDUSTRIA</span><a href="/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a><a href="/industrias/b2b"><strong>lowsignal for B2B</strong><small>SaaS, tecnología y servicios</small></a><a href="/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Retail, consumo y experiencias</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-2"><span>Recursos</span><svg viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-2" hidden><a href="https://lowsignal.cl/casos"><strong>Customer stories</strong><small>Casos de clientes</small></a><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y aprendizajes</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Trabaja con nosotros</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Programa de referidos</small></a></div></div><a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a><a class="mobile-nav-plans" href="#planes-b2b">Ver planes</a><a class="mobile-nav-talk" href="https://lowsignal.cl/contacto">Hablemos</a></div></div>
+<div class="nav-wrap"><nav class="nav"><a class="brand" href="https://lowsignal.cl" aria-label="Ir al inicio de lowsignal"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><a class="mobile-nav-cta" href="https://lowsignal.cl/contacto">Hablemos</a><button class="mobile-nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button></nav></div>
+<div class="mobile-nav-panel" aria-hidden="true"><div class="mobile-nav-inner"><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-0"><span>Soluciones</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-0" hidden><span class="mobile-menu-label">MARKETING &amp; CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><strong>Low Social</strong><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><strong>Low Ads</strong><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><strong>Low Web</strong><small>Diseño y desarrollo web</small></a><span class="mobile-menu-label">TECNOLOGÍA &amp; IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><strong>Low Flow</strong><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><strong>Low Apps</strong><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><strong>Low Scale</strong><small>Sistemas para escalar</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-1"><span>Industrias</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-1" hidden><span class="mobile-menu-label">BUILT FOR YOUR INDUSTRY</span><a href="https://lowsignal.cl/industrias/educacion"><strong>Education</strong><small>Para instituciones que transforman el futuro</small></a><a href="https://lowsignal.cl/industrias/b2b"><strong>B2B</strong><small>Para empresas y equipos comerciales</small></a><a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>B2C</strong><small>Para marcas que conectan con personas</small></a></div></div><div class="mobile-nav-group"><button class="mobile-nav-summary" type="button" aria-expanded="false" aria-controls="mobile-submenu-2"><span>Recursos</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button><div class="mobile-nav-submenu" id="mobile-submenu-2" hidden><span class="mobile-menu-label">EXPLORE LOWSIGNAL</span><a href="https://lowsignal.cl/recursos/insights"><strong>Insights</strong><small>Ideas y perspectivas</small></a><a href="https://lowsignal.cl/recursos/insiders"><strong>Insiders</strong><small>Comunidad y oportunidades</small></a><a href="https://lowsignal.cl/recursos/jobs"><strong>Jobs</strong><small>Construye lo que viene</small></a></div></div><a class="mobile-nav-direct" href="#planes-b2b">Planes</a><a class="mobile-nav-direct" href="https://lowsignal.cl/casos">Customer Stories</a><a class="mobile-nav-direct" href="https://lowsignal.cl/nosotros">Nosotros</a><a class="mobile-nav-talk" href="https://lowsignal.cl/contacto">Hablemos</a></div></div>
 
 <main>
 <section class="hero i28-hero"><div class="shell i28-hero-layout"><div class="hero-copy reveal"><p class="eyebrow">LOWSIGNAL FOR B2B</p><h1>Growth para empresas<br> que quieren <strong>más oportunidades.</strong></h1><p class="hero-lead">Conectamos posicionamiento, demanda y tecnología para impulsar oportunidades comerciales en negocios con ventas complejas.</p><div class="hero-actions"><a class="btn primary" href="https://lowsignal.cl/contacto">Hablemos <span class="b2b-hero-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></div></div><div class="i28-hero-art reveal" aria-hidden="true"><div class="i28-hero-dashboard"><div class="i28-dash-top"><span><i></i> B2B / GROWTH</span><b>●︎ CONECTADO</b></div><h2>Del primer contacto<br><strong>a la oportunidad.</strong></h2><div class="i28-pipeline"><div><small>01 / VISIBILIDAD</small><b>Tu marca</b><span>Contenido y posicionamiento</span></div><div><small>02 / DEMANDA</small><b>Interés real</b><span>Campañas y conversión</span></div><div><small>03 / PIPELINE</small><b>Oportunidades</b><span>Seguimiento y datos</span></div></div><div class="i28-dash-foot"><span>Marketing</span><span>Ventas</span><span>Datos</span></div></div><div class="i28-float"><span>↗︎</span><div><b>Nueva oportunidad</b><small>Marketing y ventas conectados</small></div></div></div></div></section>
@@ -990,7 +1114,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
         claude:`https://claude.ai/new?q=${q}`};document.querySelectorAll('.footer-ai-button').forEach(b=>b.addEventListener('click',()=>{const u=urls[b.dataset.aiProvider];if(u)window.open(u,'_blank','noopener,noreferrer')}));
 })();
 </script>
-<script src="https://lowsignal.cl/assets/b2b-pricing-enhance.js?v=13"></script>
+
 <script id="b2b-refresh-reveals-2026">
 (function(){
   const selectors=[
@@ -1055,9 +1179,88 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
 })();
 </script>
 
-<script defer src="/assets/low-mobile-unified-2026.js?v=20261109-ios-theme-v1"></script>
 
 
 
+
+<script id="low-b2b-education-parity-js">
+/* B2B plan layout and category comparison using existing published table data */
+(()=>{
+ const plans=[...document.querySelectorAll('#planes-b2b .pricing-grid .plan')];
+ plans.forEach(p=>{
+  if(p.querySelector('.plan-top'))return;
+  const top=document.createElement('div');top.className='plan-top';
+  const lead=[...p.children].filter(el=>el.matches('.plan-kicker,h3,.plan-desc,.price'));
+  lead.forEach(el=>top.appendChild(el));
+  const badge=p.querySelector('.badge');
+  if(badge)p.insertBefore(badge,p.firstChild);
+  p.insertBefore(top,badge?badge.nextSibling:p.firstChild);
+  const cta=p.querySelector('.plan-cta');
+  if(cta)p.insertBefore(cta,top.nextSibling);
+  const ul=p.querySelector('ul');
+  if(ul){
+   const l=document.createElement('span');l.className='plan-includes-label';l.textContent='QUÉ INCLUYE';
+   p.insertBefore(l,ul);
+   ul.querySelectorAll('li').forEach(li=>{
+    if(li.querySelector('svg'))return;
+    const t=li.textContent.trim();
+    li.textContent='';
+    const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');icon.setAttribute('viewBox','0 0 20 20');icon.setAttribute('fill','none');icon.setAttribute('stroke','currentColor');icon.setAttribute('stroke-width','1.8');icon.setAttribute('stroke-linecap','round');icon.setAttribute('stroke-linejoin','round');icon.setAttribute('aria-hidden','true');
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d','m4 10 4 4 8-9');icon.appendChild(path);
+    const text=document.createElement('span');text.textContent=t;li.append(icon,text);
+   });
+  }
+ });
+ const wrap=document.querySelector('#planes-b2b .compare-plans');
+ const table=wrap?.querySelector('.compare-table');
+ if(!wrap||!table)return;
+ const categories=[];
+ let current='';
+ [...table.querySelectorAll('tbody tr')].forEach(row=>{
+  if(row.classList.contains('compare-category')){
+   current=row.textContent.trim();categories.push(current);row.hidden=true;
+  }else row.dataset.group=current;
+ });
+ const nav=document.createElement('div');nav.className='b2b-compare-tabs';nav.setAttribute('role','tablist');nav.setAttribute('aria-label','Áreas del comparativo B2B');
+ categories.forEach((label,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='b2b-compare-tab';b.textContent=label;b.dataset.group=label;b.setAttribute('role','tab');b.setAttribute('aria-controls','b2b-feature-list');nav.appendChild(b);
+ });
+ wrap.querySelector('.compare-scroll').before(nav);
+ const mobile=document.createElement('div');mobile.className='b2b-mobile-comparison';mobile.id='b2b-feature-list';
+ const headers=['Presence','Growth','Scale'];
+ const show=(name)=>{
+  nav.querySelectorAll('button').forEach(b=>{let active=b.dataset.group===name;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1});
+  mobile.replaceChildren();
+  table.querySelectorAll('tbody tr[data-group]').forEach(row=>{
+   const match=row.dataset.group===name;row.hidden=!match;
+   if(!match)return;
+   const cells=[...row.querySelectorAll('td')];if(cells.length!==4)return;
+   const card=document.createElement('article');card.className='b2b-feature-card';
+   const title=document.createElement('h4');title.textContent=cells[0].textContent.trim();card.append(title);
+   cells.slice(1).forEach((cell,i)=>{
+    const line=document.createElement('div');line.className='b2b-feature-row';
+    const label=document.createElement('strong');label.textContent=headers[i];
+    const value=document.createElement('span');value.textContent=cell.querySelector('.compare-check')?'Incluido':cell.textContent.trim()||'—';
+    line.append(label,value);card.append(line);
+   });
+   mobile.append(card);
+  });
+ };
+ nav.after(mobile);
+ nav.addEventListener('click',e=>{const btn=e.target.closest('button[data-group]');if(btn)show(btn.dataset.group)});
+ nav.addEventListener('keydown',e=>{
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+  const tabs=[...nav.querySelectorAll('button')];const i=tabs.indexOf(document.activeElement);
+  if(i<0)return;e.preventDefault();const j=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[j].focus();show(tabs[j].dataset.group);
+ });
+ show(categories[0]);
+})();
+(()=>{
+ const nav=document.querySelector('.lnav');
+ if(!nav)return;
+ const sync=()=>nav.classList.toggle('low-scrolled',scrollY>35);
+ addEventListener('scroll',sync,{passive:true});sync();
+})();
+</script>
 </body>
 </html>
