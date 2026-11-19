@@ -1888,6 +1888,47 @@ body{background:#f7f7f5;color:#171b24}
 .about-v3 .v3-person strong{font-size:12px;margin:13px 5px 3px}
 .about-v3 .v3-person span{font-size:10px;margin:0 5px}
 }
+</style><style id="about-v3-team-rails-plus-2026">
+/* Continuous vertical rails across every light editorial section. */
+.about-v3 .v3-history,.about-v3 .v3-mosaic,.about-v3 .v3-team{position:relative;isolation:isolate}
+.about-v3 .v3-history::before,.about-v3 .v3-mosaic::before,.about-v3 .v3-team::before,
+.about-v3 .v3-history::after,.about-v3 .v3-mosaic::after,.about-v3 .v3-team::after{
+ content:"";position:absolute;top:0;bottom:0;width:1px;background:#e8e8e8;z-index:0;pointer-events:none;
+}
+.about-v3 .v3-history::before,.about-v3 .v3-mosaic::before,.about-v3 .v3-team::before{left:80px}
+.about-v3 .v3-history::after,.about-v3 .v3-mosaic::after,.about-v3 .v3-team::after{right:80px}
+.about-v3 .v3-history>.v3-shell,.about-v3 .v3-mosaic>.v3-shell,.about-v3 .v3-team>.v3-shell{position:relative;z-index:1}
+.about-v3 .v3-person{min-width:0}
+.about-v3 .v3-person a{display:block;position:relative}
+.about-v3 .v3-person-photo{display:block;position:relative;overflow:hidden;border-radius:12px;isolation:isolate}
+.about-v3 .v3-person-photo img{transition:transform .3s ease,filter .3s ease}
+.about-v3 .v3-person-plus{
+ position:absolute;z-index:2;top:12px;right:12px;display:grid;place-items:center;
+ width:36px;height:36px;border-radius:50%;background:#fff;color:#101a3e;
+ font-size:24px;font-weight:400;line-height:1;box-shadow:0 3px 14px rgba(0,0,0,.13);
+ opacity:0;transform:translateY(-5px);transition:opacity .2s ease,transform .2s ease;
+ pointer-events:none;
+}
+@media(hover:hover){
+ .about-v3 .v3-person a:hover .v3-person-plus{opacity:1;transform:translateY(0)}
+ .about-v3 .v3-person a:hover .v3-person-photo img{transform:scale(1.035);filter:grayscale(.15)}
+}
+.about-v3 .v3-person a:focus-visible .v3-person-plus{opacity:1;transform:translateY(0)}
+.about-v3 .v3-person a:focus-visible{outline:2px solid #1419E0;outline-offset:4px;border-radius:12px}
+@media(hover:none){.about-v3 .v3-person-plus{opacity:1;transform:none}}
+@media(max-width:960px){
+ .about-v3 .v3-history::before,.about-v3 .v3-mosaic::before,.about-v3 .v3-team::before{left:24px}
+ .about-v3 .v3-history::after,.about-v3 .v3-mosaic::after,.about-v3 .v3-team::after{right:24px}
+}
+@media(max-width:700px){
+ .about-v3 .v3-history::before,.about-v3 .v3-mosaic::before,.about-v3 .v3-team::before{left:12px}
+ .about-v3 .v3-history::after,.about-v3 .v3-mosaic::after,.about-v3 .v3-team::after{right:12px}
+ .about-v3 .v3-person-photo{border-radius:9px}
+ .about-v3 .v3-person-plus{width:28px;height:28px;top:7px;right:7px;font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+ .about-v3 .v3-person-photo img,.about-v3 .v3-person-plus{transition:none}
+}
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
@@ -1915,10 +1956,12 @@ body{background:#f7f7f5;color:#171b24}
 </div></section>
 <section class="v3-team" id="team"><div class="v3-shell"><div class="v3-team-head"><h2>Las personas <span>detrás de lowsignal.</span></h2><p>Ingenieros, creativos, diseñadores y desarrolladores. Distintas disciplinas, una misma curiosidad: construir cosas que funcionen.</p></div>
 <div class="v3-team-grid">
-<article class="v3-person"><a href="/equipo/felipe-quiroz"><img loading="lazy" src="https://lowsignal.cl/assets/team_felipe-1.png" alt="Felipe Quiroz"><strong>Felipe Quiroz</strong><span>Co-Founder &amp; CEO</span></a></article>
-<article class="v3-person"><a href="/equipo/damian-aldunate"><img loading="lazy" src="https://lowsignal.cl/assets/team_damian-1.png" alt="Damián Aldunate"><strong>Damián Aldunate</strong><span>Co-Founder &amp; CMO</span></a></article>
-<article class="v3-person"><a href="/equipo/matias-bussinger"><img loading="lazy" src="https://lowsignal.cl/assets/team-matias.png" alt="Matías Bussinger"><strong>Matías Bussinger</strong><span>AI Revenue Engineer</span></a></article>
-<article class="v3-person"><a href="/equipo/lia-morice"><img loading="lazy" src="https://lowsignal.cl/assets/team_lia-1.png" alt="Lía Morice"><strong>Lía Morice</strong><span>Content Creator</span></a></article>
+<article class="v3-person"><a href="/equipo/felipe-quiroz"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team_felipe-1.png" alt="Felipe Quiroz"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Felipe Quiroz</strong><span>Co-Founder &amp; CEO</span></a></article>
+<article class="v3-person"><a href="/equipo/damian-aldunate"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team_damian-1.png" alt="Damián Aldunate"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Damián Aldunate</strong><span>Co-Founder &amp; CMO</span></a></article>
+<article class="v3-person"><a href="/equipo/matias-bussinger"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team-matias.png" alt="Matías Bussinger"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Matías Bussinger</strong><span>AI Revenue Engineer</span></a></article>
+<article class="v3-person"><a href="/equipo/lia-morice"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team_lia-1.png" alt="Lía Morice"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Lía Morice</strong><span>Content Creator</span></a></article>
+<article class="v3-person"><a href="/equipo/jorge-munoz" aria-label="Conocer a Jorge Muñoz"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team_jorge-1.png" alt="Jorge Muñoz"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Jorge Muñoz</strong><span>Audiovisual Editor</span></a></article>
+<article class="v3-person"><a href="/equipo/martin-alvarado" aria-label="Conocer a Martín Alvarado"><span class="v3-person-photo"><img loading="lazy" src="https://lowsignal.cl/assets/team_martin-1.png" alt="Martín Alvarado"><span class="v3-person-plus" aria-hidden="true">+</span></span><strong>Martín Alvarado</strong><span>Audiovisual Producer</span></a></article>
 </div></div></section>
 </main><footer class="low-footer" id="contacto"><div class="shell"><div class="footer-head"><div><span class="footer-eyebrow">BUILD WHAT'S NEXT</span><h2>¿Construimos<br><em>lo que viene?</em></h2></div><a href="https://lowsignal.cl/contacto" class="footer-start">Hablemos de tu proyecto <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div><div class="footer-grid-new"><div class="footer-identity"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal" class="footer-logo-real"></a><p>Somos una Growth Company. Conectamos estrategia, tecnología, contenido e IA para construir crecimiento sostenible.</p><div class="footer-claim-new">Less noise. <b>More growth.</b></div><div class="footer-ai-new"><span>PREGÚNTALE A TU IA</span><div class="ai-row"><a data-ai="chatgpt" target="_blank" rel="noopener noreferrer" title="Preguntar en ChatGPT" aria-label="Preguntar en ChatGPT"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></a><a data-ai="gemini" target="_blank" rel="noopener noreferrer" title="Preguntar en Gemini" aria-label="Preguntar en Gemini"><img src="https://cdn.simpleicons.org/googlegemini/8AA4FF" alt=""></a><a data-ai="perplexity" target="_blank" rel="noopener noreferrer" title="Preguntar en Perplexity" aria-label="Preguntar en Perplexity"><img src="https://cdn.simpleicons.org/perplexity/8AA4FF" alt=""></a><a data-ai="claude" target="_blank" rel="noopener noreferrer" title="Preguntar en Claude" aria-label="Preguntar en Claude"><img src="https://cdn.simpleicons.org/claude/8AA4FF" alt=""></a></div><small>Descubre cómo lowsignal puede ayudar a tu organización.</small></div></div><div class="footer-linkcol"><strong>Soluciones</strong><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a></div><div class="footer-linkcol"><strong>Industrias</strong><a href="https://lowsignal.cl/industrias/educacion">Education</a><a href="https://lowsignal.cl/industrias/b2b">B2B</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C</a><strong class="footer-second-title">Explora</strong><a href="https://lowsignal.cl/casos">Customer Stories</a><a href="https://lowsignal.cl/recursos/insights">Insights</a></div><div class="footer-linkcol"><strong>Compañía</strong><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/contacto">Contacto</a><strong class="footer-second-title">Social</strong><a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://facebook.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Facebook</a></div></div><div class="footer-bottom-new"><span>© 2026 lowsignal SpA. Todos los derechos reservados.</span><span>Santiago, Chile <span class="foot-star" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span> Built for what's next.</span></div></div></footer>
 <script>
