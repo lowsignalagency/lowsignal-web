@@ -4341,7 +4341,32 @@ html body .lh-v4 .lh-v4-s1 .lh-v4-client-logo{display:block!important;max-width:
 html body .lh-v4 .lh-v4-s1 .lh-v4-logo-fallback::after{color:#101010!important}
 @media(max-width:700px){html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]{gap:8px 14px;padding:10px 0 25px}html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]>div{height:80px!important;padding:8px!important}html body .lh-v4 .lh-v4-s1 .lh-v4-client-logo{max-width:90%!important;max-height:48px!important}}
 </style>
-</head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
+<style id="homepage-partner-b2b-fixes-20261119">
+/* Tone down the bright Jumpseller favicon without affecting other partners. */
+html body .lh-v4 .lh-v4-partner-icon img[src*="domain=jumpseller.com"]{
+  filter:brightness(.45) saturate(.75)!important;
+}
+/* Carry the dark B2B canvas and its gradient edge-to-edge, even within page gutters. */
+html body .lh-v4 .lh-v4-s5{
+  width:100vw!important;
+  width:100dvw!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  background:linear-gradient(105deg,#050c1c 0%,#091330 54%,#171cba 100%)!important;
+  position:relative!important;
+  isolation:isolate;
+}
+html body .lh-v4 .lh-v4-s5 > div:first-child{
+  inset:0!important;
+  background:radial-gradient(ellipse 65% 80% at 100% 35%,rgba(35,38,220,.58),transparent 75%)!important;
+  filter:none!important;
+  pointer-events:none;
+}
+@media(max-width:700px){
+ html body .lh-v4 .lh-v4-s5{width:100%!important;margin-left:0!important;margin-right:0!important}
+}
+</style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-rec">Recursos <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-rec"><div class="mega-kicker">EXPLORE LOWSIGNAL</div><a class="mega-item" href="https://lowsignal.cl/recursos/insights"><b>Insights</b><small>Ideas y perspectivas</small></a><a class="mega-item" href="https://lowsignal.cl/recursos/insiders"><b>Insiders</b><small>Comunidad y oportunidades</small></a><a class="mega-item" href="https://lowsignal.cl/recursos/jobs"><b>Jobs</b><small>Construye lo que viene</small></a></div></div>
