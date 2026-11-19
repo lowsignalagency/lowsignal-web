@@ -6083,13 +6083,12 @@ html body .education-page .edu-agent-orb::after{
  html body .education-page .edu-agent-orb::after{animation:none!important;will-change:auto!important}
 }
 </style><style id="education-footer-exact-home-parity-20261119">
-/* Canonical footer geometry copied from Home's final rules.
-   Keep these scoped to the footer immediately under body; never the Education canvas. */
+/* Home footer parity. Explicitly neutralize Education V1's competing
+   footer button, grid, and mobile rules. Footer HTML is identical to Home. */
 html body > footer.low-footer{
  box-sizing:border-box!important;position:relative!important;clear:both!important;
  display:block!important;width:100%!important;max-width:none!important;
- margin:0!important;padding:65px 0 24px!important;
- overflow:hidden!important;color:#fff!important;
+ margin:0!important;padding:65px 0 24px!important;overflow:hidden!important;color:#fff!important;
  background-color:#070c1b!important;
  background-image:
  radial-gradient(ellipse 52% 53% at 101% 0%,rgba(23,39,216,.87) 0%,rgba(18,31,151,.46) 44%,transparent 82%),
@@ -6097,14 +6096,13 @@ html body > footer.low-footer{
  radial-gradient(ellipse 41% 50% at 50% 99%,rgba(50,77,189,.60) 0%,rgba(38,60,145,.28) 47%,transparent 88%),
  linear-gradient(118deg,#091126 6%,#080d21 45%,#0c1552 100%)!important;
  background-repeat:no-repeat!important;background-size:cover!important;
+ font-family:"Be Vietnam Pro",sans-serif!important;
 }
-html body > footer.low-footer::before,
-html body > footer.low-footer::after{content:none!important;display:none!important}
+html body > footer.low-footer::before,html body > footer.low-footer::after{content:none!important;display:none!important}
 html body > footer.low-footer *{box-sizing:border-box}
 html body > footer.low-footer > .shell{
  width:100%!important;max-width:1440px!important;
  margin:0 auto!important;padding:0 100px!important;
- box-sizing:border-box!important;
 }
 html body > footer.low-footer .footer-head{
  display:flex!important;flex-direction:row!important;align-items:flex-end!important;
@@ -6113,30 +6111,96 @@ html body > footer.low-footer .footer-head{
  border-bottom:1px solid rgba(215,223,255,.20)!important;
  border-left:0!important;border-right:0!important;
 }
+html body > footer.low-footer .footer-eyebrow{
+ font-size:10px!important;letter-spacing:.12em!important;font-weight:400!important;
+ color:#c6cde1!important;
+}
 html body > footer.low-footer .footer-head h2{
  margin:20px 0 0!important;font-size:clamp(35px,3.25vw,46px)!important;
  line-height:1.12!important;font-weight:400!important;letter-spacing:-.045em!important;color:#fff!important;
 }
-html body > footer.low-footer .footer-head h2 em{color:#aab8ff!important}
-html body > footer.low-footer .footer-eyebrow{color:#c6cde1!important}
-html body > footer.low-footer .footer-start{width:auto!important;max-width:100%!important;margin:0!important;flex:none!important;white-space:nowrap!important}
+html body > footer.low-footer .footer-head h2 em{font-style:normal!important;color:#aab8ff!important}
+html body > footer.low-footer a.footer-start{
+ display:inline-flex!important;flex:none!important;align-items:center!important;
+ justify-content:flex-start!important;gap:52px!important;
+ width:auto!important;max-width:100%!important;
+ margin:0!important;padding:18px 20px!important;
+ border:1px solid #596072!important;border-radius:35px!important;
+ background:transparent!important;color:#fff!important;
+ font-size:12px!important;font-weight:400!important;line-height:normal!important;
+ white-space:nowrap!important;text-decoration:none!important;
+ transition:background .2s,color .2s!important;
+}
+html body > footer.low-footer a.footer-start:hover{background:#eef1ff!important;color:#0b154e!important}
+html body > footer.low-footer a.footer-start span,
+html body > footer.low-footer a.footer-start:hover span{
+ display:inline!important;width:auto!important;height:auto!important;min-width:0!important;
+ margin:0!important;padding:0!important;border:0!important;
+ background:transparent!important;border-radius:0!important;color:inherit!important;
+}
+html body > footer.low-footer a.footer-start .ui-arrow{
+ width:16px!important;height:16px!important;fill:none!important;
+ stroke:currentColor!important;stroke-width:1.7!important;
+ stroke-linecap:round!important;stroke-linejoin:round!important;
+}
 html body > footer.low-footer .footer-grid-new{
  display:grid!important;grid-template-columns:minmax(215px,1.8fr) repeat(3,minmax(110px,1fr))!important;
  gap:clamp(20px,2.8vw,40px)!important;padding:40px 0 43px!important;
- margin:0!important;border-left:0!important;border-right:0!important;border-top:0!important;
+ margin:0!important;border:0!important;
 }
 html body > footer.low-footer .footer-grid-new > *{min-width:0!important}
 html body > footer.low-footer .footer-identity{grid-column:auto!important}
-html body > footer.low-footer .footer-logo-real{width:150px!important;max-width:150px!important;height:auto!important;display:block!important;object-fit:contain!important}
-html body > footer.low-footer .footer-identity p{font-size:12px!important;line-height:1.75!important;margin:20px 0 0!important;color:#c6cde1!important}
-html body > footer.low-footer .footer-linkcol{display:flex!important;flex-direction:column!important;align-items:flex-start!important;font-size:12px!important;gap:13px!important}
-html body > footer.low-footer .footer-linkcol strong{font-size:11px!important;color:#fff!important}
-html body > footer.low-footer .footer-linkcol a{font-size:12px!important;line-height:1.5!important;color:#c6cde1!important}
+html body > footer.low-footer .footer-logo-real{
+ width:150px!important;max-width:150px!important;height:auto!important;display:block!important;object-fit:contain!important;
+}
+html body > footer.low-footer .footer-identity p{
+ font-size:12px!important;line-height:1.75!important;color:#c6cde1!important;
+ max-width:335px!important;margin:20px 0 0!important;
+}
+html body > footer.low-footer .footer-claim-new{
+ font-size:14px!important;letter-spacing:-.02em!important;color:#bec7d7!important;
+ margin-top:0!important;
+}
+html body > footer.low-footer .footer-claim-new b{color:#fff!important}
+html body > footer.low-footer .footer-linkcol{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ font-size:12px!important;gap:13px!important;
+}
+html body > footer.low-footer .footer-linkcol strong{
+ font-size:11px!important;font-weight:600!important;margin-bottom:10px!important;color:#fff!important;
+}
+html body > footer.low-footer .footer-linkcol strong.footer-second-title{margin-top:22px!important}
+html body > footer.low-footer .footer-linkcol a{
+ font-size:12px!important;line-height:1.5!important;color:#c6cde1!important;text-decoration:none!important;
+}
+html body > footer.low-footer .footer-linkcol a:hover{color:#fff!important}
+html body > footer.low-footer .footer-ai-new{margin-top:37px!important}
+html body > footer.low-footer .footer-ai-new > span{
+ font-size:10px!important;font-weight:700!important;letter-spacing:.1em!important;color:#adb7c9!important;
+}
+html body > footer.low-footer .ai-row{
+ display:flex!important;align-items:center!important;gap:10px!important;margin:15px 0 10px!important;
+}
+html body > footer.low-footer .ai-row a{
+ display:grid!important;place-items:center!important;
+ width:40px!important;height:40px!important;
+ border:1px solid #ffffff35!important;border-radius:50%!important;
+ background:#ffffff08!important;
+}
+html body > footer.low-footer .ai-row a:hover{background:#ffffff20!important}
+html body > footer.low-footer .ai-row img{
+ width:19px!important;height:19px!important;filter:brightness(0) invert(1)!important;
+}
+html body > footer.low-footer .footer-ai-new small{font-size:10px!important;color:#818ca0!important}
 html body > footer.low-footer .footer-bottom-new{
  display:flex!important;flex-direction:row!important;justify-content:space-between!important;
- align-items:center!important;gap:24px!important;margin:0!important;padding:20px 0 0!important;
+ align-items:center!important;gap:20px!important;
+ margin:0!important;padding:20px 0 10px!important;
  border-top:1px solid rgba(215,223,255,.20)!important;
  font-size:10px!important;color:#c6cde1!important;
+}
+html body > footer.low-footer .footer-bottom-new > span:last-child{
+ margin-left:auto!important;text-align:right!important;
 }
 @media(max-width:1100px){
  html body > footer.low-footer > .shell{padding-left:5%!important;padding-right:5%!important}
@@ -6148,10 +6212,23 @@ html body > footer.low-footer .footer-bottom-new{
  html body > footer.low-footer > .shell{padding-left:22px!important;padding-right:22px!important}
  html body > footer.low-footer .footer-head{display:block!important;padding-bottom:32px!important}
  html body > footer.low-footer .footer-head h2{font-size:clamp(31px,8vw,39px)!important}
- html body > footer.low-footer .footer-start{display:inline-flex!important;margin-top:24px!important;font-size:12px!important;white-space:normal!important}
+ html body > footer.low-footer a.footer-start{
+  width:auto!important;margin-top:24px!important;
+  font-size:12px!important;white-space:normal!important;
+ }
  html body > footer.low-footer .footer-logo-real{width:138px!important;max-width:138px!important}
- html body > footer.low-footer .footer-grid-new{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px 18px!important;padding:32px 0!important}
+ html body > footer.low-footer .footer-grid-new{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px 18px!important;padding:32px 0!important;
+ }
  html body > footer.low-footer .footer-identity{grid-column:1/-1!important}
- html body > footer.low-footer .footer-bottom-new{flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:12px!important}
+ html body > footer.low-footer .footer-bottom-new{
+  flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:12px!important;
+ }
+ html body > footer.low-footer .footer-bottom-new > span:last-child{
+  margin:0!important;text-align:left!important;
+ }
+}
+@media(max-width:490px){
+ html body > footer.low-footer a.footer-start{width:100%!important;justify-content:space-between!important}
 }
 </style></body></html>
