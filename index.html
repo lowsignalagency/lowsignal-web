@@ -4334,39 +4334,52 @@ html body .lh-v4 .lh-v4-s9{padding-block:75px!important}
 @media(prefers-reduced-motion:reduce){html body .lh-v4 .lh-v4-orb-sphere{animation:none!important;will-change:auto!important}}
 </style>
 <style id="homepage-client-logos-clean-20261119">
-/* Client logo cards — separate from testimonial logo overlays. */
-html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]{
-  border-top:0!important;
-  gap:16px!important;
-  padding:12px 0 36px!important;
+/* Customer logos: a continuous editorial 3 x 2 grid with hairline dividers. */
+html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0!important;
+  border-top:1px solid #e8e8e8!important;
+  border-bottom:1px solid #e8e8e8!important;
+  padding:0!important;
+  background:transparent!important;
 }
-html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]>div{
-  height:132px!important;
+html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div{
+  height:150px!important;
   min-width:0!important;
-  padding:22px 18px!important;
-  background:#fff!important;
-  border:1px solid #e8e8e8!important;
-  border-radius:16px!important;
+  padding:27px!important;
+  margin:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
   box-shadow:none!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
 }
-html body .lh-v4 .lh-v4-s1 .lh-v4-client-logo{
+html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div:not(:nth-child(3n)){
+  border-right:1px solid #e8e8e8!important;
+}
+html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div:nth-child(-n+3){
+  border-bottom:1px solid #e8e8e8!important;
+}
+html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid .lh-v4-client-logo{
   display:block!important;
   width:auto!important;
   height:auto!important;
-  max-width:82%!important;
-  max-height:65px!important;
+  max-width:64%!important;
+  max-height:57px!important;
   object-fit:contain!important;
-  filter:brightness(0)!important;
-  opacity:.88;
+  filter:grayscale(1) brightness(0)!important;
+  opacity:.35!important;
 }
-html body .lh-v4 .lh-v4-s1 .lh-v4-logo-fallback::after{color:#101010!important}
+html body .lh-v4 .lh-v4-s1 .lh-v4-logo-fallback::after{color:#999!important}
 @media(max-width:700px){
-  html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]{gap:10px!important;padding:8px 0 25px!important}
-  html body .lh-v4 .lh-v4-s1>div[style*="grid-template-columns:repeat(3"]>div{height:96px!important;padding:12px 10px!important;border-radius:12px!important}
-  html body .lh-v4 .lh-v4-s1 .lh-v4-client-logo{max-width:90%!important;max-height:49px!important}
+  html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div{height:104px!important;padding:14px!important;border:0!important}
+  html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div:nth-child(odd){border-right:1px solid #e8e8e8!important}
+  html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid>div:nth-child(-n+4){border-bottom:1px solid #e8e8e8!important}
+  html body .lh-v4 .lh-v4-s1 .lh-v4-customer-grid .lh-v4-client-logo{max-width:79%!important;max-height:43px!important}
 }
 </style>
 <style id="homepage-partner-b2b-fixes-20261119">
@@ -4438,8 +4451,8 @@ html body>.mobile-nav-panel .mobile-nav-actions .mobile-nav-talk{margin:0!import
 <section class="lh-v4-s1" style="position:relative;border-bottom:1px solid #ECECEC;">
     <div style="position:absolute;top:0;bottom:0;width:1px;background:#ECECEC;left:80px;"></div><div style="position:absolute;top:0;bottom:0;width:1px;background:#ECECEC;right:80px;"></div>
     <div style="position:relative;margin:0 80px;padding:60px 56px 40px;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:18px;color:#0A0A0A;">Organizaciones que crecen con nosotros</span><a href="https://lowsignal.cl/casos" style="padding:13px 24px;border-radius:999px;border:1px solid #E0E0E0;background:#FFFFFF;font-size:15px;color:#0A0A0A;">Ver customer stories</a></div>
-    <div style="position:relative;margin:0 80px;border-top:1px solid #ECECEC;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));">
-      <div style="height:150px;display:flex;align-items:center;justify-content:center;border-right:1px solid #ECECEC;border-bottom:1px solid #ECECEC;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="RECH" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div style="height:150px;display:flex;align-items:center;justify-content:center;border-right:1px solid #ECECEC;border-bottom:1px solid #ECECEC;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/csjo-white-trim.png" alt="Colegio San Jorge" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div style="height:150px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #ECECEC;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="Primero LEE" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div style="height:150px;display:flex;align-items:center;justify-content:center;border-right:1px solid #ECECEC;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/brooklyn-white.png" alt="Espacio Brooklyn" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div style="height:150px;display:flex;align-items:center;justify-content:center;border-right:1px solid #ECECEC;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/ambitec-white.png" alt="Ambitec" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div style="height:150px;display:flex;align-items:center;justify-content:center;"><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="hûb Providencia" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div>
+    <div class="lh-v4-customer-grid" style="position:relative;margin:0 80px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));">
+      <div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/rech-logo-full-white-trim.png" alt="RECH" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/logo-dali-darkbg.png" alt="Colegio Salvador Dalí" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/crecer-primerolee-white.png" alt="Fundación Crecer con Todos y Primero LEE" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/gets-dark.svg" alt="GETS" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/hub-logo-white-new-trim.png" alt="hûb Providencia" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div><div><img class="lh-v4-client-logo" src="https://lowsignal.cl/assets/dulcereino-logo-trim.png" alt="Dulce Reino" loading="lazy" onerror="this.hidden=true;this.parentElement.dataset.logoFallback=this.alt;this.parentElement.classList.add('lh-v4-logo-fallback')"></div>
     </div>
   </section>
   
