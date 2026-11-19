@@ -2002,7 +2002,7 @@ html body>.low-footer .footer-grid-new{grid-template-columns:minmax(240px,2fr) r
 html body>.low-footer .footer-bottom-new{padding-top:24px!important}
 @media(min-width:1101px){
  html body>.low-footer{position:relative!important;isolation:isolate;overflow:hidden!important}
- html body>.low-footer::before,html body>.low-footer::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:rgba(203,216,255,.18);z-index:0;pointer-events:none}
+ html body>.low-footer::before,html body>.low-footer::after{content:none!important;display:none!important}
  html body>.low-footer::before{left:max(80px,calc((100% - 1440px)/2 + 80px))}
  html body>.low-footer::after{right:max(80px,calc((100% - 1440px)/2 + 80px))}
  html body>.low-footer>.shell{position:relative;z-index:1}
