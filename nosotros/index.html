@@ -1719,6 +1719,50 @@ body{background:#f7f7f5;color:#171b24}
  .about-main .about-story{padding-top:70px!important}
 }
 
+
+/* /nosotros mobile: navbar and hero are visually one continuous surface. */
+@media(max-width:760px){
+ html{background-color:#070c1b!important}
+ html body>.nav-wrap,
+ html body>.nav-wrap.is-scrolled,
+ html body>.nav-wrap:not(.is-scrolled),
+ html body>.nav-wrap>.nav,
+ html body>.nav-wrap.is-scrolled>.nav,
+ html body.mobile-menu-open>.nav-wrap,
+ html body.mobile-menu-open>.nav-wrap>.nav{
+   background:#070c1b!important;
+   background-color:#070c1b!important;
+   background-image:none!important;
+   box-shadow:none!important;
+   border:0!important;
+   border-bottom:0!important;
+ }
+ html body>.nav-wrap::before,
+ html body>.nav-wrap::after,
+ html body>.nav-wrap>.nav::before,
+ html body>.nav-wrap>.nav::after{
+   box-shadow:none!important;
+   border-bottom:0!important;
+ }
+ .about-main .about-hero{
+   background-color:#070c1b!important;
+   background-image:
+    linear-gradient(to bottom,#070c1b 0%,rgba(7,12,27,.97) 9%,rgba(7,12,27,.60) 28%,transparent 57%),
+    radial-gradient(ellipse 115% 75% at 108% 65%,rgba(68,88,244,.83),transparent 78%),
+    radial-gradient(ellipse 100% 70% at -30% 100%,rgba(35,57,174,.38),transparent 75%),
+    linear-gradient(130deg,#070c1b,#101a69 100%)!important;
+ }
+ .about-main .about-hero::after{
+   background:linear-gradient(to bottom,rgba(7,12,27,.28),transparent 35%)!important;
+ }
+}
+.about-main .about-hero-link-icon{
+ width:16px!important;height:16px!important;flex:none!important;
+ fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;
+ stroke-linecap:round!important;stroke-linejoin:round!important;
+ vertical-align:middle!important;
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
@@ -1733,7 +1777,7 @@ body{background:#f7f7f5;color:#171b24}
  <div class="about-shell">
   <span class="about-overline">LOWSIGNAL / ABOUT US / EST. 2025</span>
   <h1>Menos ruido.<br><span>Más crecimiento.</span></h1>
-  <div class="about-hero-bottom"><p>Somos una Growth Company. Unimos estrategia, creatividad y tecnología para construir sistemas que hacen avanzar a las organizaciones.</p><a href="#historia">Nuestra historia <span aria-hidden="true">↗</span></a></div>
+  <div class="about-hero-bottom"><p>Somos una Growth Company. Unimos estrategia, creatividad y tecnología para construir sistemas que hacen avanzar a las organizaciones.</p><a href="#historia">Nuestra historia <svg class="about-hero-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a></div>
  </div>
 </section>
 <figure class="about-photo"><div class="about-shell"><img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="eager" fetchpriority="high"><figcaption><span>LOWSIGNAL / SANTIAGO, CHILE</span><span>EST. 2025</span></figcaption></div></figure>
