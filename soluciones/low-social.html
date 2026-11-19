@@ -2427,6 +2427,44 @@ footer .footer-container{
  }
 }
 
+
+/* Education floating CTA, revealed only after moving into the content. */
+body>.low-social-floating-talk{
+ display:inline-flex!important;
+ align-items:center!important;justify-content:center!important;
+ gap:12px!important;position:fixed!important;bottom:20px!important;right:22px!important;
+ z-index:900!important;min-height:48px!important;
+ padding:11px 18px!important;border-radius:999px!important;
+ border:1px solid #e2e4e9!important;background:#fff!important;color:#151923!important;
+ font-family:"DM Sans","Be Vietnam Pro",sans-serif!important;
+ font-size:13px!important;line-height:1.3!important;font-weight:500!important;
+ text-decoration:none!important;box-shadow:0 6px 25px rgba(7,12,27,.09)!important;
+ opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+ transform:translateY(12px)!important;
+ transition:opacity .25s ease,transform .25s ease,visibility .25s ease,box-shadow .25s ease!important;
+}
+body>.low-social-floating-talk.is-visible{
+ opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+ transform:translateY(0)!important;
+}
+body>.low-social-floating-talk>span:first-child{
+ display:block!important;width:24px!important;height:24px!important;flex:0 0 24px!important;
+ margin:0 4px 0 0!important;border-radius:50%!important;
+ background:radial-gradient(circle at 30% 24%,#d6deff 0%,#a5b8ff 19%,#718bff 38%,#3953f5 57%,#1a22cb 77%,#0b1151 100%)!important;
+ box-shadow:inset -3px -4px 6px rgba(6,14,77,.35),inset 2px 2px 4px rgba(255,255,255,.25),0 3px 12px rgba(37,60,226,.24)!important;
+}
+body>.low-social-floating-talk .ui-arrow{
+ display:inline-block!important;width:17px!important;height:17px!important;flex:0 0 17px!important;
+ stroke:currentColor!important;fill:none!important;stroke-width:1.75!important;
+ stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+body>.low-social-floating-talk:hover{box-shadow:0 9px 30px rgba(7,12,27,.17)!important}
+body>.low-social-floating-talk:focus-visible{outline:2px solid #344cf2!important;outline-offset:4px!important}
+@media(max-width:760px){body>.low-social-floating-talk{display:none!important}}
+@media(prefers-reduced-motion:reduce){
+ body>.low-social-floating-talk{transition:none!important}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
@@ -2605,7 +2643,30 @@ footer .footer-container{
   (function(){document.querySelectorAll('.ls-social-faq').forEach(function(section){var items=Array.from(section.querySelectorAll('details'));items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false;});});});});})();
   </script>
   
-</main><footer class="low-footer" id="contacto"><div class="shell"><div class="footer-head"><div><span class="footer-eyebrow">BUILD WHAT'S NEXT</span><h2>¿Construimos<br><em>lo que viene?</em></h2></div><a href="https://lowsignal.cl/contacto" class="footer-start">Hablemos de tu proyecto <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div><div class="footer-grid-new"><div class="footer-identity"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal" class="footer-logo-real"></a><p>Somos una Growth Company. Conectamos estrategia, tecnología, contenido e IA para construir crecimiento sostenible.</p><div class="footer-claim-new">Less noise. <b>More growth.</b></div><div class="footer-ai-new"><span>PREGÚNTALE A TU IA</span><div class="ai-row"><a data-ai="chatgpt" target="_blank" rel="noopener noreferrer" title="Preguntar en ChatGPT" aria-label="Preguntar en ChatGPT"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></a><a data-ai="gemini" target="_blank" rel="noopener noreferrer" title="Preguntar en Gemini" aria-label="Preguntar en Gemini"><img src="https://cdn.simpleicons.org/googlegemini/8AA4FF" alt=""></a><a data-ai="perplexity" target="_blank" rel="noopener noreferrer" title="Preguntar en Perplexity" aria-label="Preguntar en Perplexity"><img src="https://cdn.simpleicons.org/perplexity/8AA4FF" alt=""></a><a data-ai="claude" target="_blank" rel="noopener noreferrer" title="Preguntar en Claude" aria-label="Preguntar en Claude"><img src="https://cdn.simpleicons.org/claude/8AA4FF" alt=""></a></div><small>Descubre cómo lowsignal puede ayudar a tu organización.</small></div></div><div class="footer-linkcol"><strong>Soluciones</strong><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a></div><div class="footer-linkcol"><strong>Industrias</strong><a href="https://lowsignal.cl/industrias/educacion">Education</a><a href="https://lowsignal.cl/industrias/b2b">B2B</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C</a><strong class="footer-second-title">Explora</strong><a href="https://lowsignal.cl/casos">Customer Stories</a><a href="https://lowsignal.cl/recursos/insights">Insights</a></div><div class="footer-linkcol"><strong>Compañía</strong><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/contacto">Contacto</a><strong class="footer-second-title">Social</strong><a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://facebook.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Facebook</a></div></div><div class="footer-bottom-new"><span>© 2026 lowsignal SpA. Todos los derechos reservados.</span><span>Santiago, Chile <span class="foot-star" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span> Built for what's next.</span></div></div></footer><script>
+</main><footer class="low-footer" id="contacto"><div class="shell"><div class="footer-head"><div><span class="footer-eyebrow">BUILD WHAT'S NEXT</span><h2>¿Construimos<br><em>lo que viene?</em></h2></div><a href="https://lowsignal.cl/contacto" class="footer-start">Hablemos de tu proyecto <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div><div class="footer-grid-new"><div class="footer-identity"><a href="https://lowsignal.cl"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal" class="footer-logo-real"></a><p>Somos una Growth Company. Conectamos estrategia, tecnología, contenido e IA para construir crecimiento sostenible.</p><div class="footer-claim-new">Less noise. <b>More growth.</b></div><div class="footer-ai-new"><span>PREGÚNTALE A TU IA</span><div class="ai-row"><a data-ai="chatgpt" target="_blank" rel="noopener noreferrer" title="Preguntar en ChatGPT" aria-label="Preguntar en ChatGPT"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></a><a data-ai="gemini" target="_blank" rel="noopener noreferrer" title="Preguntar en Gemini" aria-label="Preguntar en Gemini"><img src="https://cdn.simpleicons.org/googlegemini/8AA4FF" alt=""></a><a data-ai="perplexity" target="_blank" rel="noopener noreferrer" title="Preguntar en Perplexity" aria-label="Preguntar en Perplexity"><img src="https://cdn.simpleicons.org/perplexity/8AA4FF" alt=""></a><a data-ai="claude" target="_blank" rel="noopener noreferrer" title="Preguntar en Claude" aria-label="Preguntar en Claude"><img src="https://cdn.simpleicons.org/claude/8AA4FF" alt=""></a></div><small>Descubre cómo lowsignal puede ayudar a tu organización.</small></div></div><div class="footer-linkcol"><strong>Soluciones</strong><a href="https://lowsignal.cl/soluciones/low-social">Low Social</a><a href="https://lowsignal.cl/soluciones/low-ads">Low Ads</a><a href="https://lowsignal.cl/soluciones/low-web">Low Web</a><a href="https://lowsignal.cl/soluciones/low-flow">Low Flow</a><a href="https://lowsignal.cl/soluciones/low-apps">Low Apps</a><a href="https://lowsignal.cl/soluciones/low-scale">Low Scale</a></div><div class="footer-linkcol"><strong>Industrias</strong><a href="https://lowsignal.cl/industrias/educacion">Education</a><a href="https://lowsignal.cl/industrias/b2b">B2B</a><a href="https://lowsignal.cl/industrias/marcas-b2c">B2C</a><strong class="footer-second-title">Explora</strong><a href="https://lowsignal.cl/casos">Customer Stories</a><a href="https://lowsignal.cl/recursos/insights">Insights</a></div><div class="footer-linkcol"><strong>Compañía</strong><a href="https://lowsignal.cl/nosotros">Nosotros</a><a href="https://lowsignal.cl/recursos/insiders">Insiders</a><a href="https://lowsignal.cl/recursos/jobs">Jobs</a><a href="https://lowsignal.cl/contacto">Contacto</a><strong class="footer-second-title">Social</strong><a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://facebook.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Facebook</a></div></div><div class="footer-bottom-new"><span>© 2026 lowsignal SpA. Todos los derechos reservados.</span><span>Santiago, Chile <span class="foot-star" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span> Built for what's next.</span></div></div></footer><a class="floatingMark low-social-floating-talk" href="https://lowsignal.cl/contacto" aria-label="Hablemos de tu proyecto"><span aria-hidden="true"></span>Hablemos <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a><script id="low-social-floating-talk-scroll">
+(()=>{
+ const button=document.querySelector('body>.low-social-floating-talk');
+ const hero=document.querySelector('.low-social-redesign .ls-social-hero');
+ const footer=document.querySelector('body>.low-footer');
+ if(!button||!hero)return;
+ let queued=false;
+ function sync(){
+  const mobile=window.matchMedia('(max-width:760px)').matches;
+  const beyondHero=hero.getBoundingClientRect().bottom < 96;
+  const inFooter=footer&&footer.getBoundingClientRect().top < window.innerHeight-60;
+  const show=!mobile&&beyondHero&&!inFooter;
+  button.classList.toggle('is-visible',Boolean(show));
+  button.setAttribute('aria-hidden',String(!show));
+  button.tabIndex=show?0:-1;
+  queued=false;
+ }
+ function schedule(){if(queued)return;queued=true;requestAnimationFrame(sync)}
+ window.addEventListener('scroll',schedule,{passive:true});
+ window.addEventListener('resize',schedule,{passive:true});
+ window.addEventListener('pageshow',schedule);
+ sync();
+})();
+</script><script>
 (()=>{
  const nav=document.getElementById('siteNav');
  const groups=[...document.querySelectorAll('.site-nav .menu-group')];
