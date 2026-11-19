@@ -4211,6 +4211,214 @@ main#top>section.team#team{border-top:0!important}
  main#top .about-hero-link,main#top .about-industries-links a{transition:none}
 }
 </style>
+
+<style id="about-complete-visual-rebrand-20261118">
+/* The About page inherits the new industries' dark, restrained visual language. */
+:root{--about-ink:#151a24;--about-muted:#606a79;--about-deep:#070c1b}
+/* DESKTOP NAVBAR: visually consistent with the industry pages; legacy menu logic retained. */
+@media(min-width:761px){
+ html body>.lnav{
+   position:fixed!important;top:0!important;left:0!important;right:0!important;
+   width:100%!important;z-index:1600!important;
+   background:#070c1b!important;
+   background-image:linear-gradient(108deg,#080f25 0%,#070c1b 53%,#0e1a3b 100%)!important;
+   box-shadow:none!important;
+   border-bottom:1px solid rgba(255,255,255,.16)!important;
+ }
+ html body>.lnav .lnav-row{
+   width:calc(100% - 10%)!important;max-width:1450px!important;
+   margin:0 auto!important;min-height:78px!important;height:78px!important;
+   gap:clamp(15px,2.5vw,38px)!important;
+ }
+ html body>.lnav .lnav-menu{gap:clamp(12px,1.8vw,26px)!important}
+ html body>.lnav .lnav-logo img{max-height:30px!important}
+ html body>.lnav .lnav-trigger,
+ html body>.lnav .lnav-direct{
+   color:#d9deeb!important;font-weight:500!important;
+   font-size:13px!important;letter-spacing:-.01em!important;
+ }
+ html body>.lnav .lnav-item:hover>.lnav-trigger,
+ html body>.lnav .lnav-direct:hover{color:#fff!important}
+ html body>.lnav .lnav-chevron{width:12px!important;height:8px!important}
+ html body>.lnav .lnav-contact{
+   background:#fff!important;color:#101522!important;
+   min-height:42px!important;padding:0 21px!important;border-radius:100px!important;
+   box-shadow:none!important;font-size:13px!important;
+ }
+ html body>.lnav .lnav-contact:hover{background:#e9edff!important}
+ html body>.lnav .lnav-mega{top:78px!important}
+}
+/* MOBILE NAVBAR: compact and full-width, matching modern industry pages. */
+@media(max-width:760px){
+ html body>.nav-wrap{
+   top:0!important;left:0!important;right:0!important;position:fixed!important;
+   width:100%!important;height:74px!important;min-height:74px!important;
+   padding:0!important;margin:0!important;z-index:1600!important;
+   background:#070c1b!important;background-image:none!important;
+   box-shadow:0 1px 0 rgba(255,255,255,.14)!important;
+ }
+ html body>.nav-wrap>.nav{
+   display:flex!important;align-items:center!important;justify-content:space-between!important;
+   width:100%!important;max-width:100%!important;height:74px!important;min-height:74px!important;
+   margin:0!important;padding:0 20px!important;border:0!important;border-radius:0!important;
+   box-shadow:none!important;background:#070c1b!important;background-image:none!important;
+ }
+ html body>.nav-wrap .brand img{max-height:30px!important;width:clamp(116px,34vw,158px)!important;height:auto!important}
+ html body>.nav-wrap .mobile-nav-toggle{margin-left:auto!important;flex:0 0 42px!important}
+ html body>.mobile-nav-panel{
+   top:74px!important;inset:74px 0 0!important;
+   height:calc(100dvh - 74px)!important;max-height:calc(100dvh - 74px)!important;
+   overflow-y:auto!important;padding:20px 20px 40px!important;
+   background:#070c1b!important;background-image:none!important;
+ }
+ html body>.mobile-nav-panel .mobile-nav-inner{max-width:none!important;width:100%!important}
+ html body>.mobile-nav-panel .mobile-nav-summary>svg{width:13px!important;height:9px!important;flex:0 0 13px!important}
+}
+/* Alternating visual chapters: the story becomes a readable light editorial canvas. */
+main#top>.low-about-history-linear{
+ background:#f7f7f5!important;color:var(--about-ink)!important;
+ border-top:0!important;border-bottom:1px solid #dfe1e5!important;
+}
+main#top>.low-about-history-linear .low-about-linear-kicker{
+ color:#566177!important;
+}
+main#top>.low-about-history-linear .low-about-history-heading h2,
+main#top>.low-about-history-linear #low-about-history-title{
+ color:#141a25!important;
+}
+main#top>.low-about-history-linear #low-about-history-title .low-about-growth-accent{
+ color:#3153e5!important;
+}
+main#top>.low-about-history-linear .low-about-history-lead{
+ color:#202631!important;
+}
+main#top>.low-about-history-linear .low-about-history-copy p:not(.low-about-history-lead){
+ color:#5c6573!important;
+}
+main#top>.about-approach{
+ background:#e9edf6!important;
+ border-bottom:1px solid #d5dce9!important;
+}
+main#top .about-approach .about-pillars{border-color:#ccd3e0!important}
+main#top .about-approach .about-pillar,
+main#top .about-industries-links a{border-color:#ccd3e0!important}
+/* Dark team receives more breathing room and cleaner photo cards. */
+main#top>section.team#team{
+ background:#070c1b!important;
+ background-image:linear-gradient(150deg,#09122b 0%,#070c1b 63%,#101b3b 100%)!important;
+}
+main#top>section.team#team .person-photo-link .person-photo{
+ border-radius:4px!important;background:#111827!important;
+}
+main#top>section.team#team .person-photo-link img{
+ border-radius:4px!important;
+}
+/* New footer: full CTA and connected navigation instead of the old detached band. */
+html body footer.about-footer-revamp{
+ color:#f5f7ff!important;background:#070c1b!important;
+ background-image:
+   radial-gradient(ellipse 70% 78% at 101% 5%,rgba(34,54,204,.32),transparent 70%),
+   radial-gradient(ellipse 55% 78% at -12% 94%,rgba(48,79,159,.26),transparent 73%),
+   linear-gradient(130deg,#090f23,#070c1b 60%,#0d1740)!important;
+ padding:0 0 30px!important;
+ border-top:1px solid rgba(230,236,255,.17)!important;
+}
+html body footer.about-footer-revamp .footer-container{
+ width:min(1450px,90%)!important;max-width:1450px!important;margin:0 auto!important;
+}
+html body footer.about-footer-revamp .about-footer-lead{
+ display:flex;align-items:flex-end;justify-content:space-between;
+ padding:clamp(85px,8vw,135px) 0 clamp(68px,7vw,110px);
+ gap:40px;border-bottom:1px solid rgba(238,242,255,.2);
+}
+html body footer.about-footer-revamp .about-footer-eyebrow{
+ margin:0 0 24px;color:#a2b2df!important;font-size:10px;
+ letter-spacing:.15em;font-weight:600;
+}
+html body footer.about-footer-revamp .about-footer-lead h2{
+ font-weight:400!important;letter-spacing:-.065em!important;line-height:1.04!important;
+ color:#fff!important;font-size:clamp(50px,7vw,102px)!important;margin:0;
+}
+html body footer.about-footer-revamp .about-footer-lead h2 em{
+ font-style:normal;color:#a9b9ff!important;
+}
+html body footer.about-footer-revamp .about-footer-link{
+ display:inline-flex;align-items:center;justify-content:space-between;gap:32px;
+ background:#fff!important;color:#111827!important;
+ padding:17px 20px 17px 24px;border-radius:100px;
+ font-size:13px;font-weight:600;white-space:nowrap;
+ transition:background .2s,transform .2s;
+}
+html body footer.about-footer-revamp .about-footer-link:hover{
+ background:#e9edff!important;transform:translateY(-2px);
+}
+html body footer.about-footer-revamp .about-footer-link svg{
+ width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;
+ stroke-linecap:round;stroke-linejoin:round;
+}
+html body footer.about-footer-revamp .footer-main-editorial{
+ display:grid!important;
+ grid-template-columns:minmax(260px,2.2fr) repeat(4,minmax(100px,1fr))!important;
+ gap:clamp(22px,3vw,55px)!important;
+ padding:65px 0 65px!important;
+}
+html body footer.about-footer-revamp .footer-brand{
+ max-width:360px!important;grid-column:auto!important;
+}
+html body footer.about-footer-revamp .footer-brand>img{width:160px!important;max-width:100%!important}
+html body footer.about-footer-revamp .footer-brand-copy{
+ color:#aeb9ce!important;font-size:12px!important;line-height:1.8!important;
+}
+html body footer.about-footer-revamp .footer-claim{color:#fff!important;font-size:15px!important}
+html body footer.about-footer-revamp .footer-claim strong{color:#a9b9ff!important}
+html body footer.about-footer-revamp .footer-title{
+ color:#fff!important;letter-spacing:.06em;font-size:11px!important;
+ font-weight:650!important;margin-bottom:20px!important;
+}
+html body footer.about-footer-revamp .footer-links{display:flex!important;flex-direction:column!important;gap:15px!important}
+html body footer.about-footer-revamp .footer-links a{
+ color:#b8c1d3!important;font-size:12px!important;
+ transition:color .2s!important;
+}
+html body footer.about-footer-revamp .footer-links a:hover{color:#fff!important}
+html body footer.about-footer-revamp .footer-meta-editorial{
+ border-top:1px solid rgba(238,242,255,.17)!important;
+ border-bottom:1px solid rgba(238,242,255,.17)!important;
+ padding:22px 0!important;
+}
+html body footer.about-footer-revamp .footer-bottom-editorial{
+ padding:26px 0 0!important;
+}
+html body footer.about-footer-revamp .footer-meta-editorial,
+html body footer.about-footer-revamp .footer-bottom-editorial{color:#b7c2d7!important}
+@media(max-width:1100px){
+ html body footer.about-footer-revamp .footer-main-editorial{
+   grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:38px 25px!important;
+ }
+ html body footer.about-footer-revamp .footer-brand{
+   grid-column:1/-1!important;max-width:450px!important;
+ }
+}
+@media(max-width:760px){
+ html body footer.about-footer-revamp .footer-container{width:calc(100% - 40px)!important}
+ html body footer.about-footer-revamp .about-footer-lead{
+   padding:70px 0 67px;flex-direction:column;align-items:flex-start;gap:35px;
+ }
+ html body footer.about-footer-revamp .about-footer-lead h2{font-size:clamp(43px,12vw,62px)!important}
+ html body footer.about-footer-revamp .about-footer-link{width:100%;box-sizing:border-box}
+ html body footer.about-footer-revamp .footer-main-editorial{
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   padding:45px 0!important;gap:38px 22px!important;
+ }
+ html body footer.about-footer-revamp .footer-brand{grid-column:1/-1!important}
+ html body footer.about-footer-revamp .footer-title{font-size:10px!important}
+ html body footer.about-footer-revamp .footer-links a{font-size:12px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body footer.about-footer-revamp .about-footer-link{transition:none}
+}
+</style>
+
 </head>
 <body>
 
@@ -4586,7 +4794,7 @@ main#top>section.team#team{border-top:0!important}
     </section>
 
 
-    <section class="lsr-band lf26-cta" id="contacto"><div class="lsr-wrap lsr-band-inner lf26-cta-inner"><div class="lf26-cta-copy"><p class="lf26-cta-kicker">NOSOTROS · LESS NOISE. MORE GROWTH.</p><h2>¿Construimos <span>lo que viene?</span></h2><p>Conversemos sobre cómo podemos construir juntos tu próximo proyecto.</p></div><a href="https://lowsignal.cl/contacto">Hablemos <span aria-hidden="true">↗</span></a></div></section>
+    
   </main>
 
 
@@ -4597,8 +4805,15 @@ main#top>section.team#team{border-top:0!important}
 
 
 
-  <footer>
+  <footer class="about-footer-revamp" id="contacto">
     <div class="container footer-container">
+      <div class="about-footer-lead">
+        <div>
+          <p class="about-footer-eyebrow">BUILD WHAT'S NEXT / LOWSIGNAL</p>
+          <h2>¿Construimos<br><em>lo que viene?</em></h2>
+        </div>
+        <a class="about-footer-link" href="https://lowsignal.cl/contacto">Hablemos de tu proyecto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a>
+      </div>
       <div class="footer-main footer-main-editorial">
         <div class="footer-brand">
           <img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal">
