@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>lowsignal for Education | Growth para educación | lowsignal</title><link rel="canonical" href="https://lowsignal.cl/industrias/educacion"><link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png"><link rel="apple-touch-icon" href="https://lowsignal.cl/assets/profile.png"><meta name="description" content="lowsignal for Education: estrategia, contenido, campañas de admisión, web y automatización para colegios, redes educativas y fundaciones. Conoce nuestros planes y casos."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101a46"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>lowsignal for Education | Growth para educación | lowsignal</title><link rel="canonical" href="https://lowsignal.cl/industrias/educacion"><link rel="icon" type="image/png" href="https://lowsignal.cl/assets/profile.png"><link rel="apple-touch-icon" href="https://lowsignal.cl/assets/profile.png"><meta name="description" content="lowsignal for Education: estrategia, contenido, campañas de admisión, web y automatización para colegios, redes educativas y fundaciones. Conoce nuestros planes y casos."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 
 /* Explicit responsive visibility; mobile navigation must never enter desktop flow */
 @media(min-width:761px){
@@ -1059,6 +1059,32 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
     background-repeat:no-repeat!important;
   }
 }
+
+/* iPhone safe-area: extend the branded navbar above the clock/battery without moving content offscreen. */
+@media(max-width:760px){
+ html{background-color:#101a46}
+ html body>.nav-wrap{
+   top:0!important;
+   height:calc(74px + env(safe-area-inset-top,0px))!important;
+   min-height:calc(74px + env(safe-area-inset-top,0px))!important;
+   padding-top:env(safe-area-inset-top,0px)!important;
+   box-sizing:border-box!important;
+ }
+ html body>.nav-wrap>.nav{
+   height:74px!important;min-height:74px!important;
+ }
+ html body>.mobile-nav-panel{
+   top:calc(74px + env(safe-area-inset-top,0px))!important;
+   inset-block-start:calc(74px + env(safe-area-inset-top,0px))!important;
+   height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;
+   max-height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;
+ }
+ .heroInner{padding-top:calc(125px + env(safe-area-inset-top,0px))!important}
+ html body>.nav-wrap.is-scrolled,
+ html body.mobile-menu-open>.nav-wrap{
+   background-color:#101a46!important;
+ }
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1270,5 +1296,17 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
  window.addEventListener('resize',check,{passive:true});
  window.addEventListener('pageshow',check);
  requestAnimationFrame(check);
+})();
+
+/* Keep iOS Safari status-bar theme in sync with the scroll-state navbar. */
+(()=>{
+ const theme=document.querySelector('meta[name="theme-color"]');
+ const nav=document.querySelector('body > .nav-wrap');
+ if(!theme||!nav)return;
+ const sync=()=>theme.setAttribute('content',nav.classList.contains('is-scrolled')||document.body.classList.contains('mobile-menu-open')?'#17245d':'#101a46');
+ const observer=new MutationObserver(sync);
+ observer.observe(nav,{attributes:true,attributeFilter:['class']});
+ observer.observe(document.body,{attributes:true,attributeFilter:['class']});
+ sync();
 })();
 </script></body></html>
