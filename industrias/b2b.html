@@ -1230,6 +1230,44 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  }
  .desktop-links #menu-ind .mega-item b,.desktop-links #menu-rec .mega-item b{color:#171b23!important}
 }
+
+/* B2B hero imagery and logo strip aligned to the editorial content grid. */
+.hero{
+ background:#121b30!important;
+ background-image:none!important;
+}
+.hero:before{
+ background:
+  linear-gradient(90deg,rgba(5,11,25,.81) 0%,rgba(5,11,25,.53) 48%,rgba(5,11,25,.40) 100%),
+  linear-gradient(0deg,rgba(3,9,23,.38),transparent 65%),
+  url("https://lowsignal.cl/assets/industry-b2b.png") center center/cover no-repeat!important;
+}
+.logoBar{
+ width:90%!important;
+ max-width:1450px!important;
+ margin:0 auto!important;
+ padding:28px 0!important;
+ display:grid!important;
+ grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ gap:clamp(16px,2.5vw,40px)!important;
+ box-sizing:border-box!important;
+ overflow:visible!important;
+}
+.logoBar .logoItem{width:100%!important;min-width:0!important;justify-content:center!important;box-sizing:border-box!important}
+.logoBar .logoItem:first-child{justify-content:flex-start!important}
+.logoBar .logoItem:last-child{justify-content:flex-end!important}
+.logoBar .logoItem img{width:auto!important;max-width:100%!important;max-height:50px!important;object-fit:contain!important}
+@media(max-width:760px){
+ .hero:before{
+  background:
+   linear-gradient(180deg,rgba(5,11,25,.57),rgba(5,11,25,.69)),
+   url("https://lowsignal.cl/assets/industry-b2b.png") center center/cover no-repeat!important;
+ }
+ .logoBar{width:calc(100% - 40px)!important;max-width:none!important;margin:0 auto!important;padding:21px 0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:17px 20px!important}
+ .logoBar .logoItem,.logoBar .logoItem:first-child,.logoBar .logoItem:last-child{justify-content:center!important}
+ .logoBar .logoB2BLast{display:none!important}
+ .logoBar .logoItem img{max-height:52px!important}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
