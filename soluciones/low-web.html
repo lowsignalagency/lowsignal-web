@@ -3832,6 +3832,39 @@ html body .lw-v4 .orb::after{content:none!important}
 @media(prefers-reduced-motion:reduce){
  html body .lw-v4 .lw-web-customer-testimonials .ls-v4-testimonial-dot{transition:none}
 }
+</style><style id="lowweb-navbar-process-contrast-fix-20261119">
+/* Navbar: avoid white-on-white from legacy transparent header over light Low Web hero. */
+@media(min-width:1367px){
+ html body>header.site-nav#siteNav{
+  position:fixed!important;inset:0 0 auto!important;top:0!important;
+  display:block!important;visibility:visible!important;opacity:1!important;
+  z-index:1700!important;background:#070c1b!important;background-color:#070c1b!important;
+  background-image:none!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 4px 22px rgba(7,12,27,.08)!important;
+ }
+ html body>header.site-nav#siteNav.nav-scrolled{background:#070c1b!important;background-image:none!important}
+ html body>header.site-nav#siteNav .site-nav-inner{background:transparent!important;height:84px!important}
+ html body>header.site-nav#siteNav :is(.menu-trigger,.simple-nav){color:#fff!important}
+ html body>header.site-nav#siteNav .site-logo img{filter:none!important}
+ html body>header.site-nav#siteNav .nav-cta{color:#0a0a0a!important}
+}
+/* Process section: content-driven height instead of a forced, vertically centered 650px panel. */
+html body main.lw-v4>.lw-v4-s3{
+ display:block!important;min-height:0!important;height:auto!important;
+ padding:88px 0 94px!important;overflow:hidden!important;
+}
+html body main.lw-v4>.lw-v4-s3>div[style*="position:relative"]{width:auto!important;max-width:1168px!important;margin-inline:auto!important}
+html body main.lw-v4>.lw-v4-s3 h2{margin-top:18px!important}
+html body main.lw-v4>.lw-v4-s3 [style*="grid-template-columns:repeat(4"]{margin-top:45px!important}
+@media(min-width:701px) and (max-width:1200px){
+ html body main.lw-v4>.lw-v4-s3>div[style*="position:relative"]{margin-inline:5%!important}
+}
+@media(max-width:700px){
+ html body main.lw-v4>.lw-v4-s3{padding:70px 0 76px!important}
+ html body main.lw-v4>.lw-v4-s3>div[style*="position:relative"]{margin-inline:20px!important}
+ html body main.lw-v4>.lw-v4-s3 [style*="grid-template-columns:repeat(4"]{margin-top:34px!important}
+}
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
@@ -3875,7 +3908,7 @@ html body .lw-v4 .orb::after{content:none!important}
     <div style="position:absolute;inset:-240px;filter:blur(90px);background:radial-gradient(28% 45% at 12% 30%,#1419E0 0%,rgba(20,25,224,0) 70%),radial-gradient(30% 50% at 90% 70%,#5B7BF0 0%,rgba(91,123,240,0) 70%);"></div>
     <div style="position:relative;margin:0 136px;">
       <div style="font-size:13px;font-weight:500;letter-spacing:.2em;color:#A9BCFF;">CÓMO TRABAJAMOS</div>
-      <h2 style="margin:20px 0 0;font-size:52px;line-height:1.08;font-weight:300;letter-spacing:-.03em;color:#FFFFFF;">De la idea al resultado, <span style="font-weight:500;color:#A9BCFF;">cada mes.</span></h2>
+      <h2 style="margin:20px 0 0;font-size:52px;line-height:1.08;font-weight:300;letter-spacing:-.03em;color:#FFFFFF;">De la idea al lanzamiento, <span style="font-weight:500;color:#A9BCFF;">y más allá.</span></h2>
       <div style="margin-top:60px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.2);">
         <div style="padding:30px 28px 0 0;"><div style="font-size:14px;color:#8AA4FF;">01</div><div style="margin-top:14px;font-size:26px;font-weight:400;color:#FFFFFF;">Estrategia</div><p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:rgba(235,240,255,.75);">Discovery, mapa de páginas y journey.</p></div><div style="padding:30px 28px 0 0;"><div style="font-size:14px;color:#8AA4FF;">02</div><div style="margin-top:14px;font-size:26px;font-weight:400;color:#FFFFFF;">Diseño &amp; UX</div><p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:rgba(235,240,255,.75);">UX/UI, wireframes y sistema visual.</p></div><div style="padding:30px 28px 0 0;"><div style="font-size:14px;color:#8AA4FF;">03</div><div style="margin-top:14px;font-size:26px;font-weight:400;color:#FFFFFF;">Desarrollo</div><p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:rgba(235,240,255,.75);">CMS, SEO técnico, QA y publicación.</p></div><div style="padding:30px 28px 0 0;"><div style="font-size:14px;color:#8AA4FF;">04</div><div style="margin-top:14px;font-size:26px;font-weight:400;color:#FFFFFF;">Evolución</div><p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:rgba(235,240,255,.75);">Analítica, soporte y mejoras continuas.</p></div>
       </div>
