@@ -4346,21 +4346,20 @@ html body .lh-v4 .lh-v4-s1 .lh-v4-logo-fallback::after{color:#101010!important}
 html body .lh-v4 .lh-v4-partner-icon img[src*="domain=jumpseller.com"]{
   filter:brightness(.45) saturate(.75)!important;
 }
-/* Carry the dark B2B canvas and its gradient edge-to-edge, even within page gutters. */
+/* B2B: retain the original deep navy visual and let it cover the entire viewport. */
 html body .lh-v4 .lh-v4-s5{
-  width:100vw!important;
-  width:100dvw!important;
-  max-width:none!important;
-  margin-left:calc(50% - 50vw)!important;
-  margin-right:calc(50% - 50vw)!important;
-  background:linear-gradient(105deg,#050c1c 0%,#091330 54%,#171cba 100%)!important;
   position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  background:#070f22!important;
+  overflow:hidden!important;
   isolation:isolate;
 }
 html body .lh-v4 .lh-v4-s5 > div:first-child{
-  inset:0!important;
-  background:radial-gradient(ellipse 65% 80% at 100% 35%,rgba(35,38,220,.58),transparent 75%)!important;
-  filter:none!important;
+  inset:-240px!important;
+  background:radial-gradient(30% 45% at 90% 20%,rgba(20,25,224,.56) 0%,rgba(20,25,224,0) 70%),radial-gradient(28% 40% at 5% 95%,rgba(91,123,240,.25) 0%,rgba(91,123,240,0) 70%)!important;
+  filter:blur(90px)!important;
   pointer-events:none;
 }
 @media(max-width:700px){
