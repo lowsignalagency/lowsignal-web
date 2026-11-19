@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Align LowSignal Education's bundled page to the site's shared type rhythm."""
 from pathlib import Path
-import json, re
+import json, re, subprocess
 
 path = Path("industrias/educacion.html")
-source = path.read_text(encoding="utf-8")
+# Recover the known-good bundled HTML before the prior serialization bug.
+# Never reprocess the currently broken embedded JSON.
+source = subprocess.check_output(
+    ["git", "show", "1a6b583a095aefeb682ee54af6449f03a318776b:industrias/educacion.html"],
+    text=True
+)
 match = re.search(r'(<script\s+type="__bundler/template"\s*>)(.*?)(</script>)', source, re.S)
 if not match:
     raise SystemExit("Bundle template missing. No changes made.")
@@ -81,7 +86,13 @@ if "</helmet>" in template:
     template = template.replace("</helmet>", injection + "</helmet>", 1)
 else:
     template = template.replace("</head>", injection + "</head>", 1)
-updated = source[:match.start(2)] + json.dumps(template,ensure_ascii=False) + source[match.end(2):]
+# An embedded JSON script must NEVER contain literal </script>.
+# Otherwise the browser closes the JSON payload early and the whole page fails.
+encoded = json.dumps(template, ensure_ascii=False).replace("</", r"\u003c/")
+assert json.loads(encoded) == template
+updated = source[:match.start(2)] + encoded + source[match.end(2):]
+check = re.search(r'(<script\s+type="__bundler/template"\s*>)(.*?)(</script>)', updated, re.S)
+assert check and json.loads(check.group(2)) == template, "Embedded template JSON failed validation"
 if updated != source:
     path.write_text(updated,encoding="utf-8")
     print("Education typography and motion aligned; original interactive components retained")
