@@ -1347,15 +1347,12 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   .eduPrices{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
   .eduPriceCard{min-width:0!important;max-width:100%!important}
   .eduComparison,.eduComparisonScroll{max-width:100%!important}
-  .eduCompareTabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .eduCompareTab{min-width:0!important;white-space:normal!important}
   .eduUseEditorial,.eduUseIntro,.eduUseServices{min-width:0!important;max-width:100%!important}
 }
 @media (max-width:390px){
   .logoBar{gap:8px 12px!important;padding:18px 16px!important}
   .logoBar .logoItem{height:62px!important}
   .logoBar .logoItem img{max-height:43px!important}
-  .eduCompareTabs{grid-template-columns:minmax(0,1fr)!important}
 }
 
 @media (max-width:760px){
@@ -1435,6 +1432,46 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   html body>.mobile-nav-panel .mobile-nav-submenu a strong{color:#fff!important}
   html body>.mobile-nav-panel .mobile-nav-submenu a small{color:#a8b1c5!important}
   html body.mobile-menu-open{overflow:hidden}
+}
+
+
+/* Mobile controls aligned with Education; prevent squeezed or clipped buttons. */
+@media(max-width:760px){
+  .heroBottom .pill{
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    gap:12px!important;max-width:100%!important;min-height:46px!important;
+    padding:15px 23px!important;border-radius:100px!important;
+    white-space:normal!important;text-align:center!important;
+    box-sizing:border-box!important;font-size:12px!important;
+  }
+  .eduSegmentTabs{display:flex!important;flex-direction:column!important;gap:3px!important;max-width:100%!important}
+  .eduSegmentTabs button{width:100%!important;min-width:0!important;min-height:43px!important;white-space:normal!important}
+  .eduCompareTabs{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;max-width:100%!important;
+  }
+  .eduCompareTab{
+    width:100%!important;min-width:0!important;min-height:43px!important;
+    padding:12px 8px!important;font-size:11px!important;
+    white-space:normal!important;overflow-wrap:break-word!important;
+    text-align:center!important;box-sizing:border-box!important;
+  }
+  .eduPriceAction,.eduUseContact,.eduStoriesAll{
+    max-width:100%!important;box-sizing:border-box!important;
+    white-space:normal!important;
+  }
+  /* Logos must stay visible when scrolling back and forth on touch devices. */
+  .logoBar .logoItem:not(.logoB2BLast):not(.logoB2CLast){
+    opacity:1!important;visibility:visible!important;transform:none!important;
+    animation:none!important;transition:none!important;filter:none!important;
+  }
+  .logoBar .logoItem:not(.logoB2BLast):not(.logoB2CLast) img{
+    opacity:1!important;visibility:visible!important;transform:none!important;
+    animation:none!important;
+  }
+}
+@media(max-width:370px){
+  .eduCompareTabs{grid-template-columns:minmax(0,1fr)!important}
 }
 
 </style></head><body>
@@ -1621,7 +1658,11 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
    const rect=logos.getBoundingClientRect();
    if(rect.top<vh*.95 && rect.bottom>0){
     logosSeen=true;
-    [...logos.querySelectorAll('.logoItem')].forEach((el,i)=>animate(el,i*85));
+    if(window.matchMedia('(max-width:760px)').matches){
+     [...logos.querySelectorAll('.logoItem')].forEach(el=>{el.classList.remove('scroll-enter','low-motion-item','low-scroll-parallax');el.style.opacity='1';el.style.transform='none';});
+    }else{
+     [...logos.querySelectorAll('.logoItem')].forEach((el,i)=>animate(el,i*85));
+    }
    }
   }
   if(!sectionSeen){
