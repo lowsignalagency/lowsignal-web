@@ -1205,6 +1205,80 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
   color:#171b23!important;
  }
 }
+
+/* Tablet navigation: keep one working compact menu across iPad sizes.
+   761–1100px previously hid both variants at some widths. */
+@media (min-width:761px) and (max-width:1100px){
+  html body>.site-nav{display:none!important;visibility:hidden!important}
+  html body>.nav-wrap{
+    display:block!important;visibility:visible!important;opacity:1!important;
+    position:fixed!important;top:0!important;left:0!important;right:0!important;
+    width:100%!important;height:74px!important;min-height:74px!important;
+    margin:0!important;padding:0!important;z-index:1600!important;
+    overflow:visible!important;background:#070c1b!important;
+  }
+  html body>.nav-wrap>.nav{
+    display:flex!important;visibility:visible!important;opacity:1!important;
+    position:relative!important;width:100%!important;max-width:100%!important;
+    height:74px!important;min-height:74px!important;
+    padding:0 28px!important;margin:0!important;border:0!important;border-radius:0!important;
+    box-sizing:border-box!important;align-items:center!important;justify-content:space-between!important;
+    gap:16px!important;background:#070c1b!important;
+    pointer-events:auto!important;overflow:visible!important;
+  }
+  html body>.nav-wrap .brand{
+    display:flex!important;align-items:center!important;flex:1 1 auto!important;
+    min-width:0!important;max-width:none!important;margin-right:auto!important;
+  }
+  html body>.nav-wrap .brand img{width:158px!important;height:auto!important;max-height:32px!important;object-fit:contain!important}
+  html body>.nav-wrap .mobile-nav-cta{
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    flex:0 0 auto!important;padding:0 20px!important;min-height:43px!important;
+    border-radius:100px!important;background:#fff!important;color:#141414!important;
+    font-size:14px!important;font-weight:700!important;text-decoration:none!important;
+  }
+  html body>.nav-wrap .mobile-nav-toggle{
+    display:flex!important;position:relative!important;align-items:center!important;justify-content:center!important;
+    flex:0 0 42px!important;width:42px!important;height:44px!important;margin:0!important;
+    padding:0!important;border:0!important;background:transparent!important;cursor:pointer!important;
+  }
+  html body>.nav-wrap .mobile-nav-toggle span{
+    display:block!important;position:absolute!important;width:23px!important;height:2px!important;
+    border-radius:2px!important;background:#fff!important;
+  }
+  html body>.nav-wrap .mobile-nav-toggle span:first-child{transform:translateY(-4px)!important}
+  html body>.nav-wrap .mobile-nav-toggle span:last-child{transform:translateY(4px)!important}
+  html body>.nav-wrap .mobile-nav-toggle[aria-expanded="true"] span:first-child{transform:rotate(45deg)!important}
+  html body>.nav-wrap .mobile-nav-toggle[aria-expanded="true"] span:last-child{transform:rotate(-45deg)!important}
+  html body>.mobile-nav-panel{
+    display:block!important;position:fixed!important;visibility:hidden!important;opacity:0!important;
+    pointer-events:none!important;top:74px!important;left:0!important;right:0!important;
+    width:100%!important;max-width:100%!important;height:calc(100dvh - 74px)!important;
+    max-height:calc(100dvh - 74px)!important;overflow-y:auto!important;overflow-x:hidden!important;
+    box-sizing:border-box!important;padding:22px 28px 40px!important;z-index:1590!important;
+    background:#070c1b!important;color:#fff!important;
+  }
+  html body>.mobile-nav-panel.is-open{
+    display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;
+  }
+  html body>.mobile-nav-panel .mobile-nav-inner{
+    width:100%!important;max-width:620px!important;margin:0 auto!important;padding-bottom:36px!important;
+  }
+  html body>.mobile-nav-panel .mobile-nav-group{display:block!important}
+  html body>.mobile-nav-panel .mobile-nav-summary,
+  html body>.mobile-nav-panel .mobile-nav-direct{
+    color:#f5f7ff!important;font-size:17px!important;min-height:56px!important;
+  }
+  html body>.mobile-nav-panel .mobile-nav-summary[aria-expanded="true"]{color:#a9b5ff!important}
+  html body>.mobile-nav-panel .mobile-nav-submenu a{
+    color:#fff!important;background:transparent!important;border-radius:0!important;
+    border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;
+  }
+  html body>.mobile-nav-panel .mobile-nav-submenu a strong{color:#fff!important}
+  html body>.mobile-nav-panel .mobile-nav-submenu a small{color:#a8b1c5!important}
+  html body.mobile-menu-open{overflow:hidden}
+}
+
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1331,7 +1405,7 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
  groups.forEach(btn=>btn.addEventListener('click',ev=>{ev.preventDefault();const open=btn.getAttribute('aria-expanded')==='true';closeGroups(btn);const sub=document.getElementById(btn.getAttribute('aria-controls'));if(sub){btn.setAttribute('aria-expanded',open?'false':'true');sub.hidden=open}}));
  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
  document.addEventListener('keydown',ev=>{if(ev.key==='Escape')setOpen(false)});
- window.addEventListener('resize',()=>{if(innerWidth>760)setOpen(false)});
+ window.addEventListener('resize',()=>{if(innerWidth>1100)setOpen(false)});
 })();
 
 /* Tabbed plan comparison; no horizontal mobile navigation */
