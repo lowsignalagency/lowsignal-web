@@ -2611,18 +2611,37 @@ html body :not(#ls-typeface-override-exemption){font-family:"Be Vietnam Pro",san
 @media(max-width:410px){.ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:nth-child(2)>div[style*="right:90px"]{width:150px!important}}
 </style>
 <style id="ls-social-layout-repair-2026">
-/* Keep editorial guide rails from crossing cards, artwork, labels or buttons. */
-.ls-v4-original .reference-v4-section>div[style*="position:absolute"][style*="top:0"][style*="bottom:0"][style*="width:1px"]{display:none!important}
+/* Editorial rails: visible, non-interactive, always behind actual content. */
 .ls-v4-original .reference-v4-section{isolation:isolate}
+.ls-v4-original .reference-v4-section>div[style*="position:absolute"][style*="top:0"][style*="bottom:0"][style*="width:1px"]{
+  display:block!important;z-index:0!important;pointer-events:none!important;
+}
+.ls-v4-original .reference-v4-section>div[style*="position:relative"]{z-index:1}
 .ls-v4-original .reference-v4-section a[href]{position:relative;z-index:3;pointer-events:auto;cursor:pointer}
 .ls-v4-original .ref-v4-0 .ls-v4-case-link{position:absolute!important;z-index:10!important}
 .ls-v4-original .reference-v4-section svg{max-width:100%;height:auto}
 .ls-v4-original .reference-v4-section svg:not(a svg){pointer-events:none}
 .ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:first-child>div:first-child>div:last-child{flex-wrap:wrap}
+/* Full-bleed navy 'Cómo trabajamos' section, aligned content inside. */
+html,body{overflow-x:clip}
+.ls-v4-original{overflow:visible!important}
+.ls-v4-original .ref-v4-3{
+  width:100vw!important;max-width:none!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  border-radius:0!important;
+  isolation:isolate;
+}
+.ls-v4-original .ref-v4-3>div:nth-child(2){
+  width:100%;max-width:1280px!important;
+  margin:0 auto!important;padding:0 48px!important;
+  position:relative;z-index:2;
+}
 @media(max-width:700px){
-.ls-v4-original .ref-v4-0 .ls-v4-case-link{top:auto!important;bottom:16px!important;right:16px!important;font-size:13px!important;padding:9px 14px!important}
-.ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:first-child>div:first-child>div:last-child{gap:10px!important}
-.ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:first-child>div:first-child>div:last-child a{font-size:14px!important;padding:13px 18px!important}
+  .ls-v4-original .ref-v4-3>div:nth-child(2){padding:0 24px!important}
+  .ls-v4-original .ref-v4-0 .ls-v4-case-link{top:auto!important;bottom:16px!important;right:16px!important;font-size:13px!important;padding:9px 14px!important}
+  .ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:first-child>div:first-child>div:last-child{gap:10px!important}
+  .ls-v4-original .ref-v4-0>div:nth-of-type(3)>div:first-child>div:first-child>div:last-child a{font-size:14px!important;padding:13px 18px!important}
 }
 </style>
 </head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
