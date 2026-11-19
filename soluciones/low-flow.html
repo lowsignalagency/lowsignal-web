@@ -3576,170 +3576,54 @@ html body>.low-footer::before,html body>.low-footer::after{display:none!importan
  html body>.low-footer .footer-logo-real{width:138px!important;max-width:138px!important}
  html body>.low-footer .footer-grid-new{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px 18px!important}
 }
-</style><style id="lowflow-apps-single-brand-and-rails-20261119">
-/* Same editorial rail throughout: avoid mixed 80px margin + 56px padding double insets. */
-html body main.lf3>section:not(.lf3-s3):not(.lf3-customer-testimonials):not(.lf3-s7):not(.lf3-s6)>div[style*="margin:0 80px"],
-html body main.lf3>section:not(.lf3-s3):not(.lf3-customer-testimonials):not(.lf3-s7):not(.lf3-s6)>div[style*="margin:0 104px"]{
- display:block;box-sizing:border-box!important;
- width:100%!important;max-width:1440px!important;
- margin:0 auto!important;padding:0 clamp(24px,6.6vw,100px)!important;
-}
-html body main.lf3 .lf3-s2>div:last-child{
- display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
-}
-html body main.lf3 .lf3-s4>div:last-child{
- width:100%!important;max-width:1440px!important;
- box-sizing:border-box!important;margin-inline:auto!important;
- padding-inline:clamp(24px,6.6vw,100px)!important;
-}
-html body main.lf3 .lf3-s3>div[style*="position:relative"]{
- box-sizing:border-box!important;max-width:1440px!important;width:100%!important;
- margin:0 auto!important;padding-inline:clamp(24px,6.6vw,100px)!important;
-}
-/* Specific sizing and hierarchy for the apps section. */
-html body main.lf3>section.lf3-apps-section{
- position:relative!important;left:auto!important;margin:0!important;
- display:block!important;width:100%!important;max-width:none!important;
- padding:90px 0 95px!important;overflow:visible!important;
-}
-html body main.lf3 .lf3-apps-shell{
- box-sizing:border-box!important;display:block!important;
- width:100%!important;max-width:1440px!important;min-width:0!important;
- padding-inline:clamp(24px,6.6vw,100px)!important;margin:0 auto!important;
- position:relative!important;left:auto!important;transform:none!important;
-}
-html body main.lf3 .lf3-apps-heading{
- display:block!important;position:static!important;max-width:820px!important;
- margin:0 0 46px!important;padding:0!important;transform:none!important;
-}
-html body main.lf3 .lf3-apps-heading h2{
- display:block!important;max-width:780px!important;margin:0!important;
- font-size:clamp(31px,3vw,42px)!important;line-height:1.2!important;
- letter-spacing:-.04em!important;font-weight:400!important;color:#0a0a0a!important;
-}
+</style><style id="lowflow-web-exact-grid-lines-20261119">
+/* Low Web uses a centered 1440px canvas, 80px rails and content at 136px. */
+html body main.lf3{width:100%!important;max-width:1440px!important;margin:0 auto!important;overflow:visible!important}
+html body main.lf3>section{position:relative!important;width:100%!important;max-width:none!important}
+html body main.lf3>section>div[style*="width:1px"]{display:block!important;position:absolute!important;top:0!important;bottom:0!important;width:1px!important;background:#ececec!important;z-index:0!important}
+html body main.lf3 .lf3-edge-line{display:block!important;position:absolute!important;top:0!important;bottom:0!important;width:1px!important;background:#ececec!important;z-index:0!important}
+html body main.lf3 .lf3-edge-line.left{left:80px!important}
+html body main.lf3 .lf3-edge-line.right{right:80px!important}
+html body main.lf3 .lf3-content-rail{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 80px!important;padding:0 56px!important;position:relative!important;left:auto!important;transform:none!important}
+html body main.lf3 .lf3-s2>.lf3-three-col{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;margin:0 80px!important;padding:0!important;gap:0!important}
+html body main.lf3 .lf3-three-col>div{min-width:0!important;padding:70px 56px!important}
+html body main.lf3 .lf3-s4>.lf3-feature-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;margin:0 104px!important;padding:0!important;gap:16px!important}
+html body main.lf3 .lf3-s3{width:100vw!important;max-width:none!important;left:50%!important;margin-left:-50vw!important;padding:88px 0 94px!important;overflow:hidden!important}
+html body main.lf3 .lf3-s3>.lf3-content-rail{width:calc(100% - 200px)!important;max-width:1168px!important;margin:0 auto!important;padding:0!important}
+html body main.lf3 .lf3-s5 .ls-v4-testimonials{width:auto!important;max-width:none!important;margin:0 104px!important;padding:0!important}
+html body main.lf3 .lf3-s6 .lf3-apps-shell{box-sizing:border-box!important;display:block!important;width:auto!important;max-width:none!important;margin:0 80px!important;padding:0 56px!important}
+html body main.lf3 .lf3-s7 .lf3-pricing-inner{width:auto!important;max-width:none!important;margin:0 104px!important}
+html body main.lf3 .lf3-apps-heading{max-width:840px!important;margin:0 0 46px!important}
+html body main.lf3 .lf3-apps-heading h2{font-size:clamp(30px,3vw,42px)!important;line-height:1.2!important;font-weight:400!important}
 html body main.lf3 .lf3-apps-heading h2 span{color:#1419e0!important}
-html body main.lf3 .lf3-apps-heading p{
- margin:16px 0 0!important;font-size:14px!important;line-height:1.7!important;
- color:#737373!important;
-}
-html body main.lf3 .lf3-apps-grid{
- display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
- gap:28px 28px!important;width:100%!important;min-width:0!important;
-}
-html body main.lf3 .lf3-app{
- display:flex!important;align-items:center!important;min-width:0!important;
- gap:13px!important;min-height:56px!important;margin:0!important;padding:0!important;
-}
-html body main.lf3 .lf3-app-icon{
- box-sizing:border-box!important;width:44px!important;height:44px!important;
- flex:0 0 44px!important;display:grid!important;place-items:center!important;
- border:1px solid #e7e7e7!important;background:#fff!important;
- border-radius:11px!important;overflow:hidden!important;
-}
-html body main.lf3 .lf3-app-icon img{
- display:block;width:27px!important;height:27px!important;
- max-width:27px!important;max-height:27px!important;object-fit:contain!important;
-}
-html body main.lf3 .lf3-app>span:last-child{
- display:block!important;min-width:0!important;font-size:14px!important;
- line-height:1.5!important;font-weight:400!important;color:#101010!important;
-}
+html body main.lf3 .lf3-apps-heading p{margin:16px 0 0!important;font-size:14px!important;color:#737373!important;line-height:1.7!important}
+html body main.lf3 .lf3-apps-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important}
+html body main.lf3 .lf3-app{display:flex!important;align-items:center!important;gap:13px!important;min-width:0!important}
+html body main.lf3 .lf3-app-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;display:grid!important;place-items:center!important;background:white!important;border:1px solid #e7e7e7!important;border-radius:11px!important}
+html body main.lf3 .lf3-app-icon img{display:block!important;width:27px!important;height:27px!important;object-fit:contain!important}
+html body main.lf3 .lf3-app>span:last-child{font-size:14px!important;line-height:1.5!important}
 @media(max-width:1100px){
+ html body main.lf3>section>div[style*="width:1px"],html body main.lf3 .lf3-edge-line{display:none!important}
+ html body main.lf3 .lf3-content-rail{margin:0 5%!important;padding:0!important}
+ html body main.lf3 .lf3-s2>.lf3-three-col{margin:0 5%!important}
+ html body main.lf3 .lf3-three-col>div{padding:40px 20px!important}
+ html body main.lf3 .lf3-s4>.lf3-feature-grid{margin:0 5%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html body main.lf3 .lf3-s5 .ls-v4-testimonials,html body main.lf3 .lf3-s6 .lf3-apps-shell,html body main.lf3 .lf3-s7 .lf3-pricing-inner{margin:0 5%!important;padding:0!important}
+ html body main.lf3 .lf3-s3>.lf3-content-rail{width:90%!important;max-width:none!important;margin:0 5%!important}
  html body main.lf3 .lf3-apps-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 }
 @media(max-width:700px){
- html body main.lf3>section:not(.lf3-s3):not(.lf3-customer-testimonials):not(.lf3-s7):not(.lf3-s6)>div[style*="margin:0 80px"],
- html body main.lf3>section:not(.lf3-s3):not(.lf3-customer-testimonials):not(.lf3-s7):not(.lf3-s6)>div[style*="margin:0 104px"],
- html body main.lf3 .lf3-s4>div:last-child,
- html body main.lf3 .lf3-s3>div[style*="position:relative"]{
-  padding-inline:20px!important;margin-inline:auto!important;width:100%!important;
- }
- html body main.lf3 .lf3-s2>div:last-child{grid-template-columns:minmax(0,1fr)!important}
- html body main.lf3>section.lf3-apps-section{padding:68px 0 72px!important}
- html body main.lf3 .lf3-apps-shell{padding-inline:20px!important}
- html body main.lf3 .lf3-apps-heading{margin-bottom:32px!important}
- html body main.lf3 .lf3-apps-heading h2{font-size:clamp(28px,7vw,35px)!important}
- html body main.lf3 .lf3-apps-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 10px!important}
- html body main.lf3 .lf3-app{gap:9px!important;min-height:44px!important}
- html body main.lf3 .lf3-app-icon{width:35px!important;height:35px!important;flex-basis:35px!important;border-radius:9px!important}
- html body main.lf3 .lf3-app-icon img{width:22px!important;height:22px!important;max-width:22px!important;max-height:22px!important}
- html body main.lf3 .lf3-app>span:last-child{font-size:12px!important;line-height:1.4!important}
-}
-@media(max-width:360px){
- html body main.lf3 .lf3-apps-grid{grid-template-columns:minmax(0,1fr)!important}
-}
-</style><style id="lowflow-unified-social-rails-20261119">
-/* One horizontal grid for every Low Flow section. Same 1440px / 94px rhythm as other solutions. */
-html body main.lf3{width:100%!important;max-width:none!important;overflow-x:clip!important}
-html body main.lf3 .lf3-content-rail,
-html body main.lf3 .lf3-apps-shell{
- position:relative!important;left:auto!important;right:auto!important;transform:none!important;
- box-sizing:border-box!important;width:100%!important;max-width:1440px!important;
- margin:0 auto!important;padding-left:clamp(24px,6.528vw,94px)!important;
- padding-right:clamp(24px,6.528vw,94px)!important;
-}
-html body main.lf3 .lf3-three-col{
- display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
- gap:0!important;
-}
-html body main.lf3 .lf3-three-col>div{
- min-width:0!important;padding:58px 28px 62px!important;
-}
-html body main.lf3 .lf3-three-col>div:first-child{padding-left:0!important}
-html body main.lf3 .lf3-three-col>div:last-child{padding-right:0!important}
-html body main.lf3 .lf3-feature-grid{
- display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
- gap:16px!important;
-}
-html body main.lf3 .lf3-s3{
- position:relative!important;left:auto!important;right:auto!important;
- width:100%!important;max-width:none!important;margin:0!important;
- padding:94px 0 100px!important;
-}
-html body main.lf3 .lf3-s3>.lf3-content-rail{
- max-width:1440px!important;margin:0 auto!important;
-}
-html body main.lf3 .lf3-s5 .ls-v4-testimonials{
- box-sizing:border-box!important;display:block!important;width:100%!important;max-width:1440px!important;
- margin:0 auto!important;padding-left:clamp(24px,6.528vw,94px)!important;
- padding-right:clamp(24px,6.528vw,94px)!important;
-}
-html body main.lf3 .lf3-s6 .lf3-apps-shell{max-width:1440px!important}
-html body main.lf3 .lf3-apps-grid{gap:24px 22px!important}
-html body main.lf3 .lf3-s7 .lf3-pricing-inner{
- position:relative!important;left:auto!important;right:auto!important;
- box-sizing:border-box!important;width:calc(100% - 2 * clamp(24px,6.528vw,94px))!important;
- max-width:1252px!important;margin:0 auto!important;
-}
-html body main.lf3 .lf3-s0 .lf3-content-rail,
-html body main.lf3 .lf3-s1 .lf3-content-rail,
-html body main.lf3 .lf3-s8 .lf3-content-rail{display:block!important}
-html body main.lf3 .lf3-s0>div[style*="width:1px"],
-html body main.lf3 .lf3-s1>div[style*="width:1px"],
-html body main.lf3 .lf3-s2>div[style*="width:1px"],
-html body main.lf3 .lf3-s4>div[style*="width:1px"],
-html body main.lf3 .lf3-s8>div[style*="width:1px"]{display:none!important}
-html body main.lf3 .lf3-apps-heading h2{font-size:clamp(30px,3vw,42px)!important}
-@media(max-width:1100px){
- html body main.lf3 .lf3-three-col{grid-template-columns:repeat(3,minmax(0,1fr))!important}
- html body main.lf3 .lf3-three-col>div{padding-inline:20px!important}
- html body main.lf3 .lf3-three-col>div:first-child{padding-left:0!important}
- html body main.lf3 .lf3-three-col>div:last-child{padding-right:0!important}
-}
-@media(max-width:700px){
- html body main.lf3 .lf3-content-rail,
- html body main.lf3 .lf3-apps-shell,
- html body main.lf3 .lf3-s5 .ls-v4-testimonials{padding-left:20px!important;padding-right:20px!important;margin-inline:auto!important}
- html body main.lf3 .lf3-three-col{grid-template-columns:minmax(0,1fr)!important}
- html body main.lf3 .lf3-three-col>div,
- html body main.lf3 .lf3-three-col>div:first-child,
- html body main.lf3 .lf3-three-col>div:last-child{
-  padding:28px 0!important;border-right:0!important;border-bottom:1px solid #ececec!important;
- }
- html body main.lf3 .lf3-feature-grid{grid-template-columns:minmax(0,1fr)!important;gap:13px!important}
- html body main.lf3 .lf3-s3{padding:75px 0 85px!important}
- html body main.lf3 .lf3-s7 .lf3-pricing-inner{width:calc(100% - 40px)!important;margin:0 20px!important}
+ html body main.lf3 .lf3-content-rail{margin:0 20px!important;padding:0!important}
+ html body main.lf3 .lf3-s2>.lf3-three-col{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important}
+ html body main.lf3 .lf3-three-col>div{padding:30px 16px!important;border-right:0!important;border-bottom:1px solid #ececec!important}
+ html body main.lf3 .lf3-s4>.lf3-feature-grid{margin:0 20px!important;grid-template-columns:minmax(0,1fr)!important}
+ html body main.lf3 .lf3-s5 .ls-v4-testimonials,html body main.lf3 .lf3-s6 .lf3-apps-shell,html body main.lf3 .lf3-s7 .lf3-pricing-inner{margin:0 20px!important;padding:0!important}
+ html body main.lf3 .lf3-s3>.lf3-content-rail{width:calc(100% - 40px)!important;margin:0 20px!important}
  html body main.lf3 .lf3-apps-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 12px!important}
+ html body main.lf3 .lf3-app{gap:9px!important}
+ html body main.lf3 .lf3-app-icon{width:35px!important;height:35px!important;flex-basis:35px!important}
+ html body main.lf3 .lf3-app-icon img{width:22px!important;height:22px!important}
+ html body main.lf3 .lf3-app>span:last-child{font-size:12px!important}
 }
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -3830,7 +3714,7 @@ html body main.lf3 .lf3-apps-heading h2{font-size:clamp(30px,3vw,42px)!important
 <div class="ls-v4-testimonials-nav"><button class="ls-v4-testimonial-arrow" type="button" data-direction="-1" aria-label="Testimonio anterior"><svg class="ls-v4-carousel-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7"/></svg></button><div class="ls-v4-testimonials-dots" role="group" aria-label="Seleccionar testimonio"><button type="button" class="ls-v4-testimonial-dot is-active" aria-label="Mostrar testimonio 1: Karina Ravanal" aria-pressed="true" data-slide="0"></button><button type="button" class="ls-v4-testimonial-dot" aria-label="Mostrar testimonio 2: Nicolás Muñoz" aria-pressed="false" data-slide="1"></button><button type="button" class="ls-v4-testimonial-dot" aria-label="Mostrar testimonio 3: Rodrigo Cuevas" aria-pressed="false" data-slide="2"></button><button type="button" class="ls-v4-testimonial-dot" aria-label="Mostrar testimonio 4: David Suazo" aria-pressed="false" data-slide="3"></button></div><button class="ls-v4-testimonial-arrow" type="button" data-direction="1" aria-label="Siguiente testimonio"><svg class="ls-v4-carousel-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7"/></svg></button></div>
 </div>
 </section>
-<section class="lf3-s6 lf3-apps-section" style="border-bottom:1px solid #ECECEC">
+<section class="lf3-s6 lf3-apps-section" style="border-bottom:1px solid #ECECEC"><div class="lf3-edge-line left" aria-hidden="true"></div><div class="lf3-edge-line right" aria-hidden="true"></div>
 <div class="lf3-apps-shell">
   <div class="lf3-apps-heading">
     <h2>Más que una automatización. <span>Tu operación evoluciona contigo.</span></h2>
