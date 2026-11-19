@@ -4349,8 +4349,11 @@ html body .lh-v4 .lh-v4-partner-icon img[src*="domain=jumpseller.com"]{
 /* B2B: retain the original deep navy visual and let it cover the entire viewport. */
 html body .lh-v4 .lh-v4-s5{
   position:relative!important;
-  width:100%!important;
+  width:100vw!important;
+  width:100dvw!important;
   max-width:none!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
   margin:0!important;
   background:#070f22!important;
   overflow:hidden!important;
@@ -4363,7 +4366,7 @@ html body .lh-v4 .lh-v4-s5 > div:first-child{
   pointer-events:none;
 }
 @media(max-width:700px){
- html body .lh-v4 .lh-v4-s5{width:100%!important;margin-left:0!important;margin-right:0!important}
+ html body .lh-v4 .lh-v4-s5{width:100vw!important;width:100dvw!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
 }
 </style><style id="homepage-nav-plans-pill-20261119">
 /* Secondary Plans action next to primary Contact action. */
