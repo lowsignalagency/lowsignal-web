@@ -10943,6 +10943,147 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .low-social-redesign .ls-social-faq{padding:72px 0!important}
 }
 
+
+/* Low Social V2: airy editorial approach, inspired by user-provided visual reference. */
+.low-social-redesign .ls-social-hero-editorial{
+ background:
+  radial-gradient(ellipse 55% 110% at -8% 3%,rgba(116,155,255,.65),rgba(56,91,177,.26) 42%,transparent 78%),
+  radial-gradient(ellipse 68% 98% at 108% 41%,rgba(23,37,243,.87),rgba(16,36,154,.35) 56%,transparent 82%),
+  radial-gradient(ellipse 75% 46% at 32% 104%,rgba(106,136,226,.31),transparent 76%),
+  linear-gradient(117deg,#101d3d 0%,#07102b 48%,#0a1458 100%)!important;
+}
+.low-social-redesign .ls-social-hero-editorial::before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(180deg,transparent 62%,rgba(5,12,37,.18) 100%);
+}
+.low-social-redesign .ls-social-hero-editorial .ls-social-hero-grid{position:relative;z-index:1}
+.low-social-redesign .ls-social-network-demo{max-width:470px!important}
+.low-social-redesign .ls-social-network-demo .ls-social-network-bar{
+ background:rgba(255,255,255,.94)!important;
+ border-radius:7px!important;
+ box-shadow:0 8px 26px rgba(3,9,34,.12)!important;
+}
+.low-social-redesign .ls-social-network-row{gap:10px!important}
+.low-social-redesign .ls-social-network-list{gap:12px!important}
+.low-social-redesign .ls-social-showcase{
+ background:#fff!important;
+ padding:clamp(90px,8.5vw,135px) 0 clamp(85px,8.5vw,130px)!important;
+}
+.low-social-redesign .ls-social-showcase-intro{margin-bottom:clamp(58px,7vw,95px)!important}
+.low-social-redesign .ls-social-showcase-stack{
+ display:block!important;
+ background:transparent!important;
+}
+.low-social-redesign .ls-social-showcase-card,
+.low-social-redesign .ls-social-showcase-card.is-reversed{
+ display:grid!important;
+ grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;
+ align-items:center!important;
+ min-height:0!important;
+ border:0!important;
+ border-top:1px solid #dfe3ec!important;
+ border-bottom:0!important;
+ border-radius:0!important;
+ overflow:visible!important;
+ box-shadow:none!important;
+ background:transparent!important;
+ padding:clamp(38px,5.1vw,72px) 0!important;
+ gap:clamp(40px,7vw,110px)!important;
+}
+.low-social-redesign .ls-social-showcase-card:last-child{border-bottom:1px solid #dfe3ec!important}
+.low-social-redesign .ls-social-showcase-card .ls-social-showcase-copy,
+.low-social-redesign .ls-social-showcase-card.is-reversed .ls-social-showcase-copy{
+ order:1!important;
+ padding:0!important;
+ min-width:0!important;
+ max-width:600px!important;
+}
+.low-social-redesign .ls-social-showcase-card .ls-social-showcase-art,
+.low-social-redesign .ls-social-showcase-card.is-reversed .ls-social-showcase-art{
+ order:2!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-width:0!important;
+ min-height:clamp(300px,31vw,410px)!important;
+ border:0!important;
+ border-radius:7px!important;
+ overflow:hidden!important;
+ background:
+  radial-gradient(ellipse at 90% 95%,rgba(95,120,242,.13),transparent 65%),
+  #f2f4f8!important;
+ padding:clamp(20px,3.4vw,42px)!important;
+}
+.low-social-redesign .ls-social-showcase-card .ls-social-showcase-art::before{
+ opacity:.18!important;
+}
+.low-social-redesign .ls-social-showcase-copy .ls-social-showcase-eyebrow{
+ color:#4155c1!important;letter-spacing:.15em!important;
+ font-size:10px!important;margin-bottom:20px!important;
+}
+.low-social-redesign .ls-social-showcase-copy h3{
+ font-size:clamp(25px,2.5vw,35px)!important;
+ line-height:1.19!important;
+ max-width:550px!important;
+}
+.low-social-redesign .ls-social-showcase-copy h3 em{font-style:normal!important;color:#465cd3!important}
+.low-social-redesign .ls-social-showcase-copy p{
+ color:#626c7b!important;
+ max-width:510px!important;
+ font-size:clamp(13px,1.15vw,15px)!important;
+}
+.low-social-redesign .ls-social-showcase-tags{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+.low-social-redesign .ls-social-showcase-tags span{
+ background:#f4f5f8!important;color:#576171!important;
+ border:1px solid #e5e8ee!important;border-radius:100px!important;
+ font-size:11px!important;
+}
+.low-social-redesign .low-social-platforms-dark{
+ background:radial-gradient(ellipse 68% 86% at 104% 11%,rgba(37,60,224,.5),transparent 75%),linear-gradient(135deg,#08122f,#0b1647 75%,#111b77)!important;
+ padding-top:clamp(70px,6.5vw,105px)!important;
+ padding-bottom:clamp(70px,6.5vw,100px)!important;
+}
+.low-social-redesign .ls-social-capabilities{background:#fafbfc!important}
+.low-social-redesign .ls-social-faq{background:#fff!important}
+@media(min-width:1101px){
+ .low-social-redesign .ls-social-showcase-card:nth-child(even) .ls-social-showcase-copy{order:2!important}
+ .low-social-redesign .ls-social-showcase-card:nth-child(even) .ls-social-showcase-art{order:1!important}
+}
+@media(max-width:900px){
+ .low-social-redesign .ls-social-showcase-card,
+ .low-social-redesign .ls-social-showcase-card.is-reversed{
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:25px!important;padding:40px 0!important;
+ }
+ .low-social-redesign .ls-social-showcase-card .ls-social-showcase-copy,
+ .low-social-redesign .ls-social-showcase-card.is-reversed .ls-social-showcase-copy{
+  order:1!important;
+ }
+ .low-social-redesign .ls-social-showcase-card .ls-social-showcase-art,
+ .low-social-redesign .ls-social-showcase-card.is-reversed .ls-social-showcase-art{
+  order:2!important;min-height:280px!important;
+ }
+}
+@media(max-width:760px){
+ .low-social-redesign .ls-social-hero-editorial{
+  background:
+   linear-gradient(180deg,#070c1b 0%,rgba(7,12,27,.85) 15%,transparent 48%),
+   radial-gradient(ellipse 108% 75% at 108% 60%,rgba(44,58,228,.88),transparent 79%),
+   radial-gradient(ellipse 100% 70% at -25% 6%,rgba(91,129,231,.4),transparent 81%),
+   linear-gradient(125deg,#0c1634,#0b185c)!important;
+ }
+ .low-social-redesign .ls-social-showcase{padding:72px 0 75px!important}
+ .low-social-redesign .ls-social-showcase-intro{margin-bottom:45px!important}
+ .low-social-redesign .ls-social-showcase-card,
+ .low-social-redesign .ls-social-showcase-card.is-reversed{padding:32px 0!important;gap:24px!important}
+ .low-social-redesign .ls-social-showcase-card .ls-social-showcase-art,
+ .low-social-redesign .ls-social-showcase-card.is-reversed .ls-social-showcase-art{
+  min-height:265px!important;padding:16px!important;
+ }
+ .low-social-redesign .ls-social-showcase-copy h3{font-size:clamp(24px,6.2vw,29px)!important}
+ .low-social-redesign .ls-social-showcase-copy p{font-size:13px!important}
+ .low-social-redesign .ls-social-network-demo{max-width:100%!important;margin:0!important}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
