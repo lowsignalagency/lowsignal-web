@@ -1085,6 +1085,28 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
    background-color:#101a46!important;
  }
 }
+
+/* iPhone visual continuity: Safari status bar flows into navbar without a hard seam.
+   The hero remains visible through the lower part of the navigation. */
+@media(max-width:760px){
+ html{background:#101a46!important}
+ html body>.nav-wrap:not(.is-scrolled){
+  background-color:transparent!important;
+  background-image:linear-gradient(to bottom,#101a46 0%,rgba(16,26,70,.94) 18%,rgba(16,26,70,.56) 57%,rgba(16,26,70,0) 100%)!important;
+  background-repeat:no-repeat!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.17)!important;
+ }
+ html body.mobile-menu-open>.nav-wrap,
+ html body>.nav-wrap.is-scrolled{
+  background-color:#070c1b!important;
+  background-image:
+    radial-gradient(ellipse 77% 260% at 108% 0%,rgba(23,39,216,.73),transparent 90%),
+    radial-gradient(ellipse 80% 270% at -21% 0%,rgba(82,118,223,.44),transparent 95%),
+    linear-gradient(115deg,#091126,#080d21 50%,#0c1552)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.14)!important;
+ }
+ html body>.nav-wrap>.nav{background:transparent!important;background-image:none!important}
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
