@@ -824,7 +824,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
  body>.nav-wrap .mobile-nav-toggle span:last-child{transform:translateY(4px)!important}
  body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:first-child{transform:rotate(45deg)!important}
  body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:last-child{transform:rotate(-45deg)!important}
- body>.mobile-nav-panel{display:block!important;position:fixed!important;top:calc(74px + env(safe-area-inset-top,0px))!important;inset:auto 0 0!important;width:100%!important;max-width:100%!important;height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;max-height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;padding:18px 20px max(25px,env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;background:#070c1b!important;background-image:none!important;z-index:1590!important;overflow-y:auto!important;overflow-x:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .2s ease,visibility .2s ease!important}
+ body>.mobile-nav-panel{display:block!important;position:fixed!important;inset:calc(74px + env(safe-area-inset-top,0px)) 0 0!important;width:100%!important;max-width:100%!important;height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;max-height:calc(100dvh - 74px - env(safe-area-inset-top,0px))!important;padding:18px 20px max(25px,env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;background:#070c1b!important;background-image:none!important;z-index:1590!important;overflow-y:auto!important;overflow-x:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .2s ease,visibility .2s ease!important}
  body>.mobile-nav-panel.is-open{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
  body>.mobile-nav-panel .mobile-nav-inner{width:100%!important;max-width:560px!important;margin:0 auto!important}
  body>.mobile-nav-panel .mobile-nav-group{border-bottom:1px solid rgba(255,255,255,.12)!important}
@@ -1162,9 +1162,9 @@ footer .footer-links a,footer .footer-brand-copy,footer .footer-meta,footer .foo
     if(pricing){
       const mo=new MutationObserver(()=>{
         scan();
-        if(pricing.querySelector('.compare-mobile-plan'))mo.disconnect();
+        if(pricing.querySelector('.b2b-mobile-comparison'))mo.disconnect();
       });
-      if(!pricing.querySelector('.compare-mobile-plan'))mo.observe(pricing,{childList:true,subtree:true});
+      if(!pricing.querySelector('.b2b-mobile-comparison'))mo.observe(pricing,{childList:true,subtree:true});
     }
     window.addEventListener('pageshow',scan,{once:true});
     reduce.addEventListener?.('change',event=>{
