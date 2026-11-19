@@ -1107,6 +1107,32 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  }
  html body>.nav-wrap>.nav{background:transparent!important;background-image:none!important}
 }
+
+/* Mobile rollback: a single solid navy header, including iPhone safe area.
+   Desktop retains the branded scroll-gradient. */
+@media(max-width:760px){
+ html{background-color:#101a46!important}
+ html body>.nav-wrap,
+ html body>.nav-wrap:not(.is-scrolled),
+ html body>.nav-wrap.is-scrolled,
+ html body.mobile-menu-open>.nav-wrap{
+  background:#101a46!important;
+  background-color:#101a46!important;
+  background-image:none!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.12)!important;
+ }
+ html body>.nav-wrap>.nav,
+ html body>.nav-wrap.is-scrolled>.nav,
+ html body.mobile-menu-open>.nav-wrap>.nav{
+  background:#101a46!important;
+  background-image:none!important;
+ }
+ html body>.mobile-nav-panel,
+ html body>.mobile-nav-panel.is-open{
+  background:#101a46!important;
+  background-image:none!important;
+ }
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -1320,15 +1346,9 @@ document.querySelectorAll('.faqQuestion').forEach(b=>b.addEventListener('click',
  requestAnimationFrame(check);
 })();
 
-/* Keep iOS Safari status-bar theme in sync with the scroll-state navbar. */
+/* Match Safari chrome to the restored solid mobile header. */
 (()=>{
  const theme=document.querySelector('meta[name="theme-color"]');
- const nav=document.querySelector('body > .nav-wrap');
- if(!theme||!nav)return;
- const sync=()=>theme.setAttribute('content',nav.classList.contains('is-scrolled')||document.body.classList.contains('mobile-menu-open')?'#17245d':'#101a46');
- const observer=new MutationObserver(sync);
- observer.observe(nav,{attributes:true,attributeFilter:['class']});
- observer.observe(document.body,{attributes:true,attributeFilter:['class']});
- sync();
+ if(theme)theme.setAttribute('content','#101a46');
 })();
 </script></body></html>
