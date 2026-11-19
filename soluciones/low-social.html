@@ -2465,6 +2465,95 @@ body>.low-social-floating-talk:focus-visible{outline:2px solid #344cf2!important
  body>.low-social-floating-talk{transition:none!important}
 }
 
+
+/* Match Low Ads capabilities section: two editorial columns, four categories,
+   full-width dividers and readable checklist spacing. */
+.low-social-redesign .ls-social-capabilities{
+ background:#f7f8fa!important;
+ padding:clamp(82px,8vw,120px) 0!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-social-shell{
+ box-sizing:border-box!important;
+ width:100%!important;max-width:1450px!important;
+ padding-left:5%!important;padding-right:5%!important;
+ margin-inline:auto!important;
+}
+.low-social-redesign .ls-social-capabilities h2{
+ font-family:"DM Sans",sans-serif!important;
+ font-size:clamp(32px,3.3vw,47px)!important;
+ font-weight:500!important;
+ line-height:1.17!important;
+ letter-spacing:-.05em!important;
+}
+.low-social-redesign .ls-social-capabilities h2 strong{
+ font-weight:500!important;color:#465abb!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-intro{
+ max-width:750px!important;color:#526077!important;
+ font-size:14px!important;line-height:1.8!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-grid{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:0 60px!important;
+ margin-top:60px!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-group{
+ min-width:0!important;
+ border-top:1px solid #d9dfe8!important;
+ padding:27px 0 35px!important;
+ background:transparent!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-group h3{
+ color:#3c53bb!important;
+ font-size:11px!important;
+ font-weight:500!important;
+ line-height:1.5!important;
+ letter-spacing:.1em!important;
+ margin:0 0 20px!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-group ul{
+ display:flex!important;
+ flex-direction:column!important;
+ gap:19px!important;
+ list-style:none!important;margin:0!important;padding:0!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-group li{
+ display:flex!important;align-items:flex-start!important;
+ gap:12px!important;
+ font-size:13px!important;line-height:1.5!important;
+ color:#253044!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-check{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ flex:0 0 22px!important;width:22px!important;height:22px!important;
+ border-radius:50%!important;background:#e2ecff!important;color:#204db8!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-check svg{
+ width:15px!important;height:15px!important;stroke-width:2!important;
+}
+.low-social-redesign .ls-social-capabilities .ls-capabilities-note{
+ margin-top:42px!important;color:#526077!important;
+}
+@media(max-width:760px){
+ .low-social-redesign .ls-social-capabilities{padding:72px 0 76px!important}
+ .low-social-redesign .ls-social-capabilities .ls-social-shell{
+  padding-left:20px!important;padding-right:20px!important;
+ }
+ .low-social-redesign .ls-social-capabilities h2{font-size:clamp(30px,7.4vw,39px)!important}
+ .low-social-redesign .ls-social-capabilities .ls-capabilities-grid{
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+  margin-top:42px!important;
+ }
+ .low-social-redesign .ls-social-capabilities .ls-capabilities-group{
+  padding:25px 0 30px!important;
+ }
+ .low-social-redesign .ls-social-capabilities .ls-capabilities-group ul{gap:16px!important}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
