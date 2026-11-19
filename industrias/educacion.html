@@ -5580,7 +5580,7 @@ html body [data-screen-label="Education Web v1"] .footer-grid-new{grid-template-
           <div style="position:absolute;left:28px;right:28px;bottom:-16px;height:40px;border-radius:22px;background:#FFFFFF;border:1px solid #E6E6E6;"></div>
           <div style="position:absolute;left:14px;right:14px;bottom:-8px;height:40px;border-radius:22px;background:#FFFFFF;border:1px solid #E6E6E6;"></div>
           <div style="position:absolute;inset:0;border-radius:22px;background:#FFFFFF;border:1px solid #E6E6E6;box-shadow:0 20px 40px rgba(10,15,46,.05);padding:36px;box-sizing:border-box;display:flex;flex-direction:column;">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;"><div style="font-size:76px;line-height:1;letter-spacing:-.04em;color:#0A0A0A;">{{ st.n }}</div><img src="{{ st.logo }}" style="height:{{ st.lh }}px;width:auto;"></div>
+            <div class="edu-impact-card-heading"><div class="edu-impact-card-number">{{ st.n }}</div><img class="edu-impact-card-logo" src="{{ st.logo }}" alt="Organización del impacto educativo"></div>
             <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;"><div style="max-width:220px;font-size:18px;line-height:1.5;color:#7A7A7A;">{{ st.d }}</div><a href="https://lowsignal.cl/casos" style="flex:none;padding:12px 22px;border-radius:999px;border:1px solid #E0E0E0;font-size:16px;color:#0A0A0A;">Ver historia</a></div>
           </div>
         </div>
@@ -6017,5 +6017,26 @@ html body>main.education-page>[data-screen-label="Education Web v1"]>section:fir
  html body>main.education-page>[data-screen-label="Education Web v1"]>section:first-of-type{
    left:auto!important;transform:none!important;width:100%!important;
  }
+}
+</style><style id="education-impact-card-safe-layout-20261119">
+/* Keep rotating impact metrics and organization logos inside their card. */
+html body .education-page .edu-impact-card-heading{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ justify-content:flex-start!important;gap:18px!important;min-width:0!important;width:100%!important;
+}
+html body .education-page .edu-impact-card-number{
+ display:block!important;min-width:0!important;max-width:100%!important;
+ font-size:clamp(36px,3.7vw,57px)!important;font-weight:400!important;
+ line-height:1.08!important;letter-spacing:-.055em!important;white-space:nowrap!important;
+ color:#0a0a0a!important;
+}
+html body .education-page .edu-impact-card-logo{
+ display:block!important;position:static!important;align-self:flex-start!important;
+ width:auto!important;height:auto!important;max-height:43px!important;
+ max-width:min(100%,210px)!important;object-fit:contain!important;object-position:left center!important;
+}
+@media(max-width:760px){
+ html body .education-page .edu-impact-card-number{font-size:clamp(34px,10vw,53px)!important}
+ html body .education-page .edu-impact-card-logo{max-height:36px!important;max-width:180px!important}
 }
 </style></body></html>
