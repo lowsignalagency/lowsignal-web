@@ -1581,6 +1581,99 @@ body{background:#f7f7f5;color:#171b24}
  .about-main .about-hero::before{width:115vw;height:115vw;right:-52%;top:-18%;filter:blur(30px)}
 }
 
+
+/* About proportions refined: white team section and restrained editorial type. */
+.about-main .about-team{
+  background:#ffffff!important;
+  background-image:none!important;
+  color:#151922!important;
+  padding:clamp(68px,6vw,100px) 0 clamp(85px,7vw,115px)!important;
+}
+.about-main .about-team .about-overline{color:#455bc3!important;margin-bottom:18px!important}
+.about-main .about-team h2{
+  color:#171b24!important;
+  font-size:clamp(31px,3vw,46px)!important;
+  line-height:1.15!important;
+  letter-spacing:-.045em!important;
+  font-weight:500!important;
+}
+.about-main .about-team h2 span{color:#3454df!important}
+.about-main .about-team .about-team-intro{
+  grid-template-columns:minmax(0,1fr) minmax(0,.9fr)!important;
+  align-items:end!important;
+  gap:clamp(30px,6vw,85px)!important;
+  margin-bottom:clamp(35px,4vw,55px)!important;
+}
+.about-main .about-team .about-team-intro>p{
+  color:#697281!important;
+  font-size:clamp(13px,1.1vw,15px)!important;
+  line-height:1.75!important;
+}
+.about-main .about-team .team-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:38px 20px!important;
+}
+.about-main .about-team .person-photo{
+  aspect-ratio:1/1.12!important;
+  background:#f0f1f3!important;
+  border-radius:4px!important;
+}
+.about-main .about-team .person-photo-link{border-radius:4px!important}
+.about-main .about-team .person-photo img{width:100%!important;height:100%!important;object-fit:cover!important}
+.about-main .about-team .person-name{
+  color:#1a1e27!important;
+  font-size:clamp(14px,1.1vw,17px)!important;
+  font-weight:600!important;
+}
+.about-main .about-team .person-role{
+  color:#717988!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+.about-main .about-team .person-plus{background:#fff!important;color:#1a1e27!important}
+.about-main .about-hero h1{
+  font-size:clamp(44px,5.4vw,78px)!important;
+  line-height:1.08!important;
+  letter-spacing:-.055em!important;
+  margin-bottom:clamp(35px,4.5vw,65px)!important;
+}
+.about-main .about-hero-bottom p{
+  font-size:clamp(14px,1.3vw,17px)!important;
+  max-width:570px!important;
+}
+.about-main .about-story h2{
+  font-size:clamp(34px,3.3vw,49px)!important;
+  line-height:1.18!important;
+  letter-spacing:-.045em!important;
+}
+.about-main .about-story-copy .lead{
+  font-size:clamp(15px,1.4vw,19px)!important;
+}
+.about-main .about-story-copy p:not(.lead){
+  font-size:13px!important;
+}
+@media(min-width:761px) and (max-width:1100px){
+ .about-main .about-team .team-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+ .about-main .about-team{padding:65px 0 80px!important}
+ .about-main .about-team .about-team-intro{
+   grid-template-columns:minmax(0,1fr)!important;gap:18px!important;margin-bottom:33px!important;
+ }
+ .about-main .about-team h2{font-size:clamp(29px,7vw,38px)!important}
+ .about-main .about-team .team-grid{
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 13px!important;
+ }
+ .about-main .about-team .person-name{font-size:14px!important}
+ .about-main .about-team .person-role{font-size:11px!important}
+ .about-main .about-hero h1{font-size:clamp(39px,9vw,53px)!important}
+ .about-main .about-story h2{font-size:clamp(32px,8vw,40px)!important}
+}
+@media(max-width:370px){
+ .about-main .about-team .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-ind">Industrias <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu mega-compact" id="menu-ind"><div class="mega-kicker">BUILT FOR YOUR INDUSTRY</div><a class="mega-item" href="https://lowsignal.cl/industrias/educacion"><b>Education</b><small>Para instituciones que transforman el futuro</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/b2b"><b>B2B</b><small>Para empresas y equipos comerciales</small></a><a class="mega-item" href="https://lowsignal.cl/industrias/marcas-b2c"><b>B2C</b><small>Para marcas que conectan con personas</small></a></div></div>
