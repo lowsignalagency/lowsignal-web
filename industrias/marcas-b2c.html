@@ -1296,6 +1296,56 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
  .logoBar .logoItem{height:72px!important}
  .logoBar .logoItem img{max-height:59px!important}
 }
+
+
+/* Mobile layout consolidation — B2B / B2C, November 2026 */
+@media (max-width:760px){
+  html,body{max-width:100%;overflow-x:clip}
+  .hero{min-width:0!important;overflow:hidden!important}
+  .heroInner,.hero-inner,.shell{max-width:100%;box-sizing:border-box}
+  .hero h1,.heroInner h1,.eduPricingHead h2,.eduStoriesHeader h2,
+  .eduComparisonHeader h3,.eduUseIntro h3{
+    max-width:100%;overflow-wrap:break-word;word-break:normal;
+  }
+  .logoBar{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px 16px!important;
+    padding:22px 20px!important;
+    width:100%!important;
+    overflow:hidden!important;
+    align-items:center!important;
+  }
+  .logoBar .logoItem{
+    width:100%!important;min-width:0!important;height:68px!important;
+    padding:6px!important;margin:0!important;
+    justify-content:center!important;align-items:center!important;
+  }
+  .logoBar .logoItem img{
+    max-width:100%!important;max-height:48px!important;
+    width:auto!important;height:auto!important;object-fit:contain!important;
+  }
+  .eduStoriesViewport,.eduStoriesTrack{max-width:100%!important}
+  .eduStoriesTrack{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+  .eduStoryCard{min-width:0!important;max-width:100%!important}
+  .eduPrices{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+  .eduPriceCard{min-width:0!important;max-width:100%!important}
+  .eduComparison,.eduComparisonScroll{max-width:100%!important}
+  .eduCompareTabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .eduCompareTab{min-width:0!important;white-space:normal!important}
+  .eduUseEditorial,.eduUseIntro,.eduUseServices{min-width:0!important;max-width:100%!important}
+}
+@media (max-width:390px){
+  .logoBar{gap:8px 12px!important;padding:18px 16px!important}
+  .logoBar .logoItem{height:62px!important}
+  .logoBar .logoItem img{max-height:43px!important}
+  .eduCompareTabs{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (max-width:760px){
+  .logoBar .logoB2CLast{display:none!important}
+  .hero:before{background-position:58% center!important}
+}
+
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
