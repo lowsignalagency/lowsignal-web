@@ -977,6 +977,40 @@ a:hover>.ui-arrow,button:hover>.ui-arrow{transform:translate(2px,-2px)}
 @media(prefers-reduced-motion:reduce){
  .logoBar .logoItem:hover img{transform:none}
 }
+
+/* lowsignal brand atmosphere — footer based on the supplied blue/navy reference.
+   Layered CSS glows instead of a flattened image: sharp text, responsive composition. */
+.low-footer{
+  background-color:#070c1b!important;
+  background-image:
+    radial-gradient(ellipse 52% 53% at 101% 0%,rgba(23,39,216,.87) 0%,rgba(18,31,151,.46) 44%,transparent 82%),
+    radial-gradient(ellipse 49% 47% at -8% 1%,rgba(82,118,223,.68) 0%,rgba(55,83,155,.33) 54%,transparent 93%),
+    radial-gradient(ellipse 41% 50% at 50% 99%,rgba(50,77,189,.60) 0%,rgba(38,60,145,.28) 47%,transparent 88%),
+    linear-gradient(118deg,#091126 6%,#080d21 45%,#0c1552 100%)!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  color:#fff!important;
+}
+.low-footer .footer-head,
+.low-footer .footer-bottom-new{border-color:rgba(215,223,255,.20)!important}
+.low-footer .footer-eyebrow,
+.low-footer .footer-linkcol a,
+.low-footer .footer-identity p,
+.low-footer .footer-bottom-new,
+.low-footer .footer-ai-new>p{color:#c6cde1!important}
+.low-footer .footer-linkcol strong,
+.low-footer .footer-head h2,
+.low-footer .footer-claim-new b{color:#fff!important}
+.low-footer .footer-head h2 em{color:#aab8ff!important}
+@media(max-width:760px){
+ .low-footer{
+  background-image:
+    radial-gradient(ellipse 85% 34% at 112% 1%,rgba(29,48,224,.71),transparent 95%),
+    radial-gradient(ellipse 89% 37% at -28% 8%,rgba(76,110,206,.57),transparent 96%),
+    radial-gradient(ellipse 94% 45% at 47% 95%,rgba(43,67,173,.47),transparent 94%),
+    linear-gradient(155deg,#0b1435,#070c1b 49%,#0c1850)!important;
+ }
+}
 </style></head><body>
 <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
