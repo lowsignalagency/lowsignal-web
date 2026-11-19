@@ -13791,7 +13791,58 @@ body .rechx .case-editorial .case-editorial-result{margin:0!important}
 body .rechx .case-editorial .case-editorial-nav a.is-active{background:#111D36!important}
 body .rechx .case-editorial .case-editorial-nav a:hover{background:#0D192F!important}
 </style>
-</head>
+<style id="hub-instagram-featured-media-2026">
+/* Give the Instagram result its own editorial feature rather than cropping it inside a small split card. */
+body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]){
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr)!important;
+ gap:22px!important;
+ max-width:100%!important;
+ margin-top:42px!important;
+}
+body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure{
+ width:100%!important;
+ min-width:0!important;
+ margin:0!important;
+ overflow:hidden!important;
+}
+body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:first-child{
+ padding:clamp(14px,3vw,32px)!important;
+ background:#f4f6fc!important;
+ border:1px solid #e0e6f2!important;
+ border-radius:22px!important;
+ box-shadow:0 22px 60px rgba(8,18,45,.16)!important;
+}
+body .rechx .case-editorial-pair figure:first-child img[src*="hub-ig.jpg"]{
+ display:block!important;
+ position:static!important;
+ width:100%!important;
+ height:auto!important;
+ max-height:none!important;
+ aspect-ratio:auto!important;
+ object-fit:contain!important;
+ object-position:center!important;
+ border-radius:14px!important;
+ box-shadow:0 10px 30px rgba(16,28,56,.1)!important;
+ background:white!important;
+}
+body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:nth-child(2){
+ border-radius:18px!important;
+ max-height:260px!important;
+}
+body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:nth-child(2) img{
+ width:100%!important;
+ height:260px!important;
+ object-fit:cover!important;
+}
+@media(max-width:760px){
+ body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]){gap:14px!important;margin-top:28px!important}
+ body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:first-child{padding:10px!important;border-radius:14px!important}
+ body .rechx .case-editorial-pair figure:first-child img[src*="hub-ig.jpg"]{border-radius:9px!important}
+ body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:nth-child(2),
+ body .rechx .case-editorial-pair:has(img[src*="hub-ig.jpg"]) figure:nth-child(2) img{max-height:190px!important;height:190px!important}
+}
+</style></head>
 <body>
 
 <header class="lnav" aria-label="Navegación principal">
