@@ -2280,63 +2280,81 @@ footer .footer-container{
 @media(max-width:760px){.low-social-redesign .ls-social-shell{padding:0 20px!important;}}
 
 
-/* Editorial Low Social process — source-matched to reference video: image-led,
-   open whitespace, horizontal rules and compact content, not stacked cards. */
-.low-social-redesign .social-editorial{background:#fff;padding:clamp(88px,8.5vw,136px) 0 clamp(95px,8vw,125px);color:#151923}
-.low-social-redesign .social-editorial-heading{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(36px,6vw,110px);align-items:end;margin-bottom:45px}
-.low-social-redesign .social-kicker{font-size:10px;letter-spacing:.15em;font-weight:700;color:#445bd0;margin:0 0 22px}
-.low-social-redesign .social-editorial-heading h2{font-family:"DM Sans",sans-serif;font-weight:500;letter-spacing:-.05em;font-size:clamp(31px,3.25vw,47px);line-height:1.16;margin:0}
-.low-social-redesign .social-editorial-heading h2 span{color:#5f6f91}
-.low-social-redesign .social-editorial-heading>p{font-size:clamp(13px,1.13vw,15px);color:#647083;line-height:1.8;max-width:405px;margin:0}
-.low-social-redesign .social-editorial-gallery{display:grid;grid-template-columns:1.65fr .85fr .85fr;gap:10px;max-height:510px;margin-bottom:clamp(72px,7vw,108px)}
-.low-social-redesign .social-editorial-gallery figure{position:relative;overflow:hidden;background:#e9ebf0;margin:0;border-radius:5px;min-width:0;min-height:330px}
-.low-social-redesign .social-editorial-gallery figure img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}
-.low-social-redesign .social-editorial-gallery figure:hover img{transform:scale(1.025)}
-.low-social-redesign .social-editorial-gallery figcaption{position:absolute;left:17px;right:15px;bottom:16px;font-size:10px;letter-spacing:.08em;font-weight:600;color:#fff;text-shadow:0 1px 12px #000;padding:0;pointer-events:none}
-.low-social-redesign .social-editorial-gallery figure:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.32));pointer-events:none}
-.low-social-redesign .social-editorial-gallery figcaption{z-index:1}
-.low-social-redesign .social-process-header{display:flex;justify-content:space-between;gap:15px;padding-bottom:20px;color:#758096;font-size:10px;letter-spacing:.14em;font-weight:700}
-.low-social-redesign .social-stage{display:grid;grid-template-columns:minmax(130px,.42fr) minmax(0,1.1fr) minmax(150px,.6fr);gap:clamp(20px,3vw,55px);align-items:start;padding:clamp(30px,3.5vw,51px) 0;border-top:1px solid #d9dde6}
-.low-social-redesign .social-stage:last-child{border-bottom:1px solid #d9dde6}
-.low-social-redesign .social-stage-index{font-size:11px;font-weight:700;letter-spacing:.1em;color:#455ccd;line-height:1.5}
-.low-social-redesign .social-stage-main h3{font-family:"DM Sans",sans-serif;font-size:clamp(21px,2.1vw,29px);font-weight:500;line-height:1.24;letter-spacing:-.035em;margin:0 0 18px;max-width:550px}
-.low-social-redesign .social-stage-main h3 em{font-style:normal;color:#445bd1;font-weight:500}
-.low-social-redesign .social-stage-main p{font-size:clamp(13px,1.03vw,14px);line-height:1.85;color:#626d7c;max-width:570px;margin:0}
-.low-social-redesign .social-stage-tags{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;justify-content:flex-start}
-.low-social-redesign .social-stage-tags span{font-size:11px;padding:6px 11px;border:1px solid #dce1ec;color:#586475;border-radius:100px;white-space:normal}
-.low-social-redesign .ls-social-capabilities{background:#f7f8fa!important;padding:clamp(85px,8vw,125px) 0!important}
-.low-social-redesign .ls-capabilities-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 65px!important;margin-top:clamp(38px,5vw,70px)!important}
-.low-social-redesign .ls-capabilities-group{padding:29px 0 39px!important;border-top:1px solid #d7dce5!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
-.low-social-redesign .ls-capabilities-group h3{font-size:11px!important;margin:0 0 22px!important;color:#445bd1!important}
-.low-social-redesign .ls-capabilities-group ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px 22px!important}
-.low-social-redesign .ls-capabilities-group li{font-size:13px!important;line-height:1.55!important}
-.low-social-redesign .ls-capabilities-group .ls-capabilities-check{flex:0 0 auto!important}
-.low-social-redesign .ls-capabilities-note{max-width:730px!important;margin-top:25px!important}
-@media(max-width:1000px){
- .low-social-redesign .social-stage{grid-template-columns:110px minmax(0,1fr);gap:17px 26px}
- .low-social-redesign .social-stage-tags{grid-column:2}
- .low-social-redesign .ls-capabilities-grid{gap:0 32px!important}
- .low-social-redesign .ls-capabilities-group ul{grid-template-columns:1fr!important}
+
+/* Channels / Low Social — product-like editorial reference, white and ordered. */
+.low-social-redesign .social-channels-editorial{
+ background:#fff!important;color:#171b24!important;
+ padding:clamp(90px,9vw,145px) 0!important;
+ border-top:1px solid #e5e8ed!important;
+ border-bottom:1px solid #e5e8ed!important;
+}
+.low-social-redesign .social-channels-layout{
+ display:grid!important;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important;
+ gap:clamp(55px,9vw,150px)!important;align-items:start!important;
+}
+.low-social-redesign .social-channels-copy{position:relative!important}
+.low-social-redesign .social-channels-kicker{
+ margin:0 0 27px!important;color:#3c54c4!important;font-size:10px!important;
+ font-weight:700!important;letter-spacing:.16em!important;
+}
+.low-social-redesign .social-channels-copy h2{
+ font-family:"DM Sans",sans-serif!important;font-size:clamp(31px,3.2vw,47px)!important;
+ font-weight:500!important;letter-spacing:-.05em!important;
+ line-height:1.15!important;margin:0!important;
+}
+.low-social-redesign .social-channels-copy h2 span{color:#5e6f96!important}
+.low-social-redesign .social-channels-copy>p:last-child{
+ font-size:clamp(13px,1.15vw,15px)!important;line-height:1.8!important;
+ color:#697487!important;max-width:405px!important;margin:22px 0 0!important;
+}
+.low-social-redesign .social-channels-details{min-width:0!important}
+.low-social-redesign .social-channels-group{
+ display:grid!important;grid-template-columns:117px minmax(0,1fr)!important;
+ gap:22px!important;padding:25px 0!important;border-top:1px solid #e1e5ea!important;
+}
+.low-social-redesign .social-channels-group:first-child{padding-top:0!important;border-top:0!important}
+.low-social-redesign .social-channels-group h3{
+ font-size:10px!important;letter-spacing:.11em!important;font-weight:700!important;
+ color:#728096!important;margin:7px 0 0!important;line-height:1.5!important;
+}
+.low-social-redesign .social-channels-networks{
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:14px 24px!important;
+}
+.low-social-redesign .social-channels-item{
+ display:flex!important;align-items:center!important;gap:11px!important;
+ min-width:0!important;font-size:13px!important;color:#202631!important;
+ line-height:1.4!important;
+}
+.low-social-redesign .social-channels-icon{
+ flex:0 0 34px!important;display:grid!important;place-items:center!important;
+ width:34px!important;height:34px!important;border:1px solid #e0e4ed!important;
+ border-radius:10px!important;background:#fff!important;
+}
+.low-social-redesign .social-channels-icon img{
+ display:block!important;width:21px!important;height:21px!important;object-fit:contain!important;
+ filter:invert(.16)!important;
+}
+.low-social-redesign .social-channels-list{display:flex!important;flex-wrap:wrap!important;gap:10px 18px!important}
+.low-social-redesign .social-channels-list span{font-size:13px!important;color:#272e3b!important;white-space:normal!important}
+.low-social-redesign .social-channels-note{
+ border-top:1px solid #e1e5ea!important;padding-top:17px!important;
+ color:#8891a0!important;font-size:11px!important;line-height:1.65!important;margin:0!important;
+}
+@media(max-width:900px){
+ .low-social-redesign .social-channels-layout{
+  grid-template-columns:1fr!important;gap:36px!important;
+ }
 }
 @media(max-width:760px){
- .low-social-redesign .social-editorial{padding:72px 0 85px}
- .low-social-redesign .social-editorial-heading{grid-template-columns:1fr;gap:18px;margin-bottom:28px}
- .low-social-redesign .social-editorial-heading h2{font-size:clamp(29px,7.4vw,39px)}
- .low-social-redesign .social-editorial-heading>p{font-size:13px}
- .low-social-redesign .social-editorial-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:235px 156px;gap:8px;max-height:none;margin-bottom:62px}
- .low-social-redesign .social-editorial-gallery figure{min-height:0}
- .low-social-redesign .social-editorial-gallery .social-gallery-lead{grid-column:1/-1}
- .low-social-redesign .social-editorial-gallery figcaption{font-size:9px;left:11px;bottom:12px}
- .low-social-redesign .social-process-header{font-size:9px}
- .low-social-redesign .social-stage{grid-template-columns:1fr;gap:13px;padding:28px 0}
- .low-social-redesign .social-stage-main h3{font-size:clamp(22px,6vw,27px);margin-bottom:12px}
- .low-social-redesign .social-stage-main p{font-size:13px}
- .low-social-redesign .social-stage-tags{grid-column:auto;margin-top:5px}
- .low-social-redesign .ls-capabilities-grid{grid-template-columns:1fr!important}
- .low-social-redesign .ls-capabilities-group{padding:25px 0 30px!important}
- .low-social-redesign .ls-capabilities-group ul{grid-template-columns:1fr!important}
+ .low-social-redesign .social-channels-editorial{padding:72px 0 80px!important}
+ .low-social-redesign .social-channels-copy h2{font-size:clamp(30px,7.3vw,39px)!important}
+ .low-social-redesign .social-channels-group{grid-template-columns:1fr!important;gap:13px!important;padding:23px 0!important}
+ .low-social-redesign .social-channels-group h3{margin:0!important}
+ .low-social-redesign .social-channels-networks{gap:14px 15px!important}
+ .low-social-redesign .social-channels-item{font-size:12px!important;gap:8px!important}
+ .low-social-redesign .social-channels-list{gap:10px 15px!important}
 }
-@media(prefers-reduced-motion:reduce){.low-social-redesign .social-editorial-gallery img{transition:none}}
 
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
@@ -2381,52 +2399,106 @@ footer .footer-container{
     </div>
   </section>
 
-  <section class="social-editorial" aria-labelledby="ls-social-showcase-title">
- <div class="ls-social-shell">
-  <div class="social-editorial-heading">
-   <div><p class="social-kicker">QUÉ HACEMOS / LOW SOCIAL</p><h2 id="ls-social-showcase-title">Contenido con estrategia.<br><span>Crecimiento con intención.</span></h2></div>
-   <p>Desde la primera idea hasta el aprendizaje de cada campaña, conectamos todas las piezas para que una marca tenga algo real que contar.</p>
+  <section class="ls-social-features ls-social-showcase" aria-labelledby="ls-social-showcase-title">
+    <div class="ls-social-shell">
+      <p class="ls-social-section-kicker">QUÉ HACEMOS</p>
+      <div class="ls-social-section-head ls-social-showcase-intro">
+        <h2 id="ls-social-showcase-title">Contenido con estrategia.<br><strong>Crecimiento con intención.</strong></h2>
+      </div>
+
+      <div class="ls-social-showcase-stack">
+        <article class="ls-social-showcase-card">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">01 / ESTRATEGIA</span>
+            <h3>Primero definimos <em>qué vale la pena contar.</em></h3>
+            <p>Conectamos objetivos de negocio, audiencias y pilares editoriales en un plan claro. Cada publicación tiene una razón para existir.</p>
+            <div class="ls-social-showcase-tags"><span>Estrategia editorial</span><span>Planificación</span><span>Calendario</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-planning" aria-label="Ejemplo ilustrativo de planificación de contenido">
+            <div class="ls-social-art-calendar">
+              <div class="ls-social-art-top"><span>CONTENT PLANNER</span><strong>Noviembre <span aria-hidden="true">↗</span></strong></div>
+              <div class="ls-social-art-days"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span></div>
+              <div class="ls-social-art-slots">
+                <div><small>03</small><b>Brand story</b><i></i></div><div><small>04</small><b>Reel</b><i></i></div><div><small>05</small><b>Comunidad</b><i></i></div><div><small>06</small><b>Educación</b><i></i></div><div><small>07</small><b>Campaña</b><i></i></div>
+              </div>
+              <div class="ls-social-art-footer"><span class="ls-social-art-dot"></span> Planificación editorial <strong>Contenido conectado</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ls-social-showcase-card is-reversed">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">02 / CONTENIDO</span>
+            <h3>Ideas que se convierten en <em>contenido de verdad.</em></h3>
+            <p>Diseñamos piezas, producimos fotografía y video, y adaptamos cada historia al lenguaje de sus plataformas. Con identidad, no con plantillas genéricas.</p>
+            <div class="ls-social-showcase-tags"><span>Diseño</span><span>Reels & video</span><span>Fotografía</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-content" aria-label="Ejemplos reales de contenido desarrollado por lowsignal">
+            <div class="ls-social-art-post ls-social-art-post-back"><img loading="lazy" src="https://lowsignal.cl/assets/dali-ig.jpg" alt="Contenido realizado para Colegio Salvador Dalí"></div>
+            <div class="ls-social-art-post ls-social-art-post-front"><div class="ls-social-art-post-head"><span class="ls-social-art-avatar">low.</span><strong>lowsignal</strong><span>•••</span></div><img loading="lazy" src="https://lowsignal.cl/assets/hub-ig.jpg" alt="Contenido desarrollado para hUB Providencia"><div class="ls-social-art-post-foot">♡ &nbsp; ◯ &nbsp; ↗ <span>▢</span></div></div>
+          </div>
+        </article>
+
+        <article class="ls-social-showcase-card">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">03 / GESTIÓN</span>
+            <h3>Tu marca activa. <em>No solo publicando.</em></h3>
+            <p>Coordinamos el calendario, la publicación y las conversaciones con la comunidad para construir una presencia consistente, cercana y bien gestionada.</p>
+            <div class="ls-social-showcase-tags"><span>Publicación</span><span>Community management</span><span>Gestión de canales</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-community" aria-label="Interfaz ilustrativa de gestión de comunidad">
+            <div class="ls-social-art-inbox">
+              <div class="ls-social-art-inbox-head"><strong>Comunidad</strong><span>● &nbsp; En seguimiento</span></div>
+              <div class="ls-social-art-inbox-row"><div class="ls-social-art-chat-icon">↗</div><div><strong>Mensajes y comentarios</strong><small>Una conversación también construye marca.</small></div><span>Ahora</span></div>
+              <div class="ls-social-art-inbox-row"><div class="ls-social-art-chat-icon second">✓</div><div><strong>Calendario coordinado</strong><small>Contenido publicado en cada canal.</small></div><span>Hoy</span></div>
+              <div class="ls-social-art-inbox-status"><span>●</span> Presencia activa, todos los días</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ls-social-showcase-card is-reversed">
+          <div class="ls-social-showcase-copy">
+            <span class="ls-social-showcase-eyebrow">04 / OPTIMIZACIÓN</span>
+            <h3>Medimos, aprendemos <em>y mejoramos cada ciclo.</em></h3>
+            <p>Analizamos las señales de cada canal para entender qué genera atención, conversación y oportunidades. Esos aprendizajes alimentan el siguiente mes.</p>
+            <div class="ls-social-showcase-tags"><span>Insights</span><span>Performance</span><span>Mejora continua</span></div>
+          </div>
+          <div class="ls-social-showcase-art art-insights" aria-label="Panel ilustrativo de análisis de desempeño, sin cifras reales">
+            <div class="ls-social-art-dashboard">
+              <div class="ls-social-art-dash-head"><span>CONTENT INSIGHTS</span><strong>Performance <span aria-hidden="true">↗</span></strong></div>
+              <div class="ls-social-art-dash-label">Evolución del contenido</div>
+              <svg viewBox="0 0 510 178" preserveAspectRatio="none" role="img" aria-label="Gráfico ilustrativo de evolución creciente"><defs><linearGradient id="ls-social-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#333cda" stop-opacity=".20"/><stop offset="100%" stop-color="#333cda" stop-opacity="0"/></linearGradient></defs><path d="M0 160 H510 M0 106 H510 M0 53 H510" stroke="#e5e9f4" stroke-width="1"/><path d="M0 150 C38 145 64 156 96 126 S157 135 196 106 S251 120 290 82 S355 91 393 52 S448 55 510 16 L510 178 L0 178 Z" fill="url(#ls-social-area)"/><path d="M0 150 C38 145 64 156 96 126 S157 135 196 106 S251 120 290 82 S355 91 393 52 S448 55 510 16" stroke="#3038cd" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+              <div class="ls-social-art-dash-bottom"><span>Observar</span><span>Entender</span><span>Optimizar ↗</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+<section class="social-channels-editorial" aria-labelledby="ls-social-channels-title">
+ <div class="ls-social-shell social-channels-layout">
+  <div class="social-channels-copy">
+   <p class="social-channels-kicker">CANALES / LOW SOCIAL</p>
+   <h2 id="ls-social-channels-title">Una marca,<br><span>muchas formas de conectar.</span></h2>
+   <p>Creamos contenido para cada plataforma, manteniendo una misma identidad.</p>
   </div>
-  <div class="social-editorial-gallery" aria-label="Ejemplos de contenido y proyectos de lowsignal">
-   <figure class="social-gallery-lead"><img src="https://lowsignal.cl/assets/hub-ig.jpg" alt="Contenido digital desarrollado para hûb Providencia" loading="lazy"><figcaption>01 / CONTENIDO QUE CONECTA</figcaption></figure>
-   <figure><img src="https://lowsignal.cl/assets/dali-ig.jpg" alt="Contenido visual realizado para Colegio Salvador Dalí" loading="lazy"><figcaption>02 / IDENTIDAD Y COMUNIDAD</figcaption></figure>
-   <figure><img src="https://lowsignal.cl/assets/gets-ig.jpg" alt="Contenido digital de GETS Educación" loading="lazy"><figcaption>03 / HISTORIAS CON PROPÓSITO</figcaption></figure>
+  <div class="social-channels-details">
+   <div class="social-channels-group">
+    <h3>REDES SOCIALES</h3><div class="social-channels-networks"><div class="social-channels-item"><span class="social-channels-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="" loading="lazy" width="21" height="21"></span><span>Instagram</span></div>
+<div class="social-channels-item"><span class="social-channels-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="" loading="lazy" width="21" height="21"></span><span>Facebook</span></div>
+<div class="social-channels-item"><span class="social-channels-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="" loading="lazy" width="21" height="21"></span><span>TikTok</span></div>
+<div class="social-channels-item"><span class="social-channels-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="" loading="lazy" width="21" height="21"></span><span>LinkedIn</span></div>
+<div class="social-channels-item"><span class="social-channels-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="" loading="lazy" width="21" height="21"></span><span>YouTube</span></div></div>
+   </div>
+   <div class="social-channels-group"><h3>FORMATOS</h3>
+    <div class="social-channels-list"><span>Reels</span><span>Stories</span><span>Carruseles</span><span>Posts</span><span>Videos</span></div>
+   </div>
+   <div class="social-channels-group"><h3>CONTENIDO</h3>
+    <div class="social-channels-list"><span>Fotografía</span><span>Eventos</span><span>Entrevistas</span><span>Producción audiovisual</span></div>
+   </div>
+   <p class="social-channels-note">Los canales y formatos se definen según los objetivos y el alcance de cada proyecto.</p>
   </div>
-  <div class="social-process-header"><span>EL PROCESO</span><span>UNA MARCA, UN SISTEMA CONECTADO</span></div>
-  <div class="social-process"><article class="social-stage"><div class="social-stage-index">01 / ESTRATEGIA</div><div class="social-stage-main"><h3>Primero definimos <em>qué vale la pena contar.</em></h3><p>Conectamos objetivos de negocio, audiencias y pilares editoriales en un plan claro. Cada publicación tiene una razón para existir.</p></div><div class="social-stage-tags"><span>Estrategia editorial</span><span>Planificación</span><span>Calendario</span></div></article>
-<article class="social-stage"><div class="social-stage-index">02 / CONTENIDO</div><div class="social-stage-main"><h3>Ideas que se convierten en <em>contenido de verdad.</em></h3><p>Diseñamos piezas, producimos fotografía y video, y adaptamos cada historia al lenguaje de sus plataformas. Con identidad, no con plantillas genéricas.</p></div><div class="social-stage-tags"><span>Diseño</span><span>Reels & video</span><span>Fotografía</span></div></article>
-<article class="social-stage"><div class="social-stage-index">03 / GESTIÓN</div><div class="social-stage-main"><h3>Tu marca activa. <em>No solo publicando.</em></h3><p>Coordinamos el calendario, la publicación y las conversaciones con la comunidad para construir una presencia consistente, cercana y bien gestionada.</p></div><div class="social-stage-tags"><span>Publicación</span><span>Community management</span><span>Gestión de canales</span></div></article>
-<article class="social-stage"><div class="social-stage-index">04 / OPTIMIZACIÓN</div><div class="social-stage-main"><h3>Medimos, aprendemos <em>y mejoramos cada ciclo.</em></h3><p>Analizamos las señales de cada canal para entender qué genera atención, conversación y oportunidades. Esos aprendizajes alimentan el siguiente mes.</p></div><div class="social-stage-tags"><span>Insights</span><span>Performance</span><span>Mejora continua</span></div></article></div>
  </div>
-</section><section class="ls-social-channels low-social-platforms-dark" aria-labelledby="ls-social-channels-title">
-  <div class="ls-social-shell low-social-platforms-shell">
-    <div class="low-social-platforms-head">
-      <p class="low-social-platforms-kicker">CANALES · LOW SOCIAL</p>
-      <h2 id="ls-social-channels-title">Una marca, <span>muchas formas de conectar.</span></h2>
-      <p>Creamos contenido para cada plataforma, manteniendo una misma identidad.</p>
-    </div>
-    <div class="low-social-platforms-section">
-      <h3>REDES SOCIALES</h3>
-      <div class="low-social-platforms-row" aria-label="Redes sociales con las que trabajamos">
-        <div class="low-social-platform" title="Instagram"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="Instagram" width="28" height="28" loading="lazy"></span><span>Instagram</span></div>
-<div class="low-social-platform" title="Facebook"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="Facebook" width="28" height="28" loading="lazy"></span><span>Facebook</span></div>
-<div class="low-social-platform" title="TikTok"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tiktok.svg" alt="TikTok" width="28" height="28" loading="lazy"></span><span>TikTok</span></div>
-<div class="low-social-platform" title="LinkedIn"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn" width="28" height="28" loading="lazy"></span><span>LinkedIn</span></div>
-<div class="low-social-platform" title="YouTube"><span class="low-social-platform-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="YouTube" width="28" height="28" loading="lazy"></span><span>YouTube</span></div>
-      </div>
-    </div>
-    <div class="low-social-platforms-bottom">
-      <div class="low-social-platforms-detail">
-        <h3>FORMATOS</h3>
-        <p>Reels <span>·</span> Stories <span>·</span> Carruseles <span>·</span> Posts <span>·</span> Videos</p>
-      </div>
-      <div class="low-social-platforms-detail">
-        <h3>CONTENIDO</h3>
-        <p>Fotografía <span>·</span> Eventos <span>·</span> Entrevistas <span>·</span> Producción audiovisual</p>
-      </div>
-    </div>
-    <p class="low-social-platforms-note">Los canales y formatos se definen según los objetivos y el alcance de cada proyecto.</p>
-  </div>
 </section>
   <section class="ls-social-capabilities" id="ls-social-capabilities" aria-labelledby="ls-social-capabilities-title">
   <div class="ls-social-shell">
