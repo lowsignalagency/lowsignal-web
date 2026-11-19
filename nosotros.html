@@ -4068,44 +4068,148 @@ main#top .team#team .low-about-team-intro h2 span{
   color:#A9B9FF!important;
 }
 </style>
-<style id="low-about-dark-mega-nav-20261109">
-/* Keep the desktop dropdown surface identical to the dark Low Apps navbar. */
-@media(min-width:761px){
-  body>.lnav .lnav-mega,
-  body>.lnav .lnav-mega.lnav28-mega,
-  body>.lnav .lnav-mega.lnav-ind-mega{
-    background:#020712!important;
-    background-image:none!important;
-    background-color:#020712!important;
-    border-top:1px solid rgba(177,194,227,.10)!important;
-    border-bottom:1px solid rgba(177,194,227,.15)!important;
-  }
-  body>.lnav .lnav-mega-inner{background:transparent!important}
-}
-</style>
-<style id="low-about-scroll-reveal-20261109">
-/* Reveal the current About sections, without hiding content if JavaScript is unavailable. */
-@media(prefers-reduced-motion:no-preference){
-  .low-about-scroll-ready .low-about-scroll-item{
-    opacity:0;
-    transform:translate3d(0,22px,0);
-    transition:opacity .66s ease,transform .72s cubic-bezier(.2,.75,.2,1);
-  }
-  .low-about-scroll-ready .low-about-scroll-item.low-about-scroll-visible{
-    opacity:1;
-    transform:translate3d(0,0,0);
-  }
-  .low-about-scroll-ready .team-grid .person:nth-child(2){transition-delay:.055s}
-  .low-about-scroll-ready .team-grid .person:nth-child(3){transition-delay:.11s}
-  .low-about-scroll-ready .team-grid .person:nth-child(4){transition-delay:.165s}
-}
-@media(prefers-reduced-motion:reduce){
-  .low-about-scroll-item{opacity:1!important;transform:none!important;transition:none!important}
-}
-</style>
 <style id="low-global-footer-color-20261109">
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
+</style>
+
+<style id="about-editorial-redesign-20261118">
+/* Modern editorial About page: retain existing site navigation, footer and real team profiles. */
+main#top>.hero.low-about-hero{padding-bottom:clamp(70px,7.5vw,110px)!important}
+main#top>.hero.low-about-hero .eyebrow{
+ color:#aeb9d4!important;font-size:10px!important;letter-spacing:.16em!important;
+}
+main#top>.hero.low-about-hero h1{
+ max-width:1080px!important;margin:33px 0 0!important;
+ font-size:clamp(55px,7.2vw,112px)!important;
+ line-height:1.03!important;letter-spacing:-.072em!important;
+ font-weight:400!important;
+}
+main#top>.hero.low-about-hero h1 strong{
+ font-weight:400!important;color:#a9b9ff!important;
+}
+main#top .about-hero-bottom{
+ display:flex;align-items:flex-end;justify-content:space-between;gap:45px;
+ padding-top:clamp(28px,4vw,56px);margin-top:clamp(26px,4vw,52px);
+ border-top:1px solid rgba(255,255,255,.19);
+}
+main#top .about-hero-bottom .hero-sub{
+ margin:0!important;max-width:580px!important;color:#c3c9d7!important;
+ font-size:clamp(15px,1.45vw,19px)!important;line-height:1.65!important;
+}
+main#top .about-hero-link{
+ display:inline-flex;align-items:center;justify-content:space-between;gap:25px;
+ flex:0 0 auto;min-height:50px;padding:13px 20px;
+ border-radius:100px;border:1px solid rgba(255,255,255,.38);
+ color:#fff;font-size:12px;font-weight:600;transition:background .2s,color .2s;
+}
+main#top .about-hero-link:hover{background:#fff;color:#020712}
+main#top .about-hero-link svg{
+ width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;
+ stroke-linecap:round;stroke-linejoin:round;
+}
+main#top>.low-about-photo-linear{position:relative!important;overflow:visible!important}
+main#top>.low-about-photo-linear img{border-radius:3px!important}
+main#top .about-photo-caption{
+ display:flex;justify-content:space-between;gap:16px;
+ padding:16px 0 0;color:#acb6c8;font:500 10px/1.4 'Be Vietnam Pro',sans-serif;
+ letter-spacing:.11em;
+}
+main#top>.low-about-history-linear{padding-top:clamp(100px,10vw,160px)!important;padding-bottom:clamp(100px,10vw,155px)!important}
+main#top>.low-about-history-linear .low-about-history-lead{
+ color:#eef2fa!important;font-size:clamp(16px,1.55vw,21px)!important;line-height:1.66!important;
+}
+main#top>.low-about-history-linear .low-about-history-copy p:not(.low-about-history-lead){
+ color:#b0b9ca!important;line-height:1.85!important;
+}
+main#top>.about-approach{
+ background:#f7f7f5;color:#141820;position:relative;padding:clamp(90px,9vw,145px) 0;
+}
+main#top>.about-approach .about-approach-inner{
+ width:min(1220px,calc(100% - 128px));margin:0 auto;
+}
+main#top .about-label{
+ margin:0;color:#5b6380;font:600 10px/1.4 'Be Vietnam Pro',sans-serif;letter-spacing:.13em;
+}
+main#top .about-approach-head{
+ display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+ column-gap:clamp(36px,7vw,120px);align-items:end;
+}
+main#top .about-approach-head .about-label{grid-column:1/-1;margin-bottom:26px}
+main#top .about-approach-head h2{
+ font-size:clamp(39px,4.4vw,67px);line-height:1.1;font-weight:400;
+ letter-spacing:-.065em;margin:0;max-width:850px;
+}
+main#top .about-approach-head h2 em{font-style:normal;color:#3a49d7}
+main#top .about-approach-head>p{
+ margin:0 0 5px;color:#626975;line-height:1.8;font-size:14px;
+}
+main#top .about-pillars{border-top:1px solid #d8dbe1;margin-top:clamp(60px,7vw,115px)}
+main#top .about-pillar{
+ display:grid;grid-template-columns:130px 1fr;gap:30px;
+ padding:31px 0 34px;border-bottom:1px solid #d8dbe1;
+}
+main#top .about-pillar-no{color:#707785;font-size:12px;padding-top:7px}
+main#top .about-pillar>div{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+main#top .about-pillar h3{
+ font-size:clamp(20px,2.4vw,33px);line-height:1.25;
+ letter-spacing:-.045em;font-weight:450;margin:0;
+}
+main#top .about-pillar p{font-size:13px;line-height:1.75;color:#6c727c;margin:0}
+main#top .about-industries{
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+ gap:clamp(55px,8vw,135px);padding-top:clamp(105px,11vw,180px);
+}
+main#top .about-industries-title h2{
+ font-size:clamp(33px,3.1vw,48px);font-weight:400;letter-spacing:-.05em;
+ line-height:1.14;margin:23px 0 0;
+}
+main#top .about-industries-links{border-top:1px solid #d8dbe1}
+main#top .about-industries-links a{
+ display:grid;grid-template-columns:1fr auto;column-gap:15px;
+ padding:23px 0;border-bottom:1px solid #d8dbe1;position:relative;
+ transition:padding .2s;
+}
+main#top .about-industries-links a:hover{padding-left:8px}
+main#top .about-industries-links a span{
+ font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:-.04em;
+}
+main#top .about-industries-links a small{
+ grid-column:1;font-size:12px;color:#757b86;margin-top:5px;
+}
+main#top .about-industries-links a b{
+ grid-column:2;grid-row:1/3;align-self:center;font-size:23px;font-weight:400;
+}
+main#top>section.team#team{border-top:0!important}
+@media(max-width:1100px){
+ main#top>.about-approach .about-approach-inner{width:calc(100% - 48px)}
+ main#top .about-approach-head{grid-template-columns:1fr;gap:22px}
+ main#top .about-approach-head .about-label{margin-bottom:0}
+ main#top .about-approach-head>p{max-width:690px}
+ main#top .about-pillar{grid-template-columns:70px 1fr}
+}
+@media(max-width:760px){
+ main#top>.hero.low-about-hero{padding-top:155px!important;padding-bottom:52px!important}
+ main#top>.hero.low-about-hero h1{font-size:clamp(42px,9vw,65px)!important;margin-top:25px!important;letter-spacing:-.065em!important}
+ main#top .about-hero-bottom{flex-direction:column;align-items:flex-start;gap:25px;margin-top:35px;padding-top:27px}
+ main#top .about-hero-bottom .hero-sub{font-size:15px!important}
+ main#top .about-hero-link{min-height:46px;padding:12px 18px}
+ main#top .about-photo-caption{font-size:9px;line-height:1.5;padding-top:12px;letter-spacing:.05em}
+ main#top>.about-approach{padding:78px 0 92px}
+ main#top>.about-approach .about-approach-inner{width:calc(100% - 40px)}
+ main#top .about-approach-head h2{font-size:clamp(35px,8vw,46px)}
+ main#top .about-approach-head>p{font-size:13px}
+ main#top .about-pillars{margin-top:48px}
+ main#top .about-pillar{grid-template-columns:1fr;gap:10px;padding:25px 0}
+ main#top .about-pillar>div{grid-template-columns:1fr;gap:9px}
+ main#top .about-pillar h3{font-size:25px}
+ main#top .about-pillar p{font-size:13px}
+ main#top .about-industries{grid-template-columns:1fr;gap:28px;padding-top:90px}
+ main#top .about-industries-title h2{font-size:37px}
+}
+@media(prefers-reduced-motion:reduce){
+ main#top .about-hero-link,main#top .about-industries-links a{transition:none}
+}
 </style>
 </head>
 <body>
@@ -4127,7 +4231,9 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
 <div class="lnav28-group lnav-industry-group"><p class="lnav28-kicker">EMPRESAS</p><a class="lnav28-link" href="/industrias/b2b"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3M3 14h18M10 14v2h4v-2"/></svg></span><span class="lnav28-link-copy"><b>lowsignal for B2B</b><small>Demanda, posicionamiento y pipeline.</small></span></a><p class="lnav-industry-note">SaaS, tecnología, servicios e industria.</p></div>
 <div class="lnav28-group lnav-industry-group"><p class="lnav28-kicker">MARCAS</p><a class="lnav28-link" href="/industrias/marcas-b2c"><span class="lnav28-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18l-2 13H5L3 8ZM8 8V6a4 4 0 0 1 8 0v2M8 13h0m8 0h0"/></svg></span><span class="lnav28-link-copy"><b>lowsignal for B2C</b><small>Contenido, performance y conversión.</small></span></a><p class="lnav-industry-note">Retail, hospitality, food y lifestyle.</p></div>
 </div></div>
-      </div><div class="lnav-item">
+      </div>
+
+      <div class="lnav-item">
         <button type="button" class="lnav-trigger">Recursos <svg class="lnav-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg></button>
         <div class="lnav-mega lnav28-mega lnav-resources-mega"><div class="lnav-mega-inner lnav28-inner">
           <div class="lnav28-group lnav-resources-group">
@@ -4352,7 +4458,11 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
               <span>Industrias</span>
               <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg>
             </button>
-            <div class="mobile-nav-submenu lnav-ind-mobile" id="mobile-submenu-1" hidden><span class="lnav-ind-mobile-kicker">CRECIMIENTO POR INDUSTRIA</span><a href="/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a><a href="/industrias/b2b"><strong>lowsignal for B2B</strong><small>SaaS, tecnología y servicios</small></a><a href="/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Retail, consumo y experiencias</small></a></div>
+            <div class="mobile-nav-submenu" id="mobile-submenu-1" hidden>
+              <a href="https://lowsignal.cl/industrias/educacion"><strong>lowsignal for Education</strong><small>Colegios, redes y fundaciones</small></a>
+              <a href="https://lowsignal.cl/industrias/b2b"><strong>lowsignal for B2B</strong><small>Servicios y ciclos de venta complejos</small></a>
+              <a href="https://lowsignal.cl/industrias/marcas-b2c"><strong>lowsignal for B2C</strong><small>Consumo, retail y experiencias</small></a>
+            </div>
           </div>
 
           <div class="mobile-nav-group">
@@ -4375,16 +4485,20 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
       </div>
 
   <main id="top">
-    <section class="hero low-about-hero">
+    <section class="hero low-about-hero" aria-labelledby="about-title">
       <div class="container">
-        <div class="eyebrow">QUIÉNES SOMOS</div>
-        <h1>Una nueva forma de<br class="hero-title-break"><strong>construir crecimiento.</strong></h1>
-        <p class="hero-sub">Combinamos estrategia, creatividad y tecnología para conectar ideas, marcas y negocios en soluciones que funcionan.</p>
+        <div class="eyebrow">LOWSIGNAL / ABOUT US / EST. 2025</div>
+        <h1 id="about-title">Menos ruido.<br><strong>Más crecimiento.</strong></h1>
+        <div class="about-hero-bottom">
+          <p class="hero-sub">Somos una Growth Company. Conectamos estrategia, creatividad y tecnología para construir sistemas que hacen avanzar a las organizaciones.</p>
+          <a class="about-hero-link" href="#por-que-existimos">Conoce nuestra historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a>
+        </div>
       </div>
     </section>
 
     <figure class="low-about-photo-linear">
       <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption class="about-photo-caption"><span>LOWSIGNAL / SANTIAGO, CHILE</span><span>UNA IDEA QUE EMPEZÓ EN 2025.</span></figcaption>
     </figure>
 
     <section class="low-about-history-linear" id="por-que-existimos" aria-labelledby="low-about-history-title">
@@ -4398,6 +4512,30 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           <p>Creemos que crecer no debería significar hacer más de todo. Debería significar tomar mejores decisiones, construir procesos más inteligentes y conectar cada acción con un propósito claro. Esa convicción define nuestra forma de entender el marketing, el desarrollo y la tecnología.</p>
           <p>Fundada en 2025, lowsignal nació para reunir distintas capacidades en un mismo lugar. Desde estrategia y contenido hasta desarrollo, automatización e inteligencia artificial, construimos soluciones que ayudan a las organizaciones a avanzar con mayor claridad, consistencia y capacidad de adaptación.</p>
           <p>Hoy seguimos construyendo esa visión junto a marcas y organizaciones de distintas industrias. Somos un equipo que combina perspectivas, cuestiona lo establecido y entiende que el verdadero crecimiento no está en hacer más ruido, sino en crear algo que funcione mejor.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="about-approach" id="nuestra-forma" aria-labelledby="about-approach-title">
+      <div class="about-approach-inner">
+        <div class="about-approach-head">
+          <p class="about-label">NUESTRA FORMA DE TRABAJAR</p>
+          <h2 id="about-approach-title">No hacemos acciones aisladas.<br><em>Construimos sistemas.</em></h2>
+          <p>Unimos capacidades que suelen trabajar separadas. Porque una marca, una campaña o un producto digital generan más valor cuando son parte de una estrategia conectada.</p>
+        </div>
+        <div class="about-pillars" aria-label="Tres principios de nuestro enfoque">
+          <article class="about-pillar"><span class="about-pillar-no">01 /</span><div><h3>Pensar antes de ejecutar.</h3><p>Entendemos el negocio, las personas y el desafío antes de definir qué construir.</p></div></article>
+          <article class="about-pillar"><span class="about-pillar-no">02 /</span><div><h3>Conectar cada pieza.</h3><p>Contenido, adquisición, producto, datos e inteligencia artificial trabajando hacia el mismo objetivo.</p></div></article>
+          <article class="about-pillar"><span class="about-pillar-no">03 /</span><div><h3>Diseñar para evolucionar.</h3><p>Creamos soluciones que pueden medirse, mejorarse y crecer junto a cada organización.</p></div></article>
+        </div>
+        <div class="about-industries">
+          <div class="about-industries-title"><span class="about-label">DONDE GENERAMOS IMPACTO</span><h2>Distintos desafíos.<br>Una misma forma de construir.</h2></div>
+          <div class="about-industries-links">
+            <a href="https://lowsignal.cl/industrias/educacion"><span>Education</span><small>Instituciones y comunidades educativas</small><b aria-hidden="true">↗</b></a>
+            <a href="https://lowsignal.cl/industrias/b2b"><span>B2B</span><small>Empresas, servicios y tecnología</small><b aria-hidden="true">↗</b></a>
+            <a href="https://lowsignal.cl/industrias/marcas-b2c"><span>B2C</span><small>Marcas, experiencias y consumidores</small><b aria-hidden="true">↗</b></a>
+          </div>
         </div>
       </div>
     </section>
@@ -4891,46 +5029,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-<script id="low-about-scroll-reveal-init-20261109">
-(() => {
-  const init = () => {
-    const root = document.querySelector('main#top');
-    if (!root) return;
-    const selectors = [
-      '.low-about-hero .eyebrow',
-      '.low-about-hero h1',
-      '.low-about-hero .hero-sub',
-      '.low-about-photo-linear',
-      '.low-about-history-heading',
-      '.low-about-history-copy',
-      '.low-about-team-intro',
-      '.team-grid .person',
-      '.lsr-band-inner'
-    ];
-    const items = [...new Set(selectors.flatMap(s => [...root.querySelectorAll(s)]))];
-    if (!items.length) return;
-    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    items.forEach(el => {
-      el.classList.add('low-about-scroll-item');
-      /* Old reveal classes must not leave a section invisible. */
-      el.classList.remove('nosotros-reveal');
-    });
-    document.documentElement.classList.add('low-about-scroll-ready');
-    const observer = new IntersectionObserver((entries, obs) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add('low-about-scroll-visible');
-        obs.unobserve(entry.target);
-      }
-    }, {threshold:0.08,rootMargin:'0px 0px -5% 0px'});
-    items.forEach(el => observer.observe(el));
-  };
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
-  else init();
-})();
-</script>
 
 
 </body>
