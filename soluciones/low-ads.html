@@ -3780,9 +3780,9 @@ html body>.site-nav .nav-cta .ui-arrow{width:14px!important;height:14px!importan
  .lowads-v4 .lowads-v4-s3 [style*="font-size:26px"]{font-size:18px!important}
  .lowads-v4 .lowads-v4-s4>div:last-child{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
  .lowads-v4 .lowads-v4-s4>div:last-child>div{min-height:0!important;padding:24px!important}
- .lowads-v4 .lowads-v4-s5>div:last-child{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}
- .lowads-v4 .lowads-v4-s5>div:last-child>div:first-child{min-height:250px!important}
- .lowads-v4 .lowads-v4-s5>div:last-child>div:first-child img{max-width:70%!important;height:auto!important}
+ /* Removed legacy grid/image override that targeted testimonial carousel */
+ /* Removed legacy grid/image override that targeted testimonial carousel */
+ /* Removed legacy grid/image override that targeted testimonial carousel */
  .lowads-v4 .lowads-v4-s6>div:last-child>div:first-child{gap:28px!important}
  .lowads-v4 .lowads-v4-s6 [style*="grid-template-columns:repeat(2"]{grid-template-columns:minmax(0,1fr)!important}
  .lowads-v4 .lowads-v4-s7>div:last-child{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:22px!important;padding:30px 24px!important;border-radius:16px!important}
@@ -4103,6 +4103,84 @@ html body>.low-footer .footer-bottom-new{padding-top:22px!important;font-size:11
   grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 20px!important;padding:35px 0!important;
  }
  html body>.low-footer .footer-bottom-new{flex-wrap:wrap!important;gap:12px!important}
+}
+</style><style id="lowads-mobile-layout-cleanup-20261119">
+/* Mobile pass: editorial rails, testimonials, illustrations, process and footer. */
+@media(max-width:700px){
+ html body .lowads-v4 .lowads-v4-section{min-width:0!important}
+ html body .lowads-v4 .lowads-v4-section>div[style*="position:absolute"][style*="width:1px"]{display:none!important}
+ html body .lowads-v4 .lowads-v4-s5.ref-v4-5{
+  padding:42px 0 52px!important;overflow:visible!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonials{
+  box-sizing:border-box!important;display:block!important;width:auto!important;
+  margin:0 20px!important;padding:0!important;min-width:0!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonials-stage{
+  display:block!important;min-height:0!important;height:auto!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-slide{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  gap:20px!important;min-width:0!important;align-items:start!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-slide[hidden]{display:none!important}
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-media{
+  position:relative!important;display:block!important;width:100%!important;
+  height:auto!important;min-height:0!important;aspect-ratio:4/3!important;
+  overflow:hidden!important;border-radius:15px!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-case-photo{
+  position:absolute!important;inset:0!important;width:100%!important;
+  height:100%!important;min-height:0!important;max-width:none!important;
+  max-height:none!important;object-fit:cover!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-logo-badge img{
+  max-width:125px!important;max-height:32px!important;object-fit:contain!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-copy{
+  padding:0!important;display:flex!important;flex-direction:column!important;
+  justify-content:flex-start!important;gap:20px!important;min-width:0!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-copy blockquote{
+  font-size:clamp(17px,4.6vw,21px)!important;line-height:1.48!important;
+  overflow-wrap:break-word!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-meta{
+  margin:0!important;display:block!important;min-width:0!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-person{
+  align-items:center!important;min-width:0!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-person>div{min-width:0!important}
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-person span{
+  overflow-wrap:anywhere!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonials-nav{
+  position:static!important;justify-content:flex-end!important;
+  margin-top:23px!important;gap:12px!important;
+ }
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-arrow{
+  width:38px!important;height:38px!important;flex:0 0 38px!important;
+ }
+ html body .lowads-v4 .lowads-v4-s3 h2{font-size:clamp(29px,7.3vw,39px)!important}
+ html body .lowads-v4 .lowads-v4-s3 [style*="grid-template-columns:repeat(4"]{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 12px!important;
+ }
+ html body .lowads-v4 .lowads-v4-s3 [style*="grid-template-columns:repeat(4"]>div{
+  padding:18px 8px 0 0!important;min-width:0!important;
+ }
+ html body .lowads-v4 .lowads-v4-s2 svg{max-width:100%!important;height:auto!important}
+ html body .lowads-v4 .lowads-v4-s7,
+ html body .lowads-v4 .lowads-v4-s8{overflow-x:clip!important}
+ html body>.low-footer .footer-head h2{overflow-wrap:break-word!important}
+ html body>.low-footer .footer-grid-new>*{min-width:0!important}
+}
+@media(max-width:390px){
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonials{margin-inline:16px!important}
+ html body .lowads-v4 .ref-v4-5 .ls-v4-testimonial-copy blockquote{font-size:17px!important}
+ html body .lowads-v4 .lowads-v4-s3 [style*="grid-template-columns:repeat(4"]{gap:18px 10px!important}
+ html body>.low-footer>.shell{padding-inline:18px!important}
+ html body>.low-footer .footer-grid-new{column-gap:14px!important}
 }
 </style></head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
 <div class="menu-group"><button class="menu-trigger" aria-expanded="false" aria-controls="menu-sol">Soluciones <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg></button><div class="mega-menu" id="menu-sol"><div class="mega-cols"><div><span class="menu-label">MARKETING & CRECIMIENTO</span><a href="https://lowsignal.cl/soluciones/low-social"><b>Low Social</b><small>Contenido, comunidad y marca</small></a><a href="https://lowsignal.cl/soluciones/low-ads"><b>Low Ads</b><small>Adquisición y performance</small></a><a href="https://lowsignal.cl/soluciones/low-web"><b>Low Web</b><small>Diseño y desarrollo web</small></a></div><div><span class="menu-label">TECNOLOGÍA & IA</span><a href="https://lowsignal.cl/soluciones/low-flow"><b>Low Flow</b><small>IA, agentes y automatización</small></a><a href="https://lowsignal.cl/soluciones/low-apps"><b>Low Apps</b><small>Productos y software</small></a><a href="https://lowsignal.cl/soluciones/low-scale"><b>Low Scale</b><small>Sistemas para escalar</small></a></div></div><div class="mega-end">Less noise. More growth. <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></div></div></div>
