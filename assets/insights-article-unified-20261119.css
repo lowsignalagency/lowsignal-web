@@ -926,3 +926,10 @@ html body:has(.article-new-content) .article-new-cover{
   flex-wrap:wrap!important;
  }
 }
+
+/* Breadcrumb: remove legacy slash separator, keep only Insights + category pills. */
+html body:has(.article-new-content) .article-editorial-breadcrumb > span[aria-hidden],
+html body:has(.article-new-content) .article-editorial-breadcrumb > span[aria-hidden="true"]{
+ display:none!important;visibility:hidden!important;width:0!important;height:0!important;
+ margin:0!important;padding:0!important;border:0!important;
+}
