@@ -11510,5 +11510,19 @@ a:hover .insight-arrow-svg{transform:translate(2px,-2px)}
 }
 @media(prefers-reduced-motion:reduce){.insight-arrow-svg{transition:none!important}}
 </style>
+<style id="insight-system-headline-contrast-fix-20261119">
+/* Contrast: override inherited .article-new-content strong colors inside dark feature. */
+html body .article-new-content .insight-system-feature h3,
+html body .article-new-content .insight-system-feature h3 strong,
+html body:has(.insight-ref-tags) .article-new-content .insight-system-feature h3 strong{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+html body .article-new-content .insight-system-feature .insight-system-label{
+  color:#dfe5ff!important;
+  -webkit-text-fill-color:#dfe5ff!important;
+}
+</style>
 </body>
 </html>
