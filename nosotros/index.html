@@ -2371,16 +2371,6 @@ html body .about-main.about-v3 .v3-hero .v3-hero-title .v3-kicker{color:#B9C9FF!
 
 /* Nosotros: consistent, restrained hover states for navigation and calls to action */
 @media (hover:hover) and (pointer:fine) {
-  html body>header.site-nav#siteNav .desktop-links .menu-trigger:hover,
-  html body>header.site-nav#siteNav .desktop-links .simple-nav:hover,
-  html body>header.site-nav#siteNav .desktop-links .menu-group.open>.menu-trigger,
-  html body>header.site-nav#siteNav .desktop-links .menu-trigger:focus-visible {
-    background:rgba(20,25,224,.065)!important;
-    color:#0a0a0a!important;
-    opacity:1!important;
-    transform:none!important;
-    border-radius:999px!important;
-  }
   html body>.site-nav .nav-cta:hover,
   .about-v3 .v3-hero a:not(.v3-person a):hover {
     transform:translateY(-2px);
@@ -2399,6 +2389,18 @@ html body .about-main.about-v3 .v3-hero .v3-hero-title .v3-kicker{color:#B9C9FF!
 }
 @media(prefers-reduced-motion:reduce){
   .about-v3 a,html body>.site-nav a,html body>.site-nav button{transition:none!important}
+}
+
+/* Match all navbar labels on the dark Nosotros hero: no hover pill or dark patch. */
+@media(min-width:1367px){
+ html body>header.site-nav#siteNav .desktop-links :is(.menu-trigger,.simple-nav),
+ html body>header.site-nav#siteNav .desktop-links :is(.menu-trigger,.simple-nav):hover,
+ html body>header.site-nav#siteNav .desktop-links .menu-group.open>.menu-trigger,
+ html body>header.site-nav#siteNav .desktop-links .menu-trigger:focus-visible{
+  background:transparent!important;background-color:transparent!important;
+  color:#fff!important;opacity:1!important;
+  box-shadow:none!important;transform:none!important;
+ }
 }
 </style>
 </head><body><header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
