@@ -721,3 +721,208 @@ html body>.low-footer::before,html body>.low-footer::after{display:none!importan
 .article-new-content a:hover .insight-arrow-svg,
 .article-related-unified a:hover .insight-arrow-svg{transform:translate(2px,-2px)!important}
 @media(prefers-reduced-motion:reduce){.insight-arrow-svg{transition:none!important}}
+
+/* -----------------------------------------------------------------
+   Editorial geometry: same side rails, index, intro and spacing as
+   "Tres industrias, un solo sistema".
+   ----------------------------------------------------------------- */
+html body:has(.article-new-content) main{
+  max-width:none!important;
+  overflow:visible!important;
+}
+html body:has(.article-new-content) main>section.article-new-hero,
+html body:has(.article-new-content) main>section.article-new-body,
+html body:has(.article-new-content) main>section.article-related-unified{
+  position:relative!important;
+  isolation:isolate;
+  overflow:visible!important;
+}
+/* Two actual 1px lines, extending through the whole section.
+   Coordinates match Home's 80px side gutters at 1440px width. */
+@media(min-width:1101px){
+ html body:has(.article-new-content) main>section.article-new-hero::before,
+ html body:has(.article-new-content) main>section.article-new-hero::after,
+ html body:has(.article-new-content) main>section.article-new-body::before,
+ html body:has(.article-new-content) main>section.article-new-body::after,
+ html body:has(.article-new-content) main>section.article-related-unified::before,
+ html body:has(.article-new-content) main>section.article-related-unified::after{
+   content:""!important;display:block!important;
+   position:absolute!important;z-index:0!important;
+   top:0!important;bottom:0!important;
+   width:1px!important;
+   background:#ececec!important;
+   pointer-events:none!important;
+ }
+ html body:has(.article-new-content) main>section.article-new-hero::before,
+ html body:has(.article-new-content) main>section.article-new-body::before,
+ html body:has(.article-new-content) main>section.article-related-unified::before{
+   left:max(80px,calc((100% - 1440px)/2 + 80px))!important;right:auto!important;
+ }
+ html body:has(.article-new-content) main>section.article-new-hero::after,
+ html body:has(.article-new-content) main>section.article-new-body::after,
+ html body:has(.article-new-content) main>section.article-related-unified::after{
+   right:max(80px,calc((100% - 1440px)/2 + 80px))!important;left:auto!important;
+ }
+ html body:has(.article-new-content) .article-new-hero .container,
+ html body:has(.article-new-content) .article-new-body .container,
+ html body:has(.article-new-content) .article-related-unified .aru-container{
+   max-width:1280px!important;
+   width:calc(100% - 160px)!important;
+   padding-inline:56px!important;
+   margin-inline:auto!important;
+   position:relative!important;z-index:1!important;
+ }
+}
+@media(min-width:761px) and (max-width:1100px){
+ html body:has(.article-new-content) .article-new-hero .container,
+ html body:has(.article-new-content) .article-new-body .container,
+ html body:has(.article-new-content) .article-related-unified .aru-container{
+   width:calc(100% - 64px)!important;
+   padding-inline:16px!important;
+ }
+}
+html body:has(.article-new-content) main>section.article-new-body{
+  border-top:0!important;border-bottom:1px solid #ececec!important;
+}
+html body:has(.article-new-content) .article-new-body-grid{
+ display:grid!important;
+ grid-template-columns:minmax(185px,240px) minmax(0,800px)!important;
+ justify-content:space-between!important;gap:clamp(40px,6vw,105px)!important;
+ align-items:start!important;
+}
+html body:has(.article-new-content) .article-new-sidebar{
+ position:sticky!important;top:112px!important;
+ align-self:start!important;
+ display:flex!important;flex-direction:column!important;
+ gap:28px!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc{
+ display:flex!important;flex-direction:column!important;gap:0!important;
+ padding:0!important;margin:0!important;background:transparent!important;
+ border:0!important;box-shadow:none!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc>span,
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share>span{
+ display:block!important;
+ font-size:12px!important;line-height:1.4!important;
+ letter-spacing:.16em!important;font-weight:600!important;
+ color:#8f98a6!important;margin:0 0 21px!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc a{
+ display:block!important;position:relative!important;
+ color:#7f7f7f!important;background:transparent!important;
+ padding:12px 0!important;margin:0!important;
+ border:0!important;border-radius:0!important;
+ box-shadow:none!important;text-decoration:none!important;
+ font-size:14px!important;font-weight:400!important;line-height:1.55!important;
+ transition:color .2s ease!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc a:hover{
+ color:#1419e0!important;background:transparent!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc a.is-active{
+ color:#111!important;font-weight:500!important;
+ padding-left:12px!important;background:transparent!important;
+ border-left:2px solid #1419e0!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ gap:16px!important;
+ margin:0!important;padding:26px 0 0!important;
+ border:0!important;border-top:1px solid #e3e7ec!important;
+ background:transparent!important;box-shadow:none!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share>span{
+ margin:0 0 11px!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share a,
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share button{
+ font:inherit!important;font-size:14px!important;font-weight:400!important;
+ color:#738199!important;line-height:1.5!important;
+ text-decoration:none!important;cursor:pointer!important;
+ border:0!important;background:transparent!important;padding:0!important;
+}
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share a:hover,
+html body:has(.article-new-content) .article-new-sidebar .article-editorial-share button:hover{
+ color:#1419e0!important;
+}
+html body:has(.article-new-content) .article-new-content .article-new-lead{
+ font-size:clamp(20px,2vw,26px)!important;
+ line-height:1.55!important;font-weight:300!important;letter-spacing:-.018em!important;
+ color:#0a0a0a!important;
+}
+html body:has(.article-new-content) .article-new-hero .article-editorial-breadcrumb{
+ display:flex!important;align-items:center!important;gap:8px!important;
+ margin:0 0 28px!important;
+}
+html body:has(.article-new-content) .article-editorial-breadcrumb>a{
+ display:inline-flex!important;align-items:center!important;
+ padding:7px 14px!important;background:#eef1ff!important;color:#1419e0!important;
+ border-radius:99px!important;font-size:13px!important;font-weight:500!important;
+ letter-spacing:0!important;text-decoration:none!important;
+}
+html body:has(.article-new-content) .article-editorial-breadcrumb>span:not([aria-hidden]){
+ display:inline-flex!important;align-items:center!important;
+ padding:7px 14px!important;border:1px solid #e2e2e2!important;
+ border-radius:99px!important;font-size:12px!important;letter-spacing:0!important;
+ color:#3a3a3a!important;
+}
+html body:has(.article-new-content) .article-editorial-breadcrumb>span[aria-hidden="true"]{
+ display:none!important;
+}
+html body:has(.article-new-content) .article-new-hero .article-editorial-byline{
+ display:flex!important;justify-content:space-between!important;
+ align-items:center!important;gap:24px!important;
+ flex-wrap:wrap!important;margin:30px 0 0!important;
+ padding:22px 0 0!important;
+ border-top:1px solid #e1e3e8!important;
+}
+html body:has(.article-new-content) .article-new-hero .article-author img{
+ width:48px!important;height:48px!important;min-width:48px!important;
+ border-radius:50%!important;object-fit:cover!important;
+}
+html body:has(.article-new-content) .article-new-hero .article-author strong{
+ font-size:14px!important;font-weight:500!important;color:#111!important;
+}
+html body:has(.article-new-content) .article-new-hero .article-author span,
+html body:has(.article-new-content) .article-new-hero .article-editorial-date{
+ font-size:12px!important;color:#7c8491!important;
+}
+html body:has(.article-new-content) .article-new-cover{
+ margin-top:38px!important;
+}
+@media(max-width:1000px){
+ html body:has(.article-new-content) .article-new-body-grid{
+  grid-template-columns:1fr!important;gap:34px!important;
+ }
+ html body:has(.article-new-content) .article-new-sidebar{
+  position:static!important;top:auto!important;
+ }
+}
+@media(max-width:760px){
+ html body:has(.article-new-content) .article-new-hero .container,
+ html body:has(.article-new-content) .article-new-body .container,
+ html body:has(.article-new-content) .article-related-unified .aru-container{
+  width:calc(100% - 40px)!important;padding-inline:0!important;
+ }
+ html body:has(.article-new-content) main>section.article-new-hero::before,
+ html body:has(.article-new-content) main>section.article-new-hero::after,
+ html body:has(.article-new-content) main>section.article-new-body::before,
+ html body:has(.article-new-content) main>section.article-new-body::after,
+ html body:has(.article-new-content) main>section.article-related-unified::before,
+ html body:has(.article-new-content) main>section.article-related-unified::after{
+  display:none!important;
+ }
+ html body:has(.article-new-content) .article-new-sidebar .article-editorial-toc{
+  display:none!important;
+ }
+ html body:has(.article-new-content) .article-new-sidebar .article-editorial-share{
+  padding-top:12px!important;border-top:0!important;
+ }
+ html body:has(.article-new-content) .article-new-hero .article-editorial-byline{
+  align-items:flex-start!important;gap:14px!important;
+ }
+ html body:has(.article-new-content) .article-new-hero .article-editorial-date{
+  flex-wrap:wrap!important;
+ }
+}
