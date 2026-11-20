@@ -2,8 +2,8 @@
    Scope: 761–1366px (desktop and phone unaffected). */
 @media (min-width:761px) and (max-width:1366px) {
   html,body {max-width:100%;overflow-x:clip}
-  body > header.site-nav#siteNav {display:none!important;visibility:hidden!important;pointer-events:none!important}
-  body > .nav-wrap {
+  html body > header.site-nav#siteNav {display:none!important;visibility:hidden!important;pointer-events:none!important}
+  html body > .nav-wrap {
     display:flex!important;position:fixed!important;inset:0 0 auto!important;
     top:0!important;left:0!important;right:0!important;
     width:100%!important;height:74px!important;min-height:74px!important;
@@ -13,7 +13,7 @@
     align-items:center!important;opacity:1!important;visibility:visible!important;
     pointer-events:auto!important;transform:none!important;
   }
-  body > .nav-wrap > .nav {
+  html body > .nav-wrap > .nav {
     box-sizing:border-box!important;display:flex!important;position:relative!important;
     align-items:center!important;justify-content:space-between!important;
     width:100%!important;max-width:none!important;
@@ -23,50 +23,50 @@
     background:#fff!important;background-image:none!important;
     box-shadow:none!important;gap:14px!important;
   }
-  body > .nav-wrap .brand {display:flex!important;flex:0 1 auto!important;min-width:0!important}
-  body > .nav-wrap .brand img {
+  html body > .nav-wrap .brand {display:flex!important;flex:0 1 auto!important;min-width:0!important}
+  html body > .nav-wrap .brand img {
     width:auto!important;max-width:155px!important;height:30px!important;
     max-height:34px!important;object-fit:contain!important;
     filter:brightness(0)!important;opacity:1!important
   }
-  body > .nav-wrap .mobile-nav-cta {
+  html body > .nav-wrap .mobile-nav-cta {
     display:inline-flex!important;align-items:center!important;justify-content:center!important;
     margin-left:auto!important;min-height:38px!important;
     padding:9px 17px!important;border-radius:999px!important;
     background:#1419e0!important;color:#fff!important;border-color:#1419e0!important;
     font-size:12px!important;line-height:1.25!important;white-space:nowrap!important
   }
-  body > .nav-wrap .mobile-nav-toggle {
+  html body > .nav-wrap .mobile-nav-toggle {
     display:flex!important;position:relative!important;flex:0 0 40px!important;
     width:40px!important;height:40px!important;min-width:40px!important;
     align-items:center!important;justify-content:center!important;
     flex-direction:column!important;gap:6px!important;
     border:0!important;background:transparent!important;box-shadow:none!important
   }
-  body > .nav-wrap .mobile-nav-toggle span {
+  html body > .nav-wrap .mobile-nav-toggle span {
     display:block!important;width:22px!important;height:2px!important;min-height:2px!important;
     background:#111!important;border-radius:3px!important
   }
-  body > .mobile-nav-panel.mobile-nav-reference {
+  html body > .mobile-nav-panel.mobile-nav-reference {
     position:fixed!important;inset:74px 0 0!important;top:74px!important;left:0!important;right:0!important;
     width:100%!important;height:calc(100dvh - 74px)!important;max-height:calc(100dvh - 74px)!important;
     overflow-y:auto!important;overscroll-behavior:contain!important;
     background:#fafafa!important;color:#111!important;z-index:1799!important;
     box-sizing:border-box!important;
   }
-  body > .mobile-nav-panel.mobile-nav-reference:not(.is-open) {
+  html body > .mobile-nav-panel.mobile-nav-reference:not(.is-open) {
     display:none!important;visibility:hidden!important;pointer-events:none!important
   }
-  body > .mobile-nav-panel.mobile-nav-reference.is-open {
+  html body > .mobile-nav-panel.mobile-nav-reference.is-open {
     display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important
   }
-  body > .mobile-nav-panel.mobile-nav-reference .mobile-nav-inner{
+  html body > .mobile-nav-panel.mobile-nav-reference .mobile-nav-inner{
     max-width:700px!important;width:100%!important;margin:0 auto!important;
     padding:0 clamp(20px,4vw,48px) 36px!important;box-sizing:border-box!important
   }
   body.mobile-menu-open{overflow:hidden!important}
-  body > .nav-wrap + .mobile-nav-panel + main,
-  body > .nav-wrap + .mobile-nav-panel + .about-main{scroll-margin-top:74px}
+  html body > .nav-wrap + .mobile-nav-panel + main,
+  html body > .nav-wrap + .mobile-nav-panel + .about-main{scroll-margin-top:74px}
   /* Shared footer: replace desktop's 100px side padding and four cramped columns. */
   html body > .low-footer{width:100%!important;max-width:100%!important}
   html body > .low-footer > .shell{
