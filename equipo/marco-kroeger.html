@@ -8273,7 +8273,20 @@ body>.nav-wrap .nav{display:flex;align-items:center;justify-content:space-betwee
  border-bottom:1px solid #e8e9ec!important;
  }
 }
-</style></head>
+</style>
+<style id="low-footer-legacy-social-mobile-20261120">
+.footer-social-mobile{display:none}
+@media(max-width:760px){
+ footer .footer-main .footer-company{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:18px!important;grid-column:1/-1!important;align-items:start}
+ footer .footer-main .footer-company>.footer-title{grid-column:1;grid-row:1}
+ footer .footer-main .footer-company>.footer-links{grid-column:1;grid-row:2}
+ footer .footer-main .footer-company>.footer-social-mobile{display:block!important;grid-column:2;grid-row:1/span 2}
+ footer .footer-main .footer-social-mobile .footer-title{margin-bottom:16px}
+ footer .footer-main .footer-social-mobile .footer-links{display:flex;flex-direction:column;gap:14px}
+ footer .footer-meta-social{display:none!important}
+}
+</style>
+</head>
 <body>
 
   <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
@@ -8387,6 +8400,7 @@ body>.nav-wrap .nav{display:flex;align-items:center;justify-content:space-betwee
             <a href="https://lowsignal.cl/recursos/jobs">Jobs</a>
             <a href="https://lowsignal.cl/recursos/insiders">Insiders</a>
           </div>
+          <div class="footer-social-mobile"><div class="footer-title">SOCIAL</div><div class="footer-links"><a href="https://instagram.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://cl.linkedin.com/company/lowsignalagency" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://facebook.com/lowsignalagency" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
         </div>
       </div>
 
@@ -8428,7 +8442,7 @@ body>.nav-wrap .nav{display:flex;align-items:center;justify-content:space-betwee
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 lowsignal. Todos los derechos reservados.</div>
+        <div class="footer-company">© 2026 lowsignal. Todos los derechos reservados.</div>
 
         <div class="footer-made-latam" aria-label="Hecho con amor en Latinoamérica, Chile">
           <span class="footer-made-line">HECHO CON <span class="footer-heart">♥</span> EN LATAM</span>
