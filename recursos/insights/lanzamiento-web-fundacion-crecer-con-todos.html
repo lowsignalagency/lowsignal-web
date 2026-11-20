@@ -3125,7 +3125,7 @@
 }
 @media(min-width:761px) and (max-width:1100px){.lnav-resources-mega .lnav28-inner{width:calc(100% - 48px)!important;gap:12px!important}}
 </style>
-<link rel="stylesheet" href="/assets/insight-related-unified.css?v=20261108"><style id="nosotros-v7-margins-motion">
+<link rel="stylesheet" href="/assets/insight-related-unified.css?v=20261119f-blackcards"><style id="nosotros-v7-margins-motion">
 /* =========================================================
    NOSOTROS V7
    Wider page rhythm + quiet motion inspired by the home.
@@ -10025,6 +10025,15 @@ footer{
 /* Unified dark footer surface. */
 html body footer,html body .site-footer,html body footer.footer,html body:has(footer) footer{background:#020712!important;background-color:#020712!important;background-image:none!important}
 </style>
+<style id="insight-card-headline-black-20261119">
+html body .article-related-unified .aru-grid a.aru-card h3,
+html body .article-related-unified .aru-grid a.aru-card:hover h3,
+html body .article-related-unified .aru-grid a.aru-card:visited h3{
+ color:#0a0a0a!important;
+ -webkit-text-fill-color:#0a0a0a!important;
+ opacity:1!important;
+}
+</style>
 </head>
 <body>
 
@@ -10260,7 +10269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script defer src="/assets/insights-editorial-unified-2026.js?v=20261108b"></script>
 <script>(()=>{const old=document.querySelector('.article-new-more');if(!old)return;const cards=[...old.querySelectorAll('.article-new-more-grid>a')].map(a=>{const meta=(a.querySelector('span')?.textContent||'INSIGHT').trim();const parts=meta.split('·').map(x=>x.trim());return{href:a.href,img:a.querySelector('img')?.src||'',alt:a.querySelector('img')?.alt||'',category:parts[0]||'INSIGHT',date:parts.slice(1).join(' · '),title:(a.querySelector('h3')?.textContent||'Seguir leyendo').trim()}});const section=document.createElement('section');section.className='article-related-unified';section.innerHTML='<div class="aru-container"><div class="aru-head"><h2>Más insights de lowsignal</h2><a href="https://lowsignal.cl/recursos/insights">Ver todos los insights <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></a></div><div class="aru-grid">'+cards.map(c=>'<a class="aru-card" href="'+c.href+'"><figure><img src="'+c.img+'" alt="'+c.alt.replace(/"/g,'&quot;')+'"></figure><div class="aru-meta"><span>'+c.category+'</span><b>'+c.date+'</b></div><h3>'+c.title+'</h3><strong>Leer insight <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></strong></a>').join('')+'</div></div>';old.replaceWith(section)})();</script>
 
-<link rel="stylesheet" href="/assets/insights-article-unified-20261119.css?v=20261119e">
+<link rel="stylesheet" href="/assets/insights-article-unified-20261119.css?v=20261119f-blackcards">
 <script>
 (()=>{
  const nav=document.getElementById('siteNav');
