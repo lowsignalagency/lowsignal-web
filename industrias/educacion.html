@@ -5935,7 +5935,7 @@ class Component extends DCLogic {
 </script>
 
 
-<script id="education-home-nav-interactions">
+<script>
 (()=>{
  const nav=document.getElementById('siteNav');
  const groups=[...document.querySelectorAll('.site-nav .menu-group')];
@@ -5946,13 +5946,13 @@ class Component extends DCLogic {
   g.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover) and (min-width:1367px)').matches){g.classList.remove('open');b.setAttribute('aria-expanded','false')}});
  });
  document.addEventListener('click',e=>{if(!e.target.closest('.site-nav .menu-group'))close()});
- const toggle=document.getElementById('mobileToggle'),panel=document.getElementById('mobilePanel');
- const summaries=[...(panel?.querySelectorAll('.mobile-nav-summary')||[])];
+ const toggle=document.querySelector('body>.nav-wrap .mobile-nav-toggle'),panel=document.querySelector('body>.mobile-nav-panel');
+ const summaries=[...panel.querySelectorAll('.mobile-nav-summary')];
  const closeSubs=(except)=>summaries.forEach(b=>{if(b===except)return;b.setAttribute('aria-expanded','false');const sub=document.getElementById(b.getAttribute('aria-controls'));if(sub)sub.hidden=true});
- const setOpen=v=>{if(!toggle||!panel)return;nav?.classList.toggle('mobile-open',v);toggle.setAttribute('aria-expanded',String(v));toggle.setAttribute('aria-label',v?'Cerrar menú':'Abrir menú');panel.classList.toggle('is-open',v);panel.setAttribute('aria-hidden',String(!v));document.body.classList.toggle('mobile-menu-open',v);if(!v)closeSubs()};
- toggle?.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
+ const setOpen=v=>{toggle.setAttribute('aria-expanded',String(v));toggle.setAttribute('aria-label',v?'Cerrar menú':'Abrir menú');panel.classList.toggle('is-open',v);panel.setAttribute('aria-hidden',String(!v));document.body.classList.toggle('mobile-menu-open',v);if(!v)closeSubs()};
+ toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
  summaries.forEach(b=>b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';closeSubs(b);const sub=document.getElementById(b.getAttribute('aria-controls'));b.setAttribute('aria-expanded',String(!open));if(sub)sub.hidden=open}));
- panel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+ panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){setOpen(false);close()}});
  window.addEventListener('resize',()=>{if(innerWidth>1366)setOpen(false)});
  addEventListener('scroll',()=>{nav?.classList.toggle('nav-scrolled',scrollY>20);document.querySelector('body>.nav-wrap')?.classList.toggle('is-scrolled',scrollY>20)},{passive:true});
