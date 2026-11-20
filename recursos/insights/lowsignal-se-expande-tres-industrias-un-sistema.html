@@ -11393,43 +11393,76 @@ html body .site-nav .nav-plans{padding:9px 13px}
 
 
 </style>
-<style id="insight-home-nav-footer-color-lock-20261119">
-/* Exact Home navbar/footer palette; overrides legacy article theme without changing its editorial body. */
+
+<style id="insight-shared-home-visual-20261119">
+/* Exact gradient footer from current Home, and light editorial navbar from Home/Customer Stories. */
+/* lowsignal brand atmosphere — footer based on the supplied blue/navy reference.
+   Layered CSS glows instead of a flattened image: sharp text, responsive composition. */
+.low-footer{
+  background-color:#070c1b!important;
+  background-image:
+    radial-gradient(ellipse 52% 53% at 101% 0%,rgba(23,39,216,.87) 0%,rgba(18,31,151,.46) 44%,transparent 82%),
+    radial-gradient(ellipse 49% 47% at -8% 1%,rgba(82,118,223,.68) 0%,rgba(55,83,155,.33) 54%,transparent 93%),
+    radial-gradient(ellipse 41% 50% at 50% 99%,rgba(50,77,189,.60) 0%,rgba(38,60,145,.28) 47%,transparent 88%),
+    linear-gradient(118deg,#091126 6%,#080d21 45%,#0c1552 100%)!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  color:#fff!important;
+}
+.low-footer .footer-head,
+.low-footer .footer-bottom-new{border-color:rgba(215,223,255,.20)!important}
+.low-footer .footer-eyebrow,
+.low-footer .footer-linkcol a,
+.low-footer .footer-identity p,
+.low-footer .footer-bottom-new,
+.low-footer .footer-ai-new>p{color:#c6cde1!important}
+.low-footer .footer-linkcol strong,
+.low-footer .footer-head h2,
+.low-footer .footer-claim-new b{color:#fff!important}
+.low-footer .footer-head h2 em{color:#aab8ff!important}
+@media(max-width:760px){
+ .low-footer{
+  background-image:
+    radial-gradient(ellipse 85% 34% at 112% 1%,rgba(29,48,224,.71),transparent 95%),
+    radial-gradient(ellipse 89% 37% at -28% 8%,rgba(76,110,206,.57),transparent 96%),
+    radial-gradient(ellipse 94% 45% at 47% 95%,rgba(43,67,173,.47),transparent 94%),
+    linear-gradient(155deg,#0b1435,#070c1b 49%,#0c1850)!important;
+ }
+}
+
+
+@media(min-width:761px){
 html body>header.site-nav#siteNav,
 html body>header.site-nav#siteNav.nav-scrolled{
- background:#070c1b!important;background-color:#070c1b!important;background-image:none!important;
- color:#fff!important;box-shadow:none!important;
+background:#fafafa!important;background-color:#fafafa!important;background-image:none!important;
+border-bottom:1px solid #e8e8e8!important;box-shadow:none!important;color:#0a0a0a!important;
 }
-html body>header.site-nav#siteNav .site-nav-inner{
- background:transparent!important;color:#fff!important;
- height:84px!important;
+html body>header.site-nav#siteNav::after{background:#e8e8e8!important}
+html body>header.site-nav#siteNav .site-nav-inner{background:#fafafa!important;background-color:#fafafa!important;border-color:#e8e8e8!important;height:84px!important}
+html body>header.site-nav#siteNav .site-logo img{filter:brightness(0)!important;opacity:1!important}
+html body>header.site-nav#siteNav .desktop-links :is(.menu-trigger,.simple-nav){color:#111!important;opacity:1!important}
+html body>header.site-nav#siteNav .desktop-links .menu-group.open>.menu-trigger{color:#0a0a0a!important;background:rgba(20,25,224,.065)!important}
+html body>header.site-nav#siteNav .desktop-links .chev{color:inherit!important;stroke:currentColor!important}
+html body>header.site-nav#siteNav .nav-cta{background:#1419e0!important;color:#fff!important;border-color:#1419e0!important}
+html body>header.site-nav#siteNav .nav-cta svg{stroke:#fff!important}
+html body>header.site-nav#siteNav .mega-menu{background:#fff!important;color:#0a0a0a!important;border:1px solid #e8e8e8!important}
 }
-html body>header.site-nav#siteNav :is(.menu-trigger,.simple-nav,.nav-contact){color:#fff!important}
-html body>header.site-nav#siteNav .site-logo img{filter:none!important}
-html body>header.site-nav#siteNav .nav-cta{background:#fff!important;color:#0a0a0a!important}
-html body>header.site-nav#siteNav .mega-menu{background:#fff!important;color:#171717!important}
-html body:has(footer)>footer.low-footer{
- background:#070c1b!important;background-color:#070c1b!important;background-image:none!important;
- color:#fff!important;
-}
-html body:has(footer)>footer.low-footer .footer-head h2 em{color:#aab8ff!important}
-html body:has(footer)>footer.low-footer::before,
-html body:has(footer)>footer.low-footer::after{display:none!important}
-@media(min-width:1367px){
- html body>header.site-nav#siteNav{display:block!important}
- html body>.nav-wrap,html body>.mobile-nav-panel{display:none!important}
-}
-@media(min-width:761px) and (max-width:1366px){
- html body>header.site-nav#siteNav{display:block!important}
- html body>.nav-wrap,html body>.mobile-nav-panel{display:none!important}
-}
+html body:has(footer)>footer.low-footer{background-color:#070c1b!important;background-image:
+radial-gradient(ellipse 52% 53% at 101% 0%,rgba(23,39,216,.87) 0%,rgba(18,31,151,.46) 44%,transparent 82%),
+radial-gradient(ellipse 49% 47% at -8% 1%,rgba(82,118,223,.68) 0%,rgba(55,83,155,.33) 54%,transparent 93%),
+radial-gradient(ellipse 41% 50% at 50% 99%,rgba(50,77,189,.60) 0%,rgba(38,60,145,.28) 47%,transparent 88%),
+linear-gradient(118deg,#091126 6%,#080d21 45%,#0c1552 100%)!important;background-repeat:no-repeat!important;background-size:cover!important;color:#fff!important}
 @media(max-width:760px){
- html body>header.site-nav#siteNav{display:none!important}
- html body>.nav-wrap{display:flex!important;background:#070c1b!important;background-color:#070c1b!important}
- html body>.nav-wrap>.nav{background:transparent!important;background-image:none!important}
- html body>.mobile-nav-panel{background:#020712!important;background-color:#020712!important}
- html body>.mobile-nav-panel:not(.is-open){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
- html body>.mobile-nav-panel.is-open{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+html body:has(footer)>footer.low-footer{background-image:
+radial-gradient(ellipse 85% 34% at 112% 1%,rgba(29,48,224,.71),transparent 95%),
+radial-gradient(ellipse 89% 37% at -28% 8%,rgba(76,110,206,.57),transparent 96%),
+radial-gradient(ellipse 94% 45% at 47% 95%,rgba(43,67,173,.47),transparent 94%),
+linear-gradient(155deg,#0b1435,#070c1b 49%,#0c1850)!important}
+html body>.nav-wrap{background:transparent!important}
+html body>.nav-wrap>.nav{background:#fafafa!important;background-color:#fafafa!important;border:1px solid #e8e8e8!important}
+html body>.nav-wrap>.nav .brand img{filter:brightness(0)!important}
+html body>.nav-wrap>.nav .mobile-nav-toggle span{background:#111!important}
+html body>.nav-wrap>.nav .nav-talk{background:#1419e0!important;color:#fff!important}
 }
 </style>
 </body>
