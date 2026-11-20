@@ -11,7 +11,7 @@
 .article-related-unified .aru-card:hover figure img{transform:scale(1.02)}
 .article-related-unified .aru-meta{display:flex!important;justify-content:space-between;gap:20px;color:#7A849F!important;font-size:9px!important;font-weight:700!important;letter-spacing:.10em!important;text-transform:uppercase}
 .article-related-unified .aru-meta span{display:block!important;color:#1419E0!important}
-.article-related-unified .aru-card h3{display:block!important;margin:14px 0 0!important;color:#0F1F8C!important;font-size:22px!important;line-height:1.25!important;font-weight:600!important;letter-spacing:-.02em!important}
+.article-related-unified .aru-card h3{display:block!important;margin:14px 0 0!important;color:#0a0a0a!important;font-size:22px!important;line-height:1.25!important;font-weight:600!important;letter-spacing:-.02em!important}
 .article-related-unified .aru-card p{display:block!important;margin:10px 0 0!important;color:#64708D!important;font-size:12px!important;line-height:1.6!important}
 .article-related-unified .aru-card strong{display:block!important;margin-top:18px!important;color:#1419E0!important;font-size:10px!important;font-weight:700!important}
 @media(max-width:1100px){.article-related-unified .aru-container{width:calc(100% - 48px);max-width:none}}
