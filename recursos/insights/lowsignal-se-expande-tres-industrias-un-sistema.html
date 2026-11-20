@@ -10531,7 +10531,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           <img src="https://lowsignal.cl/assets/team_felipe-1.png" alt="Felipe Quiroz">
           <div><strong>Felipe Quiroz</strong><span>Co-Founder &amp; CEO · lowsignal</span></div>
         </div>
-        <div class="article-editorial-date"><time datetime="2026-10-16">16 de octubre de 2026</time><span>4 min de lectura</span></div>
+        <div class="article-editorial-date"><time datetime="2026-10-16">16 oct 2026</time><span>4 min de lectura</span></div>
       </div>
       <figure class="article-new-cover">
         <img src="https://lowsignal.cl/assets/founders_new.jpg" alt="Fundadores de lowsignal" loading="eager" fetchpriority="high">
@@ -10543,7 +10543,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
     <div class="container article-new-body-grid">
       <aside class="article-new-sidebar" aria-label="Índice del artículo">
         <nav class="article-editorial-toc" aria-label="Tabla de contenidos">
-          <span>TABLA DE CONTENIDOS</span>
+          <span>EN ESTE ARTÍCULO</span>
           <a href="#mas-foco" class="is-active">Más foco. Más impacto.</a>
           <a href="#tres-verticales">Tres industrias, un sistema</a>
           <a href="#especializacion">Especialización sin perder amplitud</a>
@@ -10565,32 +10565,15 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
         <p>Por eso, la siguiente etapa de lowsignal se organiza en tres verticales. No como tres agencias distintas, sino como tres formas especializadas de aplicar un mismo sistema de growth a problemas diferentes.</p>
 
         <div class="article-new-process" id="tres-verticales">
-          <article>
-            <span>/ 01 · EDUCATION</span>
-            <h3>lowsignal for Education</h3>
-            <p>Colegios, fundaciones y proveedores de educación que quieren atraer familias, fortalecer comunidad y construir una presencia digital que genere confianza.</p>
-          </article>
-          <article>
-            <span>/ 02 · B2B</span>
-            <h3>lowsignal for B2B</h3>
-            <p>Empresas de servicios, tecnología e industria que quieren convertir presencia digital en oportunidades comerciales, demanda y conversaciones de negocio.</p>
-          </article>
-          <article>
-            <span>/ 03 · B2C</span>
-            <h3>lowsignal for B2C</h3>
-            <p>Marcas de consumo, locales y experiencias que quieren convertir atención en clientes, recurrencia y relaciones que vuelven.</p>
-          </article>
-          <article class="article-shared-system">
-            <span>EL SISTEMA · LOWSIGNAL</span>
-            <h3>Una misma infraestructura de growth</h3>
-            <p>Estrategia, contenido, paid media, web, automatización, tecnología e IA conectadas según lo que cada negocio necesita para crecer.</p>
-            <strong>Tres industrias. Un solo sistema.</strong>
-            <cite>lowsignal · Less noise. More growth.</cite>
-          </article>
-        </div>
+  <article><span>01</span><div class="industry-name">lowsignal for</div><h3>Education</h3><p>Colegios, fundaciones y proveedores de educación que quieren atraer familias, fortalecer comunidad y construir una presencia digital que genere confianza.</p></article>
+  <article><span>02</span><div class="industry-name">lowsignal for</div><h3>B2B</h3><p>Empresas de servicios, tecnología e industria que quieren convertir presencia digital en oportunidades comerciales, demanda y conversaciones de negocio.</p></article>
+  <article><span>03</span><div class="industry-name">lowsignal for</div><h3>B2C</h3><p>Marcas de consumo, locales y experiencias que quieren convertir atención en clientes, recurrencia y relaciones que vuelven.</p></article>
+</div>
+<div class="insight-system-feature"><div class="insight-system-glow"></div><div class="insight-system-inner"><span class="insight-system-label">EL SISTEMA</span><h3>Una misma infraestructura de growth.<br><strong>Tres industrias. Un solo sistema.</strong></h3><div class="insight-system-pills"><span>Estrategia</span><span>Contenido</span><span>Paid media</span><span>Web</span><span>Automatización</span><span>IA</span></div></div></div>
 
         <h2 id="especializacion">Especialización sin perder amplitud</h2>
-        <p>El objetivo de este cambio no es hacer menos. Es entender mejor. Cuando conocemos con profundidad cómo una institución educativa capta familias, cómo una empresa B2B genera pipeline o cómo una marca B2C convierte atención en recurrencia, podemos diseñar soluciones más precisas y movernos más rápido.</p>
+        <blockquote class="insight-focus-quote">El objetivo de este cambio no es hacer menos. <strong>Es entender mejor.</strong></blockquote>
+        <p>Cuando conocemos con profundidad cómo una institución educativa capta familias, cómo una empresa B2B genera pipeline o cómo una marca B2C convierte atención en recurrencia, podemos diseñar soluciones más precisas y movernos más rápido.</p>
 
         <p>Seguiremos trabajando desde estrategia hasta ejecución, pero con propuestas, mensajes y sistemas pensados para cada una de estas realidades. Ese foco también nos permite construir conocimiento, procesos y tecnología reutilizable dentro de cada vertical.</p>
 
@@ -10599,7 +10582,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
 
         <p>Education, B2B y B2C son hoy nuestras tres apuestas. El sistema sigue siendo el mismo: menos ruido, más claridad y crecimiento que se pueda sostener.</p>
 
-        <div class="article-new-signoff">build what’s <strong>next.</strong></div>
+        <div class="insight-author-signoff"><strong>Felipe Quiroz</strong><span>Co-Founder &amp; CEO, lowsignal</span><p>build what’s next.</p></div>
       </article>
     </div>
   </section>
@@ -11153,5 +11136,51 @@ document.addEventListener('DOMContentLoaded', () => {
 <script defer src="/assets/insights-editorial-unified-2026.js?v=20261108b"></script>
 <script>(()=>{const old=document.querySelector('.article-new-more');if(!old)return;const cards=[...old.querySelectorAll('.article-new-more-grid>a')].map(a=>{const meta=(a.querySelector('span')?.textContent||'INSIGHT').trim();const parts=meta.split('·').map(x=>x.trim());return{href:a.href,img:a.querySelector('img')?.src||'',alt:a.querySelector('img')?.alt||'',category:parts[0]||'INSIGHT',date:parts.slice(1).join(' · '),title:(a.querySelector('h3')?.textContent||'Seguir leyendo').trim()}});const section=document.createElement('section');section.className='article-related-unified';section.innerHTML='<div class="aru-container"><div class="aru-head"><h2>Más insights de lowsignal</h2><a href="https://lowsignal.cl/recursos/insights">Ver todos los insights →</a></div><div class="aru-grid">'+cards.map(c=>'<a class="aru-card" href="'+c.href+'"><figure><img src="'+c.img+'" alt="'+c.alt.replace(/"/g,'&quot;')+'"></figure><div class="aru-meta"><span>'+c.category+'</span><b>'+c.date+'</b></div><h3>'+c.title+'</h3><strong>Leer insight →</strong></a>').join('')+'</div></div>';old.replaceWith(section)})();</script>
 
+
+<style id="insight-expansion-refresh-20261119">
+/* Scoped editorial refresh — reference design + shared low site system */
+body:has(.article-new-content) {font-family:'Be Vietnam Pro',system-ui,sans-serif!important;color:#111!important;background:#fff!important}
+body:has(.article-new-content) .article-new-hero{background:#f6f8fc!important;padding:132px 0 62px!important}
+body:has(.article-new-content) .article-new-hero .container,body:has(.article-new-content) .article-new-body .container,body:has(.article-new-content) .article-related-unified .aru-container{max-width:1450px!important;width:90%!important;margin-inline:auto!important}
+body:has(.article-new-content) .article-new-hero h1{font-size:clamp(38px,4.1vw,60px)!important;line-height:1.12!important;font-weight:400!important;max-width:1050px!important;letter-spacing:-.055em!important}
+body:has(.article-new-content) .article-new-hero h1 strong{color:#1419e0!important;font-weight:500!important}
+body:has(.article-new-content) .article-new-hero-grid>div>p{font-size:15px!important;line-height:1.75!important;color:#667085!important;max-width:730px!important}
+body:has(.article-new-content) .article-new-body{padding:76px 0 100px!important}
+body:has(.article-new-content) .article-new-body-grid{grid-template-columns:minmax(170px,240px) minmax(0,820px)!important;justify-content:space-between!important;gap:clamp(48px,7vw,120px)!important}
+body:has(.article-new-content) .article-new-content>p{font-size:15px!important;line-height:1.85!important;color:#606775!important}
+body:has(.article-new-content) .article-new-content h2{font-size:clamp(27px,2.6vw,36px)!important;font-weight:400!important;letter-spacing:-.045em!important;color:#121212!important;margin:64px 0 24px!important}
+body:has(.article-new-content) .article-new-lead{font-size:18px!important;line-height:1.72!important;color:#121212!important}
+body:has(.article-new-content) .article-new-process{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin:32px 0 0!important}
+body:has(.article-new-content) .article-new-process article{min-width:0!important;border:0!important;border-radius:16px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;min-height:310px!important;padding:24px!important;background:#070f22!important;color:white!important}
+body:has(.article-new-content) .article-new-process article:nth-child(2){background:#1419e0!important}
+body:has(.article-new-content) .article-new-process article:nth-child(3){background:#f8f9fc!important;border:1px solid #e4e6ec!important;color:#111!important}
+body:has(.article-new-content) .article-new-process article>span{color:inherit!important;font-size:12px!important;font-weight:400!important;opacity:.72}
+body:has(.article-new-content) .article-new-process .industry-name{font-size:13px!important;opacity:.75;margin-top:auto}
+body:has(.article-new-content) .article-new-process article h3{font-size:27px!important;font-weight:500!important;letter-spacing:-.04em!important;color:inherit!important;margin:2px 0 8px!important}
+body:has(.article-new-content) .article-new-process article p{color:inherit!important;font-size:12px!important;line-height:1.7!important;opacity:.77;margin:0!important}
+.insight-system-feature{position:relative;isolation:isolate;overflow:hidden;background:#070f22;color:#fff;border-radius:18px;padding:40px;margin:22px 0 0}
+.insight-system-glow{position:absolute;inset:-80px;z-index:-1;filter:blur(55px);opacity:.7;background:radial-gradient(ellipse at 8% 12%,#5b7bf0,transparent 45%),radial-gradient(ellipse at 90% 95%,#1419e0,transparent 45%)}
+.insight-system-label{display:block;font-size:11px;font-weight:500;letter-spacing:.17em;color:#dfe5ff}
+.insight-system-feature h3{color:white!important;font-size:clamp(24px,3vw,34px)!important;line-height:1.26!important;font-weight:300!important;letter-spacing:-.035em!important;margin:16px 0 22px!important}
+.insight-system-feature h3 strong{font-weight:500}
+.insight-system-pills{display:flex;flex-wrap:wrap;gap:8px}
+.insight-system-pills span{border:1px solid rgba(255,255,255,.45);border-radius:40px;padding:8px 14px;font-size:11px}
+.insight-focus-quote{border-left:2px solid #1419e0!important;margin:30px 0!important;padding:10px 0 10px 24px!important;color:#161616;font-size:clamp(22px,2.5vw,30px);font-weight:300;line-height:1.4;letter-spacing:-.025em}
+.insight-focus-quote strong{font-weight:500!important}
+.insight-author-signoff{padding:32px 0 0;margin-top:35px;border-top:1px solid #e7e7e7;display:flex;flex-direction:column;gap:5px}
+.insight-author-signoff strong{font-size:14px}.insight-author-signoff span{color:#7c8491;font-size:12px}.insight-author-signoff p{font-size:20px;color:#1419e0;margin:14px 0 0}
+/* align header with current Home white navbar without disturbing its menu JS */
+body:has(.article-new-content) .lnav{background:#fff!important;background-image:none!important;border-bottom:1px solid #ededed!important;box-shadow:none!important}
+body:has(.article-new-content) .lnav .lnav-trigger,body:has(.article-new-content) .lnav .lnav-link,body:has(.article-new-content) .lnav .lnav-row>a:not(.lnav-logo){color:#171717!important}
+body:has(.article-new-content) .lnav .lnav-logo img{filter:brightness(0)!important}
+body:has(.article-new-content) .lnav .lnav-mega{background:#fff!important;color:#151515!important}
+body:has(.article-new-content) .lnav .lnav-chevron{stroke:#171717!important}
+body:has(.article-new-content) .article-editorial-toc a.is-active{background:#f0f2f6!important;color:#171717!important}
+body:has(.article-new-content) .article-new-more{background:#f8f9fb!important}
+body:has(.article-new-content) .article-new-cover{border-radius:12px!important}
+@media(max-width:900px){body:has(.article-new-content) .article-new-body-grid{grid-template-columns:1fr!important;gap:32px!important}body:has(.article-new-content) .article-new-sidebar{position:static!important}}
+@media(max-width:760px){body:has(.article-new-content) .article-new-hero{padding:112px 0 40px!important}body:has(.article-new-content) .article-new-hero .container,body:has(.article-new-content) .article-new-body .container,body:has(.article-new-content) .article-related-unified .aru-container{width:calc(100% - 40px)!important}body:has(.article-new-content) .article-new-process{grid-template-columns:1fr!important}body:has(.article-new-content) .article-new-process article{min-height:230px!important}body:has(.article-new-content) .article-new-body{padding:44px 0 65px!important}.insight-system-feature{padding:27px 23px;border-radius:14px}body:has(.article-new-content) .article-new-content h2{margin:42px 0 18px!important}}
+@media(prefers-reduced-motion:no-preference){.article-new-process article{transition:transform .25s ease!important}.article-new-process article:hover{transform:translateY(-3px)}}
+</style>
 </body>
 </html>
