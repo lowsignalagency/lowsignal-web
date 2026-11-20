@@ -148,3 +148,24 @@
     grid-template-columns:repeat(3,minmax(0,1fr))!important
   }
 }
+
+/* Shared iPad CTA contrast: all public sections use the same navigation.
+   Select the actual anchor and cover link/visited/hover/focus/active states,
+   overriding older page-specific dark text and Safari text fill. */
+@media (min-width:761px) and (max-width:1366px) {
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta,
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta:link,
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta:visited,
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta:hover,
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta:focus-visible,
+  html body > .nav-wrap > nav.nav > a.mobile-nav-cta:active {
+    display:inline-flex!important;
+    background:#1419e0!important;
+    background-color:#1419e0!important;
+    color:#ffffff!important;
+    -webkit-text-fill-color:#ffffff!important;
+    border-color:#1419e0!important;
+    opacity:1!important;
+    text-shadow:none!important;
+  }
+}
