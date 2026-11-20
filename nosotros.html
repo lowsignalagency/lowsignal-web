@@ -2390,14 +2390,15 @@ html body .about-main.about-v3 .v3-hero .v3-hero-title .v3-kicker{color:#B9C9FF!
 </style><style id="low-mobile-nav-seam-fix-20261120">@media(max-width:1366px){html body.mobile-menu-open>.nav-wrap,html body.mobile-menu-open>.nav-wrap>.nav{height:74px!important;min-height:74px!important;border:0!important;box-shadow:none!important}html body>.mobile-nav-panel.mobile-nav-reference,html body>.mobile-nav-panel.mobile-nav-reference.is-open{top:74px!important;inset-block-start:74px!important;height:calc(100dvh - 74px)!important;max-height:calc(100dvh - 74px)!important;margin:0!important;border:0!important;box-shadow:none!important;outline:0!important}}
 /* Nosotros: consistent, restrained hover states for navigation and calls to action */
 @media (hover:hover) and (pointer:fine) {
-  html body>.site-nav .desktop-links .menu-trigger:hover,
-  html body>.site-nav .desktop-links .simple-nav:hover {
-    background:rgba(255,255,255,.08)!important;
-    color:inherit;
+  html body>header.site-nav#siteNav .desktop-links .menu-trigger:hover,
+  html body>header.site-nav#siteNav .desktop-links .simple-nav:hover,
+  html body>header.site-nav#siteNav .desktop-links .menu-group.open>.menu-trigger,
+  html body>header.site-nav#siteNav .desktop-links .menu-trigger:focus-visible {
+    background:rgba(20,25,224,.065)!important;
+    color:#0a0a0a!important;
+    opacity:1!important;
     transform:none!important;
-  }
-  html body>.site-nav .desktop-links .menu-group.open>.menu-trigger {
-    background:rgba(255,255,255,.08)!important;
+    border-radius:999px!important;
   }
   html body>.site-nav .nav-cta:hover,
   .about-v3 .v3-hero a:not(.v3-person a):hover {
