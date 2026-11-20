@@ -933,3 +933,8 @@ html body:has(.article-new-content) .article-editorial-breadcrumb > span[aria-hi
  display:none!important;visibility:hidden!important;width:0!important;height:0!important;
  margin:0!important;padding:0!important;border:0!important;
 }
+
+/* Match reference insight: related article headlines are black, not brand blue. */
+html body .article-related-unified .aru-card h3,
+html body:has(.article-new-content) .article-related-unified .aru-card h3,
+html body .article-related-unified a.aru-card h3{color:#0a0a0a!important;-webkit-text-fill-color:#0a0a0a!important;}
