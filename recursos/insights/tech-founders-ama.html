@@ -10141,7 +10141,64 @@ html body .article-related-unified .aru-grid a.aru-card:visited h3{
 }
 </style>
 <style id="low-mobile-nav-seam-fix-20261120">@media(max-width:1366px){html body.mobile-menu-open>.nav-wrap,html body.mobile-menu-open>.nav-wrap>.nav{height:74px!important;min-height:74px!important;border:0!important;box-shadow:none!important}html body>.mobile-nav-panel.mobile-nav-reference,html body>.mobile-nav-panel.mobile-nav-reference.is-open{top:74px!important;inset-block-start:74px!important;height:calc(100dvh - 74px)!important;max-height:calc(100dvh - 74px)!important;margin:0!important;border:0!important;box-shadow:none!important;outline:0!important}}</style>
-</head>
+<style id="insights-article-home-mobile-header-20261120">
+/* Mobile articles use the same full-width light navigation as Home. */
+@media(max-width:1366px){
+ html body>header.site-nav{display:none!important;visibility:hidden!important}
+ html body>.nav-wrap,html body>.nav-wrap.is-scrolled,html body.mobile-menu-open>.nav-wrap{
+  display:block!important;visibility:visible!important;opacity:1!important;
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  inset:0 0 auto 0!important;width:100%!important;max-width:100%!important;
+  height:74px!important;min-height:74px!important;margin:0!important;padding:0!important;
+  border:0!important;border-radius:0!important;transform:none!important;
+  background:#fafafa!important;background-color:#fafafa!important;background-image:none!important;
+  box-shadow:0 1px 0 #e8e8e8!important;z-index:1600!important;pointer-events:auto!important;
+ }
+ html body>.nav-wrap>.nav{
+  display:flex!important;visibility:visible!important;opacity:1!important;
+  position:relative!important;align-items:center!important;justify-content:space-between!important;
+  box-sizing:border-box!important;width:100%!important;max-width:100%!important;
+  height:74px!important;min-height:74px!important;margin:0!important;
+  padding:0 max(18px,env(safe-area-inset-right)) 0 max(18px,env(safe-area-inset-left))!important;
+  gap:12px!important;border:0!important;border-radius:0!important;
+  background:#fafafa!important;background-color:#fafafa!important;background-image:none!important;
+  box-shadow:none!important;backdrop-filter:none!important;pointer-events:auto!important;
+ }
+ html body>.nav-wrap .brand{display:flex!important;align-items:center!important;flex:1 1 auto!important;min-width:0!important;max-width:none!important;margin:0 auto 0 0!important;padding:0!important}
+ html body>.nav-wrap .brand img{display:block!important;width:clamp(116px,33vw,166px)!important;max-width:100%!important;height:auto!important;max-height:32px!important;filter:brightness(0)!important;object-fit:contain!important}
+ html body>.nav-wrap .mobile-nav-cta{
+  display:inline-flex!important;visibility:visible!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 auto!important;margin:0!important;padding:0 18px!important;
+  min-height:42px!important;height:42px!important;width:auto!important;max-width:none!important;
+  border:0!important;border-radius:999px!important;box-shadow:none!important;
+  background:#1419e0!important;background-color:#1419e0!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  font:600 13px/1.2 'Be Vietnam Pro',sans-serif!important;white-space:nowrap!important;text-decoration:none!important
+ }
+ html body>.nav-wrap .mobile-nav-toggle{
+  display:flex!important;visibility:visible!important;position:relative!important;
+  flex:0 0 38px!important;width:38px!important;height:38px!important;min-width:38px!important;
+  align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important
+ }
+ html body>.nav-wrap .mobile-nav-toggle span{
+  position:absolute!important;display:block!important;width:22px!important;height:2px!important;
+  border-radius:2px!important;background:#101010!important;opacity:1!important
+ }
+ html body>.nav-wrap .mobile-nav-toggle span:first-child{transform:translateY(-4px)!important}
+ html body>.nav-wrap .mobile-nav-toggle span:last-child{transform:translateY(4px)!important}
+ html body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:first-child{transform:rotate(45deg)!important}
+ html body>.nav-wrap .mobile-nav-toggle[aria-expanded=true] span:last-child{transform:rotate(-45deg)!important}
+ html body.mobile-menu-open>.nav-wrap .mobile-nav-cta{display:none!important}
+ html body>.mobile-nav-panel.mobile-nav-reference,
+ html body>.mobile-nav-panel.mobile-nav-reference.is-open{
+  position:fixed!important;inset:74px 0 0!important;top:74px!important;width:100%!important;
+  height:calc(100dvh - 74px)!important;max-height:calc(100dvh - 74px)!important;
+  margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:#fafafa!important;background-color:#fafafa!important;z-index:1590!important
+ }
+}
+</style></head>
 <body>
 
   <header class="site-nav" id="siteNav"><div class="site-nav-inner"><a class="site-logo" href="https://lowsignal.cl/" aria-label="lowsignal, inicio"><img src="https://lowsignal.cl/assets/logo-horizontal-white.png" alt="lowsignal"></a><nav class="desktop-links" aria-label="Navegación principal">
