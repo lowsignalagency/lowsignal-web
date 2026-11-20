@@ -2371,14 +2371,15 @@ html body .about-main.about-v3 .v3-hero .v3-hero-title .v3-kicker{color:#B9C9FF!
 
 /* Nosotros: consistent, restrained hover states for navigation and calls to action */
 @media (hover:hover) and (pointer:fine) {
-  html body>.site-nav .desktop-links .menu-trigger:hover,
-  html body>.site-nav .desktop-links .simple-nav:hover {
-    background:rgba(255,255,255,.08)!important;
-    color:inherit;
+  html body>header.site-nav#siteNav .desktop-links .menu-trigger:hover,
+  html body>header.site-nav#siteNav .desktop-links .simple-nav:hover,
+  html body>header.site-nav#siteNav .desktop-links .menu-group.open>.menu-trigger,
+  html body>header.site-nav#siteNav .desktop-links .menu-trigger:focus-visible {
+    background:rgba(20,25,224,.065)!important;
+    color:#0a0a0a!important;
+    opacity:1!important;
     transform:none!important;
-  }
-  html body>.site-nav .desktop-links .menu-group.open>.menu-trigger {
-    background:rgba(255,255,255,.08)!important;
+    border-radius:999px!important;
   }
   html body>.site-nav .nav-cta:hover,
   .about-v3 .v3-hero a:not(.v3-person a):hover {
