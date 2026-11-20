@@ -10279,7 +10279,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
         </nav>
         <div class="article-editorial-share">
           <span>COMPARTIR</span>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Flowsignal-se-expande-tres-industrias-un-sistema" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flowsignal.cl%2Frecursos%2Finsights%2Flowsignal-se-expande-tres-industrias-un-sistema" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></a>
           <button type="button" class="article-copy-link" data-copy-link aria-live="polite">Copiar enlace</button>
         </div>
       </aside>
@@ -10331,7 +10331,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           <div>
             <span>EVENTO · 4 NOV, 2026</span>
             <h3>Fuimos parte de Main Character, el lanzamiento de Fintual Sans</h3>
-            <b>Leer artículo ↗</b>
+            <b>Leer artículo <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></b>
           </div>
         </a>
 
@@ -10340,7 +10340,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           <div>
             <span>LANZAMIENTO · 16 OCT, 2026</span>
             <h3>Nueva web de Fundación Crecer con Todos</h3>
-            <b>Leer más ↗</b>
+            <b>Leer más <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></b>
           </div>
         </a>
 
@@ -10349,7 +10349,7 @@ html body footer,html body .site-footer,html body footer.footer,html body:has(fo
           <div>
             <span>EVENTO · 30 SEP, 2026</span>
             <h3>Tech Founders AMA — escalar tecnología sin perder velocidad</h3>
-            <b>Leer más ↗</b>
+            <b>Leer más <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></b>
           </div>
         </a>
 
@@ -10728,7 +10728,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <link rel="stylesheet" href="/assets/insights-editorial-unified-2026.css?v=20261108a">
 <script defer src="/assets/insights-editorial-unified-2026.js?v=20261108b"></script>
-<script>(()=>{const old=document.querySelector('.article-new-more');if(!old)return;const cards=[...old.querySelectorAll('.article-new-more-grid>a')].map(a=>{const meta=(a.querySelector('span')?.textContent||'INSIGHT').trim();const parts=meta.split('·').map(x=>x.trim());return{href:a.href,img:a.querySelector('img')?.src||'',alt:a.querySelector('img')?.alt||'',category:parts[0]||'INSIGHT',date:parts.slice(1).join(' · '),title:(a.querySelector('h3')?.textContent||'Seguir leyendo').trim()}});const section=document.createElement('section');section.className='article-related-unified';section.innerHTML='<div class="aru-container"><div class="aru-head"><h2>Más insights de lowsignal</h2><a href="https://lowsignal.cl/recursos/insights">Ver todos los insights →</a></div><div class="aru-grid">'+cards.map(c=>'<a class="aru-card" href="'+c.href+'"><figure><img src="'+c.img+'" alt="'+c.alt.replace(/"/g,'&quot;')+'"></figure><div class="aru-meta"><span>'+c.category+'</span><b>'+c.date+'</b></div><h3>'+c.title+'</h3><strong>Leer insight →</strong></a>').join('')+'</div></div>';old.replaceWith(section)})();</script>
+<script>(()=>{const old=document.querySelector('.article-new-more');if(!old)return;const cards=[...old.querySelectorAll('.article-new-more-grid>a')].map(a=>{const meta=(a.querySelector('span')?.textContent||'INSIGHT').trim();const parts=meta.split('·').map(x=>x.trim());return{href:a.href,img:a.querySelector('img')?.src||'',alt:a.querySelector('img')?.alt||'',category:parts[0]||'INSIGHT',date:parts.slice(1).join(' · '),title:(a.querySelector('h3')?.textContent||'Seguir leyendo').trim()}});const section=document.createElement('section');section.className='article-related-unified';section.innerHTML='<div class="aru-container"><div class="aru-head"><h2>Más insights de lowsignal</h2><a href="https://lowsignal.cl/recursos/insights">Ver todos los insights <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></a></div><div class="aru-grid">'+cards.map(c=>'<a class="aru-card" href="'+c.href+'"><figure><img src="'+c.img+'" alt="'+c.alt.replace(/"/g,'&quot;')+'"></figure><div class="aru-meta"><span>'+c.category+'</span><b>'+c.date+'</b></div><h3>'+c.title+'</h3><strong>Leer insight <svg class="insight-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></strong></a>').join('')+'</div></div>';old.replaceWith(section)})();</script>
 
 
 <style id="insight-expansion-refresh-20261119">
@@ -11464,6 +11464,51 @@ html body>.nav-wrap>.nav .brand img{filter:brightness(0)!important}
 html body>.nav-wrap>.nav .mobile-nav-toggle span{background:#111!important}
 html body>.nav-wrap>.nav .nav-talk{background:#1419e0!important;color:#fff!important}
 }
+</style>
+<style id="insight-related-card-padding-arrow-fix-20261119">
+/* Scope exclusively to article recommendation cards. Keep the image edge-to-edge,
+   while giving every text element a consistent inset. */
+html body .article-related-unified .aru-card{
+  display:flex!important;flex-direction:column!important;
+  padding:0!important;overflow:hidden!important;
+  border-radius:20px!important;
+}
+html body .article-related-unified .aru-card figure{
+  margin:0 0 20px!important;width:100%!important;
+}
+html body .article-related-unified .aru-card .aru-meta{
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  flex-wrap:wrap!important;gap:12px!important;
+  margin:0 0 17px!important;padding:0 26px!important;
+}
+html body .article-related-unified .aru-card h3{
+  margin:0 0 24px!important;padding:0 26px!important;
+  font-size:clamp(17px,1.5vw,21px)!important;line-height:1.36!important;
+  overflow-wrap:break-word!important;
+}
+html body .article-related-unified .aru-card>strong{
+  display:inline-flex!important;align-items:center!important;gap:8px!important;
+  margin:auto 0 0!important;padding:0 26px 26px!important;
+  font-size:13px!important;font-weight:600!important;color:#1419e0!important;
+}
+html body .article-related-unified .aru-card .aru-meta b{
+  white-space:nowrap!important;font-size:11px!important;
+}
+.insight-arrow-svg{
+  width:16px;height:16px;flex:0 0 16px;display:inline-block;vertical-align:middle;
+  fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .22s ease;
+}
+a:hover .insight-arrow-svg{transform:translate(2px,-2px)}
+.article-related-unified .aru-head>a,
+.article-new-sidebar .article-editorial-share a,
+.article-new-more-grid b{display:inline-flex!important;align-items:center!important;gap:8px!important}
+@media(max-width:760px){
+ html body .article-related-unified .aru-card .aru-meta{padding-inline:22px!important}
+ html body .article-related-unified .aru-card h3{padding-inline:22px!important}
+ html body .article-related-unified .aru-card>strong{padding:0 22px 25px!important}
+}
+@media(prefers-reduced-motion:reduce){.insight-arrow-svg{transition:none!important}}
 </style>
 </body>
 </html>
