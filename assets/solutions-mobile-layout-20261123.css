@@ -178,3 +178,21 @@
     max-width: 100% !important;
   }
 }
+
+@media (max-width: 760px) {
+  /* Ads, Web and Scale use an unclassed content rail (third direct child). */
+  html body main.lowads-v4 .lowads-v4-s0 > div:nth-child(3) > div:first-child,
+  html body main.lw-v4 .lw-v4-s0 > div:nth-child(3) > div:first-child,
+  html body main.lscl-v4 .lscl-s0 > div:nth-child(3) > div:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+  }
+  html body main.lowads-v4 .lowads-v4-s0 > div:nth-child(3) > div:first-child > p,
+  html body main.lw-v4 .lw-v4-s0 > div:nth-child(3) > div:first-child > p,
+  html body main.lscl-v4 .lscl-s0 > div:nth-child(3) > div:first-child > p {
+    margin: 26px 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    line-height: 1.65 !important;
+  }
+}
