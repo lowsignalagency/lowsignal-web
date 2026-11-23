@@ -14061,34 +14061,23 @@ document.addEventListener('DOMContentLoaded', () => {
 (()=>{
  const nav=document.getElementById('siteNav');
  const groups=[...document.querySelectorAll('.site-nav .menu-group')];
- let dropdownCloseTimer;
- const cancelDropdownClose=()=>clearTimeout(dropdownCloseTimer);
- const close=()=>{cancelDropdownClose();groups.forEach(g=>{g.classList.remove('open');g.querySelector('.menu-trigger')?.setAttribute('aria-expanded','false')})};
- const scheduleDropdownClose=()=>{
-   cancelDropdownClose();
-   dropdownCloseTimer=setTimeout(()=>{
-     if(!nav.matches(':hover') && !nav.contains(document.activeElement)) close();
-   },900);
+ // Keep desktop dropdowns open until another menu, an outside click or Escape.
+ // Hover-based auto-close caused users to lose the menu while moving the pointer.
+ const close=()=>groups.forEach(g=>{g.classList.remove('open');g.querySelector('.menu-trigger')?.setAttribute('aria-expanded','false')});
+ const open=(g)=>{
+   close();g.classList.add('open');
+   g.querySelector('.menu-trigger')?.setAttribute('aria-expanded','true');
  };
  groups.forEach(g=>{
    const b=g.querySelector('.menu-trigger');if(!b)return;
    b.addEventListener('click',e=>{
-     e.stopPropagation();cancelDropdownClose();
-     const was=g.classList.contains('open');close();
-     if(!was){g.classList.add('open');b.setAttribute('aria-expanded','true')}
+     e.stopPropagation();
+     const was=g.classList.contains('open');
+     if(was)close();else open(g);
    });
    g.addEventListener('mouseenter',()=>{
-     cancelDropdownClose();
-     if(matchMedia('(hover:hover) and (min-width:1367px)').matches){
-       close();g.classList.add('open');b.setAttribute('aria-expanded','true');
-     }
+     if(matchMedia('(hover:hover) and (min-width:1367px)').matches && !g.classList.contains('open'))open(g);
    });
-   const panel=g.querySelector('.ref-menu');
-   if(panel)panel.addEventListener('mouseenter',cancelDropdownClose);
- });
- nav.addEventListener('mouseenter',cancelDropdownClose);
- nav.addEventListener('mouseleave',()=>{
-   if(matchMedia('(hover:hover) and (min-width:1367px)').matches) scheduleDropdownClose();
  });
  document.addEventListener('click',e=>{if(!e.target.closest('.site-nav .menu-group'))close()});
  const toggle=document.querySelector('body>.nav-wrap .mobile-nav-toggle'),panel=document.querySelector('body>.mobile-nav-panel');
