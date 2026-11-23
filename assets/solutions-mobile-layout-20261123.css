@@ -139,3 +139,42 @@
   html body main .ls-mobile-hero > :nth-child(n+5) { padding-inline: 10px !important; }
   html body main.lf3 .lf3-s7 .lf3-pricing-inner { padding: 24px 18px !important; }
 }
+
+/* Second pass: normalize the hero copy and its first illustration on phones.
+   The lead paragraph has a desktop-only 90px inline margin; the smaller
+   breakpoint previously preserved it and caused a large blank area. */
+@media (max-width: 760px) {
+  html body main.lf3 .lf3-s0 .lf3-content-rail > div:first-child,
+  html body main.lw-v4 .lw-v4-s0 .lw-v4-content-rail > div:first-child,
+  html body main.lowads-v4 .lowads-v4-s0 .lowads-v4-content-rail > div:first-child,
+  html body main.lscl-v4 .lscl-s0 .lscl-content-rail > div:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+  }
+  html body main.lf3 .lf3-s0 .lf3-content-rail > div:first-child > p,
+  html body main.lw-v4 .lw-v4-s0 .lw-v4-content-rail > div:first-child > p,
+  html body main.lowads-v4 .lowads-v4-s0 .lowads-v4-content-rail > div:first-child > p,
+  html body main.lscl-v4 .lscl-s0 .lscl-content-rail > div:first-child > p {
+    margin: 26px 0 0 !important;
+    max-width: 100% !important;
+    line-height: 1.65 !important;
+  }
+  /* One remaining code-card issue: child lines should scroll inside the
+     preview instead of widening/overlapping the gradient panel. */
+  html body main .ls-mobile-hero > :nth-child(n+5) > div {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(n+5) [style*="white-space:nowrap"] {
+    max-width: 100% !important;
+  }
+  /* Avoid overly large inter-element whitespace on app hero where it has
+     its own structure rather than the shared legacy illustration. */
+  html body main.la-ref .la-hero-head {
+    min-width: 0 !important;
+  }
+  html body main.la-ref .la-hero-head p {
+    margin-top: 24px !important;
+    max-width: 100% !important;
+  }
+}
