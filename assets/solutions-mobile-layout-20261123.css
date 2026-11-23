@@ -1,0 +1,141 @@
+/* Mobile layout corrections for lowsignal Solutions, 2026-11-23.
+   All selectors are scoped to solution pages and <= 760px; desktop is unchanged. */
+@media (max-width: 760px) {
+  main.lf3, main.lw-v4, main.lowads-v4, main.lscl-v4, main.ls-v4-original, main.la-ref {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  main.lf3 section, main.lw-v4 section, main.lowads-v4 section,
+  main.lscl-v4 section, main.ls-v4-original section, main.la-ref section {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  /* The five legacy hero illustrations contain absolutely positioned desktop
+     cards (410px + 260px). Stack their existing pieces instead of overlapping. */
+  html body main .ls-mobile-hero {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    isolation: isolate !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 32px !important;
+    padding: 22px 16px 24px !important;
+    gap: 16px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  html body main .ls-mobile-hero > :first-child {
+    position: absolute !important;
+    inset: -130px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(2) {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    inset: auto !important;
+    margin: 0 !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(2) > div:first-child {
+    font-size: clamp(16px, 4.6vw, 19px) !important;
+    line-height: 1.4 !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(2) > div:last-child {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(3) {
+    position: relative !important;
+    z-index: 1 !important;
+    inset: auto !important;
+    align-self: flex-start !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    font-size: 12px !important;
+    padding: 10px 16px !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(4) {
+    display: none !important;
+  }
+  html body main .ls-mobile-hero > :nth-child(n+5) {
+    position: relative !important;
+    z-index: 1 !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding-inline: min(16px, 4vw) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  html body main .ls-mobile-hero > :nth-child(n+5) img,
+  html body main .ls-mobile-hero > :nth-child(n+5) svg {
+    max-width: 100%;
+  }
+  /* Low Flow: do not discard the inner spacing of the gradient pricing banner.
+     A previous mobile override set padding:0!important on this card. */
+  html body main.lf3 .lf3-s7 .lf3-pricing-inner {
+    box-sizing: border-box !important;
+    width: calc(100% - 40px) !important;
+    max-width: calc(100% - 40px) !important;
+    margin: 0 20px !important;
+    padding: 28px 22px !important;
+    gap: 20px !important;
+    min-width: 0 !important;
+  }
+  html body main.lf3 .lf3-s7 .lf3-pricing-inner > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html body main.lf3 .lf3-s7 .lf3-pricing-inner a {
+    white-space: normal !important;
+    text-align: center !important;
+  }
+  /* Keep the Flow testimonial and integration grids within the viewport. */
+  html body main.lf3 .lf3-s5 .ls-v4-testimonials,
+  html body main.lf3 .lf3-s6 .lf3-apps-shell {
+    box-sizing: border-box !important;
+    max-width: calc(100% - 40px) !important;
+    width: calc(100% - 40px) !important;
+    margin-inline: 20px !important;
+    padding-inline: 0 !important;
+  }
+  html body main.lf3 .lf3-s5 .ls-v4-testimonial-slide,
+  html body main.lf3 .lf3-s6 .lf3-apps-grid {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html body main.lf3 .lf3-s5 .ls-v4-testimonial-person > div,
+  html body main.lf3 .lf3-s5 .ls-v4-testimonial-copy {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+  /* Keep all CTAs from exceeding narrow screens. */
+  html body main.lf3 a, html body main.lw-v4 a,
+  html body main.lowads-v4 a, html body main.lscl-v4 a,
+  html body main.ls-v4-original a, html body main.la-ref a {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 390px) {
+  html body main .ls-mobile-hero { padding: 18px 12px 20px !important; }
+  html body main .ls-mobile-hero > :nth-child(n+5) { padding-inline: 10px !important; }
+  html body main.lf3 .lf3-s7 .lf3-pricing-inner { padding: 24px 18px !important; }
+}
