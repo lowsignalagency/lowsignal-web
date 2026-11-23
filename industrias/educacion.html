@@ -6162,7 +6162,17 @@ function interpolate(markup,context){
 }
 function render(){
  clicks.clear();serial=0;
- root.innerHTML=interpolate(template,logic.renderVals());
+ // Keep the original hero DOM (including its loaded image) mounted.
+ // Replacing root.innerHTML caused the hero to flash and resize on first render.
+ const next=document.createElement('template');
+ next.innerHTML=interpolate(template,logic.renderVals());
+ const current=[...root.children];
+ const updated=[...next.content.children];
+ updated.forEach((node,index)=>{
+   if(node.classList.contains('edu-m-1'))return;
+   if(current[index])current[index].replaceWith(node);
+   else root.appendChild(node);
+ });
 }
 root.addEventListener('click',e=>{
  const el=e.target.closest('[data-edu-click]');
