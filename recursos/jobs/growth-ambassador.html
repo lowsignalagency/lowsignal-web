@@ -13807,76 +13807,7 @@ backdrop.addEventListener('click',closeProfile); close.addEventListener('click',
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProfile()});
   </script>
 
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const triggers = [...document.querySelectorAll('.menu-trigger')];
-      const panels = [...document.querySelectorAll('.mega-menu')];
-
-      const closeAll = () => {
-        triggers.forEach(t => {
-          t.classList.remove('is-active');
-          t.setAttribute('aria-expanded','false');
-        });
-        panels.forEach(p => p.classList.remove('is-open'));
-      };
-
-      const openMenu = (name) => {
-        closeAll();
-        const trigger = document.querySelector(`.menu-trigger[data-menu="${name}"]`);
-        const panel = document.querySelector(`.mega-menu[data-menu-panel="${name}"]`);
-        if (!trigger || !panel) return;
-        trigger.classList.add('is-active');
-        trigger.setAttribute('aria-expanded','true');
-        panel.classList.add('is-open');
-      };
-
-      triggers.forEach(trigger => {
-        const name = trigger.dataset.menu;
-
-        trigger.addEventListener('mouseenter', () => {
-          if (window.innerWidth > 760) openMenu(name);
-        });
-
-        trigger.addEventListener('click', e => {
-          if (window.innerWidth <= 760) return;
-          e.preventDefault();
-          const wasOpen = trigger.classList.contains('is-active');
-          closeAll();
-          if (!wasOpen) openMenu(name);
-        });
-      });
-
-      let closeTimer;
-
-      nav.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimer);
-      });
-
-      nav.addEventListener('mouseleave', () => {
-        if (window.innerWidth <= 760) return;
-        clearTimeout(closeTimer);
-        closeTimer = setTimeout(closeAll, 140);
-      });
-
-      document.querySelectorAll('.mega-menu').forEach(panel => {
-        panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
-        panel.addEventListener('mouseleave', () => {
-          if (window.innerWidth <= 760) return;
-          clearTimeout(closeTimer);
-          closeTimer = setTimeout(closeAll, 140);
-        });
-      });
-
-      document.addEventListener('click', e => {
-        if (!nav.contains(e.target)) closeAll();
-      });
-
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeAll();
-      });
-    })();
-  </script>
+  
 
 
   <script>
