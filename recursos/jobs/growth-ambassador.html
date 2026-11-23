@@ -14061,11 +14061,13 @@ document.addEventListener('DOMContentLoaded', () => {
 (()=>{
  const nav=document.getElementById('siteNav');
  const groups=[...document.querySelectorAll('.site-nav .menu-group')];
- const close=()=>groups.forEach(g=>{g.classList.remove('open');g.querySelector('.menu-trigger')?.setAttribute('aria-expanded','false')});
+ let dropdownCloseTimer;
+ const cancelDropdownClose=()=>clearTimeout(dropdownCloseTimer);
+ const close=()=>{cancelDropdownClose();groups.forEach(g=>{g.classList.remove('open');g.querySelector('.menu-trigger')?.setAttribute('aria-expanded','false')})};
  groups.forEach(g=>{const b=g.querySelector('.menu-trigger');if(!b)return;
   b.addEventListener('click',e=>{e.stopPropagation();const was=g.classList.contains('open');close();if(!was){g.classList.add('open');b.setAttribute('aria-expanded','true')}});
-  g.addEventListener('mouseenter',()=>{if(matchMedia('(hover:hover) and (min-width:1367px)').matches){close();g.classList.add('open');b.setAttribute('aria-expanded','true')}});
-  g.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover) and (min-width:1367px)').matches){g.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+  g.addEventListener('mouseenter',()=>{cancelDropdownClose();if(matchMedia('(hover:hover) and (min-width:1367px)').matches){close();g.classList.add('open');b.setAttribute('aria-expanded','true')}});
+  g.addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover) and (min-width:1367px)').matches){cancelDropdownClose();dropdownCloseTimer=setTimeout(()=>{if(!g.matches(':hover') && !g.contains(document.activeElement)){g.classList.remove('open');b.setAttribute('aria-expanded','false')}},320)}});
  });
  document.addEventListener('click',e=>{if(!e.target.closest('.site-nav .menu-group'))close()});
  const toggle=document.querySelector('body>.nav-wrap .mobile-nav-toggle'),panel=document.querySelector('body>.mobile-nav-panel');
