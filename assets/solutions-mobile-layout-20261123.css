@@ -196,3 +196,111 @@
     line-height: 1.65 !important;
   }
 }
+
+/* Low Social: dedicated responsive layout for its content montage.
+   Its original artwork is composed of absolutely positioned fixed-width
+   desktop pieces and a full-size blur. Do not carry these placements to mobile. */
+@media (max-width: 760px) {
+  html body main.ls-v4-original .ref-v4-0 > div:nth-child(3) > div:first-child {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 0 !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 > div:nth-child(3) > div:first-child > p {
+    margin: 26px 0 0 !important;
+    max-width: 100% !important;
+    line-height: 1.65 !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 26px 20px 24px !important;
+    margin-top: 28px !important;
+    background: radial-gradient(ellipse at 92% 12%,#171a88 0%,transparent 56%),linear-gradient(125deg,#243b7c 0%,#091127 56%,#070d20 100%) !important;
+    overflow: hidden !important;
+  }
+  /* The oversized negative-inset blur caused a horizontal color band. */
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :first-child { display:none !important; }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(2) {
+    order: 1 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(2) > div:first-child {
+    font-size: clamp(20px,5.7vw,26px) !important;
+    line-height: 1.3 !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(2) > div:last-child {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 10px !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(4) {display:none !important;}
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(5),
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(6) {
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(5) {order:2 !important;}
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(6) {order:3 !important;}
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > :nth-child(5) img {
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+  html body main.ls-v4-original .ref-v4-0 .ls-mobile-hero > .ls-v4-case-link {
+    order:4 !important;
+    position:relative !important;
+    inset:auto !important;
+    align-self:flex-start !important;
+    z-index:2 !important;
+    margin:0 !important;
+    padding:12px 20px !important;
+    font-size:14px !important;
+  }
+  /* The dark mobile header had a black logo and hamburger, which disappeared. */
+  html body:has(main.ls-v4-original) > .nav-wrap,
+  html body:has(main.ls-v4-original) > .nav-wrap > .nav {
+    background:#fafafa !important;
+    background-color:#fafafa !important;
+    background-image:none !important;
+  }
+  html body:has(main.ls-v4-original) > .nav-wrap .brand img {
+    filter:brightness(0) !important;
+    opacity:1 !important;
+  }
+  html body:has(main.ls-v4-original) > .nav-wrap .mobile-nav-toggle span {
+    background:#101010 !important;
+    border-color:#101010 !important;
+  }
+  html body:has(main.ls-v4-original) > .nav-wrap .mobile-nav-cta {
+    background:#1419e0 !important;
+    color:#fff !important;
+  }
+}
